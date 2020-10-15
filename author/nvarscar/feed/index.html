@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>Kirill Kravtsov &#8211; dbatools</title>
+	<atom:link href="https://dbatools.io/author/nvarscar/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Fri, 13 Sep 2019 08:51:06 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+
+<image>
+	<url>https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&#038;ssl=1</url>
+	<title>Kirill Kravtsov &#8211; dbatools</title>
+	<link>https://dbatools.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
+		<title>using dacpac functions to clone sql server databases</title>
+		<link>https://dbatools.io/clone/</link>
+				<comments>https://dbatools.io/clone/#comments</comments>
+				<pubDate>Wed, 29 Aug 2018 13:00:45 +0000</pubDate>
+		<dc:creator><![CDATA[Kirill Kravtsov]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=8182</guid>
+				<description><![CDATA[Hey all! Kirill Kravtsov, here. I&#8217;m a SQL Server DBA that is passionate about automation and PowerShell. I&#8217;m also a major contributor to dbatools and creator of the dbops module, ...]]></description>
+								<content:encoded><![CDATA[<p>Hey all! Kirill Kravtsov, here. I&#8217;m a SQL Server DBA that is passionate about automation and PowerShell. I&#8217;m also a major contributor to dbatools and creator of the <a href="https://github.com/sqlcollaborative/dbops">dbops</a> module, which provides continuous database deployments at any scale.</p>
+<p>This week, I wrote an article <a href="https://nvarscar.wordpress.com/2018/08/24/using-dacpac-packages-to-clone-sql-server-databases/">on my blog</a> and Chrissy asked me to mirror it on dbatools, so here we go.</p>
+<h2>Introduction</h2>
+<p>Many SQL Server DBAs know that there is a very convenient way of delivering a full copy of the database structure to a different SQL Server: it&#8217;s called dacpac, or a Data-tier Application package. You can extract the database any time using SQL Server Management Studio context menu: <strong>Tasks</strong> -&gt; <strong>Extract Data-tier Application</strong>, which would guide you through the extraction options and output a compressed package file that would contain all necessary schema definitions, as well as table data. This package can be further on deployed on a completely different server using a <strong>Deploy</strong> <strong>Data-tier Application</strong> context menu item.</p>
+<p>What people do not widely know, however, is how much fine-tuning a simple deployment might require, and how difficult it is sometimes to force the deployment operation to behave in a certain way. Good thing is, now we have a convenient way of automating this process using dacpac-related functions from the dbatools module:</p>
+<ul>
+<li><a href="https://dbatools.io/functions/Export-DbaDacPackage/" target="_blank" rel="noopener">Export-DbaDacPackage</a></li>
+<li><a href="https://dbatools.io/functions/Publish-DbaDacPackage/" target="_blank" rel="noopener">Publish-DbaDacPackage</a></li>
+<li><a href="https://dbatools.io/functions/New-DbaDacProfile/" target="_blank" rel="noopener">New-DbaDacProfile</a></li>
+</ul>
+<p>This article would explain how to:</p>
+<ul>
+<li>Extract dacpac from a database</li>
+<li>Choose whether you want to include data or not</li>
+<li>Deploy the dacpac package on <strong>any</strong> version of SQL Server higher than 2008 SP2</li>
+<li>Exclude object types from the deployment process</li>
+<li>Generate deployment scripts</li>
+<li>Create a Jenkins job that will take care of this whole process for you</li>
+</ul>
+<h2>Extracting dacpac package</h2>
+<p>Let&#8217;s use this simple script to extract dacpac from an existing database:</p>
+<pre class="lang:ps decode:true " >Param (
+    $Server,
+    $Database,
+    $Path,
+    [switch]$IncludeData
+)
+# Prepare extraction properties string
+$exportProperties = "/p:IgnorePermissions=True /p:IgnoreUserLoginMappings=True" # Ignore permissions definition
+if ($IncludeData) {
+    $exportProperties += " /p:ExtractAllTableData=True" #Extract data
+}
+Export-DbaDacPackage -SqlInstance $Server -Database $Database -Path C:\temp -ExtendedProperties $exportProperties
+</pre>
+<p>Export properties here are defined to control the extract process:</p>
+<ul>
+<li>Ignore database permissions, as there is rarely a need to add permissions into the mix</li>
+<li>Define an option to include data into the package</li>
+</ul>
+<p><a href="https://dbatools.io/functions/Export-DbaDacPackage/" target="_blank" rel="noopener">Export-DbaDacPackage</a> function will take care of the extraction process and will return all details about the extraction, including the .<strong>Path</strong> property that would direct us to the extracted file:</p>
+<figure id="attachment_8183" aria-describedby="caption-attachment-8183" style="width: 653px" class="wp-caption alignnone"><img class="wp-image-8183 size-full" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-01-10.jpg?resize=653%2C49&#038;ssl=1" alt="" width="653" height="49" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-01-10.jpg?w=653&amp;ssl=1 653w, https://i0.wp.com/dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-01-10.jpg?resize=300%2C23&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-01-10.jpg?resize=640%2C49&amp;ssl=1 640w" sizes="(max-width: 653px) 100vw, 653px" data-recalc-dims="1" /><figcaption id="caption-attachment-8183" class="wp-caption-text">output from Export-DbaDacPackage</figcaption></figure>
+<p>You can check all other available properties (which are basically command line parameters) in a corresponding article: <a href="https://msdn.microsoft.com/en-us/library/hh550080.aspx" target="_blank" rel="noopener">https://msdn.microsoft.com/en-us/library/hh550080.aspx</a></p>
+<h2>Deploying dacpac package</h2>
+<p>There is one important note about dacpac deployment: it requires a so called Publish Profile for the deployment. Publish profile is an xml file that contains deployment parameters that you want to enable during the deployment. You can create such profile by using one of the following options:</p>
+<ul>
+<li>Run <a href="https://dbatools.io/functions/New-DbaDacProfile/" target="_blank" rel="noopener">New-DbaDacProfile</a>, specifying the connection parameters. The resulting file will enable you to run the deployment, but it is highly recommended that you modify it according to your needs</li>
+<li>From Visual Studio SSDT project, select <b>Build </b>-&gt; <strong>Publish</strong>. It would open a dialog, that allows you to load, save and modify the Publish profile. Make sure to take a look at the <strong>Advanced</strong> <strong>Publish</strong> <strong>Settings</strong> dialog, as it provides access to dozens of configuration items that you might want to review</li>
+<li>Manually, using documentation from <strong>Publish parameters</strong> section of the same <a href="https://msdn.microsoft.com/en-us/library/hh550080.aspx" target="_blank" rel="noopener">article</a></li>
+</ul>
+<p>The parameters that we&#8217;re going to use during deployment are as follows:</p>
+<ul>
+<li><strong>AllowIncompatiblePlatform</strong> &#8211; would enable me to deploy to an earlier version of SQL Server.</li>
+<li><strong>CreateNewDatabase</strong> &#8211; will re-create the database every time</li>
+<li>
+<div>
+<div><strong>ExcludeObjectTypes</strong> &#8211; semicolon-separated list of objects that will be excluded from the deployment.</div>
+</div>
+</li>
+<li><strong>ExcludeLogins</strong> and <strong>ExcludeUsers</strong> &#8211; somehow, these two ended up being independent parameters, not included in the previously mentioned <strong>ExcludeObjectTypes</strong>. Excludes logins and/or users from the deployment.</li>
+<li>
+<div>
+<div><strong>IgnorePermissions</strong> &#8211; ignores object permissions during the deployment.</div>
+</div>
+</li>
+<li>
+<div>
+<div><strong>DropObjectsNotInSource</strong> &#8211; boolean value, which is True by default, that controls whether existing objects in the database are going to be <strong>dropped</strong> if they are not present in the package. This is a very important parameter if you are planning to deploy dacpac to a non-empty database.</div>
+</div>
+</li>
+<li>
+<div>
+<div><strong>IgnoreRoleMembership</strong> &#8211; ignores role membership</div>
+</div>
+<div></div>
+</li>
+</ul>
+<p>This is an example of the Publish profile file that we&#8217;re going to use in this exercise:</p>
+<pre class="lang:xhtml decode:true " >&lt;?xml version="1.0" ?&gt;
+&lt;Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"&gt;
+  &lt;PropertyGroup&gt;
+    &lt;TargetConnectionString&gt;&lt;/TargetConnectionString&gt;
+    &lt;ProfileVersionNumber&gt;1&lt;/ProfileVersionNumber&gt;
+    &lt;AllowIncompatiblePlatform&gt;True&lt;/AllowIncompatiblePlatform&gt;
+    &lt;CreateNewDatabase&gt;False&lt;/CreateNewDatabase&gt;
+    &lt;ExcludeObjectTypes&gt;Permissions;RoleMembership&lt;/ExcludeObjectTypes&gt;
+    &lt;ExcludeLogins&gt;True&lt;/ExcludeLogins&gt;
+    &lt;IgnorePermissions&gt;True&lt;/IgnorePermissions&gt;
+    &lt;DropObjectsNotInSource&gt;False&lt;/DropObjectsNotInSource&gt;
+    &lt;IgnoreUserSettingsObjects&gt;True&lt;/IgnoreUserSettingsObjects&gt;
+    &lt;IgnoreLoginSids&gt;True&lt;/IgnoreLoginSids&gt;
+    &lt;IgnoreRoleMembership&gt;True&lt;/IgnoreRoleMembership&gt;
+  &lt;/PropertyGroup&gt;
+&lt;/Project&gt;</pre>
+<p>Once we have a Publish profile ready we can start the deployment by using <a href="https://dbatools.io/functions/Publish-DbaDacPackage/" target="_blank" rel="noopener">Publish-DbaDacPackage</a> function, specifying:</p>
+<ul>
+<li><strong>SqlInstance</strong> &#8211; target server</li>
+<li><strong>Database</strong> &#8211; target database</li>
+<li><strong>Path</strong> &#8211; path to the dacpac package</li>
+<li><strong>PublishXml</strong> &#8211; path to the publish profile</li>
+</ul>
+<figure id="attachment_8184" aria-describedby="caption-attachment-8184" style="width: 800px" class="wp-caption alignnone"><img class="wp-image-8184 size-large" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-44-08.jpg?resize=800%2C379&#038;ssl=1" alt="Publish-DbaDacPackage in action" width="800" height="379" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-44-08.jpg?resize=1024%2C485&amp;ssl=1 1024w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-44-08.jpg?resize=300%2C142&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-44-08.jpg?resize=768%2C364&amp;ssl=1 768w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-44-08.jpg?w=1298&amp;ssl=1 1298w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /><figcaption id="caption-attachment-8184" class="wp-caption-text">Publish-DbaDacPackage in action</figcaption></figure>
+<p>Other parameters of <a href="https://dbatools.io/functions/Publish-DbaDacPackage/" target="_blank" rel="noopener">Publish-DbaDacPackage</a> that you might find useful:</p>
+<ul>
+<li><strong>GenerateDeploymentScript</strong> &#8211; will generate a deployment script prior to deployment</li>
+<li><strong>ScriptOnly</strong> &#8211; will not perform the deployment, generating a deployment script instead</li>
+</ul>
+<h2>Full script</h2>
+<p>This script below would extract the dacpac from an existing database and deploy it to a different server using the publish.xml file we created above. Feel free to modify it to your own liking!</p>
+<pre class="lang:ps decode:true " >[Cmdletbinding()]
+Param (
+    $SourceServer,
+    $TargetServer = $SourceServer,
+    $SourceDatabaseName,
+    $TargetDatabaseName,
+    $Path,
+    $PublishXml = '.\publish.xml',
+    [switch]$IncludeData
+)
+
+#Stop on any error by default
+$ErrorActionPreference = 'Stop'
+
+# Construct export parameters
+$exportProperties = "/p:IgnorePermissions=True /p:IgnoreUserLoginMappings=True"
+if ($IncludeData) {
+    $exportProperties += " /p:ExtractAllTableData=True"
+}
+
+#Export database to path
+Write-Verbose "Starting the export from $SourceServer.$SourceDatabaseName to $Path"
+$exportFile = Export-DbaDacPackage -SqlInstance $SourceServer -Database $SourceDatabaseName -Path $Path -ExtendedProperties $exportProperties -EnableException
+Write-Verbose "Export completed`: $exportFile"
+
+#publish dacpac with defined publish xml file
+Write-Verbose "Starting the publication from $($exportFile.Path) to $TargetServer.$TargetDatabaseName"
+$xml = (Get-Item $PublishXml).FullName
+Publish-DbaDacPackage -SqlInstance $TargetServer -Database $TargetDatabaseName -PublishXml $xml -Path $exportFile.Path -EnableException
+
+#remove dacpac file
+if (Test-Path $exportFile.Path) {
+    Write-Verbose "Removing dacpac file $($exportFile.Path)"
+    Remove-Item $exportFile.Path
+}
+</pre>
+<h2>Creating a Jenkins job</h2>
+<p>In order to create an interface and a scheduler at the same time, I would definitely recommend to make this scenario available on your Jenkins instance, similar to how it is described in a SQL Server Jenkins Lab series: <a href="https://nvarscar.wordpress.com/2018/08/08/jenkins-labs-part-2/" target="_blank" rel="noopener">Refresh database &amp; keep permissions – SQL Server Jenkins labs (Part 2)</a>.</p>
+<figure id="attachment_8185" aria-describedby="caption-attachment-8185" style="width: 668px" class="wp-caption alignnone"><img class="wp-image-8185 size-full" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-55-30.jpg?resize=668%2C502&#038;ssl=1" alt="" width="668" height="502" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-55-30.jpg?w=668&amp;ssl=1 668w, https://i0.wp.com/dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-55-30.jpg?resize=300%2C225&amp;ssl=1 300w" sizes="(max-width: 668px) 100vw, 668px" data-recalc-dims="1" /><figcaption id="caption-attachment-8185" class="wp-caption-text">sample Jenkins job</figcaption></figure>
+<h2>Conclusion</h2>
+<p>Dacpac packages are a convenient way of copying a full database when other methods are unavailable for whatever reason. It has some learning curve associated with it, but it can be a great help when used in an automated manner.</p>
+<p>It is also a perfect workaround for database copying, when a source server has a higher SQL Server version than the target server: this will work even between 2017 and 2008, if all the objects are compatible with the target database version.</p>
+<p>It also work pretty well as an alternative for a snapshot replication, being much less restrictive in its approach.</p>
+<p>&#45; Kirill<br />
+Twitter: <a href="https://twitter.com/nvarscar">@nvarscar</a><br />
+Blog: <a href="https://nvarscar.wordpress.com/">nvarscar.wordpress.com</a></p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/clone/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">8182</post-id>	</item>
+	</channel>
+</rss>

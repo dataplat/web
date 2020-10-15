@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>Stuart Moore &#8211; dbatools</title>
+	<atom:link href="https://dbatools.io/author/stuart/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Fri, 13 Sep 2019 08:28:47 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+
+<image>
+	<url>https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&#038;ssl=1</url>
+	<title>Stuart Moore &#8211; dbatools</title>
+	<link>https://dbatools.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
+		<title>Getting complex with Restore-DbaDatabase</title>
+		<link>https://dbatools.io/complex-restores/</link>
+				<comments>https://dbatools.io/complex-restores/#comments</comments>
+				<pubDate>Tue, 28 Nov 2017 17:35:29 +0000</pubDate>
+		<dc:creator><![CDATA[Stuart Moore]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[party]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=6618</guid>
+				<description><![CDATA[As part of the `Restore-DbaDatabase` stack rewrite, I wanted to do make things easier for users to be able to get their hands dirty within the Restore stack. Not necessarily needing to dive into the core code and the world of GitHub Pull Requests, but by manipulating the data flowing through the pipeline using standard PowerShell techniques, all the while being able to do the heavy lifting without code.]]></description>
+								<content:encoded><![CDATA[<p>No matter how hard the <a href='https://dbatools.io/'>dbatools</a>; team tries, there&#8217;s always someone who wants to do things we&#8217;d never thought. This is one of the great things with getting feedback direct from a great community. Unfortunately a lot of these ideas are either too niche to implement, or would be a lot of complex code for a single use case.</p>
+<p>As part of the <code>Restore-DbaDatabase</code> stack rewrite, I wanted to do make things easier for users to be able to get their hands dirty within the Restore stack. Not necessarily needing to dive into the core code and the world of GitHub Pull Requests, but by manipulating the data flowing through the pipeline using standard PowerShell techniques, all the while being able to do the heavy lifting without code.</p>
+<p>So, below the fold we&#8217;ll be looking at some examples of how you can start going to town with your restores.</p>
+<h2>Improving header scan performance</h2>
+<p>One of the most common requests has been ways of speeding up reading the headers from the backup files. Unfortunately we have to do this so we can be sure of what they contain, and there aren&#8217;t any shortcuts (<a href="https://stuart-moore.com/reading-sql-server-backup-file-headers-directly-using-powershell/">I&#8217;ve looked into it in some depth before</a>).</p>
+<p>So we can now offer a couple more options to do this:</p>
+<h3>Spread the load over time.</h3>
+<p>Using <code>Get-DbaBackupInformation</code> it&#8217;s now possible to scan the headers ahead of time, and just add to them in small batches going forward. So you could scan every 3 hours, and if you needed more recent file, you&#8217;d only have to scan the files written since the last scan:</p>
+<style>.gist table { margin-bottom: 0; }</style><div class="gist-oembed" data-gist="34fec9d449dd914ca455a2a4ea4980c4.json" data-ts="8"></div>
+<h3>Run parallel jobs on a single server</h3>
+<p>Another option is to run multiple scans at the same time. For this example I&#8217;m using the <a href='https://github.com/proxb/PoshRSJob'>PoshRsJob</a> module as it&#8217;s one I use a bit, but any other runspace/jobs options would work just as well.</p>
+<p>In the first example we scan multiple directories on the same SQL Server Instance. We pass an array of folders into <code>Start-RsJob</code> and scan each folder in parallel as a seperate job.</p>
+<style>.gist table { margin-bottom: 0; }</style><div class="gist-oembed" data-gist="54b7e967097b6467047fa6790ab4c95f.json" data-ts="8"></div>
+<h3>Run parallel jobs on multiple servers</h3>
+<p>Perhaps you want to spread the load even more? The run the scans across multiple SQL Instances. This example uses a simple allocation routine that just &#8216;cross joins&#8217; the options:</p>
+<style>.gist table { margin-bottom: 0; }</style><div class="gist-oembed" data-gist="c9a31104759d66b7427311a6b6ae7a3b.json" data-ts="8"></div>
+<h2>Custom Log and Data Folders for each database</h2>
+<p>Perhaps you want to restore a number of databases, and you want seperate Data and Log folders for each database, eg:</p>
+<p><strong>db1 &#8211; c:\folder\data\db1 and c:\folder\log\db1<br />
+ db2 &#8211; c:\folder\data\db2 and c:\folder\log\db2</strong></p>
+<p>By dipping into the restore pipleine we can loop through the databases contained within the backup information and apply custom formatting to each database:</p>
+<style>.gist table { margin-bottom: 0; }</style><div class="gist-oembed" data-gist="9a6bec3aa2710d719d58f2224491911a.json" data-ts="8"></div>
+<h2>Creating multiple environments</h2>
+<p>Perhaps you need to refresh multiple environments at the same time. Using Get-DbaBackupInformation to create a BackupHistory you can use the same scanned files multiple times, saving scanning them repeatedly:</p>
+<style>.gist table { margin-bottom: 0; }</style><div class="gist-oembed" data-gist="39ac060bd7904c900eac9575d03f0008.json" data-ts="8"></div>
+<h2>Creating different points in time for comparison</h2>
+<p>Perhaps you&#8217;re trying to find out when an issue occured. This example restores the same database to multiple points in time so you can compare the state between them.</p>
+<style>.gist table { margin-bottom: 0; }</style><div class="gist-oembed" data-gist="00cbc4c3cf31583cae99c36f0494bf94.json" data-ts="8"></div>
+<h2>Rolling forward looking for data</h2>
+<p>Building on the one above, perhaps you&#8217;d rather something else did the checking for you? With this script we gradually roll forward a database a minute at a time. We use a SQL query (quite a simple one here) to indicate when the process should stop.</p>
+<style>.gist table { margin-bottom: 0; }</style><div class="gist-oembed" data-gist="c5575e488ff3d95e60403b39b70ca7da.json" data-ts="8"></div>
+<h2>Complex Rebasing of backups</h2>
+<p>When people use <code>Get-DbaDbBackupHistory</code> to get the pre-created Backup History directly from SQL Server, it&#8217;s a very common request for a way of changing the path of where the backup files were to where they are now. One thing that catches a lot of people out is that the Backup History object stores the Backup file paths as an array. This allows us to easily cope with striped backupsets where the backup consists of multiple files. The simplest way is a nested ForEach loop:</p>
+<style>.gist table { margin-bottom: 0; }</style><div class="gist-oembed" data-gist="5bef59595e931507e2f4ce64a1fa1307.json" data-ts="8"></div>
+<p>With this method you can manipulate the strings to your heart&#8217;s content using any standard PowerShell technique.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/complex-restores/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">6618</post-id>	</item>
+		<item>
+		<title>new release &#8211; snowball &#8211; all about the restore</title>
+		<link>https://dbatools.io/snowball/</link>
+				<comments>https://dbatools.io/snowball/#comments</comments>
+				<pubDate>Thu, 23 Feb 2017 15:55:52 +0000</pubDate>
+		<dc:creator><![CDATA[Stuart Moore]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[backuprestore]]></category>
+		<category><![CDATA[disasterrecovery]]></category>
+		<category><![CDATA[dr]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=3050</guid>
+				<description><![CDATA[We're proud to announce that dbatools is making it as simple as we can to perform restores. Use Ola Hallengren's backups? We've got you covered. Regular backups? No problem. Restoring from a directory? Easy.]]></description>
+								<content:encoded><![CDATA[<p>Just to confuse people, it&#8217;s not Chrissy or Drew this time. My name&#8217;s Stuart, and I&#8217;ve got a new dbatools release to tell you about; snowball.</p>
+<h2>This release is all about restores</h2>
+<p>DBAs spend a lot of time making sure backups work. Or at least they should, and if they aren&#8217;t then putting their spare time to fixing up their CV is probably a good plan.</p>
+<p>So we&#8217;ve got terabytes of SQL backups stashed away on disk. Brilliant, we&#8217;re bombproof then aren&#8217;t we? Well, are you sure those backups can be restored?</p>
+<p>Part of a good backup strategy is proactively testing your backups by restoring. There are many benefits to doing this:</p>
+<ul>
+<li><strong>Practice</strong> &#8211; You don&#8217;t want to be restoring a complex production database for the first time when the excrement is hitting the fan. Your restore procedures should be as simple as possible, and you should be able to do them correctly without thinking.</li>
+<li><strong>Performance</strong> &#8211; Just how long does it take to restore your production system? You can bet your boss would like to know</li>
+<li><strong>Trust</strong> &#8211; You need to know you can trust your backups. Just because they&#8217;ve been written to disk doesn&#8217;t mean everything&#8217;s OK. Corruption still happens unfortunately. Did you spot it before it became a problem?</li>
+<li><strong>Confidence</strong> &#8211; You need to know you&#8217;ve got all the backups you think you do. Sure someone&#8217;s not removing transaction log backups before you&#8217;re finished with them? A prod outage isn&#8217;t the time to find out you need something from tape and the guy with the safe keys is tucked up in bed.</li>
+</ul>
+<h5>Then</h5>
+<p>T-SQL didn&#8217;t make automating restores easy! Each databases restore had to be hand crafted to make sure that you could cope with files in different locations, differing backup locations, and all the other individual quirks we know and love. And if you&#8217;d lost your production msdb then it was a world of pain trying to piece together restore files.</p>
+<p>Just imagine the pain if you&#8217;re running a weekly full, night differential and 15 minute log backups. Trying to work out what you need is a real pain.</p>
+<h5>Not so long ago</h5>
+<p>PowerShell started making that a lot easier. By combining it&#8217;s power in scanning the filesystem and talking to Sql Server it became easier to work out which files you needed and then queue them up for restore. But it still too quite a bit of patience to get it all working smoothly</p>
+<h5>Now</h5>
+<p>We&#8217;re proud to announce that dbatools is making it as simple as we can to do restores.</p>
+<h2>New Command &#8211; Restore-DbaDatabase</h2>
+<p>Restore-DbaDatabase ties together a lot of new features and is probably going to be your main interface with the new restore functions.</p>
+<h3>Laying the groundwork</h3>
+<p>For these examples we&#8217;ll be using the following backup files:</p>
+<p><img src="https://dbatools.io/wp-content/uploads/2017/02/RestoreWork-1.png?w=800&#038;ssl=1" alt="restorework" data-recalc-dims="1" /></p>
+<p>This is a mix of Full, Differential and Log Backups.</p>
+<h3>Getting Started</h3>
+<p>At it&#8217;s simplest we can do the following:</p>
+<pre class="lang:ps decode:true " >Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backups</pre>
+<p>This will <strong>scan</strong> all of the files in the folder C:\dbatools\backups and restore them onto the SQL Server instance localhost\sqlexpress2016, up to the most recent record in the backups.</p>
+<p><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2017/02/RestoreWork-2-1.png?w=800&#038;ssl=1" alt="restorework" data-recalc-dims="1" /></p>
+<h5>When we say scan, we mean it will do the following:</h5>
+<ul>
+<li>All the files in that folder will be checked to see if they are SQL Server backups</li>
+<li>The header information from each file will be read</li>
+<li>The files will then be filtered down to a set that meets your requirements. In this example we will restore your database to the latest point in time contained in those backups. This means we will find:</li>
+<li>The most recent full backup in those files.</li>
+<li>Any differential backups taken since that full backup</li>
+<li>All Transaction backups taken since the last differential backup</li>
+<li>Then we check that we have an unbroken chain of LSNs to ensure we can restore your database</li>
+<li>Then we check that the versions of your backup and target SQL instance are compatible</li>
+<li>Once we&#8217;re good to go we perform the restore, safe in the knowlege that it&#8217;ll work</li>
+<li>Then we&#8217;ll restore it for you</li>
+</ul>
+<p>With our example backups, it will have restored RestoreDemo_Full5.bak, RestoreDemo_Diff7 and RestoreDemo_Log8.trn</p>
+<p>As you can see, we also return a rich object with details about the restore. For the rest of the examples I&#8217;ll be hiding the output by storing it a variable, just to make the screenshots more readable.</p>
+<h3>Specifying the destination directories</h3>
+<p><strong>By default, Restore-DbaDatabase will restore to the default data and log directories</strong>, but maybe you want to move the data files around when you restore the database due to smaller drives:</p>
+<pre class="lang:ps decode:true " >Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backups -DestinationDataDirectory c:\dbatools\RestoreLocation\</pre>
+<p><img src="https://dbatools.io/wp-content/uploads/2017/02/RestoreWork-3-1.png?w=800&#038;ssl=1" alt="restorework3" data-recalc-dims="1" /></p>
+<p>This time, all database files (Log, Full Text, Data, etc) will be restored into the folder c:\dbatools\RestoreLocation folder</p>
+<p>Or perhaps you want to seperate logs and data files out, got you covered:</p>
+<pre class="lang:ps decode:true " >Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backups -DestinationDataDirectory c:\dbatools\RestoreLocation -DestinationLogDirectory c:\dbatools\RestoreLogsLocation</pre>
+<p>All your data files end up in c:\dbatools\RestoreLocation and all your log files go into c:\dbatools\RestoreLogsLocation. Nice and easy</p>
+<p><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/RestoreWork-4-1.png?w=800&#038;ssl=1" alt="restorework4" data-recalc-dims="1" /></p>
+<p>And if you want your restores to return to their original destinations, they use the ReuseSourceFolderStructure switch:</p>
+<pre class="lang:ps decode:true " >Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backups -ReuseSourceFolderStructure</pre>
+<p>If you really want to go to town with moving files around during the restore, the we offer teh FileMapping parameter. To use this, you have to pass in a HashTable with a key/value pair for every file in the database you&#8217;re restoring. The key is the logical name of your data file, and the value is the full path of where you want the file to be placed. For example:</p>
+<pre class="lang:ps decode:true " >$FileStructure = @{
+    'DataFile1'='c:\datafiles\datafile1.mdf'
+    'DataFile2'='d:\datafiles\datafile2.mdf'
+    'db_log'='e:\logfiles\db_log.ldf'
+}
+Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backups\FullBackup.bak -FileMapping $FileStructure</pre>
+<h3>Renaming during restore</h3>
+<p>You can also rename the database during restore using the DatabaseName parameter:</p>
+<pre class="lang:ps decode:true " >Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backups -DestinationDataDirectory c:\dbatools\DestinationDirectory -DestinationLogDirectory c:\dbatools\RestoreLogsLocation -DatabaseName RestoredDatabase</pre>
+<p>And there&#8217;s nothing to stop you combining a file move, and a Database rename:</p>
+<pre class="lang:ps decode:true " >$FileStructure = @{
+    'DataFile1'='c:\datafiles\datafile1.mdf'
+    'DataFile2'='d:\datafiles\datafile2.mdf'
+    'db_log'='e:\logfiles\db_log.ldf'
+}
+Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backups\FullBackup.bak -FileMapping $FileStructure -DatabaseName RestoredDatabase</pre>
+<h3>Restoring to specific point in time</h3>
+<p>What if you don&#8217;t want to restore to the latest point in time? Then you can use the RestoreTime parameter to say when you want to restore to. In our example I want to restore to just before the full backup RestoreDemo_Full5.bak</p>
+<pre class="lang:ps decode:true " >$RestoreTime = Get-Date("01/01/2017 11:10")
+Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backups -RestoreTime $RestoreTime</pre>
+<p>Now our file scan will work out which files it needs to use to perform this restore. By using the -Verbose switch we can see which ones it&#8217;s picked:</p>
+<p><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2017/02/RestoreWork-5-1.png?w=800&#038;ssl=1" alt="restorework4" data-recalc-dims="1" /></p>
+<p>We can see it&#8217;s restored RestoreDemo_Full1.bak, then RestoreDemo_Diff4, and finally used RestoreDemo_log6.trn to roll everything forward to the correct time.</p>
+<h3>Replaying the workload to remote lab</h3>
+<p>Next up, perhaps your developers want to investigate some problems they&#8217;ve been seeing on production. They&#8217;d love to have a copy of production on a test server, but from 2 hours ago so they can replay the workload. How about this:</p>
+<pre class="lang:ps decode:true " >Restore-DbaDatabase -SqlServer TestDbServer -Path \\Server1\backups\ProdDb -DestinationDataDirectory D:\data -RestoreTime (Get-Date).AddHours(-2)</pre>
+<p>What happens if the devs ask you to rereset the database? That&#8217;s where the -WithReplace switch comes into play</p>
+<pre class="lang:ps decode:true " >Restore-DbaDatabase -SqlServer TestDbServer -Path \\Server1\backups\ProdDb -DestinationDataDirectory D:\data -RestoreTime (Get-Date).AddHours(-2) -WithReplace</pre>
+<p>Which will overwrite the existing database for you. Be careful with this switch, it will do exactly what you tell it to! And we&#8217;ll remove all the users from the database, so that safety net isn&#8217;t there</p>
+<h3>Scripting out to file</h3>
+<p>While helping your colleagues you&#8217;ll have noticed that there is a little bit of time taken to process all the backups. You hear through the grapevine that this rollback is going to have to be done a couple of times while they work out what&#8217;s wrong. So how about we generate the T-SQL scripts ahead of time, then you can just rerun those every time. Hey, you could even give them to the Devs to run!</p>
+<pre class="lang:ps decode:true " >Restore-DbaDatabase -SqlServer TestDbServer -Path \\Server1\backups\ProdDb -DestinationDataDirectory D:\data -RestoreTime (Get-Date).AddHours(-2) -WithReplace -OutputScriptOnly</pre>
+<p>This will generate all the T-Sql statements required to perform the requested action, but it won&#8217;t restore the database. By using the -WithReplace switch, the function will return the T-SQL statements with the correct REPLACE sections, it will also script out the file moves for you. For example, using our example backups:</p>
+<pre class="lang:ps decode:true " >$RestoreTime = Get-Date("09/02/2017 11:10")
+Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backups -RestoreTime $RestoreTime -DestinationDataDirectory C:\dbatools\DestinationDirectory\ -WithReplace -OutputScriptOnly</pre>
+<p>produces the following T-SQL scripts:</p>
+<pre class="theme:vs2012 lang:tsql decode:true " >RESTORE DATABASE [RestoreDemo] FROM DISK = N'C:\dbatools\backups\RestoreDemo_Full1.bak' WITH MOVE N'RestoreDemo' TO N'C:\dbatools\DestinationDirectory\\RestoreDemo.mdf', MOVE N'RestoreDemo_log' TO N'C:\dbatools\DestinationDirectory\\RestoreDemo.ldf', NORECOVERY, NOUNLOAD, REPLACE, STATS = 1, STOPAT = N'02/09/2017 11:10:00'
+RESTORE DATABASE [RestoreDemo] FROM DISK = N'C:\dbatools\backups\RestoreDemo_Diff4.bak' WITH MOVE N'RestoreDemo' TO N'C:\dbatools\DestinationDirectory\\RestoreDemo.mdf', MOVE N'RestoreDemo_log' TO N'C:\dbatools\DestinationDirectory\\RestoreDemo.ldf', NORECOVERY, NOUNLOAD, REPLACE, STATS = 1, STOPAT = N'02/09/2017 11:10:00'
+RESTORE LOG [RestoreDemo] FROM DISK = N'C:\dbatools\backups\RestoreDemo_Log6.trn' WITH MOVE N'RestoreDemo' TO N'C:\dbatools\DestinationDirectory\\RestoreDemo.mdf', MOVE N'RestoreDemo_log' TO N'C:\dbatools\DestinationDirectory\\RestoreDemo.ldf', NOUNLOAD, STATS = 1, STOPAT = N'02/09/2017 11:10:00'</pre>
+<p>Stash them away somewhere safe for when you need them. Or if you want to multi task then</p>
+<pre class="lang:ps decode:true " >$Restore = Restore-DbaDatabase -SqlServer TestDbServer -Path \\Server1\backups\ProdDb -DestinationDataDirectory D:\data -RestoreTime (Get-Date).AddHours(-2) -WithReplace -OutputScript
+$Restore | Select-Object -Property Script</pre>
+<p>Will perform the restore and generate the T-Sql for you. Twice the productivity for only a few characters more.</p>
+<p>All the examples above assume you&#8217;ve a single folder containting all your backups. If you have another way of splitting your backups, then you can pass in multiple folders to the path statement:</p>
+<pre class="lang:ps decode:true " >Restore-DbaDatabase -SqlServer MyRestoreSvr\Instance -Path e:\FullBackups\Database1, f:\LogBackups\Database1</pre>
+<h3>Yes, we do support Ola Hallengren&#8217;s Maintenance Solution!</h3>
+<p>If you&#8217;re running Ola Hallengren&#8217;s maintenance solutions, the we&#8217;ve got that covered as well. Set your path to the top of you backup folder, and we&#8217;ll do the rest.</p>
+<pre class="lang:ps decode:true " >Restore-DbaDatabase -SqlServer MyRestoreSvr\Instance -Path \\Server1\backups\ProdDb -MaintenanceSolutionBackup</pre>
+<p>This method has the benefit of being faster as we know which files are which, so can shortcut the reading of files before doing your restore.</p>
+<h3>Using xp_dirtree</h3>
+<p>Maybe you don&#8217;t have access to the backup files, but your SQL Server instance does. In that case we offer xp_dirtree functionality to process the files.</p>
+<pre class="lang:ps decode:true " >Restore-DbaDatabase -SqlServer MyRestoreSvr\Instance -Path \\Server1\backups\ProdDb -XpDirTree</pre>
+<p>You will need to have sysadmin permissions on the SQL instance to use the underlying xp_dirtree stored procedure</p>
+<h3>Using the PowerShell pipeline</h3>
+<p>And like all good PowerShell function we take input from the pipeline, so if you want to pipe in files we&#8217;ll take them!:</p>
+<pre class="lang:ps decode:true " >Get-ChildItem c:\backups | Where-Object {$_.name -like 'ProdDb1*'} | Restore-DbaDatabase -SqlServer MyRestoreSvr\Instance</pre>
+<p>And <strong>coming next week</strong> we&#8217;ll be able to take pipeline from our own commands! Not sure where a database is backed up? We will be able to use Get-DbaDbBackupHistory to answer that.</p>
+<pre class="lang:ps decode:true " >Get-DbaDbBackupHistory -SqlServer ProdSrv1 -Databases Finance1 | Restore-DbaDatabase -SqlServer TestSrv1</pre>
+<p>This will query ProdSrv1 to get the backup history for the Finance1 database using Get-DbaDbBackupHistory, this will then be piped to the Restore-DbaDatabase function which will use this information to restore the Finance1 database onto TestSrv1. And you will also be able to apply all the normal Restore-DbaDatabase goodness:</p>
+<pre class="lang:ps decode:true " >Get-DbaDbBackupHistory -SqlServer ProdSrv1 -Databases Finance1 | Restore-DbaDatabase -SqlServer TestSrv1 -DestinationDataDirectory d:\DataDump -RestoreTime (Get-date).AddHours(-3)</pre>
+<h3>Restore-DbaDatabase parameters</h3>
+<p>Up till now, all our examples have assumed you&#8217;re only restoring a single database. But Restore-DbaDatabase will handle more that one backup at time.</p>
+<p>Only certain parameters will work with multiple databases, as these are ones that can be applied to ALL databases passed in. Those parameters are:</p>
+<ul>
+<li>DestinationDirectory</li>
+<li>DestinationLogDirectory</li>
+<li>WithReplace</li>
+<li>Server</li>
+<li>Credential</li>
+<li>RestoreTime</li>
+<li>OutputScript</li>
+<li>OutputScriptOnly</li>
+<li>VerfiyOnly</li>
+</ul>
+<p>With our last example, this means we will be able to do:</p>
+<pre class="lang:ps decode:true " >Get-DbaDbBackupHistory -SqlServer ProdSrv1 -Databases Finance1, HR, CRM | Restore-DbaDatabase -SqlServer TestSrv1 -DestinationDataDirectory d:\DataDump -RestoreTime (Get-date).AddHours(-3)</pre>
+<p>And restore all 3 database from ProdSrv1 onto TestSrv1 in one fell swoop! This feature is coming this week or next.</p>
+<h3>And, just one last thing</h3>
+<p>So we&#8217;ve made it super easy to restore databases. But don&#8217;t think we&#8217;ve forgotten that you have to create the backups first. Snowball also marks the first appearance of our new backup command Backup-DbaDatabase.</p>
+<p>You want to perform a full backup every database on an instance:</p>
+<pre class="lang:ps decode:true " >Get-DbaDatabase -SqlInstance Server1 | Backup-DbaDatabase -Type Full -BackupDirectory \\Server2\share\DbBackups</pre>
+<p>and you&#8217;re done!</p>
+<p>This is the first release of this command, so keep checking back as we add more features. So please let us know what you&#8217;d like to see adding in future releases</p>
+<h2>Going forward</h2>
+<p>This is the first release of this functionality, and we&#8217;re looking at extending it&#8217;s capabilities over time. So we&#8217;d love to here from you with your ideas for improvements. I&#8217;d also really like to hear about any unusual or different ways you can think of using this functionality.</p>
+<p>And please, if you come across something that doesn&#8217;t work, or doesn&#8217;t make sense. Please come and talk to us. We hang out over on Slack at <a href="/slack">sqlcommunity.slack.com</a> or you can report issues over at our Github repo at <a href="https://github.com/sqlcollaborative/dbatools">github.com/sqlcollaborative/dbatools</a></p>
+<p>&#45; Stuart</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/snowball/feed/</wfw:commentRss>
+		<slash:comments>10</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">3050</post-id>	</item>
+	</channel>
+</rss>

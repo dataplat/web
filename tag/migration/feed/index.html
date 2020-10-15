@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>migration &#8211; dbatools</title>
+	<atom:link href="https://dbatools.io/tag/migration/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Fri, 13 Sep 2019 08:53:20 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+
+<image>
+	<url>https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&#038;ssl=1</url>
+	<title>migration &#8211; dbatools</title>
+	<link>https://dbatools.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
+		<title>sql server migration enhancements</title>
+		<link>https://dbatools.io/migration-enhancements/</link>
+				<comments>https://dbatools.io/migration-enhancements/#comments</comments>
+				<pubDate>Mon, 24 Sep 2018 14:30:44 +0000</pubDate>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[migration]]></category>
+		<category><![CDATA[party]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=8387</guid>
+				<description><![CDATA[A while back, I added some new features to our migration commands but I forgot to blog about them. Then, I used one of the new features for a fast ...]]></description>
+								<content:encoded><![CDATA[<p>A while back, I added some new features to our migration commands but I forgot to blog about them. Then, I used one of the new features for a fast and successful migration, got so pumped and had to share.</p>
+<h2>Multiple destinations</h2>
+<p>Now, you can migrate from one server to many. This applies to both <code>Start-DbaMigration</code> and all of the <code>Copy-Dba*</code> commands, including <a href="/Copy-DbaDatabase">Copy-DbaDatabase</a> and <a href="/Copy-DbaLogin">Copy-DbaLogin</a>.</p>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/09/migration.gif?ssl=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/09/migration.gif?fit=300%2C300&#038;ssl=1" alt="" class="aligncenter size-medium wp-image-8392" data-recalc-dims="1" /></a></p>
+<p>As you may be able to see in the title bar of this <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/out-gridview?view=powershell-5.1">Out-GridView</a>, I am migrating from <strong>workstation</strong>, which is a SQL Server 2008 instance, to <strong>localhost\sql2016</strong> and <strong>localhost\sql2017</strong>. My entire command is as follows:</p>
+<pre class="lang:ps decode:true " >Start-DbaMigration -Source workstation -Destination localhost\sql2016, localhost\sql2017 -BackupRestore -UseLastBackup | Out-GridView</pre>
+<p>If you examine the results, you&#8217;ll see it migrated sp_configure, then moved on to credentials &#8211; first for <strong>localhost\sql2016</strong> then <strong>localhost\sql2017</strong>. And continued on from there, migrating <a href="/cms">central management server</a>, database mail, server triggers and databases.</p>
+<p>It migrates a bunch of other things too, of course. Haven&#8217;t seen or performed a migration before? Check out this <a href="https://www.youtube.com/watch?v=hg8tovMRX2k">50-second video</a> of a migration.</p>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/hg8tovMRX2k" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
+<h2>-UseLastBackup</h2>
+<p>This one is awesome. Now, you can use your existing backups to perform a migration! Such a huge time saver. Imagine the following scenario:</p>
+<blockquote><p>
+  Dear DBA,<br />
+  Your mission, should you choose to accept it, is to migrate the SQL Server instance for a small SharePoint farm.<br />
+  You&#8217;ll work with the SharePoint team and will have four hours to accomplish your portion of the migration.<br />
+  All combined, the databases are about 250 GB in size. Good luck, colleague!
+</p></blockquote>
+<p>A four hour outage window seems reasonable to me! Here is one way I could accomplish this task:</p>
+<ul>
+<li>Update the SQL Client Alias for the SharePoint Servers</li>
+<li>Shut down the SharePoint servers</li>
+<li>Execute my scheduled log backup job one final time</li>
+<li>Perform the migration using -UseLastBackup switch</li>
+<li>Boot up the SharePoint Servers</li>
+<li>Check that the sites work</li>
+<li>Party <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f388.png" alt="🎈" class="wp-smiley" style="height: 1em; max-height: 1em;" /></li>
+</ul>
+<p>I&#8217;ve actually done this a number of times, and even <a href="https://www.youtube.com/watch?v=4XKw4xqpkFY">made a video about it</a> a couple years ago.</p>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/4XKw4xqpkFY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
+<p>The outdated output is drastically different from today&#8217;s output but the overall approach still applies. Note that back then, <code>-UseLastBackup</code> did not yet exist so in the video, it performs a backup and restore, not just a restore. I should make a new video.. one day!</p>
+<p>So basically, this is the code I&#8217;d execute to migrate from spcluster to newcluster:</p>
+<pre class="lang:ps decode:true " ># first, modify the alias then shut down the SharePoint servers
+$spservers = "spweb1", "spweb2", "spapp1", "spapp2"
+Remove-DbaClientAlias -ComputerName $spservers -Alias spsql1
+New-DbaClientAlias -ComputerName $spservers -ServerName newcluster -Alias spsql1
+Stop-Computer -ComputerName $spservers
+
+# Once each of the servers were shut down, I'd begin my SQL Server migration.
+Start-DbaMigration -Source spcluster -Destination newcluster -BackupRestore -UseLastBackup | Out-GridView
+
+# Mission accomplished <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f575-fe0f-200d-2640-fe0f.png" alt="🕵️‍♀️" class="wp-smiley" style="height: 1em; max-height: 1em;" /><img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f575-fe0f-200d-2642-fe0f.png" alt="🕵️‍♂️" class="wp-smiley" style="height: 1em; max-height: 1em;" /></pre>
+<p>This would migrate all of my SQL Logins, with their passwords &amp; SIDs, etc, jobs, linked servers, all that, then it&#8217;d build my last full, diff and log backups chain, and perform the restore to newcluster! Down. To. My. Last. Log. So awesome <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f601.png" alt="😁" class="wp-smiley" style="height: 1em; max-height: 1em;" /><img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f44d.png" alt="👍" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p>Thanks so much for that functionality <a href="https://stuart-moore.com/">Stuart</a>, Oleg and Simone!</p>
+<h2>What about VLDBs?</h2>
+<p>For very large database migrations, we currently offer <a href="/logshipping">log shipping</a>. <a href="https://sqlstad.nl">Sander Stad</a> made some cool enhancements to <code>Invoke-DbaDbLogShipping</code> and <code>Invoke-DbaDbLogShipRecovery</code> recently, too.</p>
+<pre class="lang:ps decode:true " >
+# Also supports multiple destinations!
+# Oh, and has a ton of params, so use a PowerShell splat
+ $params = @{
+    Source = 'sql2008'
+    Destination = 'sql2016', 'sql2017'
+    Database = 'shipped'
+    BackupNetworkPath= '\\backups\sql'
+    PrimaryMonitorServer = 'sql2012'
+    SecondaryMonitorServer = 'sql2012'
+    BackupScheduleFrequencyType = 'Daily'
+    BackupScheduleFrequencyInterval = 1
+    CompressBackup = $true
+    CopyScheduleFrequencyType = 'Daily'
+    CopyScheduleFrequencyInterval = 1
+    GenerateFullBackup = $true
+    Force = $true
+}
+
+# pass the splat
+Invoke-DbaDbLogShipping @params
+
+# And now, failover to secondary
+Invoke-DbaDbLogShipRecovery -SqlInstance localhost\sql2017 -Database shipped</pre>
+<p>Other migration options such as Classic Mirroring and Availability Groups are still on the agenda.</p>
+<p>Happy migrating!</p>
+<p>&#45; Chrissy</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/migration-enhancements/feed/</wfw:commentRss>
+		<slash:comments>11</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">8387</post-id>	</item>
+		<item>
+		<title>real-world tde database migrations</title>
+		<link>https://dbatools.io/real-world-tde-database-migrations/</link>
+				<comments>https://dbatools.io/real-world-tde-database-migrations/#comments</comments>
+				<pubDate>Wed, 07 Feb 2018 14:45:06 +0000</pubDate>
+		<dc:creator><![CDATA[Viorel Ciucu]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[migration]]></category>
+		<category><![CDATA[migration-party]]></category>
+		<category><![CDATA[party]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=7060</guid>
+				<description><![CDATA[In today&#8217;s post, I will tell you about how we managed to successfully complete a migration during a ~12 hour maintenance window. This could have taken a LOT longer if ...]]></description>
+								<content:encoded><![CDATA[<p>In today&#8217;s post, I will tell you about how we managed to successfully complete a migration during a ~12 hour maintenance window. This could have taken a LOT longer if didn&#8217;t have <a href="https://dbatools.io/">dbatools</a> to automate several of the steps.</p>
+<p>Although I will not go in to every detail about our process, I want to emphasize the areas were we chose to use dbatools to make our lives easier.</p>
+<h2>the goal</h2>
+<p>Recently, we got the green light for upgrading to SQL Server 2016 and we were ready to roll. Our task was to migrate multiple servers, each having several TDE encrypted databases on them. All the databases were mirrored on SQL Servers hosted in a different datacenter.</p>
+<p>When protecting data using TDE, special care must be taken when it comes to migrations. We had two primary options for migrating TDE protected databases.</p>
+<h4>first option</h4>
+<p>One option would be decrypt the databases on the old servers prior to the migration. This can take a while depending on the database size as the process would touch every single data page on disk. Same would be true once we encrypted the databases on the new servers.</p>
+<p>If you ever decide to take this route during your migration, make sure you follow the correct and complete process to disable TDE. Otherwise you can lock your data if you don’t have the certificates and keys backed up somewhere else, ready to be restored in case of emergency. And perhaps most importantly, make sure you test this process!</p>
+<h4>second option</h4>
+<p>The second option (and the one we chose) was to leave the encryption enabled. In order to be able to attach the files, or to do restores from the backups <strong>you need to have the same certificate that was used for encryption</strong>. This certificate is protected by the master key.</p>
+<p>To accomplish this:</p>
+<ol>
+<li>Make backups of the master key and the certificates </li>
+<li>Restore the key and certificates on the new principal and mirror pairs</li>
+</ol>
+<blockquote><p>
+  Be aware that each database can have its own certificate! You must be sure which database is protected by which certificate. Failing to have this sorted out will leave you with some files you cannot attach or restore anywhere. Basically, you&#8217;d lose the data <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f622.png" alt="😢" class="wp-smiley" style="height: 1em; max-height: 1em;" />
+</p></blockquote>
+<p>Need help figuring all of this out? Check out Microsoft&#8217;s article <a href=https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server>Move a TDE Protected Database to Another SQL Server</a>. As I mentioned before make sure you test this process ahead of time!</p>
+<h2>preparation</h2>
+<p>In preparation for the migration day, we built all the new servers (primaries and mirrors) ahead of time and configured them based on our requirements.</p>
+<p>A key point is to restore the keys used for encryption to the new servers. From this point on you won’t have to worry too much about TDE.</p>
+<p>Next is where <a href="https://dbatools.io/">dbatools</a> comes into play:</p>
+<pre class="lang:ps decode:true">$serverList = @(
+'server_01',
+'server_02',
+    'server_03'
+)
+
+foreach ($server in $serverList) {
+    Set-DbaSpConfigure -SqlInstance $server -ConfigName CostThresholdForParallelism -Value 50
+    Set-DbaSpConfigure -SqlInstance $server -ConfigName DefaultBackupCompression -Value 1
+    Set-DbaSpConfigure -SqlInstance $server -ConfigName OptimizeAdhocWorkloads -Value 1
+    Set-DbaSpConfigure -SqlInstance $server -ConfigName RemoteDacConnectionsEnabled -Value 1
+    Set-DbaSpConfigure -SqlInstance $server -ConfigName ShowAdvancedOptions -Value 1
+    # Insert all your config options here
+
+    Set-DbaPowerPlan -ComputerName $server
+    Set-DbaDbOwner -SqlInstance $server
+
+    # Suppress all successful backups in SQL server error log
+    Enable-DbaTraceFlag -SqlInstance $server -TraceFlag 3226
+
+    # Set max memory to the recommended MB
+    Set-DbaMaxMemory -SqlInstance $server
+}</pre>
+<p>Doesn&#8217;t matter how many servers you have in your environment, doing it like this saves you a lot of time and you can be sure you have the same configuration for all of them.</p>
+<p>Next, we created our DBA toolkit database where we keep all the handy stuff:</p>
+<pre class="lang:ps decode:true ">foreach ($server in $serverList) {
+    # Create DBA database
+    Invoke-DbaQuery -SqlInstance $SqlInstance -Query $SQL
+
+    # Install sp_WhoIsActive
+    Install-DbaWhoIsActive -SqlInstance $SqlInstance -Database DBA
+}
+</pre>
+<p>Couldn&#8217;t be easier than this!</p>
+<h2>moving forward</h2>
+<p>Next, we created our backup jobs:</p>
+<pre class="lang:ps decode:true ">foreach ($server in $serverList) {
+    # Install Ola Hallengren's solution
+    Install-DbaMaintenanceSolution -SqlInstance $SqlInstance -Database DBA -ReplaceExisting -CleanupTime 72 -LogToTable -Solution "All" -BackupLocation "X:\SQLBackup" -OutputFileDirectory "X:\SQLMaintenanceLogs" -InstallJobs
+}
+</pre>
+<p>For auditing purposes we even saved the old server configuration and compare it to the new ones, all with only a few lines of code:</p>
+<pre class="lang:ps decode:true">$propcompare = foreach ($prop in $oldprops) {
+    [pscustomobject]@{
+        Config              = $prop.DisplayName
+        'SQL Server 2008R2' = $prop.RunningValue
+        'SQL Server 2016'   = ($newprops | Where ConfigName -eq $prop.ConfigName).RunningValue
+    }
+}</pre>
+<p>Save <span class="lang:ps decode:true crayon-inline ">$propcompare</span> to a database using <span class="lang:ps decode:true crayon-inline ">Write-DbaDataTable</span> and you&#8217;re set.</p>
+<p>Transfering the logins from the old server is now easier than ever (no more sp_help_revlogin):</p>
+<pre class="lang:ps decode:true">Copy-DbaLogin -Source oldServer -Destination newServer</pre>
+<p>Beat that if you can! This way we ensured that old logins will work as soon as we start the applications.</p>
+<p>We started to build the mirrors ahead of time (we have some big databases). We got the details for the last full backups on the old servers:</p>
+<pre class="lang:ps decode:true ">$OldServerList | ForEach-Object {
+    Get-DbaDbBackupHistory -SqlInstance $_ -LastFull | Select SqlInstance, Database, Start, End, Duration, Path, TotalSize
+} | Format-Table -AutoSize
+</pre>
+<p>Based on the output of the above we fired up a quick PowerShell script that got everything copied over to a network share. From there, restoring the backups to the new mirrors was simple as:</p>
+<pre class="lang:ps decode:true ">Restore-DbaDatabase -SqlInstance $newSQLServer_01 -Database db_1 -Path _\\SharedPath\Migration\db_1 -NoRecovery -WithReplace -Verbose
+Restore-DbaDatabase -SqlInstance $newSQLServer_02 -Database db_2 -Path _\\SharedPath\Migration\db_2 -NoRecovery -WithReplace -Verbose 
+...
+Restore-DbaDatabase -SqlInstance $newSQLServer_0N -Database db_N -Path _\\SharedPath\Migration\db_N -NoRecovery -WithReplace -Verbose 
+</pre>
+<p>I can do this all day long, especially when piping it directly to the <span class="lang:ps decode:true crayon-inline ">Backup-DbaDatabase</span> <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<h2>finalizing the migration</h2>
+<p>During the maintenance window we just got a last DIFF for each database and restored that to the new mirrors. Some manual growth on some of the databases and the restore of the DIFFs took us the longest time (those contained several days of data for each server).</p>
+<p>To shorten the time for the principals, we used detach/attach of the data and log drives approach which went pretty smooth with no unexpected incidents.</p>
+<p>And, in case you’re wondering, we do have valid backups. We even restore and test those automatically on a separate server using <a href="https://dbatools.io/">dbatools</a> as well. These jobs take around 17 hours per day.</p>
+<p>I must confess, we did a bit of T-SQL to bring the mirroring up and now we&#8217;re back in business, HA included.</p>
+<h2>post migration</h2>
+<p>Now to the post migration stuff.</p>
+<p>Once we&#8217;re running on the new instances, we made sure we enable all the jobs we already created ahead of time:</p>
+<pre class="lang:ps decode:true ">$serverList = @(
+    'server_01',
+    'server_02',
+    'server_03'
+)
+
+foreach ($server in $serverList) {
+    $jobs = Get-DbaAgentJob -SqlInstance $server
+    $jobs | ForEach-Object {Set-DbaAgentJob -SqlInstance $server -Job $_ -Enabled}
+} 
+</pre>
+<p>Alternatively, piping support was added to today&#8217;s release, 0.9.191. With this release and above, you can use the following syntax:</p>
+<p>Once we&#8217;re running on the new instances, we made sure we enable all the jobs we already created ahead of time:</p>
+<pre class="lang:ps decode:true "># much less code <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f44d.png" alt="👍" class="wp-smiley" style="height: 1em; max-height: 1em;" />
+$serverlist | Get-DbaAgentJob | Set-DbaAgentJob -Enabled
+</pre>
+<p>We decided we need some more RAM on a few of the servers and after we added it, we just executed the following to make SQL Server aware of the change.</p>
+<pre class="lang:ps decode:true ">Set-DbaMaxMemory -SqlInstance $server</pre>
+<p>Now, the moment of truth. Application started and what do you know, everything just works!</p>
+<ul>
+<li>No orphaned logins</li>
+<li>No SID mismatches for the logins</li>
+<li>No error messages.</li>
+</ul>
+<p><strong>&lt;insert happy tears here&gt;</strong></p>
+<h2>automation is awesome</h2>
+<p>As you can see, a lot of steps were automated using <a href="https://dbatools.io/">dbatools</a> and this saved us a lot of time overall, making this multi-terabyte database migration across 5 environments very smooth.</p>
+<p>There is still room for a lot more automation, for even more efficiency. I&#8217;m sure we&#8217;ll do better next time.</p>
+<p>Thanks again to all of you contributing to this project and Chrissy, thanks for starting all this. Can’t wait to see what the future will bring for <a href="https://dbatools.io/">dbatools</a> and I hope I’ll be able to contribute more.</p>
+<p>Happy migrations everyone!</p>
+<p>&#45; Viorel <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f1e7-1f1ea.png" alt="🇧🇪" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/real-world-tde-database-migrations/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">7060</post-id>	</item>
+		<item>
+		<title>scheduling a migration</title>
+		<link>https://dbatools.io/scheduling-a-migration/</link>
+				<comments>https://dbatools.io/scheduling-a-migration/#respond</comments>
+				<pubDate>Tue, 20 Sep 2016 15:02:26 +0000</pubDate>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[migration]]></category>
+		<category><![CDATA[party]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=1609</guid>
+				<description><![CDATA[Hey, Chrissy here. Recently, I had great success with scheduling a database migration and wanted to let you know how I did it in case you have a similar requirement. ...]]></description>
+								<content:encoded><![CDATA[<p>Hey, Chrissy here. Recently, I had great success with scheduling a database migration and wanted to let you know how I did it in case you have a similar requirement.</p>
+<p>My requirement comprised of copying two databases that were 30 GB in size, from one server to another, during a time that I wouldn&#8217;t be at the office. Remote work was not possible.</p>
+<h3>The Script</h3>
+<p>Here&#8217;s the scheduled-migration.ps1 script that ultimately worked for me.</p>
+<p><small>Start-Transcript C:\logs\db-migration-9-1-2016.txt<br />
+Import-Module C:\scripts\dbatools\dbatools.psd1<br />
+Copy-DbaDatabase -Source sql01 -Destination sql02 -Databases WSS_Content, WSS_Content2 -BackupRestore -SharedPath &#92;&#92;nas\sql\migration<br />
+Stop-Transcript<br />
+</small></p>
+<h3>What it does</h3>
+<p>First, I did not need to migrate an entire instance, so I did not use <a href="/Start-DbaMigration">Start-DbaMigration</a>. Instead, I used <a href="/Copy-DbaDatabase">Copy-DbaDatabase</a> which doesn&#8217;t transcribe automatically like Start-DbaMigration. Because of this, I explicitly requested a transcript.</p>
+<p>Also note that I already copied over all of the logins, jobs, etc that I needed. If you have any dependencies, make sure those are copied over as well.</p>
+<p>Next, I imported the module to ensure that the Copy-DbaDatabase command would be available to the Scheduled Task. Potentially, I could put this in my path and hope for the best, but I&#8217;d rather be explicit.</p>
+<p>Finally, I stopped the transcript.</p>
+<h3>Testing and -WhatIf</h3>
+<p>Because Copy-DbaDatabase runs so many checks and supports -WhatIf, I then tested by doing the following:</p>
+<ol>
+<li><strong>Added -WhatIf to the Copy-DbaDatabase command</strong>
+<li>Ran scheduled-migration.ps1 from the command line, and it worked
+<li>Setup a scheduled task to run once, that night at 9pm, ensuring that the migration occurred no matter if I was logged in or not.<br />
+<br />
+<a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2016/09/scheduled.png?ssl=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2016/09/scheduled.png?resize=696%2C301&#038;ssl=1" alt="scheduled" width="696" height="301" class="aligncenter size-full wp-image-1616" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2016/09/scheduled.png?w=696&amp;ssl=1 696w, https://i0.wp.com/dbatools.io/wp-content/uploads/2016/09/scheduled.png?resize=300%2C130&amp;ssl=1 300w" sizes="(max-width: 696px) 100vw, 696px" data-recalc-dims="1" /></a></p>
+<li>Then I executed the scheduled task manually, waited until it finished, then checked the transcript
+<li>All the tests passed!
+<li>I then removed the -WhatIf from Copy-DbaDatabase inside scheduled-migration.ps1 and went home for the night <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" />
+<li>The next morning, I excitedly checked my transcript and boom, both databases had migrated as planned!
+</ol>
+<h3>In conclusion..</h3>
+<p>You don&#8217;t need to be at the office to migrate your data. So schedule that migration. Go home to your family, your cats, and/or your video console. Or drink a craft beer and watch some Rick and Morty. You deserve it.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/scheduling-a-migration/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">1609</post-id>	</item>
+		<item>
+		<title>another batch of new commands now available!</title>
+		<link>https://dbatools.io/new-batch-of-commands/</link>
+				<comments>https://dbatools.io/new-batch-of-commands/#comments</comments>
+				<pubDate>Wed, 17 Aug 2016 16:27:13 +0000</pubDate>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[migration]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=1400</guid>
+				<description><![CDATA[dbatools is not only intended to be a great migration tool, but also a toolset to help DBAs follow best practices. Check out all the new commands in this batch, ...]]></description>
+								<content:encoded><![CDATA[<p>dbatools is not only intended to be a great migration tool, but also a toolset to help DBAs follow best practices. Check out all the new commands in this batch, courtesy of <a href="https://twitter.com/mike_fal">Mike Fal</a>, <a href="https://twitter.com/mobileck">Constantine Kokkinos</a> and <a href="https://twitter.com/cl">Chrissy LeMaire</a>.<br />
+</p>
+<h3>Best Practices Commands</h3>
+<p>Ever read a really great article about how to do something properly but then kinda forgot and you have to revisit each time? Well, we&#8217;ve codified some of those practices for you, making them easy to both follow and remember.</p>
+<ul>
+<li><strong><a href="/Test-DbaDbOwner">Test-DbaDbOwner</a> and <a href="/Set-DbaDbOwner">Set-DbaDbOwner</a></strong><br />
+Database ownership is complicated, but many SQL Server experts suggest using one specific account, be it <a href="http://weblogs.sqlteam.com/dang/archive/2008/01/13/Database-Owner-Troubles.aspx">sa</a> or an alternative account that your organization has decided on. These commands, created by <a herf="http://www.mikefal.net">Mike Fal</a>, validate or set ownership on all databases on an instance to a SQL login you specify, or the default of sa.</p>
+</li>
+<li>
+<p><strong><a href="/Test-DbaDiskAlignment">Test-DbaDiskAlignment</a></strong><br />
+This command, created by <a herf="http://constantinekokkinos.com">Constantine Kokkinos</a>, evaluates a servers disk setup to see if it aligns with the Disk Partition Alignment Best Practices <a href="https://technet.microsoft.com/en-us/library/dd758814(v=sql.100).aspx">recommended by Microsoft</a>. Disk Alignment is a very complicated subject, but we did our best to make it easy to evaluate your environment.</p>
+</li>
+<li>
+<p><strong><a href="/Test-DbaDiskAllocation">Test-DbaDiskAllocation</a></strong><br />
+This command helps DBAs check all disks on a computer to see if they are <a href="https://technet.microsoft.com/en-us/library/dd758814(v=sql.100).aspx">formatted to 64k</a>. It also reports if a disk has SQL Server data on it or not.</p>
+</li>
+<li>
+<p><strong><a href="/Test-DbaAgentJobOwner">Test-DbaAgentJobOwner</a> and <a href="/Set-DbaAgentJobOwner">Set-DbaAgentJobOwner</a></strong><br />
+These commands, created by <a herf="http://www.mikefal.net">Mike Fal</a>, will check and set all SQL Agent Job on an instance against a SQL login to validate if that login owns those SQL Agent Jobs or not. By default, <a href="http://sqlmag.com/blog/sql-server-tip-assign-ownership-jobs-sysadmin-account">the function will check against &#8216;sa&#8217; for ownership</a>, but the user can pass a specific login if they use something else. For the Test command, only jobs that fail the test will be returned.</p>
+</li>
+<li>
+<p><strong><a href="/Test-DbaPowerPlan">Test-DbaPowerPlan</a> and <a href="/Set-DbaPowerPlan">Set-DbaPowerPlan</a></strong><br />
+These commands Test and Set the SQL Server OS&#8217;s Power Plan. It defaults to <a href="https://support.microsoft.com/en-us/kb/2207548">High Performance</a> which is <a href="http://www.sqlskills.com/blogs/glenn/windows-power-plan-effects-on-newer-intel-processors/">Best Practice</a>.</p>
+</li>
+<li>
+<p><strong><a href="/Measure-DbaDbVirtualLogFile">Measure-DbaDbVirtualLogFile</a></strong><br />
+This command returns database virtual log file information for database files on a SQL instance. As you may already know, having a TLog file with too many VLFs <a href="http://blogs.msdn.com/b/saponsqlserver/archive/2012/02/22/too-many-virtual-log-files-vlfs-can-cause-slow-database-recovery.aspx">can hurt database performance</a>. This command helps you easily see the VLF counts for all your databases, or just specific ones.</p>
+</li>
+</ul>
+<p>&nbsp;</p>
+<h3>Commands that make your life easier</h3>
+<ul>
+<li><strong><a href="/Get-DbaClusterActiveNode">Get-DbaClusterActiveNode</a></strong><br />
+Returns the active node(s) of a SQL Cluster</p>
+</li>
+<li>
+<p><strong><a href="/Get-DbaDbSpace">Get-DbaDbSpace</a></strong><br />
+These commands, created by <a herf="http://www.mikefal.net">Mike Fal</a>, get information about space available inside the database.</p>
+</li>
+<li>
+<p><strong><a href="/Install-SqlSpWhoIsActive">Install-SqlSpWhoIsActive</a> and <a href="/Update-SqlSpWhoIsActive">Update-SqlSpWhoIsActive</a></strong><br />
+Install and update <a href="http://sqlblog.com/blogs/adam_machanic/archive/2012/03/22/released-who-is-active-v11-11.aspx">Adam Machanic&#8217;s sp_whoisactive</a> with ease using these commands. The latest version of sp_whoisactive is automatically downloaded from Adam&#8217;s site and installed. Update-SqlSpWhoIsActive is actually an alias for Install-SqlSpWhoIsActive since Adam&#8217;s install routine handles updates.</p>
+</li>
+</ul>
+<p>&nbsp;</p>
+<h3>Commands that are coming soon</h3>
+<p>And we&#8217;ve got more planned!</p>
+<ul>
+<li>Copy-SqlMaintenancePlan<br />
+Maintenance plan support isn&#8217;t provided by dbatools at this time, but that&#8217;s soon going to change once this command is complete.</p>
+</li>
+<li>
+<p>Disable-DbaLogonTrigger<br />
+Like <a href=/Reset-DbaAdmin>Reset-DbaAdmin</a>, this is a command that won&#8217;t be used often, but when it is, its a lifesaver.</p>
+</li>
+<li>
+<p>Find-DbaSqlInstance<br />
+This one&#8217;s gonna be fun. Scan your subnet, AD or specific servers for SQL Server instances.</p>
+</li>
+<li>
+<p>Move-DbaDatabaseFile<br />
+We wanted to ensure this command is as fail-proof and useful as possible. It&#8217;s been tough getting progress bars to work, but we&#8217;re getting there! This command should be available in our next batch.</p>
+</li>
+<li>
+<p>Restore-DbaBackupFromDirectory<br />
+Routine to restore databases from directories (think the way that Ola Hallengren&#8217;s outputs his by default)</p>
+</li>
+<li>
+<p>Remove-DbaBackupFromDisk<br />
+Routine to remove SQL backups from disk. If you copy your backups to tape or use a third-party solution, this command will ensure that no backups are deleted until they&#8217;ve been marked as archived.</p>
+</li>
+<li>
+<p>Test-DbaBackup<br />
+Routine to test your backups</p>
+</li>
+<li>
+<p>Write-SqlSpWhoIsActive<br />
+Write the results of Show-SqlSpWhoIsActive to table!</p>
+</li>
+</ul>
+<h3>Join us!</h3>
+<p>Some of these commands are in their infancy. Want to help make them better? Come join the coding party! We&#8217;re all hanging out on the <a href="https://dbatools.io/slack">SQL Server Community Slack</a> in the #dbatools channel.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/new-batch-of-commands/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">1400</post-id>	</item>
+		<item>
+		<title>new best practices commands now available</title>
+		<link>https://dbatools.io/new-best-practices-commands-now-available/</link>
+				<comments>https://dbatools.io/new-best-practices-commands-now-available/#respond</comments>
+				<pubDate>Wed, 20 Jul 2016 14:00:13 +0000</pubDate>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[migration]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=1064</guid>
+				<description><![CDATA[So many SQL Server and PowerShell pros have joined the dbatools team and we&#8217;re producing well designed PowerShell commands like mad! dbatools is not only intended to be a great ...]]></description>
+								<content:encoded><![CDATA[<p>So many SQL Server and PowerShell pros have joined the dbatools team and we&#8217;re producing well designed PowerShell commands like mad!</p>
+<p>dbatools is not only intended to be a great migration tool, but also a toolset to help DBAs follow best practices. We like to think of these commands as <strong>fully automated Wizards</strong> that are executed from the command line instead of the GUI.</p>
+<h3>Best Practices Commands</h3>
+<p>Ever read a really great article about how to do something properly but then kinda forgot and you have to revisit each time? Well, we&#8217;ve codified some those practices for you, making them easy to both follow and remember.</p>
+<ul>
+<li><strong><a href="/Expand-DbaDbLogFile">Expand-DbaDbLogFile</a></strong><br />
+This command, created by <a herf="https://twitter.com/ClaudioESSilva">Cláudio Silva</a> helps DBAs automate Virtual Log File (VLF) management. Claudio covers this command in depth in a <a href="https://blog.netnerds.net/2016/07/guest-blogger-claudio-silva-why-Expand-DbaDbLogFile/">guest post on my blog</a>.</p>
+</li>
+<li>
+<p><strong><a href="/Find-DbaDbDuplicateIndex">Find-DbaDbDuplicateIndex</a></strong><br />
+This command, also created by <a herf="">Cláudio Silva</a> helps DBAs find duplicate indexes which may be slowing your queries down and taking up unnecessary disk space.</p>
+</li>
+<li>
+<p><strong><a href="/Remove-DbaDatabaseSafely">Remove-DbaDatabaseSafely</a></strong><br />
+This command, created by <a herf="https://sqldbawithabeard.com/">Rob Sewell</a>, safely removes a SQL Database and creates an Agent Job to restore it. By default it:</p>
+</li>
+</ul>
+<div style="width:600px; margin:0 auto;">
+<ol style="text-align: left;">
+<li>Performs a DBCC CHECKDB
+<li>Backs up the database WITH CHECKSUM
+<li>Restores with VERIFY ONLY on the source
+<li>Creates and Agent job to easily restore from that backup
+<li>Drops the database
+<li>The Agent Job restores the database
+<li>Performs a DBCC CHECKDB and drops the database for a final time</ol>
+</div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Simply amazing! You can read more about <a href="http://sqldbawithabeard.com/2016/07/20/Remove-DbaDatabaseSafely-my-first-contribution-to-dbatools/">Remove-DbaDatabaseSafely</a> on Rob&#8217;s blog.</p>
+<ul>
+<li><strong><a href="/Set-DbaTempdbConfig">Set-DbaTempdbConfig</a></strong><br />
+These commands, created by <a herf="http://www.mikefal.net">Mike Fal</a>, sets tempdb data and log files according to best practice calcluations. Mike writes more about this function <a href="http://www.mikefal.net">on his blog</a>.</p>
+</li>
+<li>
+<p><strong><a href="/Find-DbaDbUnusedIndex">Find-DbaDbUnusedIndex</a></strong><br />
+This command, created by <a herf="http://sqlvariant.com">Aaron Nelson</a>, will help you to find unused indexes on a database or a list of databases. It also tells how much space you can save by dropping the index. For now only supported for CLUSTERED and NONCLUSTERED indexes.</p>
+</li>
+</ul>
+<h3>Commands that make your life easier</h3>
+<ul>
+<li>
+<p><strong><a href="/Invoke-DbaWhoIsActive">Invoke-DbaWhoIsActive</a></strong><br />
+We wrote a PowerShell command to output results of <a href="http://sqlblog.com/blogs/adam_machanic/">Adam Machanic&#8217;s</a> beloved <a href=http://sqlblog.com/blogs/adam_machanic/archive/tags/who+is+active/default.aspx>sp_WhoIsActive</a> to a GridView (default) or DataTable. If sp_WhoIsActive is not installed in the system, it will be downloaded and installed to a database you specify with either -Database or a database you select from Show-DbaDbList.</p>
+<p>This is v0.1 of Invoke-DbaWhoIsActive. We&#8217;ll be working on formatting options and auto-population soon.</p>
+</li>
+<li>
+<p><strong><a href="/Repair-DbaDbOrphanUser">Repair-DbaDbOrphanUser</a></strong><br />
+This command, created by <a herf="">Cláudio Silva</a>, helps DBAs find and repairs orphaned users in one, multiple or all databases.</p>
+</li>
+<li>
+<p><strong><a href="/Remove-DbaDbOrphanUser">Remove-DbaDbOrphanUser</a></strong><br />
+Another homerun written by <a herf="">Cláudio Silva</a>, which removes orphaned database users with no matching logins.</p>
+</li>
+<li>
+<p><strong><a href="/Get-DbaDiskSpace">Get-DbaDiskSpace</a></strong><br />
+Displays Disk information for all local drives on one or more servers. Returns server name, name of disk, label of disk, total size, free size and percent free. Considering a new column in the future that designates if any SQL data/log files are stored on the returned disks. What do you think?</p>
+</li>
+<li>
+<p><strong><a href="/Get-DbaRegServer">Get-DbaRegServer</a></strong><br />
+Gets list of SQL Server names stored in SQL Server Central Management Server. Filtering by one or more server groups supported.</p>
+</li>
+<li>
+<p><strong><a href="/Show-SqlServerFileSystem">Show-SqlServerFileSystem</a></strong><br />
+Similar to the remote file system popup you see when browsing a remote SQL Server in SQL Server Management Studio, this command allows you to traverse the remote SQL Server&#8217;s file structure.</p>
+<p>Show-SqlServerFileSystem uses SQL Management Objects to browse the directories and what you see is limited to the permissions of the account running the command. This will complement the upcoming Move-SqlDatabaseFile command.</p>
+</li>
+</ul>
+<p><a href="https://dbatools.io/wp-content/uploads/2016/07/wpf-1.png?ssl=1"><img src="https://dbatools.io/wp-content/uploads/2016/07/wpf-1.png?resize=208%2C300&#038;ssl=1" alt="wpf" width="208" height="300" class="aligncenter size-medium wp-image-1103" srcset="https://dbatools.io/wp-content/uploads/2016/07/wpf-1.png?resize=208%2C300&amp;ssl=1 208w, https://dbatools.io/wp-content/uploads/2016/07/wpf-1.png?w=426&amp;ssl=1 426w" sizes="(max-width: 208px) 100vw, 208px" data-recalc-dims="1" /></a></p>
+<ul>
+<li><strong><a href="/Show-DbaDbList">Show-DbaDbList</a></strong><br />
+Shows a list of databases in a GUI. Returns a simple string. Hitting cancel returns null.</li>
+</ul>
+<p><a href="https://dbatools.io/wp-content/uploads/2016/07/dblist.png?ssl=1"><img src="https://dbatools.io/wp-content/uploads/2016/07/dblist.png?resize=300%2C295&#038;ssl=1" alt="dblist" width="300" height="295" class="aligncenter size-medium wp-image-1105" srcset="https://dbatools.io/wp-content/uploads/2016/07/dblist.png?resize=300%2C295&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2016/07/dblist.png?w=604&amp;ssl=1 604w" sizes="(max-width: 300px) 100vw, 300px" data-recalc-dims="1" /></a></p>
+<h3>Test Commands</h3>
+<ul>
+<li><strong><a href="/Test-DbaTempdbConfig">Test-DbaTempdbConfig</a></strong><br />
+Test your TempDb Configuration</p>
+</li>
+<li>
+<p><strong><a href="/Test-DbaNetworkLatency">Test-DbaNetworkLatency</a></strong><br />
+This function is intended to help measure SQL Server network latency by establishing a connection and making a simple query. This is a better alternative than ping because it actually creates the connection to the SQL Server, and times not only the entire routine, but also how long the actual queries take vs how long it takes to get the results.</p>
+</li>
+<li>
+<p><strong><a href="/Test-DbaPath">Test-DbaPath</a></strong><br />
+Use this command to determine whether the SQL Server service account can &#8220;see&#8221; a directory. This command uses master.dbo.xp_fileexist under the hood and returns $true or $false.</p>
+</li>
+<li>
+<p><strong><a href="/Test-DbaMigrationConstraint">Test-DbaMigrationConstraint</a></strong><br />
+Shows if you can migrate the database(s) between the servers. When you want to migrate from a higher edition to a lower one there are some features that can&#8217;t be used. This function will validate if you have any of this features in use and will report to you. The validation will be made ONLY on on SQL Server 2008 or higher using the &#8216;sys.dm_db_persisted_sku_features&#8217; DMV.</p>
+</li>
+</ul>
+<h3>Join us!</h3>
+<p>Some of these commands are in their infancy. Want to help make them better? Come join the coding party! We&#8217;re all hanging out on the <a href="https://dbatools.io/slack">SQL Server Community Slack</a> in the #dbatools channel.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/new-best-practices-commands-now-available/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">1064</post-id>	</item>
+	</channel>
+</rss>

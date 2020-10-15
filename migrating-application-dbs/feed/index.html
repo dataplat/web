@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	
+	>
+<channel>
+	<title>
+	Comments on: migrating application databases with dbatools	</title>
+	<atom:link href="https://dbatools.io/migrating-application-dbs/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/migrating-application-dbs/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Tue, 22 Oct 2019 21:10:40 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+			<item>
+				<title>
+				By: Rocky				</title>
+				<link>https://dbatools.io/migrating-application-dbs/#comment-75922</link>
+		<dc:creator><![CDATA[Rocky]]></dc:creator>
+		<pubDate>Tue, 22 Oct 2019 21:10:40 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7289#comment-75922</guid>
+					<description><![CDATA[Is there a way for the command to use the credential that I give it instead of the service account for the backup/restore?
+
+Unfortunately, our systems are so segregated they don&#039;t share directories, nor do they share a service account.  Since I am trying to copy databases in the same environment I have access with my DBA credentials, but they don&#039;t seem to be used anywhere I need them to be used (aka the file system to access the .bak).
+
+I was surprised it was using the service account not the one I provided for -DestinationSqlCredential/-SourceSqlCredential
+
+Here is the warning:
+WARNING: [15:48:47][Test-DbaBackupInformation] Backup File \\SERVERA\backup$\A_DB_201910221548-2-of-3.bak cannot
+be read by SERVERB. Does the service account (TSTDOMAIN\SERVERBSVCACCT) have permission?]]></description>
+		<content:encoded><![CDATA[<p>Is there a way for the command to use the credential that I give it instead of the service account for the backup/restore?</p>
+<p>Unfortunately, our systems are so segregated they don&#8217;t share directories, nor do they share a service account.  Since I am trying to copy databases in the same environment I have access with my DBA credentials, but they don&#8217;t seem to be used anywhere I need them to be used (aka the file system to access the .bak).</p>
+<p>I was surprised it was using the service account not the one I provided for -DestinationSqlCredential/-SourceSqlCredential</p>
+<p>Here is the warning:<br />
+WARNING: [15:48:47][Test-DbaBackupInformation] Backup File \\SERVERA\backup$\A_DB_201910221548-2-of-3.bak cannot<br />
+be read by SERVERB. Does the service account (TSTDOMAIN\SERVERBSVCACCT) have permission?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: jeff_yao				</title>
+				<link>https://dbatools.io/migrating-application-dbs/#comment-72203</link>
+		<dc:creator><![CDATA[jeff_yao]]></dc:creator>
+		<pubDate>Mon, 19 Aug 2019 22:21:36 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7289#comment-72203</guid>
+					<description><![CDATA[This is a very good function, but one question, if my destination db needs to be a different folder (from the source db folder), is this doable?
+An example is:
+source db: X_DB, two files d:\data\x.mdf and e:\log\x.ldf
+
+want to restore to destination db as follows
+destination db: Y_DB, two files M:\data\x.mdf and N:\log\x.ldf
+
+is this doable? (also assume M:\Data\ and N:\Log\ are NOT the default db paths at the destination server side)]]></description>
+		<content:encoded><![CDATA[<p>This is a very good function, but one question, if my destination db needs to be a different folder (from the source db folder), is this doable?<br />
+An example is:<br />
+source db: X_DB, two files d:\data\x.mdf and e:\log\x.ldf</p>
+<p>want to restore to destination db as follows<br />
+destination db: Y_DB, two files M:\data\x.mdf and N:\log\x.ldf</p>
+<p>is this doable? (also assume M:\Data\ and N:\Log\ are NOT the default db paths at the destination server side)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Gareth				</title>
+				<link>https://dbatools.io/migrating-application-dbs/#comment-71986</link>
+		<dc:creator><![CDATA[Gareth]]></dc:creator>
+		<pubDate>Thu, 15 Aug 2019 11:06:25 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7289#comment-71986</guid>
+					<description><![CDATA[Hi Michael,
+
+You can&#039;t backup and restore from new to old, as you have discovered. The only way to do that would be as you say moving data. dbatools can help you with this, it has commands to copy table data and generate scripts. Copy-DbaDbTableData, Export-DbaScript. Or if you have an older compatible backup you could restore that (then maybe merge everything). BUT - it sounds like you have your database on a newer version of SQL now, can&#039;t you just keep it there?
+
+If for some reason you want to keep new and old, can&#039;t think why but who knows. You could use SQL server replication to keep the old server in sync with the new server (assuming its not more than 2 versions older, I think it&#039;s 2 version max jump for replication)
+
+Good Luck!]]></description>
+		<content:encoded><![CDATA[<p>Hi Michael,</p>
+<p>You can&#8217;t backup and restore from new to old, as you have discovered. The only way to do that would be as you say moving data. dbatools can help you with this, it has commands to copy table data and generate scripts. Copy-DbaDbTableData, Export-DbaScript. Or if you have an older compatible backup you could restore that (then maybe merge everything). BUT &#8211; it sounds like you have your database on a newer version of SQL now, can&#8217;t you just keep it there?</p>
+<p>If for some reason you want to keep new and old, can&#8217;t think why but who knows. You could use SQL server replication to keep the old server in sync with the new server (assuming its not more than 2 versions older, I think it&#8217;s 2 version max jump for replication)</p>
+<p>Good Luck!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Michael Beck				</title>
+				<link>https://dbatools.io/migrating-application-dbs/#comment-71137</link>
+		<dc:creator><![CDATA[Michael Beck]]></dc:creator>
+		<pubDate>Tue, 13 Aug 2019 20:37:53 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7289#comment-71137</guid>
+					<description><![CDATA[Hi Jess,
+
+These tools are fabulous.  Thanks for all of the hard work of you and your team.
+
+I&#039;m trying to migrate a database from a newer SQL server to an older one.  Unfortunately, I don&#039;t have the option to change the version of SQL server in use. 
+
+When I attempt to do a restoration of the backup, I get an error saying that it&#039;s incompatible.  Is there a way around this short if using a script to call through each table and copy everything row for row?
+
+Michael]]></description>
+		<content:encoded><![CDATA[<p>Hi Jess,</p>
+<p>These tools are fabulous.  Thanks for all of the hard work of you and your team.</p>
+<p>I&#8217;m trying to migrate a database from a newer SQL server to an older one.  Unfortunately, I don&#8217;t have the option to change the version of SQL server in use. </p>
+<p>When I attempt to do a restoration of the backup, I get an error saying that it&#8217;s incompatible.  Is there a way around this short if using a script to call through each table and copy everything row for row?</p>
+<p>Michael</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Jess				</title>
+				<link>https://dbatools.io/migrating-application-dbs/#comment-70047</link>
+		<dc:creator><![CDATA[Jess]]></dc:creator>
+		<pubDate>Thu, 08 Aug 2019 12:31:38 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7289#comment-70047</guid>
+					<description><![CDATA[Hey Todd,
+Glad you are using dbatools for that process! For bring production data down to non-prod I would use something similar to this process, you could also look at `Invoke-DbaDbDataMasking` to mask any sensitive data (https://docs.dbatools.io/#Invoke-DbaDbDataMasking). There is also a post on scheduling dbatools scripts that might help if you wanted to run it automagically https://dbatools.io/agent/.
+Thanks for stopping by,
+Jess]]></description>
+		<content:encoded><![CDATA[<p>Hey Todd,<br />
+Glad you are using dbatools for that process! For bring production data down to non-prod I would use something similar to this process, you could also look at `Invoke-DbaDbDataMasking` to mask any sensitive data (<a href="https://docs.dbatools.io/#Invoke-DbaDbDataMasking" rel="nofollow ugc">https://docs.dbatools.io/#Invoke-DbaDbDataMasking</a>). There is also a post on scheduling dbatools scripts that might help if you wanted to run it automagically <a href="https://dbatools.io/agent/" rel="nofollow ugc">https://dbatools.io/agent/</a>.<br />
+Thanks for stopping by,<br />
+Jess</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Todd				</title>
+				<link>https://dbatools.io/migrating-application-dbs/#comment-70029</link>
+		<dc:creator><![CDATA[Todd]]></dc:creator>
+		<pubDate>Wed, 07 Aug 2019 23:49:33 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7289#comment-70029</guid>
+					<description><![CDATA[Hi,
+
+I&#039;ve just begun the process of migrating / consolidating our many instances on 2 new clusters with dbatools as my goto tool.
+
+I have one case where developers want to bring a prod database down to stage and dev on a regular basis, copying over the existing databases each time. Can you recommend a process using dbatools?]]></description>
+		<content:encoded><![CDATA[<p>Hi,</p>
+<p>I&#8217;ve just begun the process of migrating / consolidating our many instances on 2 new clusters with dbatools as my goto tool.</p>
+<p>I have one case where developers want to bring a prod database down to stage and dev on a regular basis, copying over the existing databases each time. Can you recommend a process using dbatools?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: T-SQL Tuesday #102 &#8211; Giving Back &#8211; Jess Pomfret				</title>
+				<link>https://dbatools.io/migrating-application-dbs/#comment-4210</link>
+		<dc:creator><![CDATA[T-SQL Tuesday #102 &#8211; Giving Back &#8211; Jess Pomfret]]></dc:creator>
+		<pubDate>Wed, 09 May 2018 00:57:35 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7289#comment-4210</guid>
+					<description><![CDATA[[&#8230;] of this year and so far have managed four posts, including this one and one guest post on the dbatools blog.  My goal for the year is to have 10 posts on this blog, so I have 6 left to write.  My aim is to [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] of this year and so far have managed four posts, including this one and one guest post on the dbatools blog.  My goal for the year is to have 10 posts on this blog, so I have 6 left to write.  My aim is to [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: T-SQL Tuesday #101 &#8211; The Multitool of my DBA toolbox &#8211; Jess Pomfret				</title>
+				<link>https://dbatools.io/migrating-application-dbs/#comment-1676</link>
+		<dc:creator><![CDATA[T-SQL Tuesday #101 &#8211; The Multitool of my DBA toolbox &#8211; Jess Pomfret]]></dc:creator>
+		<pubDate>Tue, 10 Apr 2018 12:07:14 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7289#comment-1676</guid>
+					<description><![CDATA[[&#8230;] a backup/restore method or by detaching and re-attaching the files. Check out my post on the dbatools blog for a more detailed look on how I used this to save a lot of time on a recent project at [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] a backup/restore method or by detaching and re-attaching the files. Check out my post on the dbatools blog for a more detailed look on how I used this to save a lot of time on a recent project at [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Database Migration With dbatools &#8211; Curated SQL				</title>
+				<link>https://dbatools.io/migrating-application-dbs/#comment-1557</link>
+		<dc:creator><![CDATA[Database Migration With dbatools &#8211; Curated SQL]]></dc:creator>
+		<pubDate>Fri, 16 Mar 2018 12:05:35 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7289#comment-1557</guid>
+					<description><![CDATA[[&#8230;] Jess Pomfret shows how easy it is to migrate databases from one SQL Server instance to another using&#8230;: [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Jess Pomfret shows how easy it is to migrate databases from one SQL Server instance to another using&#8230;: [&#8230;]</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

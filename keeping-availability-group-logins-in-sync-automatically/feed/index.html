@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	
+	>
+<channel>
+	<title>
+	Comments on: keeping availability group logins in sync automatically	</title>
+	<atom:link href="https://dbatools.io/keeping-availability-group-logins-in-sync-automatically/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/keeping-availability-group-logins-in-sync-automatically/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Mon, 11 May 2020 22:14:32 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+			<item>
+				<title>
+				By: Fred Sanders				</title>
+				<link>https://dbatools.io/keeping-availability-group-logins-in-sync-automatically/#comment-80650</link>
+		<dc:creator><![CDATA[Fred Sanders]]></dc:creator>
+		<pubDate>Mon, 11 May 2020 22:14:32 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9655#comment-80650</guid>
+					<description><![CDATA[Hi Andreas,
+
+I am very happy with this script. However, how could I go about logging the results of Copy-DBALogin to a file?  I have tried a couple variations of start-transcript to no avail.]]></description>
+		<content:encoded><![CDATA[<p>Hi Andreas,</p>
+<p>I am very happy with this script. However, how could I go about logging the results of Copy-DBALogin to a file?  I have tried a couple variations of start-transcript to no avail.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Anil				</title>
+				<link>https://dbatools.io/keeping-availability-group-logins-in-sync-automatically/#comment-80155</link>
+		<dc:creator><![CDATA[Anil]]></dc:creator>
+		<pubDate>Tue, 14 Apr 2020 08:43:11 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9655#comment-80155</guid>
+					<description><![CDATA[Hello , Many thanks for the reply. Please find below the output of the job. If I copy the syntax in Powershell it works. the syntax is &quot; C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe  -Command &quot;Copy-DbaLogin -Source SVWDC2TSQL2 -Destination SVWDC1TSQL2&quot; &quot;
+Login WindowsUser  NGH-AD\XXXXX_Admin      Failed
+Login - WindowsUser  NGH-AD\GuptaA_Admin         Failed
+Login - WindowsUser  NGH-AD\svcCDTSQL2$          Skipped Current 
+Login - WindowsUser  NGH-AD\Backup_Service
+Login - SqlLogin     RFID_admin                  Failed
+
+Any help will be much appreciated 
+Regards 
+Anil]]></description>
+		<content:encoded><![CDATA[<p>Hello , Many thanks for the reply. Please find below the output of the job. If I copy the syntax in Powershell it works. the syntax is &#8221; C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe  -Command &#8220;Copy-DbaLogin -Source SVWDC2TSQL2 -Destination SVWDC1TSQL2&#8243; &#8221;<br />
+Login WindowsUser  NGH-AD\XXXXX_Admin      Failed<br />
+Login &#8211; WindowsUser  NGH-AD\GuptaA_Admin         Failed<br />
+Login &#8211; WindowsUser  NGH-AD\svcCDTSQL2$          Skipped Current<br />
+Login &#8211; WindowsUser  NGH-AD\Backup_Service<br />
+Login &#8211; SqlLogin     RFID_admin                  Failed</p>
+<p>Any help will be much appreciated<br />
+Regards<br />
+Anil</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: andreasschubert2019				</title>
+				<link>https://dbatools.io/keeping-availability-group-logins-in-sync-automatically/#comment-80068</link>
+		<dc:creator><![CDATA[andreasschubert2019]]></dc:creator>
+		<pubDate>Fri, 10 Apr 2020 10:05:09 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9655#comment-80068</guid>
+					<description><![CDATA[Anil, a bit more detail on what error you are getting would be helpful. My gut feeling: you are running the agent job via an account with not enough permissions]]></description>
+		<content:encoded><![CDATA[<p>Anil, a bit more detail on what error you are getting would be helpful. My gut feeling: you are running the agent job via an account with not enough permissions</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Anil				</title>
+				<link>https://dbatools.io/keeping-availability-group-logins-in-sync-automatically/#comment-80008</link>
+		<dc:creator><![CDATA[Anil]]></dc:creator>
+		<pubDate>Mon, 06 Apr 2020 12:52:32 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9655#comment-80008</guid>
+					<description><![CDATA[Hello 
+Great script when I run in powershell window it is okay but as a SQL jobs result is failed. It is on SQL 2019 HA Developer Edition
+Any advise?
+Anil]]></description>
+		<content:encoded><![CDATA[<p>Hello<br />
+Great script when I run in powershell window it is okay but as a SQL jobs result is failed. It is on SQL 2019 HA Developer Edition<br />
+Any advise?<br />
+Anil</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Marty				</title>
+				<link>https://dbatools.io/keeping-availability-group-logins-in-sync-automatically/#comment-78367</link>
+		<dc:creator><![CDATA[Marty]]></dc:creator>
+		<pubDate>Wed, 01 Jan 2020 12:23:57 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9655#comment-78367</guid>
+					<description><![CDATA[Hi Andreas, nice script. Works well after a little adjustment. I had to put the name of the listener in the code as the sqlinstance. If I did not put in the name of the sqlinstance, I got an error stating that the network path was not found. But now I do get a Windows credentials popup with the name of the availabilitygroupname as the user. If I cancel the popup the script continues perfectly. Any idea why this popup shows up? I do get it on the SQL machines and on a workstation that I normally use.]]></description>
+		<content:encoded><![CDATA[<p>Hi Andreas, nice script. Works well after a little adjustment. I had to put the name of the listener in the code as the sqlinstance. If I did not put in the name of the sqlinstance, I got an error stating that the network path was not found. But now I do get a Windows credentials popup with the name of the availabilitygroupname as the user. If I cancel the popup the script continues perfectly. Any idea why this popup shows up? I do get it on the SQL machines and on a workstation that I normally use.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Alex				</title>
+				<link>https://dbatools.io/keeping-availability-group-logins-in-sync-automatically/#comment-75629</link>
+		<dc:creator><![CDATA[Alex]]></dc:creator>
+		<pubDate>Wed, 16 Oct 2019 13:59:51 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9655#comment-75629</guid>
+					<description><![CDATA[I have just tried this solution and it works great, however, when the login fails to copy over it doesn&#039;t give me a reason for failure? Is there any way that i can get that information so that I can fix it?]]></description>
+		<content:encoded><![CDATA[<p>I have just tried this solution and it works great, however, when the login fails to copy over it doesn&#8217;t give me a reason for failure? Is there any way that i can get that information so that I can fix it?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Dennis				</title>
+				<link>https://dbatools.io/keeping-availability-group-logins-in-sync-automatically/#comment-75118</link>
+		<dc:creator><![CDATA[Dennis]]></dc:creator>
+		<pubDate>Mon, 07 Oct 2019 21:57:13 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9655#comment-75118</guid>
+					<description><![CDATA[My parameterized and support for multiple AGs on a single listener (requires listener and AG name to be provided) and still contains the -whatif:
+
+ param (
+# define the AG name
+    [Parameter(Mandatory=$true)][string]$AvailabilityGroupName,
+    [Parameter(Mandatory=$true)][string]$AvailabilityGroupListener,
+    [string]$ClientName = &#039;AG Login Sync helper&#039;
+
+ )
+# internal variables
+    #$ClientName = &#039;AG Login Sync helper&#039;
+    $primaryInstance = $null
+    $secondaryInstances = @{}
+ 
+ 
+try {
+    # connect to the AG listener, get the name of the primary and all secondaries
+        $replicas = Get-DbaAgReplica -SqlInstance $AvailabilityGroupListener -AvailabilityGroup $AvailabilityGroupName
+        $primaryInstance = $replicas &#124; Where Role -eq Primary &#124; select -ExpandProperty name
+        $secondaryInstances = $replicas &#124; Where Role -ne Primary &#124; select -ExpandProperty name
+    # create a connection object to the primary
+        $primaryInstanceConnection = Connect-DbaInstance $primaryInstance -ClientName $ClientName
+    # loop through each secondary replica and sync the logins
+        $secondaryInstances &#124; ForEach-Object {
+            $secondaryInstanceConnection = Connect-DbaInstance $_ -ClientName $ClientName
+            Copy-DbaLogin -Source $primaryInstanceConnection -Destination $secondaryInstanceConnection -ExcludeSystemLogins -WhatIf
+        }
+}
+catch {
+    $msg = $_.Exception.Message
+    Write-Error &quot;Error while syncing logins for Availability Group &#039;$($AvailabilityGroupName): $msg&#039;&quot;
+}]]></description>
+		<content:encoded><![CDATA[<p>My parameterized and support for multiple AGs on a single listener (requires listener and AG name to be provided) and still contains the -whatif:</p>
+<p> param (<br />
+# define the AG name<br />
+    [Parameter(Mandatory=$true)][string]$AvailabilityGroupName,<br />
+    [Parameter(Mandatory=$true)][string]$AvailabilityGroupListener,<br />
+    [string]$ClientName = &#8216;AG Login Sync helper&#8217;</p>
+<p> )<br />
+# internal variables<br />
+    #$ClientName = &#8216;AG Login Sync helper&#8217;<br />
+    $primaryInstance = $null<br />
+    $secondaryInstances = @{}</p>
+<p>try {<br />
+    # connect to the AG listener, get the name of the primary and all secondaries<br />
+        $replicas = Get-DbaAgReplica -SqlInstance $AvailabilityGroupListener -AvailabilityGroup $AvailabilityGroupName<br />
+        $primaryInstance = $replicas | Where Role -eq Primary | select -ExpandProperty name<br />
+        $secondaryInstances = $replicas | Where Role -ne Primary | select -ExpandProperty name<br />
+    # create a connection object to the primary<br />
+        $primaryInstanceConnection = Connect-DbaInstance $primaryInstance -ClientName $ClientName<br />
+    # loop through each secondary replica and sync the logins<br />
+        $secondaryInstances | ForEach-Object {<br />
+            $secondaryInstanceConnection = Connect-DbaInstance $_ -ClientName $ClientName<br />
+            Copy-DbaLogin -Source $primaryInstanceConnection -Destination $secondaryInstanceConnection -ExcludeSystemLogins -WhatIf<br />
+        }<br />
+}<br />
+catch {<br />
+    $msg = $_.Exception.Message<br />
+    Write-Error &#8220;Error while syncing logins for Availability Group &#8216;$($AvailabilityGroupName): $msg'&#8221;<br />
+}</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andreas				</title>
+				<link>https://dbatools.io/keeping-availability-group-logins-in-sync-automatically/#comment-66445</link>
+		<dc:creator><![CDATA[Andreas]]></dc:creator>
+		<pubDate>Thu, 30 May 2019 16:59:37 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9655#comment-66445</guid>
+					<description><![CDATA[Hi Pasquale,
+
+I have a hunch that you may be having many Logins on your primary replica with many explicit permissions. I&#039;ve seen that once on another project that had nothing to do with dbatools and what I did back then was changing my code to use a longer timeout when querying the permissions - that did the trick for me. But it won&#039;t be as easy here, since the exception is raised in one of the lower level functions of sync-dbalogin. Can you raise a bug report on dbatools?]]></description>
+		<content:encoded><![CDATA[<p>Hi Pasquale,</p>
+<p>I have a hunch that you may be having many Logins on your primary replica with many explicit permissions. I&#8217;ve seen that once on another project that had nothing to do with dbatools and what I did back then was changing my code to use a longer timeout when querying the permissions &#8211; that did the trick for me. But it won&#8217;t be as easy here, since the exception is raised in one of the lower level functions of sync-dbalogin. Can you raise a bug report on dbatools?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Pasquale Ceglie				</title>
+				<link>https://dbatools.io/keeping-availability-group-logins-in-sync-automatically/#comment-66442</link>
+		<dc:creator><![CDATA[Pasquale Ceglie]]></dc:creator>
+		<pubDate>Thu, 30 May 2019 16:39:33 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9655#comment-66442</guid>
+					<description><![CDATA[Hi Andreas, any suggestion about this error? I&#039;m struggling with this one.
+
+Login - WindowsUser mydomain\myuser Successful      
+Exception calling &quot;EnumServerPermissions&quot; with &quot;1&quot; argument(s): &quot;There is 
+already an open DataReader associated with this Command which must be closed 
+first.&quot;
+At line:114615 char:9
++         $perms = $SourceServer.EnumServerPermissions($userName)
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
+    + FullyQualifiedErrorId : InvalidOperationException
+ 
+The following exception occurred while trying to enumerate the collection: 
+&quot;There is already an open DataReader associated with this Command which must 
+be closed first.&quot;.
+At line:114664 char:9
++         $loginCredentials = $SourceServer.Credentials &#124; Where-Object  ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [], ExtendedTypeSystemExceptio 
+   n
+    + FullyQualifiedErrorId : ExceptionInGetEnumerator
+ 
+Exception calling &quot;EnumDatabaseMappings&quot; with &quot;0&quot; argument(s): &quot;Enumerate 
+database mappings failed for Login &#039;mydomain\myuser&#039;. &quot;
+At line:114772 char:21
++     foreach ($db in $SourceLogin.EnumDatabaseMappings()) {
++                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
+    + FullyQualifiedErrorId : FailedOperationException]]></description>
+		<content:encoded><![CDATA[<p>Hi Andreas, any suggestion about this error? I&#8217;m struggling with this one.</p>
+<p>Login &#8211; WindowsUser mydomain\myuser Successful<br />
+Exception calling &#8220;EnumServerPermissions&#8221; with &#8220;1&#8221; argument(s): &#8220;There is<br />
+already an open DataReader associated with this Command which must be closed<br />
+first.&#8221;<br />
+At line:114615 char:9<br />
++         $perms = $SourceServer.EnumServerPermissions($userName)<br />
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br />
+    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException<br />
+    + FullyQualifiedErrorId : InvalidOperationException</p>
+<p>The following exception occurred while trying to enumerate the collection:<br />
+&#8220;There is already an open DataReader associated with this Command which must<br />
+be closed first.&#8221;.<br />
+At line:114664 char:9<br />
++         $loginCredentials = $SourceServer.Credentials | Where-Object  &#8230;<br />
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br />
+    + CategoryInfo          : NotSpecified: (:) [], ExtendedTypeSystemExceptio<br />
+   n<br />
+    + FullyQualifiedErrorId : ExceptionInGetEnumerator</p>
+<p>Exception calling &#8220;EnumDatabaseMappings&#8221; with &#8220;0&#8221; argument(s): &#8220;Enumerate<br />
+database mappings failed for Login &#8216;mydomain\myuser&#8217;. &#8221;<br />
+At line:114772 char:21<br />
++     foreach ($db in $SourceLogin.EnumDatabaseMappings()) {<br />
++                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br />
+    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException<br />
+    + FullyQualifiedErrorId : FailedOperationException</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andreas				</title>
+				<link>https://dbatools.io/keeping-availability-group-logins-in-sync-automatically/#comment-66382</link>
+		<dc:creator><![CDATA[Andreas]]></dc:creator>
+		<pubDate>Wed, 29 May 2019 16:22:02 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9655#comment-66382</guid>
+					<description><![CDATA[Michael,
+
+I don&#039;t think that will happen soon. The reason is that I&#039;d like to test code thoroughly before I put it up for public. I don&#039;t do multi-AG instances and so I won&#039;t be able to test it.]]></description>
+		<content:encoded><![CDATA[<p>Michael,</p>
+<p>I don&#8217;t think that will happen soon. The reason is that I&#8217;d like to test code thoroughly before I put it up for public. I don&#8217;t do multi-AG instances and so I won&#8217;t be able to test it.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

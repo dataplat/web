@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	
+	>
+<channel>
+	<title>
+	Comments on: a new command to find all of your sql instances	</title>
+	<atom:link href="https://dbatools.io/find-sql-instances/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/find-sql-instances/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Mon, 29 Jul 2019 15:48:57 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+			<item>
+				<title>
+				By: Scott				</title>
+				<link>https://dbatools.io/find-sql-instances/#comment-69585</link>
+		<dc:creator><![CDATA[Scott]]></dc:creator>
+		<pubDate>Mon, 29 Jul 2019 15:48:57 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7317#comment-69585</guid>
+					<description><![CDATA[Not getting too far here starting from the beginning...  thanks for your efforts Chrissy.
+
+PS C:\Windows\system32&#062; Get-ADComputer -Filter { name -like &#039;sql*&#039; } &#124; Find-DbaInstance &#124; Out-GridView
+Find-DbaInstance : The term &#039;Find-DbaInstance&#039; is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that th
+try again.
+At line:1 char:48
++ ... t-ADComputer -Filter { name -like &#039;sql*&#039; } &#124; Find-DbaInstance &#124; Out-G ...
++                                                  ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Find-DbaInstance:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Windows\system32&#062; Find-DbaInstance -DiscoveryType All -ScanType All
+Find-DbaInstance : The term &#039;Find-DbaInstance&#039; is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that th
+try again.
+At line:1 char:1
++ Find-DbaInstance -DiscoveryType All -ScanType All
++ ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Find-DbaInstance:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException]]></description>
+		<content:encoded><![CDATA[<p>Not getting too far here starting from the beginning&#8230;  thanks for your efforts Chrissy.</p>
+<p>PS C:\Windows\system32&gt; Get-ADComputer -Filter { name -like &#8216;sql*&#8217; } | Find-DbaInstance | Out-GridView<br />
+Find-DbaInstance : The term &#8216;Find-DbaInstance&#8217; is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that th<br />
+try again.<br />
+At line:1 char:48<br />
++ &#8230; t-ADComputer -Filter { name -like &#8216;sql*&#8217; } | Find-DbaInstance | Out-G &#8230;<br />
++                                                  ~~~~~~~~~~~~~~~~<br />
+    + CategoryInfo          : ObjectNotFound: (Find-DbaInstance:String) [], CommandNotFoundException<br />
+    + FullyQualifiedErrorId : CommandNotFoundException</p>
+<p>PS C:\Windows\system32&gt; Find-DbaInstance -DiscoveryType All -ScanType All<br />
+Find-DbaInstance : The term &#8216;Find-DbaInstance&#8217; is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that th<br />
+try again.<br />
+At line:1 char:1<br />
++ Find-DbaInstance -DiscoveryType All -ScanType All<br />
++ ~~~~~~~~~~~~~~~~<br />
+    + CategoryInfo          : ObjectNotFound: (Find-DbaInstance:String) [], CommandNotFoundException<br />
+    + FullyQualifiedErrorId : CommandNotFoundException</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Jaime				</title>
+				<link>https://dbatools.io/find-sql-instances/#comment-68623</link>
+		<dc:creator><![CDATA[Jaime]]></dc:creator>
+		<pubDate>Thu, 11 Jul 2019 18:50:47 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7317#comment-68623</guid>
+					<description><![CDATA[&#124; Out-File -FilePath c:\oracle\sqlservers.txt works fine for me]]></description>
+		<content:encoded><![CDATA[<p>| Out-File -FilePath c:\oracle\sqlservers.txt works fine for me</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Chrissy LeMaire				</title>
+				<link>https://dbatools.io/find-sql-instances/#comment-67677</link>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+		<pubDate>Thu, 27 Jun 2019 13:25:13 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7317#comment-67677</guid>
+					<description><![CDATA[IsClustered is only about Failover Clustered Instances, not Availability Groups. For Availability Groups, use Get-DbaAgHadr <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f44d.png" alt="👍" class="wp-smiley" style="height: 1em; max-height: 1em;" />]]></description>
+		<content:encoded><![CDATA[<p>IsClustered is only about Failover Clustered Instances, not Availability Groups. For Availability Groups, use Get-DbaAgHadr 👍</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Chrissy LeMaire				</title>
+				<link>https://dbatools.io/find-sql-instances/#comment-67676</link>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+		<pubDate>Thu, 27 Jun 2019 13:23:32 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7317#comment-67676</guid>
+					<description><![CDATA[This is super easy!
+
+&lt;code&gt;Find-DbaInstance AAABBB &#124; Connect-DbaInstance &#124; Select Name, IsClustered, VersionString&lt;/code&gt;]]></description>
+		<content:encoded><![CDATA[<p>This is super easy!</p>
+<p><code>Find-DbaInstance AAABBB | Connect-DbaInstance | Select Name, IsClustered, VersionString</code></p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Zman				</title>
+				<link>https://dbatools.io/find-sql-instances/#comment-67627</link>
+		<dc:creator><![CDATA[Zman]]></dc:creator>
+		<pubDate>Wed, 26 Jun 2019 21:01:23 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7317#comment-67627</guid>
+					<description><![CDATA[Performing some testing with get-sqlinstance and it would appear that the isClustered option does not appear to detect AoAG clustering.  I have nearly 20 AoAG clusters and every node comes back as IsClustered = False.  
+
+It also appears that SQL 2016 and 2019 are not detected properly, the Caption for the SQL version returns Unknown.  I updated dbatools using the self update command prior to my testing.  Thoughts?]]></description>
+		<content:encoded><![CDATA[<p>Performing some testing with get-sqlinstance and it would appear that the isClustered option does not appear to detect AoAG clustering.  I have nearly 20 AoAG clusters and every node comes back as IsClustered = False.  </p>
+<p>It also appears that SQL 2016 and 2019 are not detected properly, the Caption for the SQL version returns Unknown.  I updated dbatools using the self update command prior to my testing.  Thoughts?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Zman				</title>
+				<link>https://dbatools.io/find-sql-instances/#comment-67625</link>
+		<dc:creator><![CDATA[Zman]]></dc:creator>
+		<pubDate>Wed, 26 Jun 2019 20:09:26 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7317#comment-67625</guid>
+					<description><![CDATA[This is a very helpful module but the one thing that is missing is pulling the version and if its clustered. 
+ Combining find-dbainstance and get-slqinstance would be magical.  I&#039;m not a PowerShell guru so if you would be so inclined to point me in the direction of taking the output of find-dbainstance and getting that into get-sqlinstance to grab the sql versions it would be super helpful.]]></description>
+		<content:encoded><![CDATA[<p>This is a very helpful module but the one thing that is missing is pulling the version and if its clustered.<br />
+ Combining find-dbainstance and get-slqinstance would be magical.  I&#8217;m not a PowerShell guru so if you would be so inclined to point me in the direction of taking the output of find-dbainstance and getting that into get-sqlinstance to grab the sql versions it would be super helpful.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Anne				</title>
+				<link>https://dbatools.io/find-sql-instances/#comment-65887</link>
+		<dc:creator><![CDATA[Anne]]></dc:creator>
+		<pubDate>Tue, 21 May 2019 07:52:58 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7317#comment-65887</guid>
+					<description><![CDATA[Hi anyone,
+
+I would like to store the list of servers into a sql table. What is the simplest way to this. I&#039;m looking for something like this, but then write it to a sql table in stead of a csv file:
+Find-DbaInstance -DiscoveryType All -ScanType All &#124; Export-Csv -Path &quot;C:\TEMP\servers.csv&quot; 
+
+Thnx in advance!]]></description>
+		<content:encoded><![CDATA[<p>Hi anyone,</p>
+<p>I would like to store the list of servers into a sql table. What is the simplest way to this. I&#8217;m looking for something like this, but then write it to a sql table in stead of a csv file:<br />
+Find-DbaInstance -DiscoveryType All -ScanType All | Export-Csv -Path &#8220;C:\TEMP\servers.csv&#8221; </p>
+<p>Thnx in advance!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Anne				</title>
+				<link>https://dbatools.io/find-sql-instances/#comment-65886</link>
+		<dc:creator><![CDATA[Anne]]></dc:creator>
+		<pubDate>Tue, 21 May 2019 07:46:57 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7317#comment-65886</guid>
+					<description><![CDATA[Hi Chrissy,
+
+I&#039;m at a new client and I ran the command Find-DbaInstance -DiscoveryType All -ScanType All and it gave us a lot of sql server instances back, only not all. What could be the cause of that?
+For one server it is an always-on cluster, but I don&#039;t see the cluster, and also not de two nodes back in the list.
+But now some backups failed, and I am checking if these servers are on the list, but no.
+ I can connect to the servers through ssms, so they are up and running.
+
+
+Kind regards, Anne]]></description>
+		<content:encoded><![CDATA[<p>Hi Chrissy,</p>
+<p>I&#8217;m at a new client and I ran the command Find-DbaInstance -DiscoveryType All -ScanType All and it gave us a lot of sql server instances back, only not all. What could be the cause of that?<br />
+For one server it is an always-on cluster, but I don&#8217;t see the cluster, and also not de two nodes back in the list.<br />
+But now some backups failed, and I am checking if these servers are on the list, but no.<br />
+ I can connect to the servers through ssms, so they are up and running.</p>
+<p>Kind regards, Anne</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Chrissy LeMaire				</title>
+				<link>https://dbatools.io/find-sql-instances/#comment-63303</link>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+		<pubDate>Tue, 16 Apr 2019 21:09:05 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7317#comment-63303</guid>
+					<description><![CDATA[David,
+Yes, you should always get permission before running any scanner on the network.]]></description>
+		<content:encoded><![CDATA[<p>David,<br />
+Yes, you should always get permission before running any scanner on the network.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: David				</title>
+				<link>https://dbatools.io/find-sql-instances/#comment-63264</link>
+		<dc:creator><![CDATA[David]]></dc:creator>
+		<pubDate>Tue, 16 Apr 2019 17:50:21 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7317#comment-63264</guid>
+					<description><![CDATA[antivirus sent alerts on this
+security team heading my way now]]></description>
+		<content:encoded><![CDATA[<p>antivirus sent alerts on this<br />
+security team heading my way now</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

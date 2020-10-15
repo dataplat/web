@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>Marcin Gminski &#8211; dbatools</title>
+	<atom:link href="https://dbatools.io/author/marcin/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Fri, 13 Sep 2019 08:46:57 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+
+<image>
+	<url>https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&#038;ssl=1</url>
+	<title>Marcin Gminski &#8211; dbatools</title>
+	<link>https://dbatools.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
+		<title>creating a history timeline</title>
+		<link>https://dbatools.io/timeline/</link>
+				<comments>https://dbatools.io/timeline/#comments</comments>
+				<pubDate>Tue, 21 Aug 2018 14:30:53 +0000</pubDate>
+		<dc:creator><![CDATA[Marcin Gminski]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=8008</guid>
+				<description><![CDATA[Hey all, my name is Marcin and this is my first post and my first contribution to the dbatools. I hope you find it useful. introduction Part of a successful ...]]></description>
+								<content:encoded><![CDATA[<p>Hey all, my name is Marcin and this is my first post and my first contribution to the dbatools. I hope you find it useful.</p>
+<h2>introduction</h2>
+<p>Part of a successful administration and management of any database is to know what happens over a period of time, when scheduled jobs and backups run and whether they are successful or not.</p>
+<p>The common difficulty is getting this information out of SQL Server and then &#8211; the most difficult part &#8211; understanding what it means. In case of scheduled jobs, we want to make sure that there are no clashing and those heavy workloads such as ETL, backups, integrity checks and index maintenance run in isolation as much as possible.</p>
+<p>Before dbatools, getting the information out of SQL Server was often a tedious task that often involved relatively complex T-SQL script, spreadsheet and some copying and pasting. Thanks to all the hard work of the dbatools team this is a history. A simple command can retrieve all the information we want and now with the new <code>ConvertTo-DbaTimeline</code>, it can be easily plotted on a graphical timeline!</p>
+<h2>concept</h2>
+<p>The concept of a timeline is very simple and based on a Gantt chart used in project management and time schedule:</p>
+<blockquote><p>A Gantt chart is a type of bar chart that illustrates a project schedule, named after its inventor, Henry Gantt (1861–1919), who designed such a chart around the years 1910–1915<br />
+<a href="https://en.wikipedia.org/wiki/Gantt_chart">https://en.wikipedia.org/wiki/Gantt_chart</a></p></blockquote>
+<p>The idea is to show a graphical representation of an item or items of interest (task, job, meeting duration) with the start and end dates on a common timeline:</p>
+<blockquote><p>A <i>timeline</i> is a chart that depicts how a set of resources are used over time. If you&#8217;re managing a software project and want to illustrate who is doing what and when, or if you&#8217;re organizing a conference and need to schedule meeting rooms, a timeline is often a reasonable visualization choice. One popular type of timeline is the <i>Gantt chart</i>.<br />
+<a href="https://developers.google.com/chart/interactive/docs/gallery/timeline">https://developers.google.com/chart/interactive/docs/gallery/timeline</a></p></blockquote>
+<h2>execution</h2>
+<p>Currently, the output from the following commands is supported:</p>
+<ul>
+<li><strong>Get-DbaAgentJobHistory</strong></li>
+<li><strong>Get-DbaDbBackupHistory</strong></li>
+</ul>
+<p>You will run the above commands as you would normally do but pipe the output to <code>ConvertTo-DbaTimeline</code>, the same way as you would with any other <code>ConverTo-*</code> PowerShell function. The output is a string that most of the time you will save as file using the <code>Out-File</code> command in order to open it in a browser.</p>
+<h3>Examples</h3>
+<h4>Get-DbaAgentJobHistory</h4>
+<pre class="lang:ps decode:true">#To generate the timeline for agent job history and save as html file:
+Get-DbaAgentJobHistory -SqlInstance sql-1 -StartDate '2018-08-18 00:00' -EndDate '2018-08-19 23:59' -ExcludeJobSteps | ConvertTo-DbaTimeline | Out-File C:\temp\DbaAgentJobHistory.html -Encoding ASCII
+</pre>
+<p>Note the <code>-Encoding ASCII</code> &#8211; this is required for correct JavaScript and HTML formatting.</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?ssl=1"><img class="alignnone size-large wp-image-8057" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?resize=800%2C489&#038;ssl=1" alt="Get-DbaAgentJobHistory Timeline" width="800" height="489" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?resize=1024%2C626&amp;ssl=1 1024w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?resize=300%2C183&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?resize=768%2C469&amp;ssl=1 768w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?w=1600&amp;ssl=1 1600w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?w=2400&amp;ssl=1 2400w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<p>Colours are applied automatically based on the job status:<br />
+<span style="background-color: #36b300;padding: 2px 4px 2px 4px;margin: 2px;color: #ffffff;float: left">Succeeded</span><span style="background-color: #ff3d3d;padding: 2px 4px 2px 4px;margin: 2px;color: #ffffff;float: left">Failed</span><span style="background-color: #ffff00;padding: 2px 4px 2px 4px;margin: 2px;color: #000000;float: left">Retry</span><span style="background-color: #c2c2c2;padding: 2px 4px 2px 4px;margin: 2px;color: #ffffff;float: left">Canceled</span><span style="background-color: #00ccff;padding: 2px 4px 2px 4px;margin: 2px;color: #ffffff;float: left">In Progress</span></p>
+<h4></h4>
+<p>&nbsp;</p>
+<h4>Get-DbaDbBackupHistory</h4>
+<pre class="lang:ps decode:true">#Backup history timeline:
+Get-DbaDbBackupHistory -SqlInstance sql-1 -Since '2018-08-18 00:00' | ConvertTo-DbaTimeline | Out-File C:\temp\Get-DbaDbBackupHistory.html -Encoding ascii</pre>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaDbBackupHistory-html.jpg?ssl=1"><img class="alignnone size-large wp-image-8054" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaDbBackupHistory-html-1024x566.jpg?resize=800%2C442&#038;ssl=1" alt="Get-DbaDbBackupHistory Timeline" width="800" height="442" data-recalc-dims="1" /></a></p>
+<p>And again, each backup type has its own colour. This time, however, they are not pre-configured but are set automatically by the Google&#8217;s framework so could be random.</p>
+<p>We can also run it for multiple servers at once AND THIS IS GREAT as it allows to produce a comprehensive overview of the entire estate which can help to assess the impact on the network, storage or virtual cluster. And without passing the <code>Out-File</code> command it will simply output an HTML as a string:</p>
+<pre class="lang:ps decode:true">Get-DbaDbBackupHistory -SqlInstance sql2017, sql2016 -Since '2018-08-13 00:00' | ConvertTo-DbaTimeline</pre>
+<p>Which can be assigned to a variable or used to compose an email as in the example below:</p>
+<pre class="lang:ps decode:true">$messageParameters = @{
+    Subject = "Backup history for sql2017 and sql2016"
+    Body = Get-DbaDbBackupHistory -SqlInstance sql2017, sql2016 -Since '2018-08-13 00:00' | ConvertTo-DbaTimeline
+    From = "dba@ad.local"
+    To = "dba@ad.local"
+    SmtpServer = "smtp.ad.local"
+ }
+Send-MailMessage @messageParameters -BodyAsHtml</pre>
+<h2>the mechanics</h2>
+<p>We are using Google Charts Framework to generate the graph in the <code>ConvertTo-DbaTimeline</code>. The framework is JavaScript based, very easy to use and fast. The rendering happens on the client PC and no data is ever sent to Google or anywhere.</p>
+<p>You can read more about the Google Chart Framework:</p>
+<p><a href="https://developers.google.com/chart/">https://developers.google.com/chart/</a></p>
+<p>And specifically about the Timeline object:</p>
+<p><a href="https://developers.google.com/chart/interactive/docs/gallery/timeline">https://developers.google.com/chart/interactive/docs/gallery/timeline</a></p>
+<p>The creation of the HTML file is not much different to how dynamic websites work. If we look at Google&#8217;s generic example below, I have highlighted the part that contains JavaScript Array data rows which, in our case are being generated dynamically from the pipe the input. The rest of the code apart from few parameters is static. Once the input is transposed it is the being returned as a string. That&#8217;s it. It is very simple yet powerful.</p>
+<pre class="theme:github-copy lang:js mark:12-26 decode:true">  google.charts.load("current", {packages:["timeline"]});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var container = document.getElementById('example3.1');
+    var chart = new google.visualization.Timeline(container);
+    var dataTable = new google.visualization.DataTable();
+    dataTable.addColumn({ type: 'string', id: 'Position' });
+    dataTable.addColumn({ type: 'string', id: 'Name' });
+    dataTable.addColumn({ type: 'date', id: 'Start' });
+    dataTable.addColumn({ type: 'date', id: 'End' });
+    dataTable.addRows([
+      [ 'President', 'George Washington', new Date(1789, 3, 30), new Date(1797, 2, 4) ],
+      [ 'President', 'John Adams', new Date(1797, 2, 4), new Date(1801, 2, 4) ],
+      [ 'President', 'Thomas Jefferson', new Date(1801, 2, 4), new Date(1809, 2, 4) ],
+      [ 'Vice President', 'John Adams', new Date(1789, 3, 21), new Date(1797, 2, 4)],
+      [ 'Vice President', 'Thomas Jefferson', new Date(1797, 2, 4), new Date(1801, 2, 4)],
+      [ 'Vice President', 'Aaron Burr', new Date(1801, 2, 4), new Date(1805, 2, 4)],
+      [ 'Vice President', 'George Clinton', new Date(1805, 2, 4), new Date(1812, 3, 20)],
+      [ 'Secretary of State', 'John Jay', new Date(1789, 8, 25), new Date(1790, 2, 22)],
+      [ 'Secretary of State', 'Thomas Jefferson', new Date(1790, 2, 22), new Date(1793, 11, 31)],
+      [ 'Secretary of State', 'Edmund Randolph', new Date(1794, 0, 2), new Date(1795, 7, 20)],
+      [ 'Secretary of State', 'Timothy Pickering', new Date(1795, 7, 20), new Date(1800, 4, 12)],
+      [ 'Secretary of State', 'Charles Lee', new Date(1800, 4, 13), new Date(1800, 5, 5)],
+      [ 'Secretary of State', 'John Marshall', new Date(1800, 5, 13), new Date(1801, 2, 4)],
+      [ 'Secretary of State', 'Levi Lincoln', new Date(1801, 2, 5), new Date(1801, 4, 1)],
+      [ 'Secretary of State', 'James Madison', new Date(1801, 4, 2), new Date(1809, 2, 3)]
+    ]);
+    chart.draw(dataTable);
+  }</pre>
+<h2>final note</h2>
+<p>Although it&#8217;s a Google framework, this works great on any browser not only on Google Chrome. As per the <a href="https://developers.google.com/chart/interactive/docs/">Google Docs </a>: <em>Charts are rendered using HTML5/SVG technology to provide cross-browser compatibility (including VML for older IE versions)</em>.</p>
+<p>However, one last thing to keep in mind is that it does require access to the internet in order to access Google Charts and Bootstrap frameworks. As these are based on JavaScript, it is best to run on a client PC and not on Windows Server.</p>
+<h2>my experience as a contributor</h2>
+<p>Although I have been using dbatools for quite some time now this was my first contribution to the project. I never really looked how it all works behind scenes but oh boy it is impressive. Chrissy has done a fantastic job designing the dbatools framework. All the internal functions are there, as a developer I did not have to worry about how to write a message or raise an error.</p>
+<p>Chrissy is also a great mentor, she reviewed my code and tweaked it a bit where required with the full explanation of what she did and why, which made perfect sense. I probably learned more PowerShell in those couple of days working with Chrissy than in my whole career. Thank you!</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/timeline/feed/</wfw:commentRss>
+		<slash:comments>30</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">8008</post-id>	</item>
+	</channel>
+</rss>

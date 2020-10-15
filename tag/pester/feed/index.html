@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>Pester &#8211; dbatools</title>
+	<atom:link href="https://dbatools.io/tag/pester/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Tue, 09 Jan 2018 20:20:27 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+
+<image>
+	<url>https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&#038;ssl=1</url>
+	<title>Pester &#8211; dbatools</title>
+	<link>https://dbatools.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
+		<title>t-sql tuesday and new module teaser</title>
+		<link>https://dbatools.io/new-module-coming-soon/</link>
+				<comments>https://dbatools.io/new-module-coming-soon/#comments</comments>
+				<pubDate>Tue, 09 Jan 2018 08:36:59 +0000</pubDate>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[dbachecks]]></category>
+		<category><![CDATA[party]]></category>
+		<category><![CDATA[Pester]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=6904</guid>
+				<description><![CDATA[The challenge I always try to solve my technical issues with natively available (aka Microsoft) solutions. It&#8217;s one of the many reasons I love PowerShell. When it comes to monitoring, ...]]></description>
+								<content:encoded><![CDATA[<p><div class='content-column one_fourth'><a href="https://blobeater.blog/2018/01/02/t-sql-tuesday-98-your-technical-challenges-conquered/"><img src="https://i1.wp.com/blog.netnerds.net/wp-content/uploads/2016/06/TSQL2SDAY-150x150.png?resize=150%2C150&#038;ssl=1" alt="TSQL2SDAY-150x150" width="150" height="150" class="aligncenter size-full wp-image-5700" data-recalc-dims="1" /></a></div><div class='content-column three_fourth last_column'>&nbsp;<br />Today&#8217;s blog post is part of <a href="https://blobeater.blog/2018/01/02/t-sql-tuesday-98-your-technical-challenges-conquered/">T-SQL Tuesday</a>. T-SQL Tuesday is the brainchild of Adam Machanic. It is a blog party on the second Tuesday of each month. Everyone is welcomed to participate.</p>
+<p>This month’s T-SQL Tuesday, hosted by Arun Sirpal (<a href=https://blobeater.blog>[b]</a>|<a href=https://twitter.com/blobeater1>[t]</a>), is all about overcoming technical challenges.</div><div class='clear_column'></div></p>
+<h3>The challenge</h3>
+<p>I always try to solve my technical issues with natively available (aka Microsoft) solutions. It&#8217;s one of the many reasons I love PowerShell.</p>
+<p>When it comes to monitoring, I know there are some really wonderful solutions out there. <a href="https://www.sentryone.com/sql-server/database-monitoring-tools">SentryOne</a> and <a href="https://www.solarwinds.com/database-performance-monitoring-software">SolarWinds</a> come to mind but I don&#8217;t always need deep query level monitoring or I may not be able to pay licencing costs for all of my SQL Instances. But I do need to easily know if they are all set up correctly.</p>
+<p>Ever since I was a baby DBA, I&#8217;ve wanted to create a centralized solution that I could roll in with and get going with after finding all of my servers. Over the years, I&#8217;ve tried to put together some ASP/VBScript solutions, then when I learned PowerShell, tried PowerShell and SQL Agent, but I just wasn&#8217;t feeling it. I could never figure out how to make the checks modular and universal. That is, until I learned about <a href="https://sqldbawithabeard.com/2017/11/16/write-your-first-pester-test-today/">Pester</a> in-depth from <a href="https://sqldbawithabeard.com/">Rob Sewell</a>.</p>
+<h3>The solution</h3>
+<p>The solution I&#8217;ve been looking for turns out to be a mix of dbatools and Pester. Pester is the first Open Source community project formally included in a Windows release! Windows 10 and Windows Server 2016 include Pester by default.</p>
+<p><a href="https://github.com/Pester/Pester/wiki/"><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/01/pester-med-logo.png?resize=312%2C122&#038;ssl=1" alt="" width="312" height="122" class="aligncenter size-full wp-image-6917" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/01/pester-med-logo.png?w=312&amp;ssl=1 312w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/01/pester-med-logo.png?resize=300%2C117&amp;ssl=1 300w" sizes="(max-width: 312px) 100vw, 312px" data-recalc-dims="1" /></a></p>
+<p>Pester makes it easy to standardize tests or &#8220;checks&#8221; because it can output its results in a number of standardized formats, including NunitXml and JSON. It&#8217;s all PowerShell, after all.</p>
+<p>dbatools makes it easy to perform these checks without installing additional software or stored procedures on each of my servers. I have one central workstation that needs to be updated and checking hundreds of servers is as easy as checking just one.</p>
+<p>So after poring over Rob&#8217;s prodigious <a href="https://github.com/SQLDBAWithABeard/Presentations">GitHub Presentation Repository</a>, I found a bunch of his tests, and added them to a newly created module. I then created an index of the checks to make them easy to access. Once I got the proof of concept down, I invited a few people from the community who I know are involved in Pester and asked them to help.</p>
+<p>The result has been a dream come true!</p>
+<h3>Index</h3>
+<p>Index of checks. You can run them all, run by group or only run the specific tests that matter to your environment.</p>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/01/index.jpg?ssl=1" target="new"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/01/index.jpg?resize=800%2C545&#038;ssl=1" alt="" width="800" height="545" class="aligncenter size-large wp-image-6951" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/01/index.jpg?resize=1024%2C697&amp;ssl=1 1024w, https://i0.wp.com/dbatools.io/wp-content/uploads/2018/01/index.jpg?resize=300%2C204&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2018/01/index.jpg?resize=768%2C523&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2018/01/index.jpg?w=1704&amp;ssl=1 1704w, https://i0.wp.com/dbatools.io/wp-content/uploads/2018/01/index.jpg?w=1600&amp;ssl=1 1600w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<p>&nbsp;</p>
+<h3>Power BI Universal Dashboard</h3>
+<p>Courtesy of <a href="https://twitter.com/claudioessilva">Cláudio Silva</a>. Just hit refresh and you&#8217;re all set!</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/01/dash.png?ssl=1" target="new"><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/01/dash.png?resize=800%2C450&#038;ssl=1" alt="" width="800" height="450" class="aligncenter size-large wp-image-6947" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/01/dash.png?resize=1024%2C576&amp;ssl=1 1024w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/01/dash.png?resize=300%2C169&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/01/dash.png?resize=768%2C432&amp;ssl=1 768w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/01/dash.png?w=1919&amp;ssl=1 1919w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/01/dash.png?w=1600&amp;ssl=1 1600w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<p>&nbsp;</p>
+<h3>Included Parser &amp; Mailer</h3>
+<p>Also from Rob&#8217;s repo!</p>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/01/mail.png?ssl=1" target="new"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/01/mail.png?resize=800%2C475&#038;ssl=1" alt="" width="800" height="475" class="aligncenter size-large wp-image-6952" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/01/mail.png?resize=1024%2C608&amp;ssl=1 1024w, https://i0.wp.com/dbatools.io/wp-content/uploads/2018/01/mail.png?resize=300%2C178&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2018/01/mail.png?resize=768%2C456&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2018/01/mail.png?w=1280&amp;ssl=1 1280w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<p>We are still working on the checks, but these screenshots should give you an idea about the new SQL PowerShell module that Rob and I will be premiering at our <a href="https://sqlps.io/bitsprecon">SQLBits PowerShell Precon</a>, <code>Reliable, Repeatable, &amp; Automated: PowerShell for DBAs</code>, in London on Thursday, February 22 2018.</p>
+<p>Interested in finding out more? Find us at SQLBits!</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/new-module-coming-soon/feed/</wfw:commentRss>
+		<slash:comments>10</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">6904</post-id>	</item>
+	</channel>
+</rss>

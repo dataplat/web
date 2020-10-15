@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>Gareth &#8211; dbatools</title>
+	<atom:link href="https://dbatools.io/author/garethn/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Fri, 28 Jun 2019 09:48:31 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+
+<image>
+	<url>https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&#038;ssl=1</url>
+	<title>Gareth &#8211; dbatools</title>
+	<link>https://dbatools.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
+		<title>Using Set-DbaCmConnection to reset credentials and cached connection status</title>
+		<link>https://dbatools.io/reset-credentials-cached-connection/</link>
+				<comments>https://dbatools.io/reset-credentials-cached-connection/#respond</comments>
+				<pubDate>Tue, 25 Jun 2019 14:28:25 +0000</pubDate>
+		<dc:creator><![CDATA[Gareth]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[authentication]]></category>
+		<category><![CDATA[caching]]></category>
+		<category><![CDATA[connections]]></category>
+		<category><![CDATA[Set-DbaCmConnection]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=9634</guid>
+				<description><![CDATA[Hi, I am Gareth N &#8211; a SQL Server DBA in the UK. I have started to blog over at ifexists.blog &#8211; today I want to share some information around ...]]></description>
+								<content:encoded><![CDATA[<p>Hi, I am Gareth N &#8211; a SQL Server DBA in the UK. I have started to blog over at <a href="https://ifexists.blog">ifexists.blog</a> &#8211; today I want to share some information around how dbatools can cache connection information, and how to reset it.</p>
+<p>dbatools is smart. It can do things in the background when you&#8217;re using the commands, like cache connections and also cache the results of those connections. This can help speed things up as it will re-use the existing object.</p>
+<p>But what if something changed since it cached the connection? Let’s see how we can edit the existing connections if necessary.</p>
+<h3>My scenario</h3>
+<p>I was updating some dev instances using what has to be one of my favorite commands, <a href="/Update-DbaInstance">Update-DbaInstance</a>. Here&#8217;s what my command looked like:</p>
+<pre class="lang:ps decode:true ">Update-DbaInstance -ComputerName devbox1.domain.local -Restart -Path "\\fileshare\sql updates" -Credential ad\gareth</pre>
+<p>For anyone new to dbatools, let’s briefly talk about what this is doing for us based on this example.</p>
+<ul>
+<li>Prompt us for <code>ad\gareth</code>&#8216;s password</li>
+<li>Find all SQL Server instances on devbox1</li>
+<li>Search fileshare &#8220;\fileshare\sql updates&#8221; for updates relevant to any instances we found</li>
+<li>If a Windows restart is required before installing patches, then restart</li>
+<li>Prompt the user to install patches for any instances that were found and need updating</li>
+<li>Finally, it will restart the computer after patching</li>
+</ul>
+<p>Works like a charm! For more details and examples, you can check out the <a href="https://docs.dbatools.io/#Update-DbaInstance">Update-DbaInstance help page</a>.</p>
+<h4>Back on topic</h4>
+<p>I came to update one instance, and my credentials were not working, I received an Access Denied message in PowerShell. I did what was necessary to get my permissions added on the windows server, confident I was good to go I tried again, but still no luck. This time the error was slightly different, “Windows authentication was used, but is known to not work!”. Hmmm, not sure what this means? I went off to the dbatools slack channel for advice and got the answer I needed.</p>
+<p>dbatools was showing me this message because I recently tried to access this server and it knows I didn’t have permission, it remembered and wasn’t going to waste time trying again. But now I do have permission, so I do actually need it to forget and try again, to do that we use <code>Set-DbaCmConnection</code>.</p>
+<pre class="lang:ps decode:true ">Set-DbaCmConnection -ComputerName devbox1.domain.local -ResetCredential -ResetConnectionStatus -DisableBadCredentialCache</pre>
+<p>This will give us a fresh start with this server and cause dbatools to try and authenticate again, resulting in a good connection object. Also using the -DisableBadCredentialCache flag we can stop it from caching bad credentials while we debug our access issues.</p>
+<p>Check out the <a href="https://docs.dbatools.io/#Set-DbaCmConnection">Set-DbaCmConnection help page</a> for further information.</p>
+<p>&#045; Gareth <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f1ec-1f1e7.png" alt="🇬🇧" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/reset-credentials-cached-connection/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">9634</post-id>	</item>
+	</channel>
+</rss>

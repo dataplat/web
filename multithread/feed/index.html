@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	
+	>
+<channel>
+	<title>
+	Comments on: multithreading commands	</title>
+	<atom:link href="https://dbatools.io/multithread/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/multithread/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Tue, 06 Aug 2019 16:08:32 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+			<item>
+				<title>
+				By: Kin				</title>
+				<link>https://dbatools.io/multithread/#comment-69963</link>
+		<dc:creator><![CDATA[Kin]]></dc:creator>
+		<pubDate>Tue, 06 Aug 2019 16:08:32 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9344#comment-69963</guid>
+					<description><![CDATA[@Divya - sorry for replying late. 
+
+You can have a text file containing a list of servers or you can just query a central database and generate a list of servers that you want to query using multithreading.]]></description>
+		<content:encoded><![CDATA[<p>@Divya &#8211; sorry for replying late. </p>
+<p>You can have a text file containing a list of servers or you can just query a central database and generate a list of servers that you want to query using multithreading.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: divya				</title>
+				<link>https://dbatools.io/multithread/#comment-68865</link>
+		<dc:creator><![CDATA[divya]]></dc:creator>
+		<pubDate>Tue, 16 Jul 2019 10:59:47 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9344#comment-68865</guid>
+					<description><![CDATA[Is servers list is must to multi thread?]]></description>
+		<content:encoded><![CDATA[<p>Is servers list is must to multi thread?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Kin				</title>
+				<link>https://dbatools.io/multithread/#comment-40326</link>
+		<dc:creator><![CDATA[Kin]]></dc:creator>
+		<pubDate>Tue, 08 Jan 2019 14:30:57 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9344#comment-40326</guid>
+					<description><![CDATA[I see what you are saying. I am not sure how you can get the timing of individual jobs. You may want to file an enhancement at https://github.com/proxb/PoshRSJob/issues .]]></description>
+		<content:encoded><![CDATA[<p>I see what you are saying. I am not sure how you can get the timing of individual jobs. You may want to file an enhancement at <a href="https://github.com/proxb/PoshRSJob/issues" rel="nofollow ugc">https://github.com/proxb/PoshRSJob/issues</a> .</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Seth				</title>
+				<link>https://dbatools.io/multithread/#comment-40004</link>
+		<dc:creator><![CDATA[Seth]]></dc:creator>
+		<pubDate>Mon, 07 Jan 2019 13:40:28 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9344#comment-40004</guid>
+					<description><![CDATA[Kin,
+
+Thank you for the tip. I might not be using it correctly, however.  For instance:
+
+Measure-Command {
+  Start-RSJob ... {
+    My script here...
+  }
+}
+
+This just gives me how long it takes to get started, or rather, how long it takes to just execute the Start-RSJob command.  After this command is complete, there are still jobs that have not yet finished, and I would like to know how long it takes all the started jobs to complete.  Putting Measure-Command inside Start-RSJob just results in how long it takes each parallel command to complete. While I could sum this information, the problem is that I then don&#039;t see the output of the script I originally created.
+
+Hope that makes sense!
+
+Seth]]></description>
+		<content:encoded><![CDATA[<p>Kin,</p>
+<p>Thank you for the tip. I might not be using it correctly, however.  For instance:</p>
+<p>Measure-Command {<br />
+  Start-RSJob &#8230; {<br />
+    My script here&#8230;<br />
+  }<br />
+}</p>
+<p>This just gives me how long it takes to get started, or rather, how long it takes to just execute the Start-RSJob command.  After this command is complete, there are still jobs that have not yet finished, and I would like to know how long it takes all the started jobs to complete.  Putting Measure-Command inside Start-RSJob just results in how long it takes each parallel command to complete. While I could sum this information, the problem is that I then don&#8217;t see the output of the script I originally created.</p>
+<p>Hope that makes sense!</p>
+<p>Seth</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Harshan				</title>
+				<link>https://dbatools.io/multithread/#comment-39383</link>
+		<dc:creator><![CDATA[Harshan]]></dc:creator>
+		<pubDate>Sat, 05 Jan 2019 00:19:46 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9344#comment-39383</guid>
+					<description><![CDATA[Kin,
+Really good article! While I don’t get deep into the technical details, this is highly valuable information to lot of the tech folks. I’ll be sure to share this with some of the tech community I know. Keep sharing and great to see your continued passion in what you do!
+
+Harshan]]></description>
+		<content:encoded><![CDATA[<p>Kin,<br />
+Really good article! While I don’t get deep into the technical details, this is highly valuable information to lot of the tech folks. I’ll be sure to share this with some of the tech community I know. Keep sharing and great to see your continued passion in what you do!</p>
+<p>Harshan</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Kin				</title>
+				<link>https://dbatools.io/multithread/#comment-39366</link>
+		<dc:creator><![CDATA[Kin]]></dc:creator>
+		<pubDate>Fri, 04 Jan 2019 21:54:47 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9344#comment-39366</guid>
+					<description><![CDATA[Hi Seth,
+
+Glad you liked it. For measuring the execution, you can use 
+
+`Measure-Command {
+## your script here !
+}`]]></description>
+		<content:encoded><![CDATA[<p>Hi Seth,</p>
+<p>Glad you liked it. For measuring the execution, you can use </p>
+<p>`Measure-Command {<br />
+## your script here !<br />
+}`</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Seth				</title>
+				<link>https://dbatools.io/multithread/#comment-39359</link>
+		<dc:creator><![CDATA[Seth]]></dc:creator>
+		<pubDate>Fri, 04 Jan 2019 20:56:37 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9344#comment-39359</guid>
+					<description><![CDATA[Hi, Kin,
+
+Thank you for showing this to us.  I have seen improvements already!
+
+I&#039;m wondering how you got the timed test results of the sequential executions versus the PoshRSJobs executions?
+
+Thanks!]]></description>
+		<content:encoded><![CDATA[<p>Hi, Kin,</p>
+<p>Thank you for showing this to us.  I have seen improvements already!</p>
+<p>I&#8217;m wondering how you got the timed test results of the sequential executions versus the PoshRSJobs executions?</p>
+<p>Thanks!</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

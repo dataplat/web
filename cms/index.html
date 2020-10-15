@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>managing central management server &ndash; dbatools</title>
+<link rel="dns-prefetch" href="//secure.gravatar.com">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//use.fontawesome.com">
+
+<link rel="alternate" type="application/rss+xml" title="dbatools &raquo; Feed" href="https://dbatools.io/feed/">
+<link rel="alternate" type="application/rss+xml" title="dbatools &raquo; Comments Feed" href="https://dbatools.io/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="dbatools &raquo; managing central management server Comments Feed" href="https://dbatools.io/cms/feed/">
+<link rel="stylesheet" id="wp-block-library-css" href="https://c0.wp.com/c/5.3.4/wp-includes/css/dist/block-library/style.min.css" type="text/css" media="all">
+<style id="wp-block-library-inline-css" type="text/css">
+.has-text-align-justify{text-align:justify;}
+</style>
+<link rel="stylesheet" id="cpsh-shortcodes-css" href="https://dbatools.io/wp-content/plugins/column-shortcodes//assets/css/shortcodes.css?ver=1.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-fonts-css" href="https://fonts.googleapis.com/css?family=Raleway%3A400%2C500%2C600%2C700%2C300%2C100%2C800%2C900%7COpen+Sans%3A400%2C300%2C300italic%2C400italic%2C600%2C600italic%2C700%2C700italic&amp;subset=latin%2Clatin-ext&amp;ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-animate-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/animate.min.css?ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-fa-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/font-awesome.min.css?ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-bootstrap-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/bootstrap.min.css?ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-style-css" href="https://dbatools.io/wp-content/plugins/onepress-plus/style.css?ver=10.1.8" type="text/css" media="all">
+<style id="onepress-style-inline-css" type="text/css">
+#main .video-section section.hero-slideshow-wrapper{background:transparent}.hero-slideshow-wrapper:after{position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(1,36,86,1);display:block;content:""}.body-desktop .parallax-hero .hero-slideshow-wrapper:after{display:none!important}.parallax-hero .parallax-mirror:after{position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(1,36,86,1);display:block;content:""}.body-desktop .parallax-hero .hero-slideshow-wrapper:after{display:none!important}.parallax-hero .parallax-mirror:after{position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(1,36,86,1);display:block;content:""}a,.screen-reader-text:hover,.screen-reader-text:active,.screen-reader-text:focus,.header-social a,.onepress-menu a:hover,.onepress-menu ul li a:hover,.onepress-menu li.onepress-current-item>a,.onepress-menu ul li.current-menu-item>a,.onepress-menu>li a.menu-actived,.onepress-menu.onepress-menu-mobile li.onepress-current-item>a,.site-footer a,.site-footer .footer-social a:hover,.site-footer .btt a:hover,.highlight,#comments .comment .comment-wrapper .comment-meta .comment-time:hover,#comments .comment .comment-wrapper .comment-meta .comment-reply-link:hover,#comments .comment .comment-wrapper .comment-meta .comment-edit-link:hover,.btn-theme-primary-outline,.sidebar .widget a:hover,.section-services .service-item .service-image i,.counter_item .counter__number,.team-member .member-thumb .member-profile a:hover,.icon-background-default{color:#012456}input[type="reset"],input[type="submit"],input[type="submit"],.nav-links a:hover,.btn-theme-primary,.btn-theme-primary-outline:hover,.card-theme-primary,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button,.woocommerce button.button.alt{background:#012456}.btn-theme-primary-outline,.btn-theme-primary-outline:hover,.pricing__item:hover,.card-theme-primary,.entry-content blockquote{border-color:#012456}.site-header{background:#e3e3e3;border-bottom:0px none}.onepress-menu>li>a{color:#293955}.onepress-menu>li>a:hover,.onepress-menu>li.onepress-current-item>a{color:#444444;-webkit-transition:all 0.5s ease-in-out;-moz-transition:all 0.5s ease-in-out;-o-transition:all 0.5s ease-in-out;transition:all 0.5s ease-in-out}#nav-toggle span,#nav-toggle span::before,#nav-toggle span::after,#nav-toggle.nav-is-visible span::before,#nav-toggle.nav-is-visible span::after{background:#293955}.site-footer{background-color:#012456}.site-footer .footer-connect .follow-heading{color:rgba(255,255,255,0.9)}.site-footer .site-info,.site-footer .btt a{background-color:#545454}.site-footer .site-info{color:rgba(255,255,255,0.7)}.site-footer .btt a,.site-footer .site-info a{color:rgba(255,255,255,0.9)}.gallery-carousel .g-item{padding:0px 10px}.gallery-carousel{margin-left:-10px;margin-right:-10px}.gallery-grid .g-item,.gallery-masonry .g-item .inner{padding:10px}.gallery-grid,.gallery-masonry{margin:-10px}
+/* --- Begin custom CSS --- */
+.section-testimonials .card { max-width : 140px; }
+/* --- End custom CSS --- */
+
+ .section-features{ background-color: rgba(227,227,227,1); } 
+ 
+</style>
+<link rel="stylesheet" id="onepress-gallery-lightgallery-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/lightgallery.css?ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="upw_theme_standard-css" href="https://dbatools.io/wp-content/plugins/ultimate-posts-widget/css/upw-theme-standard.min.css?ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-official-css" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" media="all" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+<link rel="stylesheet" id="onepress-child-style-css" href="https://dbatools.io/wp-content/themes/onepress/style.css?ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="sccss_style-css" href="https://dbatools.io/?sccss=1&amp;ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-official-v4shim-css" href="https://use.fontawesome.com/releases/v5.11.2/css/v4-shims.css" type="text/css" media="all" integrity="sha384-/EdpJd7d6gGFiQ/vhh7iOjiZdf4+6K4al/XrX6FxxZwDSrAdWxAynr4p/EA/vyPQ" crossorigin="anonymous">
+<style id="font-awesome-official-v4shim-inline-css" type="text/css">
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.svg#fontawesome") format("svg");
+}
+
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.svg#fontawesome") format("svg");
+}
+
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.svg#fontawesome") format("svg");
+unicode-range: U+F004-F005,U+F007,U+F017,U+F022,U+F024,U+F02E,U+F03E,U+F044,U+F057-F059,U+F06E,U+F070,U+F075,U+F07B-F07C,U+F080,U+F086,U+F089,U+F094,U+F09D,U+F0A0,U+F0A4-F0A7,U+F0C5,U+F0C7-F0C8,U+F0E0,U+F0EB,U+F0F3,U+F0F8,U+F0FE,U+F111,U+F118-F11A,U+F11C,U+F133,U+F144,U+F146,U+F14A,U+F14D-F14E,U+F150-F152,U+F15B-F15C,U+F164-F165,U+F185-F186,U+F191-F192,U+F1AD,U+F1C1-F1C9,U+F1CD,U+F1D8,U+F1E3,U+F1EA,U+F1F6,U+F1F9,U+F20A,U+F247-F249,U+F24D,U+F254-F25B,U+F25D,U+F267,U+F271-F274,U+F279,U+F28B,U+F28D,U+F2B5-F2B6,U+F2B9,U+F2BB,U+F2BD,U+F2C1-F2C2,U+F2D0,U+F2D2,U+F2DC,U+F2ED,U+F328,U+F358-F35B,U+F3A5,U+F3D1,U+F410,U+F4AD;
+}
+</style>
+<link rel="stylesheet" id="jetpack_css-css" href="https://c0.wp.com/p/jetpack/8.4.2/css/jetpack.css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var onepress_js_settings = {"onepress_disable_animation":"1","onepress_disable_sticky_header":"1","onepress_vertical_align_menu":"0","hero_animation":"flipInX","hero_speed":"5000000","is_home":"","gallery_enable":"1"};
+var OnePress_Plus = {"ajax_url":"https:\/\/dbatools.io\/wp-admin\/admin-ajax.php","browser_warning":" Your browser does not support the video tag. I suggest you upgrade your browser."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/c/5.3.4/wp-includes/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="https://c0.wp.com/c/5.3.4/wp-includes/js/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/related-posts/related-posts.min.js"></script>
+
+
+<link rel="prev" title="simplifying snapshots" href="https://dbatools.io/snapshots/">
+<link rel="next" title="default parameter values" href="https://dbatools.io/defaults/">
+
+
+<link rel="alternate" type="application/json+oembed" href="https://dbatools.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdbatools.io%2Fcms%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://dbatools.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdbatools.io%2Fcms%2F&amp;format=xml">
+
+<link rel="dns-prefetch" href="//v0.wordpress.com">
+<link rel="dns-prefetch" href="//widgets.wp.com">
+<link rel="dns-prefetch" href="//s0.wp.com">
+<link rel="dns-prefetch" href="//0.gravatar.com">
+<link rel="dns-prefetch" href="//1.gravatar.com">
+<link rel="dns-prefetch" href="//2.gravatar.com">
+<link rel="dns-prefetch" href="//i0.wp.com">
+<link rel="dns-prefetch" href="//i1.wp.com">
+<link rel="dns-prefetch" href="//i2.wp.com">
+<link rel="dns-prefetch" href="//c0.wp.com">
+<link rel="dns-prefetch" href="//jetpack.wordpress.com">
+<link rel="dns-prefetch" href="//s1.wp.com">
+<link rel="dns-prefetch" href="//s2.wp.com">
+<link rel="dns-prefetch" href="//public-api.wordpress.com">
+<style type="text/css">img#wpstats{display:none}</style><link rel="canonical" href="https://dbatools.io/cms/">
+			<style type="text/css">
+				/* If html does not have either class, do not show lazy loaded images. */
+				html:not( .jetpack-lazy-images-js-enabled ):not( .js ) .jetpack-lazy-image {
+					display: none;
+				}
+			</style>
+			<script>
+				document.documentElement.classList.add(
+					'jetpack-lazy-images-js-enabled'
+				);
+			</script>
+		
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="managing central management server">
+<meta property="og:url" content="https://dbatools.io/cms/">
+<meta property="og:description" content="SQL Server&rsquo;s Central Management Server (CMS), first introduced in SQL Server 2008, &ldquo;stores a list of instances of SQL Server that is organized into one or more central management server&hellip;">
+<meta property="article:published_time" content="2018-07-11T12:47:13+00:00">
+<meta property="article:modified_time" content="2019-06-28T14:41:04+00:00">
+<meta property="og:site_name" content="dbatools">
+<meta property="og:image" content="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/cms.png?fit=569%2C669&amp;ssl=1">
+<meta property="og:image:width" content="569">
+<meta property="og:image:height" content="669">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:text:title" content="managing central management server">
+<meta name="twitter:image" content="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/cms.png?fit=569%2C669&amp;ssl=1&amp;w=640">
+<meta name="twitter:card" content="summary_large_image">
+
+
+<link rel="icon" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&amp;ssl=1" sizes="32x32">
+<link rel="icon" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1">
+<meta name="msapplication-TileImage" content="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1">
+
+<style class="wp-typography-print-styles" type="text/css">
+body, body p { 
+	font-style: normal;
+	text-transform: none;
+ } 
+ .onepress-menu a { 
+	font-style: normal;
+	text-transform: none;
+ } 
+ body h1, body h2, body h3, body h4, body h5, body h6,
+    body .section-title-area .section-title, body .section-title-area .section-subtitle, body .hero-content-style1 h2 { 
+	font-style: normal;
+	text-transform: none;
+ }
+</style>
+			<style type="text/css" id="wp-custom-css">
+				/*
+Welcome to Custom CSS!
+
+To learn how this works, see http://wp.me/PEmnE-Bt
+*/			</style>
+		</head>
+
+<body class="post-template-default single single-post postid-7887 single-format-standard wp-custom-logo group-blog no-sticky-header">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+            <header id="masthead" class="site-header" role="banner">
+            <div class="container">
+                <div class="site-branding">
+                <div class="site-brand-inner has-logo-img no-desc"><div class="site-logo-div"><a href="https://dbatools.io/" class="custom-logo-link" rel="home"><img width="223" height="64" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2016/05/dbatools-logo-1.png?fit=223%2C64&amp;ssl=1" class="custom-logo jetpack-lazy-image" alt="dbatools" data-lazy-src="https://i0.wp.com/dbatools.io/wp-content/uploads/2016/05/dbatools-logo-1.png?fit=223%2C64&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "></a></div></div>                </div>
+                
+
+                <div class="header-right-wrapper">
+                    <a href="#0" id="nav-toggle">Menu<span></span></a>
+                    <nav id="site-navigation" class="main-navigation" role="navigation">
+                        <ul class="onepress-menu">
+                            <li id="menu-item-1452" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1452"><a href="https://dbatools.io/download/">&#11015; download</a>
+<ul class="sub-menu">
+	<li id="menu-item-1451" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1451"><a href="https://dbatools.io/getting-started/">get started</a></li>
+</ul>
+</li>
+<li id="menu-item-1453" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1453"><a href="https://dbatools.io/commands/">&#128640; commands</a></li>
+<li id="menu-item-8268" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8268"><a href="https://dbatools.io/docs">&#128209; docs</a>
+<ul class="sub-menu">
+	<li id="menu-item-8270" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8270"><a href="https://dbatools.io/blog">blog</a></li>
+</ul>
+</li>
+<li id="menu-item-1456" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1456"><a href="https://dbatools.io/team/">&#129395; team</a>
+<ul class="sub-menu">
+	<li id="menu-item-3315" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3315"><a href="https://dbatools.io/contributing">contribute</a></li>
+	<li id="menu-item-3123" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3123"><a href="https://dbatools.io/contact/">contact</a></li>
+	<li id="menu-item-3116" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3116"><a href="https://dbatools.io/git">find us</a>
+	<ul class="sub-menu">
+		<li id="menu-item-4663" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4663"><a href="https://dbatools.io/slack">slack</a></li>
+		<li id="menu-item-4662" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4662"><a href="https://dbatools.io/github">github</a></li>
+		<li id="menu-item-4664" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4664"><a href="https://dbatools.io/twitter">twitter</a></li>
+		<li id="menu-item-4665" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4665"><a href="https://dbatools.io/youtube">youtube</a></li>
+		<li id="menu-item-4666" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4666"><a href="https://dbatools.io/linkedin">linkedin</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-3340" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3340"><a href="https://dbatools.io/subscribe/">&#128140; subscribe</a></li>
+<li id="menu-item-6587" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6587"><a href="https://dbatools.io/builds">&#10004; build ref</a></li>
+<li id="menu-item-9781" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9781"><a href="https://dbatools.io/sponsorship/">&#128149; sponsor</a></li>
+<li id="menu-item-9994" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9994"><a href="https://dbatools.io/book">&#128216; book</a></li>
+                        </ul>
+                    </nav>
+                    
+                </div>
+            </div>
+        </header>
+        
+	<div id="content" class="site-content">
+
+		
+		<div id="content-inside" class="container right-sidebar">
+			<div id="primary" class="content-area">
+				<main id="main" class="site-main" role="main">
+
+				
+					
+<article id="post-7887" class="post-7887 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements tag-cms">
+	<header class="entry-header">
+		<h1 class="entry-title">managing central management server</h1>
+		<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="https://dbatools.io/cms/" rel="bookmark"><time class="entry-date published" datetime="2018-07-11T12:47:13+00:00">July 11, 2018</time><time class="updated hide" datetime="2019-06-28T14:41:04+00:00">June 28, 2019</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://dbatools.io/author/admin/">Chrissy LeMaire</a></span></span>		</div>
+	</header>
+
+	<div class="entry-content">
+		<p>SQL Server&rsquo;s <a href="https://www.red-gate.com/simple-talk/sql/sql-tools/registered-servers-and-central-management-server-stores/">Central Management Server</a> (CMS), first introduced in SQL Server 2008, &ldquo;stores a list of instances of SQL Server that is organized into one or more central management server groups&rdquo;.</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/cms.png?ssl=1"><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/cms.png?resize=569%2C669&amp;ssl=1" alt width="569" height="669" class="aligncenter size-full wp-image-7890 jetpack-lazy-image" data-recalc-dims="1" data-lazy-srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/cms.png?w=569&amp;ssl=1 569w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/cms.png?resize=255%2C300&amp;ssl=1 255w" data-lazy-sizes="(max-width: 569px) 100vw, 569px" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/cms.png?resize=569%2C669&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/cms.png?resize=569%2C669&amp;ssl=1" alt="" width="569" height="669" class="aligncenter size-full wp-image-7890" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/cms.png?w=569&amp;ssl=1 569w,https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/cms.png?resize=255%2C300&amp;ssl=1 255w" sizes="(max-width: 569px) 100vw, 569px" data-recalc-dims="1"></noscript></a></p>
+<p>It&rsquo;s a super useful feature that not all DBAs know about. Since CMS data is stored in msdb and accessible via SMO, you can access it from SQL Server Management Studio or PowerShell modules like dbatools.</p>
+<p>Central Management Server&rsquo;s <a href="https://docs.microsoft.com/en-us/sql/ssms/register-servers/create-a-central-management-server-and-server-group">essential functionality</a> includes:</p>
+<blockquote><p>
+  Actions that are taken by using a central management server group act on all servers in the server group. This includes connecting to servers by using Object Explorer and executing Transact-SQL statements and Policy-Based Management policies on multiple servers at the same time.
+</p></blockquote>
+<p>I mostly use it as a visual repository of my SQL Servers. Prior to using dbatools and Invoke-DbaQuery, however, I did use CMS to easily execute code against a number of different servers.</p>
+<h2>Server grouping</h2>
+<p>The screenshot above is a sample representation of how SQL Servers can be divided into groups. I generally organize by department, but as <a href="https://twitter.com/ClaudioESSilva">Cl&aacute;udio Silva</a> pointed out, it&rsquo;s useful to organize by version when performing migrations. I&rsquo;ve done that as well.</p>
+<p>And because a SQL Server can be listed multiple times within different groups, my buddy Brandon created an automated system that divided by both Application and assigned DBA. Too cool! In this example from <a href="https://www.sqlmatters.com/Articles/RegisteredServersvsCentralManagementServers.aspx">sqlmatters.com</a>, their servers are divided up by environment.</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/Registered-Servers-and-Central-Management-Servers-1.jpg?ssl=1"><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/Registered-Servers-and-Central-Management-Servers-1.jpg?resize=400%2C600&amp;ssl=1" alt width="400" height="600" class="aligncenter size-full wp-image-7899 jetpack-lazy-image" data-recalc-dims="1" data-lazy-srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/Registered-Servers-and-Central-Management-Servers-1.jpg?w=400&amp;ssl=1 400w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/Registered-Servers-and-Central-Management-Servers-1.jpg?resize=200%2C300&amp;ssl=1 200w" data-lazy-sizes="(max-width: 400px) 100vw, 400px" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/Registered-Servers-and-Central-Management-Servers-1.jpg?resize=400%2C600&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/Registered-Servers-and-Central-Management-Servers-1.jpg?resize=400%2C600&amp;ssl=1" alt="" width="400" height="600" class="aligncenter size-full wp-image-7899" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/Registered-Servers-and-Central-Management-Servers-1.jpg?w=400&amp;ssl=1 400w,https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/Registered-Servers-and-Central-Management-Servers-1.jpg?resize=200%2C300&amp;ssl=1 200w" sizes="(max-width: 400px) 100vw, 400px" data-recalc-dims="1"></noscript></a></p>
+<p>But wait. The screenshot also shows Registered Servers. What are those?</p>
+<h2>Registered Servers vs Central Management Servers</h2>
+<p>The article <a href="https://www.sqlmatters.com/Articles/RegisteredServersvsCentralManagementServers.aspx">Registered Servers vs Central Management Servers</a> lays out the differences in a straightforward manner.</p>
+<h4>Registered Servers</h4>
+<ul>
+<li>Connection data is stored locally in an XML file (passwords are encrypted) in the user path. </li>
+<li>Because it is a local file with encrypted data, Registered Servers are local and only work for the user that created them.</li>
+<li>Can be used with SQL Server Authentication or Windows Authentication.</li>
+<li>Can be used for the database engine, SSAS, SSIS and SSRS.</li>
+</ul>
+<h4>Central Management Servers</h4>
+<ul>
+<li>Connection data is stored in a central SQL Server (in the msdb database), and can be used by other users.</li>
+<li>Can be used with Windows Authentication only.</li>
+<li>Can be used for the database engine only.</li>
+</ul>
+<p>I work primarily in environments where Windows Authentication works for all of my servers, so I haven&rsquo;t used Registered Servers in years. I also appreciate that my list of servers within CMS is backed up each day because it&rsquo;s stored in msdb. And, it&rsquo;s easily accessible through both SQL Server Management Studio and PowerShell.</p>
+<h2>dbatools commands</h2>
+<p>We have a number of commands to help manage CMS! We even updated our command names after this blog post came out,</p>
+<h3>Get-DbaRegServer</h3>
+<p>Gets list of SQL Server objects stored in SQL Server Central Management Server.</p>
+<p><a href="https://dbatools.io/wp-content/uploads/2018/07/img_5b4670e0cd968-full.png?ssl=1"><img alt class="alignnone size-full wp-image-7926 aligncenter jetpack-lazy-image" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b4670e0cd968.png?w=800&amp;ssl=1" data-recalc-dims="1" data-lazy-src="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b4670e0cd968.png?w=800&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" class="alignnone size-full wp-image-7926 aligncenter" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b4670e0cd968.png?w=800&amp;ssl=1" data-recalc-dims="1"></noscript></a></p>
+<pre class="lang:ps decode:true "># Here's how you get a list of all servers stored on the CMS instance on sql2008. 
+# Note that this list is pipable to all dbatools commands
+Get-DbaRegServer -SqlInstance sql2008
+
+# Pipe all the results to another dbatools command
+Get-DbaRegServer -SqlInstance sql2008 | Get-DbaLastBackup
+
+# Get all registered servers in the group "Production"
+Get-DbaRegServer -SqlInstance sql2008 -Group Production
+
+# Get all registered servers in the subgroup "HR" within "Production"
+Get-DbaRegServer -SqlInstance sql2008 -Group Production\HR</pre>
+<h3>Add-DbaRegServer</h3>
+<p>Adds registered servers to SQL Server Central Management Server.</p>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b4668c7bc3e9-full.png?ssl=1"><img alt class="alignnone size-full wp-image-7917 aligncenter jetpack-lazy-image" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b4668c7bc3e9.png?w=800&amp;ssl=1" data-recalc-dims="1" data-lazy-src="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b4668c7bc3e9.png?w=800&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" class="alignnone size-full wp-image-7917 aligncenter" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b4668c7bc3e9.png?w=800&amp;ssl=1" data-recalc-dims="1"></noscript></a></p>
+<pre class="lang:ps decode:true "># To create a registered server on sql2008's CMS which points to the SQL Server, sql01. 
+# When scrolling in CMS, the name "sql01" will be visible.
+Add-DbaRegServer -SqlInstance sql2008 -ServerName sql01
+
+#  To create a registered server on sql2008's CMS which points to the SQL Server, sql01. 
+# When scrolling in CMS, "The 2008 Clustered Instance" will be visible.
+Add-DbaRegServer -SqlInstance sql2008 -ServerName sql01 -Name "The 2008 Clustered Instance" -Description "HR's Dedicated SharePoint instance"
+
+# To create a registered server on sql2008's CMS which points to the SQL Server, sql01. 
+# When scrolling in CMS, the name "sql01" will be visible within the Seattle group which is in the hr group.
+Add-DbaRegServer -SqlInstance sql2008 -ServerName sql01 -Group hr\Seattle</pre>
+<h3>Add-DbaRegServerGroup</h3>
+<p>Adds registered server groups to SQL Server Central Management Server.</p>
+<pre class="lang:ps decode:true "># To create a registered server group called HR, in the root of sql2012's CMS
+Add-DbaRegServerGroup -SqlInstance sql2012 -Name HR
+
+# To create a registered server group on sql2012 and sql2014 called subfolder within the HR group
+Add-DbaRegServerGroup -SqlInstance sql2012, sql2014 -Name subfolder -Group HR
+
+# To create a registered server group on sql2012 and sql2014 called subfolder within the HR group of each server
+Get-DbaRegServerGroup -SqlInstance sql2012, sql2014 -Group HR | Add-DbaRegServerGroup -Name subfolder</pre>
+<h3>Export-DbaRegServer</h3>
+<p>Exports Central Management Server registered servers and registered server groups to file.</p>
+<p><a href="https://dbatools.io/wp-content/uploads/2018/07/img_5b46694e4c014-full.png?ssl=1"><img alt class="alignnone size-full wp-image-7920 aligncenter jetpack-lazy-image" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b46694e4c014.png?w=800&amp;ssl=1" data-recalc-dims="1" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b46694e4c014.png?w=800&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" class="alignnone size-full wp-image-7920 aligncenter" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b46694e4c014.png?w=800&amp;ssl=1" data-recalc-dims="1"></noscript></a></p>
+<pre class="lang:ps decode:true "># To export all Registered Server and Registered Server Groups on sql2008 to an automatically generated file name in the current directory
+Export-DbaRegServer -SqlInstance sql2008
+
+# To export all Registered Server and Registered Server Groups with the Seattle group within the HR group on sql2008 to C:\temp\Seattle.xml
+Export-DbaRegServer -SqlInstance sql2008 -Group hr\Seattle -Path C:\temp\Seattle.xml
+
+# To export all registered servers on sql2008 and sql2012. Warning - each one will have its own individual file. Consider piping groups.
+Get-DbaRegServer -SqlInstance sql2008, sql2012 | Export-DbaRegServer
+
+# To export all registered servers on sql2008 and sql2012, organized by group.
+Get-DbaRegServerGroup -SqlInstance sql2008, sql2012 | Export-DbaRegServer</pre>
+<h3>Get-DbaRegServerGroup</h3>
+<p>Gets list of Server Groups objects stored in SQL Server Central Management Server.</p>
+<pre class="lang:ps decode:true "># This is more of a helper command that will return a RegisteredServerGroup object
+Get-DbaRegServerGroup -SqlInstance sql2008 -Group Production\HR</pre>
+<h3>Get-DbaRegServerStore</h3>
+<p>Gets list of Server Groups objects stored in SQL Server Central Management Server.</p>
+<pre class="lang:ps decode:true "># This is more of a helper command that will return a RegisteredServerStore object
+Get-DbaRegServerStore -SqlInstance sql2008</pre>
+<h3>Import-DbaRegServer</h3>
+<p>Gets list of Server Groups objects stored in SQL Server Central Management Server.</p>
+<p><a href="https://dbatools.io/wp-content/uploads/2018/07/img_5b46702b5eb54-full.png?ssl=1"><img alt class="alignnone size-full wp-image-7923 aligncenter jetpack-lazy-image" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b46702b5eb54.png?w=800&amp;ssl=1" data-recalc-dims="1" data-lazy-src="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b46702b5eb54.png?w=800&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" class="alignnone size-full wp-image-7923 aligncenter" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b46702b5eb54.png?w=800&amp;ssl=1" data-recalc-dims="1"></noscript></a></p>
+<pre class="lang:ps decode:true "># To import C:\temp\corp-regservers.xml to the CMS on sql2012
+Import-DbaRegServer -SqlInstance sql2012 -Path C:\temp\corp-regservers.xml
+
+# To import C:\temp\Seattle.xml to Seattle subgroup within the hr group on sql2008
+Import-DbaRegServer -SqlInstance sql2008 -Group hr\Seattle -Path C:\temp\Seattle.xml
+
+# To import all registered servers from sql2008 and sql2012 to sql2017
+Get-DbaRegServer -SqlInstance sql2008, sql2012 | Import-DbaRegServer -SqlInstance sql2017
+
+# To import all registered servers from the hr\Seattle group on sql2008 to the Seattle group on sql2017
+Get-DbaRegServerGroup -SqlInstance sql2008 -Group hr\Seattle | Import-DbaRegServer -SqlInstance sql2017 -Group Seattle</pre>
+<h3>Move-DbaRegServer</h3>
+<p>Moves registered server groups around SQL Server Central Management Server. This could be useful during migrations.</p>
+<pre class="lang:ps decode:true "># To move the registered server on sql2012 titled 'Web SQL Cluster' to the Prod group within the HR group
+Move-DbaRegServer -SqlInstance sql2012 -Name 'Web SQL Cluster' -NewGroup HR\Prod</pre>
+<h3>Move-DbaRegServerGroup</h3>
+<p>Removes registered servers found in SQL Server Central Management Server.</p>
+<pre class="lang:ps decode:true "># To move the Development group within HR to the Prod group within AD
+Move-DbaRegServerGroup -SqlInstance sql2012 -Group HR\Development -NewGroup AD\Prod</pre>
+<h3>Remove-DbaRegServer</h3>
+<p>Removes registered servers found in SQL Server Central Management Server.</p>
+<pre class="lang:ps decode:true "># To remove all servers from the HR and Accounting groups on sql2012
+Remove-DbaRegServer -SqlInstance sql2012 -Group HR, Accounting
+
+# To remove all servers from the HR and sub-group Development from the CMS on sql2012.
+Remove-DbaRegServer -SqlInstance sql2012 -Group HR\Development
+
+# To remove all registered servers on sql2012 and turns off all prompting
+Remove-DbaRegServer -SqlInstance sql2012 -Confirm:$false</pre>
+<h3>Remove-DbaRegServerGroup</h3>
+<p>Removes registered server groups found in SQL Server Central Management Server.</p>
+<pre class="lang:ps decode:true "># To remove the HR and Accounting groups on sql2012
+Remove-DbaRegServerGroup -SqlInstance sql2012 -Group HR, Accounting
+
+# To remove the Development subgroup within the HR group on sql2012 and turns off all prompting
+Remove-DbaRegServerGroup -SqlInstance sql2012 -Group HR\Development -Confirm:$false</pre>
+<h2>&#127775;&#127775;&#127775;&#127775;&#127775; would use again</h2>
+<p>CMS is a longtime favorite of mine and I&rsquo;d like to give a shoutout to <a href="https://www.linkedin.com/in/bryan-hamby-92110016/">Bryan Hamby</a> for helping make dbatools commands compatible with Central Management Server.</p>
+<p>In case you missed it in the sea of code above, you can pipe a collection of servers right from CMS. Here&rsquo;s how you&rsquo;d find all running agent jobs in your estate, if you stored all of your SQL Servers in the CMS on sql2008.</p>
+<pre class="lang:ps decode:true ">Get-DbaRegServer -SqlInstance sql2008 | Get-DbaRunningJob</pre>
+<p>Too cool!</p>
+<p>Happy piping,<br>
+- Chrissy</p>
+<p>Edit: Someone asked what server should be designated as the Central Management Server. A few people on the <a href="https://sqlslack.com">SQL Server Community Slack</a> said they have a dedicated instance, as do I.</p>
+<p>I have a management server where I perform all of my work. If you&rsquo;re interested in a dedicated instance but don&rsquo;t have a license, it works on SQL Server Express Edition &#128077;</p>
+
+<div id="jp-relatedposts" class="jp-relatedposts">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+</div>			</div>
+
+	<footer class="entry-footer">
+		<span class="tags-links">Tagged <a href="https://dbatools.io/tag/cms/" rel="tag">cms</a></span>	</footer>
+</article>
+
+
+					
+<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title">
+			21 thoughts on &ldquo;<span>managing central management server</span>&rdquo;		</h3>
+
+		
+		<ol class="comment-list">
+			    <li class="pingback even thread-even depth-1" id="comment-8658">
+        <p>Pingback: <a href="https://curatedsql.com/2018/07/12/managing-central-management-server-2/" rel="external nofollow ugc" class="url">Managing Central Management Server &ndash; Curated SQL</a> </p>
+    </li>
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-8660">
+        <article id="comment-8660" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/ac0531f3d5b7429bab31cd800987a427?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/ac0531f3d5b7429bab31cd800987a427?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/ac0531f3d5b7429bab31cd800987a427?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/ac0531f3d5b7429bab31cd800987a427?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/ac0531f3d5b7429bab31cd800987a427?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Roberto</b> </cite><a class="comment-time" href="https://dbatools.io/cms/#comment-8660"><time datetime="2018-07-12T12:26:24+00:00">July 12, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=8660#respond" data-commentid="8660" data-postid="7887" data-belowelement="comment-8660" data-respondelement="respond" aria-label="Reply to Roberto">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hi Chrissy</p>
+<p>Very nice functions.<br>
+Did you try to add a few hunderts registered server?<br>
+I receive the following exception<br>
+WARNING: [Get-DbaRegisteredServerGroup] Cannot access Central Management Server &rdquo; | Exception calling &ldquo;Open&rdquo; with &ldquo;0&rdquo;<br>
+argument(s): &ldquo;Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled<br>
+connections were in use and max pool size was reached.&rdquo;</p>
+<p>regards<br>
+roberto</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-admin bypostauthor even depth-2" id="li-comment-8675">
+        <article id="comment-8675" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://blog.netnerds.net" rel="external nofollow ugc" class="url">Chrissy LeMaire</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/cms/#comment-8675"><time datetime="2018-07-12T19:03:54+00:00">July 12, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=8675#respond" data-commentid="8675" data-postid="7887" data-belowelement="comment-8675" data-respondelement="respond" aria-label="Reply to Chrissy LeMaire">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>thanks for the note, Roberto! I have not. Let me test. I have an idea about what it could be.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-admin bypostauthor odd alt depth-3" id="li-comment-8676">
+        <article id="comment-8676" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://blog.netnerds.net" rel="external nofollow ugc" class="url">Chrissy LeMaire</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/cms/#comment-8676"><time datetime="2018-07-12T19:07:35+00:00">July 12, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=8676#respond" data-commentid="8676" data-postid="7887" data-belowelement="comment-8676" data-respondelement="respond" aria-label="Reply to Chrissy LeMaire">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Excellent, I was able to replicate. I&rsquo;ll let you know when I figure out a fix, working on it now.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment byuser comment-author-admin bypostauthor even depth-3" id="li-comment-8682">
+        <article id="comment-8682" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://blog.netnerds.net" rel="external nofollow ugc" class="url">Chrissy LeMaire</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/cms/#comment-8682"><time datetime="2018-07-12T20:48:16+00:00">July 12, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=8682#respond" data-commentid="8682" data-postid="7887" data-belowelement="comment-8682" data-respondelement="respond" aria-label="Reply to Chrissy LeMaire">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Got a PR in, should be released by tomorrow &#128077; <a href="https://github.com/sqlcollaborative/dbatools/pull/3789" rel="nofollow ugc">https://github.com/sqlcollaborative/dbatools/pull/3789</a></p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment byuser comment-author-admin bypostauthor odd alt depth-3" id="li-comment-8683">
+        <article id="comment-8683" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://blog.netnerds.net" rel="external nofollow ugc" class="url">Chrissy LeMaire</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/cms/#comment-8683"><time datetime="2018-07-12T21:31:20+00:00">July 12, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=8683#respond" data-commentid="8683" data-postid="7887" data-belowelement="comment-8683" data-respondelement="respond" aria-label="Reply to Chrissy LeMaire">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>k, in master and the powershell gallery. please update &#128578;</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment even depth-4" id="li-comment-8708">
+        <article id="comment-8708" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/ac0531f3d5b7429bab31cd800987a427?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/ac0531f3d5b7429bab31cd800987a427?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/ac0531f3d5b7429bab31cd800987a427?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/ac0531f3d5b7429bab31cd800987a427?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/ac0531f3d5b7429bab31cd800987a427?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Roberto</b> </cite><a class="comment-time" href="https://dbatools.io/cms/#comment-8708"><time datetime="2018-07-13T06:19:31+00:00">July 13, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=8708#respond" data-commentid="8708" data-postid="7887" data-belowelement="comment-8708" data-respondelement="respond" aria-label="Reply to Roberto">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>excellent, fix works!<br>
+thanks</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+    <li class="comment odd alt thread-even depth-1" id="li-comment-8669">
+        <article id="comment-8669" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/9d592a680f09f12ef5352d3327d08e8f?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/9d592a680f09f12ef5352d3327d08e8f?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/9d592a680f09f12ef5352d3327d08e8f?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/9d592a680f09f12ef5352d3327d08e8f?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/9d592a680f09f12ef5352d3327d08e8f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Jeff</b> </cite><a class="comment-time" href="https://dbatools.io/cms/#comment-8669"><time datetime="2018-07-12T15:17:34+00:00">July 12, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=8669#respond" data-commentid="8669" data-postid="7887" data-belowelement="comment-8669" data-respondelement="respond" aria-label="Reply to Jeff">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>I like to use CentralManagement as an input to retrieve all the versions of sql server in the enterprise&hellip;:</p>
+<p>Get-DbaRegisteredServer -sqlserver &lsquo;CentralManagementServerName&rsquo; | Get-DbaSqlBuildReference -update | format-table -property * -AutoSize | Out-String -Width 500 | out-file c:\temp\dbabuildreference.txt</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-admin bypostauthor even depth-2" id="li-comment-8684">
+        <article id="comment-8684" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://blog.netnerds.net" rel="external nofollow ugc" class="url">Chrissy LeMaire</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/cms/#comment-8684"><time datetime="2018-07-12T21:32:04+00:00">July 12, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=8684#respond" data-commentid="8684" data-postid="7887" data-belowelement="comment-8684" data-respondelement="respond" aria-label="Reply to Chrissy LeMaire">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Nice! I do something similar. Get-DbaSqlBuildReference is so useful</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-55510">
+        <article id="comment-55510" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/71dd5dce5abf7798cebc45c67187ee02?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/71dd5dce5abf7798cebc45c67187ee02?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/71dd5dce5abf7798cebc45c67187ee02?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/71dd5dce5abf7798cebc45c67187ee02?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/71dd5dce5abf7798cebc45c67187ee02?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Shawn</b> </cite><a class="comment-time" href="https://dbatools.io/cms/#comment-55510"><time datetime="2019-03-12T18:09:51+00:00">March 12, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=55510#respond" data-commentid="55510" data-postid="7887" data-belowelement="comment-55510" data-respondelement="respond" aria-label="Reply to Shawn">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Is it possible to copy the servers of a group to another group?</p>
+<p>I tried to pipe a group into add-DbaCmsRegServerGroup and that didn&rsquo;t bring the servers<br>
+Get-DbaCmsRegServerGroup -SqlInstance localhost -group QA\ALL_QA | add-dbacmsregservergroup -sqlinstance localhost -group QA\ALL_QA_SSIS </p>
+<p>I tried to pipe the servers into Add-DbaCmsRegServer<br>
+Get-DbaCmsRegServer -SqlInstance localhost -group QA\ALL_QA | Add-DbaCmsRegServer<br>
+-SqlInstance localhost -Group QA\ALL_QA_SSIS</p>
+<p>Piping servers into Add-DbaCmsRegServer still had me enter a ServerName. If I provided one, then a single server of that name would be added.</p>
+<p>I ended up having to use SSMS to export a group, rename the group in SSMS and then import the file to add the group back with its&rsquo; old name.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment even thread-even depth-1" id="li-comment-67765">
+        <article id="comment-67765" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/ff319588642ba715cd87f0602c7de086?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/ff319588642ba715cd87f0602c7de086?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/ff319588642ba715cd87f0602c7de086?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/ff319588642ba715cd87f0602c7de086?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/ff319588642ba715cd87f0602c7de086?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Paul H</b> </cite><a class="comment-time" href="https://dbatools.io/cms/#comment-67765"><time datetime="2019-06-28T14:33:00+00:00">June 28, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=67765#respond" data-commentid="67765" data-postid="7887" data-belowelement="comment-67765" data-respondelement="respond" aria-label="Reply to Paul H">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hi,</p>
+<p>I just downloaded the dbatools module specifically to work with the central management server commands, only I cannot find them at all.  Have they been removed?  If so, is it possible to get an older version of the tools that does contain these commands?</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="li-comment-67766">
+        <article id="comment-67766" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://blog.netnerds.net" rel="external nofollow ugc" class="url">Chrissy LeMaire</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/cms/#comment-67766"><time datetime="2019-06-28T14:39:42+00:00">June 28, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=67766#respond" data-commentid="67766" data-postid="7887" data-belowelement="comment-67766" data-respondelement="respond" aria-label="Reply to Chrissy LeMaire">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Thanks for your comment, Paul! I need to update this post. They are all there, but now have support for all Registered Server Types so they are have been renamed to RegServer in dbatools 1.0. Just remove the Cms part of the command. I&rsquo;lll also update the post  now.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-67768">
+        <article id="comment-67768" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/ff319588642ba715cd87f0602c7de086?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/ff319588642ba715cd87f0602c7de086?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/ff319588642ba715cd87f0602c7de086?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/ff319588642ba715cd87f0602c7de086?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/ff319588642ba715cd87f0602c7de086?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Paul H</b> </cite><a class="comment-time" href="https://dbatools.io/cms/#comment-67768"><time datetime="2019-06-28T14:51:49+00:00">June 28, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=67768#respond" data-commentid="67768" data-postid="7887" data-belowelement="comment-67768" data-respondelement="respond" aria-label="Reply to Paul H">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Thanks for the quick response Chrissy, now it&rsquo;s working!    &#128578;</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment odd alt thread-even depth-1" id="li-comment-67976">
+        <article id="comment-67976" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/a5dbd215fb1d78033c633e1e282abfba?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/a5dbd215fb1d78033c633e1e282abfba?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a5dbd215fb1d78033c633e1e282abfba?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/a5dbd215fb1d78033c633e1e282abfba?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a5dbd215fb1d78033c633e1e282abfba?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">swapnil</b> </cite><a class="comment-time" href="https://dbatools.io/cms/#comment-67976"><time datetime="2019-07-02T06:29:08+00:00">July 2, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=67976#respond" data-commentid="67976" data-postid="7887" data-belowelement="comment-67976" data-respondelement="respond" aria-label="Reply to swapnil">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>When i am using the file name like  -path &lsquo;c:\temp\export.xml&rsquo; it creates a folder export.xml and puts the autogenerated file sql2008-xxxxxx.xml to it.<br>
+Is it possible to give name what i wanted instead of autogenerated?</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-admin bypostauthor even depth-2" id="li-comment-68002">
+        <article id="comment-68002" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://blog.netnerds.net" rel="external nofollow ugc" class="url">Chrissy LeMaire</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/cms/#comment-68002"><time datetime="2019-07-02T14:20:23+00:00">July 2, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=68002#respond" data-commentid="68002" data-postid="7887" data-belowelement="comment-68002" data-respondelement="respond" aria-label="Reply to Chrissy LeMaire">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>hey swapnil, please use `FilePath` instead of `Path`</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-69327">
+        <article id="comment-69327" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/2f235ec593a0da70b68b4252218ca58f?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/2f235ec593a0da70b68b4252218ca58f?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/2f235ec593a0da70b68b4252218ca58f?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/2f235ec593a0da70b68b4252218ca58f?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/2f235ec593a0da70b68b4252218ca58f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://sqlnerd.figearo.net" rel="external nofollow ugc" class="url">Frank</a></b> </cite><a class="comment-time" href="https://dbatools.io/cms/#comment-69327"><time datetime="2019-07-24T15:45:32+00:00">July 24, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=69327#respond" data-commentid="69327" data-postid="7887" data-belowelement="comment-69327" data-respondelement="respond" aria-label="Reply to Frank">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hi Chrissy,</p>
+<p>How can I omit a subgroup? Neither -ExcludeGroup &lsquo;Group\Subgroup&rsquo; nor -ExcludeGroup &lsquo;SubGroup&rsquo; works.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment even depth-2" id="li-comment-69336">
+        <article id="comment-69336" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/71dd5dce5abf7798cebc45c67187ee02?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/71dd5dce5abf7798cebc45c67187ee02?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/71dd5dce5abf7798cebc45c67187ee02?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/71dd5dce5abf7798cebc45c67187ee02?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/71dd5dce5abf7798cebc45c67187ee02?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Shawn Therrien</b> </cite><a class="comment-time" href="https://dbatools.io/cms/#comment-69336"><time datetime="2019-07-24T20:22:56+00:00">July 24, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=69336#respond" data-commentid="69336" data-postid="7887" data-belowelement="comment-69336" data-respondelement="respond" aria-label="Reply to Shawn Therrien">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>I just tested and exclude group isn&rsquo;t working for me.</p>
+<p>Get-DbaRegisteredServer -SqlInstance localhost -group QA -ExcludeGroup QA\QA_DW<br>
+still shows entries that list &lsquo;QA\QA_DW&rsquo; for group.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+    <li class="comment odd alt thread-even depth-1" id="li-comment-77923">
+        <article id="comment-77923" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/82cecfc08cc00eb518490441661f545f?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/82cecfc08cc00eb518490441661f545f?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/82cecfc08cc00eb518490441661f545f?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/82cecfc08cc00eb518490441661f545f?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/82cecfc08cc00eb518490441661f545f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Subhomoy Chakraborty</b> </cite><a class="comment-time" href="https://dbatools.io/cms/#comment-77923"><time datetime="2019-12-19T09:34:30+00:00">December 19, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=77923#respond" data-commentid="77923" data-postid="7887" data-belowelement="comment-77923" data-respondelement="respond" aria-label="Reply to Subhomoy Chakraborty">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>How can I run same script in multiple server at a time in SQL?</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-79859">
+        <article id="comment-79859" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/571319a23a84559ddac5c9c26012ac22?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/571319a23a84559ddac5c9c26012ac22?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/571319a23a84559ddac5c9c26012ac22?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/571319a23a84559ddac5c9c26012ac22?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/571319a23a84559ddac5c9c26012ac22?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Fabian</b> </cite><a class="comment-time" href="https://dbatools.io/cms/#comment-79859"><time datetime="2020-03-26T09:59:18+00:00">March 26, 2020</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=79859#respond" data-commentid="79859" data-postid="7887" data-belowelement="comment-79859" data-respondelement="respond" aria-label="Reply to Fabian">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hi,<br>
+I&rsquo;d like to use Policy Based Management for a bunch of SQL Server instances.<br>
+Options:<br>
+1- Use CMS to create Conditions &amp; Scheduled Policy.<br>
+    Export/Import to all others instances.<br>
+    Collect policy results in CMS.<br>
+    Create Reports &amp; Alerts using CMS collected data.<br>
+2- Enterprise Policy Management Framework open project.<br>
+3- Anything else?</p>
+<p>Thanks.<br>
+Kind regards,<br>
+Fabian</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment odd alt thread-even depth-1" id="li-comment-80831">
+        <article id="comment-80831" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/1a91db54289cf12553e7bfb7fcfc4976?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/1a91db54289cf12553e7bfb7fcfc4976?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/1a91db54289cf12553e7bfb7fcfc4976?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/1a91db54289cf12553e7bfb7fcfc4976?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/1a91db54289cf12553e7bfb7fcfc4976?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Al</b> </cite><a class="comment-time" href="https://dbatools.io/cms/#comment-80831"><time datetime="2020-06-08T18:01:42+00:00">June 8, 2020</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=80831#respond" data-commentid="80831" data-postid="7887" data-belowelement="comment-80831" data-respondelement="respond" aria-label="Reply to Al">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hey Chrissy,</p>
+<p>Is there a dbaTools command that you are familiar with that will add new target to the SQL Server Agent (MSX)? I tried looking for their docs and couldn&rsquo;t find one.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-admin bypostauthor even depth-2" id="li-comment-80837">
+        <article id="comment-80837" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://blog.netnerds.net" rel="external nofollow ugc" class="url">Chrissy LeMaire</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/cms/#comment-80837"><time datetime="2020-06-09T10:39:22+00:00">June 9, 2020</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/cms/?replytocom=80837#respond" data-commentid="80837" data-postid="7887" data-belowelement="comment-80837" data-respondelement="respond" aria-label="Reply to Chrissy LeMaire">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>No not that I know of. I don&rsquo;t think any of the developers use MSX, sorry</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+		</ol>
+
+		
+	
+	
+	
+		<div id="respond" class="comment-respond">
+							<h3 id="reply-title" class="comment-reply-title">Leave a Reply					<small><a rel="nofollow" id="cancel-comment-reply-link" href="https://dbatools.io/cms/#respond" style="display:none;">Cancel reply</a></small>
+				</h3>
+						<form id="commentform" class="comment-form">
+				<iframe title="Comment Form" src="https://jetpack.wordpress.com/jetpack-comment/?blogid=111052036&amp;postid=7887&amp;comment_registration=0&amp;require_name_email=1&amp;stc_enabled=1&amp;stb_enabled=1&amp;show_avatars=1&amp;avatar_default=mystery&amp;greeting=Leave+a+Reply&amp;greeting_reply=Leave+a+Reply+to+%25s&amp;color_scheme=light&amp;lang=en_US&amp;jetpack_version=8.4.2&amp;show_cookie_consent=10&amp;has_cookie_consent=0&amp;token_key=%3Bnormal%3B&amp;sig=e45537a693f141a30889d9bab4fea0a5990990fc#parent=https%3A%2F%2Fdbatools.io%2Fcms%2F" style="width:100%; height: 430px; border:0;" name="jetpack_remote_comment" class="jetpack_remote_comment" id="jetpack_remote_comment" sandbox="allow-same-origin allow-top-navigation allow-scripts allow-forms allow-popups"></iframe>
+									
+					<script>
+						document.addEventListener('DOMContentLoaded', function () {
+							var commentForms = document.getElementsByClassName('jetpack_remote_comment');
+							for (var i = 0; i < commentForms.length; i++) {
+								commentForms[i].allowTransparency = false;
+								commentForms[i].scrolling = 'no';
+							}
+						});
+					</script>
+					
+							</form>
+		</div>
+
+		
+		<input type="hidden" name="comment_parent" id="comment_parent" value="">
+
+		<p class="akismet_comment_form_privacy_notice">This site uses Akismet to reduce spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Learn how your comment data is processed</a>.</p>
+</div>
+
+				
+				</main>
+			</div>
+
+                            
+<div id="secondary" class="widget-area sidebar" role="complementary">
+	<aside id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://dbatools.io/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s">
+				</label>
+				<input type="submit" class="search-submit" value="Search">
+			</form></aside><aside id="custom_html-3" class="widget_text widget widget_custom_html"><h2 class="widget-title">new book</h2><div class="textwidget custom-html-widget">dbatools in a month of lunches is now available in Manning's Early Access Program &#128640; <br>&nbsp;
+
+<p align="center"><a href="https://dbatools.io/book"><img alt="dbatools meap" src="https://i2.wp.com/blog.netnerds.net/wp-content/uploads/2019/08/meap.png?w=800&amp;ssl=1" data-recalc-dims="1" data-lazy-src="https://i2.wp.com/blog.netnerds.net/wp-content/uploads/2019/08/meap.png?w=800&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 " class=" jetpack-lazy-image"><noscript><img alt="dbatools meap" src="https://i2.wp.com/blog.netnerds.net/wp-content/uploads/2019/08/meap.png?w=800&amp;ssl=1" data-recalc-dims="1"></noscript></a></p>
+
+Get the book now at <a href="https://dbatools.io/book">manning.com</a></div></aside><aside id="sticky-posts-2" class="widget widget_ultimate_posts"><h2 class="widget-title"><a href="https://dbatools.io/blog">posts</a></h2>
+
+<div class="upw-posts hfeed">
+
+  
+      
+        
+        <article class="post-10008 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/aliases/" rel="bookmark">
+                  <img width="300" height="155" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?fit=300%2C155&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?w=905&amp;ssl=1 905w, https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?resize=300%2C155&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?resize=768%2C396&amp;ssl=1 768w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?fit=300%2C155&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/aliases/" rel="bookmark">
+                  working with sql client aliases                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-10124 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/bits2020/" rel="bookmark">
+                  <img width="300" height="108" src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/bits2020/" rel="bookmark">
+                  Vote for these SQLBits 2020 PowerShell sessions                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-10010 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/size/" rel="bookmark">
+                  <img width="300" height="139" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?fit=300%2C139&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?w=1139&amp;ssl=1 1139w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=300%2C139&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=768%2C355&amp;ssl=1 768w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=1024%2C473&amp;ssl=1 1024w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?fit=300%2C139&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/size/" rel="bookmark">
+                  working with file sizes in dbatools                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-9995 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements tag-book tag-dbatoolsmol tag-monthoflunches">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/meap/" rel="bookmark">
+                  <img width="300" height="159" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?fit=300%2C159&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?w=1287&amp;ssl=1 1287w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?resize=300%2C159&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?resize=768%2C408&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?resize=1024%2C543&amp;ssl=1 1024w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?fit=300%2C159&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/meap/" rel="bookmark">
+                  Learn dbatools in a Month of Lunches                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-9928 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/oldapp/" rel="bookmark">
+                  <img width="300" height="108" src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/oldapp/" rel="bookmark">
+                  migrating super old app databases                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-9862 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements tag-dbatools-configs tag-dbatools-settings tag-defaults">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/configuration/" rel="bookmark">
+                  <img width="300" height="202" src="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?fit=300%2C202&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?w=1104&amp;ssl=1 1104w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=300%2C202&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=768%2C516&amp;ssl=1 768w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=1024%2C688&amp;ssl=1 1024w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?fit=300%2C202&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/configuration/" rel="bookmark">
+                  dbatools advanced configuration                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+  
+</div>
+
+</aside><aside id="blog_subscription-2" class="widget widget_blog_subscription jetpack_subscription_widget"><h2 class="widget-title">subscribe</h2>
+            <form action="#" method="post" accept-charset="utf-8" id="subscribe-blog-blog_subscription-2">
+				                    <div id="subscribe-text"><p>Enter your email address to subscribe to this blog and receive notifications of new posts by email.</p>
+</div><p>Join 2,166 other subscribers</p>
+                    <p id="subscribe-email">
+                        <label id="jetpack-subscribe-label" class="screen-reader-text" for="subscribe-field-blog_subscription-2">
+							email                        </label>
+                        <input type="email" name="email" required="required" class="required" value="" id="subscribe-field-blog_subscription-2" placeholder="email">
+                    </p>
+
+                    <p id="subscribe-submit">
+                        <input type="hidden" name="action" value="subscribe">
+                        <input type="hidden" name="source" value="https://dbatools.io/cms/">
+                        <input type="hidden" name="sub-type" value="widget">
+                        <input type="hidden" name="redirect_fragment" value="blog_subscription-2">
+						                        <button type="submit" name="jetpack_subscriptions_widget">
+	                        subscribe                        </button>
+                    </p>
+				            </form>
+		
+</aside><aside id="eu_cookie_law_widget-3" class="widget widget_eu_cookie_law_widget"><div class="hide-on-button" data-hide-timeout="30" data-consent-expiration="180" id="eu-cookie-law">
+	<form method="post">
+		<input type="submit" value="Close and accept" class="accept">
+	</form>
+
+	Privacy &amp; Cookies: This site uses cookies. By continuing to use this website, you agree to their use. <br>
+To find out more, including how to control cookies, see here:
+	<a href="https://automattic.com/cookies/">
+		Cookie Policy	</a>
+</div>
+</aside></div>
+            
+		</div>
+	</div>
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+                    <div class="footer-connect">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        
+                        <div class="col-sm-8">
+                                                            <div class="footer-social">
+                                    <h5 class="follow-heading">dbatools on the web</h5><div class="footer-social-icons"><a target="_blank" href="http://git.io/b3oo" title="github"><i class="fa fa-github"></i></a><a target="_blank" href="https://www.youtube.com/channel/UC1qrq0zfswSM_Uf9-vBrsiw" title="YouTube"><i class="fa fa-youtube"></i></a><a target="_blank" href="https://dbatools.io/slack" title="Slack"><i class="fa fa-slack"></i></a><a target="_blank" href="https://twitter.com/psdbatools" title="Twitter"><i class="fa fa-twitter"></i></a><a target="_blank" href="https://www.linkedin.com/company/dbatools.io" title="LinkedIn"><i class="fa fa-linkedin-square fa-linkedin"></i></a><a target="_blank" href="https://twitch.tv/dbatools" title="Twitch"><i class="fa fa-twitch"></i></a><a target="_blank" href="https://dbatools.io/book" title="Manning"><i class="fa fa-book fa-manning"></i></a></div>                                </div>
+                                                    </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
+            </div>
+        
+        <div class="site-info">
+            <div class="container">
+                                &copy; 2020 Chrissy LeMaire, PowerShell and SQL Server MVP<br><a href="https://dbatools.io/contact">Contact Us</a>            </div>
+        </div>
+        
+
+    </footer>
+</div>
+
+	<div style="display:none">
+	<div class="grofile-hash-map-ac0531f3d5b7429bab31cd800987a427">
+	</div>
+	<div class="grofile-hash-map-527b83e9dfbeab5aeeab7a03c5f1ba7c">
+	</div>
+	<div class="grofile-hash-map-9d592a680f09f12ef5352d3327d08e8f">
+	</div>
+	<div class="grofile-hash-map-71dd5dce5abf7798cebc45c67187ee02">
+	</div>
+	<div class="grofile-hash-map-ff319588642ba715cd87f0602c7de086">
+	</div>
+	<div class="grofile-hash-map-a5dbd215fb1d78033c633e1e282abfba">
+	</div>
+	<div class="grofile-hash-map-2f235ec593a0da70b68b4252218ca58f">
+	</div>
+	<div class="grofile-hash-map-82cecfc08cc00eb518490441661f545f">
+	</div>
+	<div class="grofile-hash-map-571319a23a84559ddac5c9c26012ac22">
+	</div>
+	<div class="grofile-hash-map-1a91db54289cf12553e7bfb7fcfc4976">
+	</div>
+	</div>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/photon/photon.min.js"></script>
+<script type="text/javascript" src="https://secure.gravatar.com/js/gprofiles.js?ver=202035"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/modules/wpgroho.js"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/plugins.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/bootstrap.min.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/lightgallery.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/theme.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/widgets/eu-cookie-law/eu-cookie-law.min.js"></script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/lazy-images/js/lazy-images.min.js"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/plugins/onepress-plus/assets/js/onepress-plus.js?ver=10.1.8"></script>
+<script async="async" type="text/javascript" src="https://dbatools.io/wp-content/plugins/akismet/_inc/form.js?ver=4.1.4"></script>
+
+		
+		<script type="text/javascript">
+			(function () {
+				var comm_par_el = document.getElementById( 'comment_parent' ),
+					comm_par = ( comm_par_el && comm_par_el.value ) ? comm_par_el.value : '',
+					frame = document.getElementById( 'jetpack_remote_comment' ),
+					tellFrameNewParent;
+
+				tellFrameNewParent = function () {
+					if ( comm_par ) {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=111052036&postid=7887&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=8.4.2&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=e45537a693f141a30889d9bab4fea0a5990990fc#parent=https%3A%2F%2Fdbatools.io%2Fcms%2F" + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+					} else {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=111052036&postid=7887&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=8.4.2&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=e45537a693f141a30889d9bab4fea0a5990990fc#parent=https%3A%2F%2Fdbatools.io%2Fcms%2F";
+					}
+				};
+
+				
+				if ( 'undefined' !== typeof addComment ) {
+					addComment._Jetpack_moveForm = addComment.moveForm;
+
+					addComment.moveForm = function ( commId, parentId, respondId, postId ) {
+						var returnValue = addComment._Jetpack_moveForm( commId, parentId, respondId, postId ),
+							cancelClick, cancel;
+
+						if ( false === returnValue ) {
+							cancel = document.getElementById( 'cancel-comment-reply-link' );
+							cancelClick = cancel.onclick;
+							cancel.onclick = function () {
+								var cancelReturn = cancelClick.call( this );
+								if ( false !== cancelReturn ) {
+									return cancelReturn;
+								}
+
+								if ( ! comm_par ) {
+									return cancelReturn;
+								}
+
+								comm_par = 0;
+
+								tellFrameNewParent();
+
+								return cancelReturn;
+							};
+						}
+
+						if ( comm_par == parentId ) {
+							return returnValue;
+						}
+
+						comm_par = parentId;
+
+						tellFrameNewParent();
+
+						return returnValue;
+					};
+				}
+
+				
+				// Do the post message bit after the dom has loaded.
+				document.addEventListener( 'DOMContentLoaded', function () {
+					var iframe_url = "https:\/\/jetpack.wordpress.com";
+					if ( window.postMessage ) {
+						if ( document.addEventListener ) {
+							window.addEventListener( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						} else if ( document.attachEvent ) {
+							window.attachEvent( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						}
+					}
+				})
+
+			})();
+		</script>
+
+		<script type="text/javascript" src="https://stats.wp.com/e-202035.js" async="async" defer></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.4.2',blog:'111052036',post:'7887',tz:'0',srv:'dbatools.io'} ]);
+	_stq.push([ 'clickTrackerInit', '111052036', '7887' ]);
+</script>
+
+</body>
+</html>

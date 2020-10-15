@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>migration-party &#8211; dbatools</title>
+	<atom:link href="https://dbatools.io/tag/migration-party/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Fri, 13 Sep 2019 08:39:07 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+
+<image>
+	<url>https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&#038;ssl=1</url>
+	<title>migration-party &#8211; dbatools</title>
+	<link>https://dbatools.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
+		<title>real-world tde database migrations</title>
+		<link>https://dbatools.io/real-world-tde-database-migrations/</link>
+				<comments>https://dbatools.io/real-world-tde-database-migrations/#comments</comments>
+				<pubDate>Wed, 07 Feb 2018 14:45:06 +0000</pubDate>
+		<dc:creator><![CDATA[Viorel Ciucu]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[migration]]></category>
+		<category><![CDATA[migration-party]]></category>
+		<category><![CDATA[party]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=7060</guid>
+				<description><![CDATA[In today&#8217;s post, I will tell you about how we managed to successfully complete a migration during a ~12 hour maintenance window. This could have taken a LOT longer if ...]]></description>
+								<content:encoded><![CDATA[<p>In today&#8217;s post, I will tell you about how we managed to successfully complete a migration during a ~12 hour maintenance window. This could have taken a LOT longer if didn&#8217;t have <a href="https://dbatools.io/">dbatools</a> to automate several of the steps.</p>
+<p>Although I will not go in to every detail about our process, I want to emphasize the areas were we chose to use dbatools to make our lives easier.</p>
+<h2>the goal</h2>
+<p>Recently, we got the green light for upgrading to SQL Server 2016 and we were ready to roll. Our task was to migrate multiple servers, each having several TDE encrypted databases on them. All the databases were mirrored on SQL Servers hosted in a different datacenter.</p>
+<p>When protecting data using TDE, special care must be taken when it comes to migrations. We had two primary options for migrating TDE protected databases.</p>
+<h4>first option</h4>
+<p>One option would be decrypt the databases on the old servers prior to the migration. This can take a while depending on the database size as the process would touch every single data page on disk. Same would be true once we encrypted the databases on the new servers.</p>
+<p>If you ever decide to take this route during your migration, make sure you follow the correct and complete process to disable TDE. Otherwise you can lock your data if you don’t have the certificates and keys backed up somewhere else, ready to be restored in case of emergency. And perhaps most importantly, make sure you test this process!</p>
+<h4>second option</h4>
+<p>The second option (and the one we chose) was to leave the encryption enabled. In order to be able to attach the files, or to do restores from the backups <strong>you need to have the same certificate that was used for encryption</strong>. This certificate is protected by the master key.</p>
+<p>To accomplish this:</p>
+<ol>
+<li>Make backups of the master key and the certificates </li>
+<li>Restore the key and certificates on the new principal and mirror pairs</li>
+</ol>
+<blockquote><p>
+  Be aware that each database can have its own certificate! You must be sure which database is protected by which certificate. Failing to have this sorted out will leave you with some files you cannot attach or restore anywhere. Basically, you&#8217;d lose the data <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f622.png" alt="😢" class="wp-smiley" style="height: 1em; max-height: 1em;" />
+</p></blockquote>
+<p>Need help figuring all of this out? Check out Microsoft&#8217;s article <a href=https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server>Move a TDE Protected Database to Another SQL Server</a>. As I mentioned before make sure you test this process ahead of time!</p>
+<h2>preparation</h2>
+<p>In preparation for the migration day, we built all the new servers (primaries and mirrors) ahead of time and configured them based on our requirements.</p>
+<p>A key point is to restore the keys used for encryption to the new servers. From this point on you won’t have to worry too much about TDE.</p>
+<p>Next is where <a href="https://dbatools.io/">dbatools</a> comes into play:</p>
+<pre class="lang:ps decode:true">$serverList = @(
+'server_01',
+'server_02',
+    'server_03'
+)
+
+foreach ($server in $serverList) {
+    Set-DbaSpConfigure -SqlInstance $server -ConfigName CostThresholdForParallelism -Value 50
+    Set-DbaSpConfigure -SqlInstance $server -ConfigName DefaultBackupCompression -Value 1
+    Set-DbaSpConfigure -SqlInstance $server -ConfigName OptimizeAdhocWorkloads -Value 1
+    Set-DbaSpConfigure -SqlInstance $server -ConfigName RemoteDacConnectionsEnabled -Value 1
+    Set-DbaSpConfigure -SqlInstance $server -ConfigName ShowAdvancedOptions -Value 1
+    # Insert all your config options here
+
+    Set-DbaPowerPlan -ComputerName $server
+    Set-DbaDbOwner -SqlInstance $server
+
+    # Suppress all successful backups in SQL server error log
+    Enable-DbaTraceFlag -SqlInstance $server -TraceFlag 3226
+
+    # Set max memory to the recommended MB
+    Set-DbaMaxMemory -SqlInstance $server
+}</pre>
+<p>Doesn&#8217;t matter how many servers you have in your environment, doing it like this saves you a lot of time and you can be sure you have the same configuration for all of them.</p>
+<p>Next, we created our DBA toolkit database where we keep all the handy stuff:</p>
+<pre class="lang:ps decode:true ">foreach ($server in $serverList) {
+    # Create DBA database
+    Invoke-DbaQuery -SqlInstance $SqlInstance -Query $SQL
+
+    # Install sp_WhoIsActive
+    Install-DbaWhoIsActive -SqlInstance $SqlInstance -Database DBA
+}
+</pre>
+<p>Couldn&#8217;t be easier than this!</p>
+<h2>moving forward</h2>
+<p>Next, we created our backup jobs:</p>
+<pre class="lang:ps decode:true ">foreach ($server in $serverList) {
+    # Install Ola Hallengren's solution
+    Install-DbaMaintenanceSolution -SqlInstance $SqlInstance -Database DBA -ReplaceExisting -CleanupTime 72 -LogToTable -Solution "All" -BackupLocation "X:\SQLBackup" -OutputFileDirectory "X:\SQLMaintenanceLogs" -InstallJobs
+}
+</pre>
+<p>For auditing purposes we even saved the old server configuration and compare it to the new ones, all with only a few lines of code:</p>
+<pre class="lang:ps decode:true">$propcompare = foreach ($prop in $oldprops) {
+    [pscustomobject]@{
+        Config              = $prop.DisplayName
+        'SQL Server 2008R2' = $prop.RunningValue
+        'SQL Server 2016'   = ($newprops | Where ConfigName -eq $prop.ConfigName).RunningValue
+    }
+}</pre>
+<p>Save <span class="lang:ps decode:true crayon-inline ">$propcompare</span> to a database using <span class="lang:ps decode:true crayon-inline ">Write-DbaDataTable</span> and you&#8217;re set.</p>
+<p>Transfering the logins from the old server is now easier than ever (no more sp_help_revlogin):</p>
+<pre class="lang:ps decode:true">Copy-DbaLogin -Source oldServer -Destination newServer</pre>
+<p>Beat that if you can! This way we ensured that old logins will work as soon as we start the applications.</p>
+<p>We started to build the mirrors ahead of time (we have some big databases). We got the details for the last full backups on the old servers:</p>
+<pre class="lang:ps decode:true ">$OldServerList | ForEach-Object {
+    Get-DbaDbBackupHistory -SqlInstance $_ -LastFull | Select SqlInstance, Database, Start, End, Duration, Path, TotalSize
+} | Format-Table -AutoSize
+</pre>
+<p>Based on the output of the above we fired up a quick PowerShell script that got everything copied over to a network share. From there, restoring the backups to the new mirrors was simple as:</p>
+<pre class="lang:ps decode:true ">Restore-DbaDatabase -SqlInstance $newSQLServer_01 -Database db_1 -Path _\\SharedPath\Migration\db_1 -NoRecovery -WithReplace -Verbose
+Restore-DbaDatabase -SqlInstance $newSQLServer_02 -Database db_2 -Path _\\SharedPath\Migration\db_2 -NoRecovery -WithReplace -Verbose 
+...
+Restore-DbaDatabase -SqlInstance $newSQLServer_0N -Database db_N -Path _\\SharedPath\Migration\db_N -NoRecovery -WithReplace -Verbose 
+</pre>
+<p>I can do this all day long, especially when piping it directly to the <span class="lang:ps decode:true crayon-inline ">Backup-DbaDatabase</span> <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<h2>finalizing the migration</h2>
+<p>During the maintenance window we just got a last DIFF for each database and restored that to the new mirrors. Some manual growth on some of the databases and the restore of the DIFFs took us the longest time (those contained several days of data for each server).</p>
+<p>To shorten the time for the principals, we used detach/attach of the data and log drives approach which went pretty smooth with no unexpected incidents.</p>
+<p>And, in case you’re wondering, we do have valid backups. We even restore and test those automatically on a separate server using <a href="https://dbatools.io/">dbatools</a> as well. These jobs take around 17 hours per day.</p>
+<p>I must confess, we did a bit of T-SQL to bring the mirroring up and now we&#8217;re back in business, HA included.</p>
+<h2>post migration</h2>
+<p>Now to the post migration stuff.</p>
+<p>Once we&#8217;re running on the new instances, we made sure we enable all the jobs we already created ahead of time:</p>
+<pre class="lang:ps decode:true ">$serverList = @(
+    'server_01',
+    'server_02',
+    'server_03'
+)
+
+foreach ($server in $serverList) {
+    $jobs = Get-DbaAgentJob -SqlInstance $server
+    $jobs | ForEach-Object {Set-DbaAgentJob -SqlInstance $server -Job $_ -Enabled}
+} 
+</pre>
+<p>Alternatively, piping support was added to today&#8217;s release, 0.9.191. With this release and above, you can use the following syntax:</p>
+<p>Once we&#8217;re running on the new instances, we made sure we enable all the jobs we already created ahead of time:</p>
+<pre class="lang:ps decode:true "># much less code <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f44d.png" alt="👍" class="wp-smiley" style="height: 1em; max-height: 1em;" />
+$serverlist | Get-DbaAgentJob | Set-DbaAgentJob -Enabled
+</pre>
+<p>We decided we need some more RAM on a few of the servers and after we added it, we just executed the following to make SQL Server aware of the change.</p>
+<pre class="lang:ps decode:true ">Set-DbaMaxMemory -SqlInstance $server</pre>
+<p>Now, the moment of truth. Application started and what do you know, everything just works!</p>
+<ul>
+<li>No orphaned logins</li>
+<li>No SID mismatches for the logins</li>
+<li>No error messages.</li>
+</ul>
+<p><strong>&lt;insert happy tears here&gt;</strong></p>
+<h2>automation is awesome</h2>
+<p>As you can see, a lot of steps were automated using <a href="https://dbatools.io/">dbatools</a> and this saved us a lot of time overall, making this multi-terabyte database migration across 5 environments very smooth.</p>
+<p>There is still room for a lot more automation, for even more efficiency. I&#8217;m sure we&#8217;ll do better next time.</p>
+<p>Thanks again to all of you contributing to this project and Chrissy, thanks for starting all this. Can’t wait to see what the future will bring for <a href="https://dbatools.io/">dbatools</a> and I hope I’ll be able to contribute more.</p>
+<p>Happy migrations everyone!</p>
+<p>&#45; Viorel <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f1e7-1f1ea.png" alt="🇧🇪" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/real-world-tde-database-migrations/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">7060</post-id>	</item>
+	</channel>
+</rss>

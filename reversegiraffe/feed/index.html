@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	
+	>
+<channel>
+	<title>
+	Comments on: new release &#8211; reversegiraffe	</title>
+	<atom:link href="https://dbatools.io/reversegiraffe/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/reversegiraffe/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Fri, 13 Sep 2019 08:22:10 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+			<item>
+				<title>
+				By: Chrissy LeMaire				</title>
+				<link>https://dbatools.io/reversegiraffe/#comment-1163</link>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+		<pubDate>Mon, 27 Nov 2017 09:17:58 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=4432#comment-1163</guid>
+					<description><![CDATA[Hey Wael,
+That&#039;s not good! Please file an issue at https://github.com/sqlcollaborative/dbatools/issues/new and I&#039;ll get Stuart to look into it.]]></description>
+		<content:encoded><![CDATA[<p>Hey Wael,<br />
+That&#8217;s not good! Please file an issue at <a href="https://github.com/sqlcollaborative/dbatools/issues/new" rel="nofollow ugc">https://github.com/sqlcollaborative/dbatools/issues/new</a> and I&#8217;ll get Stuart to look into it.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: wael				</title>
+				<link>https://dbatools.io/reversegiraffe/#comment-1159</link>
+		<dc:creator><![CDATA[wael]]></dc:creator>
+		<pubDate>Sun, 26 Nov 2017 18:14:01 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=4432#comment-1159</guid>
+					<description><![CDATA[Chrissy,
+The issue still there even in the latest version you mentioned 0.9.106 and below is what happening when initiating the Restore-DbaDatabase
+
+WARNING: [Get-DbaDatabaseFile][18:03:04] Database [dba1] is not accessible. Skipping
+WARNING: [Get-DbaDatabaseFile][18:03:06] Database [StagingCurrent] is not accessible. Skipping
+WARNING: [Get-DbaDatabaseFile][18:03:06] Database [StagingTestRDM] is not accessible. Skipping
+WARNING: [Get-DbaDatabaseFile][18:03:15] Database [SQLJOBTest] is not accessible. Skipping
+WARNING: [Get-DbaDatabaseFile][18:03:19] Database [H1_LIVE] is not accessible. Skipping
+
+progress bar still shows 0% as well when the DB is restored in the background.]]></description>
+		<content:encoded><![CDATA[<p>Chrissy,<br />
+The issue still there even in the latest version you mentioned 0.9.106 and below is what happening when initiating the Restore-DbaDatabase</p>
+<p>WARNING: [Get-DbaDatabaseFile][18:03:04] Database [dba1] is not accessible. Skipping<br />
+WARNING: [Get-DbaDatabaseFile][18:03:06] Database [StagingCurrent] is not accessible. Skipping<br />
+WARNING: [Get-DbaDatabaseFile][18:03:06] Database [StagingTestRDM] is not accessible. Skipping<br />
+WARNING: [Get-DbaDatabaseFile][18:03:15] Database [SQLJOBTest] is not accessible. Skipping<br />
+WARNING: [Get-DbaDatabaseFile][18:03:19] Database [H1_LIVE] is not accessible. Skipping</p>
+<p>progress bar still shows 0% as well when the DB is restored in the background.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Chrissy LeMaire				</title>
+				<link>https://dbatools.io/reversegiraffe/#comment-1158</link>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+		<pubDate>Sun, 26 Nov 2017 16:09:44 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=4432#comment-1158</guid>
+					<description><![CDATA[hey wael,
+Thanks for using the module! This should be resolved in the current release 0.9.106 (and before, but 106 for sure). Please let us know if it&#039;s not.]]></description>
+		<content:encoded><![CDATA[<p>hey wael,<br />
+Thanks for using the module! This should be resolved in the current release 0.9.106 (and before, but 106 for sure). Please let us know if it&#8217;s not.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: wael				</title>
+				<link>https://dbatools.io/reversegiraffe/#comment-1146</link>
+		<dc:creator><![CDATA[wael]]></dc:creator>
+		<pubDate>Wed, 22 Nov 2017 19:01:07 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=4432#comment-1146</guid>
+					<description><![CDATA[Hi There,
+i would like to bring up an issue i have encountered starting with 0.9.89 , hopefully you can respond with a solution.
+
+when i do Restore-DbaDatabase in above mentioned version a new thing started that was not there in previews versions of dbatools were something in the code will call  Get-DbaDatabaseFile and i will start getting warnings about my offline DBs and skipping like (unable to access so and so) skipping and then the restore progress bar appears but stays on 0% and then will go off and the DB will be restored.
+
+I dont know why the tools has to scan the offline DBs when i didnt call the command to do so and this way the restore takes longer and the progress bar is not working when it shows 0% and the restore is happening in the background.
+
+Please advice]]></description>
+		<content:encoded><![CDATA[<p>Hi There,<br />
+i would like to bring up an issue i have encountered starting with 0.9.89 , hopefully you can respond with a solution.</p>
+<p>when i do Restore-DbaDatabase in above mentioned version a new thing started that was not there in previews versions of dbatools were something in the code will call  Get-DbaDatabaseFile and i will start getting warnings about my offline DBs and skipping like (unable to access so and so) skipping and then the restore progress bar appears but stays on 0% and then will go off and the DB will be restored.</p>
+<p>I dont know why the tools has to scan the offline DBs when i didnt call the command to do so and this way the restore takes longer and the progress bar is not working when it shows 0% and the restore is happening in the background.</p>
+<p>Please advice</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Joe Olah				</title>
+				<link>https://dbatools.io/reversegiraffe/#comment-576</link>
+		<dc:creator><![CDATA[Joe Olah]]></dc:creator>
+		<pubDate>Tue, 09 May 2017 20:58:13 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=4432#comment-576</guid>
+					<description><![CDATA[I got it and it&#039;s working great. This is going to save me a bunch of time. Thanks for all you do!]]></description>
+		<content:encoded><![CDATA[<p>I got it and it&#8217;s working great. This is going to save me a bunch of time. Thanks for all you do!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Chrissy LeMaire				</title>
+				<link>https://dbatools.io/reversegiraffe/#comment-575</link>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+		<pubDate>Tue, 09 May 2017 19:49:32 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=4432#comment-575</guid>
+					<description><![CDATA[Hey Joe! The latest build is 0.8.955 - try to Update-Module or update-dbatools if you installed without the Gallery]]></description>
+		<content:encoded><![CDATA[<p>Hey Joe! The latest build is 0.8.955 &#8211; try to Update-Module or update-dbatools if you installed without the Gallery</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Joe Olah				</title>
+				<link>https://dbatools.io/reversegiraffe/#comment-574</link>
+		<dc:creator><![CDATA[Joe Olah]]></dc:creator>
+		<pubDate>Tue, 09 May 2017 18:51:34 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=4432#comment-574</guid>
+					<description><![CDATA[Thanks Chrissy for your quick response. It&#039;s still not showing up. I&#039;m running 0.8.941. I did import the latest build.]]></description>
+		<content:encoded><![CDATA[<p>Thanks Chrissy for your quick response. It&#8217;s still not showing up. I&#8217;m running 0.8.941. I did import the latest build.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Chrissy LeMaire				</title>
+				<link>https://dbatools.io/reversegiraffe/#comment-573</link>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+		<pubDate>Tue, 09 May 2017 18:22:27 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=4432#comment-573</guid>
+					<description><![CDATA[hey Joe, try now? It should be. Plus, we also added hella fixes. This release actually had connection issues.]]></description>
+		<content:encoded><![CDATA[<p>hey Joe, try now? It should be. Plus, we also added hella fixes. This release actually had connection issues.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Joe Olah				</title>
+				<link>https://dbatools.io/reversegiraffe/#comment-572</link>
+		<dc:creator><![CDATA[Joe Olah]]></dc:creator>
+		<pubDate>Tue, 09 May 2017 17:58:17 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=4432#comment-572</guid>
+					<description><![CDATA[The Get-DbaDatabaseFile function doesn&#039;t appear to be in this release.]]></description>
+		<content:encoded><![CDATA[<p>The Get-DbaDatabaseFile function doesn&#8217;t appear to be in this release.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

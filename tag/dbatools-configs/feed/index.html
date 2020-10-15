@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>dbatools Configs &#8211; dbatools</title>
+	<atom:link href="https://dbatools.io/tag/dbatools-configs/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Tue, 14 Jan 2020 19:16:23 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+
+<image>
+	<url>https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&#038;ssl=1</url>
+	<title>dbatools Configs &#8211; dbatools</title>
+	<link>https://dbatools.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
+		<title>dbatools advanced configuration</title>
+		<link>https://dbatools.io/configuration/</link>
+				<comments>https://dbatools.io/configuration/#comments</comments>
+				<pubDate>Tue, 20 Aug 2019 13:15:33 +0000</pubDate>
+		<dc:creator><![CDATA[Claudio Silva]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[dbatools Configs]]></category>
+		<category><![CDATA[dbatools Settings]]></category>
+		<category><![CDATA[defaults]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=9862</guid>
+				<description><![CDATA[Some dbatools functionality that has not been talked about much on the blog are our internal configuration options. This functionality was added back in October 2017. Kind of like how ...]]></description>
+								<content:encoded><![CDATA[<p>Some dbatools functionality that has not been talked about much on the blog are our internal configuration options. This functionality was added back in October 2017. Kind of like how in ADS or SSMS, you can go to <strong>File -> Preferences -> Settings</strong> or <strong>Edit -> Preferences</strong> to edit advanced preferences and options, you can do something similar in dbatools!</p>
+<p>Since dbatools is command-line based, you can view/modify your current options using our various config commands.</p>
+<ul>
+<li>Get-DbatoolsConfig</li>
+<li>Get-DbatoolsConfigValue</li>
+<li>Set-DbatoolsConfig</li>
+<li>Reset-DbatoolsConfig</li>
+<li>Import-DbatoolsConfig</li>
+<li>Export-DbatoolsConfig</li>
+<li>Register-DbatoolsConfig</li>
+<li>Unregister-DbatoolsConfig</li>
+</ul>
+<p>&nbsp;<br />
+We offer the ability to configure various options such as connection timeouts, datetime formatting and default export paths. All-in-all, we offer nearly 100 configuration options to help customize and enhance your dbatools experience.</p>
+<p>&nbsp;</p>
+<h2>Exploring our options</h2>
+<p>To see a list of all of the options offered, open a PowerShell console and type <code>Get-DbatoolsConfig</code>.</p>
+<p><img class="alignnone size-large wp-image-9871" src="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=800%2C538&#038;ssl=1" alt="" width="800" height="538" srcset="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=1024%2C688&amp;ssl=1 1024w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=300%2C202&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=768%2C516&amp;ssl=1 768w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?w=1104&amp;ssl=1 1104w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></p>
+<p>In the image above, you can find some of the configuration options that you can set and will be widely used by dbatools.</p>
+<p>These settings are scoped at the session-level. This means that if you use dbatools module within <a href="https://dbatools.io/agent">SQL Agent jobs</a> and you have a different account to run it, you will need to set the options for the user/credential running your SQL Agent jobs. You can do this by logging into the server as that user and editing the options. You can also run PowerShell as that user by right-clicking the PowerShell logo in the taskbar, then pressing <code>Shift + right-click</code> over the PowerShell logo. There, you will be offered the option to run as a different user.</p>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/08/rightclick.png?ssl=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/08/rightclick.png?resize=491%2C805&#038;ssl=1" alt="" width="491" height="805" class="aligncenter size-full wp-image-9919" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/08/rightclick.png?w=491&amp;ssl=1 491w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/08/rightclick.png?resize=183%2C300&amp;ssl=1 183w" sizes="(max-width: 491px) 100vw, 491px" data-recalc-dims="1" /></a></p>
+<p>Because there are nearly 100 configuration options, you can take advantage of <code>Out-Gridview</code> to easily view and sort them.</p>
+<p><img class="alignnone size-large wp-image-9873" src="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_OGV_Output.png?resize=800%2C502&#038;ssl=1" alt="" width="800" height="502" srcset="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_OGV_Output.png?resize=1024%2C642&amp;ssl=1 1024w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_OGV_Output.png?resize=300%2C188&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_OGV_Output.png?resize=768%2C481&amp;ssl=1 768w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_OGV_Output.png?resize=480%2C300&amp;ssl=1 480w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_OGV_Output.png?w=1497&amp;ssl=1 1497w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></p>
+<p>You can then filter out the results in a easier manner.</p>
+<p><img class="alignnone size-large wp-image-9872" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_OGV__Filtered_Output.png?resize=800%2C268&#038;ssl=1" alt="" width="800" height="268" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_OGV__Filtered_Output.png?resize=1024%2C343&amp;ssl=1 1024w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_OGV__Filtered_Output.png?resize=300%2C101&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_OGV__Filtered_Output.png?resize=768%2C258&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_OGV__Filtered_Output.png?w=1282&amp;ssl=1 1282w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /><br />
+&nbsp;</p>
+<h3>&#8220;I saw that settings are grouped by modules. Whichs modules are available?&#8221;</h3>
+<p>If you run the following command, you will find all the distinct modules we have:</p>
+<pre class="lang:ps decode:true ">Get-DbatoolsConfig | Select-Object -Property Module -Unique</pre>
+<p>As you can see there are a good amount of different modules.</p>
+<p><img class="alignnone size-full wp-image-9875" src="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Distinct_Module_Output.png?resize=800%2C243&#038;ssl=1" alt="" width="800" height="243" srcset="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Distinct_Module_Output.png?w=884&amp;ssl=1 884w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Distinct_Module_Output.png?resize=300%2C91&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Distinct_Module_Output.png?resize=768%2C234&amp;ssl=1 768w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /><br />
+&nbsp;</p>
+<h3>Get-DbatoolsConfig vs. Get-DbatoolsConfigValue</h3>
+<p>You may have noticed two similarly named commands: <code>Get-DbatoolsConfig</code> and <code>Get-DbatoolsConfigValue</code>. Let&#8217;s take a look at the differences.<br />
+&nbsp;</p>
+<h4>Get-DbatoolsConfig &#8211; a rich object</h4>
+<p>This command returns not only the value for a setting but also the module where it belongs and a useful description about it.<br />
+You can specify the <code>-FullName</code> (preferable because it is unique) or only the <code>-Name</code> (same as <code>-FullName</code> but without the prefix which is the module name).</p>
+<p><code>-FullName</code> example:</p>
+<pre class="lang:ps decode:true ">Get-DbatoolsConfig -FullName sql.connection.timeout</pre>
+<p><code>-Name</code> example:</p>
+<pre class="lang:ps decode:true ">Get-DbatoolsConfig -Name connection.timeout</pre>
+<p>We also provide a validation script to a configuration. If you want to know how we validate it, you can see the <code>Validation</code> property, as example if you run:</p>
+<pre class="lang:ps decode:true ">Get-DbatoolsConfig -FullName formatting.size.digits | Select-Object *</pre>
+<p>You will get:<br />
+<img class="alignnone size-full wp-image-9879" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_FullOutput.png?resize=800%2C576&#038;ssl=1" alt="" width="800" height="576" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_FullOutput.png?w=1001&amp;ssl=1 1001w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_FullOutput.png?resize=300%2C216&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_FullOutput.png?resize=768%2C553&amp;ssl=1 768w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /><br />
+&nbsp;</p>
+<h4>Get-DbatoolsConfigValue &#8211; Is what you are thinking but we have interesting options</h4>
+<p>If you just want to get the configured value as a string, you should use the <code>Get-DbatoolsConfigValue</code> command. This command is widely used internally within the dbatools module.</p>
+<p>You may find that we also use the <code>-FallBack</code>, as stated on documentation &#8220;<em>A fallback value to use, if no value was registered to a specific configuration element. This basically is a default value that only applies on a &#8220;per call&#8221; basis, rather than a system-wide default.</em>&#8221;</p>
+<p>Also if we don&#8217;t want to get a <em>null</em> result we can specify the <code>-NotNull</code> parameter &#8220;<em>&#8230;the function will throw an error if no value was found at all.</em>&#8221;<br />
+&nbsp;</p>
+<h3>Set a new configuration value</h3>
+<p>To update a value you need to use the <code>Set-DbatoolsConfig</code> command. Unfortunately, you will not find documentation for this command on our <a href="http://docs.dbatools.io">docs page</a>. This is a known issue and it happens because that command is a cmdlet so the help is in the dbatools library itself.</p>
+<p>For this particular case, you can and should rely on the <code>Get-Help</code> command.</p>
+<pre class="lang:ps decode:true ">Get-Help -Name Set-DbatoolsConfig -Full</pre>
+<p>The easier way to update a value is provide the <code>-FullName</code> and <code>-Value</code> parameters. Example:</p>
+<pre class="lang:ps decode:true ">Set-DbatoolsConfig -FullName formatting.size.digits -Value 3</pre>
+<p>Note that changes made by <code>Set-DbatoolsConfig</code> only persists for the current session. To permanently persist your changes, use <code>Register-DbatoolsConfig</code>. This command will be covered next.<br />
+&nbsp;</p>
+<h3>Let&#8217;s see other examples</h3>
+<p>Want to clean the logs more frequently? Or keep them longer than the default of 7 days? Let&#8217;s change to 8 days by setting the <code>Logging.MaxLogFileAge</code> configuration.</p>
+<pre class="lang:ps decode:true ">Set-DbatoolsConfig -FullName Logging.MaxLogFileAge -Value (New-TimeSpan -Days 8)</pre>
+<p>&nbsp;</p>
+<h4>Want to format dates and times differently?</h4>
+<p>Take a look at the formatting section and find a couple of configurations to set the format as you would like.</p>
+<p>If you want to change from <code>dd MMM yyyy</code> format to <code>yyyy MM dd</code> you can run the following command:</p>
+<pre class="lang:ps decode:true ">Set-DbatoolsConfig -FullName formatting.date -Value 'yyyy MM dd'</pre>
+<p>&nbsp;</p>
+<h4>What about sqlconnection timeout?</h4>
+<p>15 seconds (the default) is not enough? Change it using the <code>sql.connection.timeout</code> configuration.</p>
+<pre class="lang:ps decode:true ">Set-DbatoolsConfig -FullName Logging.MaxLogFileAge -Value 30</pre>
+<p>&nbsp;</p>
+<h4>Do you use dbatools with Azure?</h4>
+<p>There are a couple of configs that you can set in the Azure section. Take a look at them:</p>
+<pre class="lang:ps decode:true ">Get-DbatoolsConfig -Module azure</pre>
+<p>Note that only a few of our commands have been tested to work with Azure. Better support for Azure is a long-term goal.<br />
+&nbsp;</p>
+<h3>Permanently persist changes</h3>
+<p>As mentioned previously, when you use the <code>Set</code> command, it is set only for your current session. To make the change permanent, use <code>Register-DbatoolsConfig</code>.</p>
+<pre class="lang:ps decode:true ">Get-DbatoolsConfig | Register-DbatoolsConfig</pre>
+<p>This will write all configuration values, by default, in the registry.<br />
+Like all of our config commands, this works on Windows, Linux and macOS.<br />
+&nbsp;</p>
+<h3>Reset configured value to its default</h3>
+<p>To reset all of your configured values to dbatools default, run the following:</p>
+<pre class="lang:ps decode:true ">Reset-DbatoolsConfig -FullName sql.connection.timeout</pre>
+<p>This will set the configuration value back to 15. To reset all of your dbatools options to default, run the following:</p>
+<pre class="lang:ps decode:true ">Get-DbatoolsConfig | Reset-DbatoolsConfig</pre>
+<p>&nbsp;</p>
+<h3>What&#8217;s new?</h3>
+<p>Since last dbatools version 1.0.32, new PowerShell Remoting configurations are available. You can read more about it on my recent blog post <a href="http://claudioessilva.eu/2019/08/20/more-powershell-remoting-coverage-in-dbatools/">More PowerShell Remoting coverage in dbatools</a> to learn more.<br />
+&nbsp;</p>
+<h3>Just remember&#8230;</h3>
+<p>Next time you catch yourself thinking about changing some default behaviour remember to take a look into these configurations. If you found something that is not available for your use case, talk with us on Slack or just open an <a href="https://github.com/sqlcollaborative/dbatools/issues/new?assignees=&amp;labels=&amp;template=Feature_request.md&amp;title=">feature request</a> explaining your needs and we will try to guide/help you.</p>
+<p>Thanks for reading!<br />
+Cláudio <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f1f5-1f1f9.png" alt="🇵🇹" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/configuration/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">9862</post-id>	</item>
+	</channel>
+</rss>

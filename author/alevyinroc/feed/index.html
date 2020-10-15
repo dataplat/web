@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>Andy Levy &#8211; dbatools</title>
+	<atom:link href="https://dbatools.io/author/alevyinroc/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Thu, 17 Jan 2019 11:26:24 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+
+<image>
+	<url>https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&#038;ssl=1</url>
+	<title>Andy Levy &#8211; dbatools</title>
+	<link>https://dbatools.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
+		<title>a monumental migration to sql server 2016</title>
+		<link>https://dbatools.io/xlmigration/</link>
+				<comments>https://dbatools.io/xlmigration/#comments</comments>
+				<pubDate>Thu, 17 Jan 2019 11:25:24 +0000</pubDate>
+		<dc:creator><![CDATA[Andy Levy]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=9435</guid>
+				<description><![CDATA[How do you move eight thousand databases in a reasonable amount of time?]]></description>
+								<content:encoded><![CDATA[<p><em>This post originally appeared in two parts on my personal blog at <a href="https://flxsql.com">flxsql.com</a> and has been reposted here by request.</em></p>
+<p>A bit over a year ago, I blogged about <a href="https://flxsql.com/my-first-migration-with-dbatools/">my experience migrating a test SQL Server instance</a> from a VM to a physical machine with a little help from my <a href="https://dbatools.io/">friends</a>. That migration went well and the instance has been running trouble-free ever since. But it&#8217;s small potatoes. A modest instance, it&#8217;s only about 5% the size of production. With <a href="https://blogs.msdn.microsoft.com/sqlreleaseservices/end-of-mainstream-support-for-sql-server-2008-and-sql-server-2008-r2/">SQL Server 2008R2&#8217;s EOL looming</a>, it was time to migrate production to SQL Server 2016. It&#8217;s a pretty beefy setup:</p>
+<ul>
+<li>2-node Failover Clustered Instance</li>
+<li>16 cores</li>
+<li>768GB RAM</li>
+<li>4 TB of storage</li>
+<li>Over 8000 databases</li>
+</ul>
+<h2>The Challenge</h2>
+<p>How do you move <em>eight thousand</em> databases in a reasonable amount of time?</p>
+<p>I spent about an hour and a half one morning hashing ideas out w/ folks in the <a href="https://dbatools.io/slack/">dbatools Slack channel</a>, plus several conversations in the office and with our hosting provider.</p>
+<ul>
+<li><a href="https://docs.dbatools.io/#Start-DbaMigration"><code>Start-DbaMigration</code></a>? I love that function but it&#8217;s single-threaded and we just don&#8217;t have time to backup &amp; restore that many databases that way.</li>
+<li>Backup &amp; restore? Multi-threaded, our daily full backups take over 3 hours to run. Double that to do a backup &amp; restore.</li>
+<li>Detach &amp; reattach? We&#8217;ll need either double the storage and eat the time copying the data, or risk the time required to restore from backup if we have to revert.</li>
+<li><a href="https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/about-log-shipping-sql-server?view=sql-server-2017">Log shipping</a>, <a href="https://docs.microsoft.com/en-us/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017">mirroring</a>, <a href="https://docs.microsoft.com/en-us/sql/relational-databases/replication/sql-server-replication?view=sql-server-2017">replication</a>? Again, double the storage, and we have <em>so many</em> databases that it&#8217;s just not feasible.</li>
+<li>In-place upgrade? Not supported by our hosting provider, and there&#8217;s not much of a safety net.</li>
+</ul>
+<p>Ultimately the team settled on a variation of the detach &amp; reattach.</p>
+<ol>
+<li>Install SQL Server 2016 on new physical servers with &#8220;dummy&#8221; drives (so that paths could be set during install)</li>
+<li>Shut down SQL Server 2008R2</li>
+<li>Take a SAN snapshot</li>
+<li>Move the LUN to the new server</li>
+<li>Attach the databases</li>
+</ol>
+<p>This is the fastest way for us to move the data, and the snapshot provides a way back if we have to revert. We have backups as well, but those are the reserve parachute &#8211; the snapshot is the primary. This process is easiest if the paths for the data and log files remain the same. But that didn&#8217;t happen here. On the old instance, both data and logs were dumped in the same directory. The new instance has separate data and log directories. And it&#8217;s a new drive letter to boot.</p>
+<p>OK, so how do you <em>attach</em> eight thousand databases and relocate their files in a reasonable amount of time?</p>
+<p>It&#8217;s dbatools to the rescue, with <a href="https://docs.dbatools.io/#Mount-DbaDatabase"><code>Mount-DbaDatabase</code></a> being the star of the show. Not only does it attach databases for you, you can use it to relocate and rename the files as well. But that&#8217;s really one of the last steps. We have setup to do first.</p>
+<h2>Preparation</h2>
+<h3>Basics</h3>
+<p>Once the servers were turned over to us, the DBA basics had to get set up. I configured a few <a href="https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql?view=sql-server-2017">trace flags</a> for the instance with <code>Set-DbaStartupParameter -Traceflags 3226,4199,7412,460</code>.</p>
+<table class="wp-block-table aligncenter">
+<thead>
+<tr>
+<th width=150px;>Trace Flag</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>460</td>
+<td><a href="https://support.microsoft.com/en-us/help/4468101/optional-replacement-for-string-or-binary-data-would-be-truncated">Enable detailed <code>String or Binary Data would be truncated</code> error message</a> in a <a href="https://sqlserverupdates.com/news/announcing-sql-server-2017-cu12-omg-they-finally-fixed-string-or-binary-data-would-be-truncated/">future Cumulative Update</a></td>
+</tr>
+<tr>
+<td>3226</td>
+<td>Suppress successful backup messages in the error log</td>
+</tr>
+<tr>
+<td>4199</td>
+<td><a href="https://support.microsoft.com/en-us/help/974006/sql-server-query-optimizer-hotfix-trace-flag-4199-servicing-model">Enable query optimizer fixes in CUs and hotfixes</a></td>
+</tr>
+<tr>
+<td>7412</td>
+<td><a href="https://support.microsoft.com/en-us/help/3170113/update-to-expose-per-operator-query-execution-statistics-in-showplan-x">Enable lightweight execution statistics profiling</a></td>
+</tr>
+</tbody>
+</table>
+<p>Since publishing the original post, I&#8217;ve received a couple questions about the use of TF4199. With the <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?view=sql-server-2017">database-scoped option</a> <code>QUERY_OPTIMIZER_HOTFIXES</code> this isn&#8217;t absolutely necessary to get post-RTM hotfixes for the optimizer. Pedro Lopes (<a href="https://blogs.msdn.microsoft.com/blogdoezequiel/">blog</a>|<a href="https://twitter.com/SQLPedro">twitter</a>) recommended in his Summit 2018 to enable it globally, and he confirmed that in an email exchange with Andy Galbraith (<a href="http://nebraskasql.blogspot.com/">blog</a>|<a href="https://twitter.com/dba_andy">twitter</a>) that Andy <a href="http://nebraskasql.blogspot.com/2018/11/things-i-learned-at-summit-v20-trace.html">wrote up on his blog</a>. Pam Lahoud (<a href="https://twitter.com/SQLGoddess">twitter</a>) wrote about the topic in <a href="https://blogs.msdn.microsoft.com/sql_server_team/lets-talk-about-trace-flags/">a recent post</a> as well.</p>
+<p>I did use <code>Start-DbaMigration</code> but excluded <code>Databases, Logins, AgentServer, ExtendedEvents</code> (the last because we don&#8217;t use XE on the old instance anyway; this avoided any warnings or errors related to it). Excluding databases makes sense given what I wrote above, but why logins and Agent jobs?</p>
+<p>The source instance is several years old and has built up a lot of cruft; this migration was a good chance to clear that out. All disabled logins and jobs were scripted out and saved, and only the active items migrated. But that also meant I couldn&#8217;t use <code>Copy-DbaAgentServer</code> because it doesn&#8217;t filter jobs out; a few extra steps were necessary. For reasons I don&#8217;t understand, <code>Start-DbaMigration</code> copied our database mail and Linked Server setups faithfully, with one exception &#8211; the passwords.</p>
+<p>We were able to fix that up easily enough but I found it strange that of all things, the passwords weren&#8217;t copied properly. Especially since I&#8217;ve done this successfully with dbatools in the past.</p>
+<h3>Moving logins</h3>
+<p>Although I only wanted to migrate the currently-active logins, I wanted the ability to re-create any disabled logins just in case, so I needed to extract the create scripts for them. I achieved this via <a href="https://docs.dbatools.io/#Get-DbaLogin"><code>Get-DbaLogin</code></a>, <a href="https://docs.dbatools.io/#Export-DbaLogin"><code>Export-DbaLogin</code></a>, and <a href="https://docs.dbatools.io/#Copy-DbaLogin"><code>Copy-DbaLogin</code></a>:</p>
+<p><script src="https://gist.github.com/alevyinroc/bdc52ca2334b5f5da4778745b5172317.js"></script></p>
+<h3>Moving Agent jobs</h3>
+<p>I had the same need for Agent jobs, and achieved it similarly. However, because I excluded the <code>AgentServer</code> from <code>Start-DbaMigration</code>, I had to peek into that function to find out all the other things it copies before copying the jobs. I also wanted to leave the jobs disabled on the new server so they didn&#8217;t run before we were ready to test &amp; monitor them in a more controlled way.</p>
+<p><script src="https://gist.github.com/alevyinroc/780e8484669a2d36ed1095dfd06588e2.js"></script></p>
+<h3>Maintenance &amp; Monitoring</h3>
+<p>When that was complete, we updated the community tools that are installed in system databases</p>
+<ul>
+<li><a href="https://github.com/BrentOzarULTD/SQL-Server-First-Responder-Kit/tree/master">Brent Ozar&#8217;s First Responder Kit</a> &#8211; <a href="https://docs.dbatools.io/#Install-DbaFirstResponderKit"><code>Install-DbaFirstResponderKit</code></a><code>-database master -force</code></li>
+<li><a href="http://whoisactive.com">Adam Machanic&#8217;s <code>sp_whoisactive</code></a> &#8211; <a href="https://docs.dbatools.io/#Install-DbaWhoIsActive"><code>Install-DbaWhoIsActive</code></a><code>-database master</code></li>
+<li><a href="https://ola.hallengren.com/">Ola Hallengren&#8217;s Maintenance Solution</a> &#8211; <a href="https://docs.dbatools.io/#Install-DbaMaintenanceSolution"><code>Install-DbaMaintenanceSolution</code></a><code>-database master</code><br />By default, this function doesn&#8217;t install Agent jobs, which is fine here. I already copied the Agent jobs over, but I wanted the latest &amp; greatest versions of the backup and index maintenance stored procedures that they call.</li>
+</ul>
+<p>We use MinionWare&#8217;s Minion CheckDB but didn&#8217;t need do a separate installation or migration. With the exception of the Agent jobs, everything is self-contained in a single database. The Agent jobs were copied above, and the database came over with all the others.</p>
+<h2>Ready to Go</h2>
+<p>With the above complete, there wasn&#8217;t much left to do aside from doing some small-scale testing of the database attachment process and validating system operations (database mail, backups, CheckDB, etc.). ## Final Prep We completed our nightly backups as usual on Friday night, so when I arrived Saturday I kicked off a final differential backup to catch any overnight changes. We&#8217;ve multi-threaded <a href="https://ola.hallengren.com/sql-server-backup.html">Ola&#8217;s backup script</a> by creating multiple jobs and I started them all at once with (of course) PowerShell.</p>
+<pre class="lang:ps decode:true " >Get-DbaAgentJob -SqlInstance $OldInstance | Where-Object {$_.name -like 'user database backups - diff*'} | ForEach-Object {$_.Start()}</pre>
+<p>I estimated that the diff backups would take about 90 minutes based on a couple test runs; they took 100 minutes (not too shabby!). While that ran, I re-exported the Agent jobs <em>just</em> to be sure I had everything captured there. I also copied a few databases to another 2008R2 instance in case they were needed for debugging purposes. The very last step was to extract a listing of all our databases and the full paths to the physical data and log files, then split them into ten files.</p>
+<p>The method I used to attach the databases wasn&#8217;t scalable to running it for all eight thousand databases at once and this let me control the batch sizes easily.</p>
+<p><script src="https://gist.github.com/alevyinroc/341ca390951c3a969e37223e2e9f9828.js"></script></p>
+<p>The resulting CSV file gave me each database file, the type of file (data or log), and the database name itself.</p>
+<table class="wp-block-table">
+<thead>
+<tr>
+<th>database_id</th>
+<th>name</th>
+<th>FileType</th>
+<th>physical_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>MyDatabase</td>
+<td>ROWS</td>
+<td>S:\Very\Long\Path\MyDatabase.mdf</td>
+</tr>
+<tr>
+<td>7</td>
+<td>MyDatabase</td>
+<td>LOG</td>
+<td>S:\Very\Long\Path\MyDatabase_1.ldf</td>
+</tr>
+</tbody>
+</table>
+<h2>Time to Move</h2>
+<p>With all of our pre-migration work complete, we shut down the SQL Server 2008R2 instance. Then we turned things over to the folks in the datacenter to detach the storage LUN, take the snapshot, and attach the LUN to the new instance. When their work was complete, they passed the baton back to me to move the files around and attach the databases.</p>
+<p><script src="https://gist.github.com/alevyinroc/f3a6c3e67570c0afdcb6775828590016.js"></script></p>
+<h3>Attaching the Databases</h3>
+<p>Before reading this section, I suggest you read two other recent posts, <a href="https://flxsql.com/powershell-multithreading-with-poshrsjob/">PowerShell Multithreading with PoshRSJob</a> and <a href="https://flxsql.com/thread-safe-powershell-logging-with-psframework/">Thread-safe PowerShell Logging with PSFramework</a>, as they&#8217;ll provide the background for how some of this was done.</p>
+<p>I created my own function as a wrapper for <a href="https://docs.dbatools.io/#Mount-DbaDatabase"><code>Mount-DbaDatabase</code></a> from dbatools, adding the extra features I needed (or thought I needed):</p>
+<ul>
+<li>Logging</li>
+<li>Multi-threading</li>
+<li>Logically renaming the files</li>
+<li>Setting the database owner appropriately</li>
+<li>Rebuilding indexes</li>
+<li>Upgrading the <code>CompatibilityLevel</code></li>
+</ul>
+<p><script src="https://gist.github.com/alevyinroc/b1651f4fd4aeb19924d8f28e55f214e4.js"></script></p>
+<p>In practice, I only used the first four in the initial attachment of the databases for the upgrade. Example execution:</p>
+<p><script src="https://gist.github.com/alevyinroc/735ccff4456b81fe1a0869ee636ebb57.js"></script></p>
+<p><code>Get-MountProgress</code> is a variation on one of the functions in my multithreading post above, which let me keep tabs on the progress as the function ran. I ran the above code ten (well, eleven) times, once for each &#8220;batch&#8221; of 10% of the databases. The first group ran great! Only about 6 minutes to attach the databases. The next batch was 10 minutes. Then 16. And then, and then, and then&#8230;<br />
+<center></p>
+<figure class="wp-block-image"><img class="wp-image-1952" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/01/BigMigration-logfiles.png?w=800&#038;ssl=1" alt="" data-recalc-dims="1" /><figcaption>Progress just kept getting slower</figcaption></figure>
+<p></center><br />
+From the timestamps on the log files, you can see that each batch took progressively longer and longer. It was <em>agonizing</em> once we got past the 5th group. I have observed that SMO&#8217;s enumeration when connecting to a database instance can be lengthy with large numbers of databases on the instance, which would correlate to what I observed; the more databases I have, the longer it takes. But I can&#8217;t completely attribute the slowdown to this.</p>
+<p>Partway through, we shifted gears a bit and I ran a special group of databases which hadn&#8217;t yet been attached but the QA team needed for their testing. This let them get rolling on their test plans without waiting longer.</p>
+<p>Memory consumption for <code>powershell.exe</code> was very high as well, and kept growing with each batch. After the 3rd batch, I decided I needed to exit PowerShell after each one and restart it just to keep that from getting out of hand. I&#8217;m not sure what happened there; maybe a runspace memory leak?</p>
+<p>I had estimated attaching the databases would take about one hour. <strong>It took over six and a half.</strong> There was no one more upset over this than me. On the up side, the logs showed nothing but success.</p>
+<h2>Validation</h2>
+<p>Once we realized that attaching the databases was going to run longer than expected, our developers and QA team pivoted to testing what they could with the databases we had attached early on. In hindsight, I should have asked them which databases they needed for their test plans and attached those right away, so that they could test while ther remainder of the databases were running. But, great news! They didn&#8217;t find any issues that could be directly attributed to how we did the migration of the data.</p>
+<p>I re-ran my earlier PowerShell to fetch the databases and their files from <code>sys.databases</code> against the new instance and compared to the original; everything matched! Confirmation that all of the databases were attached.</p>
+<h2>Final Steps</h2>
+<p>We missed the estimated time for our go/no-go decision by <em>five minutes</em>. With the number of moving parts, databases in play, unexpected delays, and amount of testing we had to do, that&#8217;s pretty good! My colleague and I had some additional work we needed to take care of after the team declared the migration a success. Agent jobs needed to be enabled, overnight job startups monitored, things like that. We called it a day after about 14 hours in the office.</p>
+<p>The next day, we had some more tasks to complete. Per a blog post by Erin Stellato (<a href="https://www.sqlskills.com/blogs/erin/">blog</a>|<a href="https://twitter.com/erinstellato">twitter</a>) back in May, because we upgraded from 2008R2 to 2016, <a href="https://www.sqlskills.com/blogs/erin/do-you-need-to-update-statistics-after-an-upgrade/">an index rebuild</a> was advisable for all our nonclustered indexes. I did this via <a href="https://www.red-gate.com/">Red Gate</a> <a href="https://www.red-gate.com/products/dba/sql-multi-script/">Multi Script</a> and some dynamic SQL instead of PowerShell this time, looping through all the NC indexes in each database and running <code>ALTER INDEX REBUILD</code>.</p>
+<h2>Aftermath</h2>
+<p>Our first few days post-upgrade didn&#8217;t go well. CPU usage and response times were terrible and after checking over everything for days on end, we finally tracked it back to a piece of code that was still looking for the old SQL Server 2008R2 instance. Once that was fixed, everything came back to normal.</p>
+<p>A few days post-migration, we did have one problem caused by a change in SQL Server 2016. It seems that SQL Server got a little stricter about doing subtraction of integers from <code>time</code> types (instead of using <code>dateadd()</code>). Correcting it was pretty easy as it was limited to a couple stored procedures which are used in a limited capacity.</p>
+<h2>Lessons Learned</h2>
+<p>It&#8217;s not a good project without some solid lessons learned! What could we have done to make migration day easier?</p>
+<ul>
+<li>Work out which databases need to be available for performing post-upgrade checks and attach those first</li>
+<li>Work in smaller batches (not sure how much this would have helped)</li>
+<li>Have a test environment that&#8217;s as close as possible to production in all aspects</li>
+</ul>
+<h2>Conclusion</h2>
+<p>I suppose you&#8217;re expecting me to say something profound here. The most surprising thing to me about this migration is that there were no major surprises. Aside from one portion taking longer than anticipated and those two small pieces of code, everything went to plan. All in all, our migration is a success and after working out a few glitches in the week or two after, things have been running well. We&#8217;re on a modern release now, and looking forward to taking advantage of the new features available to us now.</p>
+<p>&#45; Andy Levy, <a href="https://flxsql.com">flxsql.com</a></p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/xlmigration/feed/</wfw:commentRss>
+		<slash:comments>5</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">9435</post-id>	</item>
+		<item>
+		<title>cleaning up comment-based help</title>
+		<link>https://dbatools.io/clean-cbh/</link>
+				<comments>https://dbatools.io/clean-cbh/#comments</comments>
+				<pubDate>Wed, 29 Nov 2017 13:57:38 +0000</pubDate>
+		<dc:creator><![CDATA[Andy Levy]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[party]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=6604</guid>
+				<description><![CDATA[Hey all! Andy Levy here. I&#8217;m a SQL Server DBA and major contributor for dbatools. My current focus within the project is fixing the docs and more specifically, the help ...]]></description>
+								<content:encoded><![CDATA[<p>Hey all! Andy Levy here. I&#8217;m a SQL Server DBA and major contributor for dbatools. My current focus within the project is fixing the docs and more specifically, the help content and documentation that&#8217;s included with every function.</p>
+<p>Most folks don&#8217;t like writing documentation. It&#8217;s seen as a necessary evil, something you do to just check a box, complete requirements, and move on. With many open source projects, you&#8217;re lucky to get much documentation at all.</p>
+<h2>dbatools &amp; documentation</h2>
+<p>dbatools is different. Every function comes with extensive help including documentation of all parameters, examples for usage, and an explanation of what the function does, how and why. PowerShell&#8217;s built-in <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_comment_based_help?view=powershell-5.1&amp;viewFallbackFrom=powershell-Microsoft.PowerShell.Core">comment-based help system</a> is tremendously helpful with developing this; write documentation into your function using the standard template, and it&#8217;s instantly accessible with <code>Get-Help</code>.</p>
+<p>But there&#8217;s always room for improvement. Just <em>having</em> up-to-date documentation is good, but little things can have a big impact on the perception of your open source project. Spelling &amp; grammatical errors, broken sample code, and awkward composition can all make prospective users (and their managers) wary of using your code. Addressing these issues gives your project an extra level of polish, making it look like the solid, professionally-developed <em>product</em> that it is, not just another GitHub project.</p>
+<h2>how i got involved</h2>
+<p>What started for me as a simple attempt to <a href="https://flxsql.com/spell-checking-dbatools-with-visual-studio-code/">correct spelling errors</a> in dbatools has become a much larger mission &#8211; to review all of the comment-based help (CBH) and clean up examples, grammar, style and more. It&#8217;s turned out to be a larger undertaking than expected, but it&#8217;s come along far enough now that we&#8217;re able bring more people into the process to distribute the work.</p>
+<h2>how you can get involved</h2>
+<p>Working on the CBH is a great way to get started with the dbatools project, even (especially) if you&#8217;re not a PowerShell expert or MVP-level DBA. Getting everything clean and consistent in the CBH is an important step on the road to 1.0. Along the way, you&#8217;ll pick up on how dbatools is put together, discover functions that you can use in your day-to-day work, and get a feel for PowerShell best practices. You <em>will</em> learn from this experience! To get started:</p>
+<ol>
+<li>Set up a GitHub account, fork the project, and clone it to your desktop. If you&#8217;re new to the process, we&#8217;ve got <a href="https://dbatools.io/contributing/">a few guides</a> to get you started.</li>
+<li>Make sure your editor&#8217;s formatting is configured to be consistent with the rest of the project. If you use Visual Studio Code, Shawn Melton has a <a href="https://dbatools.io/vscode/#workspace">sample workspace settings file</a>.</li>
+<li>Take a look at the <a href="https://github.com/sqlcollaborative/dbatools-templates">dbatools-templates repository</a>. Here you&#8217;ll find samples of the CBH style that should be used. You can also look at functions which have already been updated to the standard style.</li>
+<li>Create a branch, pick a handful of functions and get to work! We try to keep each batch to 5-6 functions at most, to minimize code review time and mitigate the risk of merge issues. A sampling of items to tackle (this is not a complete list; please review the templates to get familiar with what we&#8217;re looking for):
+<ul>
+<li>If you&#8217;re working on a function which has not yet gotten &#8220;the treatment&#8221;, please update <em>all</em> of the CBH in it, not just selected elements</li>
+<li>Proper indenting/formatting of the CBH sections</li>
+<li>Spelling and grammar</li>
+<li>Remove manual linebreaks in sentences and paragraphs. The console will line-wrap as appropriate when the CBH is rendered to the user, and if you enable &#8220;soft wrap&#8221; in your code editor, the same will happen there.</li>
+<li>Verify that examples are valid. In some cases, the <code>SqlInstance</code> used in calling the function in the example may not match the text description under it. This needs to be corrected.</li>
+<li>For switch parameters, the description should start with &#8220;If this switch is enabled&#8230;&#8221;</li>
+<li>For parameters which have valid values determined by the instance you&#8217;re connecting to, the language &#8220;Options for this parameter are auto-populated from the server&#8221; should be used</li>
+<li>Add <code>Tags:</code> to the <code>.NOTES</code> section if it&#8217;s missing</li>
+<li>(Optional) If you&#8217;re using VS Code and have configured it with the appropriate formatting settings, format the code. <strong>Be careful here!</strong> In cases where there&#8217;s a curly brace followed by a comment at the end of the line, the VS Code auto-formatter will break the code (the curly brace will end up <em>inside</em> the comment) and you&#8217;ll have to seek these out and correct manually.</li>
+</ul>
+</li>
+<li>Commit your code, push it to GitHub, and issue a pull request. You can use <a href="https://github.com/sqlcollaborative/dbatools/pull/2434">PR #2434</a> as a template and please reference <a href="https://github.com/sqlcollaborative/dbatools/issues/2219">issue #2219</a> in your description.</li>
+<li>Request a review of your PR from alevyinroc</li>
+</ol>
+<p>Before you know it, you&#8217;ll branch out from documentation and start working on bugs, just like I did.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/clean-cbh/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">6604</post-id>	</item>
+	</channel>
+</rss>

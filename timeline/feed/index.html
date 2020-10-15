@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	
+	>
+<channel>
+	<title>
+	Comments on: creating a history timeline	</title>
+	<atom:link href="https://dbatools.io/timeline/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/timeline/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Fri, 13 Sep 2019 08:46:57 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+			<item>
+				<title>
+				By: Tim Toennies				</title>
+				<link>https://dbatools.io/timeline/#comment-68613</link>
+		<dc:creator><![CDATA[Tim Toennies]]></dc:creator>
+		<pubDate>Thu, 11 Jul 2019 14:46:45 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=8008#comment-68613</guid>
+					<description><![CDATA[Is it possible to change the default row label from dd/mm hh:mm to mm/dd/yyyy hh:mm ?]]></description>
+		<content:encoded><![CDATA[<p>Is it possible to change the default row label from dd/mm hh:mm to mm/dd/yyyy hh:mm ?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Marcin Gminski				</title>
+				<link>https://dbatools.io/timeline/#comment-64546</link>
+		<dc:creator><![CDATA[Marcin Gminski]]></dc:creator>
+		<pubDate>Thu, 02 May 2019 19:54:14 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=8008#comment-64546</guid>
+					<description><![CDATA[Hi, A lot has changed since the release of the history timeline. The -NoJobSteps in Get-DbaAgentJobHistory is now -ExcludeJobSteps. You can see the full reference in the docs:  https://docs.dbatools.io/#Get-DbaAgentJobHistory. Any questions please let me know. Thanks.]]></description>
+		<content:encoded><![CDATA[<p>Hi, A lot has changed since the release of the history timeline. The -NoJobSteps in Get-DbaAgentJobHistory is now -ExcludeJobSteps. You can see the full reference in the docs:  <a href="https://docs.dbatools.io/#Get-DbaAgentJobHistory" rel="nofollow ugc">https://docs.dbatools.io/#Get-DbaAgentJobHistory</a>. Any questions please let me know. Thanks.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Ken Hemmerling				</title>
+				<link>https://dbatools.io/timeline/#comment-64545</link>
+		<dc:creator><![CDATA[Ken Hemmerling]]></dc:creator>
+		<pubDate>Thu, 02 May 2019 19:50:00 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=8008#comment-64545</guid>
+					<description><![CDATA[I ran &quot;remove-module dbatools&quot; followed by &quot;Install-module dbatools&#039; in an PowerShell window run as administrator to make sure I&#039;ve got the most recent version.  When I run:
+&#062; Get-DbaAgentJobHistory -SqlInstance nex-srv1\dev -StartDate &#039;2019-04-01 00:00&#039; -EndDate &#039;2019-04-20 23:59&#039; -NoJobSteps
+I get:
+&#062; Get-DbaAgentJobHistory : A parameter cannot be found that matches parameter name &#039;NoJobSteps&#039;.
+&#062; At line:1 char:108
+&#062; + ... -StartDate &#039;2019-04-01 00:00&#039; -EndDate &#039;2019-04-20 23:59&#039; -NoJobSteps
+&#062; +                                                               ~~~~~~~~~~~
+&#062;     + CategoryInfo          : InvalidArgument: (:) [Get-DbaAgentJobHistory], ParameterBindingException
+&#062;     + FullyQualifiedErrorId : NamedParameterNotFound,Get-DbaAgentJobHistory
+
+Any idea what the problem is?]]></description>
+		<content:encoded><![CDATA[<p>I ran &#8220;remove-module dbatools&#8221; followed by &#8220;Install-module dbatools&#8217; in an PowerShell window run as administrator to make sure I&#8217;ve got the most recent version.  When I run:<br />
+&gt; Get-DbaAgentJobHistory -SqlInstance nex-srv1\dev -StartDate &#8216;2019-04-01 00:00&#8217; -EndDate &#8216;2019-04-20 23:59&#8217; -NoJobSteps<br />
+I get:<br />
+&gt; Get-DbaAgentJobHistory : A parameter cannot be found that matches parameter name &#8216;NoJobSteps&#8217;.<br />
+&gt; At line:1 char:108<br />
+&gt; + &#8230; -StartDate &#8216;2019-04-01 00:00&#8217; -EndDate &#8216;2019-04-20 23:59&#8217; -NoJobSteps<br />
+&gt; +                                                               ~~~~~~~~~~~<br />
+&gt;     + CategoryInfo          : InvalidArgument: (:) [Get-DbaAgentJobHistory], ParameterBindingException<br />
+&gt;     + FullyQualifiedErrorId : NamedParameterNotFound,Get-DbaAgentJobHistory</p>
+<p>Any idea what the problem is?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Marcin Gminski				</title>
+				<link>https://dbatools.io/timeline/#comment-28536</link>
+		<dc:creator><![CDATA[Marcin Gminski]]></dc:creator>
+		<pubDate>Mon, 19 Nov 2018 14:22:37 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=8008#comment-28536</guid>
+					<description><![CDATA[Yeah I like Google Charts too but they can be difficult to work with. They are really designed for a client-server architecture. Take a look at some of the SQLWATCH reports https://sqlwatch.io/ , there is a Gantt Chart in PowerBI which should get you started.]]></description>
+		<content:encoded><![CDATA[<p>Yeah I like Google Charts too but they can be difficult to work with. They are really designed for a client-server architecture. Take a look at some of the SQLWATCH reports <a href="https://sqlwatch.io/" rel="nofollow ugc">https://sqlwatch.io/</a> , there is a Gantt Chart in PowerBI which should get you started.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: rich				</title>
+				<link>https://dbatools.io/timeline/#comment-28528</link>
+		<dc:creator><![CDATA[rich]]></dc:creator>
+		<pubDate>Mon, 19 Nov 2018 13:30:08 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=8008#comment-28528</guid>
+					<description><![CDATA[Hmm.. ok.
+I really like the google gantt chart look that DBATools provided. 
+
+Since querying the History of Jobs and Backups is not a too big a deal, it might be easier to create procedure to gather data then use PowerBI to call the procedure, that is assuming you can create a nice Gantt chart in PowerBI, which i&#039;m not familiar with doing at this time.
+
+I&#039;m a newbie in PowerBi so this is a new thing for me.  I literally just downloaded PowerBI about 2 weeks ago to play and learn a little.  looks like i might be digging in to learn a little more about it. 
+
+BTW, thank you for the great set of tools.  
+DBATools is an awesome tool-set, I wish i would&#039;ve found this earlier!!]]></description>
+		<content:encoded><![CDATA[<p>Hmm.. ok.<br />
+I really like the google gantt chart look that DBATools provided. </p>
+<p>Since querying the History of Jobs and Backups is not a too big a deal, it might be easier to create procedure to gather data then use PowerBI to call the procedure, that is assuming you can create a nice Gantt chart in PowerBI, which i&#8217;m not familiar with doing at this time.</p>
+<p>I&#8217;m a newbie in PowerBi so this is a new thing for me.  I literally just downloaded PowerBI about 2 weeks ago to play and learn a little.  looks like i might be digging in to learn a little more about it. </p>
+<p>BTW, thank you for the great set of tools.<br />
+DBATools is an awesome tool-set, I wish i would&#8217;ve found this earlier!!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Marcin Gminski				</title>
+				<link>https://dbatools.io/timeline/#comment-28519</link>
+		<dc:creator><![CDATA[Marcin Gminski]]></dc:creator>
+		<pubDate>Mon, 19 Nov 2018 12:53:29 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=8008#comment-28519</guid>
+					<description><![CDATA[I see. Bit of a hack but if you dump both outputs from Get-DbaBackupHistory and Get-DbaAgentJobHistory into JSON (ConvertTo-JSON) and load that json into PowerBI you should be able to correlate results together. You can then refresh the JSON daily and refresh powerBI to load new data.]]></description>
+		<content:encoded><![CDATA[<p>I see. Bit of a hack but if you dump both outputs from Get-DbaBackupHistory and Get-DbaAgentJobHistory into JSON (ConvertTo-JSON) and load that json into PowerBI you should be able to correlate results together. You can then refresh the JSON daily and refresh powerBI to load new data.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Rich				</title>
+				<link>https://dbatools.io/timeline/#comment-28510</link>
+		<dc:creator><![CDATA[Rich]]></dc:creator>
+		<pubDate>Mon, 19 Nov 2018 12:06:58 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=8008#comment-28510</guid>
+					<description><![CDATA[Yes, we do have an agent that manages our backups, however SQL server records the history just like if it was triggered by the agent.  I have no issue running either Get-DbaAgentJobHistory or Get-DbaBackupHistory and getting the results.  All i was hoping to do is run both at the same time or merge the results so Backups and Jobs would all be listed on the left and i can scan through to see what jobs were running while the backups were running or what backups were running while one of my ETL processes was running.  It would be very powerful to see those all on the same chart.]]></description>
+		<content:encoded><![CDATA[<p>Yes, we do have an agent that manages our backups, however SQL server records the history just like if it was triggered by the agent.  I have no issue running either Get-DbaAgentJobHistory or Get-DbaBackupHistory and getting the results.  All i was hoping to do is run both at the same time or merge the results so Backups and Jobs would all be listed on the left and i can scan through to see what jobs were running while the backups were running or what backups were running while one of my ETL processes was running.  It would be very powerful to see those all on the same chart.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Marcin Gminski				</title>
+				<link>https://dbatools.io/timeline/#comment-28508</link>
+		<dc:creator><![CDATA[Marcin Gminski]]></dc:creator>
+		<pubDate>Mon, 19 Nov 2018 11:58:43 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=8008#comment-28508</guid>
+					<description><![CDATA[Hi, I presume you are asking about a scenario where backups aren’t driven by the SQL agent? Ie NetBackup or other third party solution? The simple answer is no. 
+If you have backups triggered by the agent then the job “Database backup” will correlate with the backup itself and will be enough to establish contention.
+
+To address the first scenario may I recommend SQLWATCH.IO? (Disclaimer, This is a tool witten by myself, shameless self promotion but it will likely give you what you are asking for)]]></description>
+		<content:encoded><![CDATA[<p>Hi, I presume you are asking about a scenario where backups aren’t driven by the SQL agent? Ie NetBackup or other third party solution? The simple answer is no.<br />
+If you have backups triggered by the agent then the job “Database backup” will correlate with the backup itself and will be enough to establish contention.</p>
+<p>To address the first scenario may I recommend SQLWATCH.IO? (Disclaimer, This is a tool witten by myself, shameless self promotion but it will likely give you what you are asking for)</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: rich				</title>
+				<link>https://dbatools.io/timeline/#comment-28503</link>
+		<dc:creator><![CDATA[rich]]></dc:creator>
+		<pubDate>Mon, 19 Nov 2018 11:49:59 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=8008#comment-28503</guid>
+					<description><![CDATA[Is there any way to overlay the results of both the AgenJobHistory and BackupHistory on the same gantt chart.  I was thinking that would be a great tool to see if any of the jobs overlay any of the backups to identify contention of resources of long running jobs or backups within the same time slots.. 
+
+thank you]]></description>
+		<content:encoded><![CDATA[<p>Is there any way to overlay the results of both the AgenJobHistory and BackupHistory on the same gantt chart.  I was thinking that would be a great tool to see if any of the jobs overlay any of the backups to identify contention of resources of long running jobs or backups within the same time slots.. </p>
+<p>thank you</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Antonio				</title>
+				<link>https://dbatools.io/timeline/#comment-17578</link>
+		<dc:creator><![CDATA[Antonio]]></dc:creator>
+		<pubDate>Wed, 26 Sep 2018 14:55:58 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=8008#comment-17578</guid>
+					<description><![CDATA[Amazing. Thank you so much for this.]]></description>
+		<content:encoded><![CDATA[<p>Amazing. Thank you so much for this.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

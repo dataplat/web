@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>creating a history timeline &ndash; dbatools</title>
+<link rel="dns-prefetch" href="//secure.gravatar.com">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//use.fontawesome.com">
+
+<link rel="alternate" type="application/rss+xml" title="dbatools &raquo; Feed" href="https://dbatools.io/feed/">
+<link rel="alternate" type="application/rss+xml" title="dbatools &raquo; Comments Feed" href="https://dbatools.io/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="dbatools &raquo; creating a history timeline Comments Feed" href="https://dbatools.io/timeline/feed/">
+<link rel="stylesheet" id="wp-block-library-css" href="https://c0.wp.com/c/5.3.4/wp-includes/css/dist/block-library/style.min.css" type="text/css" media="all">
+<style id="wp-block-library-inline-css" type="text/css">
+.has-text-align-justify{text-align:justify;}
+</style>
+<link rel="stylesheet" id="cpsh-shortcodes-css" href="https://dbatools.io/wp-content/plugins/column-shortcodes//assets/css/shortcodes.css?ver=1.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-fonts-css" href="https://fonts.googleapis.com/css?family=Raleway%3A400%2C500%2C600%2C700%2C300%2C100%2C800%2C900%7COpen+Sans%3A400%2C300%2C300italic%2C400italic%2C600%2C600italic%2C700%2C700italic&amp;subset=latin%2Clatin-ext&amp;ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-animate-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/animate.min.css?ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-fa-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/font-awesome.min.css?ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-bootstrap-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/bootstrap.min.css?ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-style-css" href="https://dbatools.io/wp-content/plugins/onepress-plus/style.css?ver=10.1.8" type="text/css" media="all">
+<style id="onepress-style-inline-css" type="text/css">
+#main .video-section section.hero-slideshow-wrapper{background:transparent}.hero-slideshow-wrapper:after{position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(1,36,86,1);display:block;content:""}.body-desktop .parallax-hero .hero-slideshow-wrapper:after{display:none!important}.parallax-hero .parallax-mirror:after{position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(1,36,86,1);display:block;content:""}.body-desktop .parallax-hero .hero-slideshow-wrapper:after{display:none!important}.parallax-hero .parallax-mirror:after{position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(1,36,86,1);display:block;content:""}a,.screen-reader-text:hover,.screen-reader-text:active,.screen-reader-text:focus,.header-social a,.onepress-menu a:hover,.onepress-menu ul li a:hover,.onepress-menu li.onepress-current-item>a,.onepress-menu ul li.current-menu-item>a,.onepress-menu>li a.menu-actived,.onepress-menu.onepress-menu-mobile li.onepress-current-item>a,.site-footer a,.site-footer .footer-social a:hover,.site-footer .btt a:hover,.highlight,#comments .comment .comment-wrapper .comment-meta .comment-time:hover,#comments .comment .comment-wrapper .comment-meta .comment-reply-link:hover,#comments .comment .comment-wrapper .comment-meta .comment-edit-link:hover,.btn-theme-primary-outline,.sidebar .widget a:hover,.section-services .service-item .service-image i,.counter_item .counter__number,.team-member .member-thumb .member-profile a:hover,.icon-background-default{color:#012456}input[type="reset"],input[type="submit"],input[type="submit"],.nav-links a:hover,.btn-theme-primary,.btn-theme-primary-outline:hover,.card-theme-primary,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button,.woocommerce button.button.alt{background:#012456}.btn-theme-primary-outline,.btn-theme-primary-outline:hover,.pricing__item:hover,.card-theme-primary,.entry-content blockquote{border-color:#012456}.site-header{background:#e3e3e3;border-bottom:0px none}.onepress-menu>li>a{color:#293955}.onepress-menu>li>a:hover,.onepress-menu>li.onepress-current-item>a{color:#444444;-webkit-transition:all 0.5s ease-in-out;-moz-transition:all 0.5s ease-in-out;-o-transition:all 0.5s ease-in-out;transition:all 0.5s ease-in-out}#nav-toggle span,#nav-toggle span::before,#nav-toggle span::after,#nav-toggle.nav-is-visible span::before,#nav-toggle.nav-is-visible span::after{background:#293955}.site-footer{background-color:#012456}.site-footer .footer-connect .follow-heading{color:rgba(255,255,255,0.9)}.site-footer .site-info,.site-footer .btt a{background-color:#545454}.site-footer .site-info{color:rgba(255,255,255,0.7)}.site-footer .btt a,.site-footer .site-info a{color:rgba(255,255,255,0.9)}.gallery-carousel .g-item{padding:0px 10px}.gallery-carousel{margin-left:-10px;margin-right:-10px}.gallery-grid .g-item,.gallery-masonry .g-item .inner{padding:10px}.gallery-grid,.gallery-masonry{margin:-10px}
+/* --- Begin custom CSS --- */
+.section-testimonials .card { max-width : 140px; }
+/* --- End custom CSS --- */
+
+ .section-features{ background-color: rgba(227,227,227,1); } 
+ 
+</style>
+<link rel="stylesheet" id="onepress-gallery-lightgallery-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/lightgallery.css?ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="upw_theme_standard-css" href="https://dbatools.io/wp-content/plugins/ultimate-posts-widget/css/upw-theme-standard.min.css?ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-official-css" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" media="all" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+<link rel="stylesheet" id="onepress-child-style-css" href="https://dbatools.io/wp-content/themes/onepress/style.css?ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="sccss_style-css" href="https://dbatools.io/?sccss=1&amp;ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-official-v4shim-css" href="https://use.fontawesome.com/releases/v5.11.2/css/v4-shims.css" type="text/css" media="all" integrity="sha384-/EdpJd7d6gGFiQ/vhh7iOjiZdf4+6K4al/XrX6FxxZwDSrAdWxAynr4p/EA/vyPQ" crossorigin="anonymous">
+<style id="font-awesome-official-v4shim-inline-css" type="text/css">
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.svg#fontawesome") format("svg");
+}
+
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.svg#fontawesome") format("svg");
+}
+
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.svg#fontawesome") format("svg");
+unicode-range: U+F004-F005,U+F007,U+F017,U+F022,U+F024,U+F02E,U+F03E,U+F044,U+F057-F059,U+F06E,U+F070,U+F075,U+F07B-F07C,U+F080,U+F086,U+F089,U+F094,U+F09D,U+F0A0,U+F0A4-F0A7,U+F0C5,U+F0C7-F0C8,U+F0E0,U+F0EB,U+F0F3,U+F0F8,U+F0FE,U+F111,U+F118-F11A,U+F11C,U+F133,U+F144,U+F146,U+F14A,U+F14D-F14E,U+F150-F152,U+F15B-F15C,U+F164-F165,U+F185-F186,U+F191-F192,U+F1AD,U+F1C1-F1C9,U+F1CD,U+F1D8,U+F1E3,U+F1EA,U+F1F6,U+F1F9,U+F20A,U+F247-F249,U+F24D,U+F254-F25B,U+F25D,U+F267,U+F271-F274,U+F279,U+F28B,U+F28D,U+F2B5-F2B6,U+F2B9,U+F2BB,U+F2BD,U+F2C1-F2C2,U+F2D0,U+F2D2,U+F2DC,U+F2ED,U+F328,U+F358-F35B,U+F3A5,U+F3D1,U+F410,U+F4AD;
+}
+</style>
+<link rel="stylesheet" id="jetpack_css-css" href="https://c0.wp.com/p/jetpack/8.4.2/css/jetpack.css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var onepress_js_settings = {"onepress_disable_animation":"1","onepress_disable_sticky_header":"1","onepress_vertical_align_menu":"0","hero_animation":"flipInX","hero_speed":"5000000","is_home":"","gallery_enable":"1"};
+var OnePress_Plus = {"ajax_url":"https:\/\/dbatools.io\/wp-admin\/admin-ajax.php","browser_warning":" Your browser does not support the video tag. I suggest you upgrade your browser."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/c/5.3.4/wp-includes/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="https://c0.wp.com/c/5.3.4/wp-includes/js/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/related-posts/related-posts.min.js"></script>
+
+
+<link rel="prev" title="default parameter values" href="https://dbatools.io/defaults/">
+<link rel="next" title="pspowerhour youtube livestream" href="https://dbatools.io/pspowerhour/">
+
+
+<link rel="alternate" type="application/json+oembed" href="https://dbatools.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdbatools.io%2Ftimeline%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://dbatools.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdbatools.io%2Ftimeline%2F&amp;format=xml">
+
+<link rel="dns-prefetch" href="//v0.wordpress.com">
+<link rel="dns-prefetch" href="//widgets.wp.com">
+<link rel="dns-prefetch" href="//s0.wp.com">
+<link rel="dns-prefetch" href="//0.gravatar.com">
+<link rel="dns-prefetch" href="//1.gravatar.com">
+<link rel="dns-prefetch" href="//2.gravatar.com">
+<link rel="dns-prefetch" href="//i0.wp.com">
+<link rel="dns-prefetch" href="//i1.wp.com">
+<link rel="dns-prefetch" href="//i2.wp.com">
+<link rel="dns-prefetch" href="//c0.wp.com">
+<link rel="dns-prefetch" href="//jetpack.wordpress.com">
+<link rel="dns-prefetch" href="//s1.wp.com">
+<link rel="dns-prefetch" href="//s2.wp.com">
+<link rel="dns-prefetch" href="//public-api.wordpress.com">
+<style type="text/css">img#wpstats{display:none}</style><link rel="canonical" href="https://dbatools.io/timeline/">
+			<style type="text/css">
+				/* If html does not have either class, do not show lazy loaded images. */
+				html:not( .jetpack-lazy-images-js-enabled ):not( .js ) .jetpack-lazy-image {
+					display: none;
+				}
+			</style>
+			<script>
+				document.documentElement.classList.add(
+					'jetpack-lazy-images-js-enabled'
+				);
+			</script>
+		
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="creating a history timeline">
+<meta property="og:url" content="https://dbatools.io/timeline/">
+<meta property="og:description" content="Hey all, my name is Marcin and this is my first post and my first contribution to the dbatools. I hope you find it useful. introduction Part of a successful administration and management of any dat&hellip;">
+<meta property="article:published_time" content="2018-08-21T14:30:53+00:00">
+<meta property="article:modified_time" content="2019-09-13T08:46:57+00:00">
+<meta property="og:site_name" content="dbatools">
+<meta property="og:image" content="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?fit=1200%2C733&amp;ssl=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="733">
+<meta property="og:image:alt" content="Get-DbaAgentJobHistory Timeline">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:text:title" content="creating a history timeline">
+<meta name="twitter:image" content="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?fit=1200%2C733&amp;ssl=1&amp;w=640">
+<meta name="twitter:image:alt" content="Get-DbaAgentJobHistory Timeline">
+<meta name="twitter:card" content="summary_large_image">
+
+
+<link rel="icon" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&amp;ssl=1" sizes="32x32">
+<link rel="icon" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1">
+<meta name="msapplication-TileImage" content="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1">
+
+<style class="wp-typography-print-styles" type="text/css">
+body, body p { 
+	font-style: normal;
+	text-transform: none;
+ } 
+ .onepress-menu a { 
+	font-style: normal;
+	text-transform: none;
+ } 
+ body h1, body h2, body h3, body h4, body h5, body h6,
+    body .section-title-area .section-title, body .section-title-area .section-subtitle, body .hero-content-style1 h2 { 
+	font-style: normal;
+	text-transform: none;
+ }
+</style>
+			<style type="text/css" id="wp-custom-css">
+				/*
+Welcome to Custom CSS!
+
+To learn how this works, see http://wp.me/PEmnE-Bt
+*/			</style>
+		</head>
+
+<body class="post-template-default single single-post postid-8008 single-format-standard wp-custom-logo group-blog no-sticky-header">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+            <header id="masthead" class="site-header" role="banner">
+            <div class="container">
+                <div class="site-branding">
+                <div class="site-brand-inner has-logo-img no-desc"><div class="site-logo-div"><a href="https://dbatools.io/" class="custom-logo-link" rel="home"><img width="223" height="64" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2016/05/dbatools-logo-1.png?fit=223%2C64&amp;ssl=1" class="custom-logo jetpack-lazy-image" alt="dbatools" data-lazy-src="https://i0.wp.com/dbatools.io/wp-content/uploads/2016/05/dbatools-logo-1.png?fit=223%2C64&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "></a></div></div>                </div>
+                
+
+                <div class="header-right-wrapper">
+                    <a href="#0" id="nav-toggle">Menu<span></span></a>
+                    <nav id="site-navigation" class="main-navigation" role="navigation">
+                        <ul class="onepress-menu">
+                            <li id="menu-item-1452" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1452"><a href="https://dbatools.io/download/">&#11015; download</a>
+<ul class="sub-menu">
+	<li id="menu-item-1451" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1451"><a href="https://dbatools.io/getting-started/">get started</a></li>
+</ul>
+</li>
+<li id="menu-item-1453" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1453"><a href="https://dbatools.io/commands/">&#128640; commands</a></li>
+<li id="menu-item-8268" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8268"><a href="https://dbatools.io/docs">&#128209; docs</a>
+<ul class="sub-menu">
+	<li id="menu-item-8270" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8270"><a href="https://dbatools.io/blog">blog</a></li>
+</ul>
+</li>
+<li id="menu-item-1456" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1456"><a href="https://dbatools.io/team/">&#129395; team</a>
+<ul class="sub-menu">
+	<li id="menu-item-3315" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3315"><a href="https://dbatools.io/contributing">contribute</a></li>
+	<li id="menu-item-3123" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3123"><a href="https://dbatools.io/contact/">contact</a></li>
+	<li id="menu-item-3116" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3116"><a href="https://dbatools.io/git">find us</a>
+	<ul class="sub-menu">
+		<li id="menu-item-4663" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4663"><a href="https://dbatools.io/slack">slack</a></li>
+		<li id="menu-item-4662" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4662"><a href="https://dbatools.io/github">github</a></li>
+		<li id="menu-item-4664" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4664"><a href="https://dbatools.io/twitter">twitter</a></li>
+		<li id="menu-item-4665" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4665"><a href="https://dbatools.io/youtube">youtube</a></li>
+		<li id="menu-item-4666" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4666"><a href="https://dbatools.io/linkedin">linkedin</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-3340" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3340"><a href="https://dbatools.io/subscribe/">&#128140; subscribe</a></li>
+<li id="menu-item-6587" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6587"><a href="https://dbatools.io/builds">&#10004; build ref</a></li>
+<li id="menu-item-9781" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9781"><a href="https://dbatools.io/sponsorship/">&#128149; sponsor</a></li>
+<li id="menu-item-9994" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9994"><a href="https://dbatools.io/book">&#128216; book</a></li>
+                        </ul>
+                    </nav>
+                    
+                </div>
+            </div>
+        </header>
+        
+	<div id="content" class="site-content">
+
+		
+		<div id="content-inside" class="container right-sidebar">
+			<div id="primary" class="content-area">
+				<main id="main" class="site-main" role="main">
+
+				
+					
+<article id="post-8008" class="post-8008 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+	<header class="entry-header">
+		<h1 class="entry-title">creating a history timeline</h1>
+		<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="https://dbatools.io/timeline/" rel="bookmark"><time class="entry-date published" datetime="2018-08-21T14:30:53+00:00">August 21, 2018</time><time class="updated hide" datetime="2019-09-13T08:46:57+00:00">September 13, 2019</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://dbatools.io/author/marcin/">Marcin Gminski</a></span></span>		</div>
+	</header>
+
+	<div class="entry-content">
+		<p>Hey all, my name is Marcin and this is my first post and my first contribution to the dbatools. I hope you find it useful.</p>
+<h2>introduction</h2>
+<p>Part of a successful administration and management of any database is to know what happens over a period of time, when scheduled jobs and backups run and whether they are successful or not.</p>
+<p>The common difficulty is getting this information out of SQL Server and then &ndash; the most difficult part &ndash; understanding what it means. In case of scheduled jobs, we want to make sure that there are no clashing and those heavy workloads such as ETL, backups, integrity checks and index maintenance run in isolation as much as possible.</p>
+<p>Before dbatools, getting the information out of SQL Server was often a tedious task that often involved relatively complex T-SQL script, spreadsheet and some copying and pasting. Thanks to all the hard work of the dbatools team this is a history. A simple command can retrieve all the information we want and now with the new <code>ConvertTo-DbaTimeline</code>, it can be easily plotted on a graphical timeline!</p>
+<h2>concept</h2>
+<p>The concept of a timeline is very simple and based on a Gantt chart used in project management and time schedule:</p>
+<blockquote><p>A Gantt chart is a type of bar chart that illustrates a project schedule, named after its inventor, Henry Gantt (1861&ndash;1919), who designed such a chart around the years 1910&ndash;1915<br>
+<a href="https://en.wikipedia.org/wiki/Gantt_chart">https://en.wikipedia.org/wiki/Gantt_chart</a></p></blockquote>
+<p>The idea is to show a graphical representation of an item or items of interest (task, job, meeting duration) with the start and end dates on a common timeline:</p>
+<blockquote><p>A&nbsp;<i>timeline</i>&nbsp;is a chart that depicts how a set of resources are used over time. If you&rsquo;re managing a software project and want to illustrate who is doing what and when, or if you&rsquo;re organizing a conference and need to schedule meeting rooms, a timeline is often a reasonable visualization choice. One popular type of timeline is the&nbsp;<i>Gantt chart</i>.<br>
+<a href="https://developers.google.com/chart/interactive/docs/gallery/timeline">https://developers.google.com/chart/interactive/docs/gallery/timeline</a></p></blockquote>
+<h2>execution</h2>
+<p>Currently, the output from the following commands is supported:</p>
+<ul>
+<li><strong>Get-DbaAgentJobHistory</strong></li>
+<li><strong>Get-DbaDbBackupHistory</strong></li>
+</ul>
+<p>You will run the above commands as you would normally do but pipe the output to <code>ConvertTo-DbaTimeline</code>, the same way as you would with any other <code>ConverTo-*</code> PowerShell function. The output is a string that most of the time you will save as file using the <code>Out-File</code> command in order to open it in a browser.</p>
+<h3>Examples</h3>
+<h4>Get-DbaAgentJobHistory</h4>
+<pre class="lang:ps decode:true">#To generate the timeline for agent job history and save as html file:
+Get-DbaAgentJobHistory -SqlInstance sql-1 -StartDate '2018-08-18 00:00' -EndDate '2018-08-19 23:59' -ExcludeJobSteps | ConvertTo-DbaTimeline | Out-File C:\temp\DbaAgentJobHistory.html -Encoding ASCII
+</pre>
+<p>Note the <code>-Encoding ASCII</code> &ndash; this is required for correct JavaScript and HTML formatting.</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?ssl=1"><img class="alignnone size-large wp-image-8057 jetpack-lazy-image" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?resize=800%2C489&amp;ssl=1" alt="Get-DbaAgentJobHistory Timeline" width="800" height="489" data-recalc-dims="1" data-lazy-srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?resize=1024%2C626&amp;ssl=1 1024w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?resize=300%2C183&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?resize=768%2C469&amp;ssl=1 768w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?w=1600&amp;ssl=1 1600w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?w=2400&amp;ssl=1 2400w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?resize=800%2C489&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img class="alignnone size-large wp-image-8057" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?resize=800%2C489&amp;ssl=1" alt="Get-DbaAgentJobHistory Timeline" width="800" height="489" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?resize=1024%2C626&amp;ssl=1 1024w,https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?resize=300%2C183&amp;ssl=1 300w,https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?resize=768%2C469&amp;ssl=1 768w,https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?w=1600&amp;ssl=1 1600w,https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?w=2400&amp;ssl=1 2400w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1"></noscript></a></p>
+<p>Colours are applied automatically based on the job status:<br>
+<span style="background-color: #36b300;padding: 2px 4px 2px 4px;margin: 2px;color: #ffffff;float: left">Succeeded</span><span style="background-color: #ff3d3d;padding: 2px 4px 2px 4px;margin: 2px;color: #ffffff;float: left">Failed</span><span style="background-color: #ffff00;padding: 2px 4px 2px 4px;margin: 2px;color: #000000;float: left">Retry</span><span style="background-color: #c2c2c2;padding: 2px 4px 2px 4px;margin: 2px;color: #ffffff;float: left">Canceled</span><span style="background-color: #00ccff;padding: 2px 4px 2px 4px;margin: 2px;color: #ffffff;float: left">In Progress</span></p>
+<h4></h4>
+<p>&nbsp;</p>
+<h4>Get-DbaDbBackupHistory</h4>
+<pre class="lang:ps decode:true">#Backup history timeline:
+Get-DbaDbBackupHistory -SqlInstance sql-1 -Since '2018-08-18 00:00' | ConvertTo-DbaTimeline | Out-File C:\temp\Get-DbaDbBackupHistory.html -Encoding ascii</pre>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaDbBackupHistory-html.jpg?ssl=1"><img class="alignnone size-large wp-image-8054 jetpack-lazy-image" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaDbBackupHistory-html-1024x566.jpg?resize=800%2C442&amp;ssl=1" alt="Get-DbaDbBackupHistory Timeline" width="800" height="442" data-recalc-dims="1" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaDbBackupHistory-html-1024x566.jpg?resize=800%2C442&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img class="alignnone size-large wp-image-8054" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/08/Get-DbaDbBackupHistory-html-1024x566.jpg?resize=800%2C442&amp;ssl=1" alt="Get-DbaDbBackupHistory Timeline" width="800" height="442" data-recalc-dims="1"></noscript></a></p>
+<p>And again, each backup type has its own colour. This time, however, they are not pre-configured but are set automatically by the Google&rsquo;s framework so could be random.</p>
+<p>We can also run it for multiple servers at once AND THIS IS GREAT as it allows to produce a comprehensive overview of the entire estate which can help to assess the impact on the network, storage or virtual cluster. And without passing the <code>Out-File</code> command it will simply output an HTML as a string:</p>
+<pre class="lang:ps decode:true">Get-DbaDbBackupHistory -SqlInstance sql2017, sql2016 -Since '2018-08-13 00:00' | ConvertTo-DbaTimeline</pre>
+<p>Which can be assigned to a variable or used to compose an email as in the example below:</p>
+<pre class="lang:ps decode:true">$messageParameters = @{
+    Subject = "Backup history for sql2017 and sql2016"
+    Body = Get-DbaDbBackupHistory -SqlInstance sql2017, sql2016 -Since '2018-08-13 00:00' | ConvertTo-DbaTimeline
+    From = "dba@ad.local"
+    To = "dba@ad.local"
+    SmtpServer = "smtp.ad.local"
+ }
+Send-MailMessage @messageParameters -BodyAsHtml</pre>
+<h2>the mechanics</h2>
+<p>We are using Google Charts Framework to generate the graph in the <code>ConvertTo-DbaTimeline</code>. The framework is JavaScript based, very easy to use and fast. The rendering happens on the client PC and no data is ever sent to Google or anywhere.</p>
+<p>You can read more about the Google Chart Framework:</p>
+<p><a href="https://developers.google.com/chart/">https://developers.google.com/chart/</a></p>
+<p>And specifically about the Timeline object:</p>
+<p><a href="https://developers.google.com/chart/interactive/docs/gallery/timeline">https://developers.google.com/chart/interactive/docs/gallery/timeline</a></p>
+<p>The creation of the HTML file is not much different to how dynamic websites work. If we look at Google&rsquo;s generic example below, I have highlighted the part that contains JavaScript Array data rows which, in our case are being generated dynamically from the pipe the input. The rest of the code apart from few parameters is static. Once the input is transposed it is the being returned as a string. That&rsquo;s it. It is very simple yet powerful.</p>
+<pre class="theme:github-copy lang:js mark:12-26 decode:true">  google.charts.load("current", {packages:["timeline"]});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var container = document.getElementById('example3.1');
+    var chart = new google.visualization.Timeline(container);
+    var dataTable = new google.visualization.DataTable();
+    dataTable.addColumn({ type: 'string', id: 'Position' });
+    dataTable.addColumn({ type: 'string', id: 'Name' });
+    dataTable.addColumn({ type: 'date', id: 'Start' });
+    dataTable.addColumn({ type: 'date', id: 'End' });
+    dataTable.addRows([
+      [ 'President', 'George Washington', new Date(1789, 3, 30), new Date(1797, 2, 4) ],
+      [ 'President', 'John Adams', new Date(1797, 2, 4), new Date(1801, 2, 4) ],
+      [ 'President', 'Thomas Jefferson', new Date(1801, 2, 4), new Date(1809, 2, 4) ],
+      [ 'Vice President', 'John Adams', new Date(1789, 3, 21), new Date(1797, 2, 4)],
+      [ 'Vice President', 'Thomas Jefferson', new Date(1797, 2, 4), new Date(1801, 2, 4)],
+      [ 'Vice President', 'Aaron Burr', new Date(1801, 2, 4), new Date(1805, 2, 4)],
+      [ 'Vice President', 'George Clinton', new Date(1805, 2, 4), new Date(1812, 3, 20)],
+      [ 'Secretary of State', 'John Jay', new Date(1789, 8, 25), new Date(1790, 2, 22)],
+      [ 'Secretary of State', 'Thomas Jefferson', new Date(1790, 2, 22), new Date(1793, 11, 31)],
+      [ 'Secretary of State', 'Edmund Randolph', new Date(1794, 0, 2), new Date(1795, 7, 20)],
+      [ 'Secretary of State', 'Timothy Pickering', new Date(1795, 7, 20), new Date(1800, 4, 12)],
+      [ 'Secretary of State', 'Charles Lee', new Date(1800, 4, 13), new Date(1800, 5, 5)],
+      [ 'Secretary of State', 'John Marshall', new Date(1800, 5, 13), new Date(1801, 2, 4)],
+      [ 'Secretary of State', 'Levi Lincoln', new Date(1801, 2, 5), new Date(1801, 4, 1)],
+      [ 'Secretary of State', 'James Madison', new Date(1801, 4, 2), new Date(1809, 2, 3)]
+    ]);
+    chart.draw(dataTable);
+  }</pre>
+<h2>final note</h2>
+<p>Although it&rsquo;s a Google framework, this works great on any browser not only on Google Chrome. As per the <a href="https://developers.google.com/chart/interactive/docs/">Google Docs </a>: <em>Charts are rendered using HTML5/SVG technology to provide cross-browser compatibility (including VML for older IE versions)</em>.</p>
+<p>However, one last thing to keep in mind is that it does require access to the internet in order to access Google Charts and Bootstrap frameworks. As these are based on JavaScript, it is best to run on a client PC and not on Windows Server.</p>
+<h2>my experience as a contributor</h2>
+<p>Although I have been using dbatools for quite some time now this was my first contribution to the project. I never really looked how it all works behind scenes but oh boy it is impressive. Chrissy has done a fantastic job designing the dbatools framework. All the internal functions are there, as a developer I did not have to worry about how to write a message or raise an error.</p>
+<p>Chrissy is also a great mentor, she reviewed my code and tweaked it a bit where required with the full explanation of&nbsp;what she did and why, which made perfect sense. I probably learned more PowerShell in those couple of days working with Chrissy than in my whole career. Thank you!</p>
+
+<div id="jp-relatedposts" class="jp-relatedposts">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+</div>			</div>
+
+	<footer class="entry-footer">
+			</footer>
+</article>
+
+
+					
+<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title">
+			30 thoughts on &ldquo;<span>creating a history timeline</span>&rdquo;		</h3>
+
+		
+		<ol class="comment-list">
+			    <li class="comment even thread-even depth-1" id="li-comment-11604">
+        <article id="comment-11604" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/b18791131c339865e65289ad245004aa?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/b18791131c339865e65289ad245004aa?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/b18791131c339865e65289ad245004aa?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/b18791131c339865e65289ad245004aa?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/b18791131c339865e65289ad245004aa?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Rich Siglin</b> </cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-11604"><time datetime="2018-08-21T15:55:57+00:00">August 21, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=11604#respond" data-commentid="11604" data-postid="8008" data-belowelement="comment-11604" data-respondelement="respond" aria-label="Reply to Rich Siglin">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>where do we get the ConvertTo-DbaTimeline command?</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-marcin bypostauthor odd alt depth-2" id="li-comment-11618">
+        <article id="comment-11618" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Marcin Gminski</b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-11618"><time datetime="2018-08-21T17:51:28+00:00">August 21, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=11618#respond" data-commentid="11618" data-postid="8008" data-belowelement="comment-11618" data-respondelement="respond" aria-label="Reply to Marcin Gminski">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hi, it&rsquo;s part of the dbatools offering: <a href="https://dbatools.io/download/" rel="nofollow ugc">https://dbatools.io/download/</a></p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-11609">
+        <article id="comment-11609" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/cc40167a97f1559a1436aa04b573d425?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/cc40167a97f1559a1436aa04b573d425?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/cc40167a97f1559a1436aa04b573d425?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/cc40167a97f1559a1436aa04b573d425?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/cc40167a97f1559a1436aa04b573d425?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Michael Kirkpatrick</b> </cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-11609"><time datetime="2018-08-21T16:30:54+00:00">August 21, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=11609#respond" data-commentid="11609" data-postid="8008" data-belowelement="comment-11609" data-respondelement="respond" aria-label="Reply to Michael Kirkpatrick">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Nice work!  Thanks.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment odd alt thread-even depth-1" id="li-comment-11629">
+        <article id="comment-11629" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/e0564d56e947e68b0b78d0a6d065366a?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/e0564d56e947e68b0b78d0a6d065366a?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/e0564d56e947e68b0b78d0a6d065366a?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/e0564d56e947e68b0b78d0a6d065366a?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/e0564d56e947e68b0b78d0a6d065366a?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Robert Plata</b> </cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-11629"><time datetime="2018-08-21T20:42:03+00:00">August 21, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=11629#respond" data-commentid="11629" data-postid="8008" data-belowelement="comment-11629" data-respondelement="respond" aria-label="Reply to Robert Plata">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>This will help me immensely!  Thank you.</p>
+<p>I&rsquo;m having a problem executing the Send-MailMessage as you have posted it.<br>
++ CategoryInfo          : InvalidArgument: (:) [Send-MailMessage], ParameterBindingException<br>
++ FullyQualifiedErrorId : CannotConvertArgument,Microsoft.PowerShell.Commands.SendMailMessage</p>
+<p>I am not that familiar with PowerShell, so there is probably something glaringly simple that I am missing.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-11668">
+        <article id="comment-11668" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/892171a9a8de5db6b0501007995a038d?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/892171a9a8de5db6b0501007995a038d?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/892171a9a8de5db6b0501007995a038d?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/892171a9a8de5db6b0501007995a038d?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/892171a9a8de5db6b0501007995a038d?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Greg</b> </cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-11668"><time datetime="2018-08-22T07:53:29+00:00">August 22, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=11668#respond" data-commentid="11668" data-postid="8008" data-belowelement="comment-11668" data-respondelement="respond" aria-label="Reply to Greg">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Maybe I made a mistake while trying to generate the mail.<br>
+When I fire up the PS Script I get the error message<br>
+Cannot convert &lsquo;System.Object[]&rsquo; to the type &lsquo;System.String&rsquo; required by parameter &lsquo;Body&rsquo;</p>
+<p>Do you maybe know what I missed? (Sorry I am a beginner with Powershell)</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-marcin bypostauthor odd alt depth-2" id="li-comment-11683">
+        <article id="comment-11683" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Marcin Gminski</b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-11683"><time datetime="2018-08-22T11:50:29+00:00">August 22, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=11683#respond" data-commentid="11683" data-postid="8008" data-belowelement="comment-11683" data-respondelement="respond" aria-label="Reply to Marcin Gminski">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hi, can you please try adding   | Out-String    after the ConvertTo-DbaTimeline and see if it works for you. We may have omitted that in the example. Apologies.<br>
+&ldquo;`<br>
+$messageParameters = @{<br>
+    Subject = &ldquo;Backup history for sql2017 and sql2016&rdquo;<br>
+    Body = Get-DbaBackupHistory -SqlInstance sql2017, sql2016 -Since &lsquo;2018-08-13 00:00&rsquo; | ConvertTo-DbaTimeline  | Out-String<br>
+    From = &ldquo;dba@ad.local&rdquo;<br>
+    To = &ldquo;dba@ad.local&rdquo;<br>
+    SmtpServer = &ldquo;smtp.ad.local&rdquo;<br>
+ }<br>
+Send-MailMessage @messageParameters -BodyAsHtml<br>
+&ldquo;`</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+    <li class="pingback even thread-even depth-1" id="comment-11686">
+        <p>Pingback: <a href="https://curatedsql.com/2018/08/22/creating-timelines-with-dbatools/" rel="external nofollow ugc" class="url">Creating Timelines With dbatools &ndash; Curated SQL</a> </p>
+    </li>
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-11720">
+        <article id="comment-11720" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/6a32cb85b690ed9d3b875e73afada850?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/6a32cb85b690ed9d3b875e73afada850?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/6a32cb85b690ed9d3b875e73afada850?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/6a32cb85b690ed9d3b875e73afada850?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/6a32cb85b690ed9d3b875e73afada850?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Randal Hartwig</b> </cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-11720"><time datetime="2018-08-22T18:02:19+00:00">August 22, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=11720#respond" data-commentid="11720" data-postid="8008" data-belowelement="comment-11720" data-respondelement="respond" aria-label="Reply to Randal Hartwig">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Question &ndash; can we change the ORDER BY of the databases or backup types?</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment byuser comment-author-marcin bypostauthor even thread-even depth-1" id="li-comment-11729">
+        <article id="comment-11729" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Marcin Gminski</b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-11729"><time datetime="2018-08-22T19:43:55+00:00">August 22, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=11729#respond" data-commentid="11729" data-postid="8008" data-belowelement="comment-11729" data-respondelement="respond" aria-label="Reply to Marcin Gminski">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Very good question. You could try sorting output form the Backup and Agent history functions by using Sort-Object before you pass it into the Timeline function however, Google&rsquo;s framework also does its own sorting which we have no control over so you may be out of luck. Give it a go, it&rsquo;s worth trying.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-12550">
+        <article id="comment-12550" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/83a0069f5443cbc0c274ddba2cec77c9?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/83a0069f5443cbc0c274ddba2cec77c9?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/83a0069f5443cbc0c274ddba2cec77c9?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/83a0069f5443cbc0c274ddba2cec77c9?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/83a0069f5443cbc0c274ddba2cec77c9?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Shivram</b> </cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-12550"><time datetime="2018-08-29T05:09:23+00:00">August 29, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=12550#respond" data-commentid="12550" data-postid="8008" data-belowelement="comment-12550" data-respondelement="respond" aria-label="Reply to Shivram">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>I am unable to place ConvertTo-DbaTimeline command. Am I missing something? I checked the dbatools command list as well.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-marcin bypostauthor even depth-2" id="li-comment-12560">
+        <article id="comment-12560" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Marcin Gminski</b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-12560"><time datetime="2018-08-29T07:03:27+00:00">August 29, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=12560#respond" data-commentid="12560" data-postid="8008" data-belowelement="comment-12560" data-respondelement="respond" aria-label="Reply to Marcin Gminski">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hi, can you please describe a little bit more what the problem is, the exact command you are trying and any errors that you get?</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+    <li class="comment odd alt thread-even depth-1" id="li-comment-12627">
+        <article id="comment-12627" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/83a0069f5443cbc0c274ddba2cec77c9?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/83a0069f5443cbc0c274ddba2cec77c9?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/83a0069f5443cbc0c274ddba2cec77c9?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/83a0069f5443cbc0c274ddba2cec77c9?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/83a0069f5443cbc0c274ddba2cec77c9?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Shivram</b> </cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-12627"><time datetime="2018-08-29T21:53:26+00:00">August 29, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=12627#respond" data-commentid="12627" data-postid="8008" data-belowelement="comment-12627" data-respondelement="respond" aria-label="Reply to Shivram">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hi Marcin,<br>
+I was trying to use ConvertTo-TimeLine for my SQL Agent job history. When I execute the command Get-DbaAgentJobHistory | ConvertTo-TimeLine, it gave me the below error.</p>
+<p>ConvertTo-DbaTimeline : The &lsquo;ConvertTo-DbaTimeline&rsquo; command was found in the module &lsquo;dbatools&rsquo;, but the module could not be loaded. For more information, run &lsquo;Import-Module dbatools&rsquo;.<br>
+At line:1 char:26<br>
++ Get-DbaAgentJobHistory | ConvertTo-DbaTimeline<br>
++                          ~~~~~~~~~~~~~~~~~~~~~<br>
+    + CategoryInfo          : ObjectNotFound: (ConvertTo-DbaTimeline:String) [], CommandNotFoundException<br>
+    + FullyQualifiedErrorId : CouldNotAutoloadMatchingModule</p>
+<p>I then did a Find-DbaCommand ConvertTo-TimeLine and it returned nothing.<br>
+I also performed an Update-DbaTools and also tried Update-DbaTools -dev but still I do not see the command.</p>
+<p>Thank you,<br>
+Regards</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-marcin bypostauthor even depth-2" id="li-comment-12673">
+        <article id="comment-12673" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Marcin Gminski</b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-12673"><time datetime="2018-08-30T07:53:21+00:00">August 30, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=12673#respond" data-commentid="12673" data-postid="8008" data-belowelement="comment-12673" data-respondelement="respond" aria-label="Reply to Marcin Gminski">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hi, After you have updated dbatools, I would try:<br>
+remove-module dbatools </p>
+<p>and then:<br>
+import-module dbatools</p>
+<p>Let me know if this works.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment odd alt depth-3" id="li-comment-12674">
+        <article id="comment-12674" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/892171a9a8de5db6b0501007995a038d?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/892171a9a8de5db6b0501007995a038d?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/892171a9a8de5db6b0501007995a038d?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/892171a9a8de5db6b0501007995a038d?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/892171a9a8de5db6b0501007995a038d?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Greg</b> </cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-12674"><time datetime="2018-08-30T07:58:52+00:00">August 30, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=12674#respond" data-commentid="12674" data-postid="8008" data-belowelement="comment-12674" data-respondelement="respond" aria-label="Reply to Greg">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>In order to have the DBATools Package to work, I had to start Powershell as an Administrator.<br>
+I then disabled the UAC and everything has been working fine from that time on.<br>
+Might be a point to check.<br>
+BR<br>
+Greg</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+</ul>
+</li>
+    <li class="pingback even thread-odd thread-alt depth-1" id="comment-13447">
+        <p>Pingback: <a href="https://marcin.gminski.net/goodies/sql-agent-jobs-timeline/" rel="external nofollow ugc" class="url">SQL Agent Jobs Timeline with dbatools.io (download) - Marcin Gminski</a> </p>
+    </li>
+    <li class="comment odd alt thread-even depth-1" id="li-comment-14590">
+        <article id="comment-14590" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/092496f710abe43d5e08dcab70662e75?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/092496f710abe43d5e08dcab70662e75?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/092496f710abe43d5e08dcab70662e75?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/092496f710abe43d5e08dcab70662e75?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/092496f710abe43d5e08dcab70662e75?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Phil</b> </cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-14590"><time datetime="2018-09-07T02:12:46+00:00">September 7, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=14590#respond" data-commentid="14590" data-postid="8008" data-belowelement="comment-14590" data-respondelement="respond" aria-label="Reply to Phil">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Great work.</p>
+<p>Would be nice to have the ConvertTo-DbaTimeline available on some of the other commands.</p>
+<p>Cheers<br>
+Phil</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-marcin bypostauthor even depth-2" id="li-comment-15317">
+        <article id="comment-15317" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Marcin Gminski</b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-15317"><time datetime="2018-09-11T12:22:02+00:00">September 11, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=15317#respond" data-commentid="15317" data-postid="8008" data-belowelement="comment-15317" data-respondelement="respond" aria-label="Reply to Marcin Gminski">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hi, I actually have this on my To-Do list &#128578;</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-15199">
+        <article id="comment-15199" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/7d1b1dd7a30a82174477732c05d4c9cd?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/7d1b1dd7a30a82174477732c05d4c9cd?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/7d1b1dd7a30a82174477732c05d4c9cd?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/7d1b1dd7a30a82174477732c05d4c9cd?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/7d1b1dd7a30a82174477732c05d4c9cd?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Mulham</b> </cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-15199"><time datetime="2018-09-10T11:29:13+00:00">September 10, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=15199#respond" data-commentid="15199" data-postid="8008" data-belowelement="comment-15199" data-respondelement="respond" aria-label="Reply to Mulham">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hello,<br>
+I&rsquo;m trying to return last seven days of backup history report by running this script.</p>
+<p>$date= (Get-date).AddDays(-7).ToString()<br>
+Get-DbaBackupHistory -SqlInstance Server -Since $Date | ConvertTo-DbaTimeline| Out-File C:\temp\Get-DbaBackupHistory.html -Encoding ascii -Force<br>
+I&rsquo;m getting the  date formatted with Europeans format day/month/year.<br>
+any way I could change this order?</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment even depth-2" id="li-comment-15316">
+        <article id="comment-15316" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/892171a9a8de5db6b0501007995a038d?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/892171a9a8de5db6b0501007995a038d?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/892171a9a8de5db6b0501007995a038d?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/892171a9a8de5db6b0501007995a038d?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/892171a9a8de5db6b0501007995a038d?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Greg</b> </cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-15316"><time datetime="2018-09-11T12:20:43+00:00">September 11, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=15316#respond" data-commentid="15316" data-postid="8008" data-belowelement="comment-15316" data-respondelement="respond" aria-label="Reply to Greg">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Did you try something like<br>
+$date= (Get-date).AddDays(-7).ToString()<br>
+Get-date $date -format &ldquo;yyyy-MM-dd&rdquo;</p>
+<p>BR</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment byuser comment-author-marcin bypostauthor odd alt depth-2" id="li-comment-15318">
+        <article id="comment-15318" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Marcin Gminski</b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-15318"><time datetime="2018-09-11T12:25:37+00:00">September 11, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=15318#respond" data-commentid="15318" data-postid="8008" data-belowelement="comment-15318" data-respondelement="respond" aria-label="Reply to Marcin Gminski">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hi, This is difficult for me to replicate. It may be due to Google Charts interpretation rather than PowerShell but need to double check. I think we pass ISO date into Charts. I&rsquo;ll have a look.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+    <li class="comment even thread-even depth-1" id="li-comment-17578">
+        <article id="comment-17578" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/6b3c50275b51fd1e578593f7c9ec8d89?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/6b3c50275b51fd1e578593f7c9ec8d89?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/6b3c50275b51fd1e578593f7c9ec8d89?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/6b3c50275b51fd1e578593f7c9ec8d89?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/6b3c50275b51fd1e578593f7c9ec8d89?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Antonio</b> </cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-17578"><time datetime="2018-09-26T14:55:58+00:00">September 26, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=17578#respond" data-commentid="17578" data-postid="8008" data-belowelement="comment-17578" data-respondelement="respond" aria-label="Reply to Antonio">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Amazing. Thank you so much for this.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-28503">
+        <article id="comment-28503" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/24f640626c8fe04dc8b2a329009b75a6?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/24f640626c8fe04dc8b2a329009b75a6?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/24f640626c8fe04dc8b2a329009b75a6?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/24f640626c8fe04dc8b2a329009b75a6?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/24f640626c8fe04dc8b2a329009b75a6?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">rich</b> </cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-28503"><time datetime="2018-11-19T11:49:59+00:00">November 19, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=28503#respond" data-commentid="28503" data-postid="8008" data-belowelement="comment-28503" data-respondelement="respond" aria-label="Reply to rich">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Is there any way to overlay the results of both the AgenJobHistory and BackupHistory on the same gantt chart.  I was thinking that would be a great tool to see if any of the jobs overlay any of the backups to identify contention of resources of long running jobs or backups within the same time slots.. </p>
+<p>thank you</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-marcin bypostauthor even depth-2" id="li-comment-28508">
+        <article id="comment-28508" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Marcin Gminski</b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-28508"><time datetime="2018-11-19T11:58:43+00:00">November 19, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=28508#respond" data-commentid="28508" data-postid="8008" data-belowelement="comment-28508" data-respondelement="respond" aria-label="Reply to Marcin Gminski">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hi, I presume you are asking about a scenario where backups aren&rsquo;t driven by the SQL agent? Ie NetBackup or other third party solution? The simple answer is no.<br>
+If you have backups triggered by the agent then the job &ldquo;Database backup&rdquo; will correlate with the backup itself and will be enough to establish contention.</p>
+<p>To address the first scenario may I recommend SQLWATCH.IO? (Disclaimer, This is a tool witten by myself, shameless self promotion but it will likely give you what you are asking for)</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment odd alt depth-3" id="li-comment-28510">
+        <article id="comment-28510" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/24f640626c8fe04dc8b2a329009b75a6?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/24f640626c8fe04dc8b2a329009b75a6?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/24f640626c8fe04dc8b2a329009b75a6?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/24f640626c8fe04dc8b2a329009b75a6?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/24f640626c8fe04dc8b2a329009b75a6?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Rich</b> </cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-28510"><time datetime="2018-11-19T12:06:58+00:00">November 19, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=28510#respond" data-commentid="28510" data-postid="8008" data-belowelement="comment-28510" data-respondelement="respond" aria-label="Reply to Rich">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Yes, we do have an agent that manages our backups, however SQL server records the history just like if it was triggered by the agent.  I have no issue running either Get-DbaAgentJobHistory or Get-DbaBackupHistory and getting the results.  All i was hoping to do is run both at the same time or merge the results so Backups and Jobs would all be listed on the left and i can scan through to see what jobs were running while the backups were running or what backups were running while one of my ETL processes was running.  It would be very powerful to see those all on the same chart.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-marcin bypostauthor even depth-4" id="li-comment-28519">
+        <article id="comment-28519" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Marcin Gminski</b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-28519"><time datetime="2018-11-19T12:53:29+00:00">November 19, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=28519#respond" data-commentid="28519" data-postid="8008" data-belowelement="comment-28519" data-respondelement="respond" aria-label="Reply to Marcin Gminski">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>I see. Bit of a hack but if you dump both outputs from Get-DbaBackupHistory and Get-DbaAgentJobHistory into JSON (ConvertTo-JSON) and load that json into PowerBI you should be able to correlate results together. You can then refresh the JSON daily and refresh powerBI to load new data.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment odd alt depth-5" id="li-comment-28528">
+        <article id="comment-28528" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/24f640626c8fe04dc8b2a329009b75a6?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/24f640626c8fe04dc8b2a329009b75a6?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/24f640626c8fe04dc8b2a329009b75a6?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/24f640626c8fe04dc8b2a329009b75a6?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/24f640626c8fe04dc8b2a329009b75a6?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">rich</b> </cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-28528"><time datetime="2018-11-19T13:30:08+00:00">November 19, 2018</time></a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hmm.. ok.<br>
+I really like the google gantt chart look that DBATools provided. </p>
+<p>Since querying the History of Jobs and Backups is not a too big a deal, it might be easier to create procedure to gather data then use PowerBI to call the procedure, that is assuming you can create a nice Gantt chart in PowerBI, which i&rsquo;m not familiar with doing at this time.</p>
+<p>I&rsquo;m a newbie in PowerBi so this is a new thing for me.  I literally just downloaded PowerBI about 2 weeks ago to play and learn a little.  looks like i might be digging in to learn a little more about it. </p>
+<p>BTW, thank you for the great set of tools.<br>
+DBATools is an awesome tool-set, I wish i would&rsquo;ve found this earlier!!</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+    <li class="comment byuser comment-author-marcin bypostauthor even thread-even depth-1" id="li-comment-28536">
+        <article id="comment-28536" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Marcin Gminski</b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-28536"><time datetime="2018-11-19T14:22:37+00:00">November 19, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=28536#respond" data-commentid="28536" data-postid="8008" data-belowelement="comment-28536" data-respondelement="respond" aria-label="Reply to Marcin Gminski">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Yeah I like Google Charts too but they can be difficult to work with. They are really designed for a client-server architecture. Take a look at some of the SQLWATCH reports <a href="https://sqlwatch.io/" rel="nofollow ugc">https://sqlwatch.io/</a> , there is a Gantt Chart in PowerBI which should get you started.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-64545">
+        <article id="comment-64545" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/6bb5de388f14b2dadc876d2da84c5f6f?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/6bb5de388f14b2dadc876d2da84c5f6f?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/6bb5de388f14b2dadc876d2da84c5f6f?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/6bb5de388f14b2dadc876d2da84c5f6f?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/6bb5de388f14b2dadc876d2da84c5f6f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Ken Hemmerling</b> </cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-64545"><time datetime="2019-05-02T19:50:00+00:00">May 2, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=64545#respond" data-commentid="64545" data-postid="8008" data-belowelement="comment-64545" data-respondelement="respond" aria-label="Reply to Ken Hemmerling">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>I ran &ldquo;remove-module dbatools&rdquo; followed by &ldquo;Install-module dbatools&rsquo; in an PowerShell window run as administrator to make sure I&rsquo;ve got the most recent version.  When I run:<br>
+&gt; Get-DbaAgentJobHistory -SqlInstance nex-srv1\dev -StartDate &lsquo;2019-04-01 00:00&rsquo; -EndDate &lsquo;2019-04-20 23:59&rsquo; -NoJobSteps<br>
+I get:<br>
+&gt; Get-DbaAgentJobHistory : A parameter cannot be found that matches parameter name &lsquo;NoJobSteps&rsquo;.<br>
+&gt; At line:1 char:108<br>
+&gt; + &hellip; -StartDate &lsquo;2019-04-01 00:00&rsquo; -EndDate &lsquo;2019-04-20 23:59&rsquo; -NoJobSteps<br>
+&gt; +                                                               ~~~~~~~~~~~<br>
+&gt;     + CategoryInfo          : InvalidArgument: (:) [Get-DbaAgentJobHistory], ParameterBindingException<br>
+&gt;     + FullyQualifiedErrorId : NamedParameterNotFound,Get-DbaAgentJobHistory</p>
+<p>Any idea what the problem is?</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-marcin bypostauthor even depth-2" id="li-comment-64546">
+        <article id="comment-64546" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Marcin Gminski</b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-64546"><time datetime="2019-05-02T19:54:14+00:00">May 2, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=64546#respond" data-commentid="64546" data-postid="8008" data-belowelement="comment-64546" data-respondelement="respond" aria-label="Reply to Marcin Gminski">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hi, A lot has changed since the release of the history timeline. The -NoJobSteps in Get-DbaAgentJobHistory is now -ExcludeJobSteps. You can see the full reference in the docs:  <a href="https://docs.dbatools.io/#Get-DbaAgentJobHistory" rel="nofollow ugc">https://docs.dbatools.io/#Get-DbaAgentJobHistory</a>. Any questions please let me know. Thanks.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+    <li class="comment odd alt thread-even depth-1" id="li-comment-68613">
+        <article id="comment-68613" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/adffbda765e67582bc80b7db1d41402f?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/adffbda765e67582bc80b7db1d41402f?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/adffbda765e67582bc80b7db1d41402f?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/adffbda765e67582bc80b7db1d41402f?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/adffbda765e67582bc80b7db1d41402f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Tim Toennies</b> </cite><a class="comment-time" href="https://dbatools.io/timeline/#comment-68613"><time datetime="2019-07-11T14:46:45+00:00">July 11, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/timeline/?replytocom=68613#respond" data-commentid="68613" data-postid="8008" data-belowelement="comment-68613" data-respondelement="respond" aria-label="Reply to Tim Toennies">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Is it possible to change the default row label from dd/mm hh:mm to mm/dd/yyyy hh:mm ?</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+		</ol>
+
+		
+	
+	
+	
+		<div id="respond" class="comment-respond">
+							<h3 id="reply-title" class="comment-reply-title">Leave a Reply					<small><a rel="nofollow" id="cancel-comment-reply-link" href="https://dbatools.io/timeline/#respond" style="display:none;">Cancel reply</a></small>
+				</h3>
+						<form id="commentform" class="comment-form">
+				<iframe title="Comment Form" src="https://jetpack.wordpress.com/jetpack-comment/?blogid=111052036&amp;postid=8008&amp;comment_registration=0&amp;require_name_email=1&amp;stc_enabled=1&amp;stb_enabled=1&amp;show_avatars=1&amp;avatar_default=mystery&amp;greeting=Leave+a+Reply&amp;greeting_reply=Leave+a+Reply+to+%25s&amp;color_scheme=light&amp;lang=en_US&amp;jetpack_version=8.4.2&amp;show_cookie_consent=10&amp;has_cookie_consent=0&amp;token_key=%3Bnormal%3B&amp;sig=0498f4713f4839f498ecae97ca96486e48a07399#parent=https%3A%2F%2Fdbatools.io%2Ftimeline%2F" style="width:100%; height: 430px; border:0;" name="jetpack_remote_comment" class="jetpack_remote_comment" id="jetpack_remote_comment" sandbox="allow-same-origin allow-top-navigation allow-scripts allow-forms allow-popups"></iframe>
+									
+					<script>
+						document.addEventListener('DOMContentLoaded', function () {
+							var commentForms = document.getElementsByClassName('jetpack_remote_comment');
+							for (var i = 0; i < commentForms.length; i++) {
+								commentForms[i].allowTransparency = false;
+								commentForms[i].scrolling = 'no';
+							}
+						});
+					</script>
+					
+							</form>
+		</div>
+
+		
+		<input type="hidden" name="comment_parent" id="comment_parent" value="">
+
+		<p class="akismet_comment_form_privacy_notice">This site uses Akismet to reduce spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Learn how your comment data is processed</a>.</p>
+</div>
+
+				
+				</main>
+			</div>
+
+                            
+<div id="secondary" class="widget-area sidebar" role="complementary">
+	<aside id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://dbatools.io/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s">
+				</label>
+				<input type="submit" class="search-submit" value="Search">
+			</form></aside><aside id="custom_html-3" class="widget_text widget widget_custom_html"><h2 class="widget-title">new book</h2><div class="textwidget custom-html-widget">dbatools in a month of lunches is now available in Manning's Early Access Program &#128640; <br>&nbsp;
+
+<p align="center"><a href="https://dbatools.io/book"><img alt="dbatools meap" src="https://i2.wp.com/blog.netnerds.net/wp-content/uploads/2019/08/meap.png?w=800&amp;ssl=1" data-recalc-dims="1" data-lazy-src="https://i2.wp.com/blog.netnerds.net/wp-content/uploads/2019/08/meap.png?w=800&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 " class=" jetpack-lazy-image"><noscript><img alt="dbatools meap" src="https://i2.wp.com/blog.netnerds.net/wp-content/uploads/2019/08/meap.png?w=800&amp;ssl=1" data-recalc-dims="1"></noscript></a></p>
+
+Get the book now at <a href="https://dbatools.io/book">manning.com</a></div></aside><aside id="sticky-posts-2" class="widget widget_ultimate_posts"><h2 class="widget-title"><a href="https://dbatools.io/blog">posts</a></h2>
+
+<div class="upw-posts hfeed">
+
+  
+      
+        
+        <article class="post-10008 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/aliases/" rel="bookmark">
+                  <img width="300" height="155" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?fit=300%2C155&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?w=905&amp;ssl=1 905w, https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?resize=300%2C155&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?resize=768%2C396&amp;ssl=1 768w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?fit=300%2C155&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/aliases/" rel="bookmark">
+                  working with sql client aliases                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-10124 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/bits2020/" rel="bookmark">
+                  <img width="300" height="108" src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/bits2020/" rel="bookmark">
+                  Vote for these SQLBits 2020 PowerShell sessions                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-10010 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/size/" rel="bookmark">
+                  <img width="300" height="139" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?fit=300%2C139&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?w=1139&amp;ssl=1 1139w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=300%2C139&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=768%2C355&amp;ssl=1 768w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=1024%2C473&amp;ssl=1 1024w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?fit=300%2C139&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/size/" rel="bookmark">
+                  working with file sizes in dbatools                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-9995 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements tag-book tag-dbatoolsmol tag-monthoflunches">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/meap/" rel="bookmark">
+                  <img width="300" height="159" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?fit=300%2C159&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?w=1287&amp;ssl=1 1287w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?resize=300%2C159&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?resize=768%2C408&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?resize=1024%2C543&amp;ssl=1 1024w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?fit=300%2C159&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/meap/" rel="bookmark">
+                  Learn dbatools in a Month of Lunches                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-9928 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/oldapp/" rel="bookmark">
+                  <img width="300" height="108" src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/oldapp/" rel="bookmark">
+                  migrating super old app databases                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-9862 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements tag-dbatools-configs tag-dbatools-settings tag-defaults">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/configuration/" rel="bookmark">
+                  <img width="300" height="202" src="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?fit=300%2C202&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?w=1104&amp;ssl=1 1104w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=300%2C202&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=768%2C516&amp;ssl=1 768w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=1024%2C688&amp;ssl=1 1024w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?fit=300%2C202&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/configuration/" rel="bookmark">
+                  dbatools advanced configuration                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+  
+</div>
+
+</aside><aside id="blog_subscription-2" class="widget widget_blog_subscription jetpack_subscription_widget"><h2 class="widget-title">subscribe</h2>
+            <form action="#" method="post" accept-charset="utf-8" id="subscribe-blog-blog_subscription-2">
+				                    <div id="subscribe-text"><p>Enter your email address to subscribe to this blog and receive notifications of new posts by email.</p>
+</div><p>Join 2,166 other subscribers</p>
+                    <p id="subscribe-email">
+                        <label id="jetpack-subscribe-label" class="screen-reader-text" for="subscribe-field-blog_subscription-2">
+							email                        </label>
+                        <input type="email" name="email" required="required" class="required" value="" id="subscribe-field-blog_subscription-2" placeholder="email">
+                    </p>
+
+                    <p id="subscribe-submit">
+                        <input type="hidden" name="action" value="subscribe">
+                        <input type="hidden" name="source" value="https://dbatools.io/timeline/">
+                        <input type="hidden" name="sub-type" value="widget">
+                        <input type="hidden" name="redirect_fragment" value="blog_subscription-2">
+						                        <button type="submit" name="jetpack_subscriptions_widget">
+	                        subscribe                        </button>
+                    </p>
+				            </form>
+		
+</aside><aside id="eu_cookie_law_widget-3" class="widget widget_eu_cookie_law_widget"><div class="hide-on-button" data-hide-timeout="30" data-consent-expiration="180" id="eu-cookie-law">
+	<form method="post">
+		<input type="submit" value="Close and accept" class="accept">
+	</form>
+
+	Privacy &amp; Cookies: This site uses cookies. By continuing to use this website, you agree to their use. <br>
+To find out more, including how to control cookies, see here:
+	<a href="https://automattic.com/cookies/">
+		Cookie Policy	</a>
+</div>
+</aside></div>
+            
+		</div>
+	</div>
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+                    <div class="footer-connect">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        
+                        <div class="col-sm-8">
+                                                            <div class="footer-social">
+                                    <h5 class="follow-heading">dbatools on the web</h5><div class="footer-social-icons"><a target="_blank" href="http://git.io/b3oo" title="github"><i class="fa fa-github"></i></a><a target="_blank" href="https://www.youtube.com/channel/UC1qrq0zfswSM_Uf9-vBrsiw" title="YouTube"><i class="fa fa-youtube"></i></a><a target="_blank" href="https://dbatools.io/slack" title="Slack"><i class="fa fa-slack"></i></a><a target="_blank" href="https://twitter.com/psdbatools" title="Twitter"><i class="fa fa-twitter"></i></a><a target="_blank" href="https://www.linkedin.com/company/dbatools.io" title="LinkedIn"><i class="fa fa-linkedin-square fa-linkedin"></i></a><a target="_blank" href="https://twitch.tv/dbatools" title="Twitch"><i class="fa fa-twitch"></i></a><a target="_blank" href="https://dbatools.io/book" title="Manning"><i class="fa fa-book fa-manning"></i></a></div>                                </div>
+                                                    </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
+            </div>
+        
+        <div class="site-info">
+            <div class="container">
+                                &copy; 2020 Chrissy LeMaire, PowerShell and SQL Server MVP<br><a href="https://dbatools.io/contact">Contact Us</a>            </div>
+        </div>
+        
+
+    </footer>
+</div>
+
+	<div style="display:none">
+	<div class="grofile-hash-map-b18791131c339865e65289ad245004aa">
+	</div>
+	<div class="grofile-hash-map-a1c667ece81cd1286bffd4897918a66f">
+	</div>
+	<div class="grofile-hash-map-cc40167a97f1559a1436aa04b573d425">
+	</div>
+	<div class="grofile-hash-map-e0564d56e947e68b0b78d0a6d065366a">
+	</div>
+	<div class="grofile-hash-map-892171a9a8de5db6b0501007995a038d">
+	</div>
+	<div class="grofile-hash-map-6a32cb85b690ed9d3b875e73afada850">
+	</div>
+	<div class="grofile-hash-map-83a0069f5443cbc0c274ddba2cec77c9">
+	</div>
+	<div class="grofile-hash-map-092496f710abe43d5e08dcab70662e75">
+	</div>
+	<div class="grofile-hash-map-7d1b1dd7a30a82174477732c05d4c9cd">
+	</div>
+	<div class="grofile-hash-map-6b3c50275b51fd1e578593f7c9ec8d89">
+	</div>
+	<div class="grofile-hash-map-24f640626c8fe04dc8b2a329009b75a6">
+	</div>
+	<div class="grofile-hash-map-882106b9f2d1eb2c1abad2cb48e9e9dd">
+	</div>
+	<div class="grofile-hash-map-adffbda765e67582bc80b7db1d41402f">
+	</div>
+	</div>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/photon/photon.min.js"></script>
+<script type="text/javascript" src="https://secure.gravatar.com/js/gprofiles.js?ver=202035"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/modules/wpgroho.js"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/plugins.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/bootstrap.min.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/lightgallery.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/theme.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/widgets/eu-cookie-law/eu-cookie-law.min.js"></script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/lazy-images/js/lazy-images.min.js"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/plugins/onepress-plus/assets/js/onepress-plus.js?ver=10.1.8"></script>
+<script async="async" type="text/javascript" src="https://dbatools.io/wp-content/plugins/akismet/_inc/form.js?ver=4.1.4"></script>
+
+		
+		<script type="text/javascript">
+			(function () {
+				var comm_par_el = document.getElementById( 'comment_parent' ),
+					comm_par = ( comm_par_el && comm_par_el.value ) ? comm_par_el.value : '',
+					frame = document.getElementById( 'jetpack_remote_comment' ),
+					tellFrameNewParent;
+
+				tellFrameNewParent = function () {
+					if ( comm_par ) {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=111052036&postid=8008&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=8.4.2&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=0498f4713f4839f498ecae97ca96486e48a07399#parent=https%3A%2F%2Fdbatools.io%2Ftimeline%2F" + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+					} else {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=111052036&postid=8008&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=8.4.2&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=0498f4713f4839f498ecae97ca96486e48a07399#parent=https%3A%2F%2Fdbatools.io%2Ftimeline%2F";
+					}
+				};
+
+				
+				if ( 'undefined' !== typeof addComment ) {
+					addComment._Jetpack_moveForm = addComment.moveForm;
+
+					addComment.moveForm = function ( commId, parentId, respondId, postId ) {
+						var returnValue = addComment._Jetpack_moveForm( commId, parentId, respondId, postId ),
+							cancelClick, cancel;
+
+						if ( false === returnValue ) {
+							cancel = document.getElementById( 'cancel-comment-reply-link' );
+							cancelClick = cancel.onclick;
+							cancel.onclick = function () {
+								var cancelReturn = cancelClick.call( this );
+								if ( false !== cancelReturn ) {
+									return cancelReturn;
+								}
+
+								if ( ! comm_par ) {
+									return cancelReturn;
+								}
+
+								comm_par = 0;
+
+								tellFrameNewParent();
+
+								return cancelReturn;
+							};
+						}
+
+						if ( comm_par == parentId ) {
+							return returnValue;
+						}
+
+						comm_par = parentId;
+
+						tellFrameNewParent();
+
+						return returnValue;
+					};
+				}
+
+				
+				// Do the post message bit after the dom has loaded.
+				document.addEventListener( 'DOMContentLoaded', function () {
+					var iframe_url = "https:\/\/jetpack.wordpress.com";
+					if ( window.postMessage ) {
+						if ( document.addEventListener ) {
+							window.addEventListener( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						} else if ( document.attachEvent ) {
+							window.attachEvent( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						}
+					}
+				})
+
+			})();
+		</script>
+
+		<script type="text/javascript" src="https://stats.wp.com/e-202035.js" async="async" defer></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.4.2',blog:'111052036',post:'8008',tz:'0',srv:'dbatools.io'} ]);
+	_stq.push([ 'clickTrackerInit', '111052036', '8008' ]);
+</script>
+
+</body>
+</html>

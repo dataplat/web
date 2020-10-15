@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	
+	>
+<channel>
+	<title>
+	Comments on: dbatools and docker	</title>
+	<atom:link href="https://dbatools.io/docker/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/docker/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Mon, 08 Jun 2020 02:18:42 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+			<item>
+				<title>
+				By: Swarn Singh				</title>
+				<link>https://dbatools.io/docker/#comment-80827</link>
+		<dc:creator><![CDATA[Swarn Singh]]></dc:creator>
+		<pubDate>Mon, 08 Jun 2020 02:18:42 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9443#comment-80827</guid>
+					<description><![CDATA[Hi Chrissy, facing following issue on commands &quot;New-DbaAvailabilityGroup @params&quot;
+
+error message start...
+
+WARNING: [13:05:48][New-DbaAvailabilityGroup] Failure &#124; Cannot join availability group &#039;test-ag&#039;. Download configuration timeout. 
+Please check primary configuration, network connectivity and firewall setup, then retry the operation.
+
+Failed to join local availability replica to availability group &#039;test-ag&#039;.  The operation encountered SQL Server error 47106 and has been rolled back.
+
+error message end
+
+Also noticed shouldn&#039;t be Primary =&quot;localhost:1433&quot;?  as &quot;# setup a powershell splat&quot; code works and failed without &quot;:1433&quot;
+
+setup a powershell splat
+
+$params = @{
+    Primary = &quot;localhost&quot;]]></description>
+		<content:encoded><![CDATA[<p>Hi Chrissy, facing following issue on commands &#8220;New-DbaAvailabilityGroup @params&#8221;</p>
+<p>error message start&#8230;</p>
+<p>WARNING: [13:05:48][New-DbaAvailabilityGroup] Failure | Cannot join availability group &#8216;test-ag&#8217;. Download configuration timeout.<br />
+Please check primary configuration, network connectivity and firewall setup, then retry the operation.</p>
+<p>Failed to join local availability replica to availability group &#8216;test-ag&#8217;.  The operation encountered SQL Server error 47106 and has been rolled back.</p>
+<p>error message end</p>
+<p>Also noticed shouldn&#8217;t be Primary =&#8221;localhost:1433&#8243;?  as &#8220;# setup a powershell splat&#8221; code works and failed without &#8220;:1433&#8221;</p>
+<p>setup a powershell splat</p>
+<p>$params = @{<br />
+    Primary = &#8220;localhost&#8221;</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Dan Axstelius				</title>
+				<link>https://dbatools.io/docker/#comment-48904</link>
+		<dc:creator><![CDATA[Dan Axstelius]]></dc:creator>
+		<pubDate>Wed, 13 Feb 2019 10:39:41 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9443#comment-48904</guid>
+					<description><![CDATA[Is it possible to fix this problem? 
+Backup failed. Verify service account access to /sharedpath.]]></description>
+		<content:encoded><![CDATA[<p>Is it possible to fix this problem?<br />
+Backup failed. Verify service account access to /sharedpath.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Chrissy LeMaire				</title>
+				<link>https://dbatools.io/docker/#comment-47782</link>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+		<pubDate>Fri, 08 Feb 2019 11:45:30 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9443#comment-47782</guid>
+					<description><![CDATA[Hey Dan, I just updated the wording under Time to Play that&#039;ll hopefully clarify this: the server name is localhost (or localhost,14333 for the second instance), the username is sqladmin and the password is dbatools.IO
+
+Hope that helps!]]></description>
+		<content:encoded><![CDATA[<p>Hey Dan, I just updated the wording under Time to Play that&#8217;ll hopefully clarify this: the server name is localhost (or localhost,14333 for the second instance), the username is sqladmin and the password is dbatools.IO</p>
+<p>Hope that helps!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Dan				</title>
+				<link>https://dbatools.io/docker/#comment-47758</link>
+		<dc:creator><![CDATA[Dan]]></dc:creator>
+		<pubDate>Fri, 08 Feb 2019 09:09:28 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9443#comment-47758</guid>
+					<description><![CDATA[Hi Chrissy, i followed your guide regarding docker, i have installed docker for windows and is now on the step &quot;Time to Play&quot; but how do you connect via SSMS?]]></description>
+		<content:encoded><![CDATA[<p>Hi Chrissy, i followed your guide regarding docker, i have installed docker for windows and is now on the step &#8220;Time to Play&#8221; but how do you connect via SSMS?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: A Docker-Based Sandbox For dbatools &#8211; Curated SQL				</title>
+				<link>https://dbatools.io/docker/#comment-40668</link>
+		<dc:creator><![CDATA[A Docker-Based Sandbox For dbatools &#8211; Curated SQL]]></dc:creator>
+		<pubDate>Wed, 09 Jan 2019 13:06:05 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9443#comment-40668</guid>
+					<description><![CDATA[[&#8230;] Chrissy LeMaire takes us through using Docker to build a playground for learning the functionality i&#8230;: [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Chrissy LeMaire takes us through using Docker to build a playground for learning the functionality i&#8230;: [&#8230;]</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

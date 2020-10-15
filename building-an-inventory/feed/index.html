@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	
+	>
+<channel>
+	<title>
+	Comments on: building an inventory view of SQL Servers with dbatools	</title>
+	<atom:link href="https://dbatools.io/building-an-inventory/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/building-an-inventory/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Wed, 11 Mar 2020 18:43:31 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+			<item>
+				<title>
+				By: Al				</title>
+				<link>https://dbatools.io/building-an-inventory/#comment-79667</link>
+		<dc:creator><![CDATA[Al]]></dc:creator>
+		<pubDate>Wed, 11 Mar 2020 18:43:31 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9595#comment-79667</guid>
+					<description><![CDATA[Hi Andreas,
+
+Very nice script, is it possible to add disk capacity information?]]></description>
+		<content:encoded><![CDATA[<p>Hi Andreas,</p>
+<p>Very nice script, is it possible to add disk capacity information?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: garrett devine				</title>
+				<link>https://dbatools.io/building-an-inventory/#comment-79388</link>
+		<dc:creator><![CDATA[garrett devine]]></dc:creator>
+		<pubDate>Thu, 30 Jan 2020 00:02:35 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9595#comment-79388</guid>
+					<description><![CDATA[is it possible to write this using sql authentication?  I tried this
+
+$Credential = Get-Credential sa
+....
+$rawData = $ServerList &#124; Connect-DbaInstance -SqlCredential $Credential
+
+ but it does not like the &quot;-SqlCredential $Credential&quot; part]]></description>
+		<content:encoded><![CDATA[<p>is it possible to write this using sql authentication?  I tried this</p>
+<p>$Credential = Get-Credential sa<br />
+&#8230;.<br />
+$rawData = $ServerList | Connect-DbaInstance -SqlCredential $Credential</p>
+<p> but it does not like the &#8220;-SqlCredential $Credential&#8221; part</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Cor Perlee				</title>
+				<link>https://dbatools.io/building-an-inventory/#comment-78403</link>
+		<dc:creator><![CDATA[Cor Perlee]]></dc:creator>
+		<pubDate>Thu, 02 Jan 2020 10:46:28 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9595#comment-78403</guid>
+					<description><![CDATA[Hi Andreas,
+
+I am trying to incorporate the Get-DbaWsfcRole command in the script but having no succes.
+Could you provide an example of this?
+
+Best regards,
+
+Cor Perlee]]></description>
+		<content:encoded><![CDATA[<p>Hi Andreas,</p>
+<p>I am trying to incorporate the Get-DbaWsfcRole command in the script but having no succes.<br />
+Could you provide an example of this?</p>
+<p>Best regards,</p>
+<p>Cor Perlee</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Cor Perlee				</title>
+				<link>https://dbatools.io/building-an-inventory/#comment-78397</link>
+		<dc:creator><![CDATA[Cor Perlee]]></dc:creator>
+		<pubDate>Thu, 02 Jan 2020 07:36:01 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9595#comment-78397</guid>
+					<description><![CDATA[Thanks Andreas!
+
+Happy New Year!
+
+Best regards,
+
+Cor]]></description>
+		<content:encoded><![CDATA[<p>Thanks Andreas!</p>
+<p>Happy New Year!</p>
+<p>Best regards,</p>
+<p>Cor</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andreas				</title>
+				<link>https://dbatools.io/building-an-inventory/#comment-78099</link>
+		<dc:creator><![CDATA[Andreas]]></dc:creator>
+		<pubDate>Tue, 24 Dec 2019 13:45:46 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9595#comment-78099</guid>
+					<description><![CDATA[Hi Cor, 
+
+thanks and a Merry Christmas to you!
+Sure there is. Start with the Get-DbaWsfcCluster and Get-DbaWsfcRole commands, they will give you most of what you need.
+Best regards
+Andreas]]></description>
+		<content:encoded><![CDATA[<p>Hi Cor, </p>
+<p>thanks and a Merry Christmas to you!<br />
+Sure there is. Start with the Get-DbaWsfcCluster and Get-DbaWsfcRole commands, they will give you most of what you need.<br />
+Best regards<br />
+Andreas</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Cor Perlee				</title>
+				<link>https://dbatools.io/building-an-inventory/#comment-78098</link>
+		<dc:creator><![CDATA[Cor Perlee]]></dc:creator>
+		<pubDate>Tue, 24 Dec 2019 13:41:15 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9595#comment-78098</guid>
+					<description><![CDATA[Hi Andreas
+
+Love your script!
+Is there a way to get the clustername and Roles of &#039; normal&#039; SQL clusters in stead of just AG&#039;s?
+
+Best regards,
+
+Cor Perlee]]></description>
+		<content:encoded><![CDATA[<p>Hi Andreas</p>
+<p>Love your script!<br />
+Is there a way to get the clustername and Roles of &#8216; normal&#8217; SQL clusters in stead of just AG&#8217;s?</p>
+<p>Best regards,</p>
+<p>Cor Perlee</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andreas				</title>
+				<link>https://dbatools.io/building-an-inventory/#comment-77809</link>
+		<dc:creator><![CDATA[Andreas]]></dc:creator>
+		<pubDate>Mon, 16 Dec 2019 09:08:03 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9595#comment-77809</guid>
+					<description><![CDATA[BK, yes. Absolutely]]></description>
+		<content:encoded><![CDATA[<p>BK, yes. Absolutely</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: BK				</title>
+				<link>https://dbatools.io/building-an-inventory/#comment-77657</link>
+		<dc:creator><![CDATA[BK]]></dc:creator>
+		<pubDate>Wed, 11 Dec 2019 04:41:04 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9595#comment-77657</guid>
+					<description><![CDATA[Hi Eric, Thank you for providing such great stuff. Can we insert the data into SQL table and then send a email to DBA team .]]></description>
+		<content:encoded><![CDATA[<p>Hi Eric, Thank you for providing such great stuff. Can we insert the data into SQL table and then send a email to DBA team .</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Eric				</title>
+				<link>https://dbatools.io/building-an-inventory/#comment-73288</link>
+		<dc:creator><![CDATA[Eric]]></dc:creator>
+		<pubDate>Thu, 05 Sep 2019 09:25:54 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9595#comment-73288</guid>
+					<description><![CDATA[great thanks, i need to change my glasses by a loope ;-)]]></description>
+		<content:encoded><![CDATA[<p>great thanks, i need to change my glasses by a loope 😉</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andreas				</title>
+				<link>https://dbatools.io/building-an-inventory/#comment-73286</link>
+		<dc:creator><![CDATA[Andreas]]></dc:creator>
+		<pubDate>Thu, 05 Sep 2019 09:14:37 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9595#comment-73286</guid>
+					<description><![CDATA[Eric, if you follow the link to the GitHub repo at the end of the article, you will find a default css file]]></description>
+		<content:encoded><![CDATA[<p>Eric, if you follow the link to the GitHub repo at the end of the article, you will find a default css file</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

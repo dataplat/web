@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	
+	>
+<channel>
+	<title>
+	Comments on: a monumental migration to sql server 2016	</title>
+	<atom:link href="https://dbatools.io/xlmigration/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/xlmigration/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Thu, 23 Apr 2020 01:22:37 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+			<item>
+				<title>
+				By: Andy Levy				</title>
+				<link>https://dbatools.io/xlmigration/#comment-80290</link>
+		<dc:creator><![CDATA[Andy Levy]]></dc:creator>
+		<pubDate>Thu, 23 Apr 2020 01:22:37 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9435#comment-80290</guid>
+					<description><![CDATA[Thanks! I don&#039;t have the code for that function anymore, but you can see something close to it in the post on my blog where I demonstrated PoshRSJob. That is available at https://flxsql.com/powershell-multithreading-with-poshrsjob/ - scroll down to &quot;Bonus Round&quot;.]]></description>
+		<content:encoded><![CDATA[<p>Thanks! I don&#8217;t have the code for that function anymore, but you can see something close to it in the post on my blog where I demonstrated PoshRSJob. That is available at <a href="https://flxsql.com/powershell-multithreading-with-poshrsjob/" rel="nofollow ugc">https://flxsql.com/powershell-multithreading-with-poshrsjob/</a> &#8211; scroll down to &#8220;Bonus Round&#8221;.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: bhaktapur				</title>
+				<link>https://dbatools.io/xlmigration/#comment-80283</link>
+		<dc:creator><![CDATA[bhaktapur]]></dc:creator>
+		<pubDate>Wed, 22 Apr 2020 20:30:28 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9435#comment-80283</guid>
+					<description><![CDATA[Andy, great job. I am thinking of applying your method to move around 1500 databases to new server. In your description above you mentioned about Get-MountProgress. Do you have the script for that?]]></description>
+		<content:encoded><![CDATA[<p>Andy, great job. I am thinking of applying your method to move around 1500 databases to new server. In your description above you mentioned about Get-MountProgress. Do you have the script for that?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Marcin Gminski				</title>
+				<link>https://dbatools.io/xlmigration/#comment-55807</link>
+		<dc:creator><![CDATA[Marcin Gminski]]></dc:creator>
+		<pubDate>Wed, 13 Mar 2019 21:57:03 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9435#comment-55807</guid>
+					<description><![CDATA[Over EIGHT THOUSAND databases on one server?  Wow. I can imagine the startup time...well, I can imagine a lot of things on that box... anyway, Great read and good job with the migration!]]></description>
+		<content:encoded><![CDATA[<p>Over EIGHT THOUSAND databases on one server?  Wow. I can imagine the startup time&#8230;well, I can imagine a lot of things on that box&#8230; anyway, Great read and good job with the migration!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andy Levy				</title>
+				<link>https://dbatools.io/xlmigration/#comment-42666</link>
+		<dc:creator><![CDATA[Andy Levy]]></dc:creator>
+		<pubDate>Fri, 18 Jan 2019 02:48:16 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9435#comment-42666</guid>
+					<description><![CDATA[Yes, the new server was set up as a completely new box. New hostname, new IP, everything. The old server was not taken offline/powered off/removed from the rack for about 3 weeks after the migration was completed. The issue with the app is that it had a connection string embedded in the code which we were not aware of.
+
+In some respects it would have been easier if we could have kept the same hostname and IP, but that was not an option for this project.]]></description>
+		<content:encoded><![CDATA[<p>Yes, the new server was set up as a completely new box. New hostname, new IP, everything. The old server was not taken offline/powered off/removed from the rack for about 3 weeks after the migration was completed. The issue with the app is that it had a connection string embedded in the code which we were not aware of.</p>
+<p>In some respects it would have been easier if we could have kept the same hostname and IP, but that was not an option for this project.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Andrew Coffman				</title>
+				<link>https://dbatools.io/xlmigration/#comment-42568</link>
+		<dc:creator><![CDATA[Andrew Coffman]]></dc:creator>
+		<pubDate>Thu, 17 Jan 2019 16:18:34 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9435#comment-42568</guid>
+					<description><![CDATA[Andy, great post and scripts.  I&#039;m new to powershell, but was curious about your approach to the common and complex  migration challenge.  In your scenario, you mentioned some apps were still pointing to the old server.  Did you have to create a new DNS for the destination server instead of changing the IP for alias?]]></description>
+		<content:encoded><![CDATA[<p>Andy, great post and scripts.  I&#8217;m new to powershell, but was curious about your approach to the common and complex  migration challenge.  In your scenario, you mentioned some apps were still pointing to the old server.  Did you have to create a new DNS for the destination server instead of changing the IP for alias?</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

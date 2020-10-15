@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>security &#8211; dbatools</title>
+	<atom:link href="https://dbatools.io/tag/security/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Fri, 13 Sep 2019 08:58:38 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+
+<image>
+	<url>https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&#038;ssl=1</url>
+	<title>security &#8211; dbatools</title>
+	<link>https://dbatools.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
+		<title>talking to your security team about powershell and dbatools</title>
+		<link>https://dbatools.io/secure/</link>
+				<comments>https://dbatools.io/secure/#comments</comments>
+				<pubDate>Wed, 26 Sep 2018 12:11:26 +0000</pubDate>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[security]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=8425</guid>
+				<description><![CDATA[If you're questioned about PowerShell or dbatools, here are some handy facts to help prove we can help make your administration more, not less, secure.]]></description>
+								<content:encoded><![CDATA[<p>Last year, during our <a href="https://sqlps.io/precon">PASS Summit</a> and <a href="https://sqlps.io/bitsprecon">SQL Bits</a> precons, we highlighted the reasons that PowerShell is even more secure than GUI administration.</p>
+<p>I even created a cute lil logo for it <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f601.png" alt="😁" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p><a href="https://sqlps.io/security"><img src="https://dbatools.io/wp-content/uploads/2018/09/security.png?fit=300%2C300&#038;ssl=1" alt="" class="aligncenter size-medium wp-image-8426" srcset="https://dbatools.io/wp-content/uploads/2018/09/security.png?w=600&amp;ssl=1 600w, https://dbatools.io/wp-content/uploads/2018/09/security.png?resize=300%2C179&amp;ssl=1 300w" sizes="(max-width: 600px) 100vw, 600px" data-recalc-dims="1" /></a></p>
+<p>Recently, our team had a <a href="/slack">discussion</a> about security in <a href="https://sqlcommunity.slack.com/messages/C3EJ852JD/">#dbatools-dev</a> and I realized I should probably highlight why PowerShell and dbatools are ideal for every organization, including security-minded organizations.</p>
+<p>If you&#8217;re questioned about PowerShell or dbatools, here are some handy facts to help prove we can help make your administration more, not less, secure.</p>
+<h1>PowerShell</h1>
+<p>So how is using PowerShell more secure than GUI administration? <a href="https://youtu.be/BIwe571zcWY?t=1m22s">This shocking video</a> from a few years back can help explain. In it, Microsoft Security MVP <a href="https://twitter.com/marcusswede">Marcus Murray</a> highlights just how easy it is to <a href="https://attack.mitre.org/wiki/Technique/T1134">steal a token</a> and impersonate an admin who is logged in via the GUI.</p>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/BIwe571zcWY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
+<p>JPG -> IIS -> cmd/.NET -> file system -> SQL Server -> token theft from GUI -> domain controller -> <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/2620.png" alt="☠" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p>Remote PowerShell sessions do not create tokens, and consequently do not subject us to the threat of token theft and privilege escalation.</p>
+<h2>Remote PowerShell, you say?</h2>
+<p>I remember when I heard the term <strong>PowerShell Remoting</strong> and saw some book chapters on it, I was like &#8220;aw man, another thing I gotta learn?&#8221; but it&#8217;s actually <a href="https://docs.microsoft.com/en-us/powershell/scripting/core-powershell/running-remote-commands">pretty straight forward</a>.</p>
+<p>Windows PowerShell supports remote computing by using various technologies, including WMI, SQL WMI, RPC, SSH &amp; WS-Management. Some commands require no remote configuration, including:</p>
+<ul>
+<li>Restart-Computer</li>
+<li>Test-Connection</li>
+<li>Get-HotFix</li>
+<li>Get-Process</li>
+<li>Get-Service</li>
+<li>Get-WinEvent</li>
+</ul>
+<h2>Remoting</h2>
+<p><strong>Remoting</strong> refers to commands that use <a href="https://docs.microsoft.com/en-us/powershell/scripting/setup/winrmsecurity">WS-Management</a>. And it&#8217;s <strong>Microsoft’s recommended method of managing Windows</strong>. Why?</p>
+<ul>
+<li>By default, it only allows connections from members of the Administrators group</li>
+<li>It uses single port: 5985 or 5986</li>
+<li>Regardless of the transport protocol used (HTTP or HTTPS), PowerShell Remoting always encrypts all communication after initial authentication with a per-session AES-256 symmetric key</li>
+<li>Initial authentication is NTLM, Kerberos and Certificates so no credentials are ever exposed</li>
+</ul>
+<p>The PowerShell team&#8217;s mantra is <strong>Secure by Design</strong> and you can see it in action with this remoting implementation.</p>
+<h2>Secure by Design</h2>
+<p>The PowerShell team is very serious about security and their lead security architect, <a href="https://www.leeholmes.com/blog/">Lee Holmes</a>, is well-respected in the InfoSec community. He and Jeffrey Snover even did a <a href="https://youtu.be/BMreZZ1cgFI?t=2m13s">keynote at DerbyCon</a> where they talked about PowerShell security in-depth.</p>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/BMreZZ1cgFI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
+<p>Yet we&#8217;ll sometimes see things like this:</p>
+<p><a href="https://www.symantec.com/connect/blogs/powershell-threats-surge-954-percent-analyzed-scripts-were-malicious"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/clickbait.png?fit=300%2C300&#038;ssl=1" alt="" class="aligncenter size-medium wp-image-8445" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/clickbait.png?w=982&amp;ssl=1 982w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/clickbait.png?resize=300%2C39&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/clickbait.png?resize=768%2C100&amp;ssl=1 768w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<p>Click to Tweet <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f644.png" alt="🙄" class="wp-smiley" style="height: 1em; max-height: 1em;" /> So why do anti-virus (AV) companies highlight the obvious fact that suspicious files uploaded to a suspicious-file-checker will probably be suspicious?</p>
+<p>Lee Holmes addresses this very issue in the keynote:</p>
+<blockquote><p>
+  AV, they love to talk about ransomware attacks that use PowerShell, and the reason they do this is because they literally can’t keep up with the plain old stuff like exes. But they also do this because we as a community encourage it. We blog it, we tweet about it, we talk about it. And the next thing you hear is that there’s a PowerShell problem. They don’t seem to ask how to solve their C++ problem or their darn x64 problem.
+</p></blockquote>
+<p>He then went on to say</p>
+<blockquote><p>
+  When security researchers leverage PowerShell, it is always in a <strong>post-compromise</strong> context. They have compromised a machine through some other avenue (phishing, SQL injection, etc.), and ultimately have the choice of any number of tools on the system. They were able to accomplish their goals before PowerShell, and will be able to accomplish their goals without PowerShell.
+</p></blockquote>
+<p>Pretty convincing argument there, Lee! Thank you <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f388.png" alt="🎈" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p>Looking for more? Check out <a href="https://github.com/devops-collective-inc/secrets-of-powershell-remoting/blob/master/manuscript/powershell-remoting-and-security.md">PowerShell, Remoting, and Security</a> by Microsoft MVP Don Jones.</p>
+<h2>Hackers avoid PowerShell</h2>
+<p>This tweet speaks volumes.</p>
+<blockquote class="twitter-tweet tw-align-center">
+<p lang="en" dir="ltr">“I’m a red teamer so I try and stay as far away from PowerShell as I can” <a href="https://twitter.com/h4wkst3r?ref_src=twsrc%5Etfw">@h4wkst3r</a> while discussing SharPersist tool release at <a href="https://twitter.com/hashtag/DerbyCon?src=hash&amp;ref_src=twsrc%5Etfw">#DerbyCon</a> <a href="https://t.co/wY67IlrlFJ">https://t.co/wY67IlrlFJ</a></p>
+<p>This should make <a href="https://twitter.com/Lee_Holmes?ref_src=twsrc%5Etfw">@Lee_Holmes</a> proud <a href="https://t.co/eKlE5DSz4D">pic.twitter.com/eKlE5DSz4D</a></p>
+<p>&mdash; Christopher Glyer (@cglyer) <a href="https://twitter.com/cglyer/status/1170429449852112898?ref_src=twsrc%5Etfw">September 7, 2019</a></p></blockquote>
+<p><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<h1>dbatools</h1>
+<p>dbatools is an open source project so all of our coding and discussions happen out in the open. Whether it be on <a href="/github">GitHub</a> or <a href="/slack">Slack</a>. We even created a channel called #dbatools-github just to watch GitHub spam, which includes all Pull Requests, Issues and commits to master &amp; development.</p>
+<p>Open source is generally considered more secure, but as the SQLShack article &#8220;<a href="https://www.sqlshack.com/sql-server-security-considerations-with-open-source-tools/">SQL Server security considerations with open source tools</a>&#8221; highlights, there are some concerns to address.</p>
+<h2>Code signed</h2>
+<p>What data pro doesn&#8217;t love integrity? #DBCCCHECK4EVER</p>
+<p>Thanks to a donation from dbatools contributors, <a href="https://www.datamasterminds.io/">Data Masterminds</a>, dbatools is legit, code-signed, Enterprise software.</p>
+<p><img src=https://dbatools.io/wp-content/uploads/2017/10/8.gif></p>
+<p>Code signing requires a code signing certificate. Obtaining a globally recognized code signing certificate isn&#8217;t easy and took me about a month. A ton of paperwork &amp; multiple proofs of identity were required, but I did it because I wanted dbatools to be as professional as possible.</p>
+<p>What are code signing certs? <a href="https://www.digicert.com/code-signing/">DigiCert</a> says:</p>
+<blockquote><p>
+  Code Signing Certificates are used by software developers to digitally sign apps, drivers, and software programs as a way for end-users to verify that the code they receive has not been altered or compromised by a third party. They include your signature, your company’s name, and if desired, a timestamp.
+</p></blockquote>
+<p>Our signatures do include a timestamp, and I personally sign every release that goes into the <a href="/gallery">PowerShell Gallery</a> and <a href="/chocolatey">chocolately</a>. <a href="http://sqldbawithabeard.com">Rob Sewell</a> and I are the only two people with access to the certificate. And while Rob can also potentially sign dbatools, he uses the certificate solely to sign our sister project, <a href="https://dbachecks.io">dbachecks</a>.</p>
+<h2>Limited permissions to merge</h2>
+<p>Going back to that article on <a href="https://www.sqlshack.com/">SQLShack.com</a>: they talk about <a href="https://en.wikipedia.org/wiki/Diffusion_of_responsibility">diffusion of responsibility</a>. Basically, the human impulse to say &#8220;another developer is looking, so I don&#8217;t have to.&#8221;</p>
+<p>Only six of us can merge code into the dbatools master branch, and only six of us ever have. How did we determine this number? We executed the following command and threw the results into Excel:</p>
+<pre class="lang:sh decode:true " >git log --graph --abbrev-commit --decorate --first-parent master --merges --pretty=format:%h-%aN</pre>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/master-commiters.png?ssl=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/master-commiters.png?resize=300%2C214&#038;ssl=1" alt="" width="300" height="214" class="aligncenter size-medium wp-image-8475" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/master-commiters.png?resize=300%2C214&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/master-commiters.png?w=315&amp;ssl=1 315w" sizes="(max-width: 300px) 100vw, 300px" data-recalc-dims="1" /></a></p>
+<p>Five of the six people (Me, Shawn, Fred, Rob, Simone and Stuart) who can <strong>currently</strong> merge code intro dev/master are current/former MVPs or Microsoft employees. Our primary C# library developer, <a href="https://psframework.org/">Friedrich Weinmann</a>, is a former MVP and current Security PFE at Microsoft. Friedrich approves all C# code. The other dbatools code is mostly approved by me and fellow MVPs Shawn Melton and Stuart Moore.</p>
+<p>We are all known by Microsoft and have visible community profiles. You&#8217;ll notice that I&#8217;m the primary merger, but if you watch our repo, you&#8217;ll also notice Shawn spends a good deal of time evaluating and testing code, even after I&#8217;ve merged it and after it&#8217;s been <a href="/ci">tested by appveyor</a> &amp; <a href="/tests">Pester</a>.</p>
+<h2>Manageable code base</h2>
+<p>dbatools also has a decently manageable code base. Here are some stats about our code, courtesy of Simone who used <a href="https://github.com/AlDanial/cloc">cloc</a> to produce this pretty chart.</p>
+<p><a href="https://dbatools.io/wp-content/uploads/2019/09/sloc.png?ssl=1"><img src="https://dbatools.io/wp-content/uploads/2019/09/sloc.png?fit=300%2C300&#038;ssl=1" alt="" class="aligncenter size-medium wp-image-8463" srcset="https://dbatools.io/wp-content/uploads/2019/09/sloc.png?w=580&amp;ssl=1 580w, https://dbatools.io/wp-content/uploads/2019/09/sloc.png?resize=300%2C139&amp;ssl=1 300w" sizes="(max-width: 580px) 100vw, 580px" data-recalc-dims="1" /></a></p>
+<p>Note that over 35% of our PowerShell code is comments or comment-based help <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f60a.png" alt="😊" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<h2>You can compile dbatools.dll yourself</h2>
+<p>Our dbatools C# library code <a href="https://github.com/sqlcollaborative/dbatools/tree/development/bin/projects/dbatools">can be found in our GitHub repo</a>, AND! You can even set it to compile each time you import dbatools using the <code>$dbatools_alwaysbuildlibrary</code> variable instead of relying on our included dll.</p>
+<pre class="lang:ps decode:true " >$dbatools_alwaysbuildlibrary = $true
+Import-Module dbatools</pre>
+<p>The module itself <a href="https://github.com/sqlcollaborative/dbatools/blob/development/dbatools.psm1#L103">handles</a> the <a href="https://github.com/sqlcollaborative/dbatools/blob/development/bin/build-project.ps1">compile</a> so that&#8217;s all you have to do.</p>
+<p>Note that <code>$dbatools_alwaysbuildlibrary</code> is not supported by our PowerShell Gallery or chocolatey releases. If you need to compile the DLL, you&#8217;ll need to either clone our repo or <a href="/zip">download the zip</a> directly from GitHub.</p>
+<h2>External libraries and programs</h2>
+<p>Our <a href="https://github.com/sqlcollaborative/dbatools/tree/development/bin/smo">external libraries and programs</a> come primarily from Microsoft. But like SQL Server Management Studio, we also use community DLLs.</p>
+<p>Our <a href="https://github.com/sqlcollaborative/dbatools/tree/development/bin/XESmartTarget">XESmartTarget support</a> comes from <a href="https://spaghettidba.com/">Data Platform MVP &amp; Formula 1 DBA Gianluca Sartori</a> and <a href="https://blog.nuget.org/20170417/Package-identity-and-trust.html">nuget</a>.</p>
+<p>We also obtained permission to include bcp.exe and sqlcmd.exe, and that came directly from my own installation of SQL Server Management Studio.</p>
+<p>While it&#8217;d be foolish to make a guaranteed promise that our library is <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f4af.png" alt="💯" class="wp-smiley" style="height: 1em; max-height: 1em;" />, we do try our best and no malware has ever been detected in my repo root or in our PowerShell Gallery and chocolatey packages.</p>
+<h2>We&#8217;re on chocolatey</h2>
+<p>Thanks to <a href="https://blog.pauby.com/">Paul Broadwith</a>, dbatools is now available in the chocolatey repository, and <a href="https://chocolatey.org/security">chocolatey takes package integrity very seriously</a>.</p>
+<blockquote><p>
+  Every version of every package submitted must pass through a rigorous moderation review process before they become publicly available (includes checks for quality, consistency, installation, and validations against VirusTotal).
+</p></blockquote>
+<p>You can find out more about this review process at <a href="https://chocolatey.org/security#rigorous-moderation-process-for-community-packages">chocolatey.org</a>.</p>
+<h2>We&#8217;re in the Microsoft PowerShell Gallery</h2>
+<p>You can also find us on the <a href="/gallery">PowerShell Gallery</a> which performs an &#8220;<a href="https://blogs.msdn.microsoft.com/powershell/2015/08/06/powershell-gallery-new-security-scan/">antivirus scan by using System Center Endpoint Protection</a>&#8221;</p>
+<p>According to Microsoft, all modules have to meet a minimum quality standard, which includes being free of malware and viruses.</p>
+<h2>We&#8217;re used by Microsoft</h2>
+<p>Amazingly enough, Microsoft also uses dbatools (and 1999 me is totally tripping out). So while Microsoft does not officially endorse us, they appear to trust that we&#8217;re a project with integrity.</p>
+<p>David Peter Hansen, SQL Server PFE, has <a href="https://davidpeterhansen.com/2017/10/09/sql-server-performance-troubleshooting-free-scripts-and-tools-list/">an awesome blog post</a> where he details the tools he uses. dbatools is all up in the mix <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f607.png" alt="😇" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Another PFE and former Data Platform MVP, Ryan J. Adams, <a href="https://blogs.msdn.microsoft.com/sql_pfe_blog/2017/08/21/sync-sql-logins-and-jobs/">actually suggests using dbatools</a> to sync logins for Availability Groups.</p>
+<p>And I just noticed he even <a href="https://www.youtube.com/watch?v=hRpLco6ysBo">made a video</a> about dbatools!</p>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/hRpLco6ysBo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
+<p>Also, SQL PFE Patrick Keisler <a href="https://blogs.msdn.microsoft.com/samlester/2017/12/29/sql-server-dba-morning-health-checks/">wrote a post on blogs.msdn.microsoft.com</a> which doesn&#8217;t use dbatools directly, but does use some of the shared code base that I wrote.</p>
+<p>Word has it, we&#8217;re also used in the banking industry, the airline industry, the super fancy speedcar industry, the insurance industry, the medical industry and more.</p>
+<h2>Low-hanging fruit</h2>
+<p>There&#8217;s also some low-hanging fruit that we address, like using ScriptAnalyzer to ensure we follow security best practices. We also update our website&#8217;s backend regularly and each of our sites use HTTPS.</p>
+<h1>Resources</h1>
+<p>Microsoft itself has written extensively about PowerShell security.</p>
+<h3>Who&#8217;s afraid of PowerShell security?</h3>
+<p><a href="https://blogs.technet.microsoft.com/ashleymcglone/2016/06/29/whos-afraid-of-powershell-security/">Who&#8217;s afraid of PowerShell security?</a> by former Microsoft PFE Ashley McGlone was an instant classic because it was effective and succinct. This article made so many great points, including:</p>
+<blockquote><p>
+  The improvements in WMF 5.0 (or WMF 4.0 with KB3000850) make PowerShell the worst tool of choice for a hacker when you enable script block logging and system-wide transcription. Hackers will leave fingerprints everywhere, unlike popular CMD utilities. For this reason, PowerShell should be the only tool you allow for remote administration. These features allow you to answer the classic questions who, what, when, where, and how for activities on your servers.
+</p></blockquote>
+<h3>PowerShell Security at Enterprise Customers</h3>
+<p><a href="https://blogs.msdn.microsoft.com/daviddasneves/2017/05/25/powershell-security-at-enterprise-customers/">PowerShell Security at Enterprise Customers</a> by former Microsoft PFE David das Neves is another highly referenced article. I consider this the definitive, in-depth article about PowerShell security.</p>
+<p>This post is practically a book, and even making an outline would be too long. If you need to know anything about PowerShell security, this post is a great reference. Bravo, David!</p>
+<h3>A Comparison of Shell and Scripting Language Security</h3>
+<p><a href="https://blogs.msdn.microsoft.com/powershell/2017/04/10/a-comparison-of-shell-and-scripting-language-security/">A Comparison of Shell and Scripting Language Security</a> by PowerShell&#8217;s Security Architect Lee Holmes is another ace.</p>
+<p>My favorite part was this easy-to-understand visual bit that shows why PowerShell is mega-secure <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f4aa.png" alt="💪" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p><a href="https://msdnshared.blob.core.windows.net/media/2017/04/comparitive_security.png"><img src=https://msdnshared.blob.core.windows.net/media/2017/04/comparitive_security.png></a></p>
+<p>I hope this addresses everything your security department needs. If not, post a comment or email me at clemaire@gmail.com and we&#8217;ll see what we can do.</p>
+<p>&#45; Chrissy</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/secure/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">8425</post-id>	</item>
+		<item>
+		<title>new release &#8211; schwifty &#8211; all about SPNs</title>
+		<link>https://dbatools.io/schwifty/</link>
+				<comments>https://dbatools.io/schwifty/#comments</comments>
+				<pubDate>Mon, 06 Feb 2017 15:33:29 +0000</pubDate>
+		<dc:creator><![CDATA[Drew Furgiuele]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[kerberos]]></category>
+		<category><![CDATA[mrbulldops]]></category>
+		<category><![CDATA[security]]></category>
+		<category><![CDATA[serviceprincipalname]]></category>
+		<category><![CDATA[spn]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=2761</guid>
+				<description><![CDATA[These commands were updated Feb 8, 2017 (v0.8.709) to incorporate feedback ❤ Right, so the first thing you need to know is: I&#8217;m not Chrissy. My name&#8217;s Drew, and I&#8217;m ...]]></description>
+								<content:encoded><![CDATA[<p><strong>These commands were updated Feb 8, 2017 (v0.8.709) to incorporate feedback <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/2764.png" alt="❤" class="wp-smiley" style="height: 1em; max-height: 1em;" /> </strong></p>
+<p>Right, so the first thing you need to know is: I&#8217;m not Chrissy. <a href="http://www.twitter.com/pittfurg">My name&#8217;s Drew</a>, and I&#8217;m here tell you about an exciting new release of dbatools: schwifty!</p>
+<p>In this release we&#8217;ve added three new commands to <strong>help you manage SPNs for SQL Server Kerberos authentication</strong>. If you have a lot of linked servers in your environment, then this is probably a welcome addition to the toolset for you.</p>
+<p>These commands leverage SQL Server instance info from commands that already existed in the dbatools code base and active directory PowerShell support to determine required SPNs for all instances on a given computer and whether they&#8217;re set or not. If they aren&#8217;t, we have commands to not only set the SPNs for you, but also enable <a href="https://technet.microsoft.com/en-us/library/cc995228.aspx">constrained delegation</a> to accounts for the SPNs that were just added.</p>
+<p><iframe class='youtube-player' type='text/html' width='800' height='450' src='https://www.youtube.com/embed/OVYFU3Ktqc0?version=3&#038;rel=1&#038;fs=1&#038;autohide=2&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;wmode=transparent' allowfullscreen='true' style='border:0;'></iframe></p>
+<h3>Then</h3>
+<p>Before these functions were added to dbatools, you had a couple options when it came to checking/adding SPNs:</p>
+<ol>
+<li>setspn.exe and ActiveDirectory Users and Computers. setspn.exe is a windows command that you could use to add an SPN to given Active Directory account. And it works great! You do need to know the SPN and account you want to set it for ahead of time; it doesn&#8217;t really care about what kind of SPN you&#8217;re setting, but it&#8217;ll let you set it. You could also use it to check for dupes, list out what SPNs exist for an account&#8230; <a href="https://technet.microsoft.com/en-us/library/cc731241(v=ws.11).aspx">it&#8217;s a pretty well documented command</a>. Setting the SPN is only part of what makes SQL Server Kerberos authentication, work, though. You still need to set delegation on the account to the services in question. That normally requires you going into the Active Directory Users and Computers application and adding delegation outside of the setspn.exe command prompt. Yuck!</p>
+</li>
+<li>
+<p>Microsoft Kerberos Configuration Manager for SQL Server. Microsoft does have a tool to help you manage your SPNs for SQL Server too. It&#8217;s called <a href="https://www.microsoft.com/en-us/download/details.aspx?id=39046">Kerberos Configuration Manager for SQL Server</a> and it&#8217;s awesome because not only does it tell you what SPNs need set, but it checks to see if they are there. If they aren&#8217;t, it&#8217;ll try and fix them for you, or generate a .cmd file that you can run on your own. It&#8217;s a neat tool that essentially generates SPNs based on best practice straight from Microsoft. While the auto fixing and script generation are neat, the program can be a little slow. Also: up until very recently (2017 Jan 31), it wasn&#8217;t compatible with SQL Server 2016. It also doesn&#8217;t set delegation for your accounts, either. Less yuck, but still: yuck!</p>
+</li>
+</ol>
+<h3>Now</h3>
+<p>Now we have four new commands to help manage SPNs &#8211; <a href="https://dbatools.io/Get-DbaSpn">Get-DbaSpn</a>, <a href="https://dbatools.io/Test-DbaSpn">Test-DbaSpn</a>, <a href="https://dbatools.io/Set-DbaSpn">Set-DbaSpn</a>, and <a href="https://dbatools.io/Remove-DbaSpn">Remove-DbaSpn</a>. Our goal with the new SPN commands was to make them fast, and make them at least as useful as the GUI tool provided by Microsoft, but to allow multi-server administration and automation of setting correct SPNs and enabling constrained delegation. And we&#8217;ve done it! These commands are based on <a href="https://msdn.microsoft.com/en-us/library/ms191153.aspx">guidance from MSDN about setting SQL Server Service Principal names which you can read more about here</a>.</p>
+<p>Oh and for the performance minded among you, we&#8217;ve built these functions to be super fast; faster than the traditional setspn.exe and Configuration Manager options by quite a bit. While the GUI tool took up to 51 seconds per server, our testing showed the ability to return required SPN info for <strong>9 servers in 9 seconds</strong>. That&#8217;s 1 server per second, granted, we don&#8217;t test for SSAS or SSRS at this time, but we do have it planned, and it&#8217;ll still be quick.</p>
+<p>Take a look below for a detailed description of the new commands in this release. You can use these new functions by <a href="/download">grabbing our latest release (0.8.709)</a>.</p>
+<p>A couple things to note when using these functions:</p>
+<ol>
+<li>You&#8217;ll need at least permission to read from your domain&#8217;s Active Directory, and in the case of adding SPNs, the ability to modify. That means you&#8217;ll need to run the commands as a user with those permissions, or use the -Credential parameters.</li>
+<li>Fully explore Get-DbaSpn and Test-DbaSpn commands before moving on to Set-DbaSpn. We also included -WhatIf support in Set-DbaSpn so you can see what SPNs will be added to which accounts before you actually apply them. We&#8217;ve done our best to make sure we fully support a variety of different configurations and network names, but you should know what will be applied before you actually do it.</li>
+</ol>
+<h3>New Commands</h3>
+<h4>&#8211; <a href="https://dbatools.io/Get-DbaSpn">Get-DbaSpn</a></h4>
+<p>Returns a list of any service principal names (SPNs) set for a given server or active directory account name</p>
+<p><a href="https://dbatools.io/wp-content/uploads/2017/02/img_5899e6fa0bc11-full.png?ssl=1"><img class="alignnone size-full wp-image-2932 aligncenter" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e6fa0bc11.png?w=800&#038;ssl=1" alt="" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e6fa0bc11.png?w=677&amp;ssl=1 677w, https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e6fa0bc11.png?resize=300%2C278&amp;ssl=1 300w" sizes="(max-width: 677px) 100vw, 677px" data-recalc-dims="1" /></a></p>
+<h4>&#8211; <a href="https://dbatools.io/Test-DbaSpn">Test-DbaSpn</a></h4>
+<p>Returns of listing of &#8220;required&#8221; SPNs for a given computer&#8217;s instance of SQL Server. The cmdlet will discover all instances of SQL Server on a given computer name. For each instance found, the cmdlet will generate a list of required SPNs based on active TCP/IP ports. The cmdlet will also warn you if an instance is using dynamic ports. Each returned SPN object will also specify if the SPN is currently set or not.</p>
+<p><a href="https://dbatools.io/wp-content/uploads/2017/02/img_58984230e128a-full.png?ssl=1" target="new"><img class="alignnone size-full wp-image-2827 aligncenter" src="https://dbatools.io/wp-content/uploads/2017/02/img_58984230e128a.png?w=800&#038;ssl=1" alt="" srcset="https://dbatools.io/wp-content/uploads/2017/02/img_58984230e128a.png?w=700&amp;ssl=1 700w, https://dbatools.io/wp-content/uploads/2017/02/img_58984230e128a.png?resize=300%2C48&amp;ssl=1 300w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></a></p>
+<p>You can even check your entire estate in just one line. Here, you can see us testing several instances in our lab.</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5898aec8d2a1c-full.png?ssl=1" target="new"><img class="alignnone size-full wp-image-2901 aligncenter" src="https://dbatools.io/wp-content/uploads/2017/02/img_5898aec8d2a1c.png?w=800&#038;ssl=1" alt="" srcset="https://dbatools.io/wp-content/uploads/2017/02/img_5898aec8d2a1c.png?w=700&amp;ssl=1 700w, https://dbatools.io/wp-content/uploads/2017/02/img_5898aec8d2a1c.png?resize=300%2C98&amp;ssl=1 300w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></a></p>
+<p>Or use Test to help easily Set all required SPNs</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e4720ac5a-full.png?ssl=1"><img class="alignnone size-full wp-image-2925 aligncenter" src="https://dbatools.io/wp-content/uploads/2017/02/img_5899e4720ac5a.png?w=800&#038;ssl=1" alt="" srcset="https://dbatools.io/wp-content/uploads/2017/02/img_5899e4720ac5a.png?w=700&amp;ssl=1 700w, https://dbatools.io/wp-content/uploads/2017/02/img_5899e4720ac5a.png?resize=300%2C201&amp;ssl=1 300w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></a></p>
+<h4>&#8211; <a href="https://dbatools.io/Set-DbaSpn">Set-DbaSpn</a></h4>
+<p>Connects to Active Directory and sets a given SPN to a given account. Will also set constrained delegation to the account to the recently added SPN.</p>
+<p><a href="https://dbatools.io/wp-content/uploads/2017/02/img_5899e57f5a96d-full.png?ssl=1"><img class="alignnone size-full wp-image-2928 aligncenter" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e57f5a96d.png?w=800&#038;ssl=1" alt="" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e57f5a96d.png?w=700&amp;ssl=1 700w, https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e57f5a96d.png?resize=300%2C68&amp;ssl=1 300w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></a></p>
+<p>Both Set and Remove fully support -WhatIf</p>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e423e98e9-full.png?ssl=1"><img class="alignnone size-full wp-image-2923 aligncenter" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e423e98e9.png?w=800&#038;ssl=1" alt="" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e423e98e9.png?w=700&amp;ssl=1 700w, https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e423e98e9.png?resize=300%2C48&amp;ssl=1 300w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></a></p>
+<h4>&#8211; <a href="https://dbatools.io/Remove-DbaSpn">Remove-DbaSpn</a></h4>
+<p>Connects to Active Directory and removes a given SPN to a given account. Will also remove the associated constrained delegation.</p>
+<p>The following screenshot shows a way to easily remove SPNS of decommissioned servers.</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e3952455a-full.png?ssl=1"><img class="alignnone size-full wp-image-2921 aligncenter" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e3952455a.png?w=800&#038;ssl=1" alt="" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e3952455a.png?w=700&amp;ssl=1 700w, https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e3952455a.png?resize=300%2C117&amp;ssl=1 300w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></a></p>
+<h3>Related Commands</h3>
+<p>We also have a few other commands that can help you deal with SPNs.</p>
+<ul>
+<li><strong><a href="https://dbatools.io/Repair-DbaInstanceName">Repair-DbaInstanceName</a></strong> and <strong><a href="https://dbatools.io/Repair-DbaServerName">Repair-DbaServerName</a></strong><br />
+When a SQL Server’s host OS is renamed, the SQL Server should be as well. This helps with Availability Groups and Kerberos. <a href="https://dbatools.io/Repair-DbaInstanceName">Repair-DbaInstanceName</a> helps determine if your OS and SQL Server names match, and thus, if a rename is required. If a rename is required, run <a href="https://dbatools.io/Repair-DbaServerName">Repair-DbaServerName</a>.</p>
+</li>
+<li>
+<p><strong><a href="https://dbatools.io/Test-DbaConnectionAuthScheme">Test-DbaConnectionAuthScheme</a></strong><br />
+This command returns the transport protocol and authentication scheme of the connection. This is useful to determine if your connection is using Kerberos. By default, the ConnectName, ServerName, Transport and AuthScheme of the current connection will be returned.</p>
+</li>
+</ul>
+<h3>Coming Soon</h3>
+<p>These commands are just the start of our support for SPNs. Right now, they&#8217;re just focused on SQL-related services on your computers. In the future, we&#8217;re going to extend these scripts to look at ALL services on your computers and tie them back to service accounts and SPNs. <strong>This includes SSAS, SSIS, and SSRS SPN support.</strong> We&#8217;re also going to keep looking at the commands and adding support for anything we didn&#8217;t think of when we released, which is why it&#8217;s important that you give us feedback (more on that below).</p>
+<p>Thanks for reading, and I hope you enjoy these new commands! If you have any issues or questions about their use, feel free to drop by our <a href="/slack">Slack channel</a>, <a href="https://sqlcommunity.slack.com/messages/dbatools">#dbatools</a>, and let us know. We&#8217;d love to hear from you!</p>
+<p>&#45; Drew</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/schwifty/feed/</wfw:commentRss>
+		<slash:comments>11</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">2761</post-id>	</item>
+	</channel>
+</rss>

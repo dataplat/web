@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	
+	>
+<channel>
+	<title>
+	Comments on: scheduling powershell tasks with sql agent	</title>
+	<atom:link href="https://dbatools.io/agent/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/agent/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Thu, 23 Apr 2020 17:15:17 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+			<item>
+				<title>
+				By: Peter Daniels				</title>
+				<link>https://dbatools.io/agent/#comment-80295</link>
+		<dc:creator><![CDATA[Peter Daniels]]></dc:creator>
+		<pubDate>Thu, 23 Apr 2020 17:15:17 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=5786#comment-80295</guid>
+					<description><![CDATA[@wsuhoey and I just worked through an issue with $env:PSModulePath on slack (Thank you, @wsuhoey).  Even though I was using the same domain account to develop my script (in vscode) and to run the SQL Agent proxy for cmdExec, it was not using the same profiles, and therefore an Import-Module in my script quietly failed in my job exec even with -Verbose and -ErrorAction &quot;Stop&quot;.  Just a note for folks to pay attention to various powershell profiles and $env:PSModulePath.  Cheers.]]></description>
+		<content:encoded><![CDATA[<p>@wsuhoey and I just worked through an issue with $env:PSModulePath on slack (Thank you, @wsuhoey).  Even though I was using the same domain account to develop my script (in vscode) and to run the SQL Agent proxy for cmdExec, it was not using the same profiles, and therefore an Import-Module in my script quietly failed in my job exec even with -Verbose and -ErrorAction &#8220;Stop&#8221;.  Just a note for folks to pay attention to various powershell profiles and $env:PSModulePath.  Cheers.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: vishvas				</title>
+				<link>https://dbatools.io/agent/#comment-76768</link>
+		<dc:creator><![CDATA[vishvas]]></dc:creator>
+		<pubDate>Thu, 14 Nov 2019 07:52:40 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=5786#comment-76768</guid>
+					<description><![CDATA[HI
+
+Below script is working fine in ISE but if i run the same script in agent job iam getting  blank output, can you please look into it and suggest me what changes i need to make
+
+int] $Threshold = 20;
+[Object[]] $computers = get-content -Path &quot;&quot;;
+[string] $messagebody =  &quot;Server Name:&quot; +$computer+&quot;
+Disk Name:&quot; +$deviceid +&quot;
+Free Space Available:&quot; +$freeSpaceGB +&quot; GB
+
+Recomendation-Either shrink the file or add more disk space to the server&quot;;
+[string] $smtpAddress = &quot;&quot;;
+[string] $toAddress = &quot;&quot;;
+[string] $fromAddress = &quot;&quot;;
+foreach($computer in $computers){    
+    $disks = Get-WmiObject -ComputerName $computer -Class Win32_LogicalDisk -Filter &quot;DriveType = 3&quot;;
+    $computer = $computer.toupper();
+    $deviceid = $disk.DeviceID;
+    foreach($disk in $disks){
+        $freeSpaceGB = [Math]::Round([float]$disk.FreeSpace/1073741824, 2);
+        if($freeSpaceGB -lt $Threshold){
+            [string] $username = &quot;&quot;;
+            [string] $password= &quot;&quot;;
+            [SecureString] $secpasswd = ConvertTo-SecureString $password -AsPlainText -Force;
+            [PSCredential] $mycreds = New-Object System.Management.Automation.PSCredential ($username, $secpasswd);
+            [string] $subject = &quot;Warning Diskspace below the threshold&quot;+ $computer +&quot;for&quot;+ $deviceid +&quot;drive&quot;;
+            Send-MailMessage -From $fromAddress -to $toAddress -Subject $subject -body $messagebody -smtpserver $smtpAddress -UseSsl -Port 25 -Credential $mycreds;
+         }
+    }
+}]]></description>
+		<content:encoded><![CDATA[<p>HI</p>
+<p>Below script is working fine in ISE but if i run the same script in agent job iam getting  blank output, can you please look into it and suggest me what changes i need to make</p>
+<p>int] $Threshold = 20;<br />
+[Object[]] $computers = get-content -Path &#8220;&#8221;;<br />
+[string] $messagebody =  &#8220;Server Name:&#8221; +$computer+&#8221;<br />
+Disk Name:&#8221; +$deviceid +&#8221;<br />
+Free Space Available:&#8221; +$freeSpaceGB +&#8221; GB</p>
+<p>Recomendation-Either shrink the file or add more disk space to the server&#8221;;<br />
+[string] $smtpAddress = &#8220;&#8221;;<br />
+[string] $toAddress = &#8220;&#8221;;<br />
+[string] $fromAddress = &#8220;&#8221;;<br />
+foreach($computer in $computers){<br />
+    $disks = Get-WmiObject -ComputerName $computer -Class Win32_LogicalDisk -Filter &#8220;DriveType = 3&#8221;;<br />
+    $computer = $computer.toupper();<br />
+    $deviceid = $disk.DeviceID;<br />
+    foreach($disk in $disks){<br />
+        $freeSpaceGB = [Math]::Round([float]$disk.FreeSpace/1073741824, 2);<br />
+        if($freeSpaceGB -lt $Threshold){<br />
+            [string] $username = &#8220;&#8221;;<br />
+            [string] $password= &#8220;&#8221;;<br />
+            [SecureString] $secpasswd = ConvertTo-SecureString $password -AsPlainText -Force;<br />
+            [PSCredential] $mycreds = New-Object System.Management.Automation.PSCredential ($username, $secpasswd);<br />
+            [string] $subject = &#8220;Warning Diskspace below the threshold&#8221;+ $computer +&#8221;for&#8221;+ $deviceid +&#8221;drive&#8221;;<br />
+            Send-MailMessage -From $fromAddress -to $toAddress -Subject $subject -body $messagebody -smtpserver $smtpAddress -UseSsl -Port 25 -Credential $mycreds;<br />
+         }<br />
+    }<br />
+}</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Chrissy LeMaire				</title>
+				<link>https://dbatools.io/agent/#comment-73177</link>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+		<pubDate>Wed, 04 Sep 2019 11:18:12 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=5786#comment-73177</guid>
+					<description><![CDATA[Hey Adrian, yours is the second report and have no idea how to fix it, unfortunately. It&#039;s one of the most challenging issues as we cannot reproduce it. Perhaps you can -ErrorAction Ignore since it continues to work.]]></description>
+		<content:encoded><![CDATA[<p>Hey Adrian, yours is the second report and have no idea how to fix it, unfortunately. It&#8217;s one of the most challenging issues as we cannot reproduce it. Perhaps you can -ErrorAction Ignore since it continues to work.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Adrian				</title>
+				<link>https://dbatools.io/agent/#comment-73171</link>
+		<dc:creator><![CDATA[Adrian]]></dc:creator>
+		<pubDate>Wed, 04 Sep 2019 10:33:00 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=5786#comment-73171</guid>
+					<description><![CDATA[Hi, I have a ps1 file that startswith &quot;import-module dbatools&quot;, which works fine interactively
+In the agent job it returns...
+Message
+Executed as user: domain\myUser. Join-Path : Cannot bind argument to parameter &#039;Path&#039; because it is null.  At C:\Program Files\WindowsPowerShell\Modules\dbatools\1.0.38\internal\configur  ations\configuration.ps1:72 char:44  +     $script:path_FileUserLocal = Join-Path $Env:LocalAppData &quot;$psVers ...  +                                            ~~~~~~~~~~~~~~~~~      + CategoryInfo          : InvalidData: (:) [Join-Path], ParameterBindingVa      lidationException      + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,M      icrosoft.PowerShell.Commands.JoinPathCommandJoin-DbaPath : Cannot bind argument to parameter &#039;Path&#039; because it is an empty   string.  At C:\Program Files\WindowsPowerShell\Modules\dbatools\1.0.38\internal\configur  ations\configuration.ps1:90 char:48  +     $script:path_FileUserShared = Join-DbaPath $Env:AppData $psVersio ...  +                                                ~~~~~~~~~~~~      + CategoryInfo          : InvalidData: (:) [Join-DbaPath], ParameterBindin      gValidationException      + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAl      lowed,Join-DbaPath.  Process Exit Code 0.  The step succeeded.
+- however the script continues and the tools appear to work ok...]]></description>
+		<content:encoded><![CDATA[<p>Hi, I have a ps1 file that startswith &#8220;import-module dbatools&#8221;, which works fine interactively<br />
+In the agent job it returns&#8230;<br />
+Message<br />
+Executed as user: domain\myUser. Join-Path : Cannot bind argument to parameter &#8216;Path&#8217; because it is null.  At C:\Program Files\WindowsPowerShell\Modules\dbatools\1.0.38\internal\configur  ations\configuration.ps1:72 char:44  +     $script:path_FileUserLocal = Join-Path $Env:LocalAppData &#8220;$psVers &#8230;  +                                            ~~~~~~~~~~~~~~~~~      + CategoryInfo          : InvalidData: (:) [Join-Path], ParameterBindingVa      lidationException      + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,M      icrosoft.PowerShell.Commands.JoinPathCommandJoin-DbaPath : Cannot bind argument to parameter &#8216;Path&#8217; because it is an empty   string.  At C:\Program Files\WindowsPowerShell\Modules\dbatools\1.0.38\internal\configur  ations\configuration.ps1:90 char:48  +     $script:path_FileUserShared = Join-DbaPath $Env:AppData $psVersio &#8230;  +                                                ~~~~~~~~~~~~      + CategoryInfo          : InvalidData: (:) [Join-DbaPath], ParameterBindin      gValidationException      + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAl      lowed,Join-DbaPath.  Process Exit Code 0.  The step succeeded.<br />
+&#8211; however the script continues and the tools appear to work ok&#8230;</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: dbatools advanced configuration &#8211; dbatools				</title>
+				<link>https://dbatools.io/agent/#comment-72227</link>
+		<dc:creator><![CDATA[dbatools advanced configuration &#8211; dbatools]]></dc:creator>
+		<pubDate>Tue, 20 Aug 2019 13:15:46 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=5786#comment-72227</guid>
+					<description><![CDATA[[&#8230;] settings are scoped at the session-level. This means that if you use dbatools module within SQL Agent jobs and you have a different account to run it, you will need to set the options for the [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] settings are scoped at the session-level. This means that if you use dbatools module within SQL Agent jobs and you have a different account to run it, you will need to set the options for the [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Chrissy LeMaire				</title>
+				<link>https://dbatools.io/agent/#comment-66390</link>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+		<pubDate>Wed, 29 May 2019 20:06:48 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=5786#comment-66390</guid>
+					<description><![CDATA[Hey Tim, can you check out this post and see if it helps and let us know? https://github.com/sqlcollaborative/dbatools/issues/5640]]></description>
+		<content:encoded><![CDATA[<p>Hey Tim, can you check out this post and see if it helps and let us know? <a href="https://github.com/sqlcollaborative/dbatools/issues/5640" rel="nofollow ugc">https://github.com/sqlcollaborative/dbatools/issues/5640</a></p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Tim Toennies				</title>
+				<link>https://dbatools.io/agent/#comment-66388</link>
+		<dc:creator><![CDATA[Tim Toennies]]></dc:creator>
+		<pubDate>Wed, 29 May 2019 20:02:30 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=5786#comment-66388</guid>
+					<description><![CDATA[I had been using Invoke-DBAQuery in a SQL Agent job for the last few months without an incident but... last week I started receiving an error when I ran a scheduled task which included Invoke-DBAQuery.  It runs successfully when I run it manually.  I&#039;ve reinstalled the module on numerous occasions using run as administrator.  Here is the error. 
+Date		5/29/2019 1:11:10 PM
+Log		Job History (DBA - Get SQL Server data)
+
+Step ID		1
+Server		DSQLB8SM001
+Job Name		DBA - Get SQL Server data
+Step Name		Launch PowerShell script
+Duration		00:00:04
+Sql Severity	0
+Sql Message ID	0
+Operator Emailed	
+Operator Net sent	
+Operator Paged	
+Retries Attempted	0
+
+Message
+Invoke-DbaQuery : The &#039;Invoke-DbaQuery&#039; command was found in the module 
+&#039;dbatools&#039;, but the module could not be loaded. For more information, run 
+&#039;Import-Module dbatools&#039;.
+At C:\scripts\powershell\Get-SQLServerData.ps1:56 char:13
++ $SQLServers=Invoke-DbaQuery -SqlInstance dsqlb8sm001 -Query &quot;SELECT   ...
++             ~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Invoke-DbaQuery:String) [], Par 
+   entContainsErrorRecordException
+    + FullyQualifiedErrorId : CouldNotAutoloadMatchingModule
+
+Any suggestions?]]></description>
+		<content:encoded><![CDATA[<p>I had been using Invoke-DBAQuery in a SQL Agent job for the last few months without an incident but&#8230; last week I started receiving an error when I ran a scheduled task which included Invoke-DBAQuery.  It runs successfully when I run it manually.  I&#8217;ve reinstalled the module on numerous occasions using run as administrator.  Here is the error.<br />
+Date		5/29/2019 1:11:10 PM<br />
+Log		Job History (DBA &#8211; Get SQL Server data)</p>
+<p>Step ID		1<br />
+Server		DSQLB8SM001<br />
+Job Name		DBA &#8211; Get SQL Server data<br />
+Step Name		Launch PowerShell script<br />
+Duration		00:00:04<br />
+Sql Severity	0<br />
+Sql Message ID	0<br />
+Operator Emailed<br />
+Operator Net sent<br />
+Operator Paged<br />
+Retries Attempted	0</p>
+<p>Message<br />
+Invoke-DbaQuery : The &#8216;Invoke-DbaQuery&#8217; command was found in the module<br />
+&#8216;dbatools&#8217;, but the module could not be loaded. For more information, run<br />
+&#8216;Import-Module dbatools&#8217;.<br />
+At C:\scripts\powershell\Get-SQLServerData.ps1:56 char:13<br />
++ $SQLServers=Invoke-DbaQuery -SqlInstance dsqlb8sm001 -Query &#8220;SELECT   &#8230;<br />
++             ~~~~~~~~~~~~~~~<br />
+    + CategoryInfo          : ObjectNotFound: (Invoke-DbaQuery:String) [], Par<br />
+   entContainsErrorRecordException<br />
+    + FullyQualifiedErrorId : CouldNotAutoloadMatchingModule</p>
+<p>Any suggestions?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Export SQL Server Agent Jobs #Dbatools &#124; Reginaldo Silva				</title>
+				<link>https://dbatools.io/agent/#comment-50797</link>
+		<dc:creator><![CDATA[Export SQL Server Agent Jobs #Dbatools &#124; Reginaldo Silva]]></dc:creator>
+		<pubDate>Tue, 19 Feb 2019 03:39:44 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=5786#comment-50797</guid>
+					<description><![CDATA[[&#8230;] https://dbatools.io/agent/ [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] <a href="https://dbatools.io/agent/" rel="nofollow ugc">https://dbatools.io/agent/</a> [&#8230;]</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Serge M				</title>
+				<link>https://dbatools.io/agent/#comment-45942</link>
+		<dc:creator><![CDATA[Serge M]]></dc:creator>
+		<pubDate>Thu, 31 Jan 2019 20:46:14 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=5786#comment-45942</guid>
+					<description><![CDATA[Hi Chrissy,
+
+Thanks for sharing such a useful and detailed piece of information on scheduling PowerShell tasks with SQL Agent.
+One little thing that is missing is the necessity of using -NoPorfile switch.
+powershell.exe -NoProfile -File \\location\to\file.ps1
+Otherwise, some of the cmdlets may fail. In particular, when calling Get-DbaBuildReference, we were getting the following error until we added the switch:
+Error loading SQL build reference &#124; Cannot bind argument to parameter &#039;Path&#039; because it is null.]]></description>
+		<content:encoded><![CDATA[<p>Hi Chrissy,</p>
+<p>Thanks for sharing such a useful and detailed piece of information on scheduling PowerShell tasks with SQL Agent.<br />
+One little thing that is missing is the necessity of using -NoPorfile switch.<br />
+powershell.exe -NoProfile -File \\location\to\file.ps1<br />
+Otherwise, some of the cmdlets may fail. In particular, when calling Get-DbaBuildReference, we were getting the following error until we added the switch:<br />
+Error loading SQL build reference | Cannot bind argument to parameter &#8216;Path&#8217; because it is null.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Em desenvolvimento				</title>
+				<link>https://dbatools.io/agent/#comment-33496</link>
+		<dc:creator><![CDATA[Em desenvolvimento]]></dc:creator>
+		<pubDate>Mon, 10 Dec 2018 11:00:33 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=5786#comment-33496</guid>
+					<description><![CDATA[[&#8230;] Não irei reinventar a roda. Aqui está passo a passo com detalhes: https://dbatools.io/agent/. [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Não irei reinventar a roda. Aqui está passo a passo com detalhes: <a href="https://dbatools.io/agent/" rel="nofollow ugc">https://dbatools.io/agent/</a>. [&#8230;]</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

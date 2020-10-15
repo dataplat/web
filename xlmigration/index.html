@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>a monumental migration to sql server 2016 &ndash; dbatools</title>
+<link rel="dns-prefetch" href="//secure.gravatar.com">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//use.fontawesome.com">
+
+<link rel="alternate" type="application/rss+xml" title="dbatools &raquo; Feed" href="https://dbatools.io/feed/">
+<link rel="alternate" type="application/rss+xml" title="dbatools &raquo; Comments Feed" href="https://dbatools.io/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="dbatools &raquo; a monumental migration to sql server 2016 Comments Feed" href="https://dbatools.io/xlmigration/feed/">
+<link rel="stylesheet" id="wp-block-library-css" href="https://c0.wp.com/c/5.3.4/wp-includes/css/dist/block-library/style.min.css" type="text/css" media="all">
+<style id="wp-block-library-inline-css" type="text/css">
+.has-text-align-justify{text-align:justify;}
+</style>
+<link rel="stylesheet" id="cpsh-shortcodes-css" href="https://dbatools.io/wp-content/plugins/column-shortcodes//assets/css/shortcodes.css?ver=1.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-fonts-css" href="https://fonts.googleapis.com/css?family=Raleway%3A400%2C500%2C600%2C700%2C300%2C100%2C800%2C900%7COpen+Sans%3A400%2C300%2C300italic%2C400italic%2C600%2C600italic%2C700%2C700italic&amp;subset=latin%2Clatin-ext&amp;ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-animate-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/animate.min.css?ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-fa-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/font-awesome.min.css?ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-bootstrap-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/bootstrap.min.css?ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-style-css" href="https://dbatools.io/wp-content/plugins/onepress-plus/style.css?ver=10.1.8" type="text/css" media="all">
+<style id="onepress-style-inline-css" type="text/css">
+#main .video-section section.hero-slideshow-wrapper{background:transparent}.hero-slideshow-wrapper:after{position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(1,36,86,1);display:block;content:""}.body-desktop .parallax-hero .hero-slideshow-wrapper:after{display:none!important}.parallax-hero .parallax-mirror:after{position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(1,36,86,1);display:block;content:""}.body-desktop .parallax-hero .hero-slideshow-wrapper:after{display:none!important}.parallax-hero .parallax-mirror:after{position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(1,36,86,1);display:block;content:""}a,.screen-reader-text:hover,.screen-reader-text:active,.screen-reader-text:focus,.header-social a,.onepress-menu a:hover,.onepress-menu ul li a:hover,.onepress-menu li.onepress-current-item>a,.onepress-menu ul li.current-menu-item>a,.onepress-menu>li a.menu-actived,.onepress-menu.onepress-menu-mobile li.onepress-current-item>a,.site-footer a,.site-footer .footer-social a:hover,.site-footer .btt a:hover,.highlight,#comments .comment .comment-wrapper .comment-meta .comment-time:hover,#comments .comment .comment-wrapper .comment-meta .comment-reply-link:hover,#comments .comment .comment-wrapper .comment-meta .comment-edit-link:hover,.btn-theme-primary-outline,.sidebar .widget a:hover,.section-services .service-item .service-image i,.counter_item .counter__number,.team-member .member-thumb .member-profile a:hover,.icon-background-default{color:#012456}input[type="reset"],input[type="submit"],input[type="submit"],.nav-links a:hover,.btn-theme-primary,.btn-theme-primary-outline:hover,.card-theme-primary,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button,.woocommerce button.button.alt{background:#012456}.btn-theme-primary-outline,.btn-theme-primary-outline:hover,.pricing__item:hover,.card-theme-primary,.entry-content blockquote{border-color:#012456}.site-header{background:#e3e3e3;border-bottom:0px none}.onepress-menu>li>a{color:#293955}.onepress-menu>li>a:hover,.onepress-menu>li.onepress-current-item>a{color:#444444;-webkit-transition:all 0.5s ease-in-out;-moz-transition:all 0.5s ease-in-out;-o-transition:all 0.5s ease-in-out;transition:all 0.5s ease-in-out}#nav-toggle span,#nav-toggle span::before,#nav-toggle span::after,#nav-toggle.nav-is-visible span::before,#nav-toggle.nav-is-visible span::after{background:#293955}.site-footer{background-color:#012456}.site-footer .footer-connect .follow-heading{color:rgba(255,255,255,0.9)}.site-footer .site-info,.site-footer .btt a{background-color:#545454}.site-footer .site-info{color:rgba(255,255,255,0.7)}.site-footer .btt a,.site-footer .site-info a{color:rgba(255,255,255,0.9)}.gallery-carousel .g-item{padding:0px 10px}.gallery-carousel{margin-left:-10px;margin-right:-10px}.gallery-grid .g-item,.gallery-masonry .g-item .inner{padding:10px}.gallery-grid,.gallery-masonry{margin:-10px}
+/* --- Begin custom CSS --- */
+.section-testimonials .card { max-width : 140px; }
+/* --- End custom CSS --- */
+
+ .section-features{ background-color: rgba(227,227,227,1); } 
+ 
+</style>
+<link rel="stylesheet" id="onepress-gallery-lightgallery-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/lightgallery.css?ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="upw_theme_standard-css" href="https://dbatools.io/wp-content/plugins/ultimate-posts-widget/css/upw-theme-standard.min.css?ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-official-css" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" media="all" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+<link rel="stylesheet" id="onepress-child-style-css" href="https://dbatools.io/wp-content/themes/onepress/style.css?ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="sccss_style-css" href="https://dbatools.io/?sccss=1&amp;ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-official-v4shim-css" href="https://use.fontawesome.com/releases/v5.11.2/css/v4-shims.css" type="text/css" media="all" integrity="sha384-/EdpJd7d6gGFiQ/vhh7iOjiZdf4+6K4al/XrX6FxxZwDSrAdWxAynr4p/EA/vyPQ" crossorigin="anonymous">
+<style id="font-awesome-official-v4shim-inline-css" type="text/css">
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.svg#fontawesome") format("svg");
+}
+
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.svg#fontawesome") format("svg");
+}
+
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.svg#fontawesome") format("svg");
+unicode-range: U+F004-F005,U+F007,U+F017,U+F022,U+F024,U+F02E,U+F03E,U+F044,U+F057-F059,U+F06E,U+F070,U+F075,U+F07B-F07C,U+F080,U+F086,U+F089,U+F094,U+F09D,U+F0A0,U+F0A4-F0A7,U+F0C5,U+F0C7-F0C8,U+F0E0,U+F0EB,U+F0F3,U+F0F8,U+F0FE,U+F111,U+F118-F11A,U+F11C,U+F133,U+F144,U+F146,U+F14A,U+F14D-F14E,U+F150-F152,U+F15B-F15C,U+F164-F165,U+F185-F186,U+F191-F192,U+F1AD,U+F1C1-F1C9,U+F1CD,U+F1D8,U+F1E3,U+F1EA,U+F1F6,U+F1F9,U+F20A,U+F247-F249,U+F24D,U+F254-F25B,U+F25D,U+F267,U+F271-F274,U+F279,U+F28B,U+F28D,U+F2B5-F2B6,U+F2B9,U+F2BB,U+F2BD,U+F2C1-F2C2,U+F2D0,U+F2D2,U+F2DC,U+F2ED,U+F328,U+F358-F35B,U+F3A5,U+F3D1,U+F410,U+F4AD;
+}
+</style>
+<link rel="stylesheet" id="jetpack_css-css" href="https://c0.wp.com/p/jetpack/8.4.2/css/jetpack.css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var onepress_js_settings = {"onepress_disable_animation":"1","onepress_disable_sticky_header":"1","onepress_vertical_align_menu":"0","hero_animation":"flipInX","hero_speed":"5000000","is_home":"","gallery_enable":"1"};
+var OnePress_Plus = {"ajax_url":"https:\/\/dbatools.io\/wp-admin\/admin-ajax.php","browser_warning":" Your browser does not support the video tag. I suggest you upgrade your browser."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/c/5.3.4/wp-includes/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="https://c0.wp.com/c/5.3.4/wp-includes/js/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/related-posts/related-posts.min.js"></script>
+
+
+<link rel="prev" title="dbatools and docker" href="https://dbatools.io/docker/">
+<link rel="next" title="dbatools featured on sql with bert" href="https://dbatools.io/sqlbert/">
+
+
+<link rel="alternate" type="application/json+oembed" href="https://dbatools.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdbatools.io%2Fxlmigration%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://dbatools.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdbatools.io%2Fxlmigration%2F&amp;format=xml">
+
+<link rel="dns-prefetch" href="//v0.wordpress.com">
+<link rel="dns-prefetch" href="//widgets.wp.com">
+<link rel="dns-prefetch" href="//s0.wp.com">
+<link rel="dns-prefetch" href="//0.gravatar.com">
+<link rel="dns-prefetch" href="//1.gravatar.com">
+<link rel="dns-prefetch" href="//2.gravatar.com">
+<link rel="dns-prefetch" href="//i0.wp.com">
+<link rel="dns-prefetch" href="//i1.wp.com">
+<link rel="dns-prefetch" href="//i2.wp.com">
+<link rel="dns-prefetch" href="//c0.wp.com">
+<link rel="dns-prefetch" href="//jetpack.wordpress.com">
+<link rel="dns-prefetch" href="//s1.wp.com">
+<link rel="dns-prefetch" href="//s2.wp.com">
+<link rel="dns-prefetch" href="//public-api.wordpress.com">
+<style type="text/css">img#wpstats{display:none}</style><link rel="canonical" href="https://dbatools.io/xlmigration/">
+			<style type="text/css">
+				/* If html does not have either class, do not show lazy loaded images. */
+				html:not( .jetpack-lazy-images-js-enabled ):not( .js ) .jetpack-lazy-image {
+					display: none;
+				}
+			</style>
+			<script>
+				document.documentElement.classList.add(
+					'jetpack-lazy-images-js-enabled'
+				);
+			</script>
+		
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="a monumental migration to sql server 2016">
+<meta property="og:url" content="https://dbatools.io/xlmigration/">
+<meta property="og:description" content="How do you move eight thousand databases in a reasonable amount of time?">
+<meta property="article:published_time" content="2019-01-17T11:25:24+00:00">
+<meta property="article:modified_time" content="2019-01-17T11:26:24+00:00">
+<meta property="og:site_name" content="dbatools">
+<meta property="og:image" content="https://dbatools.io/wp-content/uploads/2020/01/muscles4.png?fit=652%2C500&amp;ssl=1">
+<meta property="og:image:width" content="652">
+<meta property="og:image:height" content="500">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:text:title" content="a monumental migration to sql server 2016">
+<meta name="twitter:image" content="https://dbatools.io/wp-content/uploads/2020/01/muscles4.png?fit=652%2C500&amp;ssl=1&amp;w=640">
+<meta name="twitter:card" content="summary_large_image">
+
+
+<link rel="icon" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&amp;ssl=1" sizes="32x32">
+<link rel="icon" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1">
+<meta name="msapplication-TileImage" content="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1">
+
+<style class="wp-typography-print-styles" type="text/css">
+body, body p { 
+	font-style: normal;
+	text-transform: none;
+ } 
+ .onepress-menu a { 
+	font-style: normal;
+	text-transform: none;
+ } 
+ body h1, body h2, body h3, body h4, body h5, body h6,
+    body .section-title-area .section-title, body .section-title-area .section-subtitle, body .hero-content-style1 h2 { 
+	font-style: normal;
+	text-transform: none;
+ }
+</style>
+			<style type="text/css" id="wp-custom-css">
+				/*
+Welcome to Custom CSS!
+
+To learn how this works, see http://wp.me/PEmnE-Bt
+*/			</style>
+		</head>
+
+<body class="post-template-default single single-post postid-9435 single-format-standard wp-custom-logo group-blog no-sticky-header">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+            <header id="masthead" class="site-header" role="banner">
+            <div class="container">
+                <div class="site-branding">
+                <div class="site-brand-inner has-logo-img no-desc"><div class="site-logo-div"><a href="https://dbatools.io/" class="custom-logo-link" rel="home"><img width="223" height="64" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2016/05/dbatools-logo-1.png?fit=223%2C64&amp;ssl=1" class="custom-logo jetpack-lazy-image" alt="dbatools" data-lazy-src="https://i0.wp.com/dbatools.io/wp-content/uploads/2016/05/dbatools-logo-1.png?fit=223%2C64&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "></a></div></div>                </div>
+                
+
+                <div class="header-right-wrapper">
+                    <a href="#0" id="nav-toggle">Menu<span></span></a>
+                    <nav id="site-navigation" class="main-navigation" role="navigation">
+                        <ul class="onepress-menu">
+                            <li id="menu-item-1452" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1452"><a href="https://dbatools.io/download/">&#11015; download</a>
+<ul class="sub-menu">
+	<li id="menu-item-1451" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1451"><a href="https://dbatools.io/getting-started/">get started</a></li>
+</ul>
+</li>
+<li id="menu-item-1453" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1453"><a href="https://dbatools.io/commands/">&#128640; commands</a></li>
+<li id="menu-item-8268" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8268"><a href="https://dbatools.io/docs">&#128209; docs</a>
+<ul class="sub-menu">
+	<li id="menu-item-8270" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8270"><a href="https://dbatools.io/blog">blog</a></li>
+</ul>
+</li>
+<li id="menu-item-1456" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1456"><a href="https://dbatools.io/team/">&#129395; team</a>
+<ul class="sub-menu">
+	<li id="menu-item-3315" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3315"><a href="https://dbatools.io/contributing">contribute</a></li>
+	<li id="menu-item-3123" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3123"><a href="https://dbatools.io/contact/">contact</a></li>
+	<li id="menu-item-3116" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3116"><a href="https://dbatools.io/git">find us</a>
+	<ul class="sub-menu">
+		<li id="menu-item-4663" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4663"><a href="https://dbatools.io/slack">slack</a></li>
+		<li id="menu-item-4662" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4662"><a href="https://dbatools.io/github">github</a></li>
+		<li id="menu-item-4664" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4664"><a href="https://dbatools.io/twitter">twitter</a></li>
+		<li id="menu-item-4665" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4665"><a href="https://dbatools.io/youtube">youtube</a></li>
+		<li id="menu-item-4666" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4666"><a href="https://dbatools.io/linkedin">linkedin</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-3340" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3340"><a href="https://dbatools.io/subscribe/">&#128140; subscribe</a></li>
+<li id="menu-item-6587" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6587"><a href="https://dbatools.io/builds">&#10004; build ref</a></li>
+<li id="menu-item-9781" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9781"><a href="https://dbatools.io/sponsorship/">&#128149; sponsor</a></li>
+<li id="menu-item-9994" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9994"><a href="https://dbatools.io/book">&#128216; book</a></li>
+                        </ul>
+                    </nav>
+                    
+                </div>
+            </div>
+        </header>
+        
+	<div id="content" class="site-content">
+
+		
+		<div id="content-inside" class="container right-sidebar">
+			<div id="primary" class="content-area">
+				<main id="main" class="site-main" role="main">
+
+				
+					
+<article id="post-9435" class="post-9435 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+	<header class="entry-header">
+		<h1 class="entry-title">a monumental migration to sql server 2016</h1>
+		<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="https://dbatools.io/xlmigration/" rel="bookmark"><time class="entry-date published" datetime="2019-01-17T11:25:24+00:00">January 17, 2019</time><time class="updated hide" datetime="2019-01-17T11:26:24+00:00">January 17, 2019</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://dbatools.io/author/alevyinroc/">Andy Levy</a></span></span>		</div>
+	</header>
+
+	<div class="entry-content">
+		<p><em>This post originally appeared in two parts on my personal blog at <a href="https://flxsql.com">flxsql.com</a> and has been reposted here by request.</em></p>
+<p>A bit over a year ago, I blogged about <a href="https://flxsql.com/my-first-migration-with-dbatools/">my experience migrating a test SQL Server instance</a> from a VM to a physical machine with a little help from my <a href="https://dbatools.io">friends</a>. That migration went well and the instance has been running trouble-free ever since. But it&rsquo;s small potatoes. A modest instance, it&rsquo;s only about 5% the size of production. With <a href="https://blogs.msdn.microsoft.com/sqlreleaseservices/end-of-mainstream-support-for-sql-server-2008-and-sql-server-2008-r2/">SQL Server 2008R2&rsquo;s EOL looming</a>, it was time to migrate production to SQL Server 2016. It&rsquo;s a pretty beefy setup:</p>
+<ul>
+<li>2-node Failover Clustered Instance</li>
+<li>16 cores</li>
+<li>768GB RAM</li>
+<li>4 TB of storage</li>
+<li>Over 8000 databases</li>
+</ul>
+<h2>The Challenge</h2>
+<p>How do you move <em>eight thousand</em> databases in a reasonable amount of time?</p>
+<p>I spent about an hour and a half one morning hashing ideas out w/ folks in the <a href="https://dbatools.io/slack/">dbatools Slack channel</a>, plus several conversations in the office and with our hosting provider.</p>
+<ul>
+<li><a href="https://docs.dbatools.io/#Start-DbaMigration"><code>Start-DbaMigration</code></a>? I love that function but it&rsquo;s single-threaded and we just don&rsquo;t have time to backup &amp; restore that many databases that way.</li>
+<li>Backup &amp; restore? Multi-threaded, our daily full backups take over 3 hours to run. Double that to do a backup &amp; restore.</li>
+<li>Detach &amp; reattach? We&rsquo;ll need either double the storage and eat the time copying the data, or risk the time required to restore from backup if we have to revert.</li>
+<li><a href="https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/about-log-shipping-sql-server?view=sql-server-2017">Log shipping</a>, <a href="https://docs.microsoft.com/en-us/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017">mirroring</a>, <a href="https://docs.microsoft.com/en-us/sql/relational-databases/replication/sql-server-replication?view=sql-server-2017">replication</a>? Again, double the storage, and we have <em>so many</em> databases that it&rsquo;s just not feasible.</li>
+<li>In-place upgrade? Not supported by our hosting provider, and there&rsquo;s not much of a safety net.</li>
+</ul>
+<p>Ultimately the team settled on a variation of the detach &amp; reattach.</p>
+<ol>
+<li>Install SQL Server 2016 on new physical servers with &ldquo;dummy&rdquo; drives (so that paths could be set during install)</li>
+<li>Shut down SQL Server 2008R2</li>
+<li>Take a SAN snapshot</li>
+<li>Move the LUN to the new server</li>
+<li>Attach the databases</li>
+</ol>
+<p>This is the fastest way for us to move the data, and the snapshot provides a way back if we have to revert. We have backups as well, but those are the reserve parachute &ndash; the snapshot is the primary. This process is easiest if the paths for the data and log files remain the same. But that didn&rsquo;t happen here. On the old instance, both data and logs were dumped in the same directory. The new instance has separate data and log directories. And it&rsquo;s a new drive letter to boot.</p>
+<p>OK, so how do you <em>attach</em> eight thousand databases and relocate their files in a reasonable amount of time?</p>
+<p>It&rsquo;s dbatools to the rescue, with <a href="https://docs.dbatools.io/#Mount-DbaDatabase"><code>Mount-DbaDatabase</code></a> being the star of the show. Not only does it attach databases for you, you can use it to relocate and rename the files as well. But that&rsquo;s really one of the last steps. We have setup to do first.</p>
+<h2>Preparation</h2>
+<h3>Basics</h3>
+<p>Once the servers were turned over to us, the DBA basics had to get set up. I configured a few <a href="https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql?view=sql-server-2017">trace flags</a> for the instance with <code>Set-DbaStartupParameter -Traceflags 3226,4199,7412,460</code>.</p>
+<table class="wp-block-table aligncenter">
+<thead>
+<tr>
+<th width="150px;">Trace Flag</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>460</td>
+<td><a href="https://support.microsoft.com/en-us/help/4468101/optional-replacement-for-string-or-binary-data-would-be-truncated">Enable detailed <code>String or Binary Data would be truncated</code> error message</a> in a <a href="https://sqlserverupdates.com/news/announcing-sql-server-2017-cu12-omg-they-finally-fixed-string-or-binary-data-would-be-truncated/">future Cumulative Update</a></td>
+</tr>
+<tr>
+<td>3226</td>
+<td>Suppress successful backup messages in the error log</td>
+</tr>
+<tr>
+<td>4199</td>
+<td><a href="https://support.microsoft.com/en-us/help/974006/sql-server-query-optimizer-hotfix-trace-flag-4199-servicing-model">Enable query optimizer fixes in CUs and hotfixes</a></td>
+</tr>
+<tr>
+<td>7412</td>
+<td><a href="https://support.microsoft.com/en-us/help/3170113/update-to-expose-per-operator-query-execution-statistics-in-showplan-x">Enable lightweight execution statistics profiling</a></td>
+</tr>
+</tbody>
+</table>
+<p>Since publishing the original post, I&rsquo;ve received a couple questions about the use of TF4199. With the <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?view=sql-server-2017">database-scoped option</a> <code>QUERY_OPTIMIZER_HOTFIXES</code> this isn&rsquo;t absolutely necessary to get post-RTM hotfixes for the optimizer. Pedro Lopes (<a href="https://blogs.msdn.microsoft.com/blogdoezequiel/">blog</a>|<a href="https://twitter.com/SQLPedro">twitter</a>) recommended in his Summit 2018 to enable it globally, and he confirmed that in an email exchange with Andy Galbraith (<a href="http://nebraskasql.blogspot.com/">blog</a>|<a href="https://twitter.com/dba_andy">twitter</a>) that Andy <a href="http://nebraskasql.blogspot.com/2018/11/things-i-learned-at-summit-v20-trace.html">wrote up on his blog</a>. Pam Lahoud (<a href="https://twitter.com/SQLGoddess">twitter</a>) wrote about the topic in <a href="https://blogs.msdn.microsoft.com/sql_server_team/lets-talk-about-trace-flags/">a recent post</a> as well.</p>
+<p>I did use <code>Start-DbaMigration</code> but excluded <code>Databases, Logins, AgentServer, ExtendedEvents</code> (the last because we don&rsquo;t use XE on the old instance anyway; this avoided any warnings or errors related to it). Excluding databases makes sense given what I wrote above, but why logins and Agent jobs?</p>
+<p>The source instance is several years old and has built up a lot of cruft; this migration was a good chance to clear that out. All disabled logins and jobs were scripted out and saved, and only the active items migrated. But that also meant I couldn&rsquo;t use <code>Copy-DbaAgentServer</code> because it doesn&rsquo;t filter jobs out; a few extra steps were necessary. For reasons I don&rsquo;t understand, <code>Start-DbaMigration</code> copied our database mail and Linked Server setups faithfully, with one exception &ndash; the passwords.</p>
+<p>We were able to fix that up easily enough but I found it strange that of all things, the passwords weren&rsquo;t copied properly. Especially since I&rsquo;ve done this successfully with dbatools in the past.</p>
+<h3>Moving logins</h3>
+<p>Although I only wanted to migrate the currently-active logins, I wanted the ability to re-create any disabled logins just in case, so I needed to extract the create scripts for them. I achieved this via <a href="https://docs.dbatools.io/#Get-DbaLogin"><code>Get-DbaLogin</code></a>, <a href="https://docs.dbatools.io/#Export-DbaLogin"><code>Export-DbaLogin</code></a>, and <a href="https://docs.dbatools.io/#Copy-DbaLogin"><code>Copy-DbaLogin</code></a>:</p>
+<p><script src="https://gist.github.com/alevyinroc/bdc52ca2334b5f5da4778745b5172317.js"></script></p>
+<h3>Moving Agent jobs</h3>
+<p>I had the same need for Agent jobs, and achieved it similarly. However, because I excluded the <code>AgentServer</code> from <code>Start-DbaMigration</code>, I had to peek into that function to find out all the other things it copies before copying the jobs. I also wanted to leave the jobs disabled on the new server so they didn&rsquo;t run before we were ready to test &amp; monitor them in a more controlled way.</p>
+<p><script src="https://gist.github.com/alevyinroc/780e8484669a2d36ed1095dfd06588e2.js"></script></p>
+<h3>Maintenance &amp; Monitoring</h3>
+<p>When that was complete, we updated the community tools that are installed in system databases</p>
+<ul>
+<li><a href="https://github.com/BrentOzarULTD/SQL-Server-First-Responder-Kit/tree/master">Brent Ozar&rsquo;s First Responder Kit</a> &ndash; <a href="https://docs.dbatools.io/#Install-DbaFirstResponderKit"><code>Install-DbaFirstResponderKit</code></a><code>-database master -force</code></li>
+<li><a href="http://whoisactive.com">Adam Machanic&rsquo;s <code>sp_whoisactive</code></a> &ndash; <a href="https://docs.dbatools.io/#Install-DbaWhoIsActive"><code>Install-DbaWhoIsActive</code></a><code>-database master</code></li>
+<li><a href="https://ola.hallengren.com/">Ola Hallengren&rsquo;s Maintenance Solution</a> &ndash; <a href="https://docs.dbatools.io/#Install-DbaMaintenanceSolution"><code>Install-DbaMaintenanceSolution</code></a><code>-database master</code><br>By default, this function doesn&rsquo;t install Agent jobs, which is fine here. I already copied the Agent jobs over, but I wanted the latest &amp; greatest versions of the backup and index maintenance stored procedures that they call.</li>
+</ul>
+<p>We use MinionWare&rsquo;s Minion CheckDB but didn&rsquo;t need do a separate installation or migration. With the exception of the Agent jobs, everything is self-contained in a single database. The Agent jobs were copied above, and the database came over with all the others.</p>
+<h2>Ready to Go</h2>
+<p>With the above complete, there wasn&rsquo;t much left to do aside from doing some small-scale testing of the database attachment process and validating system operations (database mail, backups, CheckDB, etc.). ## Final Prep We completed our nightly backups as usual on Friday night, so when I arrived Saturday I kicked off a final differential backup to catch any overnight changes. We&rsquo;ve multi-threaded <a href="https://ola.hallengren.com/sql-server-backup.html">Ola&rsquo;s backup script</a> by creating multiple jobs and I started them all at once with (of course) PowerShell.</p>
+<pre class="lang:ps decode:true ">Get-DbaAgentJob -SqlInstance $OldInstance | Where-Object {$_.name -like 'user database backups - diff*'} | ForEach-Object {$_.Start()}</pre>
+<p>I estimated that the diff backups would take about 90 minutes based on a couple test runs; they took 100 minutes (not too shabby!). While that ran, I re-exported the Agent jobs <em>just</em> to be sure I had everything captured there. I also copied a few databases to another 2008R2 instance in case they were needed for debugging purposes. The very last step was to extract a listing of all our databases and the full paths to the physical data and log files, then split them into ten files.</p>
+<p>The method I used to attach the databases wasn&rsquo;t scalable to running it for all eight thousand databases at once and this let me control the batch sizes easily.</p>
+<p><script src="https://gist.github.com/alevyinroc/341ca390951c3a969e37223e2e9f9828.js"></script></p>
+<p>The resulting CSV file gave me each database file, the type of file (data or log), and the database name itself.</p>
+<table class="wp-block-table">
+<thead>
+<tr>
+<th>database_id</th>
+<th>name</th>
+<th>FileType</th>
+<th>physical_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>MyDatabase</td>
+<td>ROWS</td>
+<td>S:\Very\Long\Path\MyDatabase.mdf</td>
+</tr>
+<tr>
+<td>7</td>
+<td>MyDatabase</td>
+<td>LOG</td>
+<td>S:\Very\Long\Path\MyDatabase_1.ldf</td>
+</tr>
+</tbody>
+</table>
+<h2>Time to Move</h2>
+<p>With all of our pre-migration work complete, we shut down the SQL Server 2008R2 instance. Then we turned things over to the folks in the datacenter to detach the storage LUN, take the snapshot, and attach the LUN to the new instance. When their work was complete, they passed the baton back to me to move the files around and attach the databases.</p>
+<p><script src="https://gist.github.com/alevyinroc/f3a6c3e67570c0afdcb6775828590016.js"></script></p>
+<h3>Attaching the Databases</h3>
+<p>Before reading this section, I suggest you read two other recent posts, <a href="https://flxsql.com/powershell-multithreading-with-poshrsjob/">PowerShell Multithreading with PoshRSJob</a> and <a href="https://flxsql.com/thread-safe-powershell-logging-with-psframework/">Thread-safe PowerShell Logging with PSFramework</a>, as they&rsquo;ll provide the background for how some of this was done.</p>
+<p>I created my own function as a wrapper for <a href="https://docs.dbatools.io/#Mount-DbaDatabase"><code>Mount-DbaDatabase</code></a> from dbatools, adding the extra features I needed (or thought I needed):</p>
+<ul>
+<li>Logging</li>
+<li>Multi-threading</li>
+<li>Logically renaming the files</li>
+<li>Setting the database owner appropriately</li>
+<li>Rebuilding indexes</li>
+<li>Upgrading the <code>CompatibilityLevel</code></li>
+</ul>
+<p><script src="https://gist.github.com/alevyinroc/b1651f4fd4aeb19924d8f28e55f214e4.js"></script></p>
+<p>In practice, I only used the first four in the initial attachment of the databases for the upgrade. Example execution:</p>
+<p><script src="https://gist.github.com/alevyinroc/735ccff4456b81fe1a0869ee636ebb57.js"></script></p>
+<p><code>Get-MountProgress</code> is a variation on one of the functions in my multithreading post above, which let me keep tabs on the progress as the function ran. I ran the above code ten (well, eleven) times, once for each &ldquo;batch&rdquo; of 10% of the databases. The first group ran great! Only about 6 minutes to attach the databases. The next batch was 10 minutes. Then 16. And then, and then, and then&hellip;<br>
+</p><center>
+<figure class="wp-block-image"><img class="wp-image-1952 jetpack-lazy-image" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/01/BigMigration-logfiles.png?w=800&amp;ssl=1" alt data-recalc-dims="1" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/01/BigMigration-logfiles.png?w=800&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img class="wp-image-1952" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/01/BigMigration-logfiles.png?w=800&amp;ssl=1" alt="" data-recalc-dims="1"></noscript><figcaption>Progress just kept getting slower</figcaption></figure>
+<p></p></center><br>
+From the timestamps on the log files, you can see that each batch took progressively longer and longer. It was <em>agonizing</em> once we got past the 5th group. I have observed that SMO&rsquo;s enumeration when connecting to a database instance can be lengthy with large numbers of databases on the instance, which would correlate to what I observed; the more databases I have, the longer it takes. But I can&rsquo;t completely attribute the slowdown to this.
+<p>Partway through, we shifted gears a bit and I ran a special group of databases which hadn&rsquo;t yet been attached but the QA team needed for their testing. This let them get rolling on their test plans without waiting longer.</p>
+<p>Memory consumption for <code>powershell.exe</code> was very high as well, and kept growing with each batch. After the 3rd batch, I decided I needed to exit PowerShell after each one and restart it just to keep that from getting out of hand. I&rsquo;m not sure what happened there; maybe a runspace memory leak?</p>
+<p>I had estimated attaching the databases would take about one hour. <strong>It took over six and a half.</strong> There was no one more upset over this than me. On the up side, the logs showed nothing but success.</p>
+<h2>Validation</h2>
+<p>Once we realized that attaching the databases was going to run longer than expected, our developers and QA team pivoted to testing what they could with the databases we had attached early on. In hindsight, I should have asked them which databases they needed for their test plans and attached those right away, so that they could test while ther remainder of the databases were running. But, great news! They didn&rsquo;t find any issues that could be directly attributed to how we did the migration of the data.</p>
+<p>I re-ran my earlier PowerShell to fetch the databases and their files from <code>sys.databases</code> against the new instance and compared to the original; everything matched! Confirmation that all of the databases were attached.</p>
+<h2>Final Steps</h2>
+<p>We missed the estimated time for our go/no-go decision by <em>five minutes</em>. With the number of moving parts, databases in play, unexpected delays, and amount of testing we had to do, that&rsquo;s pretty good! My colleague and I had some additional work we needed to take care of after the team declared the migration a success. Agent jobs needed to be enabled, overnight job startups monitored, things like that. We called it a day after about 14 hours in the office.</p>
+<p>The next day, we had some more tasks to complete. Per a blog post by Erin Stellato (<a href="https://www.sqlskills.com/blogs/erin/">blog</a>|<a href="https://twitter.com/erinstellato">twitter</a>) back in May, because we upgraded from 2008R2 to 2016, <a href="https://www.sqlskills.com/blogs/erin/do-you-need-to-update-statistics-after-an-upgrade/">an index rebuild</a> was advisable for all our nonclustered indexes. I did this via <a href="https://www.red-gate.com/">Red Gate</a> <a href="https://www.red-gate.com/products/dba/sql-multi-script/">Multi Script</a> and some dynamic SQL instead of PowerShell this time, looping through all the NC indexes in each database and running <code>ALTER INDEX REBUILD</code>.</p>
+<h2>Aftermath</h2>
+<p>Our first few days post-upgrade didn&rsquo;t go well. CPU usage and response times were terrible and after checking over everything for days on end, we finally tracked it back to a piece of code that was still looking for the old SQL Server 2008R2 instance. Once that was fixed, everything came back to normal.</p>
+<p>A few days post-migration, we did have one problem caused by a change in SQL Server 2016. It seems that SQL Server got a little stricter about doing subtraction of integers from <code>time</code> types (instead of using <code>dateadd()</code>). Correcting it was pretty easy as it was limited to a couple stored procedures which are used in a limited capacity.</p>
+<h2>Lessons Learned</h2>
+<p>It&rsquo;s not a good project without some solid lessons learned! What could we have done to make migration day easier?</p>
+<ul>
+<li>Work out which databases need to be available for performing post-upgrade checks and attach those first</li>
+<li>Work in smaller batches (not sure how much this would have helped)</li>
+<li>Have a test environment that&rsquo;s as close as possible to production in all aspects</li>
+</ul>
+<h2>Conclusion</h2>
+<p>I suppose you&rsquo;re expecting me to say something profound here. The most surprising thing to me about this migration is that there were no major surprises. Aside from one portion taking longer than anticipated and those two small pieces of code, everything went to plan. All in all, our migration is a success and after working out a few glitches in the week or two after, things have been running well. We&rsquo;re on a modern release now, and looking forward to taking advantage of the new features available to us now.</p>
+<p>- Andy Levy, <a href="https://flxsql.com">flxsql.com</a></p>
+
+<div id="jp-relatedposts" class="jp-relatedposts">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+</div>			</div>
+
+	<footer class="entry-footer">
+			</footer>
+</article>
+
+
+					
+<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title">
+			5 thoughts on &ldquo;<span>a monumental migration to sql server 2016</span>&rdquo;		</h3>
+
+		
+		<ol class="comment-list">
+			    <li class="comment even thread-even depth-1" id="li-comment-42568">
+        <article id="comment-42568" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/9e192bbc53d9e4eb5d02d63fae15e444?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/9e192bbc53d9e4eb5d02d63fae15e444?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/9e192bbc53d9e4eb5d02d63fae15e444?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/9e192bbc53d9e4eb5d02d63fae15e444?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/9e192bbc53d9e4eb5d02d63fae15e444?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Andrew Coffman</b> </cite><a class="comment-time" href="https://dbatools.io/xlmigration/#comment-42568"><time datetime="2019-01-17T16:18:34+00:00">January 17, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/xlmigration/?replytocom=42568#respond" data-commentid="42568" data-postid="9435" data-belowelement="comment-42568" data-respondelement="respond" aria-label="Reply to Andrew Coffman">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Andy, great post and scripts.  I&rsquo;m new to powershell, but was curious about your approach to the common and complex  migration challenge.  In your scenario, you mentioned some apps were still pointing to the old server.  Did you have to create a new DNS for the destination server instead of changing the IP for alias?</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-alevyinroc bypostauthor odd alt depth-2" id="li-comment-42666">
+        <article id="comment-42666" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/6a2838f9f6d7e95c1124d4a301a1ae0d?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/6a2838f9f6d7e95c1124d4a301a1ae0d?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/6a2838f9f6d7e95c1124d4a301a1ae0d?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/6a2838f9f6d7e95c1124d4a301a1ae0d?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/6a2838f9f6d7e95c1124d4a301a1ae0d?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="https://flxsql.com/" rel="external nofollow ugc" class="url">Andy Levy</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/xlmigration/#comment-42666"><time datetime="2019-01-18T02:48:16+00:00">January 18, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/xlmigration/?replytocom=42666#respond" data-commentid="42666" data-postid="9435" data-belowelement="comment-42666" data-respondelement="respond" aria-label="Reply to Andy Levy">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Yes, the new server was set up as a completely new box. New hostname, new IP, everything. The old server was not taken offline/powered off/removed from the rack for about 3 weeks after the migration was completed. The issue with the app is that it had a connection string embedded in the code which we were not aware of.</p>
+<p>In some respects it would have been easier if we could have kept the same hostname and IP, but that was not an option for this project.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+    <li class="comment byuser comment-author-marcin even thread-odd thread-alt depth-1" id="li-comment-55807">
+        <article id="comment-55807" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a1c667ece81cd1286bffd4897918a66f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Marcin Gminski</b> </cite><a class="comment-time" href="https://dbatools.io/xlmigration/#comment-55807"><time datetime="2019-03-13T21:57:03+00:00">March 13, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/xlmigration/?replytocom=55807#respond" data-commentid="55807" data-postid="9435" data-belowelement="comment-55807" data-respondelement="respond" aria-label="Reply to Marcin Gminski">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Over EIGHT THOUSAND databases on one server?  Wow. I can imagine the startup time&hellip;well, I can imagine a lot of things on that box&hellip; anyway, Great read and good job with the migration!</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment odd alt thread-even depth-1" id="li-comment-80283">
+        <article id="comment-80283" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/7fad09d8b3b5fd9b532c4f8b23fc0645?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/7fad09d8b3b5fd9b532c4f8b23fc0645?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/7fad09d8b3b5fd9b532c4f8b23fc0645?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/7fad09d8b3b5fd9b532c4f8b23fc0645?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/7fad09d8b3b5fd9b532c4f8b23fc0645?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">bhaktapur</b> </cite><a class="comment-time" href="https://dbatools.io/xlmigration/#comment-80283"><time datetime="2020-04-22T20:30:28+00:00">April 22, 2020</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/xlmigration/?replytocom=80283#respond" data-commentid="80283" data-postid="9435" data-belowelement="comment-80283" data-respondelement="respond" aria-label="Reply to bhaktapur">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Andy, great job. I am thinking of applying your method to move around 1500 databases to new server. In your description above you mentioned about Get-MountProgress. Do you have the script for that?</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-alevyinroc bypostauthor even depth-2" id="li-comment-80290">
+        <article id="comment-80290" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/6a2838f9f6d7e95c1124d4a301a1ae0d?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/6a2838f9f6d7e95c1124d4a301a1ae0d?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/6a2838f9f6d7e95c1124d4a301a1ae0d?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/6a2838f9f6d7e95c1124d4a301a1ae0d?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/6a2838f9f6d7e95c1124d4a301a1ae0d?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="https://flxsql.com/" rel="external nofollow ugc" class="url">Andy Levy</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/xlmigration/#comment-80290"><time datetime="2020-04-23T01:22:37+00:00">April 23, 2020</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/xlmigration/?replytocom=80290#respond" data-commentid="80290" data-postid="9435" data-belowelement="comment-80290" data-respondelement="respond" aria-label="Reply to Andy Levy">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Thanks! I don&rsquo;t have the code for that function anymore, but you can see something close to it in the post on my blog where I demonstrated PoshRSJob. That is available at <a href="https://flxsql.com/powershell-multithreading-with-poshrsjob/" rel="nofollow ugc">https://flxsql.com/powershell-multithreading-with-poshrsjob/</a> &ndash; scroll down to &ldquo;Bonus Round&rdquo;.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+		</ol>
+
+		
+	
+	
+	
+		<div id="respond" class="comment-respond">
+							<h3 id="reply-title" class="comment-reply-title">Leave a Reply					<small><a rel="nofollow" id="cancel-comment-reply-link" href="https://dbatools.io/xlmigration/#respond" style="display:none;">Cancel reply</a></small>
+				</h3>
+						<form id="commentform" class="comment-form">
+				<iframe title="Comment Form" src="https://jetpack.wordpress.com/jetpack-comment/?blogid=111052036&amp;postid=9435&amp;comment_registration=0&amp;require_name_email=1&amp;stc_enabled=1&amp;stb_enabled=1&amp;show_avatars=1&amp;avatar_default=mystery&amp;greeting=Leave+a+Reply&amp;greeting_reply=Leave+a+Reply+to+%25s&amp;color_scheme=light&amp;lang=en_US&amp;jetpack_version=8.4.2&amp;show_cookie_consent=10&amp;has_cookie_consent=0&amp;token_key=%3Bnormal%3B&amp;sig=020d9daa44cb79862041583c58844d51fdc9c7d9#parent=https%3A%2F%2Fdbatools.io%2Fxlmigration%2F" style="width:100%; height: 430px; border:0;" name="jetpack_remote_comment" class="jetpack_remote_comment" id="jetpack_remote_comment" sandbox="allow-same-origin allow-top-navigation allow-scripts allow-forms allow-popups"></iframe>
+									
+					<script>
+						document.addEventListener('DOMContentLoaded', function () {
+							var commentForms = document.getElementsByClassName('jetpack_remote_comment');
+							for (var i = 0; i < commentForms.length; i++) {
+								commentForms[i].allowTransparency = false;
+								commentForms[i].scrolling = 'no';
+							}
+						});
+					</script>
+					
+							</form>
+		</div>
+
+		
+		<input type="hidden" name="comment_parent" id="comment_parent" value="">
+
+		<p class="akismet_comment_form_privacy_notice">This site uses Akismet to reduce spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Learn how your comment data is processed</a>.</p>
+</div>
+
+				
+				</main>
+			</div>
+
+                            
+<div id="secondary" class="widget-area sidebar" role="complementary">
+	<aside id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://dbatools.io/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s">
+				</label>
+				<input type="submit" class="search-submit" value="Search">
+			</form></aside><aside id="custom_html-3" class="widget_text widget widget_custom_html"><h2 class="widget-title">new book</h2><div class="textwidget custom-html-widget">dbatools in a month of lunches is now available in Manning's Early Access Program &#128640; <br>&nbsp;
+
+<p align="center"><a href="https://dbatools.io/book"><img alt="dbatools meap" src="https://i2.wp.com/blog.netnerds.net/wp-content/uploads/2019/08/meap.png?w=800&amp;ssl=1" data-recalc-dims="1" data-lazy-src="https://i2.wp.com/blog.netnerds.net/wp-content/uploads/2019/08/meap.png?w=800&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 " class=" jetpack-lazy-image"><noscript><img alt="dbatools meap" src="https://i2.wp.com/blog.netnerds.net/wp-content/uploads/2019/08/meap.png?w=800&amp;ssl=1" data-recalc-dims="1"></noscript></a></p>
+
+Get the book now at <a href="https://dbatools.io/book">manning.com</a></div></aside><aside id="sticky-posts-2" class="widget widget_ultimate_posts"><h2 class="widget-title"><a href="https://dbatools.io/blog">posts</a></h2>
+
+<div class="upw-posts hfeed">
+
+  
+      
+        
+        <article class="post-10008 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/aliases/" rel="bookmark">
+                  <img width="300" height="155" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?fit=300%2C155&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?w=905&amp;ssl=1 905w, https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?resize=300%2C155&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?resize=768%2C396&amp;ssl=1 768w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?fit=300%2C155&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/aliases/" rel="bookmark">
+                  working with sql client aliases                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-10124 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/bits2020/" rel="bookmark">
+                  <img width="300" height="108" src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/bits2020/" rel="bookmark">
+                  Vote for these SQLBits 2020 PowerShell sessions                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-10010 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/size/" rel="bookmark">
+                  <img width="300" height="139" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?fit=300%2C139&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?w=1139&amp;ssl=1 1139w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=300%2C139&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=768%2C355&amp;ssl=1 768w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=1024%2C473&amp;ssl=1 1024w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?fit=300%2C139&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/size/" rel="bookmark">
+                  working with file sizes in dbatools                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-9995 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements tag-book tag-dbatoolsmol tag-monthoflunches">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/meap/" rel="bookmark">
+                  <img width="300" height="159" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?fit=300%2C159&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?w=1287&amp;ssl=1 1287w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?resize=300%2C159&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?resize=768%2C408&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?resize=1024%2C543&amp;ssl=1 1024w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?fit=300%2C159&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/meap/" rel="bookmark">
+                  Learn dbatools in a Month of Lunches                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-9928 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/oldapp/" rel="bookmark">
+                  <img width="300" height="108" src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/oldapp/" rel="bookmark">
+                  migrating super old app databases                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-9862 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements tag-dbatools-configs tag-dbatools-settings tag-defaults">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/configuration/" rel="bookmark">
+                  <img width="300" height="202" src="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?fit=300%2C202&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?w=1104&amp;ssl=1 1104w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=300%2C202&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=768%2C516&amp;ssl=1 768w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=1024%2C688&amp;ssl=1 1024w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?fit=300%2C202&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/configuration/" rel="bookmark">
+                  dbatools advanced configuration                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+  
+</div>
+
+</aside><aside id="blog_subscription-2" class="widget widget_blog_subscription jetpack_subscription_widget"><h2 class="widget-title">subscribe</h2>
+            <form action="#" method="post" accept-charset="utf-8" id="subscribe-blog-blog_subscription-2">
+				                    <div id="subscribe-text"><p>Enter your email address to subscribe to this blog and receive notifications of new posts by email.</p>
+</div><p>Join 2,166 other subscribers</p>
+                    <p id="subscribe-email">
+                        <label id="jetpack-subscribe-label" class="screen-reader-text" for="subscribe-field-blog_subscription-2">
+							email                        </label>
+                        <input type="email" name="email" required="required" class="required" value="" id="subscribe-field-blog_subscription-2" placeholder="email">
+                    </p>
+
+                    <p id="subscribe-submit">
+                        <input type="hidden" name="action" value="subscribe">
+                        <input type="hidden" name="source" value="https://dbatools.io/xlmigration/">
+                        <input type="hidden" name="sub-type" value="widget">
+                        <input type="hidden" name="redirect_fragment" value="blog_subscription-2">
+						                        <button type="submit" name="jetpack_subscriptions_widget">
+	                        subscribe                        </button>
+                    </p>
+				            </form>
+		
+</aside><aside id="eu_cookie_law_widget-3" class="widget widget_eu_cookie_law_widget"><div class="hide-on-button" data-hide-timeout="30" data-consent-expiration="180" id="eu-cookie-law">
+	<form method="post">
+		<input type="submit" value="Close and accept" class="accept">
+	</form>
+
+	Privacy &amp; Cookies: This site uses cookies. By continuing to use this website, you agree to their use. <br>
+To find out more, including how to control cookies, see here:
+	<a href="https://automattic.com/cookies/">
+		Cookie Policy	</a>
+</div>
+</aside></div>
+            
+		</div>
+	</div>
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+                    <div class="footer-connect">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        
+                        <div class="col-sm-8">
+                                                            <div class="footer-social">
+                                    <h5 class="follow-heading">dbatools on the web</h5><div class="footer-social-icons"><a target="_blank" href="http://git.io/b3oo" title="github"><i class="fa fa-github"></i></a><a target="_blank" href="https://www.youtube.com/channel/UC1qrq0zfswSM_Uf9-vBrsiw" title="YouTube"><i class="fa fa-youtube"></i></a><a target="_blank" href="https://dbatools.io/slack" title="Slack"><i class="fa fa-slack"></i></a><a target="_blank" href="https://twitter.com/psdbatools" title="Twitter"><i class="fa fa-twitter"></i></a><a target="_blank" href="https://www.linkedin.com/company/dbatools.io" title="LinkedIn"><i class="fa fa-linkedin-square fa-linkedin"></i></a><a target="_blank" href="https://twitch.tv/dbatools" title="Twitch"><i class="fa fa-twitch"></i></a><a target="_blank" href="https://dbatools.io/book" title="Manning"><i class="fa fa-book fa-manning"></i></a></div>                                </div>
+                                                    </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
+            </div>
+        
+        <div class="site-info">
+            <div class="container">
+                                &copy; 2020 Chrissy LeMaire, PowerShell and SQL Server MVP<br><a href="https://dbatools.io/contact">Contact Us</a>            </div>
+        </div>
+        
+
+    </footer>
+</div>
+
+	<div style="display:none">
+	<div class="grofile-hash-map-9e192bbc53d9e4eb5d02d63fae15e444">
+	</div>
+	<div class="grofile-hash-map-6a2838f9f6d7e95c1124d4a301a1ae0d">
+	</div>
+	<div class="grofile-hash-map-a1c667ece81cd1286bffd4897918a66f">
+	</div>
+	<div class="grofile-hash-map-7fad09d8b3b5fd9b532c4f8b23fc0645">
+	</div>
+	</div>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/photon/photon.min.js"></script>
+<script type="text/javascript" src="https://secure.gravatar.com/js/gprofiles.js?ver=202035"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/modules/wpgroho.js"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/plugins.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/bootstrap.min.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/lightgallery.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/theme.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/widgets/eu-cookie-law/eu-cookie-law.min.js"></script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/lazy-images/js/lazy-images.min.js"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/plugins/onepress-plus/assets/js/onepress-plus.js?ver=10.1.8"></script>
+<script async="async" type="text/javascript" src="https://dbatools.io/wp-content/plugins/akismet/_inc/form.js?ver=4.1.4"></script>
+
+		
+		<script type="text/javascript">
+			(function () {
+				var comm_par_el = document.getElementById( 'comment_parent' ),
+					comm_par = ( comm_par_el && comm_par_el.value ) ? comm_par_el.value : '',
+					frame = document.getElementById( 'jetpack_remote_comment' ),
+					tellFrameNewParent;
+
+				tellFrameNewParent = function () {
+					if ( comm_par ) {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=111052036&postid=9435&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=8.4.2&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=020d9daa44cb79862041583c58844d51fdc9c7d9#parent=https%3A%2F%2Fdbatools.io%2Fxlmigration%2F" + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+					} else {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=111052036&postid=9435&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=8.4.2&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=020d9daa44cb79862041583c58844d51fdc9c7d9#parent=https%3A%2F%2Fdbatools.io%2Fxlmigration%2F";
+					}
+				};
+
+				
+				if ( 'undefined' !== typeof addComment ) {
+					addComment._Jetpack_moveForm = addComment.moveForm;
+
+					addComment.moveForm = function ( commId, parentId, respondId, postId ) {
+						var returnValue = addComment._Jetpack_moveForm( commId, parentId, respondId, postId ),
+							cancelClick, cancel;
+
+						if ( false === returnValue ) {
+							cancel = document.getElementById( 'cancel-comment-reply-link' );
+							cancelClick = cancel.onclick;
+							cancel.onclick = function () {
+								var cancelReturn = cancelClick.call( this );
+								if ( false !== cancelReturn ) {
+									return cancelReturn;
+								}
+
+								if ( ! comm_par ) {
+									return cancelReturn;
+								}
+
+								comm_par = 0;
+
+								tellFrameNewParent();
+
+								return cancelReturn;
+							};
+						}
+
+						if ( comm_par == parentId ) {
+							return returnValue;
+						}
+
+						comm_par = parentId;
+
+						tellFrameNewParent();
+
+						return returnValue;
+					};
+				}
+
+				
+				// Do the post message bit after the dom has loaded.
+				document.addEventListener( 'DOMContentLoaded', function () {
+					var iframe_url = "https:\/\/jetpack.wordpress.com";
+					if ( window.postMessage ) {
+						if ( document.addEventListener ) {
+							window.addEventListener( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						} else if ( document.attachEvent ) {
+							window.attachEvent( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						}
+					}
+				})
+
+			})();
+		</script>
+
+		<script type="text/javascript" src="https://stats.wp.com/e-202035.js" async="async" defer></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.4.2',blog:'111052036',post:'9435',tz:'0',srv:'dbatools.io'} ]);
+	_stq.push([ 'clickTrackerInit', '111052036', '9435' ]);
+</script>
+
+</body>
+</html>

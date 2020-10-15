@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>offline installs of dbatools &ndash; dbatools</title>
+<link rel="dns-prefetch" href="//secure.gravatar.com">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//use.fontawesome.com">
+
+<link rel="alternate" type="application/rss+xml" title="dbatools &raquo; Feed" href="https://dbatools.io/feed/">
+<link rel="alternate" type="application/rss+xml" title="dbatools &raquo; Comments Feed" href="https://dbatools.io/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="dbatools &raquo; offline installs of dbatools Comments Feed" href="https://dbatools.io/offline/feed/">
+<link rel="stylesheet" id="wp-block-library-css" href="https://c0.wp.com/c/5.3.4/wp-includes/css/dist/block-library/style.min.css" type="text/css" media="all">
+<style id="wp-block-library-inline-css" type="text/css">
+.has-text-align-justify{text-align:justify;}
+</style>
+<link rel="stylesheet" id="cpsh-shortcodes-css" href="https://dbatools.io/wp-content/plugins/column-shortcodes//assets/css/shortcodes.css?ver=1.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-fonts-css" href="https://fonts.googleapis.com/css?family=Raleway%3A400%2C500%2C600%2C700%2C300%2C100%2C800%2C900%7COpen+Sans%3A400%2C300%2C300italic%2C400italic%2C600%2C600italic%2C700%2C700italic&amp;subset=latin%2Clatin-ext&amp;ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-animate-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/animate.min.css?ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-fa-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/font-awesome.min.css?ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-bootstrap-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/bootstrap.min.css?ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-style-css" href="https://dbatools.io/wp-content/plugins/onepress-plus/style.css?ver=10.1.8" type="text/css" media="all">
+<style id="onepress-style-inline-css" type="text/css">
+#main .video-section section.hero-slideshow-wrapper{background:transparent}.hero-slideshow-wrapper:after{position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(1,36,86,1);display:block;content:""}.body-desktop .parallax-hero .hero-slideshow-wrapper:after{display:none!important}.parallax-hero .parallax-mirror:after{position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(1,36,86,1);display:block;content:""}.body-desktop .parallax-hero .hero-slideshow-wrapper:after{display:none!important}.parallax-hero .parallax-mirror:after{position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(1,36,86,1);display:block;content:""}a,.screen-reader-text:hover,.screen-reader-text:active,.screen-reader-text:focus,.header-social a,.onepress-menu a:hover,.onepress-menu ul li a:hover,.onepress-menu li.onepress-current-item>a,.onepress-menu ul li.current-menu-item>a,.onepress-menu>li a.menu-actived,.onepress-menu.onepress-menu-mobile li.onepress-current-item>a,.site-footer a,.site-footer .footer-social a:hover,.site-footer .btt a:hover,.highlight,#comments .comment .comment-wrapper .comment-meta .comment-time:hover,#comments .comment .comment-wrapper .comment-meta .comment-reply-link:hover,#comments .comment .comment-wrapper .comment-meta .comment-edit-link:hover,.btn-theme-primary-outline,.sidebar .widget a:hover,.section-services .service-item .service-image i,.counter_item .counter__number,.team-member .member-thumb .member-profile a:hover,.icon-background-default{color:#012456}input[type="reset"],input[type="submit"],input[type="submit"],.nav-links a:hover,.btn-theme-primary,.btn-theme-primary-outline:hover,.card-theme-primary,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button,.woocommerce button.button.alt{background:#012456}.btn-theme-primary-outline,.btn-theme-primary-outline:hover,.pricing__item:hover,.card-theme-primary,.entry-content blockquote{border-color:#012456}.site-header{background:#e3e3e3;border-bottom:0px none}.onepress-menu>li>a{color:#293955}.onepress-menu>li>a:hover,.onepress-menu>li.onepress-current-item>a{color:#444444;-webkit-transition:all 0.5s ease-in-out;-moz-transition:all 0.5s ease-in-out;-o-transition:all 0.5s ease-in-out;transition:all 0.5s ease-in-out}#nav-toggle span,#nav-toggle span::before,#nav-toggle span::after,#nav-toggle.nav-is-visible span::before,#nav-toggle.nav-is-visible span::after{background:#293955}.site-footer{background-color:#012456}.site-footer .footer-connect .follow-heading{color:rgba(255,255,255,0.9)}.site-footer .site-info,.site-footer .btt a{background-color:#545454}.site-footer .site-info{color:rgba(255,255,255,0.7)}.site-footer .btt a,.site-footer .site-info a{color:rgba(255,255,255,0.9)}.gallery-carousel .g-item{padding:0px 10px}.gallery-carousel{margin-left:-10px;margin-right:-10px}.gallery-grid .g-item,.gallery-masonry .g-item .inner{padding:10px}.gallery-grid,.gallery-masonry{margin:-10px}
+/* --- Begin custom CSS --- */
+.section-testimonials .card { max-width : 140px; }
+/* --- End custom CSS --- */
+
+ .section-features{ background-color: rgba(227,227,227,1); } 
+ 
+</style>
+<link rel="stylesheet" id="onepress-gallery-lightgallery-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/lightgallery.css?ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="upw_theme_standard-css" href="https://dbatools.io/wp-content/plugins/ultimate-posts-widget/css/upw-theme-standard.min.css?ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-official-css" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" media="all" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+<link rel="stylesheet" id="onepress-child-style-css" href="https://dbatools.io/wp-content/themes/onepress/style.css?ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="sccss_style-css" href="https://dbatools.io/?sccss=1&amp;ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-official-v4shim-css" href="https://use.fontawesome.com/releases/v5.11.2/css/v4-shims.css" type="text/css" media="all" integrity="sha384-/EdpJd7d6gGFiQ/vhh7iOjiZdf4+6K4al/XrX6FxxZwDSrAdWxAynr4p/EA/vyPQ" crossorigin="anonymous">
+<style id="font-awesome-official-v4shim-inline-css" type="text/css">
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.svg#fontawesome") format("svg");
+}
+
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.svg#fontawesome") format("svg");
+}
+
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.svg#fontawesome") format("svg");
+unicode-range: U+F004-F005,U+F007,U+F017,U+F022,U+F024,U+F02E,U+F03E,U+F044,U+F057-F059,U+F06E,U+F070,U+F075,U+F07B-F07C,U+F080,U+F086,U+F089,U+F094,U+F09D,U+F0A0,U+F0A4-F0A7,U+F0C5,U+F0C7-F0C8,U+F0E0,U+F0EB,U+F0F3,U+F0F8,U+F0FE,U+F111,U+F118-F11A,U+F11C,U+F133,U+F144,U+F146,U+F14A,U+F14D-F14E,U+F150-F152,U+F15B-F15C,U+F164-F165,U+F185-F186,U+F191-F192,U+F1AD,U+F1C1-F1C9,U+F1CD,U+F1D8,U+F1E3,U+F1EA,U+F1F6,U+F1F9,U+F20A,U+F247-F249,U+F24D,U+F254-F25B,U+F25D,U+F267,U+F271-F274,U+F279,U+F28B,U+F28D,U+F2B5-F2B6,U+F2B9,U+F2BB,U+F2BD,U+F2C1-F2C2,U+F2D0,U+F2D2,U+F2DC,U+F2ED,U+F328,U+F358-F35B,U+F3A5,U+F3D1,U+F410,U+F4AD;
+}
+</style>
+<link rel="stylesheet" id="jetpack_css-css" href="https://c0.wp.com/p/jetpack/8.4.2/css/jetpack.css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var onepress_js_settings = {"onepress_disable_animation":"1","onepress_disable_sticky_header":"1","onepress_vertical_align_menu":"0","hero_animation":"flipInX","hero_speed":"5000000","is_home":"","gallery_enable":"1"};
+var OnePress_Plus = {"ajax_url":"https:\/\/dbatools.io\/wp-admin\/admin-ajax.php","browser_warning":" Your browser does not support the video tag. I suggest you upgrade your browser."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/c/5.3.4/wp-includes/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="https://c0.wp.com/c/5.3.4/wp-includes/js/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/related-posts/related-posts.min.js"></script>
+
+
+<link rel="prev" title="can you help us test this beta?" href="https://dbatools.io/bagofbobbish-beta/">
+<link rel="next" title="24 Hours of PASS Presentation &ndash; Now Online" href="https://dbatools.io/24hop/">
+
+
+<link rel="alternate" type="application/json+oembed" href="https://dbatools.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdbatools.io%2Foffline%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://dbatools.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdbatools.io%2Foffline%2F&amp;format=xml">
+
+<link rel="dns-prefetch" href="//v0.wordpress.com">
+<link rel="dns-prefetch" href="//widgets.wp.com">
+<link rel="dns-prefetch" href="//s0.wp.com">
+<link rel="dns-prefetch" href="//0.gravatar.com">
+<link rel="dns-prefetch" href="//1.gravatar.com">
+<link rel="dns-prefetch" href="//2.gravatar.com">
+<link rel="dns-prefetch" href="//i0.wp.com">
+<link rel="dns-prefetch" href="//i1.wp.com">
+<link rel="dns-prefetch" href="//i2.wp.com">
+<link rel="dns-prefetch" href="//c0.wp.com">
+<link rel="dns-prefetch" href="//jetpack.wordpress.com">
+<link rel="dns-prefetch" href="//s1.wp.com">
+<link rel="dns-prefetch" href="//s2.wp.com">
+<link rel="dns-prefetch" href="//public-api.wordpress.com">
+<style type="text/css">img#wpstats{display:none}</style><link rel="canonical" href="https://dbatools.io/offline/">
+			<style type="text/css">
+				/* If html does not have either class, do not show lazy loaded images. */
+				html:not( .jetpack-lazy-images-js-enabled ):not( .js ) .jetpack-lazy-image {
+					display: none;
+				}
+			</style>
+			<script>
+				document.documentElement.classList.add(
+					'jetpack-lazy-images-js-enabled'
+				);
+			</script>
+		
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="offline installs of dbatools">
+<meta property="og:url" content="https://dbatools.io/offline/">
+<meta property="og:description" content="If you work in a secure environment or your computers cannot access the Internet for any reason, you can still install dbatools with ease by downloading the zip from a workstation that does have In&hellip;">
+<meta property="article:published_time" content="2017-07-26T15:03:27+00:00">
+<meta property="article:modified_time" content="2018-11-28T13:30:09+00:00">
+<meta property="og:site_name" content="dbatools">
+<meta property="og:image" content="https://s0.wp.com/i/blank.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:text:title" content="offline installs of dbatools">
+<meta name="twitter:image" content="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&amp;ssl=1" sizes="32x32">
+<link rel="icon" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1">
+<meta name="msapplication-TileImage" content="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1">
+
+<style class="wp-typography-print-styles" type="text/css">
+body, body p { 
+	font-style: normal;
+	text-transform: none;
+ } 
+ .onepress-menu a { 
+	font-style: normal;
+	text-transform: none;
+ } 
+ body h1, body h2, body h3, body h4, body h5, body h6,
+    body .section-title-area .section-title, body .section-title-area .section-subtitle, body .hero-content-style1 h2 { 
+	font-style: normal;
+	text-transform: none;
+ }
+</style>
+			<style type="text/css" id="wp-custom-css">
+				/*
+Welcome to Custom CSS!
+
+To learn how this works, see http://wp.me/PEmnE-Bt
+*/			</style>
+		</head>
+
+<body class="post-template-default single single-post postid-5004 single-format-standard wp-custom-logo group-blog no-sticky-header">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+            <header id="masthead" class="site-header" role="banner">
+            <div class="container">
+                <div class="site-branding">
+                <div class="site-brand-inner has-logo-img no-desc"><div class="site-logo-div"><a href="https://dbatools.io/" class="custom-logo-link" rel="home"><img width="223" height="64" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2016/05/dbatools-logo-1.png?fit=223%2C64&amp;ssl=1" class="custom-logo jetpack-lazy-image" alt="dbatools" data-lazy-src="https://i0.wp.com/dbatools.io/wp-content/uploads/2016/05/dbatools-logo-1.png?fit=223%2C64&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "></a></div></div>                </div>
+                
+
+                <div class="header-right-wrapper">
+                    <a href="#0" id="nav-toggle">Menu<span></span></a>
+                    <nav id="site-navigation" class="main-navigation" role="navigation">
+                        <ul class="onepress-menu">
+                            <li id="menu-item-1452" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1452"><a href="https://dbatools.io/download/">&#11015; download</a>
+<ul class="sub-menu">
+	<li id="menu-item-1451" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1451"><a href="https://dbatools.io/getting-started/">get started</a></li>
+</ul>
+</li>
+<li id="menu-item-1453" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1453"><a href="https://dbatools.io/commands/">&#128640; commands</a></li>
+<li id="menu-item-8268" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8268"><a href="https://dbatools.io/docs">&#128209; docs</a>
+<ul class="sub-menu">
+	<li id="menu-item-8270" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8270"><a href="https://dbatools.io/blog">blog</a></li>
+</ul>
+</li>
+<li id="menu-item-1456" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1456"><a href="https://dbatools.io/team/">&#129395; team</a>
+<ul class="sub-menu">
+	<li id="menu-item-3315" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3315"><a href="https://dbatools.io/contributing">contribute</a></li>
+	<li id="menu-item-3123" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3123"><a href="https://dbatools.io/contact/">contact</a></li>
+	<li id="menu-item-3116" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3116"><a href="https://dbatools.io/git">find us</a>
+	<ul class="sub-menu">
+		<li id="menu-item-4663" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4663"><a href="https://dbatools.io/slack">slack</a></li>
+		<li id="menu-item-4662" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4662"><a href="https://dbatools.io/github">github</a></li>
+		<li id="menu-item-4664" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4664"><a href="https://dbatools.io/twitter">twitter</a></li>
+		<li id="menu-item-4665" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4665"><a href="https://dbatools.io/youtube">youtube</a></li>
+		<li id="menu-item-4666" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4666"><a href="https://dbatools.io/linkedin">linkedin</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-3340" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3340"><a href="https://dbatools.io/subscribe/">&#128140; subscribe</a></li>
+<li id="menu-item-6587" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6587"><a href="https://dbatools.io/builds">&#10004; build ref</a></li>
+<li id="menu-item-9781" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9781"><a href="https://dbatools.io/sponsorship/">&#128149; sponsor</a></li>
+<li id="menu-item-9994" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9994"><a href="https://dbatools.io/book">&#128216; book</a></li>
+                        </ul>
+                    </nav>
+                    
+                </div>
+            </div>
+        </header>
+        
+	<div id="content" class="site-content">
+
+		
+		<div id="content-inside" class="container right-sidebar">
+			<div id="primary" class="content-area">
+				<main id="main" class="site-main" role="main">
+
+				
+					
+<article id="post-5004" class="post-5004 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements tag-party">
+	<header class="entry-header">
+		<h1 class="entry-title">offline installs of dbatools</h1>
+		<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="https://dbatools.io/offline/" rel="bookmark"><time class="entry-date published" datetime="2017-07-26T15:03:27+00:00">July 26, 2017</time><time class="updated hide" datetime="2018-11-28T13:30:09+00:00">November 28, 2018</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://dbatools.io/author/admin/">Chrissy LeMaire</a></span></span>		</div>
+	</header>
+
+	<div class="entry-content">
+		<p>If you work in a secure environment or your computers cannot access the Internet for any reason, you can still install dbatools with ease by downloading the zip from a workstation that does have Internet access &#127752; And now that our module is digitally signed, you can keep your Execution Policy set to AllSigned, too.</p>
+<p>There are essentially 3 ways to get the zip of our module</p>
+<ol>
+<li>From PowerShell Gallery using Save-Module</li>
+<li>From PowerShell Gallery by downloading from <a href="https://powershellgallery.com/api/v2/package/dbatools">powershellgallery.com/api/v2/package/dbatools</a></li>
+<li>By downloading from <a href="https://dbatools.io/zip">dbatools.io/zip</a></li>
+</ol>
+<p>Once the file has been downloaded, copy it to your secure server and place it in one of the directories in your <code>$env:PSModulePath</code> (type <code>$env:PSModulePath</code> at the prompt and press enter). This will allow PowerShell to autoload the module, saving you from having to Import-Module each time you start a new session.</p>
+<h2>PowerShell Gallery</h2>
+<p><a href="https://dbatools.io/gallery">PowerShell Gallery</a> is Microsoft&rsquo;s official repository for PowerShell modules and scripts. It&rsquo;s likely unblocked at your organization, so using the Gallery is a great option.</p>
+<h4>Method 1</h4>
+<p>If you run Windows 10 or Windows Server 2016, you&rsquo;ve already got support for the Gallery and can just issue the following command.</p>
+<blockquote><p>
+  Save-Module -Name dbatools -Path C:\temp
+</p></blockquote>
+<p>This will download the package, unzip it and place it into C:\temp\dbatools. Saving modules and investigating their content is actually a recommended practice by the PowerShell team, as it&rsquo;s always good to know what you&rsquo;re installing on your system.</p>
+<h4>Method 2</h4>
+<p>If your system is older and you do not have PowerShellGet or you haven&rsquo;t upgraded to <a href="https://msdn.microsoft.com/en-us/powershell/wmf/5.1/install-configure">PowerShell 5.1</a> (which comes with PowerShellGet), then you can just download the zip directly from the <a href="https://powershellgallery.com/api/v2/package/dbatools">Gallery&rsquo;s API</a>.</p>
+<p>Note that <strong>this will download a file ending in .nupkg</strong>. Simply rename the file to .zip, extract and you&rsquo;re set. You can also use PowerShell to download the module and rename it, all in one shot.</p>
+<blockquote><p>
+  Invoke-WebRequest -Uri powershellgallery.com/api/v2/package/dbatools -OutFile c:\temp\dbatools.zip
+</p></blockquote>
+<p>Invoke-WebRequest is a bit slow, however, because of the progress bar, so I usually just download via GUI and rename.</p>
+<h2>GitHub via dbatools.io/zip</h2>
+<p>You can also easily download the latest version of our master GitHub repository by simply clicking on <a href="https://dbatools.io/zip">dbatools.io/zip</a>. If you&rsquo;re adventurous, you can even download our latest dev (beta) version at <a href="https://dbatools.io/devzip">dbatools.io/devzip</a>.</p>
+<p>This is just an easy-to-remember redirector to GitHub&rsquo;s repo zip.</p>
+<p>Note that there is a small difference between our GitHub repo and the PowerShell Gallery. The GitHub repo does not include a pre-compiled version of our library (dbatools.dll), while the PowerShell Gallery does. Ultimately, both ways work and there&rsquo;s really no difference. Excluding the dll from the GitHub repo just made it easier for our developers to avoid conflicts.</p>
+<p>Once you&rsquo;ve extracted the folder, make sure you rename it from <strong>dbatools-master</strong> or <strong>dbatools-development</strong> to plain o&rsquo; <strong>dbatools</strong>.</p>
+<h2>Unblocking DLLs</h2>
+<p>Our .psm1 takes care of Unblocking DLLs, but if you use the download and unzip method for other PowerShell modules, keep in mind that the DLLs will likely be blocked by default. If this happens, simply run</p>
+<blockquote><p>
+  Get-ChildItem -Recurse C:\path\to\module | Unblock-File
+</p></blockquote>
+<h2>$env:PSMODULEPATH</h2>
+<p>Just a quick note about <code>$env:PSMODULEPATH</code>. If you&rsquo;re not familiar with PSMODULEPATH, you may remember PATH from the DOS days and PSMODULEPATH is similar. Any module placed within your $env:PSMODULEPATH will automatically load once you execute a command from that module. Here, you can see the contents of my path and that I <a href="https://msdn.microsoft.com/en-us/library/dd878326(v=vs.85).aspx">manually added</a> my git repo.</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/07/img_59786e92eb630-full.png?ssl=1"><img class="alignnone size-full wp-image-5008 aligncenter jetpack-lazy-image" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/07/img_59786e92eb630.png?w=800&amp;ssl=1" alt data-recalc-dims="1" data-lazy-srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/07/img_59786e92eb630.png?w=700&amp;ssl=1 700w, https://i2.wp.com/dbatools.io/wp-content/uploads/2017/07/img_59786e92eb630.png?resize=300%2C78&amp;ssl=1 300w" data-lazy-sizes="(max-width: 700px) 100vw, 700px" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/07/img_59786e92eb630.png?w=800&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img class="alignnone size-full wp-image-5008 aligncenter" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/07/img_59786e92eb630.png?w=800&amp;ssl=1" alt="" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/07/img_59786e92eb630.png?w=700&amp;ssl=1 700w,https://i2.wp.com/dbatools.io/wp-content/uploads/2017/07/img_59786e92eb630.png?resize=300%2C78&amp;ssl=1 300w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1"></noscript></a></p>
+<p>Thanks for reading,<br>
+- Chrissy</p>
+
+<div id="jp-relatedposts" class="jp-relatedposts">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+</div>			</div>
+
+	<footer class="entry-footer">
+		<span class="tags-links">Tagged <a href="https://dbatools.io/tag/party/" rel="tag">party</a></span>	</footer>
+</article>
+
+
+					
+<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title">
+			20 thoughts on &ldquo;<span>offline installs of dbatools</span>&rdquo;		</h3>
+
+		
+		<ol class="comment-list">
+			    <li class="pingback even thread-even depth-1" id="comment-809">
+        <p>Pingback: <a href="http://curatedsql.com/2017/07/27/installing-dbatools-offline/" rel="external nofollow ugc" class="url">Installing DBATools Offline &ndash; Curated SQL</a> </p>
+    </li>
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-949">
+        <article id="comment-949" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/455039410c6cf0d494a7570c299ab6e3?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/455039410c6cf0d494a7570c299ab6e3?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/455039410c6cf0d494a7570c299ab6e3?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/455039410c6cf0d494a7570c299ab6e3?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/455039410c6cf0d494a7570c299ab6e3?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Brian Love</b> </cite><a class="comment-time" href="https://dbatools.io/offline/#comment-949"><time datetime="2017-09-27T17:41:34+00:00">September 27, 2017</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=949#respond" data-commentid="949" data-postid="5004" data-belowelement="comment-949" data-respondelement="respond" aria-label="Reply to Brian Love">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>I&rsquo;ve read much of the site and have just installed the tools.<br>
+This looks very exciting!</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment even thread-even depth-1" id="li-comment-4025">
+        <article id="comment-4025" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/6516660673d3c9776254295f3c2b2d7b?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/6516660673d3c9776254295f3c2b2d7b?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/6516660673d3c9776254295f3c2b2d7b?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/6516660673d3c9776254295f3c2b2d7b?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/6516660673d3c9776254295f3c2b2d7b?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Adolfo Martinez Jr</b> </cite><a class="comment-time" href="https://dbatools.io/offline/#comment-4025"><time datetime="2018-05-07T22:05:38+00:00">May 7, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=4025#respond" data-commentid="4025" data-postid="5004" data-belowelement="comment-4025" data-respondelement="respond" aria-label="Reply to Adolfo Martinez Jr">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>I&rsquo;ve installed dbatools via the offline method of zipping and unzipping and then renaming the module to dba tools. Apparently the module shows as available in my session when I run Get-Module. However, there are no available commands to execute. How can I solve this problem?</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-33614">
+        <article id="comment-33614" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/71933ecb5b9155884e77070938f08513?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/71933ecb5b9155884e77070938f08513?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/71933ecb5b9155884e77070938f08513?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/71933ecb5b9155884e77070938f08513?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/71933ecb5b9155884e77070938f08513?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Rex</b> </cite><a class="comment-time" href="https://dbatools.io/offline/#comment-33614"><time datetime="2018-12-10T19:57:54+00:00">December 10, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=33614#respond" data-commentid="33614" data-postid="5004" data-belowelement="comment-33614" data-respondelement="respond" aria-label="Reply to Rex">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Ugh. </p>
+<p>Have 2008R2 Servers, pplanning for upgrade and consolidation. Was told about the tools by a peer and began loading to access our SQL server as the topology and AD resides in a different &ldquo;AD tree&rdquo; as my work station i had to perform some actions on my DB server. 1st, had to upgrade Framework 1st, then install new Powershell, was able to past the signing and a block on the module, then it showed up in powershell ISE last night. </p>
+<p>I  dropped out of the ISE modules not showing now. WTF. Stuck Now, tried to reload and getting smo dll error when trying to re-run installer. </p>
+<p>Documentation on doing the installs would. Especially as it relates to transitioning legacy systems.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-admin bypostauthor even depth-2" id="li-comment-33869">
+        <article id="comment-33869" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://blog.netnerds.net" rel="external nofollow ugc" class="url">Chrissy LeMaire</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/offline/#comment-33869"><time datetime="2018-12-11T22:19:11+00:00">December 11, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=33869#respond" data-commentid="33869" data-postid="5004" data-belowelement="comment-33869" data-respondelement="respond" aria-label="Reply to Chrissy LeMaire">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>check out dbatools.io/soup2nutz</p>
+<p>in your case, remove everything (uninstall-module or delete from your directories) and try again. Also, I highly recommend using the console (powershell.exe) as opposed to the ISE. If you need a visual, vs code is more desirable.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+    <li class="comment odd alt thread-even depth-1" id="li-comment-33936">
+        <article id="comment-33936" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/71933ecb5b9155884e77070938f08513?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/71933ecb5b9155884e77070938f08513?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/71933ecb5b9155884e77070938f08513?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/71933ecb5b9155884e77070938f08513?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/71933ecb5b9155884e77070938f08513?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Rex</b> </cite><a class="comment-time" href="https://dbatools.io/offline/#comment-33936"><time datetime="2018-12-12T02:15:19+00:00">December 12, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=33936#respond" data-commentid="33936" data-postid="5004" data-belowelement="comment-33936" data-respondelement="respond" aria-label="Reply to Rex">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Chrissy,<br>
+That did the trick</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-admin bypostauthor even depth-2" id="li-comment-34031">
+        <article id="comment-34031" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://blog.netnerds.net" rel="external nofollow ugc" class="url">Chrissy LeMaire</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/offline/#comment-34031"><time datetime="2018-12-12T09:00:09+00:00">December 12, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=34031#respond" data-commentid="34031" data-postid="5004" data-belowelement="comment-34031" data-respondelement="respond" aria-label="Reply to Chrissy LeMaire">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Excellent news!</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-42116">
+        <article id="comment-42116" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/7e49ef41e751524f3103113e70409992?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/7e49ef41e751524f3103113e70409992?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/7e49ef41e751524f3103113e70409992?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/7e49ef41e751524f3103113e70409992?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/7e49ef41e751524f3103113e70409992?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://blog.calvett.co.uk" rel="external nofollow ugc" class="url">Andrew Calvett</a></b> </cite><a class="comment-time" href="https://dbatools.io/offline/#comment-42116"><time datetime="2019-01-15T16:19:14+00:00">January 15, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=42116#respond" data-commentid="42116" data-postid="5004" data-belowelement="comment-42116" data-respondelement="respond" aria-label="Reply to Andrew Calvett">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hi, </p>
+<p>I wanted to share the solution to a problem I had with the install to save other people time.</p>
+<p>My environment is locked down so i had to follow the manual download process and copy the module to one of the modules folders set per $env:PSModulePath.  </p>
+<p>As i don&rsquo;t have local admin i could only copy to a modules folder defined on a share but when i installed the module it would fail with &ldquo;Exception calling &ldquo;ReadAllText&rdquo; with &ldquo;1&rdquo; argument(s): &ldquo;The given path&rsquo;s format is not supported.&rdquo; &rdquo;</p>
+<p>Some testing showed i could use a local path or a mapped drive and dbatools would load, i could have stuck with import-module  but i wanted all the auto loading goodness so it needed to be in PSModulePath but initially i could not edit that path because i did not have admin access to get at it through the control panel.</p>
+<p>A little more digging led me back to powershell and a one liner to add the path to PSModulePath and happy days! </p>
+<p>The command was: $env:PSModulePath += &ldquo;;&rdquo;</p>
+<p>Hope this is useful for someone else!</p>
+<p>Cheers</p>
+<p>Andrew</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment even thread-even depth-1" id="li-comment-55753">
+        <article id="comment-55753" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/a1be8e1defc82387ac7374b7278bb8a3?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/a1be8e1defc82387ac7374b7278bb8a3?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a1be8e1defc82387ac7374b7278bb8a3?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/a1be8e1defc82387ac7374b7278bb8a3?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a1be8e1defc82387ac7374b7278bb8a3?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">David Brown</b> </cite><a class="comment-time" href="https://dbatools.io/offline/#comment-55753"><time datetime="2019-03-13T16:45:22+00:00">March 13, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=55753#respond" data-commentid="55753" data-postid="5004" data-belowelement="comment-55753" data-respondelement="respond" aria-label="Reply to David Brown">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>How do I install dbatools on Windows Server 2003? I have installed KB968930 which gets me the Windows Management Framework and PowerShell 2.0 but I need dbatools to migrate a database from SQL Server 2003 to SQL Server 2012.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="li-comment-55932">
+        <article id="comment-55932" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://blog.netnerds.net" rel="external nofollow ugc" class="url">Chrissy LeMaire</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/offline/#comment-55932"><time datetime="2019-03-14T08:56:35+00:00">March 14, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=55932#respond" data-commentid="55932" data-postid="5004" data-belowelement="comment-55932" data-respondelement="respond" aria-label="Reply to Chrissy LeMaire">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>dbatools will not work on PowerShell 2.0 (tho some remoting may work). What you&rsquo;ll want to do is install dbatools on a workstation, then just connect remotely to the two servers by doing -Source win2k3server -Destination sql2012server -BackupRestore -SharedPath &hellip; etc.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-63451">
+        <article id="comment-63451" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/a0f948eac37b81b6294c74633d2b66b7?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/a0f948eac37b81b6294c74633d2b66b7?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a0f948eac37b81b6294c74633d2b66b7?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/a0f948eac37b81b6294c74633d2b66b7?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a0f948eac37b81b6294c74633d2b66b7?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Brian</b> </cite><a class="comment-time" href="https://dbatools.io/offline/#comment-63451"><time datetime="2019-04-17T16:07:16+00:00">April 17, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=63451#respond" data-commentid="63451" data-postid="5004" data-belowelement="comment-63451" data-respondelement="respond" aria-label="Reply to Brian">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Soooo&hellip; how to install???   &#128578;  I got as far as extracting the zip and unblocking dlls but am not really clear on how to make it go afterwards.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment odd alt thread-even depth-1" id="li-comment-67566">
+        <article id="comment-67566" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/efeef247e4628d4b71ea92594bebc2f6?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/efeef247e4628d4b71ea92594bebc2f6?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/efeef247e4628d4b71ea92594bebc2f6?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/efeef247e4628d4b71ea92594bebc2f6?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/efeef247e4628d4b71ea92594bebc2f6?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Benjamin Rouse</b> </cite><a class="comment-time" href="https://dbatools.io/offline/#comment-67566"><time datetime="2019-06-25T14:18:28+00:00">June 25, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=67566#respond" data-commentid="67566" data-postid="5004" data-belowelement="comment-67566" data-respondelement="respond" aria-label="Reply to Benjamin Rouse">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>How do I install dbatools on Windows 2012 R2?</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-admin bypostauthor even depth-2" id="li-comment-67572">
+        <article id="comment-67572" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://blog.netnerds.net" rel="external nofollow ugc" class="url">Chrissy LeMaire</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/offline/#comment-67572"><time datetime="2019-06-25T16:58:04+00:00">June 25, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=67572#respond" data-commentid="67572" data-postid="5004" data-belowelement="comment-67572" data-respondelement="respond" aria-label="Reply to Chrissy LeMaire">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>The same methods apply to all operating systems, including windows 2012 r2. </p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-72057">
+        <article id="comment-72057" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/3c784e9f8cfc1d3841f263656267e167?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/3c784e9f8cfc1d3841f263656267e167?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/3c784e9f8cfc1d3841f263656267e167?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/3c784e9f8cfc1d3841f263656267e167?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/3c784e9f8cfc1d3841f263656267e167?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Argenis Ochoa</b> </cite><a class="comment-time" href="https://dbatools.io/offline/#comment-72057"><time datetime="2019-08-16T19:10:13+00:00">August 16, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=72057#respond" data-commentid="72057" data-postid="5004" data-belowelement="comment-72057" data-respondelement="respond" aria-label="Reply to Argenis Ochoa">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Thanks for documentation.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment even thread-even depth-1" id="li-comment-79130">
+        <article id="comment-79130" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/bfe2094a6fc6415a617e4a97f82182f9?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/bfe2094a6fc6415a617e4a97f82182f9?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/bfe2094a6fc6415a617e4a97f82182f9?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/bfe2094a6fc6415a617e4a97f82182f9?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/bfe2094a6fc6415a617e4a97f82182f9?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">owen mcgee</b> </cite><a class="comment-time" href="https://dbatools.io/offline/#comment-79130"><time datetime="2020-01-22T11:26:35+00:00">January 22, 2020</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=79130#respond" data-commentid="79130" data-postid="5004" data-belowelement="comment-79130" data-respondelement="respond" aria-label="Reply to owen mcgee">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>How do you install &ldquo;offline&rdquo; dbatools ?<br>
+I have unzipped the file and typed install-module dbatools and I get dbatools not recognized ?<br>
+I did have to install powershell 6.0 to get this far.<br>
+I work in very secure environments that has no access to the internet.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="li-comment-79131">
+        <article id="comment-79131" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://blog.netnerds.net" rel="external nofollow ugc" class="url">Chrissy LeMaire</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/offline/#comment-79131"><time datetime="2020-01-22T11:55:28+00:00">January 22, 2020</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=79131#respond" data-commentid="79131" data-postid="5004" data-belowelement="comment-79131" data-respondelement="respond" aria-label="Reply to Chrissy LeMaire">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>hey owen. you no longer need to type install-module if you save-module. you would need to Import-Module C:\path\to\dbatools</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment even depth-3" id="li-comment-79356">
+        <article id="comment-79356" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/5ca4136a060a2574a936cdf6881f733c?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/5ca4136a060a2574a936cdf6881f733c?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/5ca4136a060a2574a936cdf6881f733c?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/5ca4136a060a2574a936cdf6881f733c?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/5ca4136a060a2574a936cdf6881f733c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Asher</b> </cite><a class="comment-time" href="https://dbatools.io/offline/#comment-79356"><time datetime="2020-01-29T08:30:27+00:00">January 29, 2020</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=79356#respond" data-commentid="79356" data-postid="5004" data-belowelement="comment-79356" data-respondelement="respond" aria-label="Reply to Asher">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Chrissy, you need to include this in your install instructions. I see numerous people as well as myself are having problems because of this.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-admin bypostauthor odd alt depth-4" id="li-comment-79357">
+        <article id="comment-79357" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://blog.netnerds.net" rel="external nofollow ugc" class="url">Chrissy LeMaire</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/offline/#comment-79357"><time datetime="2020-01-29T08:38:48+00:00">January 29, 2020</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=79357#respond" data-commentid="79357" data-postid="5004" data-belowelement="comment-79357" data-respondelement="respond" aria-label="Reply to Chrissy LeMaire">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Hey Asher,<br>
+It&rsquo;s a toss-up and I decided to go with listing only the better practice. You won&rsquo;t need to manually Import-Module if you place the module in the proper place.</p>
+<p>Anyone who needs that skipped this step at the top:</p>
+<p>Once the file has been downloaded, copy it to your secure server and place it in one of the directories in your $env:PSModulePath (type $env:PSModulePath at the prompt and press enter). This will allow PowerShell to autoload the module, saving you from having to Import-Module each time you start a new session.</p>
+<p>At this time, I&rsquo;d prefer answering the questions one-by-one instead of providing a way that will ultimately teach people to Import-Module every time.</p>
+<p>If you have a suggestion for a better way to explain that things should go into  $env:PSModulePath, please let me know.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-79804">
+        <article id="comment-79804" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/5fccd1eedc96136863f389fdf43bca41?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/5fccd1eedc96136863f389fdf43bca41?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/5fccd1eedc96136863f389fdf43bca41?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/5fccd1eedc96136863f389fdf43bca41?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/5fccd1eedc96136863f389fdf43bca41?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://gravatar.com/praveensqldba12" rel="external nofollow ugc" class="url">Praveen Kumar</a></b> </cite><a class="comment-time" href="https://dbatools.io/offline/#comment-79804"><time datetime="2020-03-22T08:31:25+00:00">March 22, 2020</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=79804#respond" data-commentid="79804" data-postid="5004" data-belowelement="comment-79804" data-respondelement="respond" aria-label="Reply to Praveen Kumar">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>One of the worst steps to install this tool. no clear steps or instructions.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="li-comment-79809">
+        <article id="comment-79809" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://blog.netnerds.net" rel="external nofollow ugc" class="url">Chrissy LeMaire</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/offline/#comment-79809"><time datetime="2020-03-22T18:58:57+00:00">March 22, 2020</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/offline/?replytocom=79809#respond" data-commentid="79809" data-postid="5004" data-belowelement="comment-79809" data-respondelement="respond" aria-label="Reply to Chrissy LeMaire">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Thanks bruh. Always enjoy reading such encouragement after spending a long time writing an article several years ago &#128077;&#127996; Keep up the good work.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+		</ol>
+
+		
+	
+	
+	
+		<div id="respond" class="comment-respond">
+							<h3 id="reply-title" class="comment-reply-title">Leave a Reply					<small><a rel="nofollow" id="cancel-comment-reply-link" href="https://dbatools.io/offline/#respond" style="display:none;">Cancel reply</a></small>
+				</h3>
+						<form id="commentform" class="comment-form">
+				<iframe title="Comment Form" src="https://jetpack.wordpress.com/jetpack-comment/?blogid=111052036&amp;postid=5004&amp;comment_registration=0&amp;require_name_email=1&amp;stc_enabled=1&amp;stb_enabled=1&amp;show_avatars=1&amp;avatar_default=mystery&amp;greeting=Leave+a+Reply&amp;greeting_reply=Leave+a+Reply+to+%25s&amp;color_scheme=light&amp;lang=en_US&amp;jetpack_version=8.4.2&amp;show_cookie_consent=10&amp;has_cookie_consent=0&amp;token_key=%3Bnormal%3B&amp;sig=b28c8a56e87f5479af46b49e858dd9367f772c94#parent=https%3A%2F%2Fdbatools.io%2Foffline%2F" style="width:100%; height: 430px; border:0;" name="jetpack_remote_comment" class="jetpack_remote_comment" id="jetpack_remote_comment" sandbox="allow-same-origin allow-top-navigation allow-scripts allow-forms allow-popups"></iframe>
+									
+					<script>
+						document.addEventListener('DOMContentLoaded', function () {
+							var commentForms = document.getElementsByClassName('jetpack_remote_comment');
+							for (var i = 0; i < commentForms.length; i++) {
+								commentForms[i].allowTransparency = false;
+								commentForms[i].scrolling = 'no';
+							}
+						});
+					</script>
+					
+							</form>
+		</div>
+
+		
+		<input type="hidden" name="comment_parent" id="comment_parent" value="">
+
+		<p class="akismet_comment_form_privacy_notice">This site uses Akismet to reduce spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Learn how your comment data is processed</a>.</p>
+</div>
+
+				
+				</main>
+			</div>
+
+                            
+<div id="secondary" class="widget-area sidebar" role="complementary">
+	<aside id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://dbatools.io/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s">
+				</label>
+				<input type="submit" class="search-submit" value="Search">
+			</form></aside><aside id="custom_html-3" class="widget_text widget widget_custom_html"><h2 class="widget-title">new book</h2><div class="textwidget custom-html-widget">dbatools in a month of lunches is now available in Manning's Early Access Program &#128640; <br>&nbsp;
+
+<p align="center"><a href="https://dbatools.io/book"><img alt="dbatools meap" src="https://i2.wp.com/blog.netnerds.net/wp-content/uploads/2019/08/meap.png?w=800&amp;ssl=1" data-recalc-dims="1" data-lazy-src="https://i2.wp.com/blog.netnerds.net/wp-content/uploads/2019/08/meap.png?w=800&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 " class=" jetpack-lazy-image"><noscript><img alt="dbatools meap" src="https://i2.wp.com/blog.netnerds.net/wp-content/uploads/2019/08/meap.png?w=800&amp;ssl=1" data-recalc-dims="1"></noscript></a></p>
+
+Get the book now at <a href="https://dbatools.io/book">manning.com</a></div></aside><aside id="sticky-posts-2" class="widget widget_ultimate_posts"><h2 class="widget-title"><a href="https://dbatools.io/blog">posts</a></h2>
+
+<div class="upw-posts hfeed">
+
+  
+      
+        
+        <article class="post-10008 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/aliases/" rel="bookmark">
+                  <img width="300" height="155" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?fit=300%2C155&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?w=905&amp;ssl=1 905w, https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?resize=300%2C155&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?resize=768%2C396&amp;ssl=1 768w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?fit=300%2C155&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/aliases/" rel="bookmark">
+                  working with sql client aliases                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-10124 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/bits2020/" rel="bookmark">
+                  <img width="300" height="108" src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/bits2020/" rel="bookmark">
+                  Vote for these SQLBits 2020 PowerShell sessions                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-10010 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/size/" rel="bookmark">
+                  <img width="300" height="139" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?fit=300%2C139&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?w=1139&amp;ssl=1 1139w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=300%2C139&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=768%2C355&amp;ssl=1 768w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=1024%2C473&amp;ssl=1 1024w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?fit=300%2C139&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/size/" rel="bookmark">
+                  working with file sizes in dbatools                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-9995 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements tag-book tag-dbatoolsmol tag-monthoflunches">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/meap/" rel="bookmark">
+                  <img width="300" height="159" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?fit=300%2C159&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?w=1287&amp;ssl=1 1287w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?resize=300%2C159&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?resize=768%2C408&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?resize=1024%2C543&amp;ssl=1 1024w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?fit=300%2C159&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/meap/" rel="bookmark">
+                  Learn dbatools in a Month of Lunches                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-9928 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/oldapp/" rel="bookmark">
+                  <img width="300" height="108" src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/oldapp/" rel="bookmark">
+                  migrating super old app databases                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-9862 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements tag-dbatools-configs tag-dbatools-settings tag-defaults">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/configuration/" rel="bookmark">
+                  <img width="300" height="202" src="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?fit=300%2C202&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?w=1104&amp;ssl=1 1104w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=300%2C202&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=768%2C516&amp;ssl=1 768w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=1024%2C688&amp;ssl=1 1024w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?fit=300%2C202&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/configuration/" rel="bookmark">
+                  dbatools advanced configuration                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+  
+</div>
+
+</aside><aside id="blog_subscription-2" class="widget widget_blog_subscription jetpack_subscription_widget"><h2 class="widget-title">subscribe</h2>
+            <form action="#" method="post" accept-charset="utf-8" id="subscribe-blog-blog_subscription-2">
+				                    <div id="subscribe-text"><p>Enter your email address to subscribe to this blog and receive notifications of new posts by email.</p>
+</div><p>Join 2,166 other subscribers</p>
+                    <p id="subscribe-email">
+                        <label id="jetpack-subscribe-label" class="screen-reader-text" for="subscribe-field-blog_subscription-2">
+							email                        </label>
+                        <input type="email" name="email" required="required" class="required" value="" id="subscribe-field-blog_subscription-2" placeholder="email">
+                    </p>
+
+                    <p id="subscribe-submit">
+                        <input type="hidden" name="action" value="subscribe">
+                        <input type="hidden" name="source" value="https://dbatools.io/offline/">
+                        <input type="hidden" name="sub-type" value="widget">
+                        <input type="hidden" name="redirect_fragment" value="blog_subscription-2">
+						                        <button type="submit" name="jetpack_subscriptions_widget">
+	                        subscribe                        </button>
+                    </p>
+				            </form>
+		
+</aside><aside id="eu_cookie_law_widget-3" class="widget widget_eu_cookie_law_widget"><div class="hide-on-button" data-hide-timeout="30" data-consent-expiration="180" id="eu-cookie-law">
+	<form method="post">
+		<input type="submit" value="Close and accept" class="accept">
+	</form>
+
+	Privacy &amp; Cookies: This site uses cookies. By continuing to use this website, you agree to their use. <br>
+To find out more, including how to control cookies, see here:
+	<a href="https://automattic.com/cookies/">
+		Cookie Policy	</a>
+</div>
+</aside></div>
+            
+		</div>
+	</div>
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+                    <div class="footer-connect">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        
+                        <div class="col-sm-8">
+                                                            <div class="footer-social">
+                                    <h5 class="follow-heading">dbatools on the web</h5><div class="footer-social-icons"><a target="_blank" href="http://git.io/b3oo" title="github"><i class="fa fa-github"></i></a><a target="_blank" href="https://www.youtube.com/channel/UC1qrq0zfswSM_Uf9-vBrsiw" title="YouTube"><i class="fa fa-youtube"></i></a><a target="_blank" href="https://dbatools.io/slack" title="Slack"><i class="fa fa-slack"></i></a><a target="_blank" href="https://twitter.com/psdbatools" title="Twitter"><i class="fa fa-twitter"></i></a><a target="_blank" href="https://www.linkedin.com/company/dbatools.io" title="LinkedIn"><i class="fa fa-linkedin-square fa-linkedin"></i></a><a target="_blank" href="https://twitch.tv/dbatools" title="Twitch"><i class="fa fa-twitch"></i></a><a target="_blank" href="https://dbatools.io/book" title="Manning"><i class="fa fa-book fa-manning"></i></a></div>                                </div>
+                                                    </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
+            </div>
+        
+        <div class="site-info">
+            <div class="container">
+                                &copy; 2020 Chrissy LeMaire, PowerShell and SQL Server MVP<br><a href="https://dbatools.io/contact">Contact Us</a>            </div>
+        </div>
+        
+
+    </footer>
+</div>
+
+	<div style="display:none">
+	<div class="grofile-hash-map-455039410c6cf0d494a7570c299ab6e3">
+	</div>
+	<div class="grofile-hash-map-6516660673d3c9776254295f3c2b2d7b">
+	</div>
+	<div class="grofile-hash-map-71933ecb5b9155884e77070938f08513">
+	</div>
+	<div class="grofile-hash-map-527b83e9dfbeab5aeeab7a03c5f1ba7c">
+	</div>
+	<div class="grofile-hash-map-7e49ef41e751524f3103113e70409992">
+	</div>
+	<div class="grofile-hash-map-a1be8e1defc82387ac7374b7278bb8a3">
+	</div>
+	<div class="grofile-hash-map-a0f948eac37b81b6294c74633d2b66b7">
+	</div>
+	<div class="grofile-hash-map-efeef247e4628d4b71ea92594bebc2f6">
+	</div>
+	<div class="grofile-hash-map-3c784e9f8cfc1d3841f263656267e167">
+	</div>
+	<div class="grofile-hash-map-bfe2094a6fc6415a617e4a97f82182f9">
+	</div>
+	<div class="grofile-hash-map-5ca4136a060a2574a936cdf6881f733c">
+	</div>
+	<div class="grofile-hash-map-5fccd1eedc96136863f389fdf43bca41">
+	</div>
+	</div>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/photon/photon.min.js"></script>
+<script type="text/javascript" src="https://secure.gravatar.com/js/gprofiles.js?ver=202035"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/modules/wpgroho.js"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/plugins.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/bootstrap.min.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/lightgallery.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/theme.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/widgets/eu-cookie-law/eu-cookie-law.min.js"></script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/lazy-images/js/lazy-images.min.js"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/plugins/onepress-plus/assets/js/onepress-plus.js?ver=10.1.8"></script>
+<script async="async" type="text/javascript" src="https://dbatools.io/wp-content/plugins/akismet/_inc/form.js?ver=4.1.4"></script>
+
+		
+		<script type="text/javascript">
+			(function () {
+				var comm_par_el = document.getElementById( 'comment_parent' ),
+					comm_par = ( comm_par_el && comm_par_el.value ) ? comm_par_el.value : '',
+					frame = document.getElementById( 'jetpack_remote_comment' ),
+					tellFrameNewParent;
+
+				tellFrameNewParent = function () {
+					if ( comm_par ) {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=111052036&postid=5004&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=8.4.2&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=b28c8a56e87f5479af46b49e858dd9367f772c94#parent=https%3A%2F%2Fdbatools.io%2Foffline%2F" + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+					} else {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=111052036&postid=5004&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=8.4.2&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=b28c8a56e87f5479af46b49e858dd9367f772c94#parent=https%3A%2F%2Fdbatools.io%2Foffline%2F";
+					}
+				};
+
+				
+				if ( 'undefined' !== typeof addComment ) {
+					addComment._Jetpack_moveForm = addComment.moveForm;
+
+					addComment.moveForm = function ( commId, parentId, respondId, postId ) {
+						var returnValue = addComment._Jetpack_moveForm( commId, parentId, respondId, postId ),
+							cancelClick, cancel;
+
+						if ( false === returnValue ) {
+							cancel = document.getElementById( 'cancel-comment-reply-link' );
+							cancelClick = cancel.onclick;
+							cancel.onclick = function () {
+								var cancelReturn = cancelClick.call( this );
+								if ( false !== cancelReturn ) {
+									return cancelReturn;
+								}
+
+								if ( ! comm_par ) {
+									return cancelReturn;
+								}
+
+								comm_par = 0;
+
+								tellFrameNewParent();
+
+								return cancelReturn;
+							};
+						}
+
+						if ( comm_par == parentId ) {
+							return returnValue;
+						}
+
+						comm_par = parentId;
+
+						tellFrameNewParent();
+
+						return returnValue;
+					};
+				}
+
+				
+				// Do the post message bit after the dom has loaded.
+				document.addEventListener( 'DOMContentLoaded', function () {
+					var iframe_url = "https:\/\/jetpack.wordpress.com";
+					if ( window.postMessage ) {
+						if ( document.addEventListener ) {
+							window.addEventListener( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						} else if ( document.attachEvent ) {
+							window.attachEvent( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						}
+					}
+				})
+
+			})();
+		</script>
+
+		<script type="text/javascript" src="https://stats.wp.com/e-202035.js" async="async" defer></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.4.2',blog:'111052036',post:'5004',tz:'0',srv:'dbatools.io'} ]);
+	_stq.push([ 'clickTrackerInit', '111052036', '5004' ]);
+</script>
+
+</body>
+</html>

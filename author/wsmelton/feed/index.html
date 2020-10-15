@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>Shawn Melton &#8211; dbatools</title>
+	<atom:link href="https://dbatools.io/author/wsmelton/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Wed, 14 Mar 2018 13:03:46 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+
+<image>
+	<url>https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&#038;ssl=1</url>
+	<title>Shawn Melton &#8211; dbatools</title>
+	<link>https://dbatools.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
+		<title>submitting an issue</title>
+		<link>https://dbatools.io/new-issue/</link>
+				<comments>https://dbatools.io/new-issue/#comments</comments>
+				<pubDate>Wed, 14 Mar 2018 12:25:43 +0000</pubDate>
+		<dc:creator><![CDATA[Shawn Melton]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=6825</guid>
+				<description><![CDATA[An Issue Defined In software development, an &#8220;issue&#8221; can be anything from you hit an error running an application or you get an unexpected result from an operation. You can ...]]></description>
+								<content:encoded><![CDATA[<h2>An Issue Defined</h2>
+<p>In software development, an &#8220;issue&#8221; can be anything from you hit an error running an application or you get an unexpected result from an operation. You can also say an issue is <a href="https://dbatools.io/clean-cbh/" target="_BLANK">a spelling error in our documentation</a>. Our goal is to fix any &#8220;issue&#8221; whether it is a bug, an unexpected error (especially these) or considering a feature you think is missing from the module.</p>
+<p>However, before we can fix it&#8230;you have to let us know.</p>
+<p><div class='content-column full_width'><center><img src="https://dbatools.io/wp-content/uploads/2017/12/help-me-help-you.gif?resize=540%2C312&#038;ssl=1" alt="" width="540" height="312" class="alignleft size-full wp-image-6829" data-recalc-dims="1" /></center></div><br />
+<br />&nbsp;</p>
+<h2>Where to begin</h2>
+<p>This is purely based on what type of an issue you need to submit, but all of them will start by going to our repository and filling out an issue on GitHub. You can do this in 4 easy steps:</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/12/4stepprocess.png?ssl=1"><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/12/4stepprocess.png?resize=800%2C238&#038;ssl=1" alt="" width="800" height="238" class="alignleft size-full wp-image-6828" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/12/4stepprocess.png?w=2079&amp;ssl=1 2079w, https://i2.wp.com/dbatools.io/wp-content/uploads/2017/12/4stepprocess.png?resize=300%2C89&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2017/12/4stepprocess.png?resize=768%2C229&amp;ssl=1 768w, https://i2.wp.com/dbatools.io/wp-content/uploads/2017/12/4stepprocess.png?resize=1024%2C305&amp;ssl=1 1024w, https://i2.wp.com/dbatools.io/wp-content/uploads/2017/12/4stepprocess.png?w=1600&amp;ssl=1 1600w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<ol>
+<li> Open your favorite browser, go to our GitHub issues shortlink [dbatools.io/issues](https://dbatools.io/issues)
+<li> Click on the &#8220;Issues&#8217; tab of the repository
+<li> Take a minute or two and search the current issues (helps us to keep duplicate count low; if you find a match <a href="https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments" target="_BLANK">give it a thumbs up</a>.)
+<li>If you do not find anything in the current issues, click on &#8220;new issue&#8221; button and fill out a new one.</ol>
+<p>The remainder of this post is going to do a review of filling out a new issue. The more information you can provide helps our unpaid developers in getting a fix!</p>
+<h3>Before you start your new issue</h3>
+<p>Just like you submit a request to your own internal IT support, it helps to give as much information as you can up front when you submit an issue. Understand that this project is 100% community supported and we do this in our free time. If we get all the information up front, it is a huge time saver for us to fix the issue and return a resolution in a timely manner.</p>
+<h2>Feature Request</h2>
+<p>A feature that you want is to submit is basically: tell the story of what problem you are looking to solve. When you open a new issue we have a template setup. You can delete everything up to where you see the text <em>## Feature Request</em>, below that, is where we need you to answer the question. Remember that even with a feature request the more details you can provide will help your cause in potentially getting the feature added.</p>
+<h3>What problem or scenario would you like to solve with dbatools?</h3>
+<p>This is the primary question we need you to answer for the feature you desire. We provide some header sections but you can add/remove those if it helps to organize your thoughts. We are not asking for an essay mind you but think of it as if you were going down an elevator with one of us, you have about 2-3 minutes to verbally explain what you wanted. Obviously, you can provide more information and detail, but consider putting that conversation down as a synopsis so we know where you are coming from and such.</p>
+<h2>Bugs and Errors</h2>
+<p>Bugs and errors are both a little different but in the area of submitting an issue, we will treat them the same for this post. While some errors may be expected we cannot really help you determine that unless you give us all the details. There are just some scenarios that you may find bugs and errors that we have not, or cannot account for due to limitations in our test lab(s). Every environment will be different and telling us about it all will aid in getting it fixed.</p>
+<h3>A few general steps</h3>
+<p>The top section of our issue template has 3 items that we ask you to verify, sometimes this can resolve your problem right off the bat&#8230;sometimes not.</p>
+<h4>Verified running the latest release of dbatools?</h4>
+<p>We push a new release to our master branch and the PowerShell Gallery on average every 2-3 days (based on when <a href="https://dbatools.io/vacation/" target="_BLANK">Chrissy&#8217;s on vacation</a>). A release, on average, will always contain bug and error fixes, so just doing an <code>Update-Module dbatools</code> and restarting your PowerShell session may resolve your issue.</p>
+<h4>Verified errors are not related to permissions?</h4>
+<p>You would be surprised how often this can happen, so we have to ask. With the number of security issues, companies are having that affect their profits the whole least-privilege administration is more common nowadays. So if you know you are not sysadmin in SQL Server or local administrator if the command happens to touch the OS in some manner, it is a good thing to double-check before continuing.</p>
+<h4>Can duplicate in new/clean PowerShell session?</h4>
+<p>Not all modules play nice with each other. We have found in particular that the <a href="https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-ps-module" target="_BLANK">sqlserver module</a> can cause issues with our module loading properly. So if you happen to import modules prior to or after importing dbatools, it helps to identify that none of those modules are adversely affecting dbatools execution.</p>
+<h4>Version and Edition information</h4>
+<p>Just the basics. This information is pivotal when we get down to debugging bugs and errors, helps to ensure we have a similar setup in our lab(s) to more closely get root cause. As well, we may identify flavors of each that may not play well together (e.g. <a href="https://github.com/sqlcollaborative/dbatools/issues/2003" target="_BLANK">credential prompts</a> when using CIM/WMI). In particular, if you happen to be working with the migration commands (Copy-Dba* commands) or moving an object in some other process, it can help to include the version information for your source and destination/target.</p>
+<h3>Steps to Reproduce</h3>
+<p>Reproducible issues are the best kind, they also tend to be the ones that are the easiest to fix (tend to be mind you).</p>
+<p>In order to reproduce the problem, we will need you to provide the command you are executing. If you can provide the values you are passing into the command it will help, but if for security reasons you cannot provide it all try to give some example values. You may also need to obfuscate the output from your PowerShell session if you want to provide screenshots.</p>
+<h4>Collecting logs and errors</h4>
+<p>We have added two commands to the module that can help us more quickly determine the issue if you are able to provide them.</p>
+<h5>Get-DbatoolsLog</h5>
+<p>This command simply outputs the messaging that has been generated since you imported the module into your session. This is one reason why duplicating your issue in a new/fresh console can help. Reissue the command and let the error or bug occur again, then run this command and you will see all the output generated from the command. This output includes an internal command that may have been executed as well.</p>
+<h5>New-DbatoolsSupportPackage</h5>
+<p>This command will generate a compressed file of collected information from the client machine, one you are using dbatools on. Think of this like you submit a support ticket to Microsoft support, they will have your run a few utilities on the offending machine to let it collect various logs and in-memory information. We do not capture as much as Microsoft, but information pertinent to the PowerShell session you have in use. I encourage you to run this and review the contents of that compressed file before attaching to an issue; ensure you are not violating any security policies.</p>
+<h5>Error record</h5>
+<p>This is a quick and dirty method and depends on the number of errors you may have encountered. PowerShell has a buffer or cache that errors from your PowerShell session are stored in. Checking this cache of errors right after you encounter an error will let you get the low down on what happened.</p>
+<p>In order to see this you simply need to execute <code>$error</code>, that variable will contain the recent errors. To pull out the last error that happened you can run the following line:</p>
+<pre><code class="powershell">$error[0] | Select-Object *
+</code></pre>
+<h2>Closure</h2>
+<p>Just to give some closure&#8230;The process that follows once you submit an issue will on average be:</p>
+<ol>
+<li>One of the team will post the issue either verifying the information, providing some things to try, or confirming the issue.</li>
+<li>Once the issue is confirmed that a code change will be required, as time permits, a developer will take on getting the code fixed.</li>
+<li>You will see the issue closed either by the developer or once the change is committed to the master branch.</li>
+</ol>
+<p>Thanks for reading,<br />
+Shawn <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f1fa-1f1f8.png" alt="🇺🇸" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/new-issue/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">6825</post-id>	</item>
+		<item>
+		<title>VS Code and Task</title>
+		<link>https://dbatools.io/vscode-task/</link>
+				<comments>https://dbatools.io/vscode-task/#respond</comments>
+				<pubDate>Fri, 09 Jun 2017 15:27:33 +0000</pubDate>
+		<dc:creator><![CDATA[Shawn Melton]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=4669</guid>
+				<description><![CDATA[While we are still hard at work getting everything ready for the 1.0 release, thought I would share something I figured out with VS Code. If you are not familiar ...]]></description>
+								<content:encoded><![CDATA[<p>While we are still hard at work getting everything ready for the 1.0 release, thought I would share something I figured out with VS Code. If you are not familiar with <a href="http://dbatools.io/vscode">VS Code</a> you can check the link out on how it is used to contribute to dbatools.</p>
+<h3>Pester</h3>
+<p>One of the big initiatives we are working fearlessly on for the module is getting the <a href="https://github.com/pester/Pester/wiki">Pester</a> test added and cleaned up. Appveyor is configured for the repository in GitHub so it will utilize the Pester test found in the <a href="https://github.com/sqlcollaborative/dbatools/tree/master/tests">tests</a> folder. However, this also means that you, the developer, the ultimiate contributor, can utilize these test as you are working on a function.</p>
+<p>Pester is a special syntax that lets you code in almost plain English. It is one of those that once it clicks you are like &#8220;where have you been all my life!&#8221;. If you are interested in learning more on Pester I&#8217;ve included a short list of some excellent resources to help:</p>
+<ul>
+<li><a href="https://leanpub.com/pesterbook">Adam Bertram &#8211; The Pester Book</a> (<em>Could be the last book you buy on it.</em>)</li>
+<li><a href="https://mva.microsoft.com/en-us/training-courses/testing-powershell-with-pester-17650">Microsoft Virtual Academy &#8211; Testing PowerShell with Pester</a> (Ashley McGlone and Adam Bertram)</li>
+<li><a href="https://www.youtube.com/watch?v=gssAtCeMOoo">Test-Driven Development with Pester, June Blender (YouTube)</a></li>
+<li><a href="https://www.youtube.com/watch?v=Qy-uvT57pt8">Green is Good Red is Bad &#8211; Turning your Checklists into Pester Test, Rob Sewell (YouTube)</a></li>
+<li><a href="https://www.pluralsight.com/courses/powershell-testing-pester">Testing PowerShell with Pester (Pluralsight)</a></li>
+</ul>
+<h3>Task in VS Code</h3>
+<p><a href="https://code.visualstudio.com/docs/editor/tasks">Task</a> in VS Code allow you to integrate external tools into your development process/cycle. So in PowerShell one of those is utilizing Pester to drive test driven development. (<em>The Pester resources speak on this as writing your test before your functions.</em>) If you are developing or writing code it can improve the process by periodically running your test to validate if you broke anything. This is dependent upon your test validating the code. You can fix as many of the bugs you can find now before it gets pushed out.</p>
+<p>Right off I want to show a caveat for using Task:</p>
+<blockquote><p>
+  Task in Code are only supported when you are working in a workspace folder.
+</p></blockquote>
+<p>A workspace is simply a folder of scripts/files, like the dbatools module. If you have dbatools open in VS Code, you can open the command palette (CTRL+SHIFT+P) and type <em>task</em> to see all the commands:</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/05/vscode_task_1.png?ssl=1"><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/05/vscode_task_1.png?resize=400%2C400&#038;ssl=1" width="400" height="400" data-recalc-dims="1" /></a></p>
+<p>To generate the initial &#8220;task.json&#8221; file for your workspace just select the <em>Task: Configure Task Runner</em>. In the next prompt you can simply select <em>Others</em>.</p>
+<p><a href="https://dbatools.io/wp-content/uploads/2017/05/vscode_task_2.png?ssl=1"><img src="https://dbatools.io/wp-content/uploads/2017/05/vscode_task_2.png?resize=400%2C400&#038;ssl=1" width="400" height="400" data-recalc-dims="1" /></a></p>
+<h3>Tasking</h3>
+<p>I will let you <a href="https://go.microsoft.com/fwlink/?LinkId=733558">go through the documentation on task</a> to get down to the nitty-gritty on the options you have in the syntax. I can tell you reading through that documentation will make the remainder of this post much more clear.</p>
+<p>I generated the configuration for these task by using Plaster in VS Code. The PowerShell extension includes <a href="https://github.com/powershell/plaster">Plaster</a>, which is a project around template-based project or module generation. When you build a module using Plaster for the first time it will ask you if you want to use Pester, and then proceeds to generate the <em>task.json</em> file for you. I simply took that file and expanded it. The repository for Plaster contains the <a href="https://github.com/PowerShell/Plaster/blob/master/examples/NewModule/editor/VSCode/tasks_pester.json">initial file</a> which only contains one task.</p>
+<h3>Our Task</h3>
+<p>The sample task that is generated comes with one simple task called <em>Test</em>, at this time. I renamed that task and then have added two additional task:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Task</th>
+<th align="left">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Run.AllTest</td>
+<td align="left">Runs every Pester test for the module.</td>
+</tr>
+<tr>
+<td align="left">Run.IntegrationTests</td>
+<td align="left">Run all the Pester test but only those tagged as <em>IntegrationTests</em>.</td>
+</tr>
+<tr>
+<td align="left">Run.CurrentFile</td>
+<td align="left">Will run the Pester test for for the function or file you have active/open, if one exist.</td>
+</tr>
+</tbody>
+</table>
+<p>The full json file is provided at the end of this post. I wanted to just go over a few areas to help you understand what it is doing.</p>
+<h4>How do task Run?</h4>
+<p>As stated before a task allows you to run an external process, so our first step is to configure that external process. Which in our case is just the PowerShell.exe executable.</p>
+<pre class="lang:ruby highlight:0 decode:true" title="Command Configuration in a task" >
+"_runner": "terminal", // (1) forces process to run in terminal panel, instead of the output
+// Start PowerShell
+"windows": {
+// (2)  "command": "${env.windir}\\sysnative\\windowspowershell\\v1.0\\PowerShell.exe"
+"command": "powershell.exe"
+</pre>
+<ol>
+<li>This setting tells VS Code to run the task in the terminal panel and not the output. The output has no color by default so you don&#8217;t see all those pretty green and purple colors from Pester.</li>
+<li>The commented (&#8220;//&#8221;) command is what the initial file provides. It utilizes a <a href="https://code.visualstudio.com/docs/editor/tasks">predefined variable</a> called <em>env.windir</em>, which does the same thing that <em>$env:WINDIR</em> does in PowerShell. </li>
+</ol>
+<p>I had errors always showing in the terminal using the default path, about the PowerShell.exe not being found as a cmdlet. I realized that since I am running this in the terminal I am already in the context of the console so I only needed to call <em>PowerShell.exe</em>. Trying to reference the full path was causing the problem. I changed this to just <em>powershell.exe</em> and it cleaned up the initial errors.</p>
+<h4>Structure of a Task Configuration</h4>
+<pre class="lang:ruby highlight:0 decode:true" title="Task baseline syntax" >
+"taskName": "Run.Something", //(1) referenced in command palette
+"isTestCommand": false, // (2) if set to true it maps to "Task: Run Test Task"
+"showOutput": "always", //(3) options are always, never, silent
+"args": [
+    "PS comands to run Invoke-Pester" // (4)
+    ],
+"problemMatcher": [
+    "Some fancy regex to place output in the problem pane" //(5)
+]
+</pre>
+<p>I will go over each part in the above example, but you can find more on each property in the documentation on <a href="https://code.visualstudio.com/docs/editor/tasks-appendix">schema for tasks.json</a>. That document goes over each option and value.</p>
+<ol>
+<li>When you run the task command in the command palette, the <em>taskName</em> is displayed when you select to run a task.</li>
+<li>Setting <em>isTestCommand</em> to true will simply map the specific task to the command <em>Task: Run Test Task</em> in the command palette. You can also set that task command to a key binding if you want to save more time.</li>
+<li>If you want to see the output when it executes set <em>showOutput</em> to <em>always</em>. You can check the schema for what the other values will do.</li>
+<li>What is placed in <em>args</em> will be executed in the terminal window.</li>
+<li>The <em>problemMatcher</em> is the fancy part. This would be where you do some regex to parse the output to set if any of it is an issue (info, warning or error). This allows you to utilize the problem panel in VS Code, a shortcut to find the exact test that failed.</li>
+</ol>
+<h4>Test a Single Function</h4>
+<p>I wanted to have a task that would perform one main task for me: invoke the Pester test file for the current <em>function.ps1</em> file I have open in VS Code. It took a bit to work this out, because I was not focusing on what was right in front of me. Once I figured that out I set the task <em>isTestCommand</em> property to true. This means you can easily validate your changes for a function by running the test just for that function and see if it passes or not. In the command palette that is select/typing <em>Tasks: Run Test Task</em> or you can map that to a key binding to make it more accessible.</p>
+<pre class="lang:ruby highlight:0 decode:true" title="Task Run.CurrentFile" >
+"taskName": "Run.CurrentFile", // (1) name of the task
+"suppressTaskName": true, // (2) don't want the task name as argument
+"isTestCommand": true, // (3) map to run test task
+"showOutput": "always", // (4) show the output and open terminal window each time
+"args": [
+    "Write-Host 'Invoking Pester' for ${fileBasename}; Invoke-Pester -PesterOption @{IncludeVSCodeMarker=$true} -Script '${workspaceRoot}/tests/${fileBasenameNoExtension}.Tests.ps1';",
+    "Invoke-Command { Write-Host 'Completed Test task in task runner.' }"
+],
+</pre>
+<p>To burst your bubble up front: <em>No you have to use Write-Host in this situation</em>. Just like you do in Pester as well.</p>
+<ol>
+<li>The <em>taskName</em> I try to keep where the name explains what is being done. So simply named this one <em>Run.CurrentFile</em>.</li>
+<li>The <em>supressTaskName</em> prevents the it from being added as an extra argument, which in most cases can cause it to fail or error.</li>
+<li>I set <em>isTestCommand</em> to true so I can use the command palette shortcut. Again, you can also use key binding to make it easier.</li>
+<li>I&#8217;m setting <em>showOutput</em> to always because I want to see the output in the terminal window. I will show you the difference in setting this to false later.</li>
+</ol>
+<p>The <em>args</em> is where the meat of it all sits. This section calls Invoke-Pester on the script found in the: root folder of the current workspace (dbatools repository folder), the test folder and then takes the name of the function file (minus the extension, <em>.ps1</em>) and appends <em>.Tests.ps1</em> to it. So the end result if I run this task for Get-DbaDatabase would be <em>dbatools\tests\Get-DbaDatabase.Test.ps1</em>.</p>
+<h4>Task for specific Pester Test</h4>
+<p>The additional task I added was to have only the integration test executed for the whole module. In Pester you can organize your test using tags, and we utilize this by setting it to <em>Integrationtests</em>. So I can use the Invoke-Pester command to only go through all the test and just run those context blocks.</p>
+<pre class="lang:ruby highlight:0 decode:true" title="Task baseline syntax" >
+"Write-Host 'Invoking Pester'; Invoke-Pester -PesterOption @{IncludeVSCodeMarker=$true} -Tag 'Integrationtests';",
+"Invoke-Command { Write-Host 'Completed Test task in task runner.' }"
+</pre>
+<p>The <em>args</em> value for this task is to simply use the <em>-Tag</em> parameter for Invoke-Pester and then pass it the tag I need to run. You can create additional task for each tag you use in your test if you wanted.</p>
+<h3>Example Run Test Task</h3>
+<p>I have intentionally changed a test for the <em>Get-DbaDatabase</em> function to show a passed test and a failed test. The video below illustrates the output you see in the terminal panel. It also shows that you can use the problem panel to see the exact test that failed with simpler output.</p>
+<p>One additional thing you can do in both panels is click on the failed test and VS Code will open the test file and put your cursor on that test. In the terminal panel you have a URL link for the test file, so it will require the CTRL+ clicking on the link to open it up.</p>
+<p><iframe class='youtube-player' type='text/html' width='800' height='450' src='https://www.youtube.com/embed/ufL5kE5_82Q?version=3&#038;rel=1&#038;fs=1&#038;autohide=2&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;wmode=transparent' allowfullscreen='true' style='border:0;'></iframe></p>
+<h3>Full <em>task.json</em> file</h3>
+<pre class="height-set:true height:575 width-set:true width:875 lang:ps highlight:0 decode:true " title="task.json" >// Available variables which can be used inside of strings.
+// ${workspaceRoot}: the root folder of the team
+// ${file}: the current opened file
+// ${relativeFile}: the current opened file relative to workspaceRoot
+// ${fileBasename}: the current opened file's basename
+// ${fileDirname}: the current opened file's dirname
+// ${fileExtname}: the current opened file's extension
+// ${cwd}: the current working directory of the spawned process
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "_runner": "terminal",
+    // Start PowerShell
+    "windows": {
+    //  "command": "C:\\WINDOWS\\Sysnative\\WindowsPowerShell\\v1.0\\powershell.exe"
+    "command": "powershell.exe"
+    },
+//  "linux": {
+//      "command": "/usr/bin/powershell"
+//  },
+//  "osx": {
+//      "command": "/usr/local/bin/powershell"
+//  },
+    // The command is a shell script
+    "isShellCommand": true,
+    // Show the output window always
+    "showOutput": "always",
+    "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass"
+    ],
+    // Associate with test task runner
+    "tasks": [
+        {
+            "taskName": "Run.AllTest",
+            "suppressTaskName": true,
+            "isTestCommand": false,
+            "showOutput": "always",
+            "args": [
+                "Write-Host 'Invoking Pester'; Invoke-Pester -PesterOption @{IncludeVSCodeMarker=$true};",
+                "Invoke-Command { Write-Host 'Completed Test task in task runner.' }"
+            ],
+            "problemMatcher": [
+                {
+                    "owner": "powershell",
+                    "fileLocation": [
+                        "absolute"
+                    ],
+                    "severity": "error",
+                    "pattern": [
+                        {
+                            "regexp": "^\\s*(\\[-\\]\\s*.*?)(\\d+)ms\\s*$",
+                            "message": 1
+                        },
+                        {
+                            "regexp": "^\\s+at\\s+[^,]+,\\s*(.*?):\\s+line\\s+(\\d+)$",
+                            "file": 1,
+                            "line": 2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "taskName": "Run.IntegrationTests",
+            "suppressTaskName": true,
+            "isTestCommand": false,
+            "showOutput": "always",
+            "args": [
+                "Write-Host 'Invoking Pester'; Invoke-Pester -PesterOption @{IncludeVSCodeMarker=$true} -Tag 'Integrationtests';",
+                "Invoke-Command { Write-Host 'Completed Test task in task runner.' }"
+            ],
+            "problemMatcher": [
+                {
+                    "owner": "powershell",
+                    "fileLocation": [
+                        "absolute"
+                    ],
+                    "severity": "error",
+                    "pattern": [
+                        {
+                            "regexp": "^\\s*(\\[-\\]\\s*.*?)(\\d+)ms\\s*$",
+                            "message": 1
+                        },
+                        {
+                            "regexp": "^\\s+at\\s+[^,]+,\\s*(.*?):\\s+line\\s+(\\d+)$",
+                            "file": 1,
+                            "line": 2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "taskName": "Run.CurrentFile",
+            "suppressTaskName": true,
+            "isTestCommand": true,
+            "showOutput": "always",
+            "args": [
+                "Write-Host 'Invoking Pester' for ${fileBasename}; Invoke-Pester -PesterOption @{IncludeVSCodeMarker=$true} -Script '${workspaceRoot}/tests/${fileBasenameNoExtension}.Tests.ps1';",
+                "Invoke-Command { Write-Host 'Completed Test task in task runner.' }"
+            ],
+            "problemMatcher": [
+                {
+                    "owner": "powershell",
+                    "fileLocation": [
+                        "absolute"
+                    ],
+                    "severity": "error",
+                    "pattern": [
+                        {
+                            "regexp": "^\\s*(\\[-\\]\\s*.*?)(\\d+)ms\\s*$",
+                            "message": 1
+                        },
+                        {
+                            "regexp": "^\\s+at\\s+[^,]+,\\s*(.*?):\\s+line\\s+(\\d+)$",
+                            "file": 1,
+                            "line": 2
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}</pre>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/vscode-task/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">4669</post-id>	</item>
+		<item>
+		<title>Contributing with Code</title>
+		<link>https://dbatools.io/vscode/</link>
+				<comments>https://dbatools.io/vscode/#comments</comments>
+				<pubDate>Thu, 02 Mar 2017 19:01:05 +0000</pubDate>
+		<dc:creator><![CDATA[Shawn Melton]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=3601</guid>
+				<description><![CDATA[What follows is a walk-through in getting VSCode setup for contributing to dbatools, and also includes various tips for utilizing the PowerShell Extension and Git features. Install VSCode is a ...]]></description>
+								<content:encoded><![CDATA[<p>What follows is a walk-through in getting VSCode setup for contributing to dbatools, and also includes various tips for utilizing the PowerShell Extension and Git features.</p>
+<h2>Install</h2>
+<p>VSCode is a cross-platform tool that works on Windows, Linux and Mac. You can download your <a href="https://code.visualstudio.com/Download">specific OS flavor here</a>. Just note that I only use Windows, so if you are on another OS your mileage may vary. If you favor being a beta tester you can download the Insiders Edition from the same page. The VSCode team made some visual cues to easily indicate what edition you are using, as they can be used side-by-side:</p>
+<p><img src="https://dbatools.io/wp-content/uploads/2017/03/Code_Editions.png?w=800&#038;ssl=1" alt="Editions" data-recalc-dims="1" /></p>
+<p>You will also need to <a href="http://git-scm.com/download">download and install Git</a>. If you already have GitHub Desktop installed, you will still need to install Git.</p>
+<h2>Where to Start</h2>
+<p>Getting started with VSCode can be a bit challenging at first if you normally use something like the PowerShell ISE. Just like any new tool it requires a bit of time to acclimate yourself to it. The <a href="https://code.visualstudio.com/docs">documentation for VSCode</a> is laid out well and was a big help for me getting started. I would encourage you to spend time going through, at a minimum, the following sections:</p>
+<ul>
+<li><a href="https://code.visualstudio.com/docs/editor/codebasics">The Basics of Code</a> (layout and how to move around)</li>
+<li><a href="https://code.visualstudio.com/docs/editor/extension-gallery">Code Extension Marketplace</a> (how to expand what VSCode can do, will go over these in a bit)</li>
+<li><a href="https://code.visualstudio.com/docs/editor/versioncontrol">Version Control</a> (Git integration)</li>
+<li><a href="https://code.visualstudio.com/docs/editor/integrated-terminal">Integrated Terminal</a></li>
+<li><a href="https://code.visualstudio.com/docs/editor/accessibility">Accessibility</a></li>
+</ul>
+<p>One additional resource that I think should be required reading, is the <a href="https://github.com/Microsoft/vscode-tips-and-tricks">Tips and Tricks</a> content that Microsoft published on GitHub.</p>
+<h2>Command Palette</h2>
+<p>I want to bring special attention to this because almost everything you can do via a menu or button in VSCode, can also be done via the command palette. The nice part of the palette is it will provide help along the way as you type. To open the command palette you can use the keyboard with CTRL+SHIFT+P or access it via the View menu.</p>
+<p>Any extension that has commands is going to show in the format of &#8220;extension name: command&#8221;, so typing &#8220;powershell&#8221; will show any command that comes with the extension (once you install it). You can do the same thing for Git, just type that in and all the commands that are supported show up. There are additional commands outside of the extensions that are provided with VSCode, that I tend to use a good bit. I&#8217;ve included the most common below, along with the keyboard shortcut (if they have one):</p>
+<ul>
+<li>Trim Trailing Whitespace (CTRL+K, CTRL+X)</li>
+<li>Change Language Mode (CTRL+K, M)</li>
+<li>Format Document (SHIFT+ALT+F)</li>
+<li>Change All Occurrences (CTRL+F2)</li>
+</ul>
+<h2>Quick Open</h2>
+<p>CTRL+P provides a quick open prompt. This will list any recent file you have opened, but you can also use it to find a file within your current session of VSCode. So if you have a folder open with multiple files, just hit CTRL+P and start typing the file name. If a match is found it will be selected, you can just hit enter to open it.</p>
+<p>Another feature is if you open a PS1 file that may have multiple functions in it, hit CTRL+P and then type the at symbol (&#8220;@&#8221;):</p>
+<p><img src="https://dbatools.io/wp-content/uploads/2017/03/Code_QuickOpen.png?w=800&#038;ssl=1" alt="Settings" data-recalc-dims="1" /></p>
+<h2>Extensions</h2>
+<p>The single item below is the only extension you truly need to start developing PowerShell in VSCode:</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell">PowerShell</a></li>
+</ul>
+<p>This extension provides the meat and potatoes for PowerShell.</p>
+<h3>Non-Administrator</h3>
+<p>The installation for VSCode would require you to have Administrator privileges. If you find you need to work without Administrator rights to install extensions you can try the manual method. VSCode extensions are just VSIX files so you can download the file and manually add it in VSCode. You will find the latest VSIX file on the extension&#8217;s release page on GitHub. You can get to that repository by searching GitHub or from the &#8220;Resources&#8221; section on the marketplace page. The file for the PowerShell extension will be named something similar to &#8220;PowerShell-x.x.x.vsix&#8221;.</p>
+<p>Once you download the file just follow the steps below:</p>
+<ol>
+<li>Open the command palette.</li>
+<li>Type in &#8220;ext install from vsix&#8221; and hit enter</li>
+<li>Browse to the VSIX file you downloaded</li>
+<li>You will then receive a prompt to reload VSCode.</li>
+</ol>
+<h2>Code&#8217;s Settings</h2>
+<p>VSCode you work with files or folders. Opening a folder is equivalent to a project in Visual Studio. One thing to understand is adjusting the settings in VSCode can apply to the &#8220;user settings&#8221; or &#8220;workspace settings&#8221;. User Settings overwrite VSCode&#8217;s default settings, and Workspace Settings can overwrite User Settings.</p>
+<p><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/03/Code_Settings.png?w=800&#038;ssl=1" alt="Settings" data-recalc-dims="1" /></p>
+<h3>Workspace Settings</h3>
+<p><a name="workspace">Workspace</a> settings apply to a folder you open with VSCode. When you open a folder and first open workspace settings you will see a new folder is added, &#8220;.vscode&#8221;. Any Extension or settings in VSCode you manipulate within your workspace settings will be saved under &#8220;.vscode\settings.json&#8221;.</p>
+<p>The following are settings recommended (as a baseline) for contributing with dbatools. Just paste the below into the workspace settings. <em>You can access it via the command palette, just start typing &#8220;Preferences&#8221;, and you will see &#8220;Open workspace settings&#8221; in the list.</em></p>
+<pre class="lang:json decode:true">// Place your settings in this file to overwrite default and user settings.
+{
+    "files.encoding": "utf8",
+    "powershell.scriptAnalysis.enable": true,
+    "powershell.scriptAnalysis.settingsPath": "bin//PSScriptAnalyzerRules.psd1",
+    "powershell.codeFormatting.newLineAfterOpenBrace": true,
+    "powershell.codeFormatting.openBraceOnSameLine": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+
+    //tab format
+    "editor.tabCompletion": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": true
+    // Windows 8.1 and below require you to specify PowerShell for the Integrated Terminal
+    // If you are also on another OS you will need to specify the path to PowerShell.exe
+    "terminal.integrated.shell.windows": "C://WINDOWS//sysnative//WindowsPowerShell//v1.0//powershell.exe"
+}
+</pre>
+<h2>Clone dbatools repository</h2>
+<p>We first need to clone the repository before we can start contributing:</p>
+<ol>
+<li>Grab the &#8220;Clone with HTTPS&#8221; URL of your fork of dbatools.</li>
+<li>Open the command palette (CTRL + SHIFT + P)</li>
+<li>Type in &#8220;git clone&#8221; and press enter</li>
+<li>Paste the URL (CTRL + V) copied in step 1 into the prompt.</li>
+<li>Select the root folder where you want the repository to be kept (e.g C:\GitHub).</li>
+</ol>
+<p>That is it! Once the repository is downloaded, VSCode will reload and open the dbatools folder. You can view the short recording to see the steps in action.</p>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/_Vkw4FIOFSY" frameborder="0" allowfullscreen></iframe></p>
+<h2>Add an Upstream</h2>
+<p>VSCode includes Git integration, which means you can use the command palette or the Git sidebar to perform Git commands within the same program. There are, however, some that are not supported at this time. In those cases you will need to revert to the command line or your tool of choice (e.g GitHub Desktop). If you favor the command line this is where the integrated terminal (CTRL+&#8221;backtick&#8221;) allows you to stay in VSCode.</p>
+<p>When you fork dbatools to your GitHub account you will clone that repository, this is referred to as your &#8220;origin&#8221; remote. We just need to add another remote reference to the dbatools repository. This will make it a much smoother process to update your fork with the latest additions/modifications of dbatools.</p>
+<h3>Add upstream remote</h3>
+<p>The following command create a remote reference. You can name it whatever you want, but the standard term used with Git is &#8220;upstream&#8221;.</p>
+<pre class="lang:ps decode:true">
+git remote add upstream https://github.com/sqlcollaborative/dbatools.git
+</pre>
+<p>After you run that command you can verify it was created as below:</p>
+<p><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/03/Git_RemoteUpdate_1.png?w=800&#038;ssl=1" alt="remote upstream" data-recalc-dims="1" /></p>
+<h3>Pull down updates</h3>
+<p>Once you have the remote that points to dbatools, you can use a few commands to pull down the changes. The following command updates all of the references to your remote repositories (origin and upstream).</p>
+<pre class="lang:ps decode:true">
+git remote update
+</pre>
+<p><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2017/03/Git_RemoteUpdate_1a.png?w=800&#038;ssl=1" alt="remote update" data-recalc-dims="1" /></p>
+<p>The development branch is the one all the changes to dbatools are initially committed to before making a release to master. You only really need to pull down the changes from this branch. The following command can be used for this purpose:</p>
+<pre class="lang:ps decode:true ">
+git pull upstream development
+</pre>
+<p><img src="https://dbatools.io/wp-content/uploads/2017/03/Git_RemoteUpdate_1b.png?w=800&#038;ssl=1" alt="remote sync" data-recalc-dims="1" /></p>
+<p>The status bar in VSCode will show an indicator if any changes were pulled down.</p>
+<p><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/03/Git_RemoteUpdate_1c.png?w=800&#038;ssl=1" alt="remote sync" data-recalc-dims="1" /></p>
+<p>To show the breadth of VSCode with Git, there are 3 different ways you can &#8220;sync&#8221; your changes to your GitHub repository:</p>
+<ol>
+<li>Click on indicator in the status bar (the circle will start rotating)</li>
+<li>Open the command palette (CTRL+SHIFT+P), type &#8220;git sync&#8221; and hit enter.</li>
+<li>Open the Git sidebar, click on &#8220;&#8230;&#8221; at the top of the sidebar and click &#8220;sync&#8221;.</li>
+</ol>
+<h2>Branching Out</h2>
+<p>A branch is basically just a pointer to the current state of the current branch you have checked out. When you clone dbatools and open it in VSCode the first time should have the &#8220;development&#8221; branch checked out.</p>
+<p><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/03/Code_Branching1.png?w=800&#038;ssl=1" alt="remote sync" data-recalc-dims="1" /></p>
+<p>If you create a branch from development, you are basically making a copy of that branch in the current state. If you want to checkout a different branch, just click on that branch name from the status bar. This is going to open the command palette with the &#8220;git checkout&#8221; command entered, this also causes the branches found on your origin and upstream remotes to be listed. You can then select which one you want, or start typing the name to filter the list.</p>
+<p><img src="https://dbatools.io/wp-content/uploads/2017/03/Code_Branching2.png?w=800&#038;ssl=1" alt="remote sync" data-recalc-dims="1" /></p>
+<p>You can utilize the command palette to create a new branch as well, and is my preferred method. The following steps can be used:</p>
+<ol>
+<li>Open the command palette</li>
+<li>Type &#8220;git branch&#8221; and hit enter</li>
+<li>Provide your desired branch name and hit enter</li>
+</ol>
+<p>After you hit enter you will see on the Git icon on the sidebar an icon shows it is working, once that goes away you will see the current branch change to your new branch.</p>
+<p><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/03/Code_Branching.gif?w=800&#038;ssl=1" alt="branch indicator" data-recalc-dims="1" /></p>
+<p>After you create the branch you can see another indicator you can click on to publish the branch. You have to publish it before you can start making commits.</p>
+<p><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/03/Code_Branching3.png?w=800&#038;ssl=1" alt="branch publish" data-recalc-dims="1" /></p>
+<p>When you click to publish the new branch, since we have multiple remotes, you will get a prompt to select which remote you want to publish the branch to, select &#8220;origin&#8221;.</p>
+<p><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/03/Code_Branching4.png?w=800&#038;ssl=1" alt="branch remote select" data-recalc-dims="1" /></p>
+<h2>Commit Often</h2>
+<p>It is often said &#8220;commit often&#8221; when you are using Git. It can help to make small changes, commit them, test them, and if something breaks roll-back that commit. VSCode offers you the basic ability of performing a commit but you can only roll back your last commit. So if you make a modification to a file you will see an indicator on the Git sidebar. Once you open that sidebar you can add your commit message and commit your change, all within VSCode.</p>
+<p><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/03/Code_GitCommit1.png?w=800&#038;ssl=1" alt="remote sync" data-recalc-dims="1" /></p>
+<p>You can also right-click on any file listed in this sidebar to clean (remove any changes) and stage (make commits of only certain files at a time). If you open the file from the sidebar it will show you a comparison from your change and the original version of the file.</p>
+<h2>An Extra &#8211; Running PowerShell Code</h2>
+<p>If you are coming from the PowerShell ISE you may have gotten used to clicking the buttons on the toolbar to run either the whole script, or just the current line (or selected). In VSCode there are a few shortcomings in this area because there are no buttons. There are however key bindings/mappings that can be used.</p>
+<h3>Extensions &#8211; Keymaps</h3>
+<p>If you work with Atom or Sublime you can search the marketplace for &#8220;keymaps&#8221; and find a few extensions offered that will give you similar keybindings&#8230;note there is also <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vs-keybindings">one for Visual Studio</a>.</p>
+<h3>Keybindings</h3>
+<p>By default the following keys are bound to the noted actions:</p>
+<ul>
+<li>F5 &#8211; Starts debugging the current file (has to be saved with the ps1 extension)</li>
+<li>F8 &#8211; Runs the currently focus (line or selected code). </li>
+</ul>
+<p>There are a few caveats to the above keyboard bindings. The F8 keybinding runs the current line or selected code but outputs it to the Output pane and not the Integrated Terminal. If you go to your keyboard shortcuts, CTRL+K, CTRL+S and just paste the following to have it execute to the terminal:</p>
+<pre "lang:json decode=true">
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "f8",
+        "command": "workbench.action.terminal.runSelectedText",
+        "when": "editorTextFocus && editorLangId == 'powershell'"
+    }
+]
+</pre>
+<p>So a short example, open a new file add one or two PowerShell commands. You will need to open the Integrated Terminal, so a PowerShell session is running, and then just place the cursor on a line and hit F8.</p>
+<p><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2017/03/Code_PS_Running.gif?w=800&#038;ssl=1" alt="VSCode F8" data-recalc-dims="1" /></p>
+<p>Now with F5 and debugging, it is up to you whether you want to change those around so they match up to what PowerShell ISE did. You would just need to find the command from the keyboard settings and add that to your keyboard settings.</p>
+<h2>An Extra-Extra &#8211; PSScriptAnalzyer</h2>
+<p>The PowerShell extension packages the <a href="https://www.powershellgallery.com/packages/PSScriptAnalyzer">PSScriptAnalyzer module</a> which allows VSCode to check an open PS1 files against the PSSA rules. As the extension is released they bundle the latest version of the PSSA module. You can find what version is included by checking the following path on a Winodws machine:</p>
+<pre class="lang:ps" decode:true=""># "x.x.x" is current version of the extension you have installed
+$env:USERPROFILE\.vscode\extensions\ms-vscode.PowerShell-x.x.x\modules
+</pre>
+<p>PSSA performs checks based on best coding practices and identifies the line of code that violates them. You can view these by using &#8220;CTRL+SHIFT+M&#8221; to open the &#8220;Problems&#8221; pane. You also have an indicator on the bottom left of the status bar of VSCode (clicking this will also open the &#8220;Problems&#8221; pane.</p>
+<p><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2017/03/Code_Problems1.png?w=800&#038;ssl=1" alt="Code problems pane" data-recalc-dims="1" /></p>
+<p>An added benefit as you open additional files, the problems pane will start grouping the problems by the file they are found in:</p>
+<p><img src="https://dbatools.io/wp-content/uploads/2017/03/Code_Problems2.png?w=800&#038;ssl=1" alt="Code problems pane" data-recalc-dims="1" /></p>
+<p>Just click on one of the problems and VSCode will jump to that file and line.</p>
+<h2>Summary</h2>
+<p>While this post is a bit long it by no means covers all the features in VSCode. Read through the documentation to find out more that can be done. You can also search on YouTube for some good videos that show using code in various ways, generally with other languages. Happy contributing!</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/vscode/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">3601</post-id>	</item>
+	</channel>
+</rss>

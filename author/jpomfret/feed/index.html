@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>Jess Pomfret &#8211; dbatools</title>
+	<atom:link href="https://dbatools.io/author/jpomfret/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Fri, 13 Sep 2019 08:41:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+
+<image>
+	<url>https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&#038;ssl=1</url>
+	<title>Jess Pomfret &#8211; dbatools</title>
+	<link>https://dbatools.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
+		<title>managing data compression with dbatools</title>
+		<link>https://dbatools.io/compression/</link>
+				<comments>https://dbatools.io/compression/#comments</comments>
+				<pubDate>Wed, 02 Jan 2019 15:37:14 +0000</pubDate>
+		<dc:creator><![CDATA[Jess Pomfret]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=9319</guid>
+				<description><![CDATA[Data compression is not a new feature in SQL Server. In fact it has been around since SQL Server 2008, so why does it matter now? Before SQL Server2016 SP1 ...]]></description>
+								<content:encoded><![CDATA[<p>Data compression is not a new feature in SQL Server. In fact it has been around since SQL Server 2008, so why does it matter now? Before SQL Server2016 SP1 this feature was only available in Enterprise edition. Now that it’s in Standard edition data compression can be an option for far more people.</p>
+<p>dbatools has three functions available to help you work with data compression, and in true dbatools style it makes it easy and fast to compress your databases.</p>
+<h3>Get-DbaDbCompression</h3>
+<p>This one is pretty straightforward, it shows you your current compression levels across one or more SQL Servers. You can either view all objects or narrow it down to a specific database, as shown below.</p>
+<pre class="lang:ps decode:true">Get-DbaDbCompression -SqlInstance Server1 -Database AdventureWorks2017 | 
+Select-Object Database, Schema, TableName, IndexName, IndexType, Partition, DataCompression</pre>
+<p><img class="alignnone size-large wp-image-9324" src="https://dbatools.io/wp-content/uploads/2018/12/Get-DbaDbCompression.jpg?resize=800%2C164&#038;ssl=1" alt="" width="800" height="164" srcset="https://dbatools.io/wp-content/uploads/2018/12/Get-DbaDbCompression.jpg?resize=1024%2C210&amp;ssl=1 1024w, https://dbatools.io/wp-content/uploads/2018/12/Get-DbaDbCompression.jpg?resize=300%2C62&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2018/12/Get-DbaDbCompression.jpg?resize=768%2C158&amp;ssl=1 768w, https://dbatools.io/wp-content/uploads/2018/12/Get-DbaDbCompression.jpg?w=1411&amp;ssl=1 1411w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></p>
+<h3>Test-DbaDbCompression</h3>
+<p>Now this is where the magic happens. This function takes the leg work out of deciding whether compression is a good fit for your database. When you look to implement data compression you have two options (as far as rowstore compression goes), row or page compression. Page compression gives you superior space savings but it comes with more CPU overhead.</p>
+<h4>inefficient data types and repeated data</h4>
+<p>When you start to analyze your database to make this decision you first need to look at your table structures. Do you have a lot of fixed length datatypes that aren’t being fully utilized? Think bigint storing the number 1 or char(1000) storing ‘Jess’ &#8211; then row compression could be a good fit. Do you have a lot of repeating data, like State or Gender columns? Then page compression could do wonders for you.</p>
+<h4>workload and I/O</h4>
+<p>Secondly, and perhaps more importantly, is your workload. As previously mentioned there is a CPU overhead associated with querying compressed data, so if you are doing a lot of seeks and/or updates the benefits might be outweighed by the costs. On the other hand if you do a lot of scans one of the benefits of data compression, more data stored per page, will greatly reduce your I/O costs and improve your performance overall.</p>
+<p>This is a lot to think about for each object in each of your databases. Worry not friends! The SQL Server Tiger Team created a script (available on their <a href="https://github.com/Microsoft/tigertoolbox/tree/master/Evaluate-Compression-Gains" target="_blank" rel="noopener">github</a>) that will analyze both your table structures and your workload. This makes up the logic within Test-DbaDbCompression.</p>
+<h4>compression in action</h4>
+<p>You can see below I’ve analyzed the entire AdventureWorks2017 database and saved the results to a variable. This makes it easy to work through the output, looking at certain objects/indexes of interest.</p>
+<pre class="lang:ps decode:true ">$results = Test-DbaDbCompression -SqlInstance Server1 -Database AdventureWorks2017
+$results | Where-Object TableName -eq 'SalesOrderDetail' |
+Select-Object TableName, IndexName, IndexId, PercentScan, PercentUpdate, RowEstimatePercentOriginal, PageEstimatePercentOriginal, CompressionTypeRecommendation, SizeCurrent, SizeRequested, PercentCompression | Format-Table</pre>
+<p><a href="https://dbatools.io/wp-content/uploads/2018/12/Test-DbaDbCompression.jpg" target="new"><br />
+<img class="alignnone size-large wp-image-9326" src="https://dbatools.io/wp-content/uploads/2018/12/Test-DbaDbCompression.jpg?resize=800%2C55&#038;ssl=1" alt="" width="800" height="55" srcset="https://dbatools.io/wp-content/uploads/2018/12/Test-DbaDbCompression.jpg?resize=1024%2C70&amp;ssl=1 1024w, https://dbatools.io/wp-content/uploads/2018/12/Test-DbaDbCompression.jpg?resize=300%2C20&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2018/12/Test-DbaDbCompression.jpg?resize=768%2C52&amp;ssl=1 768w, https://dbatools.io/wp-content/uploads/2018/12/Test-DbaDbCompression.jpg?w=1878&amp;ssl=1 1878w, https://dbatools.io/wp-content/uploads/2018/12/Test-DbaDbCompression.jpg?w=1600&amp;ssl=1 1600w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<p>This database is actually running in a container on my laptop so there isn’t much activity, but when you use this command the PercentScan and PercentUpdate will be determined by your workload so the longer your instance has been up the more accurate these will be.</p>
+<p>I’ve selected to look at the SalesOrderDetail table in the above example. You can see the function suggests we apply page compression to our primary key (IndexId of 1) and one of our Nonclustered indexes (IndexId of 3).</p>
+<h3>Set-DbaDbCompression</h3>
+<p>The final compression function is used to apply compression to our objects. You can choose to apply row or page compression to your entire database, which could be useful to save space in your development or test environments.</p>
+<pre class="lang:ps decode:true">Set-DbaDbCompression -SqlInstance Server1 -Database AdventureWorks2017 -CompressionType Page
+</pre>
+<p>More useful however is to once again use the Tiger Team script to apply the recommended compression to your objects.</p>
+<p>Running the following one line will first analyze your database using the same logic we discussed above, and then apply the suggested levels to each index and table within your database.</p>
+<pre class="lang:ps decode:true">Set-DbaDbCompression -SqlInstance Server1 -Database AdventureWorks2017 -CompressionType Recommended
+</pre>
+<h4>additional options</h4>
+<p>There are also some other options available to control this behavior. You can use the <code>-PercentCompression</code> parameter so objects will only be compressed if the calculated savings are greater than the specified percentage. You also can control the amount of time this command runs for. If you set <code>-MaxRunTime</code> to 60 it will finish the current compression command and then stop.</p>
+<pre class="lang:ps decode:true">Set-DbaDbCompression -SqlInstance Server1 -Database AdventureWorks2017 -CompressionType Recommended -PercentCompression 25 -MaxRunTime 60
+</pre>
+<h4>conclusion</h4>
+<p>One final idea I’ll leave you with- earlier I ran Test-DbaDbCompression and saved the output to a variable. I did this because I like to be able to see what the suggestions are and can also save this output for a later date if needed. Once I’m happy and ready to run Set-DbaDbCompression I don’t want to wait for the analysis to happen again. I can instead pass in the output I saved using the <code>-InputObject</code> and Set-DbaDbCompression will work through those suggestions applying the recommended compression levels immediately.</p>
+<pre class="lang:ps decode:true">Set-DbaDbCompression -SqlInstance Server1 -InputObject $results
+</pre>
+<p>Data compression can be a powerful tool in your DBA toolbelt for saving space and performance tuning. You can apply this with minimal effort and no application code changes. I’d recommend playing with the Test-DbaDbCompression function and see if you can’t squeeze out some easy gains.</p>
+<p>Cheers,</p>
+<p>Jess</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/compression/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">9319</post-id>	</item>
+		<item>
+		<title>migrating application databases with dbatools</title>
+		<link>https://dbatools.io/migrating-application-dbs/</link>
+				<comments>https://dbatools.io/migrating-application-dbs/#comments</comments>
+				<pubDate>Thu, 15 Mar 2018 14:22:01 +0000</pubDate>
+		<dc:creator><![CDATA[Jess Pomfret]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[party]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=7289</guid>
+				<description><![CDATA[I’ve been working on a project this year to upgrade SQL Server versions for around 80 application databases, with most of the upgrades requiring both SQL Server and Windows Server ...]]></description>
+								<content:encoded><![CDATA[<p>I’ve been working on a project this year to upgrade SQL Server versions for around 80 application databases, with most of the upgrades requiring both SQL Server and Windows Server upgrades to get to the future state we were looking for. The general process for each of these was to build a new virtual machine with the upgraded operating system, install the desired SQL Server version and then migrate the application databases during an arranged downtime window.</p>
+<p>I’m going to focus on the final step of this process for this post &#8211; migrating the databases during the downtime windows. Luckily for me, dbatools made this both easy and repeatable.</p>
+<h2>Step 1 – Check for connections</h2>
+<p>First step when we get into the downtime window is to check whether there are any active connections to the database you want to migrate. We don’t want any data being changed while we migrate, there’s a command for that:</p>
+<pre class="lang:ps decode:true">Get-DbaProcess -SqlInstance SourceServer -Database MigratingDatabase | 
+Select Host, login, Program</pre>
+<p><img class="alignnone wp-image-7292 size-large" src="https://dbatools.io/wp-content/uploads/2018/03/Get-DbaProcess.jpg?resize=800%2C81&#038;ssl=1" alt="" width="800" height="81" srcset="https://dbatools.io/wp-content/uploads/2018/03/Get-DbaProcess.jpg?resize=1024%2C104&amp;ssl=1 1024w, https://dbatools.io/wp-content/uploads/2018/03/Get-DbaProcess.jpg?resize=300%2C30&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2018/03/Get-DbaProcess.jpg?resize=768%2C78&amp;ssl=1 768w, https://dbatools.io/wp-content/uploads/2018/03/Get-DbaProcess.jpg?w=1153&amp;ssl=1 1153w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></p>
+<p>If there are connections and it’s safe to remove them (if they are still coming from the application it might be worth talking to the app owners first) you can pipe them to another handy dbatools command:</p>
+<pre class="lang:ps decode:true">Get-DbaProcess -SqlInstance SourceServer -Database MigratingDatabase | 
+Stop-DbaProcess</pre>
+<h2>Step 2 – Migrate the database</h2>
+<p>Now that there are no connections we can move the database.  Depending on the situation it might be worth setting the database to read only or single user mode first. In my case, I had the application taken down so I felt confident no connections would be coming in.</p>
+<p>With one line of code we can select the source and destination servers, the database name, specify that we want to use the backup and restore method, and then provide the path to a file share that both instance service accounts have access to:</p>
+<pre class="lang:ps decode:true">Copy-DbaDatabase -Source SourceServer -Destination DestinationServer -Database MigratingDatabase -BackupRestore -SharedPath \\fileshare\</pre>
+<p><img class="alignnone size-large wp-image-7290" src="https://dbatools.io/wp-content/uploads/2018/03/Copy-DbaDatabase.jpg?resize=800%2C88&#038;ssl=1" alt="" width="800" height="88" srcset="https://dbatools.io/wp-content/uploads/2018/03/Copy-DbaDatabase.jpg?resize=1024%2C113&amp;ssl=1 1024w, https://dbatools.io/wp-content/uploads/2018/03/Copy-DbaDatabase.jpg?resize=300%2C33&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2018/03/Copy-DbaDatabase.jpg?resize=768%2C85&amp;ssl=1 768w, https://dbatools.io/wp-content/uploads/2018/03/Copy-DbaDatabase.jpg?w=1137&amp;ssl=1 1137w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></p>
+<p>There are a lot more options available on this command, including setting the number of backup files to use, which can speed things up if you have a large database. I recommend checking out the command based help for all the available options.</p>
+<h2>Step 3 – Migrate the user logins</h2>
+<p>Once the database is on the new server we can use the following to copy the associated logins across. The nice thing about using this command is it ensures the user SIDs match up on the destination and you don’t end up with any orphan SQL Logins.</p>
+<pre class="lang:ps decode:true ">Copy-DbaLogin -Source SourceServer -Destination DestinationServer -Login AppReadOnly, AppReadWrite, DOMAIN\AppUser</pre>
+<p><img class="alignnone size-large wp-image-7291" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/03/Copy-DbaLogin.jpg?resize=800%2C104&#038;ssl=1" alt="" width="800" height="104" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/03/Copy-DbaLogin.jpg?resize=1024%2C133&amp;ssl=1 1024w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/03/Copy-DbaLogin.jpg?resize=300%2C39&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/03/Copy-DbaLogin.jpg?resize=768%2C100&amp;ssl=1 768w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/03/Copy-DbaLogin.jpg?w=1101&amp;ssl=1 1101w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></p>
+<h2>Step 4 – Set the source database offline</h2>
+<p>Now that the database and associated logins have been migrated we can set the source database offline. I did this so if there were any issues getting the application up we could quickly revert back while ensuring nothing was still accessing the old copy.</p>
+<pre class="lang:ps decode:true ">Set-DbaDbState -SqlInstance SourceServer -Database MigratingDatabase -Offline -Force</pre>
+<p><img class="alignnone size-large wp-image-7294" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2018/03/Set-DbaDbState-1024x190.jpg?resize=800%2C148&#038;ssl=1" alt="" width="800" height="148" data-recalc-dims="1" /></p>
+<p>In the end I was able to use 5 lines of PowerShell to get these application databases migrated to their new homes. After some testing I dropped the old offline copy of the database and eventually decommissioned the old servers.</p>
+<p>I hope this gives you some ideas of how dbatools can help make your database migrations easier and more efficient.</p>
+<p>Jess <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f1ec-1f1e7.png" alt="🇬🇧" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/migrating-application-dbs/feed/</wfw:commentRss>
+		<slash:comments>9</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">7289</post-id>	</item>
+	</channel>
+</rss>

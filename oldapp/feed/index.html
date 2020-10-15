@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	
+	>
+<channel>
+	<title>
+	Comments on: migrating super old app databases	</title>
+	<atom:link href="https://dbatools.io/oldapp/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/oldapp/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Thu, 23 Jan 2020 18:34:41 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+			<item>
+				<title>
+				By: Chrissy LeMaire				</title>
+				<link>https://dbatools.io/oldapp/#comment-79179</link>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+		<pubDate>Thu, 23 Jan 2020 18:34:41 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9928#comment-79179</guid>
+					<description><![CDATA[Thank you so much Jon! We’re always going to keep support for older servers for environments just like yours.  I am on mobile right now and need to update this post but I did find the solution. It’s listed on this issue - the last one https://github.com/sqlcollaborative/dbatools/issues/6229]]></description>
+		<content:encoded><![CDATA[<p>Thank you so much Jon! We’re always going to keep support for older servers for environments just like yours.  I am on mobile right now and need to update this post but I did find the solution. It’s listed on this issue &#8211; the last one <a href="https://github.com/sqlcollaborative/dbatools/issues/6229" rel="nofollow ugc">https://github.com/sqlcollaborative/dbatools/issues/6229</a></p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: jonjpbm				</title>
+				<link>https://dbatools.io/oldapp/#comment-79178</link>
+		<dc:creator><![CDATA[jonjpbm]]></dc:creator>
+		<pubDate>Thu, 23 Jan 2020 18:16:24 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9928#comment-79178</guid>
+					<description><![CDATA[We are currently migrating 155 servers from 2005 ( I know I know. Don&#039;t start) to SQL 2017.
+
+We wrote all of the migration using powershell and dbatools.
+
+It&#039;s comforting to read your post and, more or less, see that we did the same thing (Lets me know we might be doing something right :) ) 
+
+Oddly enough we ran into the SSPI issues also and it stalled our upgrade for a bit. It would have been nice to found out the setting that was changed because we checked the SPNs and could not find anything glaringly wrong... :/ We had this happen a couple of times in our non-prod testing environment and we&#039;ve just deleted the SPN and we were good but that didn&#039;t seem to be the case here.
+
+All that aside, thank you for you damn good work on this module. It honestly the best tool I use every single day. Be proud and keep on keeping on.
+
+Cheers!]]></description>
+		<content:encoded><![CDATA[<p>We are currently migrating 155 servers from 2005 ( I know I know. Don&#8217;t start) to SQL 2017.</p>
+<p>We wrote all of the migration using powershell and dbatools.</p>
+<p>It&#8217;s comforting to read your post and, more or less, see that we did the same thing (Lets me know we might be doing something right 🙂 ) </p>
+<p>Oddly enough we ran into the SSPI issues also and it stalled our upgrade for a bit. It would have been nice to found out the setting that was changed because we checked the SPNs and could not find anything glaringly wrong&#8230; :/ We had this happen a couple of times in our non-prod testing environment and we&#8217;ve just deleted the SPN and we were good but that didn&#8217;t seem to be the case here.</p>
+<p>All that aside, thank you for you damn good work on this module. It honestly the best tool I use every single day. Be proud and keep on keeping on.</p>
+<p>Cheers!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Chrissy LeMaire				</title>
+				<link>https://dbatools.io/oldapp/#comment-72517</link>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+		<pubDate>Mon, 26 Aug 2019 15:00:57 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9928#comment-72517</guid>
+					<description><![CDATA[Close call! What did your boss use to decrypt the data, just straight T-SQL or a mix of PS and T-SQL? What did you use for the audit?]]></description>
+		<content:encoded><![CDATA[<p>Close call! What did your boss use to decrypt the data, just straight T-SQL or a mix of PS and T-SQL? What did you use for the audit?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Garry Bargsley				</title>
+				<link>https://dbatools.io/oldapp/#comment-72516</link>
+		<dc:creator><![CDATA[Garry Bargsley]]></dc:creator>
+		<pubDate>Mon, 26 Aug 2019 14:52:48 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9928#comment-72516</guid>
+					<description><![CDATA[We did a migration once where we did not know column level encryption was in use. So the night of the migration no one knew the password to the cert/key and we could not encrypt/decrypt this column. 
+
+Needless to say the application would not function correctly. 
+
+Luckily, my boss was online and he wipped up a script to decrypt the data on the old server and re-encrypt on the new server. 
+
+So he saved the day and I did an audit the following week to make sure we knew where encryption was in use.]]></description>
+		<content:encoded><![CDATA[<p>We did a migration once where we did not know column level encryption was in use. So the night of the migration no one knew the password to the cert/key and we could not encrypt/decrypt this column. </p>
+<p>Needless to say the application would not function correctly. </p>
+<p>Luckily, my boss was online and he wipped up a script to decrypt the data on the old server and re-encrypt on the new server. </p>
+<p>So he saved the day and I did an audit the following week to make sure we knew where encryption was in use.</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

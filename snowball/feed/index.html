@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	
+	>
+<channel>
+	<title>
+	Comments on: new release &#8211; snowball &#8211; all about the restore	</title>
+	<atom:link href="https://dbatools.io/snowball/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/snowball/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Fri, 13 Sep 2019 08:12:05 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+			<item>
+				<title>
+				By: Stuart Moore				</title>
+				<link>https://dbatools.io/snowball/#comment-61255</link>
+		<dc:creator><![CDATA[Stuart Moore]]></dc:creator>
+		<pubDate>Fri, 05 Apr 2019 09:37:31 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=3050#comment-61255</guid>
+					<description><![CDATA[Hi Martins, you would do that with this command:
+&lt;code&gt;Restore-DbaDatabase -SqlInstance server1 -Path c:\backups -DatabaseName NewName -ReplaceDbNameInFile&lt;/code&gt;
+
+This will restore the database as NewName and also replace the old name in the Database filenames to avoid any clashes]]></description>
+		<content:encoded><![CDATA[<p>Hi Martins, you would do that with this command:<br />
+<code>Restore-DbaDatabase -SqlInstance server1 -Path c:\backups -DatabaseName NewName -ReplaceDbNameInFile</code></p>
+<p>This will restore the database as NewName and also replace the old name in the Database filenames to avoid any clashes</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Stuart Moore				</title>
+				<link>https://dbatools.io/snowball/#comment-61254</link>
+		<dc:creator><![CDATA[Stuart Moore]]></dc:creator>
+		<pubDate>Fri, 05 Apr 2019 09:32:50 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=3050#comment-61254</guid>
+					<description><![CDATA[Hi Raj,
+To continue the restore you&#039;d issue this command:
+&lt;code&gt;Restore-DbaDatabase -SqlServer testserver2 -Continue -Path ‘\\testserver1\Backup\xxxx$testerver1\testdb’ -MaintenanceSolutionBackup&lt;/code&gt;
+
+This will recover your database. If you want to be able to restore more log files, then use this:
+&lt;code&gt;Restore-DbaDatabase -SqlServer testserver2 -NoRecovery -Continue -Path ‘\\testserver1\Backup\xxxx$testerver1\testdb’ -MaintenanceSolutionBackup&lt;/code&gt;
+
+Hope that helps]]></description>
+		<content:encoded><![CDATA[<p>Hi Raj,<br />
+To continue the restore you&#8217;d issue this command:<br />
+<code>Restore-DbaDatabase -SqlServer testserver2 -Continue -Path ‘\\testserver1\Backup\xxxx$testerver1\testdb’ -MaintenanceSolutionBackup</code></p>
+<p>This will recover your database. If you want to be able to restore more log files, then use this:<br />
+<code>Restore-DbaDatabase -SqlServer testserver2 -NoRecovery -Continue -Path ‘\\testserver1\Backup\xxxx$testerver1\testdb’ -MaintenanceSolutionBackup</code></p>
+<p>Hope that helps</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Raj				</title>
+				<link>https://dbatools.io/snowball/#comment-60945</link>
+		<dc:creator><![CDATA[Raj]]></dc:creator>
+		<pubDate>Wed, 03 Apr 2019 17:01:04 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=3050#comment-60945</guid>
+					<description><![CDATA[Thank you so much, this is so helpful. 
+I have question in regards to applying the last few days logs for a already restored(in-recovery) Database using Restore-DbaDatabase -SqlServer testserver2 -NoRecovery  -Path &#039;\\testserver1\Backup\xxxx$testerver1\testdb&#039;  -MaintenanceSolutionBackup
+
+is there a trick available like the above that]]></description>
+		<content:encoded><![CDATA[<p>Thank you so much, this is so helpful.<br />
+I have question in regards to applying the last few days logs for a already restored(in-recovery) Database using Restore-DbaDatabase -SqlServer testserver2 -NoRecovery  -Path &#8216;\\testserver1\Backup\xxxx$testerver1\testdb&#8217;  -MaintenanceSolutionBackup</p>
+<p>is there a trick available like the above that</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Martins				</title>
+				<link>https://dbatools.io/snowball/#comment-19453</link>
+		<dc:creator><![CDATA[Martins]]></dc:creator>
+		<pubDate>Tue, 09 Oct 2018 11:09:53 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=3050#comment-19453</guid>
+					<description><![CDATA[Hello,
+How to restore database to a new name (for example MyDB_new)? I don&#039;t want to REPLACE.
+
+[Restore-DbaDatabase] Failure &#124; Database My_DB exists, so WithReplace must be specified]]></description>
+		<content:encoded><![CDATA[<p>Hello,<br />
+How to restore database to a new name (for example MyDB_new)? I don&#8217;t want to REPLACE.</p>
+<p>[Restore-DbaDatabase] Failure | Database My_DB exists, so WithReplace must be specified</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Greg N				</title>
+				<link>https://dbatools.io/snowball/#comment-11302</link>
+		<dc:creator><![CDATA[Greg N]]></dc:creator>
+		<pubDate>Thu, 16 Aug 2018 23:46:51 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=3050#comment-11302</guid>
+					<description><![CDATA[Thank you Thank you Thank you 
+One line command I just restored 32 databases with Ola Hallengren backups and 3 days of logs.
+Many hours of work made easy.
+
+Where do I send the chocolates?]]></description>
+		<content:encoded><![CDATA[<p>Thank you Thank you Thank you<br />
+One line command I just restored 32 databases with Ola Hallengren backups and 3 days of logs.<br />
+Many hours of work made easy.</p>
+<p>Where do I send the chocolates?</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Mulham				</title>
+				<link>https://dbatools.io/snowball/#comment-11191</link>
+		<dc:creator><![CDATA[Mulham]]></dc:creator>
+		<pubDate>Mon, 13 Aug 2018 13:38:47 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=3050#comment-11191</guid>
+					<description><![CDATA[Thanks for this great work. Is there any way of making -filemapping  switch dynamically populated  based on running this query: select name, filename from sysfiles ? I was trying something like this without luck.
+
+$query=invoke-sqlcmd -ServerInstance $instanceName -Database $Databasename -Query &quot;select name,filename  from sysfiles&quot;
+$Finalquery=$query&#124; %{&quot;&#039;&quot;+&#039;{0}&#039;&#039; =&#039;&#039;{1}&#039;&#039;{2}{3}&#039; -f $_[0],$_[1],$_[2],$_[3] }
+$FileMapping =@{}]]></description>
+		<content:encoded><![CDATA[<p>Thanks for this great work. Is there any way of making -filemapping  switch dynamically populated  based on running this query: select name, filename from sysfiles ? I was trying something like this without luck.</p>
+<p>$query=invoke-sqlcmd -ServerInstance $instanceName -Database $Databasename -Query &#8220;select name,filename  from sysfiles&#8221;<br />
+$Finalquery=$query| %{&#8220;&#8216;&#8221;+'{0}&#8221; =&#8221;{1}&#8221;{2}{3}&#8217; -f $_[0],$_[1],$_[2],$_[3] }<br />
+$FileMapping =@{}</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Chrissy LeMaire				</title>
+				<link>https://dbatools.io/snowball/#comment-488</link>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+		<pubDate>Tue, 11 Apr 2017 13:55:23 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=3050#comment-488</guid>
+					<description><![CDATA[Hey Gordon, Thanks so much for the note :D We&#039;re so happy that you enjoy dbatools. I&#039;ve asked Stuart to investigate support for 3rd parties! https://github.com/sqlcollaborative/dbatools/issues/1035]]></description>
+		<content:encoded><![CDATA[<p>Hey Gordon, Thanks so much for the note 😀 We&#8217;re so happy that you enjoy dbatools. I&#8217;ve asked Stuart to investigate support for 3rd parties! <a href="https://github.com/sqlcollaborative/dbatools/issues/1035" rel="nofollow ugc">https://github.com/sqlcollaborative/dbatools/issues/1035</a></p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Gordon				</title>
+				<link>https://dbatools.io/snowball/#comment-487</link>
+		<dc:creator><![CDATA[Gordon]]></dc:creator>
+		<pubDate>Tue, 11 Apr 2017 13:24:23 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=3050#comment-487</guid>
+					<description><![CDATA[Great work.  Unfortunately, those of us who use a 3rd party backup tool (we use Litespeed in our shop) cannot use the Backup/Restore bits of DBATools.  But I do use it for so many other things!!]]></description>
+		<content:encoded><![CDATA[<p>Great work.  Unfortunately, those of us who use a 3rd party backup tool (we use Litespeed in our shop) cannot use the Backup/Restore bits of DBATools.  But I do use it for so many other things!!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: anil				</title>
+				<link>https://dbatools.io/snowball/#comment-254</link>
+		<dc:creator><![CDATA[anil]]></dc:creator>
+		<pubDate>Tue, 07 Mar 2017 17:26:39 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=3050#comment-254</guid>
+					<description><![CDATA[Awesome work - Very impressive and helpful !!]]></description>
+		<content:encoded><![CDATA[<p>Awesome work &#8211; Very impressive and helpful !!</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Using dbatools for automated restore and CHECKDB - Centino Systems Blog				</title>
+				<link>https://dbatools.io/snowball/#comment-232</link>
+		<dc:creator><![CDATA[Using dbatools for automated restore and CHECKDB - Centino Systems Blog]]></dc:creator>
+		<pubDate>Sat, 04 Mar 2017 14:14:40 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=3050#comment-232</guid>
+					<description><![CDATA[[&#8230;] server and run CHECKDB on them. There’s some cmdlets in the dbatools project, in particular the Snowball release that really make this easy. In this post I’m going to outline a quick solution I had to [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] server and run CHECKDB on them. There’s some cmdlets in the dbatools project, in particular the Snowball release that really make this easy. In this post I’m going to outline a quick solution I had to [&#8230;]</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

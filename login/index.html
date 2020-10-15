@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+	
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Log In ‹ dbatools — WordPress</title>
+	<link rel="dns-prefetch" href="//use.fontawesome.com">
+
+<script type="text/javascript" src="https://c0.wp.com/c/5.3.4/wp-includes/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="https://c0.wp.com/c/5.3.4/wp-includes/js/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/modules/sso/jetpack-sso-login.js"></script>
+<link rel="stylesheet" id="dashicons-css" href="https://c0.wp.com/c/5.3.4/wp-includes/css/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="buttons-css" href="https://c0.wp.com/c/5.3.4/wp-includes/css/buttons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="forms-css" href="https://c0.wp.com/c/5.3.4/wp-admin/css/forms.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="l10n-css" href="https://c0.wp.com/c/5.3.4/wp-admin/css/l10n.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="login-css" href="https://c0.wp.com/c/5.3.4/wp-admin/css/login.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-official-css" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" media="all" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+<link rel="stylesheet" id="genericons-css" href="https://c0.wp.com/p/jetpack/8.4.2/_inc/genericons/genericons/genericons.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack-sso-login-css" href="https://c0.wp.com/p/jetpack/8.4.2/modules/sso/jetpack-sso-login.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-official-v4shim-css" href="https://use.fontawesome.com/releases/v5.11.2/css/v4-shims.css" type="text/css" media="all" integrity="sha384-/EdpJd7d6gGFiQ/vhh7iOjiZdf4+6K4al/XrX6FxxZwDSrAdWxAynr4p/EA/vyPQ" crossorigin="anonymous">
+<style id="font-awesome-official-v4shim-inline-css" type="text/css">
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.svg#fontawesome") format("svg");
+}
+
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.svg#fontawesome") format("svg");
+}
+
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.svg#fontawesome") format("svg");
+unicode-range: U+F004-F005,U+F007,U+F017,U+F022,U+F024,U+F02E,U+F03E,U+F044,U+F057-F059,U+F06E,U+F070,U+F075,U+F07B-F07C,U+F080,U+F086,U+F089,U+F094,U+F09D,U+F0A0,U+F0A4-F0A7,U+F0C5,U+F0C7-F0C8,U+F0E0,U+F0EB,U+F0F3,U+F0F8,U+F0FE,U+F111,U+F118-F11A,U+F11C,U+F133,U+F144,U+F146,U+F14A,U+F14D-F14E,U+F150-F152,U+F15B-F15C,U+F164-F165,U+F185-F186,U+F191-F192,U+F1AD,U+F1C1-F1C9,U+F1CD,U+F1D8,U+F1E3,U+F1EA,U+F1F6,U+F1F9,U+F20A,U+F247-F249,U+F24D,U+F254-F25B,U+F25D,U+F267,U+F271-F274,U+F279,U+F28B,U+F28D,U+F2B5-F2B6,U+F2B9,U+F2BB,U+F2BD,U+F2C1-F2C2,U+F2D0,U+F2D2,U+F2DC,U+F2ED,U+F328,U+F358-F35B,U+F3A5,U+F3D1,U+F410,U+F4AD;
+}
+</style>
+			<style>
+				.jetpack-sso .message {
+					margin-top: 20px;
+				}
+
+				.jetpack-sso #login .message:first-child,
+				.jetpack-sso #login h1 + .message {
+					margin-top: 0;
+				}
+			</style>
+			
+	<meta name="referrer" content="strict-origin-when-cross-origin">
+		<meta name="viewport" content="width=device-width">
+	<link rel="icon" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&amp;ssl=1" sizes="32x32">
+<link rel="icon" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1">
+<meta name="msapplication-TileImage" content="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1">
+	</head>
+	<body class="login no-js login-action-login wp-core-ui  locale-en-us jetpack-sso jetpack-sso-form-display">
+	<script type="text/javascript">
+		document.body.className = document.body.className.replace('no-js','js');
+	</script>
+		<div id="login">
+		<h1><a href="https://wordpress.org/">Powered by WordPress</a></h1>
+	
+		<form name="loginform" id="loginform" action="https://dbatools.io/wp-login.php" method="post">
+			<p>
+				<label for="user_login">Username or Email Address</label>
+				<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off">
+			</p>
+
+			<div class="user-pass-wrap">
+				<label for="user_pass">Password</label>
+				<div class="wp-pwd">
+					<input type="password" name="pwd" id="user_pass" class="input password-input" value="" size="20">
+					<button type="button" class="button button-secondary wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="Show password">
+						<span class="dashicons dashicons-visibility" aria-hidden="true"></span>
+					</button>
+				</div>
+			</div>
+					<div id="jetpack-sso-wrap">
+			
+
+			<div id="jetpack-sso-wrap__action">
+				<a rel="nofollow" href="https://dbatools.io/wp-login.php?action=jetpack-sso" class="jetpack-sso button button-primary"><span><span class="genericon genericon-wordpress"></span> Log in with WordPress.com</span></a>
+									<p>
+						You can now save time spent logging in by connecting your WordPress.com account to dbatools.					</p>
+							</div>
+
+							<div class="jetpack-sso-or">
+					<span>Or</span>
+				</div>
+
+				<a href="https://dbatools.io/login?jetpack-sso-show-default-form=1" class="jetpack-sso-toggle wpcom">
+					Log in with username and password				</a>
+
+				<a href="https://dbatools.io/login?jetpack-sso-show-default-form=0" class="jetpack-sso-toggle default">
+					Log in with WordPress.com				</a>
+					</div>
+					<p class="forgetmenot"><input name="rememberme" type="checkbox" id="rememberme" value="forever"> <label for="rememberme">Remember Me</label></p>
+			<p class="submit">
+				<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Log In">
+									<input type="hidden" name="redirect_to" value="https://dbatools.io/wp-admin/">
+									<input type="hidden" name="testcookie" value="1">
+			</p>
+		</form>
+
+					<p id="nav">
+									<a href="https://dbatools.io/wp-login.php?action=lostpassword">Lost your password?</a>
+								</p>
+					<script type="text/javascript">
+			function wp_attempt_focus() {setTimeout( function() {try {d = document.getElementById( "user_login" );d.focus(); d.select();} catch( er ) {}}, 200);}
+wp_attempt_focus();
+if ( typeof wpOnload === 'function' ) { wpOnload() }		</script>
+				<p id="backtoblog"><a href="https://dbatools.io/">
+		← Back to dbatools		</a></p>
+			</div>
+	<link rel="stylesheet" id="jetpack_css-css" href="https://dbatools.io/wp-content/plugins/jetpack/css/jetpack.css?ver=8.4.2" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var _zxcvbnSettings = {"src":"https:\/\/dbatools.io\/wp-includes\/js\/zxcvbn.min.js"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/c/5.3.4/wp-includes/js/zxcvbn-async.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var pwsL10n = {"unknown":"Password strength unknown","short":"Very weak","bad":"Weak","good":"Medium","strong":"Strong","mismatch":"Mismatch"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/c/5.3.4/wp-admin/js/password-strength-meter.min.js"></script>
+<script type="text/javascript" src="https://c0.wp.com/c/5.3.4/wp-includes/js/underscore.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/c/5.3.4/wp-includes/js/wp-util.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var userProfileL10n = {"warn":"Your new password has not been saved.","warnWeak":"Confirm use of weak password","show":"Show","hide":"Hide","cancel":"Cancel","ariaShow":"Show password","ariaHide":"Hide password"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/c/5.3.4/wp-admin/js/user-profile.min.js"></script>
+	<div class="clear"></div>
+	</body>
+	</html>

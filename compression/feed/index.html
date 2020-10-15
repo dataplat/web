@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	
+	>
+<channel>
+	<title>
+	Comments on: managing data compression with dbatools	</title>
+	<atom:link href="https://dbatools.io/compression/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/compression/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Sat, 20 Apr 2019 19:46:41 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+			<item>
+				<title>
+				By: Michal Piatek				</title>
+				<link>https://dbatools.io/compression/#comment-63735</link>
+		<dc:creator><![CDATA[Michal Piatek]]></dc:creator>
+		<pubDate>Sat, 20 Apr 2019 19:46:41 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9319#comment-63735</guid>
+					<description><![CDATA[I am just doing DB Compression + Shrink on an Archiving System with 2 DBs each 2.5TB. I still have some other DBs where I will evaluate compression. This here might be very useful. I didn&#039;t know dbatools before. I stumbled upon it in an article of Kendra Little. Looks awesome...]]></description>
+		<content:encoded><![CDATA[<p>I am just doing DB Compression + Shrink on an Archiving System with 2 DBs each 2.5TB. I still have some other DBs where I will evaluate compression. This here might be very useful. I didn&#8217;t know dbatools before. I stumbled upon it in an article of Kendra Little. Looks awesome&#8230;</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Gabor				</title>
+				<link>https://dbatools.io/compression/#comment-39279</link>
+		<dc:creator><![CDATA[Gabor]]></dc:creator>
+		<pubDate>Fri, 04 Jan 2019 12:28:47 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9319#comment-39279</guid>
+					<description><![CDATA[Hi Jess,
+
+Nice job but in my case the sys.dm_db_index_operational_stats doesn&#039;t contain any useful information about the index usage. I use the sys.dm_db_index_usage_stats to calculate the update and scan percentages. Maybe the SQL can flush the sys.dm_db_index_operational_stats under memory pressure.
+
+This is my calculations:
+- for update percentage
+WHEN ( SUM(user_updates + user_seeks + user_scans + user_lookups) = 0 ) THEN NULL
+ELSE ROUND(( CAST(SUM(user_updates) AS DECIMAL) / CAST(SUM(user_updates + user_seeks + user_scans + user_lookups) AS DECIMAL) ),2)
+
+- for scan percentage	
+WHEN ( SUM(user_updates + user_seeks + user_scans + user_lookups) = 0 ) THEN NULL
+ELSE ROUND(( CAST(SUM(user_seeks + user_scans + user_lookups) AS DECIMAL) / CAST(SUM(user_updates + user_seeks + user_scans + user_lookups) AS DECIMAL) ),2)
+
+In connection with the sys.dm_db_index_operational_stats:
+https://blogs.msdn.microsoft.com/craigfr/2009/07/29/correction-to-my-prior-post-on-sys-dm_db_index_operational_stats/
+
+Cheers,
+Gabor]]></description>
+		<content:encoded><![CDATA[<p>Hi Jess,</p>
+<p>Nice job but in my case the sys.dm_db_index_operational_stats doesn&#8217;t contain any useful information about the index usage. I use the sys.dm_db_index_usage_stats to calculate the update and scan percentages. Maybe the SQL can flush the sys.dm_db_index_operational_stats under memory pressure.</p>
+<p>This is my calculations:<br />
+&#8211; for update percentage<br />
+WHEN ( SUM(user_updates + user_seeks + user_scans + user_lookups) = 0 ) THEN NULL<br />
+ELSE ROUND(( CAST(SUM(user_updates) AS DECIMAL) / CAST(SUM(user_updates + user_seeks + user_scans + user_lookups) AS DECIMAL) ),2)</p>
+<p>&#8211; for scan percentage<br />
+WHEN ( SUM(user_updates + user_seeks + user_scans + user_lookups) = 0 ) THEN NULL<br />
+ELSE ROUND(( CAST(SUM(user_seeks + user_scans + user_lookups) AS DECIMAL) / CAST(SUM(user_updates + user_seeks + user_scans + user_lookups) AS DECIMAL) ),2)</p>
+<p>In connection with the sys.dm_db_index_operational_stats:<br />
+<a href="https://blogs.msdn.microsoft.com/craigfr/2009/07/29/correction-to-my-prior-post-on-sys-dm_db_index_operational_stats/" rel="nofollow ugc">https://blogs.msdn.microsoft.com/craigfr/2009/07/29/correction-to-my-prior-post-on-sys-dm_db_index_operational_stats/</a></p>
+<p>Cheers,<br />
+Gabor</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Data Compression With dbatools &#8211; Curated SQL				</title>
+				<link>https://dbatools.io/compression/#comment-39040</link>
+		<dc:creator><![CDATA[Data Compression With dbatools &#8211; Curated SQL]]></dc:creator>
+		<pubDate>Thu, 03 Jan 2019 13:00:41 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=9319#comment-39040</guid>
+					<description><![CDATA[[&#8230;] Jess Pomfret shows us the data compression options available when using dbatools: [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Jess Pomfret shows us the data compression options available when using dbatools: [&#8230;]</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

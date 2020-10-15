@@ -1,0 +1,861 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>Chrissy LeMaire &#8211; dbatools</title>
+	<atom:link href="https://dbatools.io/author/admin/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Fri, 10 Jan 2020 14:37:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+
+<image>
+	<url>https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&#038;ssl=1</url>
+	<title>Chrissy LeMaire &#8211; dbatools</title>
+	<link>https://dbatools.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
+		<title>working with sql client aliases</title>
+		<link>https://dbatools.io/aliases/</link>
+				<comments>https://dbatools.io/aliases/#comments</comments>
+				<pubDate>Fri, 10 Jan 2020 11:33:43 +0000</pubDate>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=10008</guid>
+				<description><![CDATA[Want your app servers to connect to your newly migrated SQL Server without modifying connection strings within your application? Or use easy-to-remember names for your docker containers? SQL Client Aliases can help.]]></description>
+								<content:encoded><![CDATA[<p><a href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client">SQL Client Aliases</a> allow you to connect to a SQL Server instance using another name. This is especially useful during migrations. Want your servers to connect to the new SQL Server without modifying connection strings within your application? Or what if you could use easy-to-remember names for your docker containers? SQL Client Aliases can help.</p>
+<p><center><img src="https://i1.wp.com/user-images.githubusercontent.com/8278033/72145420-c9181400-339a-11ea-9229-a460158c0d0f.png?w=800&#038;ssl=1" alt="image" data-recalc-dims="1" /></center></p>
+<p>For the longest time, I managed these aliases using cliconfg for 64-bit applications (<code>C:\Windows\System32\cliconfg.exe</code>) or cliconfg for 32-bit applications (<code>C:\Windows\SysWOW64\cliconfg.exe</code>).</p>
+<p>When I&#8217;d remember and if it was available, I&#8217;d also manage SQL Client Aliases using SQL Server Configuration Manager, which surfaces aliases for both 32-bit applications and 64-bit applications in a single pane. Here&#8217;s a screenshot of both SQL Server Configuration Manager and cliconfg. Note they both show the same aliases, confirming that you can manage aliases using whichever you prefer.</p>
+<p><center><a href="https://dbatools.io/wp-content/uploads/2020/01/cliconfg.png?ssl=1"><img src="https://dbatools.io/wp-content/uploads/2020/01/cliconfg.png?resize=800%2C609&#038;ssl=1" alt="" width="800" height="609" class="aligncenter size-full wp-image-10144" srcset="https://dbatools.io/wp-content/uploads/2020/01/cliconfg.png?w=863&amp;ssl=1 863w, https://dbatools.io/wp-content/uploads/2020/01/cliconfg.png?resize=300%2C228&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2020/01/cliconfg.png?resize=768%2C585&amp;ssl=1 768w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></center></p>
+<p>SQL Native Client provides cliconfg.exe but I think it&#8217;s also built into Windows. I&#8217;ve yet to find an OS that doesn&#8217;t have cliconfg on it &#8211; and I tried all the way back to Windows 2003! So if SQL Client Aliases seem useful to you, you&#8217;re in luck.</p>
+<p>While you can manage SQL Client Aliases using the GUI, I prefer using dbatools which helps me avoid logging into multiple servers at once, and creates both the 32-bit and 64-bit aliases at once.</p>
+<h1>using dbatools</h1>
+<p>I find SQL Client Aliases most useful for facilitating easy migrations and using them is even recommended as a best practice in the <a href="https://veronicageek.com/sharepoint/sharepoint-2013/configure-sql-aliases-for-sharepoint-server/2018/04/">SharePoint world</a>.</p>
+<p>First, I check all of my servers to see which aliases are currently setup.</p>
+<pre><code>Get-DbaClientAlias -ComputerName web01, web02, web03
+</code></pre>
+<p>Then, I&#8217;ll either remove old ones using something like this, which allows me to select the aliases I want to remove.</p>
+<pre><code>Get-DbaClientAlias -ComputerName web01, web02, web03 | Out-GridView -Passthru |  Remove-DbaClientAlias
+</code></pre>
+<p>Then I create my aliases as required. Note that the aliases and server names can be formatted in a number of ways. Both named instances and specifying a port numbers is supported.</p>
+<pre><code>New-DbaClientAlias -ComputerName web01, web02, web03 -ServerName sql02 -Alias sql01
+New-DbaClientAlias -ComputerName web01, web02, web03 -ServerName sql02\sqlexpress19 -Alias sql01\sqlexpress14
+New-DbaClientAlias -ComputerName web01, web02, web03 -ServerName 'sql02,2383' -Alias 'sql01,2383'
+</code></pre>
+<p>By default, connections are created as TCP/IP. Want to use named pipes? That&#8217;s also possible.</p>
+<pre><code>New-DbaClientAlias -ServerName sqlcluster\sharepoint -Alias sp -Protocol NamedPipes
+</code></pre>
+<p>If you&#8217;re familiar with named pipe aliases, you may remember that it creates a funky string. Don&#8217;t worry, we take care of that for you. Just pass the ServerName and Alias as you would with TCP/IP and we&#8217;ll build the named pipe string for you.</p>
+<p>Now that I&#8217;ve created all of my required aliases, let&#8217;s take a look at them using <code>Get-DbaClientAlias</code> and <code>Out-GridView</code>. Note that when I don&#8217;t specify <code>-ComputerName</code>, the command executes against my local machine, in this case, WORKSTATIONX.</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/getclientalias.png?ssl=1"><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/getclientalias.png?resize=694%2C232&#038;ssl=1" alt="" width="694" height="232" class="aligncenter size-full wp-image-10145" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/getclientalias.png?w=694&amp;ssl=1 694w, https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/getclientalias.png?resize=300%2C100&amp;ssl=1 300w" sizes="(max-width: 694px) 100vw, 694px" data-recalc-dims="1" /></a></p>
+<h1>try it out</h1>
+<p>Test this out yourself &#8211; create a new alias, then use dbatools, Azure Data Studio or SSMS to connect to the new server using the old name. In the example below, I&#8217;ve migrated sql2014 to sql2016 then will use the sql2014 alias to connect.</p>
+<p><img src="https://i1.wp.com/user-images.githubusercontent.com/8278033/72148600-8574d880-33a1-11ea-8fca-762be02db2de.png?w=800&#038;ssl=1" alt="image" data-recalc-dims="1" /></p>
+<p>Automating your migrations just got even easier! For more information, check out our built-in help using <code>Get-Help Get-DbaClientAlias -Detailed</code>.</p>
+<p>&#45; Chrissy <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f680.png" alt="🚀" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/aliases/feed/</wfw:commentRss>
+		<slash:comments>5</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">10008</post-id>	</item>
+		<item>
+		<title>Vote for these SQLBits 2020 PowerShell sessions</title>
+		<link>https://dbatools.io/bits2020/</link>
+				<comments>https://dbatools.io/bits2020/#respond</comments>
+				<pubDate>Mon, 23 Dec 2019 12:50:34 +0000</pubDate>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=10124</guid>
+				<description><![CDATA[SQLBits 2020 is back in London, 31st March &#8211; 4th April 2020 and session voting is now open! You must be logged into the site to vote. The complete listing ...]]></description>
+								<content:encoded><![CDATA[<p>SQLBits 2020 is back in London, 31st March &#8211; 4th April 2020 and session voting is now open! You must be <a href="https://sqlbits.com/login?returnurl=%2Finformation%2Fpublicsessions">logged into the site to vote</a>.</p>
+<p>The complete listing of all sessions can be found at <a href="https://sqlbits.com/information/publicsessions">sqlbits.com/information/publicsessions</a>. Here are sessions that feature dbatools or PowerShell.</p>
+<p>Can&#8217;t get to SQLBits? They publish the videos later on, so your vote still counts.</p>
+<h1>dbatools</h1>
+<p>These are the ones that I&#8217;m pretty sure focus on or use dbatools.</p>
+<p><a href="https://www.sqlbits.com/sessions/event20/dbatools_and_Power_BI_walked_into_a_bar">dbatools and Power BI walked into a bar by Cl&#225;udio Silva</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/dbatools_recipes_for_Data_Professionals">dbatools&#8217; recipes for Data Professionals by Cl&#225;udio Silva</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Easy_Database_restores_with_dbatools">Easy Database restores with dbatools by Stuart Moore</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Extending_the_Data_Platform_with_PowerShell_an_introduction">Extending the Data Platform with PowerShell, an introduction by Craig Porteous</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Fundamental_skills_for_the_modern_DBA">Fundamental skills for the modern DBA by John McCormack</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Install__Configure_SQL_Server_with_PowerShell_DSC">Install &amp; Configure SQL Server with PowerShell DSC by Jess Pomfret</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Life_Hacks_dbatools_edition">Life Hacks: dbatools edition by Jess Pomfret</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Mask_That_Data">Mask That Data! by Sander Stad</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Monitoring_SQL_Server_without_breaking_the_bank">Monitoring SQL Server without breaking the bank by Gianluca Sartori</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Start_to_See_With_tSQLt">Start to See With tSQLt by Sander Stad</a><br />
+<a href="https://sqlbits.com/sessions/event20/SQL_Notebooks_in_Azure_Data_Studio_for_the_DBA">SQL Notebooks in Azure Data Studio for the DBA by Rob Sewell</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/SQL_Server_on_Linux_from_the_Command_Line">SQL Server on Linux from the Command Line by Randolph West</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/The_DBA_Quit_and_Now_Youre_It_Action_Plan">The DBA Quit and Now You&#8217;re It: Action Plan by Matt Gordon</a></p>
+<h1>PowerShell</h1>
+<p>Not sure if these use dbatools but I know they use PowerShell <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f929.png" alt="🤩" class="wp-smiley" style="height: 1em; max-height: 1em;" />.</p>
+<p><a href="https://www.sqlbits.com/sessions/event20/6_Months_to_5_Minutes_Faster_Deploys_for_Happier_Users">6 Months to 5 Minutes, Faster Deploys for Happier Users by Jan Mulkens</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Application_and_Database_Migrations-A_Pester_Journey">Application and Database Migrations-A Pester Journey by Craig Ottley-Thistlethwaite</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/ARM_Yourself_A_beginners_guide_to_using_ARM_Templates">ARM Yourself: A beginners guide to using ARM Templates by Jason Horner</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Data_Protection_by_design_Creating_a_Data_Masking_strategy">Data Protection by design: Creating a Data Masking strategy by Christopher Unwin</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Fun_with_Azure_Data_Studio">Fun with Azure Data Studio by Richard Munn</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Introducing_Azure_Data_Studio_SQL_Operations_Studio">Introducing Azure Data Studio (SQL Operations Studio) by Rich Benner</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Introduciton_to_PowerShell_DSC">Introduction to PowerShell DSC by John Q Martin</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Introduction_to_Infrastructre_as_Code_with_Terraform">Introduction to Infrastructure as Code with Terraform by John Q Martin</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Scripting_yourself_to_DevOps_heaven">Scripting yourself to DevOps heaven by David L. Bojsen</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/SSDT_databases_Deployment_in_CI_CD_process_with_Azure_DevOps">SSDT databases:Deployment in CI/CD process with Azure DevOps by Kamil Nowinski</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Supercharge_your_Reporting_Services_An_essential_toolkit">Supercharge your Reporting Services: An essential toolkit by Craig Porteous</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Convert">The quick journey from Power BI to automated tests by Bent Nissen Pedersen</a><br />
+<a href="https://www.sqlbits.com/sessions/event20/Turn_Runbooks_into_Notebooks_ADS_for_the_On-Call_DBA">Turn Runbooks into Notebooks: ADS for the On-Call DBA by Matt Gordon</a></p>
+<h1>The code</h1>
+<p>How did I get this list? With PowerShell of course!</p>
+<pre class="lang:ps decode:true " ># use basic parsing to make sure I write it to support Linux as well
+$bits = Invoke-WebRequest -Uri https://sqlbits.com/information/publicsessions -UseBasicParsing
+$links = $bits.Links | Where href -match event20
+$sessions = $results = @()
+
+# Make a cache to play around with, before final code, otherwise you just keep downloading all webpages
+ foreach ($link in $links) { 
+    $url = $link.href.Replace('..','https://www.sqlbits.com')
+    $sessions += [pscustomobject]@{
+        Url = $url
+        Title = ($link.outerHTML -split '&lt;.+?&gt;' -match '\S')[0]
+        Page = (Invoke-WebRequest -Uri $url -UseBasicParsing)
+    }
+}
+
+foreach ($session in $sessions)  {
+    $url = $session.Url
+    $title = $session.Title
+    # this is a case sensitive match
+    $speaker = ((($session.Page.Links | Where href -cmatch Speakers).outerHTML) -split '<.+?>' -match '\S')[0]
+
+    if ($session.Page.Content -match 'dbatools') {
+        $results += [pscustomobject]@{
+        Title = $title
+        Link = "[$title by $speaker]($url)"
+        Category = "dbatools"
+        }
+    }
+    
+    if ($session.Page.Content -match 'powershell' -and $session.Page.Content -notmatch 'dbatools') {
+        $results += [pscustomobject]@{
+        Title = $title
+        Link = "[$title by $speaker]($url)"
+        Category = "PowerShell"
+        }
+    }
+}
+
+$results | Sort-Object Category, Title | Select-Object -ExpandProperty Link | clip
+</pre>
+<p>Haven&#8217;t been to SQLBits? It&#8217;s genuinely one of the awesomest conferences and I highly recommend it, both as a speaker and an attendee.</p>
+<p>Chrissy</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/bits2020/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">10124</post-id>	</item>
+		<item>
+		<title>working with file sizes in dbatools</title>
+		<link>https://dbatools.io/size/</link>
+				<comments>https://dbatools.io/size/#comments</comments>
+				<pubDate>Thu, 12 Sep 2019 14:39:34 +0000</pubDate>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=10010</guid>
+				<description><![CDATA[You may notice our file sizes are pretty and human-readable, but they're also packed with usable data behind-the-scenes.]]></description>
+								<content:encoded><![CDATA[<p>Within dbatools, you may notice file sizes are pretty and human-readable.</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?ssl=1"><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=800%2C370&#038;ssl=1" alt="" width="800" height="370" class="aligncenter size-large wp-image-10011" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=1024%2C473&amp;ssl=1 1024w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=300%2C139&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=768%2C355&amp;ssl=1 768w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?w=1139&amp;ssl=1 1139w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<p>That was some C# based magic created by Microsoft PFE and creator of <a href="http://psframework.org/">PSFramework</a>, <a href="https://twitter.com/FredWeinmann">Fred Weinmann</a>. In the background, SQL Server often gives us different types of numbers to represent file sizes. Sometimes it&#8217;s bytes, sometimes it&#8217;s megabytes. We wanted to standardize the sizing in dbatools, and thus the <code>dbasize</code> type was born.</p>
+<h2>Usage</h2>
+<p>This size type is cool because it looks beautiful, showing KB, MB, GB, TB and PB. But it&#8217;s also packed with usable data behind-the-scenes. This can be seen when you expand the property, either by using <code>.ColumnName</code> or <code>Select -ExpandProperty ColumnName</code>.</p>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/usedspace.png?ssl=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/usedspace.png?resize=800%2C155&#038;ssl=1" alt="" width="800" height="155" class="aligncenter size-large wp-image-10012" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/usedspace.png?resize=1024%2C199&amp;ssl=1 1024w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/usedspace.png?resize=300%2C58&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/usedspace.png?resize=768%2C150&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/usedspace.png?w=1463&amp;ssl=1 1463w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<p>This means that you don&#8217;t have to parse the results to get the bits and bytes &#8211; it&#8217;s all there in the background. Here&#8217;s the code used in the above screenshot:</p>
+<pre class="lang:ps decode:true " >
+# Evaluate UsedSpace details
+Get-DbaDbSpace -SqlInstance sql2017 -Database master | Select -First 1 | Select -ExpandProperty UsedSpace</pre>
+<p>When using this type in practice, your code will likely look something like this:</p>
+<pre class="lang:ps decode:true " >
+# Use the type with Where-Object
+Get-DbaDbSpace -SqlInstance sql2017 | Where-Object { $_.UsedSpace.Megabyte -gt 10 }
+
+# Write it to file using foreach
+Set-Content -Path C:\temp\mb.csv -Value 'Name,UsedMB'
+foreach ($file in (Get-DbaDbSpace -SqlInstance sql2017 -Database master)) {
+    $name = $file.Database
+    $usedmb = $file.UsedSpace.Megabyte
+    Add-Content -Path C:\temp\mb.csv -Value "$name,$usedmb"
+}
+
+# Write it to CSV using calculated properties
+Get-DbaDbSpace -SqlInstance sql2017 -Database master | 
+    Select-Object -Property Database, @{ Name = 'UsedMB'; Expression = {  $_.UsedSpace.Megabyte } } | 
+    Export-Csv -Path C:\temp\mb.csv -NoTypeInformation
+</pre>
+<h2>Configuration</h2>
+<p>You can also <a href="http://dbatools.io/config">configure</a> the output. Want more than 2 numbers after the decimal points? Can do! Don&#8217;t want the human-readable display by default? It can be disabled using <code>Set-DbatoolsConfig</code> <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f44d-1f3fe.png" alt="👍🏾" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<pre class="lang:ps decode:true " >
+# Get the two properties you'll be working with
+Get-DbatoolsConfig formatting.size.* | Out-GridView
+</pre>
+<p>This ultimately shows details for formatting.size.digits and formatting.size.style.</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/sizeconfig.png?ssl=1"><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/sizeconfig.png?resize=800%2C100&#038;ssl=1" alt="" width="800" height="100" class="aligncenter size-large wp-image-10013" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/sizeconfig.png?resize=1024%2C128&amp;ssl=1 1024w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/sizeconfig.png?resize=300%2C37&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/sizeconfig.png?resize=768%2C96&amp;ssl=1 768w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/sizeconfig.png?w=1370&amp;ssl=1 1370w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<h3>formatting.size.digits</h3>
+<p>This setting controls how many digits are displayed after the decimal. By default, two digits are shown. Let&#8217;s change that to four.</p>
+<pre class="lang:ps decode:true " >
+# Change value to 4
+Set-DbatoolsConfig -FullName formatting.size.digits -Value 4 | Register-DbatoolsConfig
+</pre>
+<p>Piping to <code>Register-DbatoolsConfig</code> persists the value across sessions. Otherwise, your digits would revert back to two when you create a new session.</p>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/four.png?ssl=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/four.png?resize=800%2C370&#038;ssl=1" alt="" width="800" height="370" class="aligncenter size-large wp-image-10016" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/four.png?resize=1024%2C473&amp;ssl=1 1024w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/four.png?resize=300%2C139&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/four.png?resize=768%2C355&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/four.png?w=1139&amp;ssl=1 1139w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<p>Now you can see that there are 4 digits after the decimal! Cool. I didn&#8217;t even realize this before writing this blog post <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f605.png" alt="😅" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<h3>formatting.size.style</h3>
+<p>By default, we use the &#8220;Dynamic&#8221; styling size. This basically means that we&#8217;ll show file sizes similar to way Explorer does: the biggest size is used. So if something is 2.5 megabytes, it won&#8217;t use B or KB, but 2.5 MB.</p>
+<p>Now let&#8217;s disable styling altogether and show values in bytes, but only for the current session.</p>
+<pre class="lang:ps decode:true " >
+# Removing formatting, show in bytes
+Set-DbatoolsConfig -FullName formatting.size.style -Value plain
+</pre>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/plain.png?ssl=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/plain.png?resize=800%2C370&#038;ssl=1" alt="" width="800" height="370" class="aligncenter size-large wp-image-10017" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/plain.png?resize=1024%2C473&amp;ssl=1 1024w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/plain.png?resize=300%2C139&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/plain.png?resize=768%2C355&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/plain.png?w=1139&amp;ssl=1 1139w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<p>Note in the screenshot above that UsedSpace is now an unformatted number.</p>
+<p>Prefer that everything be displayed in terabytes by default? We support that too.</p>
+<pre class="lang:ps decode:true " >
+# Set default value to terabyte
+Set-DbatoolsConfig -FullName formatting.size.style -Value Tb
+</pre>
+<p>Here are all the options available:</p>
+<ul>
+<li>Dynamic</li>
+<li>Plain</li>
+<li>Byte</li>
+<li>B</li>
+<li>Kilobyte</li>
+<li>KB</li>
+<li>Megabyte</li>
+<li>MB</li>
+<li>Gigabyte</li>
+<li>GB</li>
+<li>Terabyte</li>
+<li>TB</li>
+</ul>
+<p>If you&#8217;re wondering how I got that, I researched how to show an enum in PowerShell, found <a href="https://social.technet.microsoft.com/wiki/contents/articles/26436.how-to-create-and-use-enums-in-powershell.aspx">this TechNet article</a> then executed:</p>
+<pre class="lang:ps decode:true " >
+# Use .NET to enumerate the available values of SizeStyle
+[System.Enum]::GetNames([Sqlcollaborative.Dbatools.Utility.SizeStyle])
+</pre>
+<p>Hope that helps with number formatting in dbatools! And thanks to Fred for such a beautiful, standardized way to show numbers <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f60e.png" alt="😎" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p>&#45; Chrissy</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/size/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">10010</post-id>	</item>
+		<item>
+		<title>Learn dbatools in a Month of Lunches</title>
+		<link>https://dbatools.io/meap/</link>
+				<comments>https://dbatools.io/meap/#comments</comments>
+				<pubDate>Wed, 04 Sep 2019 13:50:38 +0000</pubDate>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[book]]></category>
+		<category><![CDATA[dbatoolsMoL]]></category>
+		<category><![CDATA[MonthOfLunches]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=9995</guid>
+				<description><![CDATA[After nearly 10 months of work, early access to Learn dbatools in a Month of Lunches is now available from our favorite publisher, Manning Publications! For years, people have asked ...]]></description>
+								<content:encoded><![CDATA[<p>After nearly 10 months of work, early access to <em><a href="/book">Learn dbatools in a Month of Lunches</a></em> is now available from our favorite publisher, <a href="https://www.manning.com">Manning Publications</a>!</p>
+<p>For years, people have asked if any dbatools books are available and the answer now can finally be yes, <em>mostly</em> <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f605.png" alt="😅" class="wp-smiley" style="height: 1em; max-height: 1em;" />. Learn dbatools in a Month of Lunches, written by me and Rob Sewell (the DBA with the beard), is now available for purchase, even as we&#8217;re still writing it. And as of today, you can even use the code <strong>bldbatools50</strong> to get a whopping <a href="https://www.youtube.com/watch?v=sGQJdcOXd-Y">50% off</a> (valid forever).</p>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/sGQJdcOXd-Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<p>Right now, the first few chapters are available, and we&#8217;re going to release a new chapter at least once a month. Here&#8217;s our current <a href="/book">Table of Contents</a>.</p>
+<p><a href="/book"><img src="https://dbatools.io/wp-content/uploads/2019/09/toc.png?resize=569%2C872&#038;ssl=1" alt="" width="569" height="872" class="aligncenter size-full wp-image-9997" srcset="https://dbatools.io/wp-content/uploads/2019/09/toc.png?w=569&amp;ssl=1 569w, https://dbatools.io/wp-content/uploads/2019/09/toc.png?resize=196%2C300&amp;ssl=1 196w" sizes="(max-width: 569px) 100vw, 569px" data-recalc-dims="1" /></a></p>
+<h2>What is MEAP?</h2>
+<p><a href="https://www.manning.com/meap-program">Manning&#8217;s Early Access Program</a> was introduced in 2003, because the publisher &#8220;found it frustrating that while authors were working on later chapters, the earlier ones sat gathering dust, of no use to anyone.&#8221;</p>
+<p>According to the website, MEAP offers several benefits over the traditional &#8220;wait to read&#8221; model.</p>
+<ul>
+<li>Get started now. You can read early versions of the chapters before the book is finished.</li>
+<li>Regular updates. We&#8217;ll let you know when updates are available.</li>
+<li>Get finished books faster. MEAP customers are the first to get final eBooks and pbooks.</li>
+</ul>
+<p>What I appreciate as an author is that this allows early-adopters to become part of the writing process and can help make the book even better. As Manning puts it:</p>
+<blockquote><p>
+  The content you get is not finished and will evolve, sometimes dramatically, before it is good enough for us to publish. But you get the chapter drafts when you need the information. And, you get a chance to let the author know what you think, which can really help both them and us make a better book.
+</p></blockquote>
+<p>Occasionally, Manning will decide not to publish a book that&#8217;s become available in MEAP. Fear not! If they cancel your MEAP, you can exchange it for another book or get a refund.</p>
+<h2>Thanks <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f499.png" alt="💙" class="wp-smiley" style="height: 1em; max-height: 1em;" /></h2>
+<p>For those 300+ of you who have already purchased our book, Rob and I very much appreciate your support and hope that you find the book super useful <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f680.png" alt="🚀" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p>Also, shoutout to Mike Shepard (<a href="https://powershellstation.com/">b</a> | <a href="https://twitter.com/MikeShepard70">t</a>) and Cláudio Silva (<a href="https://claudioessilva.eu/">b</a> | <a href="https://twitter.com/claudioessilva">t</a>) for the technical edits and to the anonymous community editors who took the time to review our book before it went to MEAP!</p>
+<p>&#45; Chrissy</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/meap/feed/</wfw:commentRss>
+		<slash:comments>17</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">9995</post-id>	</item>
+		<item>
+		<title>migrating super old app databases</title>
+		<link>https://dbatools.io/oldapp/</link>
+				<comments>https://dbatools.io/oldapp/#comments</comments>
+				<pubDate>Mon, 26 Aug 2019 14:00:06 +0000</pubDate>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=9928</guid>
+				<description><![CDATA[Recently, a colleague asked me to assist with the migration of some older, customized application databases to a SQL Server 2017 instance.]]></description>
+								<content:encoded><![CDATA[<p>Recently, a colleague asked me to assist with the migration of some older, customized application databases to a SQL Server 2017 instance. Most of the migrations I perform are rather vanilla, but this one was a bit more involved.</p>
+<h1>Setup</h1>
+<p>Imagine this scenario:</p>
+<h3>Source (APPSQL1)</h3>
+<ul>
+<li>Dedicated SQL Server 2008 R2 failover clustered instance with a non-default collation (SQL_Latin1_General_CP1_CI_AI)</li>
+<li>Custom .NET application with an intense database containing a non-default collation (also SQL_Latin1_General_CP1_CI_AI), multiple CLR assemblies, and thousands of tables, views, stored procedures, functions</li>
+<li>Nearly 30 SQL Agent jobs, many of which had to be disabled over the years due to compatibility issues and scope changes</li>
+<li>Out-of-support for both Microsoft and the application vendor</li>
+</ul>
+<h3>Destination (APPSQL2)</h3>
+<ul>
+<li>Shared server</li>
+<li>SQL Server 2017</li>
+<li>Default collation (SQL_Latin1_General_CP1_CI_AS)</li>
+</ul>
+<p>There was even a linked server in the mix, but our biggest concerns revolved around the changing collation and the Agent jobs, which were known to be brittle.</p>
+<p>The destination test server was an existing shared server, which mirrored the scenario that would play out in production. And while the databases only needed to exist on the new server for a limited period of time, these migrated databases were going to be the most important databases on the entire instance. This meant that the SQL Server configs were going to have to cater to this app&#8217;s needs. One exception was the collation, as the accent sensitivity was determined not to be a big deal and the vendor agreed.</p>
+<p>Interesting requirements, no doubt!</p>
+<h1>Prep</h1>
+<p>Fortunately, my colleague kept a <a href="/track-logins/">login inventory</a>, and we used this to determine that there would be 5 servers with connection strings that&#8217;d have to be updated with the new server name. Generally, I try to see if creating <a href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client">SQL client aliases</a> is a suitable solution and this was no exception. Creating SQL aliases satisfies my curiosity and can let us know early on if the migration was a success.</p>
+<blockquote><p>
+  This blog post refers to options added in 1.0.34. If you&#8217;d like to follow along, please ensure you&#8217;ve updated to the latest version of dbatools.
+</p></blockquote>
+<p>So let&#8217;s take a look at the prep work.</p>
+<pre><code class="language-powershell"># Ensure PowerShell remoting is available (Test-DbaConnection would also work)
+Invoke-Command -ComputerName server1, server2, server3, server4, server5 -ScriptBlock { $env:computername }
+
+# See current aliases to ensure no overlap
+Get-DbaClientAlias -ComputerName server1, server2, server3, server4, server5
+
+# Export / Document all instance objects from source SQL Server
+Export-DbaInstance -SqlInstance APPSQL1, APPSQL2
+
+# Ensure no jobs are currently running
+Get-DbaRunningJob -SqlInstance APPSQL1
+
+# Perform final log backup
+Start-DbaAgentJob -SqlInstance APPSQL1 -Job "DatabaseBackup - USER_DATABASES - LOG"
+</code></pre>
+<p>Since the old server was going to be turned off entirely, I thought it&#8217;d be a good idea to export all of the objects (logins, jobs, etc) so that the DBA could see the state they were in at the time of migration. While we were at it, we threw in the destination server as well.</p>
+<p>Once the final log backup was made, it was time to perform the migration!</p>
+<h1>Migration</h1>
+<p>Because the destination server was a shared server, it wasn&#8217;t a likely candidate for <code>Start-DbaMigration</code> as this command is intended for instance-to-instance migrations. In general, when I migrate to shared servers, I&#8217;ll run each individual <code>Copy-Dba</code> command for things like databases, logins and jobs.</p>
+<p>In this case, however, I recommended <code>Start-DbaMigration</code> since the application was high-priority and I wanted the migration to be as thorough as possible. I knew that the SQL Server configuration values would change, but because they were exported when we ran <code>Export-DbaInstance</code>, we could easily reference old settings.</p>
+<p>I did decide to exclude a few things that could needlessly pollute the new server like user objects in the system databases (<code>Copy-DbaSysDbUserObject</code>) and I also excluded the Agent Server Properties, because the destination server properties (like fail-safe operator) were already set.</p>
+<pre><code class="language-powershell"># Start Migration - view results in a pretty grid, and assign the results to a variable so that it can be easily referenced later
+Start-DbaMigration -Source APPSQL1 -Destination APPSQL2 -UseLastBackup -SetSourceReadOnly -Exclude SysDbUserObjects, AgentServerProperties, PolicyManagement, ResourceGovernor, DataCollector | Select-Object * -OutVariable migration | Out-GridView
+
+# Create new alias
+New-DbaClientAlias -ComputerName server1, server2, server3, server4, server5 -ServerName APPSQL2 -Alias APPSQL1
+
+# Prep post migration potential failure/fallback
+# Set-DbaDbState -SqlInstance APPSQL11 -AllDatabases -ReadWrite -Force
+# Get-DbaClientAlias -ComputerName server1, server2, server3, server4, server5 | Where AliasName -eq APPSQL11 | Remove-DbaClientAlias
+</code></pre>
+<h1>Post-migration</h1>
+<p>So the migration went <em>decently</em> well. While we didn&#8217;t have to use the fallback commands, we did have to investigate a couple failures.</p>
+<h3>Failed job migration</h3>
+<p>A couple jobs didn&#8217;t migrate because they were rejected by the new server. Seems that scripted export code referenced &#8220;server=&#8221;, which was invalid because it contained the name of the old server.</p>
+<pre><code class="language-powershell"># Find jobs causing issues
+Get-DbaAgentJobStep -SqlInstance APPSQL1 | Where Command -match "@server=N'APPSQL1'"
+
+# Nope that didn't work. Oh, wait, I need the export code, not the command code.
+$jobs = $migration | Where-Object { $psitem.Type -eq "Agent Job" -and $psitem.Status -eq "Failed" } | Select -ExpandProperty Name
+Get-DbaAgentJob -SqlInstance APPSQL1 -Job $jobs | Export-DbaScript -Passthru -Outvariable tsql | clip
+</code></pre>
+<p>The above code resulted in the T-SQL CREATE scripts being added to the clipboard. We then pasted that code into SSMS, performed a find/replace for <em>@server=N&#8217;APPSQL1&#8242;</em> with <em>@server=N&#8217;APPSQL2&#8242;</em> then executed the T-SQL. Boom, it worked. Jobs were created and scheduled. I also updated dbatools to avoid this failure in the future.</p>
+<p>While I used SSMS to perform the find/replace, this could have been done in PowerShell as well.</p>
+<pre><code class="language-powershell">$tsql = $tsql -Replace "@server=N'APPSQL1'","@server=N'APPSQL2'"
+Invoke-DbaQuery -SqlInstance APPSQL2 -Query $tsql
+</code></pre>
+<p>Now we needed to run each of the newly created jobs to see if they work, as it make me feel more confident in the migration&#8217;s success. After evaluating each job&#8217;s purpose, we determined it would be okay to run every job outside of their scheduled execution times.</p>
+<pre><code class="language-powershell"># Start newly created jobs that are enabled (the lazy way), wait for them to finish
+Get-DbaAgentJob -SqlInstance APPSQL2 | Where CreateDate -gt (Get-Date).AddMinutes(-60) | Where Enabled | Start-DbaAgentJob -Wait
+
+# Ugh, looks like we have some failed executions. Were any of these jobs failing prior to migration?
+Get-DbaAgentJob -SqlInstance APPSQL1 | Where LastRunOutcome -ne "Succeeded" | Where Enabled | select Name
+</code></pre>
+<p>Nooo, all the failed jobs ran successfully on the APPSQL1! Now we&#8217;d have to dig into the code to see what code is failing and how it can be fixed. I imagined the failures were due to collation issues and I was right. Good ol&#8217; <strong>Cannot resolve the collation conflict between&#8230;</strong>.</p>
+<p>Maybe we can update the collation in the databases? I recall years ago someone asked for this functionality in dbatools but thoroughly changing the collation of an existing database is so complicated as it <a href="https://docs.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-database-collation?view=sql-server-2017">requires changing the collation of so many objects</a> including tables and indexes.</p>
+<p>Let&#8217;s try changing the database collation anyway, just to see if it&#8217;s possible and if it helps. This was mostly to satisfy my curiosity.</p>
+<pre><code class="language-powershell"># first we have to kill the connections then attempt a collation change in SSMS
+Get-DbaProcess -SqlInstance APPSQL1 -Database appdb | Stop-DbaProcess
+</code></pre>
+<p>Nope. Our attempted collation change using SSMS didn&#8217;t even work because there were some dependent features in a couple of the databases. So now we had to find and edit the impacted views.</p>
+<pre><code class="language-powershell"># Omg most of the database objects are encrypted &#x1f644;, don't we have a command for that?
+Get-Command -Module dbatools *crypt*
+
+# Yesss, Invoke-DbaDbDecryptObject. Thanks Sander!
+Get-Help -Examples Invoke-DbaDbDecryptObject
+
+# Run it
+Invoke-DbaDbDecryptObject -SqlInstance APPSQL2 -Database appdb -Name vwImportantView
+
+# Oh darn, DAC is not enabled and Invoke-DbaDbDecryptObject needs DAC
+Set-DbaSpConfigure -SqlInstance APPSQL2 -ConfigName RemoteDacConnectionsEnabled -Value 1
+
+# Run again
+Invoke-DbaDbDecryptObject -SqlInstance APPSQL2 -Database appdb -Name $names
+
+# Turn DAC back off
+Set-DbaSpConfigure -SqlInstance APPSQL2 -ConfigName RemoteDacConnectionsEnabled -Value 0
+</code></pre>
+<p>We decrypted the views then added <em>COLLATE DATABASE_DEFAULT</em> to some queries, altered the views and voila! We were set. After the jobs ran successfully, we handed the migration off to the application team.</p>
+<h2>SSPI failures</h2>
+<p>The application team immediately handed it right back to us <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f605.png" alt="😅" class="wp-smiley" style="height: 1em; max-height: 1em;" />. Seems they encountered some &#8220;Cannot Generate SSPI Context&#8221; failures. Wait, what? The SPNs are set, right?</p>
+<pre><code class="language-powershell"># Double-checking all of the SPNs are set
+Test-DbaSpn -ComputerName APPSQL2
+
+# Looks great! So is it just the app or can we make any kerberos connections using PowerShell?
+# Maybe this is because they are using a SQL Client alias?
+Test-DbaConnectionAuthScheme -SqlInstance APPSQL2
+</code></pre>
+<p>Oh, no: our dbatools connection was also using NTLM. So we checked to see if there were some stale DNS records. Nope. Cleaned out the Kerberos tickets. Works? Still no. Triple checked with Microsoft&#8217;s tools and really, Kerberos <em>should</em> be working.</p>
+<p>Turns out it was an issue with a setting in Windows (didn&#8217;t record which, oops), and after that was adjusted, Kerberos worked!</p>
+<h1>Now for the application</h1>
+<p>After confirming that Kerberos was totally working, I removed the newly created SQL Client aliases and they updated all of the connection strings. Still there were problems. The error message was written in <code>en-gb</code> (&#8220;initalised&#8221;) so I figured it was an application error. If this was an error coming from SQL Server or IIS, it would have been written in <code>en-us</code>.</p>
+<p>We figured that if the error is referencing database initialization, there must be some config table that has the name of the server. What a nightmare. Now we have to search through the databases, guessing at the potential name for this configuration object.</p>
+<pre><code class="language-powershell"># I bet it's one of those configuration tables.
+Get-DbaDbTable -SqlInstance APPSQL2 -Database appdb | Where Name -match config
+
+# No good candidates. Let's look thru the stored procedures.
+ Find-DbaStoredProcedure -SqlInstance APPSQL2 -Database appdb -Pattern config
+
+# Oops, forgot they were all encrypted. That didn't return anything.
+# Search views, stored procedures and triggers then save the candidates' names to a variable so they can be passed to Invoke-DbaDbDecryptObject
+Get-DbaDbModule -SqlInstance APPSQL2 -Database appdb -Type View, StoredProcedure, Trigger | Out-GridView -Passthru | Select-Object -ExpandProperty Name -OutVariable names
+Invoke-DbaDbDecryptObject -SqlInstance APPSQL2 -Database appdb -Name $names
+</code></pre>
+<p>Oh, la la! We found a candidate, updated the values and we were back in action! The migration was successful and the test results were accepted. With this knowledge, they were able to quickly perform a the production migration.</p>
+<h1>Out of curiosity</h1>
+<p>What was your most challenging migration with dbatools like? How often do you have to modify jobs and database objects like stored procedures/views?</p>
+<p>&#45; Chrissy <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f680.png" alt="🚀" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/oldapp/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">9928</post-id>	</item>
+		<item>
+		<title>dbatools &#038; sql on linux</title>
+		<link>https://dbatools.io/linux/</link>
+				<comments>https://dbatools.io/linux/#comments</comments>
+				<pubDate>Tue, 09 Jul 2019 20:42:03 +0000</pubDate>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[linux]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=9813</guid>
+				<description><![CDATA[dbatools and linux As a long-time Linux user and open-source advocate, I was beyond excited when PowerShell and SQL Server came to Linux. A few of the decisions I made ...]]></description>
+								<content:encoded><![CDATA[<p><div class='content-column one_third'><a href="https://tracyboggiano.com/archive/2019/07/t-sql-tuesday-116-sql-on-linux/"><img src="https://i1.wp.com/blog.netnerds.net/wp-content/uploads/2016/06/TSQL2SDAY-150x150.png?resize=150%2C150&#038;ssl=1" alt="TSQL2SDAY-150x150" width="150" height="150" class="aligncenter size-full wp-image-5700" data-recalc-dims="1" /></a></div><div class='content-column two_third last_column'>Today&#8217;s article is part of <a href="https://tracyboggiano.com/archive/2019/07/t-sql-tuesday-116-sql-on-linux/">T-SQL Tuesday</a>. T-SQL Tuesday is the brainchild of Adam Machanic. It is a blog party on the second Tuesday of each month and everyone is welcome to participate.</p>
+<p>This month’s T-SQL Tuesday is hosted by Tracy Boggiano (<a href=https://tracyboggiano.com/>[b]</a>|<a href=https://twitter.com/tracyboggiano>[t]</a>), is all about Linux.</div><div class='clear_column'></div></p>
+<h2>dbatools and linux</h2>
+<p>As a long-time Linux user and open-source advocate, I was beyond excited when <a href="https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6">PowerShell</a> and <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup?view=sql-server-2017">SQL Server</a> came to Linux.</p>
+<p>A few of the decisions I made about dbatools were actually inspired by Linux. For instance, when dbatools was initially released, it was <a href="https://dbatools.io/dbatools-is-free-as-in-speech/">GNU GPL</a> licensed, which is the same license as the Linux kernel (we&#8217;ve since re-licensed under the more permissive <a href="/mit">MIT</a>). In addition, dbatools&#8217; all-lower-case naming convention was also inspired by Linux, as most commands executed within Linux are in lower-case and a number of projects use the lower-case naming convention as well.</p>
+<h2>dbatools on linux</h2>
+<p>Thanks to Microsoft&#8217;s PowerShell and SQL Server teams, dbatools runs on Linux and mac OS!</p>
+<p>As covered in our book which&#8217;ll be released next year, dbatools in a Month of Lunches, 75% of commands in dbatools are supported by Linux and mac OS.</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/07/os.png?ssl=1"><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/07/os.png?resize=683%2C356&#038;ssl=1" alt="" width="683" height="356" class="aligncenter size-full wp-image-9821" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/07/os.png?w=683&amp;ssl=1 683w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/07/os.png?resize=300%2C156&amp;ssl=1 300w" sizes="(max-width: 683px) 100vw, 683px" data-recalc-dims="1" /></a></p>
+<p>Commands that are pure-SQL Server, like <a href="/Get-DbaDatabase">Get-DbaDatabase</a> or <a href="/New-DbaLogin">New-DbaLogin</a>, work on Linux and mac OS. Others that rely on WMI or remoting, like <a href="/Get-DbaDiskSpace">Get-DbaDiskSpace</a> or <a href="/Enable-DbaAgHadr">Enable-DbaAgHadr</a>, do not currently work on Linux.</p>
+<p>If you&#8217;re curious, our <a href="https://docs.dbatools.io">docs site</a> will tell you if a command is supported by Linux and mac OS.</p>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/07/ag.png?ssl=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/07/ag.png?resize=504%2C132&#038;ssl=1" alt="" width="504" height="132" class="aligncenter size-full wp-image-9822" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/07/ag.png?w=504&amp;ssl=1 504w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/07/ag.png?resize=300%2C79&amp;ssl=1 300w" sizes="(max-width: 504px) 100vw, 504px" data-recalc-dims="1" /></a></p>
+<p>And, of course, you can also ask on Linux itself. After installing dbatools, run <code>Get-Command -Module dbatools</code> to see all of the commands that are available.</p>
+<h2>sql on linux</h2>
+<p>dbatools also supports SQL on Linux. If it works on SQL Server Management Studio, it&#8217;ll work with dbatools as we&#8217;re built on the same libraries. Also because SQL on Linux is pretty much the same everything as SQL on Windows.</p>
+<p>Interested in learning more? Check out the #1 rated SQL Server on Linux book, <a href="https://amzn.to/2YHPe4I">Pro SQL Server on Linux</a> by Microsoft&#8217;s <a target=new href="https://blogs.msdn.microsoft.com/bobsql/">Bob Ward</a>. This book was actually edited by our friend <a href="https://www.centinosystems.com/blog/">Anthony Nocentino</a> and it&#8217;s rumored that Anthony will contribute some sweet Linux-centric commands to dbatools when the Year of the Linux Desktop arrives, so we&#8217;re looking forward to that <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f60a.png" alt="😊" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p><a href="https://twitter.com/joshcorr/status/1141668184220753921"><img src="https://dbatools.io/wp-content/uploads/2019/07/sadtony.jpg?resize=280%2C279&#038;ssl=1" alt="" width="280" height="279" class="aligncenter size-full wp-image-9827" srcset="https://dbatools.io/wp-content/uploads/2019/07/sadtony.jpg?w=280&amp;ssl=1 280w, https://dbatools.io/wp-content/uploads/2019/07/sadtony.jpg?resize=150%2C150&amp;ssl=1 150w" sizes="(max-width: 280px) 100vw, 280px" data-recalc-dims="1" /></a></p>
+<p>Kidding aside, dbatools supports Linux and mac OS in a number of ways. Not only can you run dbatools FROM Linux, you can also connect TO SQL on Linux. We even have fantastic Registered Server support that eases authentication.</p>
+<h3>to linux / mac os</h3>
+<p>Connecting to SQL Server (Windows or Linux) from Linux or mac OS is generally done with using an alternative <code>-SqlCredential</code>. So let&#8217;s say you follow Microsoft&#8217;s guide to setting up <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup?view=sql-server-2017">SQL on Linux</a> or if you use dbatools&#8217; <a href="/docker">Docker guide</a>, you&#8217;ll likely need to authenticate with the <code>sa</code> or <code>sqladmin</code> account. Execute the following command.</p>
+<blockquote><p>
+  Get-DbaDatabase -SqlInstance sqlonlinux -SqlCredential sa
+</p></blockquote>
+<p>You&#8217;ll then be prompted for your password, and voilà! Don&#8217;t want to type your password every time? You can reuse it by assigning the credential to a variable.</p>
+<blockquote><p>
+  $cred = Get-Credential sa<br />
+  Get-DbaDatabase -SqlInstance sqlonlinux -SqlCredential $cred
+</p></blockquote>
+<p>You can also export your credentials to disk using Export-CliXml. The password will be encrypted and only the same user/computer can decrypt.</p>
+<blockquote><p>
+  Get-Credential sa | Export-CliXml -Path C:\temp\creds.xml<br />
+  $cred = Import-CliXml  -Path C:\temp\creds.xml<br />
+  Get-DbaDatabase -SqlInstance sqlonlinux -SqlCredential $cred
+</p></blockquote>
+<p>Prefer using the Windows Credential Store instead? Check out the PowerShell module, <a href="https://github.com/Jaykul/BetterCredentials">BetterCredentials</a>.</p>
+<h3>to linux / mac os using registered servers</h3>
+<p>You can also use Local Registered Servers! This functionality was added in dbatools 1.0</p>
+<blockquote><p>
+  Connect-DbaInstance -SqlInstance sqlonlinux -SqlCredential sa | Add-DbaRegServer -Name &#8220;SQL Server on Linux&#8221;
+</p></blockquote>
+<p>From there, you can see it in SQL Server Management Studio&#8217;s Local Server Groups.</p>
+<p><a href="https://dbatools.io/wp-content/uploads/2019/07/cms.png?ssl=1"><img src="https://dbatools.io/wp-content/uploads/2019/07/cms.png?resize=594%2C330&#038;ssl=1" alt="" width="594" height="330" class="aligncenter size-full wp-image-9839" srcset="https://dbatools.io/wp-content/uploads/2019/07/cms.png?w=594&amp;ssl=1 594w, https://dbatools.io/wp-content/uploads/2019/07/cms.png?resize=300%2C167&amp;ssl=1 300w" sizes="(max-width: 594px) 100vw, 594px" data-recalc-dims="1" /></a></p>
+<p>And the detailed pane</p>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/07/reg2.png?ssl=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/07/reg2.png?resize=538%2C778&#038;ssl=1" alt="" width="538" height="778" class="aligncenter size-full wp-image-9836" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/07/reg2.png?w=538&amp;ssl=1 538w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/07/reg2.png?resize=207%2C300&amp;ssl=1 207w" sizes="(max-width: 538px) 100vw, 538px" data-recalc-dims="1" /></a></p>
+<p>Ohhh! What! Now you can do this without worrying about authentication:</p>
+<blockquote><p>
+  Get-DbaRegServer -ServerName sqlonlinux | Get-DbaDatabase
+</p></blockquote>
+<h2>from dbatools on mac os to sql server on windows</h2>
+<p>Something that I had super fun doing was joining my Mac Mini to my homelab then authenticating flawlessly with my domain-joined, Windows-based SQL Server. Didn&#8217;t even need the <code>-SqlCredential</code> because Integrated Authentication worked <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f44d.png" alt="👍" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p><img src="https://pbs.twimg.com/media/DtS8f4BXgAAiebJ.jpg:large" alt="mac" /></p>
+<p>If you cannot join your Linux or mac OS workstation to a Windows domain, you can still use <code>-SqlCredential</code>. This parameter not only supports SQL Logins, but Windows logins as well. So you could connect to a Windows-based SQL Server using an Active Directory account such as <code>ad\sqladmin</code>.</p>
+<p>Got any questions, hit up #dbatools on the SQL Server Community Slack at <a href="https://aka.ms/sqlslack">aka.ms/sqlslack</a> and one of our friendly community members will be there to assist.</p>
+<p>&#45; Chrissy <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f427.png" alt="🐧" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/linux/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">9813</post-id>	</item>
+		<item>
+		<title>dbatools 1.0 has arrived 🎉</title>
+		<link>https://dbatools.io/dbatools10/</link>
+				<comments>https://dbatools.io/dbatools10/#comments</comments>
+				<pubDate>Tue, 18 Jun 2019 20:25:48 +0000</pubDate>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[party]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=9690</guid>
+				<description><![CDATA[We are so super excited to announce that after 5 long years, dbatools 1.0 is publicly available! Our team had some lofty goals and met a vast majority of them ...]]></description>
+								<content:encoded><![CDATA[<p>We are so super excited to announce that after 5 long years, dbatools 1.0 is publicly available!</p>
+<p>Our team had some lofty goals and met a vast majority of them <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f3c6.png" alt="🏆" class="wp-smiley" style="height: 1em; max-height: 1em;" />. In the end, my personal goal for dbatools 1.0 was to have a tool that is not only useful and fun to use but trusted and stable as well. Mission accomplished: over the years, hundreds of thousands of people have used dbatools and dbatools is even recommended by Microsoft.</p>
+<p>Before we get started with what&#8217;s new, let&#8217;s take a look at some history.</p>
+<h1>historical milestones</h1>
+<p>dbatools began in July of 2014 when I was tasked with migrating a SQL Server instance that supported SharePoint. No way did I want to do that by hand! Since then, the module has grown into a full-fledged data platform solution.</p>
+<ul>
+<li>07/2014 &#8211; Started</li>
+<li>07/2014 &#8211; Published to GitHub &amp; ScriptCenter</li>
+<li>06/2016 &#8211; First major contributors</li>
+<li>01/2017 &#8211; Road to 1.0 began</li>
+<li>03/2018 &#8211; Switch from GPL to MIT</li>
+<li>05/2019 &#8211; Added MFA Support</li>
+<li>06/2019 &#8211; Over 160 contributors and 550 commands</li>
+</ul>
+<p>Thanks so much to every single person who has volunteered any time to dbatools. You&#8217;ve helped change the SQL Server landscape.</p>
+<h1>improvements</h1>
+<p>We&#8217;ve made a ton of enhancements that we haven&#8217;t had time to share even over the past six months. Here are a few.</p>
+<h2>availability groups</h2>
+<p>Availability Group support has been solidified and is looking good and <a href="/New-DbaAvailabilityGroup">New-DbaAvailabilityGroup</a> is better than ever. Try out the changes and let us know how you like them.</p>
+<pre><code class="language-powershell">Get-Help New-DbaAvailabilityGroup -Examples
+</code></pre>
+<h2>authentication support</h2>
+<p>We now also support all the different ways to login to SQL Server! So basically this:</p>
+<p><a target=new href="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/06/ssmsdialog.png?ssl=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/06/ssmsdialog.png?resize=477%2C315&#038;ssl=1" alt="" width="477" height="315" class="aligncenter size-full wp-image-9719" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/06/ssmsdialog.png?w=477&amp;ssl=1 477w, https://i0.wp.com/dbatools.io/wp-content/uploads/2020/06/ssmsdialog.png?resize=300%2C198&amp;ssl=1 300w" sizes="(max-width: 477px) 100vw, 477px" data-recalc-dims="1" /></a></p>
+<p>Want to try it for yourself? Here are a few examples.</p>
+<pre><code class="language-powershell"># AAD Integrated Auth
+Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database dbatools
+
+# AAD Username and Pass
+Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -SqlCredential username@acme.onmicrosoft.com -Database dbatools
+
+# Managed Identity in Azure VM w/ older versions of .NET
+Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database abc -SqCredential appid -Tenant tenantguidorname
+
+# Managed Identity in Azure VM w/ newer versions of .NET (way faster!)
+Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database abc -AuthenticationType 'AD Universal with MFA Support' 
+</code></pre>
+<p>You can also find a couple more within the MFA <a href="https://github.com/sqlcollaborative/dbatools/pull/5593">Pull Request on GitHub</a> and by using <code>Get-Help Connect-DbaInstance -Examples</code>.</p>
+<h2>registered servers</h2>
+<p>This is probably my favorite! We now support Local Server Groups and Azure Data Studio groups. Supporting Local Server Groups means that it&#8217;s now a whole lot easier to manage servers that don&#8217;t use Windows Authentication.</p>
+<p>Here&#8217;s how you can add a local docker instance.</p>
+<pre><code class="language-powershell"># First add it with your credentials
+Connect-DbaInstance -SqlInstance 'dockersql1,14333' -SqlCredential sqladmin | Add-DbaRegServer -Name mydocker
+
+# Then just use it for all of your other commands.
+Get-DbaRegisteredServer -Name mydocker | Get-DbaDatabase
+</code></pre>
+<p>Totally dreamy <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f60d.png" alt="😍" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<h2>csv</h2>
+<p>Import-DbaCsv is now far more reliable. While the previous implementation was faster, it didn&#8217;t work a lot of the time. The new command should suit your needs well.</p>
+<pre><code class="language-powershell">Get-ChildItem C:\allmycsvs | Import-DbaCsv -SqlInstance sql2017 -Database tempdb -AutoCreateTable
+</code></pre>
+<h2>future &amp; backwards compatible</h2>
+<p>In the past couple months, we&#8217;ve started focusing a bit more on Azure: both Azure SQL Database and Managed Instances. In particular, we now support migrations to Azure Managed Instances! We&#8217;ve also added a couple more commands to PowerShell Core., in particular, the <a href="/commands/#masking">Masking</a> and <a href="/commands/#Database">Data Generation</a> commands. Over 75% of our commands run on mac OS and Linux!</p>
+<p>Still, we support PowerShell 3 and Windows 7 and SQL Server 2000 when we can. Our final testing routines included ensuring support for:</p>
+<ul>
+<li>Windows 7</li>
+<li>SQL Server 2000-2019</li>
+<li>User imports vs Developer imports</li>
+<li>mac OS / Linux</li>
+<li>x86 and x64</li>
+<li>Strict (<code>AllSigned</code>) Execution Policy</li>
+</ul>
+<h2>new commands</h2>
+<p>We&#8217;ve also added a bunch of new commands, mostly revolving around Roles, PII, Masking, Data Generation and even <a href="/New-DbaDiagnosticAdsNotebook">ADS notebooks</a>!</p>
+<p>Want to see the full list? Check out our freshly updated <a href="/commands">Command Index page</a> <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f929.png" alt="🤩" class="wp-smiley" style="height: 1em; max-height: 1em;" />.</p>
+<h2>configuration enhancements</h2>
+<p>A few configuration enhancements have been made and a blog post for our configuration system is long overdue. But one of the most useful, I think, is that you can now control the client name. This is the name that shows up in logs, in Profiler and in Xevents.</p>
+<pre><code class="language-powershell"># Set it
+Set-DbatoolsConfig -FullName sql.connection.clientname -Value "my custom module built on top of dbatools" -Register
+
+# Double check it
+Get-DbatoolsConfig -FullName sql.connection.clientname | Select Value, Description
+</code></pre>
+<p>The <code>-Register</code> parameter is basically a shortcut for piping to <code>Register-DbatoolsConfig</code>. This writes the value to the registry, otherwise, it&#8217;ll be effective only for your current session.</p>
+<p>Another configuration enhancement helps with standardization. Now, all export commands will default to <strong>Documents\DbatoolsExport</strong>. You can change it by issuing the following commands.</p>
+<pre><code class="language-powershell"># Set it
+Set-DbatoolsConfig -FullName path.dbatoolsexport -Value "C:\temp\exports" -Register
+
+# Double check it
+Get-DbatoolsConfig -FullName path.dbatoolsexport | Select Value, Description
+</code></pre>
+<h2>help is separated</h2>
+<p>Something new that I like because it&#8217;s &#8220;proper&#8221; PowerShell: we&#8217;re now publishing our module with Help separated into its own file. We&#8217;re using a super cool module called <a href="https://www.powershellgallery.com/packages/HelpOut">HelpOut</a>. HelpOut was created for dbatools by a former member of the PowerShell team, <a href="http://startautomating.com/">James Brundage</a>.</p>
+<p>HelpOut allows our developers to keep writing Help within the functions themselves, then separates the Help into dbatools-help.xml and the commands into allcommands.ps1, which helps with <a href="/import-times/">faster loading</a>. Here&#8217;s how we do it:</p>
+<pre><code class="language-powershell">Install-Maml -FunctionRoot functions, internal\functions -Module dbatools -Compact -NoVersion
+</code></pre>
+<p>It&#8217;s as simple as that! This does all of the heavy lifting: making the maml file and placing it in the proper location, and parsing the functions for allcommands.ps1!</p>
+<p>Help will continue to be published to <a href="https://docs.dbatools.io">docs.dbatools.io</a> and updated with each release. You can read more about HelpOut <a href="https://github.com/StartAutomating/HelpOut">on GitHub</a>.</p>
+<h1>breaking changes</h1>
+<p>We&#8217;ve got a number of breaking changes included in 1.0.</p>
+<p>Before diving into this section, I want to emphasize that we have a command to handle a large majority of the renames! <strong><a href="/Invoke-DbatoolsRenameHelper">Invoke-DbatoolsRenameHelper</a></strong> will parse your scripts and replace script names and some parameters for you.</p>
+<p><a target=new href="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/06/renamehelper.gif?ssl=1"><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/06/renamehelper.gif?resize=800%2C448&#038;ssl=1" alt="" width="800" height="448" class="aligncenter size-full wp-image-9746" data-recalc-dims="1" /></a></p>
+<h3>command renames</h3>
+<p>Renames in the past 30 days were mostly changing <code>Instance</code> to <code>Server</code>. But we also made some command names more accurate:</p>
+<p>Test-DbaDbVirtualLogFile -> Measure-DbaDbVirtualLogFile<br />
+Uninstall-DbaWatchUpdate -> Uninstall-DbatoolsWatchUpdate<br />
+Watch-DbaUpdate -> Watch-DbatoolsUpdate</p>
+<h3>command removal</h3>
+<p>Export-DbaAvailabilityGroup has been removed entirely. The same functionality can now be found using <code>Get-DbaAvailabiltyGroup | Export-DbaScript</code>.</p>
+<h3>alias removals</h3>
+<p>All but 5 command aliases have been removed. Here are the ones that are still around:</p>
+<p>Get-DbaRegisteredServer -> Get-DbaRegServer<br />
+Attach-DbaDatabase -> Mount-DbaDatabsae<br />
+Detach-DbaDatabase &#8211; Dismount-DbaDatabase<br />
+Start-SqlMigration -> Start-DbaMigration<br />
+Write-DbaDataTable -> Write-DbaDbTableData</p>
+<p>I kept <code>Start-SqlMigration</code> because that&#8217;s where it all started, and the rest are easier to remember.</p>
+<p>Also, all <code>ServerInstance</code> and <code>SqlServer</code> aliases have been removed. You must now use <code>SqlInstance</code>. For a full list of what Invoke-DbatoolsRenameHelper renames/replaces, <a href="https://github.com/sqlcollaborative/dbatools/blob/prerelease/functions/Invoke-DbatoolsRenameHelper.ps1#L69">check out the source code</a>.</p>
+<h3>parameter standardization</h3>
+<p>Most of the commands now follow the following practices we&#8217;ve observed in Microsoft&#8217;s PowerShell modules.</p>
+<ul>
+<li>Piped input is <code>-InputObject</code> and not DatabaseCollection or LoginCollection, etc.</li>
+<li>Directory (and some file) paths are now <code>-Path</code> and not BackupLocation or FileLocation</li>
+<li>When a distinction is required, file paths are now <code>-FilePath</code>, and not RemoteFile or BackupFileName</li>
+<li>If both file and directory path needs to be distinguished, Path is used for directory and FilePath for file locations</li>
+</ul>
+<h3>parameter removal</h3>
+<p><code>-SyncOnly</code> is no longer an option in <a href="/Copy-DbaLogin">Copy-DbaLogin</a>. Please use <a href="/Sync-DbaLoginPermission">Sync-DbaLoginPermission</a> instead.</p>
+<p><code>-CheckForSql</code> is no longer an option in <a href="/Get-DbaDiskSpace">Get-DbaDiskSpace</a>. Perhaps the functionality can be made into a new command which can be piped into Get-DbaDiskSpace but the implementation we had was <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f44e.png" alt="👎" class="wp-smiley" style="height: 1em; max-height: 1em;" />.</p>
+<p>For a full list of breaking changes, you can browse our gorgeous <a href="/changelog">changelog</a>, maintained by <a href="https://flxsql.com/">Andy Levy</a>.</p>
+<h2>book party!</h2>
+<p>In case you did not hear the news, <a href="https://sqldbawithabeard.com/">Rob Sewell</a> and I, are currently in the process of writing <strong>dbatools in a Months of Lunches</strong>! We&#8217;ve really excited and hope to have a <a href="https://www.manning.com/meap-program">MEAP (Manning Early Access Program)</a> available sometime in July. We will keep everyone updated here and on Twitter.</p>
+<p><a target=new href="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/06/book2.gif?ssl=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/06/book2.gif?resize=768%2C441&#038;ssl=1" alt="" width="768" height="441" class="aligncenter size-full wp-image-9743" data-recalc-dims="1" /></a></p>
+<p>The above is what the editor looks like &#8211; a lot like markdown!</p>
+<p>If you&#8217;d like to see what the writing process is like, I did a <a href="https://www.youtube.com/watch?v=EeXHlAPa_Mo">livestream a couple of months back</a> while writing Chapter 6, which is about <a href="/Find-DbaInstance">Find-DbaInstance</a>. Sorry about the music being a bit loud, that has been fixed in future streams which can be found at <a href="https://youtube.com/dbatools">youtube.com/dbatools</a>.</p>
+<h2>sponsorship</h2>
+<p>Since Microsoft acquired GitHub, they&#8217;ve been rolling out some really incredible features. One such feature is Developer Sponsorships, which allows you to sponsor developers with cash subscriptions. It&#8217;s sorta like Patreon where you can pay monthly sponsorships with different tiers. If you or your company has benefitted from dbatools, consider <a href="https://github.com/sqlcollaborative/dbatools?sponsor=1">sponsoring</a> one or more of our developers.</p>
+<p><a target=new href="https://github.com/sqlcollaborative/dbatools?sponsor=1"><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/06/sponsor.gif?resize=720%2C292&#038;ssl=1" alt="" width="720" height="292" class="aligncenter size-large wp-image-9757" data-recalc-dims="1" /></a></p>
+<p>Currently, GitHub has approved four of our team members to be sponsored including <a href="https://github.com/users/potatoqualitee/sponsorship">me</a>, <a href="https://github.com/users/wsmelton/sponsorship">Shawn Melton</a>, <a href="https://github.com/users/Stuart-Moore/sponsorship">Stuart Moore</a> and <a href="https://github.com/users/sanderstad/sponsorship">Sander Stad</a>.</p>
+<p><a target=new href="https://github.com/sqlcollaborative/dbatools?sponsor=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/06/github.gif?resize=486%2C366&#038;ssl=1" alt="" width="486" height="366" class="aligncenter size-full wp-image-9756" data-recalc-dims="1" /></a></p>
+<p>We&#8217;ve invited other dbatools developers to sign up as well <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f917.png" alt="🤗" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p>Oh, and for the first year, <strong><a href=https://help.github.com/en/articles/about-github-sponsors#about-the-github-sponsors-matching-fund>GitHub will match sponsorship funds</a></strong>! So giving to us now is like giving double.</p>
+<h2>big ol thanks</h2>
+<p>I&#8217;d like to give an extra special thanks to the contributors who helped get dbatools across the finish line these past couple months: Simone Bizzotto, Joshua Corrick, Patrick Flynn, Sander Stad, Cláudio Silva, Shawn Melton, Garry Bargsley, Andy Levy, George Palacios, Friedrich Weinmann, Jess Pomfret, Gareth N, Ben Miller, Shawn Tunney, Stuart Moore, Mike Petrak, Bob Pusateri, Brian Scholer, John G &#8220;Shoe&#8221; Hohengarten, Kirill Kravtsov, James Brundage, Hüseyin Demir, Gianluca Sartori and Rob Sewell.</p>
+<p>Without you all, 1.0 would be delayed for another 5 years.</p>
+<h2>blog party!</h2>
+<p>Want to know more about dbatools? Check out some of these posts <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/263a.png" alt="☺" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p><a href="https://nocolumnname.blog/?p=9452">dbatools 1.0 &#8211; the tools to break down the barriers &#8211; Shane O&#8217;Neill</a><br />
+<a href="https://dbaduck.com/2019/06/18/dbatools-1-0-is-here-and-why-you-should-care/">dbatools 1.0 is here and why you should care &#8211; Ben Miller</a><br />
+<a href="https://corrick.io/blog/dbatools-to-v1-0-and-beyond">dbatools 1.0 and beyond &#8211; Joshua Corrick</a><br />
+<a href="https://nakedpowershell.blogspot.com/2019/06/dbatools-10.html">dbatools 1.0 &#8211; Dusty R</a><br />
+<a href="https://garrybargsley.com/2019/06/20/your-dba-toolbox-just-got-a-refresh-dbatools-v1-0-is-officially-available/">Your DBA Toolbox Just Got a Refresh &#8211; dbatools v1.0 is Officially Available!!! &#8211; Garry Bargsley</a><br />
+<a href="https://claudioessilva.eu/2019/06/19/dbatools-v1-0-its-available-check-it-out">dbatools v1.0? It&#8217;s available &#8211; Check it out!</a><br />
+<a href="https://ifexists.blog/updating-sql-server-instances-using-powershell/">updating sql server instances using dbatools 1.0 &#8211; Gareth N</a></p>
+<h2>livestreaming</h2>
+<p>We&#8217;re premiering dbatools 1.0 at <a href="https://datagrillen.com">DataGrillen</a> in Lingen, Germany today and will be livestreaming on <a href="https://twitch.tv/potatoqualitee">Twitch</a>.</p>
+<p>Thank you, everyone, for your support along the way. We all hope you enjoy dbatools 1.0</p>
+<p><img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f48c.png" alt="💌" class="wp-smiley" style="height: 1em; max-height: 1em;" />,<br />
+Chrissy</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/dbatools10/feed/</wfw:commentRss>
+		<slash:comments>11</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">9690</post-id>	</item>
+		<item>
+		<title>30 day countdown to 1.0 starts today!</title>
+		<link>https://dbatools.io/30-day-countdown-to-1-0-starts-today/</link>
+				<comments>https://dbatools.io/30-day-countdown-to-1-0-starts-today/#respond</comments>
+				<pubDate>Mon, 20 May 2019 15:14:32 +0000</pubDate>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=9640</guid>
+				<description><![CDATA[Today marks the 30 day countdown to dbatools 1.0, which we will be debuting at Data Grillen in Lingen, Germany! These next 30 days are important and I&#8217;m writing to ...]]></description>
+								<content:encoded><![CDATA[<p>Today marks the 30 day countdown to dbatools 1.0, which we will be debuting at <a href="https://datagrillen.com">Data Grillen</a> in Lingen, Germany! These next 30 days are important and I&#8217;m writing to ask for your help.</p>
+<h2>Integration tests</h2>
+<p>We could still use a hand getting in those last few Integration tests. If you&#8217;re interested in adding a couple tests, I <a href="https://youtu.be/gGBV4sIyrrM">did a quick lil livestream on Twitch about writing integration tests for dbatools</a> that could be useful to you.</p>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/gGBV4sIyrrM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<p>I don&#8217;t think I&#8217;ve had the time to share, but dbatools team members livestream at <a href="https://dbatools.io/live">dbatools.io/live</a> and videos are published on our youtube channel, <a href="https://youtube.com/dbatools">youtube.com/dbatools</a>. More on that later.</p>
+<h2>Bugs and various issues</h2>
+<p>We&#8217;ve got about 30 issues left to resolve which you can see and follow on our <a href="https://github.com/sqlcollaborative/dbatools/projects">GitHub Projects page</a>. If you&#8217;ve ever been interested in helping, now is the perfect time as we only have 30 more days left to reach our goal.</p>
+<p>If you&#8217;re a current or past dbatools developer, we&#8217;d love any help we can get. Just hit up the  <a href="https://github.com/sqlcollaborative/dbatools/projects">GitHub Projects page</a> to see what issues are left to resolve. If someone is already assigned, please reach out to them on <a href="/slack">Slack</a> in the #dbatools-dev channel and see if they can use your help.</p>
+<h2>prerelease branch</h2>
+<p>For anyone submitting Pull Requests, please submit to the temporary default: <strong>prerelease</strong></p>
+<p>Oh, and if you <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/2764.png" alt="❤" class="wp-smiley" style="height: 1em; max-height: 1em;" /> dbatools, please give it a <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/2b50.png" alt="⭐" class="wp-smiley" style="height: 1em; max-height: 1em;" /> on GitHub if you haven&#8217;t already. Stars make our day.</p>
+<p><a href="https://dbatools.io/git"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/05/heart.png?resize=800%2C146&#038;ssl=1" alt="" width="800" height="146" class="aligncenter size-large wp-image-9649" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/05/heart.png?resize=1024%2C187&amp;ssl=1 1024w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/05/heart.png?resize=300%2C55&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/05/heart.png?resize=768%2C140&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/05/heart.png?w=1256&amp;ssl=1 1256w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<p>&#45;Chrissy</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/30-day-countdown-to-1-0-starts-today/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">9640</post-id>	</item>
+		<item>
+		<title>dbatools featured on sql with bert</title>
+		<link>https://dbatools.io/sqlbert/</link>
+				<comments>https://dbatools.io/sqlbert/#comments</comments>
+				<pubDate>Tue, 05 Feb 2019 12:36:43 +0000</pubDate>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=9571</guid>
+				<description><![CDATA[Recently, dbatools contributor Jess Pomfret teamed up with Bert Wager for a super cool video about dbatools. Check it out! They also wrote accompanying blog posts too! Jess wrote a ...]]></description>
+								<content:encoded><![CDATA[<p>Recently, dbatools contributor <a href="https://jesspomfret.com/">Jess Pomfret</a> teamed up with <a href="https://www.youtube.com/channel/UC6uYLOg8N_NzjkikbJ_vrtg">Bert Wager</a> for a super cool video about dbatools.</p>
+<p><a href="https://www.youtube.com/watch?v=9Zk3R7_Pr-U">Check it out!</a></p>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/9Zk3R7_Pr-U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<p>They also wrote accompanying blog posts too! Jess wrote a post titled <a href="https://jesspomfret.com/dbatools-with-bert/">dbatools with Bert</a> where she talks more in-depth about Backing up your databases and changing your recovery model. <a href="https://bertwagner.com">Bert</a> penned a post titled <a href="https://bertwagner.com/2019/02/05/automating-database-maintenance-with-jess-pomfret-and-dbatools/">Automating Database Maintenance with Jess Pomfret and dbatools</a> <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f601.png" alt="😁" class="wp-smiley" style="height: 1em; max-height: 1em;" /><img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f44d.png" alt="👍" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p>How incredibly cool! Thank you Jess and Bert for the awesome and fun video <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f308.png" alt="🌈" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/sqlbert/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">9571</post-id>	</item>
+		<item>
+		<title>dbatools and docker</title>
+		<link>https://dbatools.io/docker/</link>
+				<comments>https://dbatools.io/docker/#comments</comments>
+				<pubDate>Tue, 08 Jan 2019 22:24:40 +0000</pubDate>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[docker]]></category>
+		<category><![CDATA[party]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=9443</guid>
+				<description><![CDATA[We now provide Docker images to help dbatools users easily create a non-production environment to test commands and safely explore our toolset.]]></description>
+								<content:encoded><![CDATA[<p><div class='content-column one_third'><a href="https://garrybargsley.com/t-sql-tuesday-110-automate-all-the-things/"><img src="https://i1.wp.com/blog.netnerds.net/wp-content/uploads/2016/06/TSQL2SDAY-150x150.png?resize=150%2C150&#038;ssl=1" alt="TSQL2SDAY-150x150" width="150" height="150" class="aligncenter size-full wp-image-5700" data-recalc-dims="1" /></a></div><div class='content-column two_third last_column'>Today&#8217;s article is part of <a href="https://garrybargsley.com/t-sql-tuesday-110-automate-all-the-things/">T-SQL Tuesday</a>. T-SQL Tuesday is the brainchild of Adam Machanic. It is a blog party on the second Tuesday of each month. Everyone is welcome to participate.</p>
+<p>This month’s T-SQL Tuesday, hosted by dbatools Major Contributor, Garry Bargsley (<a href=https://garrybargsley.com/>[b]</a>|<a href=https://twitter.com/gbargsley>[t]</a>), is all about automation.</div><div class='clear_column'></div></p>
+<h2>Docker Hub</h2>
+<p>In his invitation, Garry asks &#8220;what automation are you proud of completing?&#8221; My answer is that I finally created a couple dbatools images and made them available on <a href="https://hub.docker.com/">Docker Hub</a>.</p>
+<blockquote><p>
+  Docker Hub <a href="https://searchitoperations.techtarget.com/definition/Docker-Hub">is a cloud-based repository</a> in which Docker users and partners create, test, store and distribute container images.
+</p></blockquote>
+<p>I&#8217;ve long wanted to do this to help dbatools users easily create a non-production environment to test commands and safely explore our toolset. I finally made it a priority because I needed to ensure some Availability Group commands I was creating worked on Docker, too, and having some clean images permanently available was required. Also, in general, Docker is a just a good thing to know for both automation and career opportunities <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f601.png" alt="😁" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<h2>Getting started</h2>
+<p>First, install Docker.</p>
+<ul>
+<li><a href=https://docs.docker.com/docker-for-windows/install/>Windows</a></li>
+<li><a href=https://docs.docker.com/docker-for-mac/install/#install-and-run-docker-for-mac>Mac OS</a></li>
+</ul>
+<p>Then grab two images from <a href="https://hub.docker.com/u/dbatools/">the dbatools repo</a>. Note that these are Linux images.</p>
+<pre><code class="language-sh"># get the base images
+docker pull dbatools/sqlinstance
+docker pull dbatools/sqlinstance2
+</code></pre>
+<p>The first image will take a bit to download, but <a href="https://dbatools.io/wp-content/uploads/2020/01/docker-pull-crop.png">the second one will be faster</a> because it&#8217;s based on the first! Neat.</p>
+<p>The first instance is stacked with a bunch of objects, and the second one has a few basics to enable Availability Groups. Both dbatools images are based off of <a href="https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-2017">Microsoft&#8217;s SQL Server 2017 docker image</a>.</p>
+<p>I also added the following to make test migrations more interesting and Availability Groups possible:</p>
+<ul>
+<li>Databases</li>
+<li>Logins</li>
+<li>Jobs</li>
+<li>Endpoints</li>
+<li>Server Roles</li>
+<li>And more</li>
+</ul>
+<p>Here&#8217;s a visible sampling:</p>
+<p><a href="https://dbatools.io/wp-content/uploads/2020/01/docker-ssms.png?ssl=1"><img src="https://dbatools.io/wp-content/uploads/2020/01/docker-ssms.png?resize=680%2C1024&#038;ssl=1" alt="" width="680" height="1024" class="aligncenter size-large wp-image-9472" srcset="https://dbatools.io/wp-content/uploads/2020/01/docker-ssms.png?resize=680%2C1024&amp;ssl=1 680w, https://dbatools.io/wp-content/uploads/2020/01/docker-ssms.png?resize=199%2C300&amp;ssl=1 199w, https://dbatools.io/wp-content/uploads/2020/01/docker-ssms.png?resize=768%2C1156&amp;ssl=1 768w, https://dbatools.io/wp-content/uploads/2020/01/docker-ssms.png?w=910&amp;ssl=1 910w" sizes="(max-width: 680px) 100vw, 680px" data-recalc-dims="1" /></a></p>
+<p>Nice and familiar! You may also notice that sa is disabled. Within the image, I disabled the sa account and created another account with sysadmin called sqladmin. The password, as noted below, is dbatools.IO</p>
+<h2>Creating containers</h2>
+<p>To setup the containers, just copy and paste the commands below. The first one sets up a shared network and the second one sets up the SQL Servers and exposes the required database engine and endpoint ports. It also names them dockersql1 and dockersql2 and gives them a hostname with the same name. I left in &#8220;docker&#8221; so that it doesn&#8217;t conflict with any potential servers named sql1 on the network.</p>
+<pre><code class="language-sh"># create a shared network
+docker network create localnet
+
+# setup two containers and expose ports
+docker run -p 1433:1433 -p 5022:5022 --network localnet --hostname dockersql1 --name dockersql1 -d dbatools/sqlinstance
+docker run -p 14333:1433 -p 5023:5023  --network localnet --hostname dockersql2 --name dockersql2 -d dbatools/sqlinstance2
+</code></pre>
+<p>Generally, you don&#8217;t have to map the ports to exactly what they are running locally, but Availability Groups do a bit of port detection that require one-to-one mapping.</p>
+<p>By the way, if you sometimes prefer a GUI like I do, check out <a href="https://github.com/docker/kitematic/releases">Kitematic</a>. It&#8217;s not ultra-useful but it&#8217;ll do.</p>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/dockersql1.png?ssl=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/dockersql1.png?fit=300%2C300&#038;ssl=1" alt="" class="aligncenter size-medium wp-image-9459" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/dockersql1.png?w=1159&amp;ssl=1 1159w, https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/dockersql1.png?resize=300%2C176&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/dockersql1.png?resize=768%2C451&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/dockersql1.png?resize=1024%2C601&amp;ssl=1 1024w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<h2>Time to play <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f389.png" alt="🎉" class="wp-smiley" style="height: 1em; max-height: 1em;" /></h2>
+<p>Now we are setup to test commands against your two containers! You can login via <a href="https://sqlps.io/dl">SQL Server Management Studio</a> or <a href="https://docs.microsoft.com/en-us/sql/azure-data-studio/download?view=sql-server-2017">Azure Data Studio</a> if you&#8217;d like to take a look first. The server name is localhost (or localhost,14333 for the second instance), the username is sqladmin and the password is dbatools.IO</p>
+<p>Note that Windows-based commands (and commands relating to SQL Configuration Manager) will <strong>not</strong> work because the image is based on SQL Server for Linux. If you&#8217;d like to test Windows-based commands such as <a href="/Get-DbaDiskSpace">Get-DbaDiskSpace</a>, consider testing them on localhost if you&#8217;re running Windows.</p>
+<h3>Set up an Availability Group</h3>
+<p>Next, we&#8217;ll setup a sample availability groups. Note that since it&#8217;s referring to &#8220;localhost&#8221;, you&#8217;ll want to execute this on the computer running Docker. If you&#8217;d like to run Docker on one machine and execute the code on another machine, that is possible but out of scope for this post.</p>
+<pre><code class="language-powershell"># the password is dbatools.IO
+$cred = Get-Credential -UserName sqladmin
+
+# setup a powershell splat
+$params = @{
+    Primary = "localhost"
+    PrimarySqlCredential = $cred
+    Secondary = "localhost:14333"
+    SecondarySqlCredential = $cred
+    Name = "test-ag"
+    Database = "pubs"
+    ClusterType = "None"
+    SeedingMode = "Automatic"
+    FailoverMode = "Manual"
+    Confirm = $false
+ }
+
+# execute the command
+ New-DbaAvailabilityGroup @params
+</code></pre>
+<h4>PowerShell output</h4>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/01/ag-example.png?ssl=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/01/ag-example-1024x443.png?resize=800%2C346&#038;ssl=1" alt="" width="800" height="346" class="aligncenter size-large wp-image-9503" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/01/ag-example.png?resize=1024%2C443&amp;ssl=1 1024w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/01/ag-example.png?resize=300%2C130&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/01/ag-example.png?resize=768%2C333&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/01/ag-example.png?w=1157&amp;ssl=1 1157w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<h4>SQL Server Management Studio</h4>
+<p><a href="https://dbatools.io/wp-content/uploads/2019/01/ag-ssms.png?ssl=1"><img src="https://dbatools.io/wp-content/uploads/2019/01/ag-ssms.png?resize=410%2C425&#038;ssl=1" alt="" width="410" height="425" class="aligncenter size-full wp-image-9518" srcset="https://dbatools.io/wp-content/uploads/2019/01/ag-ssms.png?w=410&amp;ssl=1 410w, https://dbatools.io/wp-content/uploads/2019/01/ag-ssms.png?resize=289%2C300&amp;ssl=1 289w" sizes="(max-width: 410px) 100vw, 410px" data-recalc-dims="1" /></a></p>
+<p>Beautiful <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f60d.png" alt="😍" class="wp-smiley" style="height: 1em; max-height: 1em;" />!</p>
+<h3>Performing an export</h3>
+<p>Again, from the machine running the Docker containers, run the code below. You may note that linked servers, credentials and central management server are excluded from the export. This is because they aren&#8217;t currently supported for various Windows-centric reasons.</p>
+<pre><code class="language-powershell"># the password is dbatools.IO
+$cred = Get-Credential -UserName sqladmin
+
+# First, backup the databases because backup/restore t-sql is what's exported
+Backup-DbaDatabase -SqlInstance localhost:1433 -SqlCredential $cred -BackupDirectory /tmp
+
+# Next, perform export (not currently supported on Core)
+Export-DbaInstance -SqlInstance localhost:1433 -SqlCredential $cred -Exclude LinkedServers, Credentials, CentralManagementServer, BackupDevices
+</code></pre>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/export.png?ssl=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/export.png?resize=800%2C262&#038;ssl=1" alt="" width="800" height="262" class="aligncenter size-large wp-image-9481" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/export.png?resize=1024%2C335&amp;ssl=1 1024w, https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/export.png?resize=300%2C98&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/export.png?resize=768%2C251&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/export.png?w=1562&amp;ssl=1 1562w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<p>Whaaaat! Now imagine doing this for all of your servers in your entire estate. Want to know more? Check out <a href="/dr">simplifying disaster recovery using dbatools</a> which covers this topic in-depth.</p>
+<h3>Performing a migration</h3>
+<p>This command requires a shared directory. Check out <a href="https://docs.docker.com/docker-for-windows/#SharedDrives">Shared Drives</a> and <a href="https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/">Configuring Docker for Windows Volumes</a> for more information. You may notice that this command does not support linked servers, credentials, central management server or backup devices.</p>
+<pre><code class="language-powershell"># the password is dbatools.IO
+$cred = Get-Credential -UserName sqladmin
+
+# perform the migration from one container to another
+Start-DbaMigration -Source localhost:1433 -Destination localhost:14333 -SourceSqlCredential $cred -DestinationSqlCredential $cred -BackupRestore -SharedPath /sharedpath -Exclude LinkedServers, Credentials, CentralManagementServer, BackupDevices -Force
+</code></pre>
+<h2>Cleaning up</h2>
+<p>To stop and remove a container (and start over if you&#8217;d like! I do tons of times per day), run the following commands or use Kitematic&#8217;s GUI. This does not delete the actual images, just their resulting containers.</p>
+<pre><code class="language-sh">docker stop dockersql1 dockersql2
+docker rm dockersql1 dockersql2
+</code></pre>
+<h2>Resources</h2>
+<p>If you&#8217;d like to know more, the posts below are fantastic resources.</p>
+<ul>
+<li><a href="https://dbafromthecold.com/2017/03/15/summary-of-my-container-series/">Andrew Pruski&#8217;s container series</a></li>
+<li><a href="https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-2017">Quickstart: Run SQL Server container images with Docker</a></li>
+</ul>
+<p>If you&#8217;d like to understand how containers work with the CI/CD process, check out <a href="https://channel9.msdn.com/Events/Connect/2017/T152?ocid=player">this video by Eric Kang, Senior Product Manager for SQL Server</a>.</p>
+<p><center></p>
+<p><iframe src="https://channel9.msdn.com/Events/Connect/2017/T152/player" width="600" height="337" allowFullScreen frameBorder="0"></iframe></p>
+<p></center></p>
+<p>Thanks for reading! Sorry about any typos or mistakes, I hastily wrote this while traveling back from vacation; I had to make Garry&#8217;s T-SQL Tuesday!</p>
+<p>&#45; Chrissy</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/docker/feed/</wfw:commentRss>
+		<slash:comments>5</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">9443</post-id>	</item>
+	</channel>
+</rss>

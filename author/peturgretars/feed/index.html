@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>Petur Gretarsson &#8211; dbatools</title>
+	<atom:link href="https://dbatools.io/author/peturgretars/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Fri, 13 Sep 2019 08:36:46 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+
+<image>
+	<url>https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&#038;ssl=1</url>
+	<title>Petur Gretarsson &#8211; dbatools</title>
+	<link>https://dbatools.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
+		<title>I ❤️ Invoke-DbaQuery</title>
+		<link>https://dbatools.io/i-love-invoke-query/</link>
+				<comments>https://dbatools.io/i-love-invoke-query/#comments</comments>
+				<pubDate>Mon, 08 Jan 2018 14:10:34 +0000</pubDate>
+		<dc:creator><![CDATA[Petur Gretarsson]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[party]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=6886</guid>
+				<description><![CDATA[Pétur Grétarsson, here. Long time dbatools fan, first time blogger. I really love the new Invoke-DbaQuery command and wanted to share how I use it. I have well over 100 ...]]></description>
+								<content:encoded><![CDATA[<p>Pétur Grétarsson, here. Long time dbatools fan, first time blogger. I really love the new <a href="/Invoke-DbaQuery">Invoke-DbaQuery</a> command and wanted to share how I use it.</p>
+<p>I have well over 100 Availability Groups to look after in different domains so it can be a bit difficult to check things when needed. We have opened required ports allowing connections from one SQL management server to those for monitoring purposes including using <a href="https://www.idera.com/productssolutions/sqlserver/sql-elements">Idera SQL Inventory Manager</a> for basic health checks.</p>
+<p>Having said that, there&#8217;s some additional monitoring I like to be able to do such as checking the health status of Availability Groups to see if there are any potential resource issues.</p>
+<h2>Invoke-DbaQuery makes monitoring easy</h2>
+<p>I&#8217;ve used Invoke-DbaQuery for so many things. Here&#8217;s one example: how I used the new function in my latest Availability Group check.</p>
+<ol>
+<li>I created and stored a SQL Server Credential on the SQL management server using Credential Manager (found from Control Panel) using the account that executes the PowerShell scripts in schedule.  </li>
+<li>I scheduled the script below to run via Visual Studio Team Services online (or the Agent on my SQL management server)</li>
+<li>I executed a procedure from PowerShell script that for example checks if any Availability Group is unhealthy and if so then sends email to our support team</li>
+</ol>
+<pre class="lang:ps decode:true " ># DOMAIN1 SQL Replica Nodes (this one has 90% of the availability groups). 
+$result = Get-DbaRegisteredServer -SqlServer [INSTANCENAME] -Group SqlAlwaysOnReplicaNodes | Invoke-DbaQuery -File "FULL_PATH\aog_health.sql"  | SELECT INSTANCE_NAME, SQL_VERSION, MAX_SERVER_MEMORY,NAME, PAGE_LIFE_EXPECTANCY, MAX_DEGREE_OF_PARALLELISM, LOGICAL_CPU_COUNT, TEMPDB_FILE_COUNT, PERCENTAGE_CPU_SIGNAL_WAIT, PERCENTAGE_RESOURCE_WAITS, DNS_NAME, DATABASE_COUNT, IP_CONFIGURATION_STRING_FROM_CLUSTER, ROLE_DESC, AVAILABILITY_MODE_DESC, FAILOVER_MODE_DESC, SYNCHRONIZATION_HEALTH_DESC, AUTOMATED_BACKUP_PREFERENCE_DESC |  ConvertTo-DbaDataTable
+Write-DbaDataTable -InputObject $result -SqlServer [INSTANCENAME] -Table SqlManagementRepository.dbo.SqlAvailabilityGroupsHealth -Confirm:$false
+
+# DOMAIN2 SQL Replica Nodes
+$cred1 = Get-StoredCredential -Target DOMAIN2
+$result = "INSTANCE1", "INSTANCE2", "ETCINSTANCES" | Invoke-DbaQuery -SqlCredential $cred1 -File "FULL_PATH\aog_health.sql"  | SELECT INSTANCE_NAME, SQL_VERSION, MAX_SERVER_MEMORY,NAME, PAGE_LIFE_EXPECTANCY, MAX_DEGREE_OF_PARALLELISM, LOGICAL_CPU_COUNT, TEMPDB_FILE_COUNT, PERCENTAGE_CPU_SIGNAL_WAIT, PERCENTAGE_RESOURCE_WAITS, DNS_NAME, DATABASE_COUNT, IP_CONFIGURATION_STRING_FROM_CLUSTER, ROLE_DESC, AVAILABILITY_MODE_DESC, FAILOVER_MODE_DESC, SYNCHRONIZATION_HEALTH_DESC, AUTOMATED_BACKUP_PREFERENCE_DESC |  ConvertTo-DbaDataTable
+Write-DbaDataTable -InputObject $result -SqlServer [INSTANCENAME] -Table SqlManagementRepository.dbo.SqlAvailabilityGroupsHealth -Confirm:$false
+
+# DOMAIN3 SQL Replica Nodes
+$cred2 = Get-StoredCredential -Target DOMAIN2
+$result = "INSTANCE1", "INSTANCE2", "ETCINSTANCES"| Invoke-DbaQuery -SqlCredential $cred2 -File " FULL_PATH\aog_health.sql"  | SELECT INSTANCE_NAME, SQL_VERSION, MAX_SERVER_MEMORY,NAME, PAGE_LIFE_EXPECTANCY, MAX_DEGREE_OF_PARALLELISM, LOGICAL_CPU_COUNT, TEMPDB_FILE_COUNT, PERCENTAGE_CPU_SIGNAL_WAIT, PERCENTAGE_RESOURCE_WAITS, DNS_NAME, DATABASE_COUNT, IP_CONFIGURATION_STRING_FROM_CLUSTER, ROLE_DESC, AVAILABILITY_MODE_DESC, FAILOVER_MODE_DESC, SYNCHRONIZATION_HEALTH_DESC, AUTOMATED_BACKUP_PREFERENCE_DESC |  ConvertTo-DbaDataTable
+Write-DbaDataTable -InputObject $result -SqlServer [INSTANCENAME] -Table SqlManagementRepository.dbo.SqlAvailabilityGroupsHealth -Confirm:$false
+</pre>
+<p>This script:</p>
+<ul>
+<li>Gets a list of servers using <a href=/Get-DbaRegisteredServer>Get-DbaRegisteredServer</a></li>
+<li>Pipes that list to Invoke-DbaQuery which executes a script against each of the servers</li>
+<li>Converts the results of the script to a datatable</li>
+<li>Writes the converted output to a table in my management database</li>
+</ul>
+<p>And here is the simple T-SQL script I use in the above example. It is now so nice to be able to see version, max memory, PLE, logical CPU count, tempdb files, CPU signal wait, listener name, IP Address, failover mode, synchronization health etc. for all of the availability groups from one table which gets updated frequently values.</p>
+<pre class="lang:tsql decode:true " >SELECT (SELECT @@SERVERNAME) instance_name,
+       (SELECT @@VERSION) sql_version,
+       (SELECT value_in_use FROM sys.configurations WHERE name = 'max server memory (MB)') max_server_memory,
+       (SELECT cntr_value / 3600 AS PLE_HOURS FROM sys.dm_os_performance_counters WHERE object_name LIKE '%Manager%' AND counter_name = 'Page life expectancy') page_life_expectancy,
+       (SELECT value_in_use FROM sys.configurations WHERE name = 'max degree of parallelism') max_degree_of_parallelism,
+       (SELECT cpu_count FROM sys.dm_os_sys_info) logical_cpu_count,
+       (SELECT COUNT(name) FROM sys.master_files WHERE database_id = 2 AND type_desc = 'ROWS') tempdb_file_count,
+       (SELECT CAST(100.0 * SUM(signal_wait_time_ms) / SUM(wait_time_ms) AS NUMERIC(20,2))  FROM sys.dm_os_wait_stats) percentage_cpu_signal_wait,
+       (SELECT CAST(100.0 * SUM(wait_time_ms - signal_wait_time_ms) / SUM(wait_time_ms) AS NUMERIC(20, 2)) FROM sys.dm_os_wait_stats) percentage_resource_waits,
+       name,
+       dns_name,
+       (SELECT COUNT(*) FROM sys.databases WHERE state_desc = 'ONLINE' AND database_id &gt; 4) database_count,
+       ip_configuration_string_from_cluster,
+       role_desc,
+       availability_mode_desc,
+       failover_mode_desc,
+       synchronization_health_desc,
+       automated_backup_preference_desc
+FROM sys.availability_groups_cluster AS AGC
+     INNER JOIN [master].sys.dm_hadr_availability_replica_cluster_states AS RCS ON RCS.group_id = AGC.group_id
+     INNER JOIN [master].sys.dm_hadr_availability_replica_states AS ARS ON ARS.replica_id = RCS.replica_id
+     INNER JOIN [master].sys.availability_group_listeners AS AGL ON AGL.group_id = ARS.group_id
+     INNER JOIN [master].sys.availability_replicas AS ARN ON ARS.replica_id = ARN.replica_id
+     AND ars.is_local = 1;</pre>
+<p>We have thousands of databases in these Availability Groups so it is important to ensure that they are healthy. We have monitoring systems for the most important ones but you can imagine the cost. Therefore, it is nice to be able to build some basic checks like these. Running customized scripts and using the <a href="/Get-DbaRegisteredServer">Get-DbaRegisteredServer</a> is just fantastic <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f60a.png" alt="😊" class="wp-smiley" style="height: 1em; max-height: 1em;" />.</p>
+<h1>Additional uses for dbatools</h1>
+<p>I also use other dbatools commands for getting a daily summary email report for all our SQL Agent jobs which are either failing or not having failure notifications configured from all our environments. We have many people adding SQL Agent Jobs and sometimes the notifications get forgotten so this allows me to catch that immediately and get daily status report of all our SQL Agent failed jobs.</p>
+<p>I scheduled the script below to run via Visual Studio Team Services online (or the Agent on my SQL management server). This script runs just before office hours, so we can have the most recent status in the morning.</p>
+<pre class="lang:ps decode:true " ># Get SQL Agent Job information
+# Fetch from DOMAIN1 
+$result = DbaRegisteredServer -SqlServer [INSTANCENAME] -Group SqlAlwaysOnReplicaNodes | Get-DbaAgentJob | SELECT ComputerName, InstanceName, SqlInstance, Name, Category, OwnerLoginName, CurrentRunStatus, CurrentRunRetryAttempt, Enabled, LastRunDate, LastRunOutcome, DateCreated, HasSchedule, OperatorToEmail, CreateDate | ConvertTo-DbaDataTable 
+Write-DbaDataTable -InputObject $result -SqlServer [INSTANCENAME] -Table SqlManagementRepository.dbo.SqlAgentJobs -Truncate -Confirm:$false
+$result = Get-DbaRegisteredServer -SqlServer [INSTANCENAME] -Group SqlStandalone | Get-DbaAgentJob | SELECT ComputerName, InstanceName, SqlInstance, Name, Category, OwnerLoginName, CurrentRunStatus, CurrentRunRetryAttempt, Enabled, LastRunDate, LastRunOutcome, DateCreated, HasSchedule, OperatorToEmail, CreateDate | ConvertTo-DbaDataTable 
+Write-DbaDataTable -InputObject $result -SqlServer [INSTANCENAME] -Table SqlManagementRepository.dbo.SqlAgentJobs -Confirm:$false
+
+# Fetch from DOMAIN2
+$cred1 = Get-StoredCredential -Target DOMAIN2
+$result = "INSTANCE1", "INSTANCE2", "ETCINSTANCES" | Get-DbaAgentJob -SqlCredential $cred1 | SELECT ComputerName, InstanceName, SqlInstance, Name, Category, OwnerLoginName, CurrentRunStatus, CurrentRunRetryAttempt, Enabled, LastRunDate, LastRunOutcome, DateCreated, HasSchedule, OperatorToEmail, CreateDate |  ConvertTo-DbaDataTable 
+Write-DbaDataTable -InputObject $result -SqlServer [INSTANCENAME] -Table SqlManagementRepository.dbo.SqlAgentJobs -Confirm:$false
+
+# Fetch from DOMAIN3
+$cred2 = Get-StoredCredential -Target DOMAIN3
+$result = "INSTANCE1", "INSTANCE2", "ETCINSTANCES" | Get-DbaAgentJob -SqlCredential $cred2 | SELECT ComputerName, InstanceName, SqlInstance, Name, Category, OwnerLoginName, CurrentRunStatus, CurrentRunRetryAttempt, Enabled, LastRunDate, LastRunOutcome, DateCreated, HasSchedule, OperatorToEmail, CreateDate | ConvertTo-DbaDataTable 
+Write-DbaDataTable -InputObject $result -SqlServer [INSTANCENAME] -Table SqlManagementRepository.dbo.SqlAgentJobs -Confirm:$false
+</pre>
+<p>Then I have a job that runs soon after the above check. This job is also PowerShell script that just executes a procedure in the database management repository and if the procedure has result set then it gets sent to the database team.</p>
+<p>The procedure is just very basic and simple check from the table that is created in the above check.</p>
+<pre class="lang:tsql decode:true " >CREATE PROCEDURE [dbo].[SqlAgentJobsSummary]
+AS
+     IF
+     (SELECT COUNT(*)
+        FROM SqlAgentJobs
+        WHERE Enabled = 'True'
+        AND LastRunOutcome NOT IN('Succeeded', 'Cancelled')
+     ) &gt;= 1
+         
+        BEGIN
+             SELECT SqlInstance AS "SQL Instance.............",
+                    Name          AS "SQL Agent Job............" ,
+                    LastRunDate AS "Last Run.................",
+                    LastRunOutcome AS "Last Run Status.....",
+                    OperatorToEmail AS "Notified To.............."
+             FROM SqlAgentJobs
+             WHERE Enabled = 'True'
+             AND LastRunOutcome NOT IN('Succeeded', 'Cancelled')
+             ORDER BY LastRunDate;
+     END;
+GO</pre>
+<p>Alternatively, I could use some dbatools commands and <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/send-mailmessage">Send-MailMessage</a> but I appreciated the fact that I could so easily integrate with my existing SQL solutions.</p>
+<p>I also use the command for many of our functions which run against all our +300 instances and +12.000 databases and store the result in central management database.  Other validations I use dbatools for: file allocation unit size is incorrect, proper power plan is being used, SPN is configured, transaction log VLF count does not exceed threshold, SQL orphaned files do not exist, invalid SQL logins do not exist and much more. All those checks are done with dbatools and visible in one central database repository.</p>
+<p>Thanks for reading!<br />
+Pétur <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f1ee-1f1f8.png" alt="🇮🇸" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/i-love-invoke-query/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">6886</post-id>	</item>
+	</channel>
+</rss>

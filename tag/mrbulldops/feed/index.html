@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>mrbulldops &#8211; dbatools</title>
+	<atom:link href="https://dbatools.io/tag/mrbulldops/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Fri, 13 Sep 2019 08:11:26 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+
+<image>
+	<url>https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&#038;ssl=1</url>
+	<title>mrbulldops &#8211; dbatools</title>
+	<link>https://dbatools.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
+		<title>new release &#8211; schwifty &#8211; all about SPNs</title>
+		<link>https://dbatools.io/schwifty/</link>
+				<comments>https://dbatools.io/schwifty/#comments</comments>
+				<pubDate>Mon, 06 Feb 2017 15:33:29 +0000</pubDate>
+		<dc:creator><![CDATA[Drew Furgiuele]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[kerberos]]></category>
+		<category><![CDATA[mrbulldops]]></category>
+		<category><![CDATA[security]]></category>
+		<category><![CDATA[serviceprincipalname]]></category>
+		<category><![CDATA[spn]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=2761</guid>
+				<description><![CDATA[These commands were updated Feb 8, 2017 (v0.8.709) to incorporate feedback ❤ Right, so the first thing you need to know is: I&#8217;m not Chrissy. My name&#8217;s Drew, and I&#8217;m ...]]></description>
+								<content:encoded><![CDATA[<p><strong>These commands were updated Feb 8, 2017 (v0.8.709) to incorporate feedback <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/2764.png" alt="❤" class="wp-smiley" style="height: 1em; max-height: 1em;" /> </strong></p>
+<p>Right, so the first thing you need to know is: I&#8217;m not Chrissy. <a href="http://www.twitter.com/pittfurg">My name&#8217;s Drew</a>, and I&#8217;m here tell you about an exciting new release of dbatools: schwifty!</p>
+<p>In this release we&#8217;ve added three new commands to <strong>help you manage SPNs for SQL Server Kerberos authentication</strong>. If you have a lot of linked servers in your environment, then this is probably a welcome addition to the toolset for you.</p>
+<p>These commands leverage SQL Server instance info from commands that already existed in the dbatools code base and active directory PowerShell support to determine required SPNs for all instances on a given computer and whether they&#8217;re set or not. If they aren&#8217;t, we have commands to not only set the SPNs for you, but also enable <a href="https://technet.microsoft.com/en-us/library/cc995228.aspx">constrained delegation</a> to accounts for the SPNs that were just added.</p>
+<p><iframe class='youtube-player' type='text/html' width='800' height='450' src='https://www.youtube.com/embed/OVYFU3Ktqc0?version=3&#038;rel=1&#038;fs=1&#038;autohide=2&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;wmode=transparent' allowfullscreen='true' style='border:0;'></iframe></p>
+<h3>Then</h3>
+<p>Before these functions were added to dbatools, you had a couple options when it came to checking/adding SPNs:</p>
+<ol>
+<li>setspn.exe and ActiveDirectory Users and Computers. setspn.exe is a windows command that you could use to add an SPN to given Active Directory account. And it works great! You do need to know the SPN and account you want to set it for ahead of time; it doesn&#8217;t really care about what kind of SPN you&#8217;re setting, but it&#8217;ll let you set it. You could also use it to check for dupes, list out what SPNs exist for an account&#8230; <a href="https://technet.microsoft.com/en-us/library/cc731241(v=ws.11).aspx">it&#8217;s a pretty well documented command</a>. Setting the SPN is only part of what makes SQL Server Kerberos authentication, work, though. You still need to set delegation on the account to the services in question. That normally requires you going into the Active Directory Users and Computers application and adding delegation outside of the setspn.exe command prompt. Yuck!</p>
+</li>
+<li>
+<p>Microsoft Kerberos Configuration Manager for SQL Server. Microsoft does have a tool to help you manage your SPNs for SQL Server too. It&#8217;s called <a href="https://www.microsoft.com/en-us/download/details.aspx?id=39046">Kerberos Configuration Manager for SQL Server</a> and it&#8217;s awesome because not only does it tell you what SPNs need set, but it checks to see if they are there. If they aren&#8217;t, it&#8217;ll try and fix them for you, or generate a .cmd file that you can run on your own. It&#8217;s a neat tool that essentially generates SPNs based on best practice straight from Microsoft. While the auto fixing and script generation are neat, the program can be a little slow. Also: up until very recently (2017 Jan 31), it wasn&#8217;t compatible with SQL Server 2016. It also doesn&#8217;t set delegation for your accounts, either. Less yuck, but still: yuck!</p>
+</li>
+</ol>
+<h3>Now</h3>
+<p>Now we have four new commands to help manage SPNs &#8211; <a href="https://dbatools.io/Get-DbaSpn">Get-DbaSpn</a>, <a href="https://dbatools.io/Test-DbaSpn">Test-DbaSpn</a>, <a href="https://dbatools.io/Set-DbaSpn">Set-DbaSpn</a>, and <a href="https://dbatools.io/Remove-DbaSpn">Remove-DbaSpn</a>. Our goal with the new SPN commands was to make them fast, and make them at least as useful as the GUI tool provided by Microsoft, but to allow multi-server administration and automation of setting correct SPNs and enabling constrained delegation. And we&#8217;ve done it! These commands are based on <a href="https://msdn.microsoft.com/en-us/library/ms191153.aspx">guidance from MSDN about setting SQL Server Service Principal names which you can read more about here</a>.</p>
+<p>Oh and for the performance minded among you, we&#8217;ve built these functions to be super fast; faster than the traditional setspn.exe and Configuration Manager options by quite a bit. While the GUI tool took up to 51 seconds per server, our testing showed the ability to return required SPN info for <strong>9 servers in 9 seconds</strong>. That&#8217;s 1 server per second, granted, we don&#8217;t test for SSAS or SSRS at this time, but we do have it planned, and it&#8217;ll still be quick.</p>
+<p>Take a look below for a detailed description of the new commands in this release. You can use these new functions by <a href="/download">grabbing our latest release (0.8.709)</a>.</p>
+<p>A couple things to note when using these functions:</p>
+<ol>
+<li>You&#8217;ll need at least permission to read from your domain&#8217;s Active Directory, and in the case of adding SPNs, the ability to modify. That means you&#8217;ll need to run the commands as a user with those permissions, or use the -Credential parameters.</li>
+<li>Fully explore Get-DbaSpn and Test-DbaSpn commands before moving on to Set-DbaSpn. We also included -WhatIf support in Set-DbaSpn so you can see what SPNs will be added to which accounts before you actually apply them. We&#8217;ve done our best to make sure we fully support a variety of different configurations and network names, but you should know what will be applied before you actually do it.</li>
+</ol>
+<h3>New Commands</h3>
+<h4>&#8211; <a href="https://dbatools.io/Get-DbaSpn">Get-DbaSpn</a></h4>
+<p>Returns a list of any service principal names (SPNs) set for a given server or active directory account name</p>
+<p><a href="https://dbatools.io/wp-content/uploads/2017/02/img_5899e6fa0bc11-full.png?ssl=1"><img class="alignnone size-full wp-image-2932 aligncenter" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e6fa0bc11.png?w=800&#038;ssl=1" alt="" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e6fa0bc11.png?w=677&amp;ssl=1 677w, https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e6fa0bc11.png?resize=300%2C278&amp;ssl=1 300w" sizes="(max-width: 677px) 100vw, 677px" data-recalc-dims="1" /></a></p>
+<h4>&#8211; <a href="https://dbatools.io/Test-DbaSpn">Test-DbaSpn</a></h4>
+<p>Returns of listing of &#8220;required&#8221; SPNs for a given computer&#8217;s instance of SQL Server. The cmdlet will discover all instances of SQL Server on a given computer name. For each instance found, the cmdlet will generate a list of required SPNs based on active TCP/IP ports. The cmdlet will also warn you if an instance is using dynamic ports. Each returned SPN object will also specify if the SPN is currently set or not.</p>
+<p><a href="https://dbatools.io/wp-content/uploads/2017/02/img_58984230e128a-full.png?ssl=1" target="new"><img class="alignnone size-full wp-image-2827 aligncenter" src="https://dbatools.io/wp-content/uploads/2017/02/img_58984230e128a.png?w=800&#038;ssl=1" alt="" srcset="https://dbatools.io/wp-content/uploads/2017/02/img_58984230e128a.png?w=700&amp;ssl=1 700w, https://dbatools.io/wp-content/uploads/2017/02/img_58984230e128a.png?resize=300%2C48&amp;ssl=1 300w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></a></p>
+<p>You can even check your entire estate in just one line. Here, you can see us testing several instances in our lab.</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5898aec8d2a1c-full.png?ssl=1" target="new"><img class="alignnone size-full wp-image-2901 aligncenter" src="https://dbatools.io/wp-content/uploads/2017/02/img_5898aec8d2a1c.png?w=800&#038;ssl=1" alt="" srcset="https://dbatools.io/wp-content/uploads/2017/02/img_5898aec8d2a1c.png?w=700&amp;ssl=1 700w, https://dbatools.io/wp-content/uploads/2017/02/img_5898aec8d2a1c.png?resize=300%2C98&amp;ssl=1 300w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></a></p>
+<p>Or use Test to help easily Set all required SPNs</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e4720ac5a-full.png?ssl=1"><img class="alignnone size-full wp-image-2925 aligncenter" src="https://dbatools.io/wp-content/uploads/2017/02/img_5899e4720ac5a.png?w=800&#038;ssl=1" alt="" srcset="https://dbatools.io/wp-content/uploads/2017/02/img_5899e4720ac5a.png?w=700&amp;ssl=1 700w, https://dbatools.io/wp-content/uploads/2017/02/img_5899e4720ac5a.png?resize=300%2C201&amp;ssl=1 300w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></a></p>
+<h4>&#8211; <a href="https://dbatools.io/Set-DbaSpn">Set-DbaSpn</a></h4>
+<p>Connects to Active Directory and sets a given SPN to a given account. Will also set constrained delegation to the account to the recently added SPN.</p>
+<p><a href="https://dbatools.io/wp-content/uploads/2017/02/img_5899e57f5a96d-full.png?ssl=1"><img class="alignnone size-full wp-image-2928 aligncenter" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e57f5a96d.png?w=800&#038;ssl=1" alt="" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e57f5a96d.png?w=700&amp;ssl=1 700w, https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e57f5a96d.png?resize=300%2C68&amp;ssl=1 300w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></a></p>
+<p>Both Set and Remove fully support -WhatIf</p>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e423e98e9-full.png?ssl=1"><img class="alignnone size-full wp-image-2923 aligncenter" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e423e98e9.png?w=800&#038;ssl=1" alt="" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e423e98e9.png?w=700&amp;ssl=1 700w, https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e423e98e9.png?resize=300%2C48&amp;ssl=1 300w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></a></p>
+<h4>&#8211; <a href="https://dbatools.io/Remove-DbaSpn">Remove-DbaSpn</a></h4>
+<p>Connects to Active Directory and removes a given SPN to a given account. Will also remove the associated constrained delegation.</p>
+<p>The following screenshot shows a way to easily remove SPNS of decommissioned servers.</p>
+<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e3952455a-full.png?ssl=1"><img class="alignnone size-full wp-image-2921 aligncenter" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e3952455a.png?w=800&#038;ssl=1" alt="" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e3952455a.png?w=700&amp;ssl=1 700w, https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/img_5899e3952455a.png?resize=300%2C117&amp;ssl=1 300w" sizes="(max-width: 700px) 100vw, 700px" data-recalc-dims="1" /></a></p>
+<h3>Related Commands</h3>
+<p>We also have a few other commands that can help you deal with SPNs.</p>
+<ul>
+<li><strong><a href="https://dbatools.io/Repair-DbaInstanceName">Repair-DbaInstanceName</a></strong> and <strong><a href="https://dbatools.io/Repair-DbaServerName">Repair-DbaServerName</a></strong><br />
+When a SQL Server’s host OS is renamed, the SQL Server should be as well. This helps with Availability Groups and Kerberos. <a href="https://dbatools.io/Repair-DbaInstanceName">Repair-DbaInstanceName</a> helps determine if your OS and SQL Server names match, and thus, if a rename is required. If a rename is required, run <a href="https://dbatools.io/Repair-DbaServerName">Repair-DbaServerName</a>.</p>
+</li>
+<li>
+<p><strong><a href="https://dbatools.io/Test-DbaConnectionAuthScheme">Test-DbaConnectionAuthScheme</a></strong><br />
+This command returns the transport protocol and authentication scheme of the connection. This is useful to determine if your connection is using Kerberos. By default, the ConnectName, ServerName, Transport and AuthScheme of the current connection will be returned.</p>
+</li>
+</ul>
+<h3>Coming Soon</h3>
+<p>These commands are just the start of our support for SPNs. Right now, they&#8217;re just focused on SQL-related services on your computers. In the future, we&#8217;re going to extend these scripts to look at ALL services on your computers and tie them back to service accounts and SPNs. <strong>This includes SSAS, SSIS, and SSRS SPN support.</strong> We&#8217;re also going to keep looking at the commands and adding support for anything we didn&#8217;t think of when we released, which is why it&#8217;s important that you give us feedback (more on that below).</p>
+<p>Thanks for reading, and I hope you enjoy these new commands! If you have any issues or questions about their use, feel free to drop by our <a href="/slack">Slack channel</a>, <a href="https://sqlcommunity.slack.com/messages/dbatools">#dbatools</a>, and let us know. We&#8217;d love to hear from you!</p>
+<p>&#45; Drew</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/schwifty/feed/</wfw:commentRss>
+		<slash:comments>11</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">2761</post-id>	</item>
+	</channel>
+</rss>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	
+	>
+<channel>
+	<title>
+	Comments on: three ways to track logins using dbatools	</title>
+	<atom:link href="https://dbatools.io/track-logins/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/track-logins/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Tue, 23 Apr 2019 17:16:37 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+			<item>
+				<title>
+				By: sam				</title>
+				<link>https://dbatools.io/track-logins/#comment-63865</link>
+		<dc:creator><![CDATA[sam]]></dc:creator>
+		<pubDate>Tue, 23 Apr 2019 17:16:37 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7432#comment-63865</guid>
+					<description><![CDATA[Hi I have a similar required to capture - username, login time, logout time. can you please share me scripts to do the same. thank you.]]></description>
+		<content:encoded><![CDATA[<p>Hi I have a similar required to capture &#8211; username, login time, logout time. can you please share me scripts to do the same. thank you.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Chrissy LeMaire				</title>
+				<link>https://dbatools.io/track-logins/#comment-51241</link>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+		<pubDate>Wed, 20 Feb 2019 09:12:39 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7432#comment-51241</guid>
+					<description><![CDATA[Hey Luke, the auditing is primarily intended to ensure that all supported applications are known and considered/planned for when performing the migration. When SSMS connects to a server, it&#039;s more of an ad-hoc behavior that likely does not need need to be managed. If you would like to audit for purposes other than migrations or if your end-users are connecting via ssms, then you can remove the filter <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f44d.png" alt="👍" class="wp-smiley" style="height: 1em; max-height: 1em;" />]]></description>
+		<content:encoded><![CDATA[<p>Hey Luke, the auditing is primarily intended to ensure that all supported applications are known and considered/planned for when performing the migration. When SSMS connects to a server, it&#8217;s more of an ad-hoc behavior that likely does not need need to be managed. If you would like to audit for purposes other than migrations or if your end-users are connecting via ssms, then you can remove the filter 👍</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Luke				</title>
+				<link>https://dbatools.io/track-logins/#comment-51118</link>
+		<dc:creator><![CDATA[Luke]]></dc:creator>
+		<pubDate>Wed, 20 Feb 2019 00:49:12 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7432#comment-51118</guid>
+					<description><![CDATA[Could you, please, explain to me why you do not audit anything comeing from ssms?
+
+not like &#039;Microsoft SQL Server Management Studio%&#039;
+
+Thank you!
+Luke]]></description>
+		<content:encoded><![CDATA[<p>Could you, please, explain to me why you do not audit anything comeing from ssms?</p>
+<p>not like &#8216;Microsoft SQL Server Management Studio%&#8217;</p>
+<p>Thank you!<br />
+Luke</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Pollus Brodeur				</title>
+				<link>https://dbatools.io/track-logins/#comment-47136</link>
+		<dc:creator><![CDATA[Pollus Brodeur]]></dc:creator>
+		<pubDate>Tue, 05 Feb 2019 17:17:15 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7432#comment-47136</guid>
+					<description><![CDATA[Hi Chrissy,
+
+Great article
+
+I wanted to use the Default Trace to get this information but something is bothering me. Default trace does not capture Login or Logout event id (14,15). This means that it does not garanty all connections will be captured. I tried connecting and running a simple query the close the connection. It was not in the trace. It&#039;s worth warning the reader. They must be aware before taking migration decision based on incomplete data.]]></description>
+		<content:encoded><![CDATA[<p>Hi Chrissy,</p>
+<p>Great article</p>
+<p>I wanted to use the Default Trace to get this information but something is bothering me. Default trace does not capture Login or Logout event id (14,15). This means that it does not garanty all connections will be captured. I tried connecting and running a simple query the close the connection. It was not in the trace. It&#8217;s worth warning the reader. They must be aware before taking migration decision based on incomplete data.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Greg				</title>
+				<link>https://dbatools.io/track-logins/#comment-6529</link>
+		<dc:creator><![CDATA[Greg]]></dc:creator>
+		<pubDate>Tue, 12 Jun 2018 13:18:28 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7432#comment-6529</guid>
+					<description><![CDATA[I got it working, here is what I found. 
+The $Servers is not working - I ran this before the script above and that is when it failed (not this ype, this created the null issue): $servers = Get-DbaRegisteredServer -SqlInstance localhost
+So Something with that is not working. Still not sure.I ran the following and it returned nothing (but I am newish to powershell so this may not be right)
+$servers = Get-DbaRegisteredServer -SqlInstance localhost
+write-output $servers
+I then ran the next command but i took out the &#039;$servers &#124;&#039; and ran without, it prompted me for the instance, i typed it in and everything worked. So I am not sure what the issue with registering the server is. It is a SQL Server 2017 if that makes any difference. Here is what worked.
+# Collect the results into a variable so that the bulk import is supafast
+$results =  Get-DbaXESession -Session &#039;Login Tracker&#039; &#124; Read-DbaXEFile &#124;
+Select-Object server_instance_name, server_principal_name, client_hostname, database_name, client_app_name, timestamp
+
+# Bulk import to the centralized database in an efficient manner (piping would write line by line)
+Write-DbaDataTable -InputObject $results -SqlInstance localhost -Database inventory -Table watchlogins
+
+Thank you for your help]]></description>
+		<content:encoded><![CDATA[<p>I got it working, here is what I found.<br />
+The $Servers is not working &#8211; I ran this before the script above and that is when it failed (not this ype, this created the null issue): $servers = Get-DbaRegisteredServer -SqlInstance localhost<br />
+So Something with that is not working. Still not sure.I ran the following and it returned nothing (but I am newish to powershell so this may not be right)<br />
+$servers = Get-DbaRegisteredServer -SqlInstance localhost<br />
+write-output $servers<br />
+I then ran the next command but i took out the &#8216;$servers |&#8217; and ran without, it prompted me for the instance, i typed it in and everything worked. So I am not sure what the issue with registering the server is. It is a SQL Server 2017 if that makes any difference. Here is what worked.<br />
+# Collect the results into a variable so that the bulk import is supafast<br />
+$results =  Get-DbaXESession -Session &#8216;Login Tracker&#8217; | Read-DbaXEFile |<br />
+Select-Object server_instance_name, server_principal_name, client_hostname, database_name, client_app_name, timestamp</p>
+<p># Bulk import to the centralized database in an efficient manner (piping would write line by line)<br />
+Write-DbaDataTable -InputObject $results -SqlInstance localhost -Database inventory -Table watchlogins</p>
+<p>Thank you for your help</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Chrissy LeMaire				</title>
+				<link>https://dbatools.io/track-logins/#comment-6527</link>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+		<pubDate>Tue, 12 Jun 2018 12:46:52 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7432#comment-6527</guid>
+					<description><![CDATA[The command index is out of date, the command does exist. You can see all our commands using: Find-DbaCommand.
+
+Did you add any wheres and did you ensure the Login Tracker session is running? 
+
+#ensure you have servers assigned 
+$servers
+
+#ensure your login tracker is running
+$servers &#124; Get-DbaXESession  -Session &#039;Login Tracker&#039;]]></description>
+		<content:encoded><![CDATA[<p>The command index is out of date, the command does exist. You can see all our commands using: Find-DbaCommand.</p>
+<p>Did you add any wheres and did you ensure the Login Tracker session is running? </p>
+<p>#ensure you have servers assigned<br />
+$servers</p>
+<p>#ensure your login tracker is running<br />
+$servers | Get-DbaXESession  -Session &#8216;Login Tracker&#8217;</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Greg				</title>
+				<link>https://dbatools.io/track-logins/#comment-6522</link>
+		<dc:creator><![CDATA[Greg]]></dc:creator>
+		<pubDate>Tue, 12 Jun 2018 12:01:48 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7432#comment-6522</guid>
+					<description><![CDATA[I understand it is null, i guess my question is, using the script, why is it null? I can see data in the session in SSMS so there is data. It also appears you use the function &#039;Read-DbaXEFile&#039; but this function is no longer in DBATools. (It is not listed in the command index) I am starting to think that is why the variable is null.
+Thank you]]></description>
+		<content:encoded><![CDATA[<p>I understand it is null, i guess my question is, using the script, why is it null? I can see data in the session in SSMS so there is data. It also appears you use the function &#8216;Read-DbaXEFile&#8217; but this function is no longer in DBATools. (It is not listed in the command index) I am starting to think that is why the variable is null.<br />
+Thank you</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Chrissy LeMaire				</title>
+				<link>https://dbatools.io/track-logins/#comment-6455</link>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+		<pubDate>Mon, 11 Jun 2018 20:32:49 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7432#comment-6455</guid>
+					<description><![CDATA[Hey Greg, that&#039;s because your result set is null. In my own script I assign the collection to a variable then check to see if the variable is null: if ($results) { write-dbadatatable -inputobject $results).]]></description>
+		<content:encoded><![CDATA[<p>Hey Greg, that&#8217;s because your result set is null. In my own script I assign the collection to a variable then check to see if the variable is null: if ($results) { write-dbadatatable -inputobject $results).</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Greg				</title>
+				<link>https://dbatools.io/track-logins/#comment-6422</link>
+		<dc:creator><![CDATA[Greg]]></dc:creator>
+		<pubDate>Mon, 11 Jun 2018 13:54:42 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7432#comment-6422</guid>
+					<description><![CDATA[I am trying to run the collector session-insert.ps1 script for extended events and I am getting the following error. I updated DBATools to latest. I am on sql 2017 on a localhost using all the standard scripts you provided. The first command executes without error but the second command fails. Everything worked until than. Any ideas? Thanks
+Write-DbaDataTable : Cannot validate argument on parameter &#039;InputObject&#039;. The argument is null. Provide a valid value for the argument, and then try running the command again.
+At line:6 char:33
++ Write-DbaDataTable -InputObject $results -SqlInstance localhost -Data ...
++                                 ~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Write-DbaDataTable], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,Write-DbaDataTable]]></description>
+		<content:encoded><![CDATA[<p>I am trying to run the collector session-insert.ps1 script for extended events and I am getting the following error. I updated DBATools to latest. I am on sql 2017 on a localhost using all the standard scripts you provided. The first command executes without error but the second command fails. Everything worked until than. Any ideas? Thanks<br />
+Write-DbaDataTable : Cannot validate argument on parameter &#8216;InputObject&#8217;. The argument is null. Provide a valid value for the argument, and then try running the command again.<br />
+At line:6 char:33<br />
++ Write-DbaDataTable -InputObject $results -SqlInstance localhost -Data &#8230;<br />
++                                 ~~~~~~~~<br />
+    + CategoryInfo          : InvalidData: (:) [Write-DbaDataTable], ParameterBindingValidationException<br />
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,Write-DbaDataTable</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Chrissy LeMaire				</title>
+				<link>https://dbatools.io/track-logins/#comment-1683</link>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+		<pubDate>Wed, 11 Apr 2018 12:24:23 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7432#comment-1683</guid>
+					<description><![CDATA[Cool, Hermann! Did you use which Event did you end up using? sql_statements_starting?
+
+We have a lot of new (since Jan) XE stuff - check out dbatools.io/xevents]]></description>
+		<content:encoded><![CDATA[<p>Cool, Hermann! Did you use which Event did you end up using? sql_statements_starting?</p>
+<p>We have a lot of new (since Jan) XE stuff &#8211; check out dbatools.io/xevents</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>Andreas &#8211; dbatools</title>
+	<atom:link href="https://dbatools.io/author/andreas/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Sun, 16 Jun 2019 12:59:50 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+
+<image>
+	<url>https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&#038;ssl=1</url>
+	<title>Andreas &#8211; dbatools</title>
+	<link>https://dbatools.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
+		<title>keeping availability group logins in sync automatically</title>
+		<link>https://dbatools.io/keeping-availability-group-logins-in-sync-automatically/</link>
+				<comments>https://dbatools.io/keeping-availability-group-logins-in-sync-automatically/#comments</comments>
+				<pubDate>Mon, 20 May 2019 19:14:11 +0000</pubDate>
+		<dc:creator><![CDATA[Andreas]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=9655</guid>
+				<description><![CDATA[I am Andreas Schubert and I am working as a Principal Consultant and Database Reliability Engineer for SQL Server &#38; Azure for multiple national and international companies. My focus is ...]]></description>
+								<content:encoded><![CDATA[<p>I am Andreas Schubert and I am working as a Principal Consultant and Database Reliability Engineer for SQL Server &amp; Azure for multiple national and international companies. My focus is on implementing and operating complex 24/7 SQL environments with tens and hundreds of servers and multi-terabyte databases.</p>
+<p>Welcome to a quick post that should help you operate your SQL Server environment more consistently and reduce manual, repetitive work.</p>
+<h2>The Problem</h2>
+<p>When you are running SQL Server Availability Groups, one of the most cumbersome tasks is to ensure that all logins are synchronised between all replicas. While not exactly rocket science, it is something that quickly means a lot of work if you are managing more than one or two Availability Groups.<br />
+Wouldn&#8217;t it be nice to have a script that is flexible enough to</p>
+<ul>
+<li>be called by only specifying the Availability Group Listener</li>
+<li>detect all replicas and their roles automatically</li>
+<li>connect to the primary, read all SQL logins and apply them to EVERY secondary automatically?</li>
+</ul>
+<p>Well, dbatools to the rescue again.</p>
+<h2>The solution</h2>
+<p>With dbatools, such a routine takes only a few lines of code.<br />
+The below script connects to the Availability Group Listener, queries it to get the current primary replica, as well as every secondary replica and then synchronizes all logins to each secondary.</p>
+<p>In the template code, no changes are actually written due to the -WhatIf switch, so that you can safely test it to see what changes would be committed.</p>
+<pre class="lang:ps decode:true " title="SyncLoginsToReplica.ps1">&lt;#
+    Script : SyncLoginsToReplica.ps1
+    Author : Andreas Schubert (http://www.linkedin.com/in/schubertandreas)
+    Purpose: Sync logins between all replicas in an Availability Group automatically.
+    --------------------------------------------------------------------------------------------
+    The script will connect to the listener name of the Availability Group
+    and read all replica instances to determine the current primary replica and all secondaries.
+    It will then connect directly to the current primary, query all Logins and create them on each
+    secondary.
+    
+    Attention:
+    The script is provided so that no action is actually executed against the secondaries (switch -WhatIf).
+    Change that line according to your logic, you might want to exclude other logins or decide to not drop
+        any existing ones.
+    --------------------------------------------------------------------------------------------
+    Usage: Save the script in your file system, change the name of the AG Listener (AGListenerName in this template) 
+           and schedule it to run at your prefered schedule. I usually sync logins once per hour, although 
+           on more volatile environments it may run as often as every minute
+#&gt;
+
+# define the AG name
+    $AvailabilityGroupName = 'AGListenerName'
+
+# internal variables
+    $ClientName = 'AG Login Sync helper'
+    $primaryInstance = $null
+    $secondaryInstances = @{}
+
+
+try {
+    # connect to the AG listener, get the name of the primary and all secondaries
+        $replicas = Get-DbaAgReplica -SqlInstance $AvailabilityGroupName 
+        $primaryInstance = $replicas | Where Role -eq Primary | select -ExpandProperty name
+        $secondaryInstances = $replicas | Where Role -ne Primary | select -ExpandProperty name
+    # create a connection object to the primary
+        $primaryInstanceConnection = Connect-DbaInstance $primaryInstance -ClientName $ClientName
+    # loop through each secondary replica and sync the logins
+        $secondaryInstances | ForEach-Object {
+            $secondaryInstanceConnection = Connect-DbaInstance $_ -ClientName $ClientName
+            Copy-DbaLogin -Source $primaryInstanceConnection -Destination $secondaryInstanceConnection -ExcludeSystemLogins -WhatIf
+        }
+}
+catch {
+    $msg = $_.Exception.Message
+    Write-Error "Error while syncing logins for Availability Group '$($AvailabilityGroupName): $msg'"
+}
+</pre>
+<p>To make tools reusable, you could easily turn this script into a function by adding the 2 variables as parameters. Then you could call it from any other script like</p>
+<pre class="lang:ps decode:true ">SyncLoginsToReplica.ps1 -AvailabilityGroupName YourAGListenerName -ClientName "Client"</pre>
+<p>For simplicity, I created this as a standalone script though.</p>
+<p>I hope you find this post useful. For questions and remarks please feel free to <a href="http://www.linkedin.com/in/schubertandreas">message me</a>!</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/keeping-availability-group-logins-in-sync-automatically/feed/</wfw:commentRss>
+		<slash:comments>26</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">9655</post-id>	</item>
+		<item>
+		<title>building an inventory view of SQL Servers with dbatools</title>
+		<link>https://dbatools.io/building-an-inventory/</link>
+				<comments>https://dbatools.io/building-an-inventory/#comments</comments>
+				<pubDate>Thu, 25 Apr 2019 11:10:37 +0000</pubDate>
+		<dc:creator><![CDATA[Andreas]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=9595</guid>
+				<description><![CDATA[The situation Hey all, I am Andreas Schubert and I am working as a Principal Consultant and Database Reliability Engineer for SQL Server &#38; Azure for multiple national and international ...]]></description>
+								<content:encoded><![CDATA[<h2>The situation</h2>
+<p>Hey all, I am Andreas Schubert and I am working as a Principal Consultant and Database Reliability Engineer for SQL Server &amp; Azure for multiple national and international companies. My focus is on implementing and operating complex 24/7 SQL environments with tens and hundreds of servers and multi-terrabyte databases.</p>
+<p>With the multitude of environments that I am operating, it&#8217;s impossible to remember every server, every database or the multiple different ways they are interacting with each other. Therefore, one of the first things I do when taking over a consulting engagement is mapping out all those different bits of information.</p>
+<p>Since the environments usually change pretty fast, my goal is to automate this process as much as possible.</p>
+<p>In this series of posts, I will try to show you how I am implementing this. Of course, your requirements or implementations may differ, but hopefully this blog post can give you some ideas about your tasks too.</p>
+<h2>Enter dbatools</h2>
+<p>Before dbatools existed, I had to rely on either the various monitoring solutions that my customers are using or on scripts created by myself. There are a lot of really great 3rd party tools out there that do an awesome job. Unfortunately, they all differ in how they are used or what information they report back. I needed something that is easy to implement, with as few dependencies as possible and works across all SQL Server versions. That&#8217;s when I started using dbatools.<br />
+I immediately felt in love with how flexible it is. And boy, did its functionality grow fast!</p>
+<p>Today, there are tons of commands available that cover almost all, of the various, areas SQL Server has to offer.</p>
+<h2>The task</h2>
+<p>Before I dive into specific SQL Servers for in-depth analysis, I want to see some sort of inventory. The minimum information I would like to collect is:</p>
+<ul>
+<li>What server is SQL running on?</li>
+<li>What edition and patch level does it have?</li>
+<li>How many cores and RAM is it equipped with?</li>
+<li>How many databases are on the SQL, what size are they and what&#8217;s the biggest one?</li>
+<li>Is the SQL part of an Availability Group? If yes, what&#8217;s the name of the AG, what role does the SQL have right now and what&#8217;s the underlying cluster object name?</li>
+<li>On top of that, I find that SQL Instances usually get a &#8220;pet name&#8221; alias. This means, when people within the company are talking about the SQL Server, they don&#8217;t call it by it&#8217;s machine name, but rather something like &#8220;the production database&#8221; or &#8220;the cluster&#8221;. Technically not correct, but that&#8217;s how it is happening. Due to that, my overview should also contain that alias to make it easier for me until I remember all the mappings.</li>
+</ul>
+<p>Whoever has built an inventory script in the past knows that collecting the above information requires quite a few scripts. On top of that,  the underlying DMVs have been changed between SQL versions, so you need to account for that. Microsoft has made that much easier with providing SMO (SQL Server Management Objects), a set of libraries that abstract away the complexity of collecting that information. Thankfully, Microsoft also enabled the dbatools team to include SMO in their framework. My example solution relies solely on dbatools (which works &#8211; not only but also &#8211; with SMO).</p>
+<p>OK, enough talk, let&#8217;s jump straight into the code.</p>
+<h2>The solution</h2>
+<p>Right at the beginning of any of my scripts, I am defining the root of the script itself. I do this because I re-use a lot of functions.</p>
+<p>Since we want to collect the information for more than one SQL Server instance, we will first build a list of SQL Servers. We could query the list of instances from a central management server, but for the purpose of this post &#8211; and portability- we will keep it simple. We will also assume the account executing this script will have sufficient permissions on each SQL Server instance and that it can connect via Windows Authentication. I generally prefer Windows Authentication over SQL Server authentication due to security concerns, but that is a completely separate topic.</p>
+<p>The names of the Servers will be coming from a simple text file in our example. Just do me a favour and do NOT put your server list into an unsecured network location &#8211; again, we need to keep security in mind.</p>
+<p><img src="https://dbatools.io/wp-content/uploads/2019/04/SQLInventory_servers.png?fit=300%2C300&#038;ssl=1" alt="Picture 1: our server list" class="alignnone size-medium wp-image-9600" srcset="https://dbatools.io/wp-content/uploads/2019/04/SQLInventory_servers.png?w=496&amp;ssl=1 496w, https://dbatools.io/wp-content/uploads/2019/04/SQLInventory_servers.png?resize=300%2C178&amp;ssl=1 300w" sizes="(max-width: 496px) 100vw, 496px" data-recalc-dims="1" /></p>
+<p>Next, we need to load this file into our PowerShell session. For the sake of simplicity, I am loading it explicitely into my script. Normally, I have a variable populated with the servers in my profile, so I don&#8217;t have to do this each time.</p>
+<pre class="lang:ps decode:true ">$script:root = 'D:\AdminScripts'
+$ProductionServers = Get-Content (Join-Path $script:root -ChildPath 'Production.txt')</pre>
+<p>Similar to the actual server list, I am using a text file &#8220;AliasList.txt&#8221; to store the alias information i mentioned above:</p>
+<p><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/04/SQLInventory_aliasList.png?fit=300%2C300&#038;ssl=1" alt="Picture 2: the alias list" class="alignnone size-medium wp-image-9598" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/04/SQLInventory_aliasList.png?w=1101&amp;ssl=1 1101w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/04/SQLInventory_aliasList.png?resize=300%2C60&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/04/SQLInventory_aliasList.png?resize=768%2C153&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/04/SQLInventory_aliasList.png?resize=1024%2C205&amp;ssl=1 1024w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></p>
+<p>It´s the same system: the name of the server or instance, followed by the alias name. Both values are separated by a semicolon. Loading and storing the alias information in a hash table is a simple one-liner in PowerShell:</p>
+<pre class="lang:ps decode:true ">$AliasList = Get-Content (Join-Path $script:root -ChildPath 'AliasList.txt') | Select @{Name= "Instance";Expression={$_.ToString().Split(';')[0]}},@{Name= "Alias";Expression={$_.ToString().Split(';')[1]}}</pre>
+<p>Since I usually exclude system databases from my reports, I am defining a separate list of them as well for easier reuse:</p>
+<pre class="lang:ps decode:true ">$systemDBs = "master","model","msdb","tempdb", "ReportServer","ReportServerTempDB"</pre>
+<p>At this point, we have all the preliminaries completed: A list of SQL Servers to query, a list of system databases that we will exclude and a list of alias information. Let&#8217;s hit the servers and put the resulting data into a variable. I&#8217;ll first show the complete code block, then we will talk about what it does.</p>
+<pre class="lang:ps decode:true ">$rawData = $ProductionServers | Connect-DbaInstance | Sort-Object Computername | Select-Object ComputerName,
+    # map the SQL version
+    @{Name="SQL Version";Expression={ if ($_.VersionMajor -eq "11") {"SQL 2012"} elseif ($_.VersionMajor -eq "12") {"SQL 2014"} elseif ($_.VersionMajor -eq "13") {"SQL 2016"}
+    elseif ($_.VersionMajor -eq "14") {"SQL 2017"} elseif ($_.VersionMajor -eq "15") {"SQL 2019"} elseif ($_.VersionMajor -lt "11") {"SQL 2008R2 or older"} else {"unknown"}}},
+    ProductLevel, Edition,
+    # RAM
+    @{Name= "Memory (GB)";Expression={[math]::Round(($_.PhysicalMemory) / 1024)}},
+    Processors, InstanceName,
+    # total count of user dbs
+    @{Name= "User DBs";Expression={($_.Databases | where {$_.Name -notin $systemDBs} | Measure).Count}},
+    # total db size for all user dbs
+    @{Name= "Total DB Size (GB)";Expression={[math]::Round(($_.Databases | where {$_.Name -notin $systemDBs} | Select size | Measure -Property Size -sum | Select sum).sum / 1024)}},
+    # biggest DB (name, Size(GB)
+    @{Name= "Biggest DB (GB)";Expression={"$($_.Databases | where {$_.Name -notin $systemDBs} | Sort Size -Descending | Select -ExpandProperty Name -First 1)
+    ($([math]::Round(($_.Databases | where {$_.Name -notin $systemDBs} | Sort Size -Descending | Select -ExpandProperty Size -First 1)/1024)) GB)"}},
+    # add the name of the Availability Group (if any)
+    @{Name= "AG (s)";Expression={$_ | Select -ExpandProperty AvailabilityGroups | Select -ExpandProperty AvailabilityGroupListeners}},
+    # add the current role of the server in the Availability Group (if any)
+    @{Name= "Role (s)";Expression={$_ | Select -ExpandProperty AvailabilityGroups | Select -ExpandProperty LocalReplicaRole}}, ClusterName | Sort ComputerName</pre>
+<p>While this code may look complex, from a PowerShell point of view it&#8217;s really pretty simple. First, we take the list of our <code>Productionservers</code> and pipe it to <a href="https://docs.dbatools.io/#Connect-DbaInstance">Connect-DbaInstance</a> cmdlet. Connect-DbaInstance is the result of dbatools calling the SMO functionality, returning a complete SMO object of the SQL Server connected to.</p>
+<p>Technically, the part with <code>$rawData = $ProductionServers | Connect-DbaInstance</code> already gives us all the information we need for our report. But since we don&#8217;t want to return all the possible SMO properties and objects (that would result in a very long operation), we pipe the results of this directly to a Sort, followed by returning the actual information we are interested in:</p>
+<pre class="lang:ps decode:true ">$rawData = $ProductionServers | Connect-DbaInstance | Sort Computername | Select ComputerName,</pre>
+<p>First we extract the Computername. On the next two lines, we map the SQL Server major version number to a clear-text string:</p>
+<pre class="lang:ps decode:true "># map the SQL version
+@{Name="SQL Version";Expression={ if ($_.VersionMajor -eq "11") {"SQL 2012"} elseif ($_.VersionMajor -eq "12") {"SQL 2014"} elseif
+($_.VersionMajor -eq "13") {"SQL 2016"} elseif ($_.VersionMajor -eq "14") {"SQL 2017"} elseif ($_.VersionMajor -eq "15") {"SQL 2019"}
+elseif ($_.VersionMajor -lt "11") {"SQL 2008R2 or older"} else {"unknown"}}},</pre>
+<p>Right on, we extract the product level (e.g. RTM, SP1, …) and the Edition of the SQL Server (Standard, Enterprise…), followed by the available machine memory.  Since this is returned in MB, we format and round it so that we get a nice number in GB (e.g. 12, 48 or 128).</p>
+<p>Then we include the number of logical processors and the name of the instance &#8211; in case we have a named instance.</p>
+<p>The number and size of user databases is a bit more complex. We need to query the &#8220;Databases&#8221; collection of the SMO Server object, filter out the system databases, get the size property of each object in the collection and measure it (count for the number and SUM for the combined size of the databases). Of course, we want those numbers to be nicely formatted and rounded to the full GB, so we add the formatting as well:</p>
+<pre class="lang:ps decode:true "># total count of user dbs
+@{Name= "User DBs";Expression={($_.Databases | Where {$_.Name -notin $systemDBs} | Measure).Count}},
+# total db size for all user dbs
+@{Name= "Total DB Size (GB)";Expression={[math]::Round(($_.Databases | Where {$_.Name -notin $systemDBs} | Select size | Measure
+-Property Size -sum | Select sum).sum / 1024)}},</pre>
+<p>To get the size of the biggest / largest database on the server, we use the same technique, only that we sort the database object list by size in descending order and take only the first object:</p>
+<pre class="lang:ps decode:true "># biggest DB (name, Size(GB)
+@{Name= "Biggest DB (GB)";Expression={"$($_.Databases | Where {$_.Name -notin $systemDBs} | Sort Size -Descending | Select -ExpandProperty Name -First 1)
+($([math]::Round(($_.Databases | Where {$_.Name -notin $systemDBs} | Sort Size -Descending | Select -ExpandProperty Size -First 1)/1024)) GB)"}},</pre>
+<p>The PowerShell pipeline can be really awesome!</p>
+<p>Now  let&#8217;s add the information about the Availability Group Listener to our list. The AG information is another sub-object of the SMO collection which we first have to extract to get to the information below.</p>
+<pre class="lang:ps decode:true "># add the name of the Availability Group (if any)
+@{Name= "AG (s)";Expression={$_ | Select -ExpandProperty AvailabilityGroups | Select -ExpandProperty AvailabilityGroupListeners}},</pre>
+<p>And exactly the same way for the role of the current replica as well as the cluster object name:</p>
+<pre class="lang:ps decode:true "># add the current role of the server in the Availability Group (if any)
+@{Name= "Role (s)";Expression={$_ | Select -ExpandProperty AvailabilityGroups | Select -ExpandProperty LocalReplicaRole}}, ClusterName | Sort ComputerName</pre>
+<p>That&#8217;s a whole lot of information retrieved by just one call to a PowerShell method. How awesome is that? Most of our script is logic around formatting and extracting information from sub-properties and objects.</p>
+<p>And finally, we add the Alias to our result, matching them by computername:</p>
+<pre class="lang:ps decode:true "># add the alias to the rawdata
+$rawData | % {
+        $v = $_.ComputerName
+        if ('' -ne $_.InstanceName){$v +="\$($_.InstanceName)"}
+        $alias = $AliasList | Where {$_.Instance -eq $v } | Select -ExpandProperty Alias -First 1
+        $_ | Add-Member -MemberType NoteProperty -Name AliasName -Value $alias
+    }</pre>
+<p>The last step is to convert our object to HTML and add some css styling to it. Then we can either send it via eMail or store the generated html as a file for future reference.</p>
+<pre class="lang:ps decode:true ">$css = Get-Content (Join-Path $script:root -ChildPath 'css.txt')
+$html = $rawData | ConvertTo-Html -Fragment -PreContent "$($css)&lt;h2&gt;Instance KPI Summary&lt;/h2&gt;" -PostContent "This summary has been generated with the help of the awesome PowerShell module dbatools!" | Out-File (Join-Path $script:root -ChildPath 'result.html')</pre>
+<p>The result is a nicely formatted html report:<br />
+<img src="https://dbatools.io/wp-content/uploads/2019/04/SQLInventory_results.png?fit=300%2C300&#038;ssl=1" alt="Picture 3: the result" class="alignnone size-medium wp-image-9599" srcset="https://dbatools.io/wp-content/uploads/2019/04/SQLInventory_results.png?w=2012&amp;ssl=1 2012w, https://dbatools.io/wp-content/uploads/2019/04/SQLInventory_results.png?resize=300%2C60&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2019/04/SQLInventory_results.png?resize=768%2C154&amp;ssl=1 768w, https://dbatools.io/wp-content/uploads/2019/04/SQLInventory_results.png?resize=1024%2C206&amp;ssl=1 1024w, https://dbatools.io/wp-content/uploads/2019/04/SQLInventory_results.png?w=1600&amp;ssl=1 1600w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></p>
+<p>This was only a very basic example of what you can do with PSTools, PowerShell and a bit of magic piping. I hope you found this useful.</p>
+<p>For questions and remarks please feel free to <a href="http://www.linkedin.com/in/schubertandreas">message me</a> at any time!</p>
+<p>You can find the complete script in my <a href="https://github.com/AndreasESchubert/Automation/blob/master/Inventory_Basic.ps1" rel="noopener" target="_blank">GitHub repo</a>.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/building-an-inventory/feed/</wfw:commentRss>
+		<slash:comments>40</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">9595</post-id>	</item>
+	</channel>
+</rss>

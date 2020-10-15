@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	>
+
+<channel>
+	<title>docker &#8211; dbatools</title>
+	<atom:link href="https://dbatools.io/tag/docker/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Fri, 08 Feb 2019 11:43:18 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+
+<image>
+	<url>https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&#038;ssl=1</url>
+	<title>docker &#8211; dbatools</title>
+	<link>https://dbatools.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
+		<title>dbatools and docker</title>
+		<link>https://dbatools.io/docker/</link>
+				<comments>https://dbatools.io/docker/#comments</comments>
+				<pubDate>Tue, 08 Jan 2019 22:24:40 +0000</pubDate>
+		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
+				<category><![CDATA[articles]]></category>
+		<category><![CDATA[docker]]></category>
+		<category><![CDATA[party]]></category>
+
+		<guid isPermaLink="false">https://dbatools.io/?p=9443</guid>
+				<description><![CDATA[We now provide Docker images to help dbatools users easily create a non-production environment to test commands and safely explore our toolset.]]></description>
+								<content:encoded><![CDATA[<p><div class='content-column one_third'><a href="https://garrybargsley.com/t-sql-tuesday-110-automate-all-the-things/"><img src="https://i1.wp.com/blog.netnerds.net/wp-content/uploads/2016/06/TSQL2SDAY-150x150.png?resize=150%2C150&#038;ssl=1" alt="TSQL2SDAY-150x150" width="150" height="150" class="aligncenter size-full wp-image-5700" data-recalc-dims="1" /></a></div><div class='content-column two_third last_column'>Today&#8217;s article is part of <a href="https://garrybargsley.com/t-sql-tuesday-110-automate-all-the-things/">T-SQL Tuesday</a>. T-SQL Tuesday is the brainchild of Adam Machanic. It is a blog party on the second Tuesday of each month. Everyone is welcome to participate.</p>
+<p>This month’s T-SQL Tuesday, hosted by dbatools Major Contributor, Garry Bargsley (<a href=https://garrybargsley.com/>[b]</a>|<a href=https://twitter.com/gbargsley>[t]</a>), is all about automation.</div><div class='clear_column'></div></p>
+<h2>Docker Hub</h2>
+<p>In his invitation, Garry asks &#8220;what automation are you proud of completing?&#8221; My answer is that I finally created a couple dbatools images and made them available on <a href="https://hub.docker.com/">Docker Hub</a>.</p>
+<blockquote><p>
+  Docker Hub <a href="https://searchitoperations.techtarget.com/definition/Docker-Hub">is a cloud-based repository</a> in which Docker users and partners create, test, store and distribute container images.
+</p></blockquote>
+<p>I&#8217;ve long wanted to do this to help dbatools users easily create a non-production environment to test commands and safely explore our toolset. I finally made it a priority because I needed to ensure some Availability Group commands I was creating worked on Docker, too, and having some clean images permanently available was required. Also, in general, Docker is a just a good thing to know for both automation and career opportunities <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f601.png" alt="😁" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<h2>Getting started</h2>
+<p>First, install Docker.</p>
+<ul>
+<li><a href=https://docs.docker.com/docker-for-windows/install/>Windows</a></li>
+<li><a href=https://docs.docker.com/docker-for-mac/install/#install-and-run-docker-for-mac>Mac OS</a></li>
+</ul>
+<p>Then grab two images from <a href="https://hub.docker.com/u/dbatools/">the dbatools repo</a>. Note that these are Linux images.</p>
+<pre><code class="language-sh"># get the base images
+docker pull dbatools/sqlinstance
+docker pull dbatools/sqlinstance2
+</code></pre>
+<p>The first image will take a bit to download, but <a href="https://dbatools.io/wp-content/uploads/2020/01/docker-pull-crop.png">the second one will be faster</a> because it&#8217;s based on the first! Neat.</p>
+<p>The first instance is stacked with a bunch of objects, and the second one has a few basics to enable Availability Groups. Both dbatools images are based off of <a href="https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-2017">Microsoft&#8217;s SQL Server 2017 docker image</a>.</p>
+<p>I also added the following to make test migrations more interesting and Availability Groups possible:</p>
+<ul>
+<li>Databases</li>
+<li>Logins</li>
+<li>Jobs</li>
+<li>Endpoints</li>
+<li>Server Roles</li>
+<li>And more</li>
+</ul>
+<p>Here&#8217;s a visible sampling:</p>
+<p><a href="https://dbatools.io/wp-content/uploads/2020/01/docker-ssms.png?ssl=1"><img src="https://dbatools.io/wp-content/uploads/2020/01/docker-ssms.png?resize=680%2C1024&#038;ssl=1" alt="" width="680" height="1024" class="aligncenter size-large wp-image-9472" srcset="https://dbatools.io/wp-content/uploads/2020/01/docker-ssms.png?resize=680%2C1024&amp;ssl=1 680w, https://dbatools.io/wp-content/uploads/2020/01/docker-ssms.png?resize=199%2C300&amp;ssl=1 199w, https://dbatools.io/wp-content/uploads/2020/01/docker-ssms.png?resize=768%2C1156&amp;ssl=1 768w, https://dbatools.io/wp-content/uploads/2020/01/docker-ssms.png?w=910&amp;ssl=1 910w" sizes="(max-width: 680px) 100vw, 680px" data-recalc-dims="1" /></a></p>
+<p>Nice and familiar! You may also notice that sa is disabled. Within the image, I disabled the sa account and created another account with sysadmin called sqladmin. The password, as noted below, is dbatools.IO</p>
+<h2>Creating containers</h2>
+<p>To setup the containers, just copy and paste the commands below. The first one sets up a shared network and the second one sets up the SQL Servers and exposes the required database engine and endpoint ports. It also names them dockersql1 and dockersql2 and gives them a hostname with the same name. I left in &#8220;docker&#8221; so that it doesn&#8217;t conflict with any potential servers named sql1 on the network.</p>
+<pre><code class="language-sh"># create a shared network
+docker network create localnet
+
+# setup two containers and expose ports
+docker run -p 1433:1433 -p 5022:5022 --network localnet --hostname dockersql1 --name dockersql1 -d dbatools/sqlinstance
+docker run -p 14333:1433 -p 5023:5023  --network localnet --hostname dockersql2 --name dockersql2 -d dbatools/sqlinstance2
+</code></pre>
+<p>Generally, you don&#8217;t have to map the ports to exactly what they are running locally, but Availability Groups do a bit of port detection that require one-to-one mapping.</p>
+<p>By the way, if you sometimes prefer a GUI like I do, check out <a href="https://github.com/docker/kitematic/releases">Kitematic</a>. It&#8217;s not ultra-useful but it&#8217;ll do.</p>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/dockersql1.png?ssl=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/dockersql1.png?fit=300%2C300&#038;ssl=1" alt="" class="aligncenter size-medium wp-image-9459" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/dockersql1.png?w=1159&amp;ssl=1 1159w, https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/dockersql1.png?resize=300%2C176&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/dockersql1.png?resize=768%2C451&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/dockersql1.png?resize=1024%2C601&amp;ssl=1 1024w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<h2>Time to play <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f389.png" alt="🎉" class="wp-smiley" style="height: 1em; max-height: 1em;" /></h2>
+<p>Now we are setup to test commands against your two containers! You can login via <a href="https://sqlps.io/dl">SQL Server Management Studio</a> or <a href="https://docs.microsoft.com/en-us/sql/azure-data-studio/download?view=sql-server-2017">Azure Data Studio</a> if you&#8217;d like to take a look first. The server name is localhost (or localhost,14333 for the second instance), the username is sqladmin and the password is dbatools.IO</p>
+<p>Note that Windows-based commands (and commands relating to SQL Configuration Manager) will <strong>not</strong> work because the image is based on SQL Server for Linux. If you&#8217;d like to test Windows-based commands such as <a href="/Get-DbaDiskSpace">Get-DbaDiskSpace</a>, consider testing them on localhost if you&#8217;re running Windows.</p>
+<h3>Set up an Availability Group</h3>
+<p>Next, we&#8217;ll setup a sample availability groups. Note that since it&#8217;s referring to &#8220;localhost&#8221;, you&#8217;ll want to execute this on the computer running Docker. If you&#8217;d like to run Docker on one machine and execute the code on another machine, that is possible but out of scope for this post.</p>
+<pre><code class="language-powershell"># the password is dbatools.IO
+$cred = Get-Credential -UserName sqladmin
+
+# setup a powershell splat
+$params = @{
+    Primary = "localhost"
+    PrimarySqlCredential = $cred
+    Secondary = "localhost:14333"
+    SecondarySqlCredential = $cred
+    Name = "test-ag"
+    Database = "pubs"
+    ClusterType = "None"
+    SeedingMode = "Automatic"
+    FailoverMode = "Manual"
+    Confirm = $false
+ }
+
+# execute the command
+ New-DbaAvailabilityGroup @params
+</code></pre>
+<h4>PowerShell output</h4>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/01/ag-example.png?ssl=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/01/ag-example-1024x443.png?resize=800%2C346&#038;ssl=1" alt="" width="800" height="346" class="aligncenter size-large wp-image-9503" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/01/ag-example.png?resize=1024%2C443&amp;ssl=1 1024w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/01/ag-example.png?resize=300%2C130&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/01/ag-example.png?resize=768%2C333&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/01/ag-example.png?w=1157&amp;ssl=1 1157w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<h4>SQL Server Management Studio</h4>
+<p><a href="https://dbatools.io/wp-content/uploads/2019/01/ag-ssms.png?ssl=1"><img src="https://dbatools.io/wp-content/uploads/2019/01/ag-ssms.png?resize=410%2C425&#038;ssl=1" alt="" width="410" height="425" class="aligncenter size-full wp-image-9518" srcset="https://dbatools.io/wp-content/uploads/2019/01/ag-ssms.png?w=410&amp;ssl=1 410w, https://dbatools.io/wp-content/uploads/2019/01/ag-ssms.png?resize=289%2C300&amp;ssl=1 289w" sizes="(max-width: 410px) 100vw, 410px" data-recalc-dims="1" /></a></p>
+<p>Beautiful <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f60d.png" alt="😍" class="wp-smiley" style="height: 1em; max-height: 1em;" />!</p>
+<h3>Performing an export</h3>
+<p>Again, from the machine running the Docker containers, run the code below. You may note that linked servers, credentials and central management server are excluded from the export. This is because they aren&#8217;t currently supported for various Windows-centric reasons.</p>
+<pre><code class="language-powershell"># the password is dbatools.IO
+$cred = Get-Credential -UserName sqladmin
+
+# First, backup the databases because backup/restore t-sql is what's exported
+Backup-DbaDatabase -SqlInstance localhost:1433 -SqlCredential $cred -BackupDirectory /tmp
+
+# Next, perform export (not currently supported on Core)
+Export-DbaInstance -SqlInstance localhost:1433 -SqlCredential $cred -Exclude LinkedServers, Credentials, CentralManagementServer, BackupDevices
+</code></pre>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/export.png?ssl=1"><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/export.png?resize=800%2C262&#038;ssl=1" alt="" width="800" height="262" class="aligncenter size-large wp-image-9481" srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/export.png?resize=1024%2C335&amp;ssl=1 1024w, https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/export.png?resize=300%2C98&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/export.png?resize=768%2C251&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2020/01/export.png?w=1562&amp;ssl=1 1562w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
+<p>Whaaaat! Now imagine doing this for all of your servers in your entire estate. Want to know more? Check out <a href="/dr">simplifying disaster recovery using dbatools</a> which covers this topic in-depth.</p>
+<h3>Performing a migration</h3>
+<p>This command requires a shared directory. Check out <a href="https://docs.docker.com/docker-for-windows/#SharedDrives">Shared Drives</a> and <a href="https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/">Configuring Docker for Windows Volumes</a> for more information. You may notice that this command does not support linked servers, credentials, central management server or backup devices.</p>
+<pre><code class="language-powershell"># the password is dbatools.IO
+$cred = Get-Credential -UserName sqladmin
+
+# perform the migration from one container to another
+Start-DbaMigration -Source localhost:1433 -Destination localhost:14333 -SourceSqlCredential $cred -DestinationSqlCredential $cred -BackupRestore -SharedPath /sharedpath -Exclude LinkedServers, Credentials, CentralManagementServer, BackupDevices -Force
+</code></pre>
+<h2>Cleaning up</h2>
+<p>To stop and remove a container (and start over if you&#8217;d like! I do tons of times per day), run the following commands or use Kitematic&#8217;s GUI. This does not delete the actual images, just their resulting containers.</p>
+<pre><code class="language-sh">docker stop dockersql1 dockersql2
+docker rm dockersql1 dockersql2
+</code></pre>
+<h2>Resources</h2>
+<p>If you&#8217;d like to know more, the posts below are fantastic resources.</p>
+<ul>
+<li><a href="https://dbafromthecold.com/2017/03/15/summary-of-my-container-series/">Andrew Pruski&#8217;s container series</a></li>
+<li><a href="https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-2017">Quickstart: Run SQL Server container images with Docker</a></li>
+</ul>
+<p>If you&#8217;d like to understand how containers work with the CI/CD process, check out <a href="https://channel9.msdn.com/Events/Connect/2017/T152?ocid=player">this video by Eric Kang, Senior Product Manager for SQL Server</a>.</p>
+<p><center></p>
+<p><iframe src="https://channel9.msdn.com/Events/Connect/2017/T152/player" width="600" height="337" allowFullScreen frameBorder="0"></iframe></p>
+<p></center></p>
+<p>Thanks for reading! Sorry about any typos or mistakes, I hastily wrote this while traveling back from vacation; I had to make Garry&#8217;s T-SQL Tuesday!</p>
+<p>&#45; Chrissy</p>
+]]></content:encoded>
+							<wfw:commentRss>https://dbatools.io/docker/feed/</wfw:commentRss>
+		<slash:comments>5</slash:comments>
+						<post-id xmlns="com-wordpress:feed-additions:1">9443</post-id>	</item>
+	</channel>
+</rss>

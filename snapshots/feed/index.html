@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	
+	>
+<channel>
+	<title>
+	Comments on: simplifying snapshots	</title>
+	<atom:link href="https://dbatools.io/snapshots/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/snapshots/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Fri, 27 Dec 2019 00:30:40 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+			<item>
+				<title>
+				By: Greg L. Wright				</title>
+				<link>https://dbatools.io/snapshots/#comment-78186</link>
+		<dc:creator><![CDATA[Greg L. Wright]]></dc:creator>
+		<pubDate>Fri, 27 Dec 2019 00:30:40 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7775#comment-78186</guid>
+					<description><![CDATA[Great article. I concur with these uses. And would mention a few more.
+
+** Dev/Building/Publishing **
+I use snapshots in my build strategies. I create a snapshot when I start a build, then use the snapshot as a &quot;clean&quot; source to create dacpacs, scripts, or other packagers. This allows devs or other process to continue to use the original DB for publishing, editing, coding, testing, etc without interrupting or tainting the &quot;build snapshot&quot; version. Timing could be an issue at any time, but it&#039;s certainly a lot less than other strategies we&#039;ve tried and we haven&#039;t encountered any noticeable issues.
+
+** Restoring a DB from a snapshot **
+Also, a statement to note in the article may be that that when using Snapshots restoring a DB from a snapshot, like with the good Update strategy mentioned, realize that any other snapshots that exist for that database must be removed first. This could possibly disrupt any other strategies in use (like reporting). You&#039;ll have to 1) drop all snapshots except the one you&#039;re restoring, 2) revert/restore the DB from that desired snapshot, 3) recreate all other snapshots. Be conscious of this requirement.]]></description>
+		<content:encoded><![CDATA[<p>Great article. I concur with these uses. And would mention a few more.</p>
+<p>** Dev/Building/Publishing **<br />
+I use snapshots in my build strategies. I create a snapshot when I start a build, then use the snapshot as a &#8220;clean&#8221; source to create dacpacs, scripts, or other packagers. This allows devs or other process to continue to use the original DB for publishing, editing, coding, testing, etc without interrupting or tainting the &#8220;build snapshot&#8221; version. Timing could be an issue at any time, but it&#8217;s certainly a lot less than other strategies we&#8217;ve tried and we haven&#8217;t encountered any noticeable issues.</p>
+<p>** Restoring a DB from a snapshot **<br />
+Also, a statement to note in the article may be that that when using Snapshots restoring a DB from a snapshot, like with the good Update strategy mentioned, realize that any other snapshots that exist for that database must be removed first. This could possibly disrupt any other strategies in use (like reporting). You&#8217;ll have to 1) drop all snapshots except the one you&#8217;re restoring, 2) revert/restore the DB from that desired snapshot, 3) recreate all other snapshots. Be conscious of this requirement.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Bill Hughes				</title>
+				<link>https://dbatools.io/snapshots/#comment-9783</link>
+		<dc:creator><![CDATA[Bill Hughes]]></dc:creator>
+		<pubDate>Thu, 26 Jul 2018 14:54:50 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7775#comment-9783</guid>
+					<description><![CDATA[Wow! This is great. Such a great article about easy snapshot use. I knew about Snapshots but never used them because, well, there is no easy way to do so until I discovered dbatools. The team behind dbatools rocks! My administrative life has been made easier thanks you this team.]]></description>
+		<content:encoded><![CDATA[<p>Wow! This is great. Such a great article about easy snapshot use. I knew about Snapshots but never used them because, well, there is no easy way to do so until I discovered dbatools. The team behind dbatools rocks! My administrative life has been made easier thanks you this team.</p>
+]]></content:encoded>
+						</item>
+						<item>
+				<title>
+				By: Database Snapshots In dbatools &#8211; Curated SQL				</title>
+				<link>https://dbatools.io/snapshots/#comment-7404</link>
+		<dc:creator><![CDATA[Database Snapshots In dbatools &#8211; Curated SQL]]></dc:creator>
+		<pubDate>Tue, 26 Jun 2018 12:00:54 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=7775#comment-7404</guid>
+					<description><![CDATA[[&#8230;] Chrissy LeMaire shows how easy it is to create and manage database snapshots with dbatools: [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] Chrissy LeMaire shows how easy it is to create and manage database snapshots with dbatools: [&#8230;]</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>

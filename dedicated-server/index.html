@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>building a dedicated backup test server &ndash; dbatools</title>
+<link rel="dns-prefetch" href="//secure.gravatar.com">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//use.fontawesome.com">
+
+<link rel="alternate" type="application/rss+xml" title="dbatools &raquo; Feed" href="https://dbatools.io/feed/">
+<link rel="alternate" type="application/rss+xml" title="dbatools &raquo; Comments Feed" href="https://dbatools.io/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="dbatools &raquo; building a dedicated backup test server Comments Feed" href="https://dbatools.io/dedicated-server/feed/">
+<link rel="stylesheet" id="wp-block-library-css" href="https://c0.wp.com/c/5.3.4/wp-includes/css/dist/block-library/style.min.css" type="text/css" media="all">
+<style id="wp-block-library-inline-css" type="text/css">
+.has-text-align-justify{text-align:justify;}
+</style>
+<link rel="stylesheet" id="cpsh-shortcodes-css" href="https://dbatools.io/wp-content/plugins/column-shortcodes//assets/css/shortcodes.css?ver=1.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-fonts-css" href="https://fonts.googleapis.com/css?family=Raleway%3A400%2C500%2C600%2C700%2C300%2C100%2C800%2C900%7COpen+Sans%3A400%2C300%2C300italic%2C400italic%2C600%2C600italic%2C700%2C700italic&amp;subset=latin%2Clatin-ext&amp;ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-animate-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/animate.min.css?ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-fa-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/font-awesome.min.css?ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-bootstrap-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/bootstrap.min.css?ver=11.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-style-css" href="https://dbatools.io/wp-content/plugins/onepress-plus/style.css?ver=10.1.8" type="text/css" media="all">
+<style id="onepress-style-inline-css" type="text/css">
+#main .video-section section.hero-slideshow-wrapper{background:transparent}.hero-slideshow-wrapper:after{position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(1,36,86,1);display:block;content:""}.body-desktop .parallax-hero .hero-slideshow-wrapper:after{display:none!important}.parallax-hero .parallax-mirror:after{position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(1,36,86,1);display:block;content:""}.body-desktop .parallax-hero .hero-slideshow-wrapper:after{display:none!important}.parallax-hero .parallax-mirror:after{position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(1,36,86,1);display:block;content:""}a,.screen-reader-text:hover,.screen-reader-text:active,.screen-reader-text:focus,.header-social a,.onepress-menu a:hover,.onepress-menu ul li a:hover,.onepress-menu li.onepress-current-item>a,.onepress-menu ul li.current-menu-item>a,.onepress-menu>li a.menu-actived,.onepress-menu.onepress-menu-mobile li.onepress-current-item>a,.site-footer a,.site-footer .footer-social a:hover,.site-footer .btt a:hover,.highlight,#comments .comment .comment-wrapper .comment-meta .comment-time:hover,#comments .comment .comment-wrapper .comment-meta .comment-reply-link:hover,#comments .comment .comment-wrapper .comment-meta .comment-edit-link:hover,.btn-theme-primary-outline,.sidebar .widget a:hover,.section-services .service-item .service-image i,.counter_item .counter__number,.team-member .member-thumb .member-profile a:hover,.icon-background-default{color:#012456}input[type="reset"],input[type="submit"],input[type="submit"],.nav-links a:hover,.btn-theme-primary,.btn-theme-primary-outline:hover,.card-theme-primary,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button,.woocommerce button.button.alt{background:#012456}.btn-theme-primary-outline,.btn-theme-primary-outline:hover,.pricing__item:hover,.card-theme-primary,.entry-content blockquote{border-color:#012456}.site-header{background:#e3e3e3;border-bottom:0px none}.onepress-menu>li>a{color:#293955}.onepress-menu>li>a:hover,.onepress-menu>li.onepress-current-item>a{color:#444444;-webkit-transition:all 0.5s ease-in-out;-moz-transition:all 0.5s ease-in-out;-o-transition:all 0.5s ease-in-out;transition:all 0.5s ease-in-out}#nav-toggle span,#nav-toggle span::before,#nav-toggle span::after,#nav-toggle.nav-is-visible span::before,#nav-toggle.nav-is-visible span::after{background:#293955}.site-footer{background-color:#012456}.site-footer .footer-connect .follow-heading{color:rgba(255,255,255,0.9)}.site-footer .site-info,.site-footer .btt a{background-color:#545454}.site-footer .site-info{color:rgba(255,255,255,0.7)}.site-footer .btt a,.site-footer .site-info a{color:rgba(255,255,255,0.9)}.gallery-carousel .g-item{padding:0px 10px}.gallery-carousel{margin-left:-10px;margin-right:-10px}.gallery-grid .g-item,.gallery-masonry .g-item .inner{padding:10px}.gallery-grid,.gallery-masonry{margin:-10px}
+/* --- Begin custom CSS --- */
+.section-testimonials .card { max-width : 140px; }
+/* --- End custom CSS --- */
+
+ .section-features{ background-color: rgba(227,227,227,1); } 
+ 
+</style>
+<link rel="stylesheet" id="onepress-gallery-lightgallery-css" href="https://dbatools.io/wp-content/themes/onepress-master/assets/css/lightgallery.css?ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="upw_theme_standard-css" href="https://dbatools.io/wp-content/plugins/ultimate-posts-widget/css/upw-theme-standard.min.css?ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-official-css" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" media="all" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+<link rel="stylesheet" id="onepress-child-style-css" href="https://dbatools.io/wp-content/themes/onepress/style.css?ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="sccss_style-css" href="https://dbatools.io/?sccss=1&amp;ver=5.3.4" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-official-v4shim-css" href="https://use.fontawesome.com/releases/v5.11.2/css/v4-shims.css" type="text/css" media="all" integrity="sha384-/EdpJd7d6gGFiQ/vhh7iOjiZdf4+6K4al/XrX6FxxZwDSrAdWxAynr4p/EA/vyPQ" crossorigin="anonymous">
+<style id="font-awesome-official-v4shim-inline-css" type="text/css">
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-brands-400.svg#fontawesome") format("svg");
+}
+
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-solid-900.svg#fontawesome") format("svg");
+}
+
+@font-face {
+font-family: "FontAwesome";
+src: url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.eot"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.11.2/webfonts/fa-regular-400.svg#fontawesome") format("svg");
+unicode-range: U+F004-F005,U+F007,U+F017,U+F022,U+F024,U+F02E,U+F03E,U+F044,U+F057-F059,U+F06E,U+F070,U+F075,U+F07B-F07C,U+F080,U+F086,U+F089,U+F094,U+F09D,U+F0A0,U+F0A4-F0A7,U+F0C5,U+F0C7-F0C8,U+F0E0,U+F0EB,U+F0F3,U+F0F8,U+F0FE,U+F111,U+F118-F11A,U+F11C,U+F133,U+F144,U+F146,U+F14A,U+F14D-F14E,U+F150-F152,U+F15B-F15C,U+F164-F165,U+F185-F186,U+F191-F192,U+F1AD,U+F1C1-F1C9,U+F1CD,U+F1D8,U+F1E3,U+F1EA,U+F1F6,U+F1F9,U+F20A,U+F247-F249,U+F24D,U+F254-F25B,U+F25D,U+F267,U+F271-F274,U+F279,U+F28B,U+F28D,U+F2B5-F2B6,U+F2B9,U+F2BB,U+F2BD,U+F2C1-F2C2,U+F2D0,U+F2D2,U+F2DC,U+F2ED,U+F328,U+F358-F35B,U+F3A5,U+F3D1,U+F410,U+F4AD;
+}
+</style>
+<link rel="stylesheet" id="jetpack_css-css" href="https://c0.wp.com/p/jetpack/8.4.2/css/jetpack.css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var onepress_js_settings = {"onepress_disable_animation":"1","onepress_disable_sticky_header":"1","onepress_vertical_align_menu":"0","hero_animation":"flipInX","hero_speed":"5000000","is_home":"","gallery_enable":"1"};
+var OnePress_Plus = {"ajax_url":"https:\/\/dbatools.io\/wp-admin\/admin-ajax.php","browser_warning":" Your browser does not support the video tag. I suggest you upgrade your browser."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/c/5.3.4/wp-includes/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="https://c0.wp.com/c/5.3.4/wp-includes/js/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/related-posts/related-posts.min.js"></script>
+
+
+<link rel="prev" title="new release &ndash; realfakedoors" href="https://dbatools.io/realfakedoors/">
+<link rel="next" title="dbatools teammates join Carlos and Steve for an episode of the SQL Data Partners Podcast" href="https://dbatools.io/sql-data-partners-podcast/">
+
+
+<link rel="alternate" type="application/json+oembed" href="https://dbatools.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdbatools.io%2Fdedicated-server%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://dbatools.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdbatools.io%2Fdedicated-server%2F&amp;format=xml">
+
+<link rel="dns-prefetch" href="//v0.wordpress.com">
+<link rel="dns-prefetch" href="//widgets.wp.com">
+<link rel="dns-prefetch" href="//s0.wp.com">
+<link rel="dns-prefetch" href="//0.gravatar.com">
+<link rel="dns-prefetch" href="//1.gravatar.com">
+<link rel="dns-prefetch" href="//2.gravatar.com">
+<link rel="dns-prefetch" href="//i0.wp.com">
+<link rel="dns-prefetch" href="//i1.wp.com">
+<link rel="dns-prefetch" href="//i2.wp.com">
+<link rel="dns-prefetch" href="//c0.wp.com">
+<link rel="dns-prefetch" href="//jetpack.wordpress.com">
+<link rel="dns-prefetch" href="//s1.wp.com">
+<link rel="dns-prefetch" href="//s2.wp.com">
+<link rel="dns-prefetch" href="//public-api.wordpress.com">
+<style type="text/css">img#wpstats{display:none}</style><link rel="canonical" href="https://dbatools.io/dedicated-server/">
+			<style type="text/css">
+				/* If html does not have either class, do not show lazy loaded images. */
+				html:not( .jetpack-lazy-images-js-enabled ):not( .js ) .jetpack-lazy-image {
+					display: none;
+				}
+			</style>
+			<script>
+				document.documentElement.classList.add(
+					'jetpack-lazy-images-js-enabled'
+				);
+			</script>
+		
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="building a dedicated backup test server">
+<meta property="og:url" content="https://dbatools.io/dedicated-server/">
+<meta property="og:description" content="So, there&rsquo;s a World Backup Day, but what about World Restore Day? We&rsquo;ve all been told over and over, backups are useless if they can&rsquo;t be restored and verified. Grant Fritchey has&hellip;">
+<meta property="article:published_time" content="2017-04-11T15:24:26+00:00">
+<meta property="article:modified_time" content="2019-09-13T08:18:39+00:00">
+<meta property="og:site_name" content="dbatools">
+<meta property="og:image" content="https://s0.wp.com/i/blank.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:text:title" content="building a dedicated backup test server">
+<meta name="twitter:image" content="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=32%2C32&amp;ssl=1" sizes="32x32">
+<link rel="icon" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1">
+<meta name="msapplication-TileImage" content="https://dbatools.io/wp-content/uploads/2016/05/dbatools.png?fit=128%2C128&amp;ssl=1">
+
+<style class="wp-typography-print-styles" type="text/css">
+body, body p { 
+	font-style: normal;
+	text-transform: none;
+ } 
+ .onepress-menu a { 
+	font-style: normal;
+	text-transform: none;
+ } 
+ body h1, body h2, body h3, body h4, body h5, body h6,
+    body .section-title-area .section-title, body .section-title-area .section-subtitle, body .hero-content-style1 h2 { 
+	font-style: normal;
+	text-transform: none;
+ }
+</style>
+			<style type="text/css" id="wp-custom-css">
+				/*
+Welcome to Custom CSS!
+
+To learn how this works, see http://wp.me/PEmnE-Bt
+*/			</style>
+		</head>
+
+<body class="post-template-default single single-post postid-4149 single-format-standard wp-custom-logo group-blog no-sticky-header">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+            <header id="masthead" class="site-header" role="banner">
+            <div class="container">
+                <div class="site-branding">
+                <div class="site-brand-inner has-logo-img no-desc"><div class="site-logo-div"><a href="https://dbatools.io/" class="custom-logo-link" rel="home"><img width="223" height="64" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2016/05/dbatools-logo-1.png?fit=223%2C64&amp;ssl=1" class="custom-logo jetpack-lazy-image" alt="dbatools" data-lazy-src="https://i0.wp.com/dbatools.io/wp-content/uploads/2016/05/dbatools-logo-1.png?fit=223%2C64&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "></a></div></div>                </div>
+                
+
+                <div class="header-right-wrapper">
+                    <a href="#0" id="nav-toggle">Menu<span></span></a>
+                    <nav id="site-navigation" class="main-navigation" role="navigation">
+                        <ul class="onepress-menu">
+                            <li id="menu-item-1452" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1452"><a href="https://dbatools.io/download/">&#11015; download</a>
+<ul class="sub-menu">
+	<li id="menu-item-1451" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1451"><a href="https://dbatools.io/getting-started/">get started</a></li>
+</ul>
+</li>
+<li id="menu-item-1453" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1453"><a href="https://dbatools.io/commands/">&#128640; commands</a></li>
+<li id="menu-item-8268" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8268"><a href="https://dbatools.io/docs">&#128209; docs</a>
+<ul class="sub-menu">
+	<li id="menu-item-8270" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8270"><a href="https://dbatools.io/blog">blog</a></li>
+</ul>
+</li>
+<li id="menu-item-1456" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1456"><a href="https://dbatools.io/team/">&#129395; team</a>
+<ul class="sub-menu">
+	<li id="menu-item-3315" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3315"><a href="https://dbatools.io/contributing">contribute</a></li>
+	<li id="menu-item-3123" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3123"><a href="https://dbatools.io/contact/">contact</a></li>
+	<li id="menu-item-3116" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3116"><a href="https://dbatools.io/git">find us</a>
+	<ul class="sub-menu">
+		<li id="menu-item-4663" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4663"><a href="https://dbatools.io/slack">slack</a></li>
+		<li id="menu-item-4662" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4662"><a href="https://dbatools.io/github">github</a></li>
+		<li id="menu-item-4664" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4664"><a href="https://dbatools.io/twitter">twitter</a></li>
+		<li id="menu-item-4665" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4665"><a href="https://dbatools.io/youtube">youtube</a></li>
+		<li id="menu-item-4666" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4666"><a href="https://dbatools.io/linkedin">linkedin</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-3340" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3340"><a href="https://dbatools.io/subscribe/">&#128140; subscribe</a></li>
+<li id="menu-item-6587" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6587"><a href="https://dbatools.io/builds">&#10004; build ref</a></li>
+<li id="menu-item-9781" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9781"><a href="https://dbatools.io/sponsorship/">&#128149; sponsor</a></li>
+<li id="menu-item-9994" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9994"><a href="https://dbatools.io/book">&#128216; book</a></li>
+                        </ul>
+                    </nav>
+                    
+                </div>
+            </div>
+        </header>
+        
+	<div id="content" class="site-content">
+
+		
+		<div id="content-inside" class="container right-sidebar">
+			<div id="primary" class="content-area">
+				<main id="main" class="site-main" role="main">
+
+				
+					
+<article id="post-4149" class="post-4149 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements tag-party">
+	<header class="entry-header">
+		<h1 class="entry-title">building a dedicated backup test server</h1>
+		<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="https://dbatools.io/dedicated-server/" rel="bookmark"><time class="entry-date published" datetime="2017-04-11T15:24:26+00:00">April 11, 2017</time><time class="updated hide" datetime="2019-09-13T08:18:39+00:00">September 13, 2019</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://dbatools.io/author/admin/">Chrissy LeMaire</a></span></span>		</div>
+	</header>
+
+	<div class="entry-content">
+		<p>So, there&rsquo;s a <a href="http://www.worldbackupday.com/en/">World Backup Day</a>, but what about World Restore Day? We&rsquo;ve all been told over and over, backups are useless if they can&rsquo;t be restored and verified. <a href="https://scarydba.com">Grant Fritchey</a> has even yelled it at us a couple times.</p>
+<p><iframe width="280" height="157" src="https://www.youtube.com/embed/Ah0jabU9G8o" frameborder="0" allowfullscreen></iframe></p>
+<h2>Using dbatools to automate tests</h2>
+<p>dbatools makes it crazy easy to automate your backup testing, as demonstrated by <a href="http://www.sqlstad.nl/powershell/testing-your-backups-with-dbatools/">Sander Stad</a>, <a href="https://sqldbawithabeard.com/2017/03/20/testing-your-sql-server-backups-the-easy-way-with-powershell-dbatools/">Rob Sewell</a> and <a href="http://www.centiExcludeSystemLoginss.com/blog/sql/using-dbatools-for-automated-restore-and-checkdb/">Anthony Nocentino</a>. It even <a href="https://sqldbawithabeard.com/2017/03/27/test-your-sqlserver-backups-on-linux-with-powershell-and-dbatools/">works on Linux</a>!</p>
+<p>In my environment, I have a server dedicated for testing SQL Server backups and use <a href="https://dbatools.io/Test-DbaLastBackup">Test-DbaLastBackup</a>. Here&rsquo;s how you can, too.</p>
+<h2>First, centralize your SQL Server backups</h2>
+<p>I use and recommend Ola Hallengren&rsquo;s <a href="https://ola.hallengren.com/">SQL Server Maintenance Solution</a> to centralize database backups. Every SQL Server in my estate backs up its databases to a write-only UNC share.</p>
+<p>If you&rsquo;re required to backup locally, you can centralize your backups by automating the copy process from the SQL Servers&rsquo; local disks to a network share using PowerShell&rsquo;s Copy-Item or robocopy. The reason this is required is because your dedicated test server must have access to the backups.</p>
+<h2>Next, build your server</h2>
+<p>Even though I built my server in a pretty simplified manner, I still learned a couple things along the way.</p>
+<h4>Edition</h4>
+<p>The edition (Enterprise, Standard, Express, etc) should match the highest of edition in your estate. My initial test server was Standard edition and a number of my Enterprise backups failed to restore because they were using Enterprise features.</p>
+<ul style="list-style: none;font-size:12px;">
+<li style="color:#373a3c;"><strong>Licensing</strong>
+</li><li>With regards to licensing, I recently spoke to Data Platform MVP <a href="https://joeydantoni.com/">Joey D&rsquo;Antoni</a> to get better clarification about required licensing. It appears that if you&rsquo;ve got Software Assurance, creating a dedicated testing server for your backups would not require additional licenses, HOWEVER, you will have to skip the DBCC CHECKDB by specifying the <strong>-NoCheck</strong> parameter because CHECKDB is considered a &ldquo;production offload process.&rdquo;</li>
+<li>Alternatively, the SQL Server 2016 licensing model basically says that &ldquo;anything that isn&rsquo;t prod is free.&rdquo; This means that, even without Software Assurance, you can use SQL Server 2016 as your test restore server without additional license requirements. But again, CHECKDB is considered production and is not covered under this licensing model.
+</li><li>Ultimately, licensing this type of server is a &ldquo;<a href="https://www.littlekendra.com/2016/07/12/is-user-acceptance-testing-covered-under-developer-edition/#comment-1065806">murky gray</a>&rdquo; area and you should consult with your organization&rsquo;s licensing rep.</li>
+</ul>
+<p>If you end up needing a higher edition of SQL Server, are properly licensed and the <a href="https://docs.microsoft.com/en-us/sql/database-engine/install-windows/supported-version-and-edition-upgrades">configuration is supported</a>, you can always <a href="https://blog.brankovucinec.com/2014/07/23/upgrade-from-sql-server-2014-express-to-standard-edition/">change your edition</a>.</p>
+<h4>Features</h4>
+<p>Remember if you&rsquo;ve got a database with FIELSTREAM enabled, you must have FILESTREAM enabled on your test sever. Same goes for FULLTEXT indexes and other things I can&rsquo;t recall right now.</p>
+<h4>Service account</h4>
+<p>The SQL Server service account must have access to the centralized network share.</p>
+<h4>Disks</h4>
+<p>This was a lot of fun! I used Get-DbaDatabase to search all of my servers to easily find the largest database so that I could properly size my dedicated restore disk. I always keep a list of my SQL Servers as a variable in my $profile, so I just piped that. Check it:</p>
+<p><code>$servers | Get-DbaDatabase | Select SqlInstance, Name, Size, Owner | Out-GridView</code></p>
+<p>(<a href="https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.utility/out-gridview?f=255&amp;MSPPError=-2147217396">Out-GridView</a>, or OGV, is a powerful PowerShell cmdlet that allows for easy sorting, searching and filtering.)</p>
+<p>Searching 15 SQL Servers and 315 databases took less than 4 seconds! The size is in MB, and in this example screenshot, the largest database is BDTlog at 16GB. This includes both data and log files. In reality, my largest database was 500GB, so I created a 700GB expandable restore disk.</p>
+<p><img src="https://i2.wp.com/pbs.twimg.com/media/C8e2CMKXYAA1W7R.jpg?w=800&amp;ssl=1" alt="sizes" data-recalc-dims="1" data-lazy-src="https://i2.wp.com/pbs.twimg.com/media/C8e2CMKXYAA1W7R.jpg?w=800&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 " class=" jetpack-lazy-image"><noscript><img src="https://i2.wp.com/pbs.twimg.com/media/C8e2CMKXYAA1W7R.jpg?w=800&amp;ssl=1" alt="sizes" data-recalc-dims="1"></noscript></p>
+<p>In my environment, I setup just one additional disk and placed both the data and logs on that disk. Test-DbaLastBackup allows you to specify different destination data and log drives, however, so you  can create two additional drives instead of one if you prefer.</p>
+<h4>tempdb</h4>
+<p>If you&rsquo;re running the checks, you must also ensure you have enough space for tempdb to grow. It&rsquo;s possible to estimate how much space you&rsquo;ll need with <code>DBCC CHECKDB(0) WITH ESTIMATEONLY</code> (read more at <a href="http://www.sqlskills.com/blogs/paul/how-does-dbcc-checkdb-with-estimateonly-work/">sqlskills.com</a>), but honestly, the estimation wasn&rsquo;t even close to accurate for me and I ran out of space. I ended up throwing an extra 50GB at tempdb, which sufficed.</p>
+<h2>Update dbatools</h2>
+<p>So first, I literally updated Test-DbaLastBackup today, so make sure you are at least at version 0.8.946. This version is better in a variety of ways, but most importantly, it tests the entire available backup chain back to FULL and allows us to pipe in servers. <strong>Update/Edit</strong> It also fixes a bug from 0.8.946 that didn&rsquo;t calculate all the logs.</p>
+<p>So first, run either <code>Update-Module -Name dbatools</code> (if you&rsquo;ve installed dbatools from the Gallery) or <code>Update-dbatools</code> if you&rsquo;ve used the installer script.</p>
+<h2>Execute a one-liner</h2>
+<p>Next, it&rsquo;s time to create the script that can</p>
+<ol>
+<li>Collect all of your SQL Server database names</li>
+<li>Test your entire SQL Server estate</li>
+<li>Convert your results to a <a href="https://msdn.microsoft.com/en-us/library/system.data.datatable">.NET DataTable</a></li>
+<li>Write the results to a database</li>
+</ol>
+<p>For my lab, I just keep a manual list of SQL Servers and all of them work with Windows authentication, so it greatly simplifies the process. Here&rsquo;s how I test every backup and log it to the database, all in one fell swoop.</p>
+<p><code>$servers | Test-DbaLastBackup -Destination localhost -DataDirectory R:\ -LogDirectory R:\ | ConvertTo-DbaDataTable | Write-DbaDataTable -SqlInstance localhost -Table dbatools.dbo.lastbackuptests -AutoCreateTable</code></p>
+<p>Let&rsquo;s break this command down</p>
+<ol>
+<li><strong>$servers</strong>: plain-text list of servers, though they could also be SMO server objects</li>
+<li><strong>Test-DbaLastBackup</strong>: performs all test restores and checkdbs on localhost. Restores both data and log files to the R:\ drive.</li>
+<li><strong>ConvertTo-DbaDataTable</strong>: Casts the results into a DataTable type (instead of being output to screen) so that they can be consumed by SQL Server</li>
+<li><strong>Write-DbaDataTable</strong>: Finally, the datatable is written to the dbatools database, to a table named <strong>lastbackuptests</strong>. If the table does not exist, it will be automatically created.</li>
+</ol>
+<h2>The output!</h2>
+<p>Here is a screenshot of the output, which has been saved to a SQL Server database:</p>
+<p><a href="https://i0.wp.com/dbatools.io/wp-content/uploads/2017/04/img_58ecf0fbd28d9-full.png?ssl=1" target="_blank"><img alt class="alignnone size-full wp-image-4221 aligncenter jetpack-lazy-image" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/04/img_58ecf0fbd28d9.png?w=800&amp;ssl=1" data-recalc-dims="1" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/04/img_58ecf0fbd28d9.png?w=800&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" class="alignnone size-full wp-image-4221 aligncenter" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/04/img_58ecf0fbd28d9.png?w=800&amp;ssl=1" data-recalc-dims="1"></noscript></a></p>
+<p>What&rsquo;s just so cool about this is that, in addition to the backup testing, I can also see how long a database will take to restore on a sub-optimized system, how long a CHECKDB will take and how long an entire instance would take to restore from backups.</p>
+<p>Ultimately, it takes about 8 hours to test my entire SQL Server estate. I can check my results the next morning and rest easy knowing that my backups can be restored and the resulting data is corruption free!</p>
+<h2>Scheduling</h2>
+<p>Test restores, like entire instance migrations, can be scheduled. Check out the post <a href="https://dbatools.io/scheduling-a-migration/">scheduling a migration</a> for detailed instructions on scheduling PowerShell tasks.</p>
+<p>You can even email yourself the results using <a href="https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.utility/send-mailmessage">Send-MailMessage</a>. If you do go this route, ensure you assign the output of Test-DbaLastBackup to a variable so that you can use it to both write to SQL Server and email yourself (<a href="https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.utility/convertto-html">ConvertTo-Html</a> will probably be helpful here).</p>
+<h2>Caveats</h2>
+<p>If you don&rsquo;t backup directly to centralized storage, you&rsquo;ll need to write your own version of Test-DbaLastBackup. <a href="https://dbatools.io/Get-DbaDbBackupHistory">Get-DbaDbBackupHistory</a> -Last, <a href="https://dbatools.io/Restore-DbaDatabase">Restore-DbaDatabase</a> and <a href="https://dbatools.io/Invoke-DbaQuery">Invoke-DbaQuery</a> (for DBCC CHECKDB) will be helpful here.</p>
+<p>Also, if you need to use alternative credentials to login to SQL Server, you&rsquo;d need to do something like</p>
+<pre class="lang:ps decode:true ">$credential = (Get-Credential sqladmin)
+$localcredential = (Get-Credential ad\myadminacct)
+
+foreach ($server in $servers) { 
+    Connect-DbaSqlServer -SqlInstance $server -SqlCredential $credential | 
+    Test-DbaLastBackup -Destination localhost -DataDirectory R:\ -LogDirectory R:\ -DestinationCredential $localcredential | 
+    ConvertTo-DbaDataTable | 
+    Write-DbaDataTable -SqlInstance sql2016 -Table tempdb.dbo.lastbackuptests -AutoCreateTable
+}</pre>
+<h2>Video</h2>
+<p>Want to see <a href="https://dbatools.io/Test-DbaLastBackup">Test-DbaLastBackup</a> in action? Check out this sample <a href="https://www.youtube.com/embed/50xEuEZr6as">video</a>. The output is a little outdated but you can still see how cool the whole thing is.</p>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/50xEuEZr6as" frameborder="0" allowfullscreen></iframe></p>
+<h2>Conclusion</h2>
+<p><a href="https://dbatools.io/Test-DbaLastBackup">Test-DbaLastBackup</a> simplifies one of a DBA&rsquo;s the most important tasks. It&rsquo;s also pretty fun &#128111;! Impress your boss and your friends by rolling your very own dedicated testing solution.</p>
+<p>- Chrissy</p>
+
+<div id="jp-relatedposts" class="jp-relatedposts">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+</div>			</div>
+
+	<footer class="entry-footer">
+		<span class="tags-links">Tagged <a href="https://dbatools.io/tag/party/" rel="tag">party</a></span>	</footer>
+</article>
+
+
+					
+<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title">
+			7 thoughts on &ldquo;<span>building a dedicated backup test server</span>&rdquo;		</h3>
+
+		
+		<ol class="comment-list">
+			    <li class="pingback even thread-even depth-1" id="comment-645">
+        <p>Pingback: <a href="https://dansqldba.com/2017/06/that-time-i-deleted-a-live-sharepoint-content-database/" rel="external nofollow ugc" class="url">That time I deleted a live SharePoint content database &ndash; dansqldba.com</a> </p>
+    </li>
+    <li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-719">
+        <p>Pingback: <a href="http://redglue.eu/have-you-backed-up-your-sql-logins-today/" rel="external nofollow ugc" class="url">Have you backed up your SQL Logins today? | Redglue</a> </p>
+    </li>
+    <li class="comment even thread-even depth-1" id="li-comment-1494">
+        <article id="comment-1494" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/a2f601b7a0fabf67b0caa008f9d93988?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/a2f601b7a0fabf67b0caa008f9d93988?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a2f601b7a0fabf67b0caa008f9d93988?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/a2f601b7a0fabf67b0caa008f9d93988?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a2f601b7a0fabf67b0caa008f9d93988?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://dba2o.wordpress.com" rel="external nofollow ugc" class="url">Hiram</a></b> </cite><a class="comment-time" href="https://dbatools.io/dedicated-server/#comment-1494"><time datetime="2018-02-28T23:16:31+00:00">February 28, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/dedicated-server/?replytocom=1494#respond" data-commentid="1494" data-postid="4149" data-belowelement="comment-1494" data-respondelement="respond" aria-label="Reply to Hiram">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Worked like a charm! Thank you!<br>
+Instead of logging to tempdb, I created my own dbatools db so the AutoCreateTable would work.<br>
+It&rsquo;s unreal how awesome this is.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    <ul class="children">
+    <li class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="li-comment-1496">
+        <article id="comment-1496" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/527b83e9dfbeab5aeeab7a03c5f1ba7c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn"><a href="http://blog.netnerds.net" rel="external nofollow ugc" class="url">Chrissy LeMaire</a></b> <span>Post author</span></cite><a class="comment-time" href="https://dbatools.io/dedicated-server/#comment-1496"><time datetime="2018-03-01T16:22:20+00:00">March 1, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/dedicated-server/?replytocom=1496#respond" data-commentid="1496" data-postid="4149" data-belowelement="comment-1496" data-respondelement="respond" aria-label="Reply to Chrissy LeMaire">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>So glad you love it! This is one of my favorite commands.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+</ul>
+</li>
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-6667">
+        <article id="comment-6667" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/b29dc8707f6b58a00b1fb69a461d2368?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/b29dc8707f6b58a00b1fb69a461d2368?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/b29dc8707f6b58a00b1fb69a461d2368?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/b29dc8707f6b58a00b1fb69a461d2368?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/b29dc8707f6b58a00b1fb69a461d2368?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Bill Hughes</b> </cite><a class="comment-time" href="https://dbatools.io/dedicated-server/#comment-6667"><time datetime="2018-06-13T21:48:38+00:00">June 13, 2018</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/dedicated-server/?replytocom=6667#respond" data-commentid="6667" data-postid="4149" data-belowelement="comment-6667" data-respondelement="respond" aria-label="Reply to Bill Hughes">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Thanks for this! Although I had to use a foreach loop to loop through my list of servers from a text file. My only issue is that the -Autocreatetable is not working for some reason.</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment odd alt thread-even depth-1" id="li-comment-56845">
+        <article id="comment-56845" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/1df621b220ea0bab4d59484ccd754bf9?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/1df621b220ea0bab4d59484ccd754bf9?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/1df621b220ea0bab4d59484ccd754bf9?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/1df621b220ea0bab4d59484ccd754bf9?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/1df621b220ea0bab4d59484ccd754bf9?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">David Waller</b> </cite><a class="comment-time" href="https://dbatools.io/dedicated-server/#comment-56845"><time datetime="2019-03-18T21:18:40+00:00">March 18, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/dedicated-server/?replytocom=56845#respond" data-commentid="56845" data-postid="4149" data-belowelement="comment-56845" data-respondelement="respond" aria-label="Reply to David Waller">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>Doing some testing on this as I want to use for all backup checks. How do I setup the $servers variable into my profile? Do you have an example?</p>
+<p>Thanks</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-77005">
+        <article id="comment-77005" class="comment clearfix">
+
+            <img alt src="https://secure.gravatar.com/avatar/67dec0ee0eb5f1ab876b588149232f2d?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo jetpack-lazy-image" height="60" width="60" data-lazy-srcset="https://secure.gravatar.com/avatar/67dec0ee0eb5f1ab876b588149232f2d?s=120&amp;d=mm&amp;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/67dec0ee0eb5f1ab876b588149232f2d?s=60&amp;is-pending-load=1#038;d=mm&amp;r=g" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 "><noscript><img alt="" src="https://secure.gravatar.com/avatar/67dec0ee0eb5f1ab876b588149232f2d?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/67dec0ee0eb5f1ab876b588149232f2d?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60"></noscript>
+            <div class="comment-wrapper">
+
+                <header class="comment-meta comment-author vcard">
+                    <cite><b class="fn">Tim</b> </cite><a class="comment-time" href="https://dbatools.io/dedicated-server/#comment-77005"><time datetime="2019-11-23T03:18:33+00:00">November 23, 2019</time></a><a rel="nofollow" class="comment-reply-link" href="https://dbatools.io/dedicated-server/?replytocom=77005#respond" data-commentid="77005" data-postid="4149" data-belowelement="comment-77005" data-respondelement="respond" aria-label="Reply to Tim">Reply</a>                </header>
+
+                
+                <div class="comment-content entry-content">
+                    <p>The Test-DbaLastBackup command is amazing!<br>
+As far as I can tell, the DBCC CHECKDB command is being executed without any options. Is there a way to specify options? For example, WITH DATA_PURITY.<br>
+Thanks</p>
+                                    </div>
+
+            </div>
+
+        </article>
+    </li>
+		</ol>
+
+		
+	
+	
+	
+		<div id="respond" class="comment-respond">
+							<h3 id="reply-title" class="comment-reply-title">Leave a Reply					<small><a rel="nofollow" id="cancel-comment-reply-link" href="https://dbatools.io/dedicated-server/#respond" style="display:none;">Cancel reply</a></small>
+				</h3>
+						<form id="commentform" class="comment-form">
+				<iframe title="Comment Form" src="https://jetpack.wordpress.com/jetpack-comment/?blogid=111052036&amp;postid=4149&amp;comment_registration=0&amp;require_name_email=1&amp;stc_enabled=1&amp;stb_enabled=1&amp;show_avatars=1&amp;avatar_default=mystery&amp;greeting=Leave+a+Reply&amp;greeting_reply=Leave+a+Reply+to+%25s&amp;color_scheme=light&amp;lang=en_US&amp;jetpack_version=8.4.2&amp;show_cookie_consent=10&amp;has_cookie_consent=0&amp;token_key=%3Bnormal%3B&amp;sig=fda3a9bb7be039c8365422562310993a6eb466c8#parent=https%3A%2F%2Fdbatools.io%2Fdedicated-server%2F" style="width:100%; height: 430px; border:0;" name="jetpack_remote_comment" class="jetpack_remote_comment" id="jetpack_remote_comment" sandbox="allow-same-origin allow-top-navigation allow-scripts allow-forms allow-popups"></iframe>
+									
+					<script>
+						document.addEventListener('DOMContentLoaded', function () {
+							var commentForms = document.getElementsByClassName('jetpack_remote_comment');
+							for (var i = 0; i < commentForms.length; i++) {
+								commentForms[i].allowTransparency = false;
+								commentForms[i].scrolling = 'no';
+							}
+						});
+					</script>
+					
+							</form>
+		</div>
+
+		
+		<input type="hidden" name="comment_parent" id="comment_parent" value="">
+
+		<p class="akismet_comment_form_privacy_notice">This site uses Akismet to reduce spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Learn how your comment data is processed</a>.</p>
+</div>
+
+				
+				</main>
+			</div>
+
+                            
+<div id="secondary" class="widget-area sidebar" role="complementary">
+	<aside id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://dbatools.io/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s">
+				</label>
+				<input type="submit" class="search-submit" value="Search">
+			</form></aside><aside id="custom_html-3" class="widget_text widget widget_custom_html"><h2 class="widget-title">new book</h2><div class="textwidget custom-html-widget">dbatools in a month of lunches is now available in Manning's Early Access Program &#128640; <br>&nbsp;
+
+<p align="center"><a href="https://dbatools.io/book"><img alt="dbatools meap" src="https://i2.wp.com/blog.netnerds.net/wp-content/uploads/2019/08/meap.png?w=800&amp;ssl=1" data-recalc-dims="1" data-lazy-src="https://i2.wp.com/blog.netnerds.net/wp-content/uploads/2019/08/meap.png?w=800&amp;is-pending-load=1#038;ssl=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 " class=" jetpack-lazy-image"><noscript><img alt="dbatools meap" src="https://i2.wp.com/blog.netnerds.net/wp-content/uploads/2019/08/meap.png?w=800&amp;ssl=1" data-recalc-dims="1"></noscript></a></p>
+
+Get the book now at <a href="https://dbatools.io/book">manning.com</a></div></aside><aside id="sticky-posts-2" class="widget widget_ultimate_posts"><h2 class="widget-title"><a href="https://dbatools.io/blog">posts</a></h2>
+
+<div class="upw-posts hfeed">
+
+  
+      
+        
+        <article class="post-10008 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/aliases/" rel="bookmark">
+                  <img width="300" height="155" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?fit=300%2C155&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?w=905&amp;ssl=1 905w, https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?resize=300%2C155&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?resize=768%2C396&amp;ssl=1 768w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2020/01/cli12a.png?fit=300%2C155&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/aliases/" rel="bookmark">
+                  working with sql client aliases                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-10124 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/bits2020/" rel="bookmark">
+                  <img width="300" height="108" src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/bits2020/" rel="bookmark">
+                  Vote for these SQLBits 2020 PowerShell sessions                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-10010 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/size/" rel="bookmark">
+                  <img width="300" height="139" src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?fit=300%2C139&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?w=1139&amp;ssl=1 1139w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=300%2C139&amp;ssl=1 300w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=768%2C355&amp;ssl=1 768w, https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=1024%2C473&amp;ssl=1 1024w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://i2.wp.com/dbatools.io/wp-content/uploads/2019/09/disksize.png?fit=300%2C139&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/size/" rel="bookmark">
+                  working with file sizes in dbatools                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-9995 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements tag-book tag-dbatoolsmol tag-monthoflunches">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/meap/" rel="bookmark">
+                  <img width="300" height="159" src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?fit=300%2C159&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?w=1287&amp;ssl=1 1287w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?resize=300%2C159&amp;ssl=1 300w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?resize=768%2C408&amp;ssl=1 768w, https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?resize=1024%2C543&amp;ssl=1 1024w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://i0.wp.com/dbatools.io/wp-content/uploads/2019/09/2019-09-04_13-00-161.png?fit=300%2C159&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/meap/" rel="bookmark">
+                  Learn dbatools in a Month of Lunches                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-9928 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/oldapp/" rel="bookmark">
+                  <img width="300" height="108" src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-src="https://dbatools.io/wp-content/uploads/2016/07/dbatools-for-post.png?fit=300%2C108&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/oldapp/" rel="bookmark">
+                  migrating super old app databases                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+        
+        <article class="post-9862 post type-post status-publish format-standard has-post-thumbnail hentry category-announcements tag-dbatools-configs tag-dbatools-settings tag-defaults">
+
+          <header>
+
+                          <div class="entry-image">
+                <a href="https://dbatools.io/configuration/" rel="bookmark">
+                  <img width="300" height="202" src="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?fit=300%2C202&amp;ssl=1" class="attachment-medium size-medium wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?w=1104&amp;ssl=1 1104w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=300%2C202&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=768%2C516&amp;ssl=1 768w, https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?resize=1024%2C688&amp;ssl=1 1024w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://dbatools.io/wp-content/uploads/2019/08/Get-DbatoolsConfig_Output.png?fit=300%2C202&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64 ,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 ">                </a>
+              </div>
+            
+                          <h4 class="entry-title">
+                <a href="https://dbatools.io/configuration/" rel="bookmark">
+                  dbatools advanced configuration                </a>
+              </h4>
+            
+            
+          </header>
+
+          
+          <footer>
+
+            
+            
+            
+          </footer>
+
+        </article>
+
+      
+  
+</div>
+
+</aside><aside id="blog_subscription-2" class="widget widget_blog_subscription jetpack_subscription_widget"><h2 class="widget-title">subscribe</h2>
+            <form action="#" method="post" accept-charset="utf-8" id="subscribe-blog-blog_subscription-2">
+				                    <div id="subscribe-text"><p>Enter your email address to subscribe to this blog and receive notifications of new posts by email.</p>
+</div><p>Join 2,166 other subscribers</p>
+                    <p id="subscribe-email">
+                        <label id="jetpack-subscribe-label" class="screen-reader-text" for="subscribe-field-blog_subscription-2">
+							email                        </label>
+                        <input type="email" name="email" required="required" class="required" value="" id="subscribe-field-blog_subscription-2" placeholder="email">
+                    </p>
+
+                    <p id="subscribe-submit">
+                        <input type="hidden" name="action" value="subscribe">
+                        <input type="hidden" name="source" value="https://dbatools.io/dedicated-server/">
+                        <input type="hidden" name="sub-type" value="widget">
+                        <input type="hidden" name="redirect_fragment" value="blog_subscription-2">
+						                        <button type="submit" name="jetpack_subscriptions_widget">
+	                        subscribe                        </button>
+                    </p>
+				            </form>
+		
+</aside><aside id="eu_cookie_law_widget-3" class="widget widget_eu_cookie_law_widget"><div class="hide-on-button" data-hide-timeout="30" data-consent-expiration="180" id="eu-cookie-law">
+	<form method="post">
+		<input type="submit" value="Close and accept" class="accept">
+	</form>
+
+	Privacy &amp; Cookies: This site uses cookies. By continuing to use this website, you agree to their use. <br>
+To find out more, including how to control cookies, see here:
+	<a href="https://automattic.com/cookies/">
+		Cookie Policy	</a>
+</div>
+</aside></div>
+            
+		</div>
+	</div>
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+                    <div class="footer-connect">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        
+                        <div class="col-sm-8">
+                                                            <div class="footer-social">
+                                    <h5 class="follow-heading">dbatools on the web</h5><div class="footer-social-icons"><a target="_blank" href="http://git.io/b3oo" title="github"><i class="fa fa-github"></i></a><a target="_blank" href="https://www.youtube.com/channel/UC1qrq0zfswSM_Uf9-vBrsiw" title="YouTube"><i class="fa fa-youtube"></i></a><a target="_blank" href="https://dbatools.io/slack" title="Slack"><i class="fa fa-slack"></i></a><a target="_blank" href="https://twitter.com/psdbatools" title="Twitter"><i class="fa fa-twitter"></i></a><a target="_blank" href="https://www.linkedin.com/company/dbatools.io" title="LinkedIn"><i class="fa fa-linkedin-square fa-linkedin"></i></a><a target="_blank" href="https://twitch.tv/dbatools" title="Twitch"><i class="fa fa-twitch"></i></a><a target="_blank" href="https://dbatools.io/book" title="Manning"><i class="fa fa-book fa-manning"></i></a></div>                                </div>
+                                                    </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
+            </div>
+        
+        <div class="site-info">
+            <div class="container">
+                                &copy; 2020 Chrissy LeMaire, PowerShell and SQL Server MVP<br><a href="https://dbatools.io/contact">Contact Us</a>            </div>
+        </div>
+        
+
+    </footer>
+</div>
+
+	<div style="display:none">
+	<div class="grofile-hash-map-a2f601b7a0fabf67b0caa008f9d93988">
+	</div>
+	<div class="grofile-hash-map-527b83e9dfbeab5aeeab7a03c5f1ba7c">
+	</div>
+	<div class="grofile-hash-map-b29dc8707f6b58a00b1fb69a461d2368">
+	</div>
+	<div class="grofile-hash-map-1df621b220ea0bab4d59484ccd754bf9">
+	</div>
+	<div class="grofile-hash-map-67dec0ee0eb5f1ab876b588149232f2d">
+	</div>
+	</div>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/photon/photon.min.js"></script>
+<script type="text/javascript" src="https://secure.gravatar.com/js/gprofiles.js?ver=202035"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/modules/wpgroho.js"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/plugins.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/bootstrap.min.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/lightgallery.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/themes/onepress-master/assets/js/theme.js?ver=11.0.0"></script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/widgets/eu-cookie-law/eu-cookie-law.min.js"></script>
+<script type="text/javascript" src="https://c0.wp.com/p/jetpack/8.4.2/_inc/build/lazy-images/js/lazy-images.min.js"></script>
+<script type="text/javascript" src="https://dbatools.io/wp-content/plugins/onepress-plus/assets/js/onepress-plus.js?ver=10.1.8"></script>
+<script async="async" type="text/javascript" src="https://dbatools.io/wp-content/plugins/akismet/_inc/form.js?ver=4.1.4"></script>
+
+		
+		<script type="text/javascript">
+			(function () {
+				var comm_par_el = document.getElementById( 'comment_parent' ),
+					comm_par = ( comm_par_el && comm_par_el.value ) ? comm_par_el.value : '',
+					frame = document.getElementById( 'jetpack_remote_comment' ),
+					tellFrameNewParent;
+
+				tellFrameNewParent = function () {
+					if ( comm_par ) {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=111052036&postid=4149&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=8.4.2&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=fda3a9bb7be039c8365422562310993a6eb466c8#parent=https%3A%2F%2Fdbatools.io%2Fdedicated-server%2F" + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+					} else {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=111052036&postid=4149&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=8.4.2&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=fda3a9bb7be039c8365422562310993a6eb466c8#parent=https%3A%2F%2Fdbatools.io%2Fdedicated-server%2F";
+					}
+				};
+
+				
+				if ( 'undefined' !== typeof addComment ) {
+					addComment._Jetpack_moveForm = addComment.moveForm;
+
+					addComment.moveForm = function ( commId, parentId, respondId, postId ) {
+						var returnValue = addComment._Jetpack_moveForm( commId, parentId, respondId, postId ),
+							cancelClick, cancel;
+
+						if ( false === returnValue ) {
+							cancel = document.getElementById( 'cancel-comment-reply-link' );
+							cancelClick = cancel.onclick;
+							cancel.onclick = function () {
+								var cancelReturn = cancelClick.call( this );
+								if ( false !== cancelReturn ) {
+									return cancelReturn;
+								}
+
+								if ( ! comm_par ) {
+									return cancelReturn;
+								}
+
+								comm_par = 0;
+
+								tellFrameNewParent();
+
+								return cancelReturn;
+							};
+						}
+
+						if ( comm_par == parentId ) {
+							return returnValue;
+						}
+
+						comm_par = parentId;
+
+						tellFrameNewParent();
+
+						return returnValue;
+					};
+				}
+
+				
+				// Do the post message bit after the dom has loaded.
+				document.addEventListener( 'DOMContentLoaded', function () {
+					var iframe_url = "https:\/\/jetpack.wordpress.com";
+					if ( window.postMessage ) {
+						if ( document.addEventListener ) {
+							window.addEventListener( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						} else if ( document.attachEvent ) {
+							window.attachEvent( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						}
+					}
+				})
+
+			})();
+		</script>
+
+		<script type="text/javascript" src="https://stats.wp.com/e-202035.js" async="async" defer></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.4.2',blog:'111052036',post:'4149',tz:'0',srv:'dbatools.io'} ]);
+	_stq.push([ 'clickTrackerInit', '111052036', '4149' ]);
+</script>
+
+</body>
+</html>

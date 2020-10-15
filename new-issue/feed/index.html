@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	
+	>
+<channel>
+	<title>
+	Comments on: submitting an issue	</title>
+	<atom:link href="https://dbatools.io/new-issue/feed/" rel="self" type="application/rss+xml" />
+	<link>https://dbatools.io/new-issue/</link>
+	<description>the community&#039;s sql powershell module</description>
+	<lastBuildDate>Fri, 12 Jul 2019 12:49:48 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+			<item>
+				<title>
+				By: Patrick van Nederepelt				</title>
+				<link>https://dbatools.io/new-issue/#comment-68667</link>
+		<dc:creator><![CDATA[Patrick van Nederepelt]]></dc:creator>
+		<pubDate>Fri, 12 Jul 2019 12:49:48 +0000</pubDate>
+		<guid isPermaLink="false">https://dbatools.io/?p=6825#comment-68667</guid>
+					<description><![CDATA[Improvement concerning: Write-DbaDbTableData
+
+In this part below the row:  &quot;$optionValue = Get-Variable $option -ValueOnly  -ErrorAction SilentlyContinue&quot; may result in an extra row tot $error. So I added this code to check if the variable does exists or has a value:
+            $scriptblockje = [Scriptblock]::Create(&quot;$&quot;+$option)
+            $retval = Invoke-Command -ScriptBlock $scriptblockje
+            if ($retval -eq $null -or $retval -eq &#039;&#039;) {continue}
+Maybe this is not the most beautiful code, but it works for me... And maybe also for others... 
+I have added this on a server of a client, but when they update dbatools this extra code will be gone, and is it possible to add this change to the allcommands.ps1 of future versions?
+
+-------------------------------------- code from allcommands.ps1 ---------------------------------------------
+ 
+      $bulkCopyOptions = 0
+        $options = &quot;TableLock&quot;, &quot;CheckConstraints&quot;, &quot;FireTriggers&quot;, &quot;KeepIdentity&quot;, &quot;KeepNulls&quot;, &quot;Default&quot;
+
+        foreach ($option in $options) {
+            
+            $scriptblockje = [Scriptblock]::Create(&quot;$&quot;+$option)
+            $retval = Invoke-Command -ScriptBlock $scriptblockje
+            if ($retval -eq $null -or $retval -eq &#039;&#039;) {continue}
+
+            $optionValue = Get-Variable $option -ValueOnly  -ErrorAction SilentlyContinue
+
+            if ($option -eq &quot;TableLock&quot; -and (!$NoTableLock)) {
+                $optionValue = $true
+            }
+            if ($optionValue -eq $true) {
+                $bulkCopyOptions += $([Data.SqlClient.SqlBulkCopyOptions]::$option).value__
+            }
+        }]]></description>
+		<content:encoded><![CDATA[<p>Improvement concerning: Write-DbaDbTableData</p>
+<p>In this part below the row:  &#8220;$optionValue = Get-Variable $option -ValueOnly  -ErrorAction SilentlyContinue&#8221; may result in an extra row tot $error. So I added this code to check if the variable does exists or has a value:<br />
+            $scriptblockje = [Scriptblock]::Create(&#8220;$&#8221;+$option)<br />
+            $retval = Invoke-Command -ScriptBlock $scriptblockje<br />
+            if ($retval -eq $null -or $retval -eq &#8221;) {continue}<br />
+Maybe this is not the most beautiful code, but it works for me&#8230; And maybe also for others&#8230;<br />
+I have added this on a server of a client, but when they update dbatools this extra code will be gone, and is it possible to add this change to the allcommands.ps1 of future versions?</p>
+<p>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211; code from allcommands.ps1 &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;</p>
+<p>      $bulkCopyOptions = 0<br />
+        $options = &#8220;TableLock&#8221;, &#8220;CheckConstraints&#8221;, &#8220;FireTriggers&#8221;, &#8220;KeepIdentity&#8221;, &#8220;KeepNulls&#8221;, &#8220;Default&#8221;</p>
+<p>        foreach ($option in $options) {</p>
+<p>            $scriptblockje = [Scriptblock]::Create(&#8220;$&#8221;+$option)<br />
+            $retval = Invoke-Command -ScriptBlock $scriptblockje<br />
+            if ($retval -eq $null -or $retval -eq &#8221;) {continue}</p>
+<p>            $optionValue = Get-Variable $option -ValueOnly  -ErrorAction SilentlyContinue</p>
+<p>            if ($option -eq &#8220;TableLock&#8221; -and (!$NoTableLock)) {<br />
+                $optionValue = $true<br />
+            }<br />
+            if ($optionValue -eq $true) {<br />
+                $bulkCopyOptions += $([Data.SqlClient.SqlBulkCopyOptions]::$option).value__<br />
+            }<br />
+        }</p>
+]]></content:encoded>
+						</item>
+			</channel>
+</rss>
