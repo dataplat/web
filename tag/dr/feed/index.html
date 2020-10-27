@@ -71,7 +71,7 @@
 <p>At it&#8217;s simplest we can do the following:</p>
 <pre class="lang:ps decode:true " >Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backups</pre>
 <p>This will <strong>scan</strong> all of the files in the folder C:\dbatools\backups and restore them onto the SQL Server instance localhost\sqlexpress2016, up to the most recent record in the backups.</p>
-<p><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2017/02/RestoreWork-2-1.png?w=800&#038;ssl=1" alt="restorework" data-recalc-dims="1" /></p>
+<p><img src="https://dbatools.io/wp-content/uploads/2017/02/RestoreWork-2-1.png?w=800&#038;ssl=1" alt="restorework" data-recalc-dims="1" /></p>
 <h5>When we say scan, we mean it will do the following:</h5>
 <ul>
 <li>All the files in that folder will be checked to see if they are SQL Server backups</li>
@@ -95,7 +95,7 @@
 <p>Or perhaps you want to seperate logs and data files out, got you covered:</p>
 <pre class="lang:ps decode:true " >Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backups -DestinationDataDirectory c:\dbatools\RestoreLocation -DestinationLogDirectory c:\dbatools\RestoreLogsLocation</pre>
 <p>All your data files end up in c:\dbatools\RestoreLocation and all your log files go into c:\dbatools\RestoreLogsLocation. Nice and easy</p>
-<p><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2017/02/RestoreWork-4-1.png?w=800&#038;ssl=1" alt="restorework4" data-recalc-dims="1" /></p>
+<p><img src="https://dbatools.io/wp-content/uploads/2017/02/RestoreWork-4-1.png?w=800&#038;ssl=1" alt="restorework4" data-recalc-dims="1" /></p>
 <p>And if you want your restores to return to their original destinations, they use the ReuseSourceFolderStructure switch:</p>
 <pre class="lang:ps decode:true " >Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backups -ReuseSourceFolderStructure</pre>
 <p>If you really want to go to town with moving files around during the restore, the we offer teh FileMapping parameter. To use this, you have to pass in a HashTable with a key/value pair for every file in the database you&#8217;re restoring. The key is the logical name of your data file, and the value is the full path of where you want the file to be placed. For example:</p>
@@ -120,7 +120,7 @@ Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backup
 <pre class="lang:ps decode:true " >$RestoreTime = Get-Date("01/01/2017 11:10")
 Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backups -RestoreTime $RestoreTime</pre>
 <p>Now our file scan will work out which files it needs to use to perform this restore. By using the -Verbose switch we can see which ones it&#8217;s picked:</p>
-<p><img src="https://i0.wp.com/dbatools.io/wp-content/uploads/2017/02/RestoreWork-5-1.png?w=800&#038;ssl=1" alt="restorework4" data-recalc-dims="1" /></p>
+<p><img src="https://dbatools.io/wp-content/uploads/2017/02/RestoreWork-5-1.png?w=800&#038;ssl=1" alt="restorework4" data-recalc-dims="1" /></p>
 <p>We can see it&#8217;s restored RestoreDemo_Full1.bak, then RestoreDemo_Diff4, and finally used RestoreDemo_log6.trn to roll everything forward to the correct time.</p>
 <h3>Replaying the workload to remote lab</h3>
 <p>Next up, perhaps your developers want to investigate some problems they&#8217;ve been seeing on production. They&#8217;d love to have a copy of production on a test server, but from 2 hours ago so they can replay the workload. How about this:</p>

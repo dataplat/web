@@ -42,7 +42,7 @@
 		<guid isPermaLink="false">https://dbatools.io/?p=7887</guid>
 				<description><![CDATA[SQL Server&#8217;s Central Management Server (CMS), first introduced in SQL Server 2008, &#8220;stores a list of instances of SQL Server that is organized into one or more central management server ...]]></description>
 								<content:encoded><![CDATA[<p>SQL Server&#8217;s <a href="https://www.red-gate.com/simple-talk/sql/sql-tools/registered-servers-and-central-management-server-stores/">Central Management Server</a> (CMS), first introduced in SQL Server 2008, &#8220;stores a list of instances of SQL Server that is organized into one or more central management server groups&#8221;.</p>
-<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/cms.png?ssl=1"><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/cms.png?resize=569%2C669&#038;ssl=1" alt="" width="569" height="669" class="aligncenter size-full wp-image-7890" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/cms.png?w=569&amp;ssl=1 569w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/cms.png?resize=255%2C300&amp;ssl=1 255w" sizes="(max-width: 569px) 100vw, 569px" data-recalc-dims="1" /></a></p>
+<p><a href="https://dbatools.io/wp-content/uploads/2018/07/cms.png?ssl=1"><img src="https://dbatools.io/wp-content/uploads/2018/07/cms.png?resize=569%2C669&#038;ssl=1" alt="" width="569" height="669" class="aligncenter size-full wp-image-7890" srcset="https://dbatools.io/wp-content/uploads/2018/07/cms.png?w=569&amp;ssl=1 569w, https://dbatools.io/wp-content/uploads/2018/07/cms.png?resize=255%2C300&amp;ssl=1 255w" sizes="(max-width: 569px) 100vw, 569px" data-recalc-dims="1" /></a></p>
 <p>It&#8217;s a super useful feature that not all DBAs know about. Since CMS data is stored in msdb and accessible via SMO, you can access it from SQL Server Management Studio or PowerShell modules like dbatools.</p>
 <p>Central Management Server&#8217;s <a href="https://docs.microsoft.com/en-us/sql/ssms/register-servers/create-a-central-management-server-and-server-group">essential functionality</a> includes:</p>
 <blockquote><p>
@@ -52,7 +52,7 @@
 <h2>Server grouping</h2>
 <p>The screenshot above is a sample representation of how SQL Servers can be divided into groups. I generally organize by department, but as <a href="https://twitter.com/ClaudioESSilva">Cláudio Silva</a> pointed out, it&#8217;s useful to organize by version when performing migrations. I&#8217;ve done that as well.</p>
 <p>And because a SQL Server can be listed multiple times within different groups, my buddy Brandon created an automated system that divided by both Application and assigned DBA. Too cool! In this example from <a href="https://www.sqlmatters.com/Articles/RegisteredServersvsCentralManagementServers.aspx">sqlmatters.com</a>, their servers are divided up by environment.</p>
-<p><a href="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/Registered-Servers-and-Central-Management-Servers-1.jpg?ssl=1"><img src="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/Registered-Servers-and-Central-Management-Servers-1.jpg?resize=400%2C600&#038;ssl=1" alt="" width="400" height="600" class="aligncenter size-full wp-image-7899" srcset="https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/Registered-Servers-and-Central-Management-Servers-1.jpg?w=400&amp;ssl=1 400w, https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/Registered-Servers-and-Central-Management-Servers-1.jpg?resize=200%2C300&amp;ssl=1 200w" sizes="(max-width: 400px) 100vw, 400px" data-recalc-dims="1" /></a></p>
+<p><a href="https://dbatools.io/wp-content/uploads/2018/07/Registered-Servers-and-Central-Management-Servers-1.jpg?ssl=1"><img src="https://dbatools.io/wp-content/uploads/2018/07/Registered-Servers-and-Central-Management-Servers-1.jpg?resize=400%2C600&#038;ssl=1" alt="" width="400" height="600" class="aligncenter size-full wp-image-7899" srcset="https://dbatools.io/wp-content/uploads/2018/07/Registered-Servers-and-Central-Management-Servers-1.jpg?w=400&amp;ssl=1 400w, https://dbatools.io/wp-content/uploads/2018/07/Registered-Servers-and-Central-Management-Servers-1.jpg?resize=200%2C300&amp;ssl=1 200w" sizes="(max-width: 400px) 100vw, 400px" data-recalc-dims="1" /></a></p>
 <p>But wait. The screenshot also shows Registered Servers. What are those?</p>
 <h2>Registered Servers vs Central Management Servers</h2>
 <p>The article <a href="https://www.sqlmatters.com/Articles/RegisteredServersvsCentralManagementServers.aspx">Registered Servers vs Central Management Servers</a> lays out the differences in a straightforward manner.</p>
@@ -74,7 +74,7 @@
 <p>We have a number of commands to help manage CMS! We even updated our command names after this blog post came out,</p>
 <h3>Get-DbaRegServer</h3>
 <p>Gets list of SQL Server objects stored in SQL Server Central Management Server.</p>
-<p><a href='https://dbatools.io/wp-content/uploads/2018/07/img_5b4670e0cd968-full.png?ssl=1'><img alt='' class='alignnone size-full wp-image-7926 aligncenter' src='https://i0.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b4670e0cd968.png?w=800&#038;ssl=1' data-recalc-dims="1" /></a></p>
+<p><a href='https://dbatools.io/wp-content/uploads/2018/07/img_5b4670e0cd968-full.png?ssl=1'><img alt='' class='alignnone size-full wp-image-7926 aligncenter' src='https://dbatools.io/wp-content/uploads/2018/07/img_5b4670e0cd968.png?w=800&#038;ssl=1' data-recalc-dims="1" /></a></p>
 <pre class="lang:ps decode:true " ># Here's how you get a list of all servers stored on the CMS instance on sql2008. 
 # Note that this list is pipable to all dbatools commands
 Get-DbaRegServer -SqlInstance sql2008
@@ -89,7 +89,7 @@ Get-DbaRegServer -SqlInstance sql2008 -Group Production
 Get-DbaRegServer -SqlInstance sql2008 -Group Production\HR</pre>
 <h3>Add-DbaRegServer</h3>
 <p>Adds registered servers to SQL Server Central Management Server.</p>
-<p><a href='https://i0.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b4668c7bc3e9-full.png?ssl=1'><img alt='' class='alignnone size-full wp-image-7917 aligncenter' src='https://i0.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b4668c7bc3e9.png?w=800&#038;ssl=1' data-recalc-dims="1" /></a></p>
+<p><a href='https://dbatools.io/wp-content/uploads/2018/07/img_5b4668c7bc3e9-full.png?ssl=1'><img alt='' class='alignnone size-full wp-image-7917 aligncenter' src='https://dbatools.io/wp-content/uploads/2018/07/img_5b4668c7bc3e9.png?w=800&#038;ssl=1' data-recalc-dims="1" /></a></p>
 <pre class="lang:ps decode:true " ># To create a registered server on sql2008's CMS which points to the SQL Server, sql01. 
 # When scrolling in CMS, the name "sql01" will be visible.
 Add-DbaRegServer -SqlInstance sql2008 -ServerName sql01
@@ -113,7 +113,7 @@ Add-DbaRegServerGroup -SqlInstance sql2012, sql2014 -Name subfolder -Group HR
 Get-DbaRegServerGroup -SqlInstance sql2012, sql2014 -Group HR | Add-DbaRegServerGroup -Name subfolder</pre>
 <h3>Export-DbaRegServer</h3>
 <p>Exports Central Management Server registered servers and registered server groups to file.</p>
-<p><a href='https://dbatools.io/wp-content/uploads/2018/07/img_5b46694e4c014-full.png?ssl=1'><img alt='' class='alignnone size-full wp-image-7920 aligncenter' src='https://i2.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b46694e4c014.png?w=800&#038;ssl=1' data-recalc-dims="1" /></a></p>
+<p><a href='https://dbatools.io/wp-content/uploads/2018/07/img_5b46694e4c014-full.png?ssl=1'><img alt='' class='alignnone size-full wp-image-7920 aligncenter' src='https://dbatools.io/wp-content/uploads/2018/07/img_5b46694e4c014.png?w=800&#038;ssl=1' data-recalc-dims="1" /></a></p>
 <pre class="lang:ps decode:true " ># To export all Registered Server and Registered Server Groups on sql2008 to an automatically generated file name in the current directory
 Export-DbaRegServer -SqlInstance sql2008
 
@@ -135,7 +135,7 @@ Get-DbaRegServerGroup -SqlInstance sql2008 -Group Production\HR</pre>
 Get-DbaRegServerStore -SqlInstance sql2008</pre>
 <h3>Import-DbaRegServer</h3>
 <p>Gets list of Server Groups objects stored in SQL Server Central Management Server.</p>
-<p><a href='https://dbatools.io/wp-content/uploads/2018/07/img_5b46702b5eb54-full.png?ssl=1'><img alt='' class='alignnone size-full wp-image-7923 aligncenter' src='https://i0.wp.com/dbatools.io/wp-content/uploads/2018/07/img_5b46702b5eb54.png?w=800&#038;ssl=1' data-recalc-dims="1" /></a></p>
+<p><a href='https://dbatools.io/wp-content/uploads/2018/07/img_5b46702b5eb54-full.png?ssl=1'><img alt='' class='alignnone size-full wp-image-7923 aligncenter' src='https://dbatools.io/wp-content/uploads/2018/07/img_5b46702b5eb54.png?w=800&#038;ssl=1' data-recalc-dims="1" /></a></p>
 <pre class="lang:ps decode:true " ># To import C:\temp\corp-regservers.xml to the CMS on sql2012
 Import-DbaRegServer -SqlInstance sql2012 -Path C:\temp\corp-regservers.xml
 
