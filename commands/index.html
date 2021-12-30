@@ -516,7 +516,7 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                     <a href="#FileStream">FileStream</a><br>
                                     <a href="#Lookup">Lookup (Find)</a><br>
                                     <a href="#General">General</a><br>
-                                    <a href="#LinkedServers">Linked Servers</a><br>
+                                    <a href="#LinkedServer">Linked Servers</a><br>
                                     <a href="#LogShipping">Log Shipping</a><br>
                                     <a href="#Login">Login and User Management</a><br>
                                     <a href="#MailandLogging">Mail and Logging</a><br>
@@ -580,7 +580,6 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                         <a href="http://docs.dbatools.io/Copy-DbaResourceGovernor">Copy-DbaResourceGovernor</a><br>
                                         <a href="http://docs.dbatools.io/Copy-DbaSpConfigure">Copy-DbaSpConfigure</a><br>
                                         <a href="http://docs.dbatools.io/Copy-DbaStartupProcedure">Copy-DbaStartupProcedure</a><br>
-                                        <a href="http://docs.dbatools.io/Copy-DbaSsisCatalog">Copy-DbaSsisCatalog</a><br>
                                         <a href="http://docs.dbatools.io/Copy-DbaSysDbUserObject">Copy-DbaSysDbUserObject</a><br>
                                         <a href="http://docs.dbatools.io/Copy-DbaXESession">Copy-DbaXESession</a><br>
                                         <a href="http://docs.dbatools.io/Start-DbaMigration">Start-DbaMigration</a><br>
@@ -645,6 +644,7 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                         <a href="http://docs.dbatools.io/Get-DbaWaitStatistic">Get-DbaWaitStatistic</a><br>
                                         <a href="http://docs.dbatools.io/Measure-DbaDbVirtualLogFile">Measure-DbaDbVirtualLogFile</a><br>
                                         <a href="http://docs.dbatools.io/Measure-DbaDiskSpaceRequirement">Measure-DbaDiskSpaceRequirement</a><br>
+                                        <a href="http://docs.dbatools.io/Stop-DbaExternalProcess">Stop-DbaExternalProcess</a>
                                         <a href="http://docs.dbatools.io/Stop-DbaProcess">Stop-DbaProcess</a><br>
                                         <a href="http://docs.dbatools.io/Test-DbaDiskSpeed">Test-DbaDiskSpeed</a>
                                     </p>
@@ -713,6 +713,7 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                         <a href="http://docs.dbatools.io/Remove-DbaRgWorkloadGroup">Remove-DbaRgWorkloadGroup</a>
                                         <a href="http://docs.dbatools.io/Set-DbaResourceGovernor">Set-DbaResourceGovernor</a>
                                         <a href="http://docs.dbatools.io/Set-DbaRgResourcePool">Set-DbaRgResourcePool</a>
+                                        <a href="http://docs.dbatools.io/Set-DbaRgWorkloadGroup">Set-DbaRgWorkloadGroup</a>
                                     </p>
                                     <h3><a name="PerfMon">PerfMon</a></h3>
                                     <p>
@@ -782,8 +783,9 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                         <a href="http://docs.dbatools.io/Invoke-DbaDbMirrorFailover">Invoke-DbaDbMirrorFailover</a><br>
                                         <a href="http://docs.dbatools.io/Invoke-DbaDbMirroring">Invoke-DbaDbMirroring</a><br>
                                         <a href="http://docs.dbatools.io/Remove-DbaDbMirror">Remove-DbaDbMirror</a><br>
-                                        <a href="http://docs.dbatools.io/Repair-DbaDbMirror">Repair-DbaDbMirror</a><br>
                                         <a href="http://docs.dbatools.io/Remove-DbaDbMirror">Remove-DbaDbMirror</a><br>
+                                        <a href="http://docs.dbatools.io/Remove-DbaDbMirrorMonitor">Remove-DbaDbMirrorMonitor</a><br>
+                                        <a href="http://docs.dbatools.io/Repair-DbaDbMirror">Repair-DbaDbMirror</a><br>
                                         <a href="http://docs.dbatools.io/Set-DbaDbMirror">Set-DbaDbMirror</a>
                                     </p>
                                     <h3><a name="tempdb">tempdb</a></h3>
@@ -806,6 +808,7 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                         <a href="http://docs.dbatools.io/Get-DbaDbLogShipError">Get-DbaDbLogShipError</a><br>
                                         <a href="http://docs.dbatools.io/Invoke-DbaDbLogShipping">Invoke-DbaDbLogShipping</a><br>
                                         <a href="http://docs.dbatools.io/Invoke-DbaDbLogShipRecovery">Invoke-DbaDbLogShipRecovery</a><br>
+                                        <a href="http://docs.dbatools.io/Remove-DbaDbLogShipping">Remove-DbaDbLogShipping</a><br>
                                         <a href="http://docs.dbatools.io/Test-DbaDbLogShipStatus">Test-DbaDbLogShipStatus</a>
                                     </p>
                                     <h3><a name="Database">Databases</a></h3>
@@ -816,12 +819,7 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                         <a href="http://docs.dbatools.io/Get-DbaDbCheckConstraint">Get-DbaDbCheckConstraint</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaDbCompatibility">Get-DbaDbCompatibility</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaDbFeatureUsage">Get-DbaDbFeatureUsage</a><br>
-                                        <a href="http://docs.dbatools.io/Get-DbaDbFile">Get-DbaDbFile</a><br>
-                                        <a href="http://docs.dbatools.io/Get-DbaDbFilegroup">Get-DbaDbFilegroup</a><br>
-                                        <a href="http://docs.dbatools.io/Get-DbaDbFileGrowth">Get-DbaDbFileGrowth</a>
-                                        <a href="http://docs.dbatools.io/Get-DbaDbFileMapping">Get-DbaDbFileMapping</a>
                                         <a href="http://docs.dbatools.io/Get-DbaDbIdentity">Get-DbaDbIdentity</a><br>
-                                        <a href="http://docs.dbatools.io/Get-DbaDbLogSpace">Get-DbaDbLogSpace</a>
                                         <a href="http://docs.dbatools.io/Get-DbaDbMemoryUsage">Get-DbaDbMemoryUsage</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaDbMirrorMonitor">Get-DbaDbMirrorMonitor</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaDbObjectTrigger">Get-DbaDbObjectTrigger</a><br>
@@ -830,7 +828,6 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                         <a href="http://docs.dbatools.io/Get-DbaDbPartitionScheme">Get-DbaDbPartitionScheme</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaDbQueryStoreOption">Get-DbaDbQueryStoreOption</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaDbSchema">Get-DbaDbSchema</a>
-                                        <a href="http://docs.dbatools.io/Get-DbaDbServiceBrokerService">Get-DbaDbServiceBrokerService</a>
                                         <a href="http://docs.dbatools.io/Get-DbaDbSharePoint">Get-DbaDbSharePoint</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaDbSpace">Get-DbaDbSpace</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaDbState">Get-DbaDbState</a><br>
@@ -847,20 +844,28 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                         <a href="http://docs.dbatools.io/Invoke-DbaDbShrink">Invoke-DbaDbShrink</a><br>
                                         <a href="http://docs.dbatools.io/Invoke-DbaDbUpgrade">Invoke-DbaDbUpgrade</a><br>
                                         <a href="http://docs.dbatools.io/New-DbaDatabase">New-DbaDatabase</a><br>
+                                        <a href="http://docs.dbatools.io/New-DbaDbSchema">New-DbaDbSchema</a>
+                                        <a href="http://docs.dbatools.io/New-DbaDbSynonym">New-DbaDbSynonym</a>
                                         <a href="http://docs.dbatools.io/Remove-DbaDatabase">Remove-DbaDatabase</a><br>
                                         <a href="http://docs.dbatools.io/Remove-DbaDatabaseSafely">Remove-DbaDatabaseSafely</a><br>
+                                        <a href="http://docs.dbatools.io/Remove-DbaDbSchema">Remove-DbaDbSchema</a>
+                                        <a href="http://docs.dbatools.io/Remove-DbaDbSynonym">Remove-DbaDbSynonym</a>
+                                        <a href="http://docs.dbatools.io/Remove-DbaDbUdf">Remove-DbaDbUdf</a>
+                                        <a href="http://docs.dbatools.io/Remove-DbaDbView">Remove-DbaDbView</a>
                                         <a href="http://docs.dbatools.io/Rename-DbaDatabase">Rename-DbaDatabase</a><br>
                                         <a href="http://docs.dbatools.io/Set-DbaDbCompatibility">Set-DbaDbCompatibility</a><br>
                                         <a href="http://docs.dbatools.io/Set-DbaDbIdentity">Set-DbaDbIdentity</a><br>
                                         <a href="http://docs.dbatools.io/Set-DbaDbOwner">Set-DbaDbOwner</a><br>
                                         <a href="http://docs.dbatools.io/Set-DbaDbQueryStoreOption">Set-DbaDbQueryStoreOption</a><br>
                                         <a href="http://docs.dbatools.io/Set-DbaDbRecoveryModel">Set-DbaDbRecoveryModel</a><br>
+                                        <a href="http://docs.dbatools.io/Set-DbaDbSchema">Set-DbaDbSchema</a>
                                         <a href="http://docs.dbatools.io/Set-DbaDbState">Set-DbaDbState</a><br>
                                         <a href="http://docs.dbatools.io/Show-DbaDbList">Show-DbaDbList</a><br>
                                         <a href="http://docs.dbatools.io/Test-DbaConnectionAuthScheme">Test-DbaConnectionAuthScheme</a><br>
                                         <a href="http://docs.dbatools.io/Test-DbaDbCollation">Test-DbaDbCollation</a><br>
                                         <a href="http://docs.dbatools.io/Test-DbaDbCompatibility">Test-DbaDbCompatibility</a><br>
                                         <a href="http://docs.dbatools.io/Test-DbaDbOwner">Test-DbaDbOwner</a><br>
+                                        <a href="http://docs.dbatools.io/Test-DbaDbQueryStore">Test-DbaDbQueryStore</a><br>
                                         <a href="http://docs.dbatools.io/Test-DbaOptimizeForAdHoc">Test-DbaOptimizeForAdHoc</a>
                                     </p>
                                     <h3><a name="Login">Login and User Management</a></h3>
@@ -923,6 +928,8 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                         <a href="http://docs.dbatools.io/New-DbaServiceMasterKey">New-DbaServiceMasterKey</a><br>
                                         <a href="http://docs.dbatools.io/Read-DbaAuditFile">Read-DbaAuditFile</a><br>
                                         <a href="http://docs.dbatools.io/Remove-DbaComputerCertificate">Remove-DbaComputerCertificate</a><br>
+                                        <a href="http://docs.dbatools.io/Remove-DbaCredential">Remove-DbaCredential</a><br>
+                                        <a href="http://docs.dbatools.io/Remove-DbaDbAsymmetricKey">Remove-DbaDbAsymmetricKey</a><br>
                                         <a href="http://docs.dbatools.io/Remove-DbaDbCertificate">Remove-DbaDbCertificate</a><br>
                                         <a href="http://docs.dbatools.io/Remove-DbaDbMasterKey">Remove-DbaDbMasterKey</a><br>
                                         <a href="http://docs.dbatools.io/Remove-DbaNetworkCertificate">Remove-DbaNetworkCertificate</a><br>
@@ -981,6 +988,7 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                         <a href="http://docs.dbatools.io/Remove-DbaAgentJob">Remove-DbaAgentJob</a><br>
                                         <a href="http://docs.dbatools.io/Remove-DbaAgentJobCategory">Remove-DbaAgentJobCategory</a><br>
                                         <a href="http://docs.dbatools.io/Remove-DbaAgentJobStep">Remove-DbaAgentJobStep</a><br>
+                                        <a href="http://docs.dbatools.io/Remove-DbaAgentOperator">Remove-DbaAgentOperator</a><br>
                                         <a href="http://docs.dbatools.io/Remove-DbaAgentProxy">Remove-DbaAgentProxy</a><br>
                                         <a href="http://docs.dbatools.io/Remove-DbaAgentSchedule">Remove-DbaAgentSchedule</a><br>
                                         <a href="http://docs.dbatools.io/Set-DbaAgentAlert">Set-DbaAgentAlert</a><br>
@@ -989,6 +997,7 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                         <a href="http://docs.dbatools.io/Set-DbaAgentJobOutputFile">Set-DbaAgentJobOutputFile</a><br>
                                         <a href="http://docs.dbatools.io/Set-DbaAgentJobOwner">Set-DbaAgentJobOwner</a><br>
                                         <a href="http://docs.dbatools.io/Set-DbaAgentJobStep">Set-DbaAgentJobStep</a><br>
+                                        <a href="http://docs.dbatools.io/Set-DbaAgentOperator">Set-DbaAgentOperator</a><br>
                                         <a href="http://docs.dbatools.io/Set-DbaAgentSchedule">Set-DbaAgentSchedule</a><br>
                                         <a href="http://docs.dbatools.io/Set-DbaAgentServer">Set-DbaAgentServer</a><br>
                                         <a href="http://docs.dbatools.io/Start-DbaAgentJob">Start-DbaAgentJob</a><br>
@@ -1068,10 +1077,20 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                     <h3><a name="Storage">File System and Storage</a></h3>
                                     <p>
                                         <a href="http://docs.dbatools.io/Expand-DbaDbLogFile">Expand-DbaDbLogFile</a><br>
+                                        <a href="http://docs.dbatools.io/Get-DbaDbFile">Get-DbaDbFile</a><br>
+                                        <a href="http://docs.dbatools.io/Get-DbaDbFileGroup">Get-DbaDbFileGroup</a><br>
+                                        <a href="http://docs.dbatools.io/Get-DbaDbFileGrowth">Get-DbaDbFileGrowth</a>
+                                        <a href="http://docs.dbatools.io/Get-DbaDbFileMapping">Get-DbaDbFileMapping</a>
+                                        <a href="http://docs.dbatools.io/Get-DbaDbLogSpace">Get-DbaDbLogSpace</a>
                                         <a href="http://docs.dbatools.io/Get-DbaDefaultPath">Get-DbaDefaultPath</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaDiskSpace">Get-DbaDiskSpace</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaFile">Get-DbaFile</a><br>
+                                        <a href="http://docs.dbatools.io/New-DbaDbFileGroup">New-DbaDbFileGroup</a><br>
                                         <a href="http://docs.dbatools.io/New-DbaDirectory">New-DbaDirectory</a><br>
+                                        <a href="http://docs.dbatools.io/Remove-DbaDbFileGroup">Remove-DbaDbFileGroup</a><br>
+                                        <a href="http://docs.dbatools.io/Set-DbaDbFileGroup">Set-DbaDbFileGroup</a><br>
+                                        <a href="http://docs.dbatools.io/Set-DbaDbFileGrowth">Set-DbaDbFileGrowth</a><br>
+                                        <a href="http://docs.dbatools.io/Set-DbaDefaultPath">Set-DbaDefaultPath</a><br>
                                         <a href="http://docs.dbatools.io/Show-DbaInstanceFileSystem">Show-DbaInstanceFileSystem</a><br>
                                         <a href="http://docs.dbatools.io/Test-DbaDiskAlignment">Test-DbaDiskAlignment</a><br>
                                         <a href="http://docs.dbatools.io/Test-DbaDiskAllocation">Test-DbaDiskAllocation</a><br>
@@ -1080,7 +1099,7 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                     <h3><a name="Services">Services</a></h3>
                                     <p>
                                         <a href="http://docs.dbatools.io/Get-DbaService">Get-DbaService</a><br>
-                                        <a href="http://docs.dbatools.io/Get-DbaServiceBrokerService">Get-DbaServiceBrokerService</a><br>
+                                        <a href="http://docs.dbatools.io/Get-DbaDbServiceBrokerService">Get-DbaDbServiceBrokerService</a><br>
                                         <a href="http://docs.dbatools.io/Restart-DbaService">Restart-DbaService</a><br>
                                         <a href="http://docs.dbatools.io/Start-DbaService">Start-DbaService</a><br>
                                         <a href="http://docs.dbatools.io/Stop-DbaService">Stop-DbaService</a><br>
@@ -1088,6 +1107,8 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                     </p>
                                     <h3><a name="Deployment">Deployment</a></h3>
                                     <p>
+                                        <a href="http://docs.dbatools.io/Get-DbaInstalledPatch">Get-DbaInstalledPatch</a><br>
+                                        <a href="http://docs.dbatools.io/Get-DbaKbUpdate">Get-DbaKbUpdate</a><br>
                                         <a href="http://docs.dbatools.io/Install-DbaInstance">Install-DbaInstance</a><br>
                                         <a href="http://docs.dbatools.io/Invoke-DbaAdvancedInstall">Invoke-DbaAdvancedInstall</a><br>
                                         <a href="http://docs.dbatools.io/Invoke-DbaAdvancedUpdate">Invoke-DbaAdvancedUpdate</a><br>
@@ -1122,7 +1143,8 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                         <a href="http://docs.dbatools.io/Invoke-DbaBalanceDataFiles">Invoke-DbaBalanceDataFiles</a><br>
                                         <a href="http://docs.dbatools.io/Invoke-DbaDbDecryptObject">Invoke-DbaDbDecryptObject</a><br>
                                         <a href="http://docs.dbatools.io/Invoke-DbaQuery">Invoke-DbaQuery</a><br>
-                                        <a href="http://docs.dbatools.io/oin-DbaPath">Join-DbaPath</a><br>
+                                        <a href="http://docs.dbatools.io/New-DbaSqlParameter">New-DbaSqlParameter</a><br>
+                                        <a href="http://docs.dbatools.io/Join-DbaPath">Join-DbaPath</a><br>
                                         <a href="http://docs.dbatools.io/Read-DbaTransactionLog">Read-DbaTransactionLog</a><br>
                                         <a href="http://docs.dbatools.io/Repair-DbaInstanceName">Repair-DbaInstanceName</a><br>
                                         <a href="http://docs.dbatools.io/Reset-DbaAdmin">Reset-DbaAdmin</a><br>
@@ -1134,6 +1156,7 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                         <a href="http://docs.dbatools.io/Test-DbaInstanceName">Test-DbaInstanceName</a>
                                         <a href="http://docs.dbatools.io/Test-DbaMaxDop">Test-DbaMaxDop</a><br>
                                         <a href="http://docs.dbatools.io/Test-DbaPowerPlan">Test-DbaPowerPlan</a><br>
+                                        <a href="http://docs.dbatools.io/Update-DbaBuildReference">Update-DbaBuildReference</a><br>
                                     </p>
                                     <h3><a name="Connection">Connections</a></h3>
                                     <p>
@@ -1155,8 +1178,9 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                         <a href="http://docs.dbatools.io/Get-DbaNetworkActivity">Get-DbaNetworkActivity</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaNetworkConfiguration">Get-DbaNetworkConfiguration</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaTcpPort">Get-DbaTcpPort</a><br>
-                                        <a href="http://docs.dbatools.io/New-DbaNetworkActivity">New-DbaNetworkFirewallRule</a><br>
-                                        <a href="http://docs.dbatools.io/Remove-DbaNetworkActivity">Remove-DbaNetworkFirewallRule</a><br>
+                                        <a href="http://docs.dbatools.io/New-DbaFirewallRule">New-DbaFirewallRule</a><br>
+                                        <a href="http://docs.dbatools.io/New-DbaFirewallRule">New-DbaFirewallRule</a><br>
+                                        <a href="http://docs.dbatools.io/Remove-DbaFirewallRule">Remove-DbaFirewallRule</a><br>
                                         <a href="http://docs.dbatools.io/Resolve-DbaNetworkName">Resolve-DbaNetworkName</a><br>
                                         <a href="http://docs.dbatools.io/Set-DbaTcpPort">Set-DbaNetworkConfiguration</a><br>
                                         <a href="http://docs.dbatools.io/Set-DbaTcpPort">Set-DbaTcpPort</a><br>
@@ -1190,6 +1214,7 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                         <a href="http://docs.dbatools.io/Get-DbaBackupDevice">Get-DbaBackupDevice</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaCustomError">Get-DbaCustomError</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaDeprecatedFeature">Get-DbaDeprecatedFeature</a><br>
+                                        <a href="http://docs.dbatools.io/Get-DbaExtendedProperty">Get-DbaExtendedProperty</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaFeature">Get-DbaFeature</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaInstanceProperty">Get-DbaInstanceProperty</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaInstanceTrigger">Get-DbaInstanceTrigger</a><br>
@@ -1197,7 +1222,15 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                         <a href="http://docs.dbatools.io/Get-DbaMemoryCondition">Get-DbaMemoryCondition</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaModule">Get-DbaModule</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaMsdtc">Get-DbaMsdtc</a><br>
+                                        <a href="http://docs.dbatools.io/Get-DbaOleDbProvider">Get-DbaOleDbProvider</a>
                                         <a href="http://docs.dbatools.io/Get-DbaSsisExecutionHistory">Get-DbaSsisExecutionHistory</a><br>
+                                        <a href="http://docs.dbatools.io/Invoke-DbaDbTransfer">Invoke-DbaDbTransfer</a><br>
+                                        <a href="http://docs.dbatools.io/New-DbaCustomError">New-DbaCustomError</a><br>
+                                        <a href="http://docs.dbatools.io/New-DbaDbTransfer">New-DbaDbTransfer</a><br>
+                                        <a href="http://docs.dbatools.io/New-DbaScriptingOption">New-DbaScriptingOption</a><br>
+                                        <a href="http://docs.dbatools.io/Remove-DbaCustomError">Remove-DbaCustomError</a><br>
+                                        <a href="http://docs.dbatools.io/Remove-DbaExtendedProperty">Remove-DbaExtendedProperty</a><br>
+                                        <a href="http://docs.dbatools.io/Set-DbaExtendedProperty">Set-DbaExtendedProperty</a><br>
                                         <a href="http://docs.dbatools.io/Test-DbaDeprecatedFeature">Test-DbaDeprecatedFeature</a>
                                     </p>
                                     <h3><a name="FileStream">FileStream</a></h3>
@@ -1206,9 +1239,12 @@ To learn how this works, see http://wp.me/PEmnE-Bt
                                         <a href="http://docs.dbatools.io/Enable-DbaFilestream">Enable-DbaFilestream</a><br>
                                         <a href="http://docs.dbatools.io/Get-DbaFileStream">Get-DbaFileStream</a>
                                     </p>
-                                    <h3><a name="LinkedServers">Linked Servers</a></h3>
+                                    <h3><a name="LinkedServer">Linked Servers</a></h3>
                                     <p>
                                         <a href="http://docs.dbatools.io/Get-DbaLinkedServer">Get-DbaLinkedServer</a><br>
+                                        <a href="http://docs.dbatools.io/Get-DbaLinkedServerLogin">Get-DbaLinkedServerLogin</a><br>
+                                        <a href="http://docs.dbatools.io/New-DbaLinkedServerLogin">New-DbaLinkedServerLogin</a><br>
+                                        <a href="http://docs.dbatools.io/Remove-DbaLinkedServer">Remove-DbaLinkedServer</a><br>
                                         <a href="http://docs.dbatools.io/Test-DbaLinkedServerConnection">Test-DbaLinkedServerConnection</a><br>
                                     </p>
                                     <h3><a name="Lookup">Lookup (Find)</a></h3>
