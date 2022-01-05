@@ -5,7 +5,7 @@
 	xmlns:atom="http://www.w3.org/2005/Atom"
 	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
 	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
-	
+
 	xmlns:georss="http://www.georss.org/georss"
 	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
 	>
@@ -29,7 +29,7 @@
 	<link>https://dbatools.io/</link>
 	<width>32</width>
 	<height>32</height>
-</image> 
+</image>
 <site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
 		<title>using dacpac functions to clone sql server databases</title>
 		<link>https://dbatools.io/clone/</link>
@@ -46,9 +46,9 @@
 <p>Many SQL Server DBAs know that there is a very convenient way of delivering a full copy of the database structure to a different SQL Server: it&#8217;s called dacpac, or a Data-tier Application package. You can extract the database any time using SQL Server Management Studio context menu: <strong>Tasks</strong> -&gt; <strong>Extract Data-tier Application</strong>, which would guide you through the extraction options and output a compressed package file that would contain all necessary schema definitions, as well as table data. This package can be further on deployed on a completely different server using a <strong>Deploy</strong> <strong>Data-tier Application</strong> context menu item.</p>
 <p>What people do not widely know, however, is how much fine-tuning a simple deployment might require, and how difficult it is sometimes to force the deployment operation to behave in a certain way. Good thing is, now we have a convenient way of automating this process using dacpac-related functions from the dbatools module:</p>
 <ul>
-<li><a href="https://dbatools.io/functions/Export-DbaDacPackage/" target="_blank" rel="noopener">Export-DbaDacPackage</a></li>
-<li><a href="https://dbatools.io/functions/Publish-DbaDacPackage/" target="_blank" rel="noopener">Publish-DbaDacPackage</a></li>
-<li><a href="https://dbatools.io/functions/New-DbaDacProfile/" target="_blank" rel="noopener">New-DbaDacProfile</a></li>
+<li><a href="https://docs.dbatools.io/Export-DbaDacPackage/" target="_blank" rel="noopener">Export-DbaDacPackage</a></li>
+<li><a href="https://docs.dbatools.io/Publish-DbaDacPackage/" target="_blank" rel="noopener">Publish-DbaDacPackage</a></li>
+<li><a href="https://docs.dbatools.io/New-DbaDacProfile/" target="_blank" rel="noopener">New-DbaDacProfile</a></li>
 </ul>
 <p>This article would explain how to:</p>
 <ul>
@@ -79,13 +79,13 @@ Export-DbaDacPackage -SqlInstance $Server -Database $Database -Path C:\temp -Ext
 <li>Ignore database permissions, as there is rarely a need to add permissions into the mix</li>
 <li>Define an option to include data into the package</li>
 </ul>
-<p><a href="https://dbatools.io/functions/Export-DbaDacPackage/" target="_blank" rel="noopener">Export-DbaDacPackage</a> function will take care of the extraction process and will return all details about the extraction, including the .<strong>Path</strong> property that would direct us to the extracted file:</p>
+<p><a href="https://docs.dbatools.io/Export-DbaDacPackage/" target="_blank" rel="noopener">Export-DbaDacPackage</a> function will take care of the extraction process and will return all details about the extraction, including the .<strong>Path</strong> property that would direct us to the extracted file:</p>
 <figure id="attachment_8183" aria-describedby="caption-attachment-8183" style="width: 653px" class="wp-caption alignnone"><img class="wp-image-8183 size-full" src="https://dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-01-10.jpg?resize=653%2C49&#038;ssl=1" alt="" width="653" height="49" srcset="https://dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-01-10.jpg?w=653&amp;ssl=1 653w, https://dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-01-10.jpg?resize=300%2C23&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-01-10.jpg?resize=640%2C49&amp;ssl=1 640w" sizes="(max-width: 653px) 100vw, 653px" data-recalc-dims="1" /><figcaption id="caption-attachment-8183" class="wp-caption-text">output from Export-DbaDacPackage</figcaption></figure>
 <p>You can check all other available properties (which are basically command line parameters) in a corresponding article: <a href="https://msdn.microsoft.com/en-us/library/hh550080.aspx" target="_blank" rel="noopener">https://msdn.microsoft.com/en-us/library/hh550080.aspx</a></p>
 <h2>Deploying dacpac package</h2>
 <p>There is one important note about dacpac deployment: it requires a so called Publish Profile for the deployment. Publish profile is an xml file that contains deployment parameters that you want to enable during the deployment. You can create such profile by using one of the following options:</p>
 <ul>
-<li>Run <a href="https://dbatools.io/functions/New-DbaDacProfile/" target="_blank" rel="noopener">New-DbaDacProfile</a>, specifying the connection parameters. The resulting file will enable you to run the deployment, but it is highly recommended that you modify it according to your needs</li>
+<li>Run <a href="https://docs.dbatools.io/New-DbaDacProfile/" target="_blank" rel="noopener">New-DbaDacProfile</a>, specifying the connection parameters. The resulting file will enable you to run the deployment, but it is highly recommended that you modify it according to your needs</li>
 <li>From Visual Studio SSDT project, select <b>Build </b>-&gt; <strong>Publish</strong>. It would open a dialog, that allows you to load, save and modify the Publish profile. Make sure to take a look at the <strong>Advanced</strong> <strong>Publish</strong> <strong>Settings</strong> dialog, as it provides access to dozens of configuration items that you might want to review</li>
 <li>Manually, using documentation from <strong>Publish parameters</strong> section of the same <a href="https://msdn.microsoft.com/en-us/library/hh550080.aspx" target="_blank" rel="noopener">article</a></li>
 </ul>
@@ -133,7 +133,7 @@ Export-DbaDacPackage -SqlInstance $Server -Database $Database -Path C:\temp -Ext
     &lt;IgnoreRoleMembership&gt;True&lt;/IgnoreRoleMembership&gt;
   &lt;/PropertyGroup&gt;
 &lt;/Project&gt;</pre>
-<p>Once we have a Publish profile ready we can start the deployment by using <a href="https://dbatools.io/functions/Publish-DbaDacPackage/" target="_blank" rel="noopener">Publish-DbaDacPackage</a> function, specifying:</p>
+<p>Once we have a Publish profile ready we can start the deployment by using <a href="https://docs.dbatools.io/Publish-DbaDacPackage/" target="_blank" rel="noopener">Publish-DbaDacPackage</a> function, specifying:</p>
 <ul>
 <li><strong>SqlInstance</strong> &#8211; target server</li>
 <li><strong>Database</strong> &#8211; target database</li>
@@ -141,7 +141,7 @@ Export-DbaDacPackage -SqlInstance $Server -Database $Database -Path C:\temp -Ext
 <li><strong>PublishXml</strong> &#8211; path to the publish profile</li>
 </ul>
 <figure id="attachment_8184" aria-describedby="caption-attachment-8184" style="width: 800px" class="wp-caption alignnone"><img class="wp-image-8184 size-large" src="https://dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-44-08.jpg?resize=800%2C379&#038;ssl=1" alt="Publish-DbaDacPackage in action" width="800" height="379" srcset="https://dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-44-08.jpg?resize=1024%2C485&amp;ssl=1 1024w, https://dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-44-08.jpg?resize=300%2C142&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-44-08.jpg?resize=768%2C364&amp;ssl=1 768w, https://dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-44-08.jpg?w=1298&amp;ssl=1 1298w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /><figcaption id="caption-attachment-8184" class="wp-caption-text">Publish-DbaDacPackage in action</figcaption></figure>
-<p>Other parameters of <a href="https://dbatools.io/functions/Publish-DbaDacPackage/" target="_blank" rel="noopener">Publish-DbaDacPackage</a> that you might find useful:</p>
+<p>Other parameters of <a href="https://docs.dbatools.io/Publish-DbaDacPackage/" target="_blank" rel="noopener">Publish-DbaDacPackage</a> that you might find useful:</p>
 <ul>
 <li><strong>GenerateDeploymentScript</strong> &#8211; will generate a deployment script prior to deployment</li>
 <li><strong>ScriptOnly</strong> &#8211; will not perform the deployment, generating a deployment script instead</li>
