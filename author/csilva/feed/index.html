@@ -5,7 +5,7 @@
 	xmlns:atom="http://www.w3.org/2005/Atom"
 	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
 	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
-	
+
 	xmlns:georss="http://www.georss.org/georss"
 	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
 	>
@@ -29,7 +29,7 @@
 	<link>https://dbatools.io/</link>
 	<width>32</width>
 	<height>32</height>
-</image> 
+</image>
 <site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
 		<title>dbatools advanced configuration</title>
 		<link>https://dbatools.io/configuration/</link>
@@ -155,7 +155,7 @@ Cláudio <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f1f5-1f1f9.
 		<guid isPermaLink="false">https://dbatools.io/?p=3186</guid>
 				<description><![CDATA[This time it&#8217;s not Chrissy, not Drew, not Stuart, not even Shawn…today it&#8217;s Cláudio writing to you! 🙂 With our recent release, &#8220;twentyfiveschmeckles (v0.8.694)&#8220;, we introduced the command Find-DbaStoredProcedure. This ...]]></description>
 								<content:encoded><![CDATA[<p>This time it&#8217;s not Chrissy, not Drew, not Stuart, not even Shawn…today it&#8217;s Cláudio writing to you! <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
-<p>With our recent release, &#8220;<a href="/twentyfiveschmeckles">twentyfiveschmeckles (v0.8.694)</a>&#8220;, we introduced the command <a href="https://dbatools.io/functions/find-dbastoredprocedure/">Find-DbaStoredProcedure</a>.</p>
+<p>With our recent release, &#8220;<a href="/twentyfiveschmeckles">twentyfiveschmeckles (v0.8.694)</a>&#8220;, we introduced the command <a href="https://docs.dbatools.io/Find-DbaStoredProcedure/">Find-DbaStoredProcedure</a>.</p>
 <p>This command allows us to find which stored procedures have a specific string or regular expression. While that may not be groundbreaking, what is new are the features we provide and the speed at which we return them. <!--is the one of many information that we deliver is the line number where the input criteria as been found.--><br />
 &nbsp;</p>
 <h3>Use cases</h3>
@@ -194,9 +194,9 @@ Cláudio <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f1f5-1f1f9.
 <pre class="lang:ps decode:true" title="Find 'JobTitle' pattern inside AdventureWorks2014 stored procedures">USE AdventureWorks2014
 GO
 
-SELECT db_name() AS DBName, p.[name], m.[definition] as TextBody 
+SELECT db_name() AS DBName, p.[name], m.[definition] as TextBody
 FROM sys.sql_modules m
-INNER JOIN sys.procedures p 
+INNER JOIN sys.procedures p
 ON m.object_id = p.object_id
 WHERE m.[definition] like '%JobTitle%'</pre>
 <p>dbatools command:</p>
@@ -205,9 +205,9 @@ WHERE m.[definition] like '%JobTitle%'</pre>
 <h4>For 2nd test:</h4>
 <p>T-SQL:</p>
 <pre class="lang:tsql decode:true">exec sp_MSforeachdb 'USE [?]
-SELECT db_name() AS DBName, p.[name], m.[definition] as TextBody 
+SELECT db_name() AS DBName, p.[name], m.[definition] as TextBody
 FROM sys.sql_modules m
-INNER JOIN sys.procedures p 
+INNER JOIN sys.procedures p
 ON m.object_id = p.object_id
 WHERE m.[definition] like ''%JobTitle%'''</pre>
 <p>And the dbatools command looks like:</p>
@@ -218,9 +218,9 @@ WHERE m.[definition] like ''%JobTitle%'''</pre>
 <pre class="lang:tsql decode:true">:connect sql2016
 Use AdventureWorks2014
 GO
- SELECT db_name() AS DBName, p.[name], m.[definition] as TextBody 
+ SELECT db_name() AS DBName, p.[name], m.[definition] as TextBody
   FROM sys.sql_modules m
-    INNER JOIN sys.procedures p 
+    INNER JOIN sys.procedures p
        ON m.object_id = p.object_id
  WHERE m.[definition] like '%JobTitle%'
 GO
@@ -228,9 +228,9 @@ GO
 :connect sql2014
 Use AdventureWorks2014
 GO
- SELECT db_name() AS DBName, p.[name], m.[definition] as TextBody 
+ SELECT db_name() AS DBName, p.[name], m.[definition] as TextBody
   FROM sys.sql_modules m
-    INNER JOIN sys.procedures p 
+    INNER JOIN sys.procedures p
        ON m.object_id = p.object_id
  WHERE m.[definition] like '%JobTitle%'
 GO
@@ -243,9 +243,9 @@ GO
 <pre class="lang:tsql decode:true ">:connect sql2016
 SET STATISTICS TIME ON
 exec sp_MSforeachdb 'USE [?]
-SELECT db_name() AS DBName, p.[name], m.[definition] as TextBody 
+SELECT db_name() AS DBName, p.[name], m.[definition] as TextBody
   FROM sys.sql_modules m
-    INNER JOIN sys.procedures p 
+    INNER JOIN sys.procedures p
        ON m.object_id = p.object_id
  WHERE m.[definition] like ''%JobTitle%'''
 GO
@@ -253,9 +253,9 @@ GO
 :connect sql2014
 SET STATISTICS TIME ON
 exec sp_MSforeachdb 'USE [?]
-SELECT db_name() AS DBName, p.[name], m.[definition] as TextBody 
+SELECT db_name() AS DBName, p.[name], m.[definition] as TextBody
   FROM sys.sql_modules m
-    INNER JOIN sys.procedures p 
+    INNER JOIN sys.procedures p
        ON m.object_id = p.object_id
  WHERE m.[definition] like ''%JobTitle%'''</pre>
 <p>dbatools command:</p>

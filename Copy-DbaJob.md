@@ -2,6 +2,6 @@
 layout: redirected
 sitemap: false
 redirect_to:
-  - https://dbatools.io/functions/Copy-DbaAgentJob
+  - https://docs.dbatools.io/Copy-DbaAgentJob
 permalink: /Copy-DbaJob
 ---
