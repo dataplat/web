@@ -235,7 +235,7 @@ To learn how this works, see http://wp.me/PEmnE-Bt
 <p>As you may have noticed, we release a 0.9.x update with bug fixes and new features almost daily, so why haven&rsquo;t we released 1.0 yet?</p>
 <h2>Shifting from &ldquo;a bag of functions&rdquo; to a proper module</h2>
 <p>We love new functionality, of course, but we must take a step back from new development and consolidate what we have in a properly usable module.</p>
-<p>Most of the contributors are damn good SQL Server Pros, a few are damn good PowerShell programmers, with the majority of &ldquo;casual&rdquo; developers being able to successfully publish a new function in less than a week time. But what we aren&rsquo;t so good at is advertising our needs. We recently updated our&nbsp;<a href="https://github.com/sqlcollaborative/dbatools/blob/master/contributing.md">contributing.md</a>&nbsp;to be more on par with the latest months of developing. Stay tuned there, as the few TODOs left are coming, but the path is mostly set.</p>
+<p>Most of the contributors are damn good SQL Server Pros, a few are damn good PowerShell programmers, with the majority of &ldquo;casual&rdquo; developers being able to successfully publish a new function in less than a week time. But what we aren&rsquo;t so good at is advertising our needs. We recently updated our&nbsp;<a href="https://github.com/dataplat/dbatools/blob/master/contributing.md">contributing.md</a>&nbsp;to be more on par with the latest months of developing. Stay tuned there, as the few TODOs left are coming, but the path is mostly set.</p>
 <h2>We need your help</h2>
 <p>We&rsquo;re looking for contributors to help us finally reach version 1.0. Currently, we are on par with Gmail&rsquo;s beta schedule: a whopping 4 years. But, we&rsquo;re almost there and need your help finalizing our changes. If you&rsquo;re interested in helping us bring 1.0 alive, we identified four areas with 5 primary contacts on the <a href="https://dbatools.io/slack">SQL Server Community Slack</a>:</p>
 <ul>
@@ -252,10 +252,10 @@ To learn how this works, see http://wp.me/PEmnE-Bt
 <h4>Becoming a core developer</h4>
 <p>Some of the checks are &ldquo;reserved for core-devs&rdquo;, but that doesn&rsquo;t mean you shouldn&rsquo;t tackle those, it&rsquo;s just you need to read on how we want the code to look like (we&rsquo;ll eventually group everything in a more consolidated guide, ranging from the simpler to the &ldquo;most complex&rdquo;):</p>
 <ul>
-<li><a href="https://github.com/sqlcollaborative/dbatools/wiki/Do-And-Do-Not">do and do not</a></li>
-<li><a href="https://github.com/sqlcollaborative/dbatools/wiki/Style-Guide">Style Guide</a></li>
-<li><a href="https://github.com/sqlcollaborative/dbatools/wiki/Implementing-the-messaging-system">The Messaging System</a></li>
-<li><a href="https://github.com/sqlcollaborative/dbatools-progressmanagement/blob/master/dbatools%201.0/Requirements/manually%20signing%20off.md">Sign-offs</a></li>
+<li><a href="https://github.com/dataplat/dbatools/wiki/Do-And-Do-Not">do and do not</a></li>
+<li><a href="https://github.com/dataplat/dbatools/wiki/Style-Guide">Style Guide</a></li>
+<li><a href="https://github.com/dataplat/dbatools/wiki/Implementing-the-messaging-system">The Messaging System</a></li>
+<li><a href="https://github.com/dataplat/dbatools-progressmanagement/blob/master/dbatools%201.0/Requirements/manually%20signing%20off.md">Sign-offs</a></li>
 </ul>
 <p>It&nbsp;<em>may</em>&nbsp;scare PowerShell newbies, but trust us, to get the gist of it and be a successful &ldquo;core-dev&rdquo;, all you need is one week of coding. Most of us learned from Slack and Pull Request Code reviews. Sqlcollaborative is a wonderful place to learn coding in PowerShell! Checks for core-devs, despite being numerous, are a minority of the total.</p>
 <h2>Getting started</h2>
@@ -264,7 +264,7 @@ To learn how this works, see http://wp.me/PEmnE-Bt
 <p>Having a strong suite of tests also help the casual developer contributing code, being sure it doesn&rsquo;t break existing functionality. It&rsquo;s only a recommendation, but I feel like most of the &ldquo;devs&rdquo; should spend most of their time writing tests, because it&rsquo;s the single best wealth indicator for any module.</p>
 <p>For dbatools in particular: if you factor all the things dbatools supports (think PS versions <em>times</em> SQL releases <em>times</em> editions <em>times</em> Azure/cloud envs&nbsp;<em>times</em> x86/x64&nbsp;<em>times</em> remote/local <em>times </em>functions&nbsp;<em>times &hellip; </em>).</p>
 <h4>We&rsquo;ve made it easy</h4>
-<p>You can copy and paste from&nbsp;<a href="https://github.com/sqlcollaborative/dbatools-templates/tree/master/tests">our templates</a>&nbsp;for a starting point, or dive right in to an existing tests.<br>
+<p>You can copy and paste from&nbsp;<a href="https://github.com/dataplat/dbatools-templates/tree/master/tests">our templates</a>&nbsp;for a starting point, or dive right in to an existing tests.<br>
 <a href="https://dbatools.io/improving-tests/">Improving existing tests</a>&nbsp;is an easy first step to &ldquo;dip your toes&rdquo; into coverage.</p>
 <h2>Want to help?</h2>
 <p>Right now there are more than 500 tasks ready to be tackled by everyone and more than 1300 for intermediate developers. To make sure everyone doesn&rsquo;t jump on the same activity, you&rsquo;re invited to see if there&rsquo;s an <a href="https://dbatools.io/issues">issue</a> opened on GitHub by someone else. If nothing pops up, open an &ldquo;issue&rdquo; , stating that you want to work the issue.</p>

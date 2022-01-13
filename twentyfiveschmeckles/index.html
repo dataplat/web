@@ -231,7 +231,7 @@ To learn how this works, see http://wp.me/PEmnE-Bt
 	</header>
 
 	<div class="entry-content">
-		<p>In <a href="https://github.com/sqlcollaborative/dbatools/releases/tag/v0.8.694">this release</a>, we gained 4 new <a href="https://github.com/sqlcollaborative/dbatools/graphs/contributors">contributors</a> to the <a href="https://github.com/sqlcollaborative/dbatools">dbatools master repository</a> for a grand total of of 39! We even added 4 new <a href="https://dbatools.io/team">Major Contributors</a> to the team. Thanks to all who have joined in to make the awesomest toolset for SQL Server DBAs &mdash; we&rsquo;re now offering the community 126 quality commands.</p>
+		<p>In <a href="https://github.com/dataplat/dbatools/releases/tag/v0.8.694">this release</a>, we gained 4 new <a href="https://github.com/dataplat/dbatools/graphs/contributors">contributors</a> to the <a href="https://github.com/dataplat/dbatools">dbatools master repository</a> for a grand total of of 39! We even added 4 new <a href="https://dbatools.io/team">Major Contributors</a> to the team. Thanks to all who have joined in to make the awesomest toolset for SQL Server DBAs &mdash; we&rsquo;re now offering the community 126 quality commands.</p>
 <h3>Sorry for the delay, we&rsquo;ve been really busy!</h3>
 <p>Our last release came out around mid-December. Ideally, we aim for releasing more often, but <a href="https://sqldbawithabeard.com/">Rob</a> and I were out presenting about dbatools and <a href="https://dbareports.io">dbareports</a> at a few conferences and ran out of time. We did merge a mini-release (v0.8.693) to master in early January, though. So that kinda counts &#128521;</p>
 <p>The rest of the team has been super busy, too, as you can see by all of the new commands, enhancements and fixes. Now we&rsquo;ve had time to compile the documentation and screenshots, so here is the release in all of its amazing glory.</p>
@@ -295,7 +295,7 @@ Retrieves a list of Extended Events Sessions.</p>
 </li>
 <li>
 <p><strong><a href="https://dbatools.io/Invoke-DbaQuery">Invoke-DbaQuery</a></strong><br>
-Invoke-SqlCmd2, a community favorite, has also been added to dbatools! Updates will continue to occur in the <a href="https://github.com/sqlcollaborative/Invoke-SqlCmd2">Invoke-SqlCmd2 repository</a> and we&rsquo;ll just add the updates with each release</p>
+Invoke-SqlCmd2, a community favorite, has also been added to dbatools! Updates will continue to occur in the <a href="https://github.com/dataplat/Invoke-SqlCmd2">Invoke-SqlCmd2 repository</a> and we&rsquo;ll just add the updates with each release</p>
 <p>Invoke-DbaQuery runs a T-SQL script. But only captures the first selected result set, such as the output of PRINT statements when -verbose parameter is specified. A big plus when comparing with native Invoke-Sqlcmd cmdlet is that this one supports parameterized queries.</p>
 </li>
 <li>
@@ -332,34 +332,34 @@ Quickly and efficiently writes data to a SQL Server Table using a .NET DataTable
 <ul>
 <li>
 <p><strong><a href="https://dbatools.io/Test-DbaMigrationConstraint">Test-DbaMigrationConstraint</a></strong><br>
-Added support for SQL Server 2016 SP1 outstanding news! Almost all editions support what was, until now, Enterprise-only features. (<a href="https://github.com/sqlcollaborative/dbatools/pull/512">#512</a>)</p>
+Added support for SQL Server 2016 SP1 outstanding news! Almost all editions support what was, until now, Enterprise-only features. (<a href="https://github.com/dataplat/dbatools/pull/512">#512</a>)</p>
 </li>
 <li>
 <p><strong><a href="https://dbatools.io/Get-SqlServerKey">Get-SqlServerKey</a></strong><br>
-Added support for SQL Server 2016 (<a href="https://github.com/sqlcollaborative/dbatools/pull/610">#610</a>)</p>
+Added support for SQL Server 2016 (<a href="https://github.com/dataplat/dbatools/pull/610">#610</a>)</p>
 </li>
 <li>
 <p><strong><a href="https://dbatools.io/Copy-DbaLogin">Copy-DbaLogin</a></strong><br>
-If you try to transfer a local account (non-domain) you get a &ldquo;Skipped&rdquo;, because is a local machine account. (<a href="https://github.com/sqlcollaborative/dbatools/issues/275">#275</a>)</p>
+If you try to transfer a local account (non-domain) you get a &ldquo;Skipped&rdquo;, because is a local machine account. (<a href="https://github.com/dataplat/dbatools/issues/275">#275</a>)</p>
 </li>
 </ul>
 <h3>Notable bug fixes</h3>
 <ul>
 <li>
 <p><strong><a href="https://dbatools.io/Copy-DbaDatabase">Copy-DbaDatabase</a></strong><br>
-Fixed an issue where -WithReplace was not working properly (<a href="https://github.com/sqlcollaborative/dbatools/issues/601">#601</a>)</p>
+Fixed an issue where -WithReplace was not working properly (<a href="https://github.com/dataplat/dbatools/issues/601">#601</a>)</p>
 </li>
 <li>
 <p><strong><a href="https://dbatools.io/Expand-DbaDbLogFile">Expand-DbaDbLogFile</a></strong><br>
-Fixed an issue where Expand-DbaDbLogFile grew TLog all at once. (<a href="https://github.com/sqlcollaborative/dbatools/issues/503">#503</a>)</p>
+Fixed an issue where Expand-DbaDbLogFile grew TLog all at once. (<a href="https://github.com/dataplat/dbatools/issues/503">#503</a>)</p>
 </li>
 <li>
 <p><strong><a href="https://dbatools.io/Remove-DbaDbOrphanUser">Remove-DbaDbOrphanUser</a></strong><br>
-Fixed an issue where Remove-DbaDbOrphanUser fails when the user was the owner of one or more schemas. (<a href="https://github.com/sqlcollaborative/dbatools/issues/296">#296</a>)</p>
+Fixed an issue where Remove-DbaDbOrphanUser fails when the user was the owner of one or more schemas. (<a href="https://github.com/dataplat/dbatools/issues/296">#296</a>)</p>
 </li>
 <li>
 <p><strong><a href="https://dbatools.io/Remove-DbaDatabaseSafely">Remove-DbaDatabaseSafely</a></strong><br>
-Remove-DbaDatabaseSafely failed to perform final drop w/ no additional information. (<a href="https://github.com/sqlcollaborative/dbatools/issues/238">#238</a>)</p>
+Remove-DbaDatabaseSafely failed to perform final drop w/ no additional information. (<a href="https://github.com/dataplat/dbatools/issues/238">#238</a>)</p>
 </li>
 </ul>
 <h3>How&rsquo;s 1.0 coming along?</h3>

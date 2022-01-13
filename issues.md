@@ -2,6 +2,6 @@
 layout: redirected
 sitemap: false
 redirect_to:
-  - https://github.com/sqlcollaborative/dbatools/issues
+  - https://github.com/dataplat/dbatools/issues
 permalink: /issues
 ---

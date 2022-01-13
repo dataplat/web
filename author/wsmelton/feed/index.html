@@ -71,7 +71,7 @@
 <h4>Can duplicate in new/clean PowerShell session?</h4>
 <p>Not all modules play nice with each other. We have found in particular that the <a href="https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-ps-module" target="_BLANK">sqlserver module</a> can cause issues with our module loading properly. So if you happen to import modules prior to or after importing dbatools, it helps to identify that none of those modules are adversely affecting dbatools execution.</p>
 <h4>Version and Edition information</h4>
-<p>Just the basics. This information is pivotal when we get down to debugging bugs and errors, helps to ensure we have a similar setup in our lab(s) to more closely get root cause. As well, we may identify flavors of each that may not play well together (e.g. <a href="https://github.com/sqlcollaborative/dbatools/issues/2003" target="_BLANK">credential prompts</a> when using CIM/WMI). In particular, if you happen to be working with the migration commands (Copy-Dba* commands) or moving an object in some other process, it can help to include the version information for your source and destination/target.</p>
+<p>Just the basics. This information is pivotal when we get down to debugging bugs and errors, helps to ensure we have a similar setup in our lab(s) to more closely get root cause. As well, we may identify flavors of each that may not play well together (e.g. <a href="https://github.com/dataplat/dbatools/issues/2003" target="_BLANK">credential prompts</a> when using CIM/WMI). In particular, if you happen to be working with the migration commands (Copy-Dba* commands) or moving an object in some other process, it can help to include the version information for your source and destination/target.</p>
 <h3>Steps to Reproduce</h3>
 <p>Reproducible issues are the best kind, they also tend to be the ones that are the easiest to fix (tend to be mind you).</p>
 <p>In order to reproduce the problem, we will need you to provide the command you are executing. If you can provide the values you are passing into the command it will help, but if for security reasons you cannot provide it all try to give some example values. You may also need to obfuscate the output from your PowerShell session if you want to provide screenshots.</p>
@@ -111,7 +111,7 @@ Shawn <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f1fa-1f1f8.png
 				<description><![CDATA[While we are still hard at work getting everything ready for the 1.0 release, thought I would share something I figured out with VS Code. If you are not familiar ...]]></description>
 								<content:encoded><![CDATA[<p>While we are still hard at work getting everything ready for the 1.0 release, thought I would share something I figured out with VS Code. If you are not familiar with <a href="http://dbatools.io/vscode">VS Code</a> you can check the link out on how it is used to contribute to dbatools.</p>
 <h3>Pester</h3>
-<p>One of the big initiatives we are working fearlessly on for the module is getting the <a href="https://github.com/pester/Pester/wiki">Pester</a> test added and cleaned up. Appveyor is configured for the repository in GitHub so it will utilize the Pester test found in the <a href="https://github.com/sqlcollaborative/dbatools/tree/master/tests">tests</a> folder. However, this also means that you, the developer, the ultimiate contributor, can utilize these test as you are working on a function.</p>
+<p>One of the big initiatives we are working fearlessly on for the module is getting the <a href="https://github.com/pester/Pester/wiki">Pester</a> test added and cleaned up. Appveyor is configured for the repository in GitHub so it will utilize the Pester test found in the <a href="https://github.com/dataplat/dbatools/tree/master/tests">tests</a> folder. However, this also means that you, the developer, the ultimiate contributor, can utilize these test as you are working on a function.</p>
 <p>Pester is a special syntax that lets you code in almost plain English. It is one of those that once it clicks you are like &#8220;where have you been all my life!&#8221;. If you are interested in learning more on Pester I&#8217;ve included a short list of some excellent resources to help:</p>
 <ul>
 <li><a href="https://leanpub.com/pesterbook">Adam Bertram &#8211; The Pester Book</a> (<em>Could be the last book you buy on it.</em>)</li>
@@ -451,7 +451,7 @@ Shawn <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f1fa-1f1f8.png
 <h3>Add upstream remote</h3>
 <p>The following command create a remote reference. You can name it whatever you want, but the standard term used with Git is &#8220;upstream&#8221;.</p>
 <pre class="lang:ps decode:true">
-git remote add upstream https://github.com/sqlcollaborative/dbatools.git
+git remote add upstream https://github.com/dataplat/dbatools.git
 </pre>
 <p>After you run that command you can verify it was created as below:</p>
 <p><img src="https://dbatools.io/wp-content/uploads/2017/03/Git_RemoteUpdate_1.png?w=800&#038;ssl=1" alt="remote upstream" data-recalc-dims="1" /></p>
