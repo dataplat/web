@@ -555,7 +555,7 @@ Like all of our config commands, this works on Windows, Linux and macOS.<br />
 <p>Since last dbatools version 1.0.32, new PowerShell Remoting configurations are available. You can read more about it on my recent blog post <a href="http://claudioessilva.eu/2019/08/20/more-powershell-remoting-coverage-in-dbatools/">More PowerShell Remoting coverage in dbatools</a> to learn more.<br />
 &nbsp;</p>
 <h3>Just remember&#8230;</h3>
-<p>Next time you catch yourself thinking about changing some default behaviour remember to take a look into these configurations. If you found something that is not available for your use case, talk with us on Slack or just open an <a href="https://github.com/sqlcollaborative/dbatools/issues/new?assignees=&amp;labels=&amp;template=Feature_request.md&amp;title=">feature request</a> explaining your needs and we will try to guide/help you.</p>
+<p>Next time you catch yourself thinking about changing some default behaviour remember to take a look into these configurations. If you found something that is not available for your use case, talk with us on Slack or just open an <a href="https://github.com/dataplat/dbatools/issues/new?assignees=&amp;labels=&amp;template=Feature_request.md&amp;title=">feature request</a> explaining your needs and we will try to guide/help you.</p>
 <p>Thanks for reading!<br />
 Cláudio <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f1f5-1f1f9.png" alt="🇵🇹" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
 ]]></content:encoded>
@@ -720,7 +720,7 @@ Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database abc -
 # Managed Identity in Azure VM w/ newer versions of .NET (way faster!)
 Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database abc -AuthenticationType 'AD Universal with MFA Support' 
 </code></pre>
-<p>You can also find a couple more within the MFA <a href="https://github.com/sqlcollaborative/dbatools/pull/5593">Pull Request on GitHub</a> and by using <code>Get-Help Connect-DbaInstance -Examples</code>.</p>
+<p>You can also find a couple more within the MFA <a href="https://github.com/dataplat/dbatools/pull/5593">Pull Request on GitHub</a> and by using <code>Get-Help Connect-DbaInstance -Examples</code>.</p>
 <h2>registered servers</h2>
 <p>This is probably my favorite! We now support Local Server Groups and Azure Data Studio groups. Supporting Local Server Groups means that it&#8217;s now a whole lot easier to manage servers that don&#8217;t use Windows Authentication.</p>
 <p>Here&#8217;s how you can add a local docker instance.</p>
@@ -791,7 +791,7 @@ Detach-DbaDatabase &#8211; Dismount-DbaDatabase<br />
 Start-SqlMigration -> Start-DbaMigration<br />
 Write-DbaDataTable -> Write-DbaDbTableData</p>
 <p>I kept <code>Start-SqlMigration</code> because that&#8217;s where it all started, and the rest are easier to remember.</p>
-<p>Also, all <code>ServerInstance</code> and <code>SqlServer</code> aliases have been removed. You must now use <code>SqlInstance</code>. For a full list of what Invoke-DbatoolsRenameHelper renames/replaces, <a href="https://github.com/sqlcollaborative/dbatools/blob/prerelease/functions/Invoke-DbatoolsRenameHelper.ps1#L69">check out the source code</a>.</p>
+<p>Also, all <code>ServerInstance</code> and <code>SqlServer</code> aliases have been removed. You must now use <code>SqlInstance</code>. For a full list of what Invoke-DbatoolsRenameHelper renames/replaces, <a href="https://github.com/dataplat/dbatools/blob/prerelease/functions/Invoke-DbatoolsRenameHelper.ps1#L69">check out the source code</a>.</p>
 <h3>parameter standardization</h3>
 <p>Most of the commands now follow the following practices we&#8217;ve observed in Microsoft&#8217;s PowerShell modules.</p>
 <ul>
@@ -810,10 +810,10 @@ Write-DbaDataTable -> Write-DbaDbTableData</p>
 <p>The above is what the editor looks like &#8211; a lot like markdown!</p>
 <p>If you&#8217;d like to see what the writing process is like, I did a <a href="https://www.youtube.com/watch?v=EeXHlAPa_Mo">livestream a couple of months back</a> while writing Chapter 6, which is about <a href="/Find-DbaInstance">Find-DbaInstance</a>. Sorry about the music being a bit loud, that has been fixed in future streams which can be found at <a href="https://youtube.com/dbatools">youtube.com/dbatools</a>.</p>
 <h2>sponsorship</h2>
-<p>Since Microsoft acquired GitHub, they&#8217;ve been rolling out some really incredible features. One such feature is Developer Sponsorships, which allows you to sponsor developers with cash subscriptions. It&#8217;s sorta like Patreon where you can pay monthly sponsorships with different tiers. If you or your company has benefitted from dbatools, consider <a href="https://github.com/sqlcollaborative/dbatools?sponsor=1">sponsoring</a> one or more of our developers.</p>
-<p><a target=new href="https://github.com/sqlcollaborative/dbatools?sponsor=1"><img src="https://dbatools.io/wp-content/uploads/2020/06/sponsor.gif?resize=720%2C292&#038;ssl=1" alt="" width="720" height="292" class="aligncenter size-large wp-image-9757" data-recalc-dims="1" /></a></p>
+<p>Since Microsoft acquired GitHub, they&#8217;ve been rolling out some really incredible features. One such feature is Developer Sponsorships, which allows you to sponsor developers with cash subscriptions. It&#8217;s sorta like Patreon where you can pay monthly sponsorships with different tiers. If you or your company has benefitted from dbatools, consider <a href="https://github.com/dataplat/dbatools?sponsor=1">sponsoring</a> one or more of our developers.</p>
+<p><a target=new href="https://github.com/dataplat/dbatools?sponsor=1"><img src="https://dbatools.io/wp-content/uploads/2020/06/sponsor.gif?resize=720%2C292&#038;ssl=1" alt="" width="720" height="292" class="aligncenter size-large wp-image-9757" data-recalc-dims="1" /></a></p>
 <p>Currently, GitHub has approved four of our team members to be sponsored including <a href="https://github.com/users/potatoqualitee/sponsorship">me</a>, <a href="https://github.com/users/wsmelton/sponsorship">Shawn Melton</a>, <a href="https://github.com/users/Stuart-Moore/sponsorship">Stuart Moore</a> and <a href="https://github.com/users/sanderstad/sponsorship">Sander Stad</a>.</p>
-<p><a target=new href="https://github.com/sqlcollaborative/dbatools?sponsor=1"><img src="https://dbatools.io/wp-content/uploads/2020/06/github.gif?resize=486%2C366&#038;ssl=1" alt="" width="486" height="366" class="aligncenter size-full wp-image-9756" data-recalc-dims="1" /></a></p>
+<p><a target=new href="https://github.com/dataplat/dbatools?sponsor=1"><img src="https://dbatools.io/wp-content/uploads/2020/06/github.gif?resize=486%2C366&#038;ssl=1" alt="" width="486" height="366" class="aligncenter size-full wp-image-9756" data-recalc-dims="1" /></a></p>
 <p>We&#8217;ve invited other dbatools developers to sign up as well <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f917.png" alt="🤗" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
 <p>Oh, and for the first year, <strong><a href=https://help.github.com/en/articles/about-github-sponsors#about-the-github-sponsors-matching-fund>GitHub will match sponsorship funds</a></strong>! So giving to us now is like giving double.</p>
 <h2>big ol thanks</h2>

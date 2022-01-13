@@ -233,7 +233,7 @@ To learn how this works, see http://wp.me/PEmnE-Bt
 	</header>
 
 	<div class="entry-content">
-		<p>Hey all! Kirill Kravtsov, here. I&rsquo;m a SQL Server DBA that is passionate about automation and PowerShell. I&rsquo;m also a major contributor to dbatools and creator of the <a href="https://github.com/sqlcollaborative/dbops">dbops</a> module, which provides continuous database deployments at any scale.</p>
+		<p>Hey all! Kirill Kravtsov, here. I&rsquo;m a SQL Server DBA that is passionate about automation and PowerShell. I&rsquo;m also a major contributor to dbatools and creator of the <a href="https://github.com/dataplat/dbops">dbops</a> module, which provides continuous database deployments at any scale.</p>
 <p>This week, I wrote an article <a href="https://nvarscar.wordpress.com/2018/08/24/using-dacpac-packages-to-clone-sql-server-databases/">on my blog</a> and Chrissy asked me to mirror it on dbatools, so here we go.</p>
 <h2>Introduction</h2>
 <p>Many SQL Server DBAs know that there is a very convenient way of delivering a full copy of the database structure to a different SQL Server: it&rsquo;s called dacpac, or a Data-tier Application package. You can extract the database any time using SQL Server Management Studio context menu: <strong>Tasks</strong> -&gt; <strong>Extract Data-tier Application</strong>, which would guide you through the extraction options and output a compressed package file that would contain all necessary schema definitions, as well as table data. This package can be further on deployed on a completely different server using a <strong>Deploy</strong> <strong>Data-tier Application</strong> context menu item.</p>

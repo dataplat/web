@@ -2,6 +2,6 @@
 layout: redirected
 sitemap: false
 redirect_to:
-  - https://github.com/sqlcollaborative/web
+  - https://github.com/dataplat/web
 permalink: /web
 ---

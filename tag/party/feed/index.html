@@ -78,7 +78,7 @@ Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database abc -
 # Managed Identity in Azure VM w/ newer versions of .NET (way faster!)
 Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database abc -AuthenticationType 'AD Universal with MFA Support' 
 </code></pre>
-<p>You can also find a couple more within the MFA <a href="https://github.com/sqlcollaborative/dbatools/pull/5593">Pull Request on GitHub</a> and by using <code>Get-Help Connect-DbaInstance -Examples</code>.</p>
+<p>You can also find a couple more within the MFA <a href="https://github.com/dataplat/dbatools/pull/5593">Pull Request on GitHub</a> and by using <code>Get-Help Connect-DbaInstance -Examples</code>.</p>
 <h2>registered servers</h2>
 <p>This is probably my favorite! We now support Local Server Groups and Azure Data Studio groups. Supporting Local Server Groups means that it&#8217;s now a whole lot easier to manage servers that don&#8217;t use Windows Authentication.</p>
 <p>Here&#8217;s how you can add a local docker instance.</p>
@@ -149,7 +149,7 @@ Detach-DbaDatabase &#8211; Dismount-DbaDatabase<br />
 Start-SqlMigration -> Start-DbaMigration<br />
 Write-DbaDataTable -> Write-DbaDbTableData</p>
 <p>I kept <code>Start-SqlMigration</code> because that&#8217;s where it all started, and the rest are easier to remember.</p>
-<p>Also, all <code>ServerInstance</code> and <code>SqlServer</code> aliases have been removed. You must now use <code>SqlInstance</code>. For a full list of what Invoke-DbatoolsRenameHelper renames/replaces, <a href="https://github.com/sqlcollaborative/dbatools/blob/prerelease/functions/Invoke-DbatoolsRenameHelper.ps1#L69">check out the source code</a>.</p>
+<p>Also, all <code>ServerInstance</code> and <code>SqlServer</code> aliases have been removed. You must now use <code>SqlInstance</code>. For a full list of what Invoke-DbatoolsRenameHelper renames/replaces, <a href="https://github.com/dataplat/dbatools/blob/prerelease/functions/Invoke-DbatoolsRenameHelper.ps1#L69">check out the source code</a>.</p>
 <h3>parameter standardization</h3>
 <p>Most of the commands now follow the following practices we&#8217;ve observed in Microsoft&#8217;s PowerShell modules.</p>
 <ul>
@@ -168,10 +168,10 @@ Write-DbaDataTable -> Write-DbaDbTableData</p>
 <p>The above is what the editor looks like &#8211; a lot like markdown!</p>
 <p>If you&#8217;d like to see what the writing process is like, I did a <a href="https://www.youtube.com/watch?v=EeXHlAPa_Mo">livestream a couple of months back</a> while writing Chapter 6, which is about <a href="/Find-DbaInstance">Find-DbaInstance</a>. Sorry about the music being a bit loud, that has been fixed in future streams which can be found at <a href="https://youtube.com/dbatools">youtube.com/dbatools</a>.</p>
 <h2>sponsorship</h2>
-<p>Since Microsoft acquired GitHub, they&#8217;ve been rolling out some really incredible features. One such feature is Developer Sponsorships, which allows you to sponsor developers with cash subscriptions. It&#8217;s sorta like Patreon where you can pay monthly sponsorships with different tiers. If you or your company has benefitted from dbatools, consider <a href="https://github.com/sqlcollaborative/dbatools?sponsor=1">sponsoring</a> one or more of our developers.</p>
-<p><a target=new href="https://github.com/sqlcollaborative/dbatools?sponsor=1"><img src="https://dbatools.io/wp-content/uploads/2020/06/sponsor.gif?resize=720%2C292&#038;ssl=1" alt="" width="720" height="292" class="aligncenter size-large wp-image-9757" data-recalc-dims="1" /></a></p>
+<p>Since Microsoft acquired GitHub, they&#8217;ve been rolling out some really incredible features. One such feature is Developer Sponsorships, which allows you to sponsor developers with cash subscriptions. It&#8217;s sorta like Patreon where you can pay monthly sponsorships with different tiers. If you or your company has benefitted from dbatools, consider <a href="https://github.com/dataplat/dbatools?sponsor=1">sponsoring</a> one or more of our developers.</p>
+<p><a target=new href="https://github.com/dataplat/dbatools?sponsor=1"><img src="https://dbatools.io/wp-content/uploads/2020/06/sponsor.gif?resize=720%2C292&#038;ssl=1" alt="" width="720" height="292" class="aligncenter size-large wp-image-9757" data-recalc-dims="1" /></a></p>
 <p>Currently, GitHub has approved four of our team members to be sponsored including <a href="https://github.com/users/potatoqualitee/sponsorship">me</a>, <a href="https://github.com/users/wsmelton/sponsorship">Shawn Melton</a>, <a href="https://github.com/users/Stuart-Moore/sponsorship">Stuart Moore</a> and <a href="https://github.com/users/sanderstad/sponsorship">Sander Stad</a>.</p>
-<p><a target=new href="https://github.com/sqlcollaborative/dbatools?sponsor=1"><img src="https://dbatools.io/wp-content/uploads/2020/06/github.gif?resize=486%2C366&#038;ssl=1" alt="" width="486" height="366" class="aligncenter size-full wp-image-9756" data-recalc-dims="1" /></a></p>
+<p><a target=new href="https://github.com/dataplat/dbatools?sponsor=1"><img src="https://dbatools.io/wp-content/uploads/2020/06/github.gif?resize=486%2C366&#038;ssl=1" alt="" width="486" height="366" class="aligncenter size-full wp-image-9756" data-recalc-dims="1" /></a></p>
 <p>We&#8217;ve invited other dbatools developers to sign up as well <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f917.png" alt="🤗" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
 <p>Oh, and for the first year, <strong><a href=https://help.github.com/en/articles/about-github-sponsors#about-the-github-sponsors-matching-fund>GitHub will match sponsorship funds</a></strong>! So giving to us now is like giving double.</p>
 <h2>big ol thanks</h2>
@@ -510,7 +510,7 @@ Invoke-DbaDbLogShipRecovery -SqlInstance localhost\sql2017 -Database shipped</pr
 </p></blockquote>
 <p>It is <a href="https://psdatabaseclone.org/docs/">well-documented</a> and <a href="https://github.com/sanderstad/PSDatabaseClone">open-source</a>.</p>
 <h3>dbops</h3>
-<p><a href="https://github.com/sqlcollaborative/dbops">dbops</a> was created by <a href="https://nvarscar.wordpress.com">Kirill Kravtsov</a>.</p>
+<p><a href="https://github.com/dataplat/dbops">dbops</a> was created by <a href="https://nvarscar.wordpress.com">Kirill Kravtsov</a>.</p>
 <blockquote><p>
   dbops is a Powershell module that provides Continuous Integration/Continuous Deployment capabilities for SQL database deployments.
 </p></blockquote>
@@ -533,7 +533,7 @@ Invoke-DbaDbLogShipRecovery -SqlInstance localhost\sql2017 -Database shipped</pr
 <blockquote><p>
   dbachecks is a framework created by and for SQL Server pros who need to validate their environments using crowd-sourced checklists.
 </p></blockquote>
-<p>The project is <a href="https://github.com/sqlcollaborative/dbachecks">open-source</a> and <a href="https://app.powerbi.com/view?r=eyJrIjoiZjM0OWI1ODQtM2YwYy00M2U0LWEzNmUtMDk2NjUxYzJlZjVjIiwidCI6ImIxMjIyNDdlLTFlYmYtNGI1Mi1iMzA5LWMyYWE3NDM2ZmM2YiIsImMiOjh9">totally beautiful</a>.</p>
+<p>The project is <a href="https://github.com/dataplat/dbachecks">open-source</a> and <a href="https://app.powerbi.com/view?r=eyJrIjoiZjM0OWI1ODQtM2YwYy00M2U0LWEzNmUtMDk2NjUxYzJlZjVjIiwidCI6ImIxMjIyNDdlLTFlYmYtNGI1Mi1iMzA5LWMyYWE3NDM2ZmM2YiIsImMiOjh9">totally beautiful</a>.</p>
 <p><center></p>
 <p><iframe width="600" height="400" src="https://app.powerbi.com/view?r=eyJrIjoiZjM0OWI1ODQtM2YwYy00M2U0LWEzNmUtMDk2NjUxYzJlZjVjIiwidCI6ImIxMjIyNDdlLTFlYmYtNGI1Mi1iMzA5LWMyYWE3NDM2ZmM2YiIsImMiOjh9" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
 <p></center></p>
@@ -722,9 +722,9 @@ Invoke-DbaDbLogShipRecovery -SqlInstance localhost\sql2017 -Database shipped</pr
 <p>We noticed that the longest part of importing the module was importing all the extra SMO DLL&#8217;s that we require for many of the commands. We import about 150 DLLs and it looks like that number will only grow as we begin to support more functionality (such as Integration services, etc.)</p>
 <p>To address this concern, Fred added multi-threading via <a href="https://blog.netnerds.net/2016/12/runspaces-simplified/">runspaces</a> to our import process. Too cool! This resulted in a significant decrease in time.</p>
 <h3>allcommands.ps1</h3>
-<p>The other thing we did to significantly decrease import times was we combined all of the individual .ps1 files in <a href="https://github.com/sqlcollaborative/dbatools/tree/development/functions">functions&#42;.ps1</a> to a single .ps1 file. So now, before every release, I combine all the newly updated commands, sign it using our code signing certificate, then publish it to the <a href="/gallery">PowerShell Gallery</a>.</p>
+<p>The other thing we did to significantly decrease import times was we combined all of the individual .ps1 files in <a href="https://github.com/dataplat/dbatools/tree/development/functions">functions&#42;.ps1</a> to a single .ps1 file. So now, before every release, I combine all the newly updated commands, sign it using our code signing certificate, then publish it to the <a href="/gallery">PowerShell Gallery</a>.</p>
 <p><a href="https://dbatools.io/wp-content/uploads/2018/04/allcommands.png?ssl=1"><img src="https://dbatools.io/wp-content/uploads/2018/04/allcommands.png?resize=800%2C291&#038;ssl=1" alt="" width="800" height="291" class="aligncenter size-full wp-image-7667" srcset="https://dbatools.io/wp-content/uploads/2018/04/allcommands.png?w=801&amp;ssl=1 801w, https://dbatools.io/wp-content/uploads/2018/04/allcommands.png?resize=300%2C109&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2018/04/allcommands.png?resize=768%2C279&amp;ssl=1 768w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></a></p>
-<p>It also means that we had to modify our import process to accommodate our developers because nobody, including me, wants to work on a 90,000 line file. We handled this by detecting if a .git folder exists in the dbatools path, and if it does, then it&#8217;ll skip allcommands.ps1 and import the individual .ps1 files in the <a href="https://github.com/sqlcollaborative/dbatools/tree/development/functions">functions directory</a>.</p>
+<p>It also means that we had to modify our import process to accommodate our developers because nobody, including me, wants to work on a 90,000 line file. We handled this by detecting if a .git folder exists in the dbatools path, and if it does, then it&#8217;ll skip allcommands.ps1 and import the individual .ps1 files in the <a href="https://github.com/dataplat/dbatools/tree/development/functions">functions directory</a>.</p>
 <p>The .git folder only exists when the git repository is cloned. This means it won&#8217;t exist in our module in the PowerShell Gallery or in a zip downloaded from GitHub.</p>
 <p><strong>Edit:</strong> I took this a step further <a href="https://blog.netnerds.net/2018/12/even-faster-powershell-module-loading/">and compressed the ps1 to a zip</a>. Turns out it works super well! Check out the post for more information.</p>
 <h3>the future</h3>

@@ -2,6 +2,6 @@
 layout: redirected
 sitemap: false
 redirect_to:
-  - https://github.com/sqlcollaborative/dbatools/wiki/Module-Cleanup
+  - https://github.com/dataplat/dbatools/wiki/Module-Cleanup
 permalink: /cleanup
 ---

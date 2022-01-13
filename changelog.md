@@ -2,6 +2,6 @@
 layout: redirected
 sitemap: false
 redirect_to:
-  - https://github.com/sqlcollaborative/dbatools/blob/master/changelog.md
+  - https://github.com/dataplat/dbatools/blob/master/changelog.md
 permalink: /changelog
 ---

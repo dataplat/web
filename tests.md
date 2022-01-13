@@ -2,6 +2,6 @@
 layout: redirected
 sitemap: false
 redirect_to:
-  - https://github.com/sqlcollaborative/dbatools/tree/master/tests
+  - https://github.com/dataplat/dbatools/tree/master/tests
 permalink: /tests
 ---

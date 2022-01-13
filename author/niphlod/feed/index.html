@@ -44,7 +44,7 @@
 <p>As you may have noticed, we release a 0.9.x update with bug fixes and new features almost daily, so why haven&#8217;t we released 1.0 yet?</p>
 <h2>Shifting from “a bag of functions” to a proper module</h2>
 <p>We love new functionality, of course, but we must take a step back from new development and consolidate what we have in a properly usable module.</p>
-<p>Most of the contributors are damn good SQL Server Pros, a few are damn good PowerShell programmers, with the majority of “casual” developers being able to successfully publish a new function in less than a week time. But what we aren&#8217;t so good at is advertising our needs. We recently updated our <a href="https://github.com/sqlcollaborative/dbatools/blob/master/contributing.md">contributing.md</a> to be more on par with the latest months of developing. Stay tuned there, as the few TODOs left are coming, but the path is mostly set.</p>
+<p>Most of the contributors are damn good SQL Server Pros, a few are damn good PowerShell programmers, with the majority of “casual” developers being able to successfully publish a new function in less than a week time. But what we aren&#8217;t so good at is advertising our needs. We recently updated our <a href="https://github.com/dataplat/dbatools/blob/master/contributing.md">contributing.md</a> to be more on par with the latest months of developing. Stay tuned there, as the few TODOs left are coming, but the path is mostly set.</p>
 <h2>We need your help</h2>
 <p>We&#8217;re looking for contributors to help us finally reach version 1.0. Currently, we are on par with Gmail&#8217;s beta schedule: a whopping 4 years. But, we&#8217;re almost there and need your help finalizing our changes. If you&#8217;re interested in helping us bring 1.0 alive, we identified four areas with 5 primary contacts on the <a href="/slack">SQL Server Community Slack</a>:</p>
 <ul>
@@ -61,10 +61,10 @@
 <h4>Becoming a core developer</h4>
 <p>Some of the checks are “reserved for core-devs”, but that doesn’t mean you shouldn’t tackle those, it’s just you need to read on how we want the code to look like (we&#8217;ll eventually group everything in a more consolidated guide, ranging from the simpler to the &#8220;most complex&#8221;):</p>
 <ul>
-<li><a href="https://github.com/sqlcollaborative/dbatools/wiki/Do-And-Do-Not">do and do not</a></li>
-<li><a href="https://github.com/sqlcollaborative/dbatools/wiki/Style-Guide">Style Guide</a></li>
-<li><a href="https://github.com/sqlcollaborative/dbatools/wiki/Implementing-the-messaging-system">The Messaging System</a></li>
-<li><a href="https://github.com/sqlcollaborative/dbatools-progressmanagement/blob/master/dbatools%201.0/Requirements/manually%20signing%20off.md">Sign-offs</a></li>
+<li><a href="https://github.com/dataplat/dbatools/wiki/Do-And-Do-Not">do and do not</a></li>
+<li><a href="https://github.com/dataplat/dbatools/wiki/Style-Guide">Style Guide</a></li>
+<li><a href="https://github.com/dataplat/dbatools/wiki/Implementing-the-messaging-system">The Messaging System</a></li>
+<li><a href="https://github.com/dataplat/dbatools-progressmanagement/blob/master/dbatools%201.0/Requirements/manually%20signing%20off.md">Sign-offs</a></li>
 </ul>
 <p>It <em>may</em> scare PowerShell newbies, but trust us, to get the gist of it and be a successful “core-dev”, all you need is one week of coding. Most of us learned from Slack and Pull Request Code reviews. Sqlcollaborative is a wonderful place to learn coding in PowerShell! Checks for core-devs, despite being numerous, are a minority of the total.</p>
 <h2>Getting started</h2>
@@ -73,7 +73,7 @@
 <p>Having a strong suite of tests also help the casual developer contributing code, being sure it doesn&#8217;t break existing functionality. It&#8217;s only a recommendation, but I feel like most of the &#8220;devs&#8221; should spend most of their time writing tests, because it&#8217;s the single best wealth indicator for any module.</p>
 <p>For dbatools in particular: if you factor all the things dbatools supports (think PS versions <em>times</em> SQL releases <em>times</em> editions <em>times</em> Azure/cloud envs <em>times</em> x86/x64 <em>times</em> remote/local <em>times </em>functions <em>times &#8230; </em>).</p>
 <h4>We&#8217;ve made it easy</h4>
-<p>You can copy and paste from <a href="https://github.com/sqlcollaborative/dbatools-templates/tree/master/tests">our templates</a> for a starting point, or dive right in to an existing tests.<br />
+<p>You can copy and paste from <a href="https://github.com/dataplat/dbatools-templates/tree/master/tests">our templates</a> for a starting point, or dive right in to an existing tests.<br />
 <a href="https://dbatools.io/improving-tests/">Improving existing tests</a> is an easy first step to “dip your toes” into coverage.</p>
 <h2>Want to help?</h2>
 <p>Right now there are more than 500 tasks ready to be tackled by everyone and more than 1300 for intermediate developers. To make sure everyone doesn’t jump on the same activity, you’re invited to see if there’s an <a href="/issues">issue</a> opened on GitHub by someone else. If nothing pops up, open an “issue” , stating that you want to work the issue.</p>
@@ -125,7 +125,7 @@ Simone <img src="https://s.w.org/images/core/emoji/12.0.0-1/72x72/1f1ee-1f1f9.pn
         https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server
 
 </pre>
-<p>If you inspect the <a href="https://github.com/sqlcollaborative/dbatools/blob/6870dcc/tests/Get-DbaDbRecoveryModel.Tests.ps1">relevant test</a> you’ll see there is nothing relative to that specific parameter.</p>
+<p>If you inspect the <a href="https://github.com/dataplat/dbatools/blob/6870dcc/tests/Get-DbaDbRecoveryModel.Tests.ps1">relevant test</a> you’ll see there is nothing relative to that specific parameter.</p>
 <p>Unfortunately, this means that if someone makes a modification to the function in the future, there won’t be any assurance that parameter continues to work as expected. We want to extend that test to include that too, so that the behaviour will always be the same.</p>
 <h2>giving more coverage</h2>
 <p>First, we need to create a database to test against the new case. Remembering that <em>dbatoolsci_</em> is the default prefix for any resource created, let’s go with <em>dbatoolsci_getrecoverymodel</em>.</p>
@@ -174,7 +174,7 @@ git checkout -b tests/Get-DbaRecoveryModel</pre>
 <p><center><img class="wp-image-6563 size-large" src="https://dbatools.io/wp-content/uploads/2017/11/blogpost_improving_tests_4.png?resize=800%2C145&#038;ssl=1" alt="" width="800" height="145" srcset="https://dbatools.io/wp-content/uploads/2017/11/blogpost_improving_tests_4.png?resize=1024%2C186&amp;ssl=1 1024w, https://dbatools.io/wp-content/uploads/2017/11/blogpost_improving_tests_4.png?resize=300%2C55&amp;ssl=1 300w, https://dbatools.io/wp-content/uploads/2017/11/blogpost_improving_tests_4.png?resize=768%2C140&amp;ssl=1 768w, https://dbatools.io/wp-content/uploads/2017/11/blogpost_improving_tests_4.png?w=1304&amp;ssl=1 1304w" sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /> <em>open a PR</em></center></p>
 <p>change the base branch to development</p>
 <p><center><img class="wp-image-6564 size-full" src="https://dbatools.io/wp-content/uploads/2017/11/blogpost_improving_tests_5.png?resize=753%2C232&#038;ssl=1" alt="" width="753" height="232" srcset="https://dbatools.io/wp-content/uploads/2017/11/blogpost_improving_tests_5.png?w=753&amp;ssl=1 753w, https://dbatools.io/wp-content/uploads/2017/11/blogpost_improving_tests_5.png?resize=300%2C92&amp;ssl=1 300w" sizes="(max-width: 753px) 100vw, 753px" data-recalc-dims="1" /> <em>change base branch</em></center></p>
-<p>Once you filled out the details, you’ll have written something like <a href="https://github.com/sqlcollaborative/dbatools/pull/2646">this PR</a></p>
+<p>Once you filled out the details, you’ll have written something like <a href="https://github.com/dataplat/dbatools/pull/2646">this PR</a></p>
 <p>Now, we just wait for the build to complete (impatient ones, watch <a href="/ci">appveyor&#8217;s dbatools &#8220;homepage&#8221;</a> to monitor the status in real-time)</p>
 <h2>inspecting the results</h2>
 <p>Once the build has done, the list of recent opened PRs on codecov is at <a href="https://codecov.io/gh/sqlcollaborative/dbatools/pulls">dbatools.io/coverage</a></p>
@@ -235,11 +235,11 @@ If you&#8217;re a technet addict, you&#8217;ll end up on <a href="https://techne
 <blockquote><p>
   Get-Help Get-DbaBuildReference
 </p></blockquote>
-<p>If you are more curious , you can check out the <a href="https://github.com/sqlcollaborative/dbatools/blob/master/functions/Get-DbaBuildReference.ps1">source</a>.</p>
+<p>If you are more curious , you can check out the <a href="https://github.com/dataplat/dbatools/blob/master/functions/Get-DbaBuildReference.ps1">source</a>.</p>
 <p>You&#8217;ll see that information comes from a json file, which is shipped with the module, and that the <em>-Update</em> switch fetches a publicly available json file from <a href="https://sqlcollaborative.github.io/assets/dbatools-buildref-index.json">https://sqlcollaborative.github.io/assets/dbatools-buildref-index.json</a>.</p>
 <h3>omg the website</h3>
 <p>Our PowerShell command is easy to use but some just won&#8217;t dabble in Powershell. For everyone&#8217;s delight (hopefully), we crafted a page that builds a nice table containing all the build information, and <strong>it</strong> just does <strong>that</strong> based on that json file. So the same JSON file that powers Get-DbaBuildReference is being used to power this super easy to use site.</p>
-<p>Hell, you can even fetch the <a href="https://github.com/sqlcollaborative/sqlcollaborative.github.io/blob/master/builds.html">source</a> and host it yourself.</p>
+<p>Hell, you can even fetch the <a href="https://github.com/dataplat/sqlcollaborative.github.io/blob/master/builds.html">source</a> and host it yourself.</p>
 <p>Need the info? Bookmark <a href="https://dbatools.io/builds">dbatools.io/builds</a>, hit it, enter your build number in the search box and have all the info back. I&#8217;m not a fast clicker and had this done in less than 2 seconds.</p>
 <p><img class="aligncenter size-large wp-image-6457" src="https://dbatools.io/wp-content/uploads/2017/10/build.gif?resize=800%2C450&#038;ssl=1" alt="" width="800" height="450" data-recalc-dims="1" /></p>
 <p>Are you a spreadsheet fan? Presto! Press on &#8220;Copy&#8221; or &#8220;Excel&#8221; and lookup (or VLOOKUP) all the way.</p>
