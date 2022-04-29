@@ -5,7 +5,7 @@
 	xmlns:atom="http://www.w3.org/2005/Atom"
 	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
 	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
-	
+
 	xmlns:georss="http://www.georss.org/georss"
 	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
 	>
@@ -29,7 +29,7 @@
 	<link>https://dbatools.io/</link>
 	<width>32</width>
 	<height>32</height>
-</image> 
+</image>
 <site xmlns="com-wordpress:feed-additions:1">111052036</site>	<item>
 		<title>working with sql client aliases</title>
 		<link>https://dbatools.io/aliases/</link>
@@ -126,7 +126,7 @@ $links = $bits.Links | Where href -match event20
 $sessions = $results = @()
 
 # Make a cache to play around with, before final code, otherwise you just keep downloading all webpages
- foreach ($link in $links) { 
+ foreach ($link in $links) {
     $url = $link.href.Replace('..','https://www.sqlbits.com')
     $sessions += [pscustomobject]@{
         Url = $url
@@ -148,7 +148,7 @@ foreach ($session in $sessions)  {
         Category = "dbatools"
         }
     }
-    
+
     if ($session.Page.Content -match 'powershell' -and $session.Page.Content -notmatch 'dbatools') {
         $results += [pscustomobject]@{
         Title = $title
@@ -200,8 +200,8 @@ foreach ($file in (Get-DbaDbSpace -SqlInstance sql2017 -Database master)) {
 }
 
 # Write it to CSV using calculated properties
-Get-DbaDbSpace -SqlInstance sql2017 -Database master | 
-    Select-Object -Property Database, @{ Name = 'UsedMB'; Expression = {  $_.UsedSpace.Megabyte } } | 
+Get-DbaDbSpace -SqlInstance sql2017 -Database master |
+    Select-Object -Property Database, @{ Name = 'UsedMB'; Expression = {  $_.UsedSpace.Megabyte } } |
     Export-Csv -Path C:\temp\mb.csv -NoTypeInformation
 </pre>
 <h2>Configuration</h2>
@@ -563,7 +563,7 @@ Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -SqlCredential 
 Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database abc -SqCredential appid -Tenant tenantguidorname
 
 # Managed Identity in Azure VM w/ newer versions of .NET (way faster!)
-Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database abc -AuthenticationType 'AD Universal with MFA Support' 
+Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database abc -AuthenticationType 'AD Universal with MFA Support'
 </code></pre>
 <p>You can also find a couple more within the MFA <a href="https://github.com/dataplat/dbatools/pull/5593">Pull Request on GitHub</a> and by using <code>Get-Help Connect-DbaInstance -Examples</code>.</p>
 <h2>registered servers</h2>
@@ -730,8 +730,8 @@ Chrissy</p>
 						<post-id xmlns="com-wordpress:feed-additions:1">9571</post-id>	</item>
 		<item>
 		<title>dbatools and docker</title>
-		<link>https://dbatools.io/docker/</link>
-				<comments>https://dbatools.io/docker/#comments</comments>
+		<link>https://dbatools.io/docker</link>
+				<comments>https://dbatools.io/docker#comments</comments>
 				<pubDate>Tue, 08 Jan 2019 22:24:40 +0000</pubDate>
 		<dc:creator><![CDATA[Chrissy LeMaire]]></dc:creator>
 				<category><![CDATA[articles]]></category>
@@ -854,7 +854,7 @@ docker rm dockersql1 dockersql2
 <p>Thanks for reading! Sorry about any typos or mistakes, I hastily wrote this while traveling back from vacation; I had to make Garry&#8217;s T-SQL Tuesday!</p>
 <p>&#45; Chrissy</p>
 ]]></content:encoded>
-							<wfw:commentRss>https://dbatools.io/docker/feed/</wfw:commentRss>
+							<wfw:commentRss>https://dbatools.io/dockerfeed/</wfw:commentRss>
 		<slash:comments>5</slash:comments>
 						<post-id xmlns="com-wordpress:feed-additions:1">9443</post-id>	</item>
 	</channel>
