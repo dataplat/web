@@ -2,6 +2,6 @@
 layout: redirected
 sitemap: false
 redirect_to:
-  - /placeholder
+  - https://claudioessilva.eu/2022/06/07/dbatools-exceptions/
 permalink: /exceptions
 ---
