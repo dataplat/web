@@ -2,6 +2,6 @@
 layout: redirected
 sitemap: false
 redirect_to:
-  - https://sqlcollaborative.github.io/boh
+  - https://dataplat.github.io/boh
 permalink: /boh
 ---

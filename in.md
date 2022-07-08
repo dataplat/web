@@ -2,6 +2,6 @@
 layout: redirected
 sitemap: false
 redirect_to:
-  - https://raw.githubusercontent.com/sqlcollaborative/dbatools/master/install.ps1
+  - https://raw.githubusercontent.com/dataplat/dbatools/master/install.ps1
 permalink: /in
 ---

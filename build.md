@@ -2,6 +2,6 @@
 layout: redirected
 sitemap: false
 redirect_to:
-  - https://sqlcollaborative.github.io/builds
+  - https://dataplat.github.io/builds
 permalink: /build
 ---

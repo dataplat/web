@@ -2,6 +2,6 @@
 layout: redirected
 sitemap: false
 redirect_to:
-- https://github.com/sqlcollaborative/docker
+- https://github.com/dataplat/docker
 permalink: /d
 ---
