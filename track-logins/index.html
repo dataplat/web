@@ -373,7 +373,7 @@ Chrissy</p>
 
                 
                 <div class="comment-content entry-content">
-                    <p>I am trying to run the collector session-insert.ps1 script for extended events and I am getting the following error. I updated DBATools to latest. I am on sql 2017 on a localhost using all the standard scripts you provided. The first command executes without error but the second command fails. Everything worked until than. Any ideas? Thanks<br>
+                    <p>I am trying to run the collector session-insert.ps1 script for extended events and I am getting the following error. I updated dbatools to latest. I am on sql 2017 on a localhost using all the standard scripts you provided. The first command executes without error but the second command fails. Everything worked until than. Any ideas? Thanks<br>
 Write-DbaDataTable : Cannot validate argument on parameter &lsquo;InputObject&rsquo;. The argument is null. Provide a valid value for the argument, and then try running the command again.<br>
 At line:6 char:33<br>
 + Write-DbaDataTable -InputObject $results -SqlInstance localhost -Data &hellip;<br>
@@ -415,7 +415,7 @@ At line:6 char:33<br>
 
                 
                 <div class="comment-content entry-content">
-                    <p>I understand it is null, i guess my question is, using the script, why is it null? I can see data in the session in SSMS so there is data. It also appears you use the function &lsquo;Read-DbaXEFile&rsquo; but this function is no longer in DBATools. (It is not listed in the command index) I am starting to think that is why the variable is null.<br>
+                    <p>I understand it is null, i guess my question is, using the script, why is it null? I can see data in the session in SSMS so there is data. It also appears you use the function &lsquo;Read-DbaXEFile&rsquo; but this function is no longer in dbatools. (It is not listed in the command index) I am starting to think that is why the variable is null.<br>
 Thank you</p>
                                     </div>
 

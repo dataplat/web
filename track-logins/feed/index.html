@@ -144,9 +144,9 @@ $servers | Get-DbaXESession  -Session &#8216;Login Tracker&#8217;</p>
 		<dc:creator><![CDATA[Greg]]></dc:creator>
 		<pubDate>Tue, 12 Jun 2018 12:01:48 +0000</pubDate>
 		<guid isPermaLink="false">https://dbatools.io/?p=7432#comment-6522</guid>
-					<description><![CDATA[I understand it is null, i guess my question is, using the script, why is it null? I can see data in the session in SSMS so there is data. It also appears you use the function &#039;Read-DbaXEFile&#039; but this function is no longer in DBATools. (It is not listed in the command index) I am starting to think that is why the variable is null.
+					<description><![CDATA[I understand it is null, i guess my question is, using the script, why is it null? I can see data in the session in SSMS so there is data. It also appears you use the function &#039;Read-DbaXEFile&#039; but this function is no longer in dbatools. (It is not listed in the command index) I am starting to think that is why the variable is null.
 Thank you]]></description>
-		<content:encoded><![CDATA[<p>I understand it is null, i guess my question is, using the script, why is it null? I can see data in the session in SSMS so there is data. It also appears you use the function &#8216;Read-DbaXEFile&#8217; but this function is no longer in DBATools. (It is not listed in the command index) I am starting to think that is why the variable is null.<br />
+		<content:encoded><![CDATA[<p>I understand it is null, i guess my question is, using the script, why is it null? I can see data in the session in SSMS so there is data. It also appears you use the function &#8216;Read-DbaXEFile&#8217; but this function is no longer in dbatools. (It is not listed in the command index) I am starting to think that is why the variable is null.<br />
 Thank you</p>
 ]]></content:encoded>
 						</item>
@@ -168,14 +168,14 @@ Thank you</p>
 		<dc:creator><![CDATA[Greg]]></dc:creator>
 		<pubDate>Mon, 11 Jun 2018 13:54:42 +0000</pubDate>
 		<guid isPermaLink="false">https://dbatools.io/?p=7432#comment-6422</guid>
-					<description><![CDATA[I am trying to run the collector session-insert.ps1 script for extended events and I am getting the following error. I updated DBATools to latest. I am on sql 2017 on a localhost using all the standard scripts you provided. The first command executes without error but the second command fails. Everything worked until than. Any ideas? Thanks
+					<description><![CDATA[I am trying to run the collector session-insert.ps1 script for extended events and I am getting the following error. I updated dbatools to latest. I am on sql 2017 on a localhost using all the standard scripts you provided. The first command executes without error but the second command fails. Everything worked until than. Any ideas? Thanks
 Write-DbaDataTable : Cannot validate argument on parameter &#039;InputObject&#039;. The argument is null. Provide a valid value for the argument, and then try running the command again.
 At line:6 char:33
 + Write-DbaDataTable -InputObject $results -SqlInstance localhost -Data ...
 +                                 ~~~~~~~~
     + CategoryInfo          : InvalidData: (:) [Write-DbaDataTable], ParameterBindingValidationException
     + FullyQualifiedErrorId : ParameterArgumentValidationError,Write-DbaDataTable]]></description>
-		<content:encoded><![CDATA[<p>I am trying to run the collector session-insert.ps1 script for extended events and I am getting the following error. I updated DBATools to latest. I am on sql 2017 on a localhost using all the standard scripts you provided. The first command executes without error but the second command fails. Everything worked until than. Any ideas? Thanks<br />
+		<content:encoded><![CDATA[<p>I am trying to run the collector session-insert.ps1 script for extended events and I am getting the following error. I updated dbatools to latest. I am on sql 2017 on a localhost using all the standard scripts you provided. The first command executes without error but the second command fails. Everything worked until than. Any ideas? Thanks<br />
 Write-DbaDataTable : Cannot validate argument on parameter &#8216;InputObject&#8217;. The argument is null. Provide a valid value for the argument, and then try running the command again.<br />
 At line:6 char:33<br />
 + Write-DbaDataTable -InputObject $results -SqlInstance localhost -Data &#8230;<br />
