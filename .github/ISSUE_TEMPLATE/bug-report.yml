@@ -1,0 +1,42 @@
+name: Bug Report
+description: File a bug report
+labels: ["bug"]
+body:
+  - type: markdown
+    id: intro-md
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! Please open issues related to module specific documentation on [dbatools repository](https://github.com/dataplat/dbatools/issues/new).
+        Please ensure you provide as much information as asked to better assist in confirming and identifying a fix for the bug report.
+  - type: dropdown
+    id: existing-issue
+    attributes:
+      label: "Verified issue does not already exist?"
+      description: "Please search to see if an issue already exists for the bug you encountered."
+      options:
+        - "No, I did not search"
+        - "I have searched and found no existing issue"
+    validations:
+      required: true
+  - type: textarea
+    id: page-link
+    attributes:
+      label: "Please provide the public link/page with the error?"
+      description: "Please provide the link(s) that contain the error observed."
+    validations:
+      required: true
+  - type: markdown
+    id: env-info
+    attributes:
+      value: "## Environment Details"
+  - type: dropdown
+    id: browser-detail
+    attributes:
+      label: "What browser are you using/tried? (We only support the options provided.)"
+      multiple: true
+      options:
+        - Google Chrome
+        - Firefox
+        - Edge
+    validations:
+      required: true
