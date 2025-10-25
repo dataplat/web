@@ -2,6 +2,245 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme Color Variables */
+:root {
+  /* Default theme (light) */
+  --color-bg: #FFFFFF;
+  --color-bg-secondary: #F8F9FA;
+  --color-text: #0E1A2F;
+  --color-text-secondary: #273B59;
+  --color-border: #C5D1E3;
+  --color-primary: #045BDB;
+  --color-accent: #FF5F56;
+}
+
+.dark {
+  /* Default theme (dark) */
+  --color-bg: #0E1A2F;
+  --color-bg-secondary: #0B234A;
+  --color-text: #FFFFFF;
+  --color-text-secondary: #C5D1E3;
+  --color-border: #273B59;
+  --color-primary: #0B234A;
+  --color-accent: #FF5F56;
+}
+
+/* VS Code 2024 Theme */
+.theme-vscode-2024 {
+  --color-bg: #1e1e1e;
+  --color-bg-secondary: #252526;
+  --color-bg-tertiary: #181818;
+  --color-text: #f1f1f1;
+  --color-text-secondary: #b5becf;
+  --color-text-muted: #868686;
+  --color-border: #616161;
+  --color-border-subtle: #181A1F;
+  --color-primary: #46BDFF;
+  --color-accent: #FF16B0;
+  --color-hover: #37373d;
+  --color-input: #3c3c3c;
+  --color-focus: #46BDFF;
+  --color-cursor: #B3F361;
+}
+
+/* GitHub Dark Dimmed Theme (Official Primer Colors) */
+.theme-github-dim {
+  --color-bg: #212830;
+  --color-bg-secondary: #262c36;
+  --color-bg-tertiary: #151b23;
+  --color-text: #d1d7e0;
+  --color-text-secondary: #9198a1;
+  --color-text-muted: #656c76;
+  --color-text-bright: #f0f6fc;
+  --color-border: #3d444d;
+  --color-border-subtle: #3d444db3;
+  --color-primary: #478be6;
+  --color-accent: #316dca;
+  --color-hover: #3d444d;
+  --color-input: #262c36;
+  --color-focus: #478be6;
+}
+
+/* Override Tailwind theme colors for VS Code 2024 */
+.theme-vscode-2024 {
+  color-scheme: dark;
+}
+
+/* Fix header background for VS Code 2024 - make it truly dark */
+.theme-vscode-2024 header.bg-white\/60 {
+  background-color: rgba(30, 30, 30, 0.95) !important;
+  backdrop-filter: blur(12px);
+}
+
+/* Remove all blue/white gradients for VS Code 2024 */
+.theme-vscode-2024 .bg-gradient-to-br,
+.theme-vscode-2024 .bg-gradient-to-b,
+.theme-vscode-2024 .bg-gradient-radial {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+.theme-vscode-2024 .from-blue-50\/50,
+.theme-vscode-2024 .from-blue-100\/40,
+.theme-vscode-2024 .dark\:from-blue-950\/20,
+.theme-vscode-2024 .dark\:from-blue-900\/20 {
+  --tw-gradient-from: transparent !important;
+  --tw-gradient-to: transparent !important;
+  --tw-gradient-stops: transparent !important;
+}
+
+/* VS Code 2024 Background Colors */
+.theme-vscode-2024 .bg-white,
+.theme-vscode-2024 .dark\:bg-theme-bg-dark,
+.theme-vscode-2024 .bg-theme-bg {
+  background-color: #1e1e1e !important;
+}
+
+.theme-vscode-2024 .bg-theme-card,
+.theme-vscode-2024 .dark\:bg-theme-card-dark {
+  background-color: #252526 !important;
+}
+
+/* VS Code 2024 Text Colors */
+.theme-vscode-2024 .text-theme-text,
+.theme-vscode-2024 .dark\:text-theme-text-dark {
+  color: #f1f1f1 !important;
+}
+
+.theme-vscode-2024 .text-theme-text-secondary,
+.theme-vscode-2024 .dark\:text-theme-text-secondary-dark {
+  color: #b5becf !important;
+}
+
+/* VS Code 2024 Border Colors */
+.theme-vscode-2024 .border-theme-border,
+.theme-vscode-2024 .dark\:border-theme-border-dark {
+  border-color: #616161 !important;
+}
+
+.theme-vscode-2024 .border-theme-border\/50,
+.theme-vscode-2024 .dark\:border-theme-border-dark\/50 {
+  border-color: rgba(97, 97, 97, 0.5) !important;
+}
+
+/* VS Code 2024 Background Opacity */
+.theme-vscode-2024 .bg-white\/60,
+.theme-vscode-2024 .dark\:bg-theme-bg-dark\/60 {
+  background-color: rgba(30, 30, 30, 0.6) !important;
+}
+
+/* VS Code 2024 Hover States */
+.theme-vscode-2024 .hover\:bg-theme-card:hover,
+.theme-vscode-2024 .dark\:hover\:bg-theme-card-dark:hover {
+  background-color: #37373d !important;
+}
+
+.theme-vscode-2024 .hover\:text-theme-text:hover,
+.theme-vscode-2024 .dark\:hover\:text-theme-text-dark:hover {
+  color: #f1f1f1 !important;
+}
+
+/* VS Code 2024 Button Styles */
+.theme-vscode-2024 .bg-theme-text,
+.theme-vscode-2024 .dark\:bg-theme-text-dark {
+  background-color: #46BDFF !important;
+}
+
+.theme-vscode-2024 .text-white,
+.theme-vscode-2024 .dark\:text-theme-bg-dark {
+  color: #1e1e1e !important;
+}
+
+/* GitHub Dim Theme Overrides */
+.theme-github-dim {
+  color-scheme: dark;
+}
+
+/* Fix header background for GitHub Dim - make it truly dark */
+.theme-github-dim header.bg-white\/60 {
+  background-color: rgba(33, 40, 48, 0.95) !important;
+  backdrop-filter: blur(12px);
+}
+
+/* Remove all blue/white gradients for GitHub Dim */
+.theme-github-dim .bg-gradient-to-br,
+.theme-github-dim .bg-gradient-to-b,
+.theme-github-dim .bg-gradient-radial {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+.theme-github-dim .from-blue-50\/50,
+.theme-github-dim .from-blue-100\/40,
+.theme-github-dim .dark\:from-blue-950\/20,
+.theme-github-dim .dark\:from-blue-900\/20 {
+  --tw-gradient-from: transparent !important;
+  --tw-gradient-to: transparent !important;
+  --tw-gradient-stops: transparent !important;
+}
+
+/* GitHub Dark Dimmed Background Colors */
+.theme-github-dim .bg-white,
+.theme-github-dim .dark\:bg-theme-bg-dark,
+.theme-github-dim .bg-theme-bg {
+  background-color: #212830 !important;
+}
+
+.theme-github-dim .bg-theme-card,
+.theme-github-dim .dark\:bg-theme-card-dark {
+  background-color: #262c36 !important;
+}
+
+/* GitHub Dark Dimmed Text Colors */
+.theme-github-dim .text-theme-text,
+.theme-github-dim .dark\:text-theme-text-dark {
+  color: #d1d7e0 !important;
+}
+
+.theme-github-dim .text-theme-text-secondary,
+.theme-github-dim .dark\:text-theme-text-secondary-dark {
+  color: #9198a1 !important;
+}
+
+/* GitHub Dark Dimmed Border Colors */
+.theme-github-dim .border-theme-border,
+.theme-github-dim .dark\:border-theme-border-dark {
+  border-color: #3d444d !important;
+}
+
+.theme-github-dim .border-theme-border\/50,
+.theme-github-dim .dark\:border-theme-border-dark\/50 {
+  border-color: rgba(61, 68, 77, 0.5) !important;
+}
+
+/* GitHub Dark Dimmed Background Opacity */
+.theme-github-dim .bg-white\/60,
+.theme-github-dim .dark\:bg-theme-bg-dark\/60 {
+  background-color: rgba(33, 40, 48, 0.6) !important;
+}
+
+/* GitHub Dark Dimmed Hover States */
+.theme-github-dim .hover\:bg-theme-card:hover,
+.theme-github-dim .dark\:hover\:bg-theme-card-dark:hover {
+  background-color: #3d444d !important;
+}
+
+.theme-github-dim .hover\:text-theme-text:hover,
+.theme-github-dim .dark\:hover\:text-theme-text-dark:hover {
+  color: #f0f6fc !important;
+}
+
+/* GitHub Dark Dimmed Button Styles */
+.theme-github-dim .bg-theme-text,
+.theme-github-dim .dark\:bg-theme-text-dark {
+  background-color: #478be6 !important;
+}
+
+.theme-github-dim .text-white,
+.theme-github-dim .dark\:text-theme-bg-dark {
+  color: #212830 !important;
+}
+
 /* Custom animations */
 @keyframes shimmer {
   0% { background-position: -1000px 0; }

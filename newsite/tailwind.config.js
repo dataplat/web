@@ -16,6 +16,7 @@ module.exports = {
           yellow: '#FFBD2E',
           green: '#27C93F',
         },
+        // Default theme colors
         theme: {
           bg: {
             DEFAULT: '#FFFFFF',
@@ -35,6 +36,66 @@ module.exports = {
             dark: '#FFFFFF',
             'secondary-dark': '#C5D1E3',
           }
+        },
+        // 2024 VS Code theme colors
+        'vscode-2024': {
+          bg: {
+            DEFAULT: '#1e1e1e',
+            secondary: '#252526',
+            tertiary: '#181818',
+          },
+          text: {
+            DEFAULT: '#f1f1f1',
+            secondary: '#b5becf',
+            muted: '#868686',
+          },
+          border: {
+            DEFAULT: '#616161',
+            subtle: '#181A1F',
+          },
+          accent: {
+            blue: '#46BDFF',
+            cyan: '#6BE4E6',
+            green: '#B3F361',
+            magenta: '#F806FA',
+            pink: '#FF16B0',
+            yellow: '#FFEA16',
+            purple: '#DF81FC',
+            'purple-light': '#96A1FF',
+          },
+          hover: '#37373d',
+          input: '#3c3c3c',
+          focus: '#46BDFF',
+        },
+        // GitHub Dark Dimmed theme colors (official Primer colors)
+        'github-dim': {
+          bg: {
+            DEFAULT: '#212830',
+            secondary: '#262c36',
+            inset: '#151b23',
+            emphasis: '#3d444d',
+          },
+          text: {
+            DEFAULT: '#d1d7e0',
+            secondary: '#9198a1',
+            muted: '#656c76',
+            bright: '#f0f6fc',
+          },
+          border: {
+            DEFAULT: '#3d444d',
+            emphasis: '#656c76',
+            muted: '#3d444db3',
+          },
+          accent: {
+            blue: '#478be6',
+            'blue-emphasis': '#316dca',
+            success: '#347d39',
+            danger: '#c93c37',
+          },
+          hover: '#3d444d',
+          input: '#262c36',
+          focus: '#478be6',
+          selection: '#3d444d',
         }
       },
       fontFamily: {

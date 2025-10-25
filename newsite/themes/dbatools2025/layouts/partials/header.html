@@ -15,16 +15,30 @@
       <a href="https://github.com/dataplat/dbatools" target="_blank" class="text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors">GitHub</a>
     </nav>
 
-    <!-- Dark Mode Toggle & CTA Button -->
+    <!-- Theme Picker & CTA Button -->
     <div class="hidden md:flex items-center gap-4">
-      <button id="theme-toggle" class="p-2 rounded-lg hover:bg-theme-card dark:hover:bg-theme-card-dark transition-colors" aria-label="Toggle dark mode">
-        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-theme-text-secondary dark:text-theme-text-secondary-dark" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-        </svg>
-        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-theme-text-secondary dark:text-theme-text-secondary-dark" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
-        </svg>
-      </button>
+      <!-- Theme Picker Dropdown -->
+      <div class="relative">
+        <button id="theme-picker-btn" class="p-2 rounded-lg hover:bg-theme-card dark:hover:bg-theme-card-dark transition-colors" aria-label="Select theme">
+          <svg class="w-5 h-5 text-theme-text-secondary dark:text-theme-text-secondary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+          </svg>
+        </button>
+        <div id="theme-picker-menu" class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-theme-card-dark border border-theme-border dark:border-theme-border-dark rounded-lg shadow-lg overflow-hidden z-50">
+          <button data-theme="default-light" class="theme-option w-full px-4 py-2 text-left text-sm text-theme-text-secondary dark:text-theme-text-secondary-dark hover:bg-theme-card dark:hover:bg-theme-bg-dark transition-colors">
+            Default Light
+          </button>
+          <button data-theme="default-dark" class="theme-option w-full px-4 py-2 text-left text-sm text-theme-text-secondary dark:text-theme-text-secondary-dark hover:bg-theme-card dark:hover:bg-theme-bg-dark transition-colors">
+            Default Dark
+          </button>
+          <button data-theme="vscode-2024" class="theme-option w-full px-4 py-2 text-left text-sm text-theme-text-secondary dark:text-theme-text-secondary-dark hover:bg-theme-card dark:hover:bg-theme-bg-dark transition-colors">
+            VS Code 2024
+          </button>
+          <button data-theme="github-dim" class="theme-option w-full px-4 py-2 text-left text-sm text-theme-text-secondary dark:text-theme-text-secondary-dark hover:bg-theme-card dark:hover:bg-theme-bg-dark transition-colors">
+            GitHub Dim
+          </button>
+        </div>
+      </div>
       <a href="/download/" class="inline-flex items-center gap-2 px-4 py-2 bg-theme-text dark:bg-theme-text-dark text-white dark:text-theme-bg-dark rounded-lg text-sm font-medium hover:scale-[1.02] transition-transform">
         <span>Install</span>
       </a>
@@ -46,15 +60,26 @@
       <a href="https://docs.dbatools.io/commands" target="_blank" class="text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors py-2">Commands</a>
       <a href="/join-us/" class="text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors py-2">Contribute</a>
       <a href="https://github.com/dataplat/dbatools" target="_blank" class="text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors py-2">GitHub</a>
-      <button id="theme-toggle-mobile" class="flex items-center gap-2 text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors py-2">
-        <svg id="theme-toggle-mobile-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-        </svg>
-        <svg id="theme-toggle-mobile-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
-        </svg>
-        <span>Toggle Dark Mode</span>
-      </button>
+
+      <!-- Mobile Theme Picker -->
+      <div class="py-2">
+        <span class="text-xs text-theme-text-secondary dark:text-theme-text-secondary-dark uppercase tracking-wider">Theme</span>
+        <div class="flex flex-col gap-2 mt-2">
+          <button data-theme="default-light" class="theme-option-mobile text-left text-sm text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors">
+            Default Light
+          </button>
+          <button data-theme="default-dark" class="theme-option-mobile text-left text-sm text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors">
+            Default Dark
+          </button>
+          <button data-theme="vscode-2024" class="theme-option-mobile text-left text-sm text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors">
+            VS Code 2024
+          </button>
+          <button data-theme="github-dim" class="theme-option-mobile text-left text-sm text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors">
+            GitHub Dim
+          </button>
+        </div>
+      </div>
+
       <a href="/download/" class="bg-theme-text dark:bg-theme-text-dark text-white dark:text-theme-bg-dark px-4 py-2 rounded-lg text-center font-medium mt-2">Install</a>
     </div>
   </nav>
@@ -67,48 +92,79 @@
     menu?.classList.toggle('hidden');
   });
 
-  // Dark mode toggle functionality
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
-  const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-  const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-  const themeToggleMobileDarkIcon = document.getElementById('theme-toggle-mobile-dark-icon');
-  const themeToggleMobileLightIcon = document.getElementById('theme-toggle-mobile-light-icon');
+  // Theme Picker functionality
+  const themePickerBtn = document.getElementById('theme-picker-btn');
+  const themePickerMenu = document.getElementById('theme-picker-menu');
+  const themeOptions = document.querySelectorAll('.theme-option, .theme-option-mobile');
 
-  // Check for saved theme preference or default to dark mode
-  const currentTheme = localStorage.getItem('theme') || 'dark';
+  // Toggle dropdown menu
+  themePickerBtn?.addEventListener('click', function(e) {
+    e.stopPropagation();
+    themePickerMenu?.classList.toggle('hidden');
+  });
 
-  // Set initial theme
-  if (currentTheme === 'dark') {
-    document.documentElement.classList.add('dark');
-    themeToggleLightIcon?.classList.remove('hidden');
-    themeToggleMobileLightIcon?.classList.remove('hidden');
-  } else {
-    document.documentElement.classList.remove('dark');
-    themeToggleDarkIcon?.classList.remove('hidden');
-    themeToggleMobileDarkIcon?.classList.remove('hidden');
-  }
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function() {
+    themePickerMenu?.classList.add('hidden');
+  });
 
-  // Toggle theme function
-  function toggleTheme() {
-    if (document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-      themeToggleDarkIcon?.classList.remove('hidden');
-      themeToggleLightIcon?.classList.add('hidden');
-      themeToggleMobileDarkIcon?.classList.remove('hidden');
-      themeToggleMobileLightIcon?.classList.add('hidden');
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-      themeToggleDarkIcon?.classList.add('hidden');
-      themeToggleLightIcon?.classList.remove('hidden');
-      themeToggleMobileDarkIcon?.classList.add('hidden');
-      themeToggleMobileLightIcon?.classList.remove('hidden');
+  // Apply theme function
+  function applyTheme(themeName) {
+    const html = document.documentElement;
+
+    // Remove all theme classes
+    html.classList.remove('dark', 'theme-vscode-2024', 'theme-github-dim');
+
+    // Apply the selected theme
+    if (themeName === 'default-dark') {
+      html.classList.add('dark');
+    } else if (themeName === 'vscode-2024') {
+      html.classList.add('theme-vscode-2024');
+    } else if (themeName === 'github-dim') {
+      html.classList.add('theme-github-dim');
     }
+    // default-light doesn't need a class
+
+    // Save to localStorage
+    localStorage.setItem('theme', themeName);
+
+    // Close the dropdown
+    themePickerMenu?.classList.add('hidden');
+
+    // Update active state on buttons
+    updateActiveTheme(themeName);
   }
 
-  // Add click event listeners
-  themeToggleBtn?.addEventListener('click', toggleTheme);
-  themeToggleMobileBtn?.addEventListener('click', toggleTheme);
+  // Update active state on theme buttons
+  function updateActiveTheme(themeName) {
+    themeOptions.forEach(option => {
+      if (option.dataset.theme === themeName) {
+        option.style.fontWeight = '600';
+        option.style.backgroundColor = 'var(--color-hover, rgba(0,0,0,0.1))';
+      } else {
+        option.style.fontWeight = '400';
+        option.style.backgroundColor = '';
+      }
+    });
+  }
+
+  // Add click event listeners to all theme options
+  themeOptions.forEach(option => {
+    option.addEventListener('click', function() {
+      const themeName = this.dataset.theme;
+      applyTheme(themeName);
+
+      // Close mobile menu if open
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+  });
+
+  // Check for saved theme preference or default to default-dark
+  const savedTheme = localStorage.getItem('theme') || 'default-dark';
+
+  // Apply the saved theme on page load
+  applyTheme(savedTheme);
 </script>
