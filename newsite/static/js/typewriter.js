@@ -1,41 +1,60 @@
-// Typewriter effect for hero terminal
+// Migration animation for hero terminal
 (function() {
-  const typewriterElement = document.getElementById('typewriter');
+  const progressBar = document.getElementById('progress-bar');
+  const progressEmpty = document.getElementById('progress-empty');
+  const migrationItems = document.getElementById('migration-items');
 
-  if (!typewriterElement) return;
+  if (!progressBar || !progressEmpty || !migrationItems) return;
 
-  const originalText = typewriterElement.textContent;
-  typewriterElement.textContent = '';
+  const databases = [
+    { type: 'Database', name: 'Northwind' },
+    { type: 'Database', name: 'pubs' }
+  ];
 
-  let charIndex = 0;
-  const typingSpeed = 50; // milliseconds per character
-  const startDelay = 500; // delay before starting
+  let currentDB = 0;
+  const itemDelay = 5000; // 5 seconds between items
+  const startDelay = 2000; // 2 seconds before starting
+  const initialProgress = 'oooooooooooooooo';
+  const initialSpaces = '                                                 ';
 
-  function typeCharacter() {
-    if (charIndex < originalText.length) {
-      typewriterElement.textContent += originalText.charAt(charIndex);
-      charIndex++;
-      setTimeout(typeCharacter, typingSpeed);
+  function showNextDatabase() {
+    const db = databases[currentDB];
+
+    // Add the database to the list
+    const itemLine = document.createElement('span');
+    itemLine.className = 'text-[#46BDFF]';
+    itemLine.textContent = `${db.type.padEnd(34)}${db.name}\n`;
+    migrationItems.appendChild(itemLine);
+
+    // Add 'oooo' to progress bar
+    progressBar.textContent += 'oooo';
+    const currentSpaces = progressEmpty.textContent;
+    if (currentSpaces.length >= 4) {
+      progressEmpty.textContent = currentSpaces.slice(4);
+    }
+
+    // Move to next database
+    currentDB++;
+
+    // If we've shown both databases, reset after a delay
+    if (currentDB >= databases.length) {
+      setTimeout(function() {
+        // Clear the items
+        migrationItems.innerHTML = '';
+        // Reset progress bar
+        progressBar.textContent = initialProgress;
+        progressEmpty.textContent = initialSpaces;
+        // Reset counter
+        currentDB = 0;
+        // Start again
+        setTimeout(showNextDatabase, itemDelay);
+      }, itemDelay);
     } else {
-      // Add blinking cursor class when done
-      typewriterElement.classList.add('cursor-blink');
+      // Continue with next database
+      setTimeout(showNextDatabase, itemDelay);
     }
   }
 
-  // Start typing after delay
-  setTimeout(typeCharacter, startDelay);
+  // Start animation after delay
+  setTimeout(showNextDatabase, startDelay);
 })();
-
-// Add cursor blink animation CSS dynamically
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes cursor-blink {
-    0%, 49% { opacity: 1; }
-    50%, 100% { opacity: 0; }
-  }
-  .cursor-blink::after {
-    content: '_';
-    animation: cursor-blink 1s infinite;
-  }
-`;
-document.head.appendChild(style);

@@ -65,15 +65,32 @@
 
         <!-- Terminal content -->
         <div class="p-6 font-mono text-sm bg-[#070825]">
-          <pre class="text-[#46BDFF] leading-relaxed"><span class="text-[#FF16B0]">PS</span> <span class="text-[#929292]">C:\Projects\Migration></span> <span class="text-[#fcee54]" id="typewriter">Copy-DbaDatabase -Source SQL2016 -Destination SQL2022</span>
+          <pre class="text-[#46BDFF] leading-relaxed"><span class="text-[#FF16B0]">PS</span> <span class="text-[#929292]">C:\Projects\Migration></span> <span class="text-[#fcee54]">Start-DbaMigration @params</span>
 
-<span class="text-[#929292]">[12:45:23]</span> <span class="text-[#46BDFF]">Starting database migration...</span>
-<span class="text-[#929292]">[12:45:24]</span> <span class="text-[#46BDFF]">Transferring AdventureWorks2016...</span>
-<span class="text-[#929292]">[12:46:12]</span> <span class="text-[#fcee54]">✓ AdventureWorks2016 migrated successfully</span>
-<span class="text-[#929292]">[12:46:13]</span> <span class="text-[#46BDFF]">Transferring WideWorldImporters...</span>
-<span class="text-[#929292]">[12:47:08]</span> <span class="text-[#fcee54]">✓ WideWorldImporters migrated successfully</span>
+<span id="progress-box" class="block w-full bg-[#FF92DF] dark:bg-[#D946EF] text-white px-4 py-3 my-2 whitespace-pre">Performing instance migration
+    Migrating databases
+    [<span id="progress-bar">oooooooooooooooo</span><span id="progress-empty">                                                 </span>]</span>
 
-<span class="text-[#fcee54] font-semibold">✓ Migration completed in 1m 45s</span></pre>
+<span class="text-[#46BDFF]">Type                              Name</span>
+<span class="text-[#46BDFF]">----                              ----</span>
+<span class="text-[#46BDFF]">Database Certificate              AGCertificate2021_2121</span>
+<span class="text-[#46BDFF]">Custom error                      60000:'us_english'</span>
+<span class="text-[#46BDFF]">Mail Configuration                Server Configuration</span>
+<span class="text-[#46BDFF]">Mail Account                      The DBA Team</span>
+<span class="text-[#46BDFF]">Mail Profile                      The DBA Team</span>
+<span class="text-[#46BDFF]">Mail Server                       smtp.ad.local</span>
+<span class="text-[#46BDFF]">CMS Group                         Production</span>
+<span class="text-[#46BDFF]">CMS Instance                      SQL Server 2005 Ent</span>
+<span class="text-[#46BDFF]">CMS Instance                      SQL Server 2005</span>
+<span class="text-[#46BDFF]">CMS Instance                      SQL Server 2008 R2 Instance</span>
+<span class="text-[#46BDFF]">CMS Instance                      SQL Server 2008</span>
+<span class="text-[#46BDFF]">CMS Instance                      SQL Server 2012</span>
+<span class="text-[#46BDFF]">CMS Group                         Test</span>
+<span class="text-[#46BDFF]">CMS Instance                      SQL Server 2000 Dev</span>
+<span class="text-[#46BDFF]">CMS Instance                      SQL Server 2005 Express Instance</span>
+<span class="text-[#46BDFF]">CMS Instance                      The 2008 Clustered Instance</span>
+<span class="text-[#46BDFF]">Server Trigger                    tr_MScdc_db_ddl_event</span>
+<span id="migration-items"></span></pre>
         </div>
       </div>
     </div>
