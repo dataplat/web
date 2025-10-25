@@ -1,0 +1,10 @@
+baseURL = "/"
+title = "dbatools"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+
+[params]
+description = "A PowerShell module for SQL Server administration"
+
+[markup.goldmark.renderer]
+unsafe = true
