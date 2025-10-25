@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "hugo server -D",
+    "dev": "hugo server -D --baseURL http://localhost:1313/",
     "build:css": "tailwindcss -i ./themes/dbatools2025/assets/css/tailwind.css -o ./static/css/tailwind.css --minify",
     "build:hugo": "hugo --minify",
     "build": "npm run build:css && npm run build:hugo",
