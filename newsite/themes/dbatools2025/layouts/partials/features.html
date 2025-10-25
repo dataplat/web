@@ -4,65 +4,91 @@
     <!-- Section header -->
     <div class="text-center mb-16">
       <h2 class="text-display font-bold mb-4 text-theme-text dark:text-theme-text-dark">
-        Why dbatools?
+        What you can do with dbatools
       </h2>
       <p class="text-lg text-theme-text-secondary dark:text-theme-text-secondary-dark max-w-2xl mx-auto">
-        Because migrating SQL Server shouldn't require a project plan.
+        From daily operations to critical projects
       </p>
     </div>
 
-    <!-- Features grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Commands grid -->
+    <div class="grid md:grid-cols-2 gap-8">
 
-      <!-- Feature 1 -->
+      <!-- Command 1 -->
       <div class="group p-6 bg-theme-card dark:bg-theme-card-dark rounded-xl border border-theme-border dark:border-theme-border-dark hover:border-primary/50 dark:hover:border-primary/50 transition-all">
-        <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
-          ⚡
+        <div class="flex items-start gap-4 mb-3">
+          <span class="text-2xl flex-shrink-0">🚀</span>
+          <h3 class="text-lg font-semibold text-theme-text dark:text-theme-text-dark font-mono">
+            Start-DbaMigration
+          </h3>
         </div>
-        <h3 class="text-lg font-semibold mb-2 text-theme-text dark:text-theme-text-dark">
-          Fast Migrations
-        </h3>
         <p class="text-sm leading-relaxed text-theme-text-secondary dark:text-theme-text-secondary-dark">
-          Move entire SQL instances, databases, logins, and jobs in minutes with zero downtime strategies.
+          Migrate entire SQL Server instances in minutes, not days
         </p>
       </div>
 
-      <!-- Feature 2 -->
+      <!-- Command 2 -->
       <div class="group p-6 bg-theme-card dark:bg-theme-card-dark rounded-xl border border-theme-border dark:border-theme-border-dark hover:border-primary/50 dark:hover:border-primary/50 transition-all">
-        <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
-          🛠️
+        <div class="flex items-start gap-4 mb-3">
+          <span class="text-2xl flex-shrink-0">📸</span>
+          <h3 class="text-lg font-semibold text-theme-text dark:text-theme-text-dark font-mono">
+            Export-DbaInstance
+          </h3>
         </div>
-        <h3 class="text-lg font-semibold mb-2 text-theme-text dark:text-theme-text-dark">
-          600+ Commands
-        </h3>
         <p class="text-sm leading-relaxed text-theme-text-secondary dark:text-theme-text-secondary-dark">
-          Automate every aspect of SQL Server administration from backups to security compliance.
+          Capture complete instance configurations for disaster recovery
         </p>
       </div>
 
-      <!-- Feature 3 -->
+      <!-- Command 3 -->
       <div class="group p-6 bg-theme-card dark:bg-theme-card-dark rounded-xl border border-theme-border dark:border-theme-border-dark hover:border-primary/50 dark:hover:border-primary/50 transition-all">
-        <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
-          🤖
+        <div class="flex items-start gap-4 mb-3">
+          <span class="text-2xl flex-shrink-0">✅</span>
+          <h3 class="text-lg font-semibold text-theme-text dark:text-theme-text-dark font-mono">
+            Test-DbaLastBackup
+          </h3>
         </div>
-        <h3 class="text-lg font-semibold mb-2 text-theme-text dark:text-theme-text-dark">
-          Cross-Platform
-        </h3>
         <p class="text-sm leading-relaxed text-theme-text-secondary dark:text-theme-text-secondary-dark">
-          Runs on Windows, macOS, and Linux. Manage SQL Server from any workstation.
+          Verify every backup actually restores before you need it
         </p>
       </div>
 
-      <!-- Feature 4 -->
+      <!-- Command 4 -->
       <div class="group p-6 bg-theme-card dark:bg-theme-card-dark rounded-xl border border-theme-border dark:border-theme-border-dark hover:border-primary/50 dark:hover:border-primary/50 transition-all">
-        <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
-          🔐
+        <div class="flex items-start gap-4 mb-3">
+          <span class="text-2xl flex-shrink-0">🔒</span>
+          <h3 class="text-lg font-semibold text-theme-text dark:text-theme-text-dark font-mono">
+            Start-DbaDbEncryption
+          </h3>
         </div>
-        <h3 class="text-lg font-semibold mb-2 text-theme-text dark:text-theme-text-dark">
-          Secure by Default
-        </h3>
         <p class="text-sm leading-relaxed text-theme-text-secondary dark:text-theme-text-secondary-dark">
-          Enterprise-ready with permissions respect and encrypted connections built-in.
+          Enable TDE encryption without manual certificate management
+        </p>
+      </div>
+
+      <!-- Command 5 -->
+      <div class="group p-6 bg-theme-card dark:bg-theme-card-dark rounded-xl border border-theme-border dark:border-theme-border-dark hover:border-primary/50 dark:hover:border-primary/50 transition-all">
+        <div class="flex items-start gap-4 mb-3">
+          <span class="text-2xl flex-shrink-0">🔄</span>
+          <h3 class="text-lg font-semibold text-theme-text dark:text-theme-text-dark font-mono">
+            Invoke-DbaDbLogShipping
+          </h3>
+        </div>
+        <p class="text-sm leading-relaxed text-theme-text-secondary dark:text-theme-text-secondary-dark">
+          Set up log shipping for minimal downtime migrations
+        </p>
+      </div>
+
+      <!-- Command 6 -->
+      <div class="group p-6 bg-theme-card dark:bg-theme-card-dark rounded-xl border border-theme-border dark:border-theme-border-dark hover:border-primary/50 dark:hover:border-primary/50 transition-all">
+        <div class="flex items-start gap-4 mb-3">
+          <span class="text-2xl flex-shrink-0">⚡</span>
+          <h3 class="text-lg font-semibold text-theme-text dark:text-theme-text-dark font-mono">
+            Update-DbaInstance
+          </h3>
+        </div>
+        <p class="text-sm leading-relaxed text-theme-text-secondary dark:text-theme-text-secondary-dark">
+          Automate SQL Server patching across your entire estate
         </p>
       </div>
 
