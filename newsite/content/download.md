@@ -2,9 +2,6 @@
 title: "download"
 date: 2016-05-06
 slug: "download"
-aliases:
-  - /download/
-  - /download/index.html
 draft: false
 ---
 

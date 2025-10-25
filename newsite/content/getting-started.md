@@ -2,9 +2,6 @@
 title: "Getting Started"
 date: 2016-05-06
 slug: "getting-started"
-aliases:
-  - /getting-started/
-  - /getting-started/index.html
 draft: false
 ---
 
