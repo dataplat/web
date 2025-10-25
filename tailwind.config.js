@@ -37,66 +37,6 @@ module.exports = {
             'secondary-dark': '#C5D1E3',
           }
         },
-        // 2024 VS Code theme colors
-        'vscode-2024': {
-          bg: {
-            DEFAULT: '#1e1e1e',
-            secondary: '#252526',
-            tertiary: '#181818',
-          },
-          text: {
-            DEFAULT: '#f1f1f1',
-            secondary: '#b5becf',
-            muted: '#868686',
-          },
-          border: {
-            DEFAULT: '#616161',
-            subtle: '#181A1F',
-          },
-          accent: {
-            blue: '#46BDFF',
-            cyan: '#6BE4E6',
-            green: '#B3F361',
-            magenta: '#F806FA',
-            pink: '#FF16B0',
-            yellow: '#FFEA16',
-            purple: '#DF81FC',
-            'purple-light': '#96A1FF',
-          },
-          hover: '#37373d',
-          input: '#3c3c3c',
-          focus: '#46BDFF',
-        },
-        // GitHub Dark Dimmed theme colors (official Primer colors)
-        'github-dim': {
-          bg: {
-            DEFAULT: '#212830',
-            secondary: '#262c36',
-            inset: '#151b23',
-            emphasis: '#3d444d',
-          },
-          text: {
-            DEFAULT: '#d1d7e0',
-            secondary: '#9198a1',
-            muted: '#656c76',
-            bright: '#f0f6fc',
-          },
-          border: {
-            DEFAULT: '#3d444d',
-            emphasis: '#656c76',
-            muted: '#3d444db3',
-          },
-          accent: {
-            blue: '#478be6',
-            'blue-emphasis': '#316dca',
-            success: '#347d39',
-            danger: '#c93c37',
-          },
-          hover: '#3d444d',
-          input: '#262c36',
-          focus: '#478be6',
-          selection: '#3d444d',
-        }
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
@@ -147,6 +87,103 @@ module.exports = {
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
       },
+      typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': theme('colors.theme.text.DEFAULT'),
+            '--tw-prose-headings': theme('colors.theme.text.DEFAULT'),
+            '--tw-prose-links': theme('colors.primary.DEFAULT'),
+            '--tw-prose-bold': theme('colors.theme.text.DEFAULT'),
+            '--tw-prose-counters': theme('colors.theme.text.secondary'),
+            '--tw-prose-bullets': theme('colors.theme.text.secondary'),
+            '--tw-prose-hr': theme('colors.theme.border.DEFAULT'),
+            '--tw-prose-quotes': theme('colors.theme.text.DEFAULT'),
+            '--tw-prose-quote-borders': theme('colors.theme.border.DEFAULT'),
+            '--tw-prose-code': '#D63384',
+            '--tw-prose-pre-code': theme('colors.theme.text.DEFAULT'),
+            '--tw-prose-pre-bg': theme('colors.theme.card.DEFAULT'),
+            'code': {
+              backgroundColor: theme('colors.theme.card.DEFAULT'),
+              padding: '0.125rem 0.375rem',
+              borderRadius: '0.25rem',
+              fontWeight: '500',
+            },
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
+            'pre': {
+              backgroundColor: theme('colors.theme.card.DEFAULT'),
+              border: `1px solid ${theme('colors.theme.border.DEFAULT')}`,
+            },
+            'pre code': {
+              backgroundColor: 'transparent',
+              padding: '0',
+            },
+            'blockquote': {
+              fontStyle: 'normal',
+              borderLeftColor: theme('colors.primary.DEFAULT'),
+            },
+            'a': {
+              textDecoration: 'none',
+              fontWeight: '500',
+              '&:hover': {
+                textDecoration: 'underline',
+              },
+            },
+          },
+        },
+        invert: {
+          css: {
+            '--tw-prose-body': theme('colors.theme.text.dark'),
+            '--tw-prose-headings': theme('colors.theme.text.dark'),
+            '--tw-prose-links': '#60A5FA',
+            '--tw-prose-bold': theme('colors.theme.text.dark'),
+            '--tw-prose-counters': theme('colors.theme.text.secondary-dark'),
+            '--tw-prose-bullets': theme('colors.theme.text.secondary-dark'),
+            '--tw-prose-hr': theme('colors.theme.border.dark'),
+            '--tw-prose-quotes': theme('colors.theme.text.dark'),
+            '--tw-prose-quote-borders': theme('colors.theme.border.dark'),
+            '--tw-prose-code': '#F472B6',
+            '--tw-prose-pre-code': '#E5E7EB',
+            '--tw-prose-pre-bg': '#1F2937',
+            'code': {
+              backgroundColor: 'rgba(59, 130, 246, 0.1)',
+              padding: '0.125rem 0.375rem',
+              borderRadius: '0.25rem',
+              fontWeight: '500',
+            },
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
+            'pre': {
+              backgroundColor: '#1F2937',
+              border: '1px solid #374151',
+            },
+            'pre code': {
+              backgroundColor: 'transparent',
+              padding: '0',
+              color: '#E5E7EB',
+            },
+            'blockquote': {
+              fontStyle: 'normal',
+              borderLeftColor: '#60A5FA',
+            },
+            'a': {
+              textDecoration: 'none',
+              fontWeight: '500',
+              '&:hover': {
+                textDecoration: 'underline',
+              },
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [
