@@ -241,6 +241,28 @@
   color: #212830 !important;
 }
 
+/* VS Code 2024 Brand Logos - Match text color #f1f1f1 */
+.theme-vscode-2024 .dark\:invert {
+  filter: brightness(0) saturate(100%) invert(96%) sepia(3%) saturate(199%) hue-rotate(202deg) brightness(103%) contrast(92%) !important;
+}
+
+/* GitHub Dim Brand Logos - Match text color #d1d7e0 */
+.theme-github-dim .dark\:invert {
+  filter: brightness(0) saturate(100%) invert(87%) sepia(7%) saturate(434%) hue-rotate(182deg) brightness(96%) contrast(91%) !important;
+}
+
+/* VS Code 2024 Brands Section Background - Match community section */
+.theme-vscode-2024 .bg-theme-card\/30,
+.theme-vscode-2024 .dark\:bg-theme-card-dark\/30 {
+  background-color: #252526 !important;
+}
+
+/* GitHub Dim Brands Section Background - Match community section */
+.theme-github-dim .bg-theme-card\/30,
+.theme-github-dim .dark\:bg-theme-card-dark\/30 {
+  background-color: #262c36 !important;
+}
+
 /* Custom animations */
 @keyframes shimmer {
   0% { background-position: -1000px 0; }
