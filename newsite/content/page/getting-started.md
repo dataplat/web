@@ -19,9 +19,6 @@ dbatools is a **free** PowerShell module with nearly **700 commands** that repla
 ## Quick Start
 
 ```powershell
-# Check your PowerShell version (v3+ required for Windows, Core 7.4+ for Linux/macOS)
-$PSVersionTable.PSVersion
-
 # Install (Windows/Linux/macOS)
 Install-Module dbatools -Scope CurrentUser
 
@@ -42,9 +39,6 @@ Test-DbaLastBackup -SqlInstance localhost
 ### Prerequisites
 
 ```powershell
-# Check your PowerShell version
-$PSVersionTable.PSVersion
-
 # Set execution policy (one-time setup)
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
