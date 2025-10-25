@@ -257,10 +257,144 @@
   background-color: #252526 !important;
 }
 
+/* VS Code 2024 Prose Typography Overrides */
+.theme-vscode-2024 .prose {
+  --tw-prose-body: #f1f1f1;
+  --tw-prose-headings: #ffffff;
+  --tw-prose-lead: #b5becf;
+  --tw-prose-links: #46BDFF;
+  --tw-prose-bold: #ffffff;
+  --tw-prose-counters: #b5becf;
+  --tw-prose-bullets: #46BDFF;
+  --tw-prose-hr: #3c3c3c;
+  --tw-prose-quotes: #b5becf;
+  --tw-prose-quote-borders: #46BDFF;
+  --tw-prose-captions: #868686;
+  --tw-prose-code: #6BE4E6;
+  --tw-prose-pre-code: #f1f1f1;
+  --tw-prose-pre-bg: #181818;
+  --tw-prose-th-borders: #3c3c3c;
+  --tw-prose-td-borders: #3c3c3c;
+}
+
+.theme-vscode-2024 .prose :where(a):not(:where([class~="not-prose"] *)) {
+  color: #46BDFF;
+  text-decoration-color: rgba(70, 189, 255, 0.4);
+}
+
+.theme-vscode-2024 .prose :where(a):not(:where([class~="not-prose"] *)):hover {
+  color: #96A1FF;
+  text-decoration-color: #96A1FF;
+}
+
+.theme-vscode-2024 .prose :where(code):not(:where([class~="not-prose"], [class~="language-"] *)) {
+  color: #6BE4E6;
+  background-color: rgba(108, 228, 230, 0.1);
+  border: 1px solid rgba(108, 228, 230, 0.2);
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.375rem;
+  font-weight: 400;
+}
+
+.theme-vscode-2024 .prose :where(code):not(:where([class~="not-prose"], [class~="language-"] *))::before,
+.theme-vscode-2024 .prose :where(code):not(:where([class~="not-prose"], [class~="language-"] *))::after {
+  content: "" !important;
+}
+
+.theme-vscode-2024 .prose :where(pre):not(:where([class~="not-prose"] *)) {
+  background-color: #181818;
+  border: 1px solid #616161;
+  border-radius: 0.5rem;
+}
+
+.theme-vscode-2024 .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+  border-left-width: 0;
+  border-left-color: transparent;
+  color: #6BE4E6;
+  background-color: #181818;
+  border: 1px solid rgba(108, 228, 230, 0.2);
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  font-style: normal;
+  font-family: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+  font-size: 0.95em;
+  font-weight: 400;
+}
+
+.theme-vscode-2024 .prose :where(blockquote p):not(:where([class~="not-prose"] *)) {
+  margin: 0;
+}
+
 /* GitHub Dim Brands Section Background - Match community section */
 .theme-github-dim .bg-theme-card\/30,
 .theme-github-dim .dark\:bg-theme-card-dark\/30 {
   background-color: #262c36 !important;
+}
+
+/* GitHub Dim Prose Typography Overrides */
+.theme-github-dim .prose {
+  --tw-prose-body: #d1d7e0;
+  --tw-prose-headings: #f0f6fc;
+  --tw-prose-lead: #9198a1;
+  --tw-prose-links: #478be6;
+  --tw-prose-bold: #f0f6fc;
+  --tw-prose-counters: #9198a1;
+  --tw-prose-bullets: #9198a1;
+  --tw-prose-hr: #3d444d;
+  --tw-prose-quotes: #9198a1;
+  --tw-prose-quote-borders: #3d444d;
+  --tw-prose-captions: #656c76;
+  --tw-prose-code: #f0f6fc;
+  --tw-prose-pre-code: #d1d7e0;
+  --tw-prose-pre-bg: #151b23;
+  --tw-prose-th-borders: #3d444d;
+  --tw-prose-td-borders: #3d444d;
+}
+
+.theme-github-dim .prose :where(a):not(:where([class~="not-prose"] *)) {
+  color: #478be6;
+  text-decoration-color: #478be6;
+}
+
+.theme-github-dim .prose :where(a):not(:where([class~="not-prose"] *)):hover {
+  color: #316dca;
+}
+
+.theme-github-dim .prose :where(code):not(:where([class~="not-prose"], [class~="language-"] *)) {
+  color: #f0f6fc;
+  background-color: #262c36;
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.375rem;
+  font-weight: 500;
+}
+
+.theme-github-dim .prose :where(code):not(:where([class~="not-prose"], [class~="language-"] *))::before,
+.theme-github-dim .prose :where(code):not(:where([class~="not-prose"], [class~="language-"] *))::after {
+  content: "" !important;
+}
+
+.theme-github-dim .prose :where(pre):not(:where([class~="not-prose"] *)) {
+  background-color: #151b23;
+  border: 1px solid #3d444d;
+  border-radius: 0.5rem;
+}
+
+.theme-github-dim .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+  border-left-width: 0;
+  border-left-color: transparent;
+  color: #f0f6fc;
+  background-color: #151b23;
+  border: 1px solid #3d444d;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  font-style: normal;
+  font-family: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+  font-size: 0.95em;
+  font-weight: 400;
+}
+
+.theme-github-dim .prose :where(blockquote p):not(:where([class~="not-prose"] *)) {
+  margin: 0;
 }
 
 /* Custom animations */

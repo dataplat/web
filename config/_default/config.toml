@@ -8,5 +8,18 @@ enableRobotsTXT = true
 [params]
 description = "A free, open-source PowerShell module with 600+ commands that make SQL Server administration simple, powerful, and fun."
 
+[markup]
+defaultMarkdownHandler = "goldmark"
+
+[markup.goldmark]
 [markup.goldmark.renderer]
 unsafe = true
+
+[markup.goldmark.parser]
+autoHeadingID = true
+autoHeadingIDType = "github"
+wrapStandAloneImageWithinParagraph = true
+
+[markup.goldmark.parser.attribute]
+block = false
+title = true
