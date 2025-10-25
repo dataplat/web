@@ -32,7 +32,7 @@ Sessions are proposed and [organized on GitHub](https://github.com/PSPowerHour/P
 | [Easy Desktop Notifications with BurntToast](https://youtu.be/fDQvdIEda_c?t=45m9s) | [Josh King](https://github.com/Windos) |
 | [Raspberry Pi with PowerShell and IoT module](https://youtu.be/fDQvdIEda_c?t=54m30s) | [Daniel Silva](https://github.com/DanielSSilva) |
 
-Everyone did such a great job, I love this livestream! As you can see above, the hour was opened up with my session about Default Parameter Values, which I [wrote about earlier](https://dbatools.io/defaults). Then **Doug Fink** talked about his really amazing module, [ImportExcel](https://github.com/dfinke/ImportExcel).
+Everyone did such a great job, I love this livestream! As you can see above, the hour was opened up with my session about Default Parameter Values, which I [wrote about earlier](/defaults). Then **Doug Fink** talked about his really amazing module, [ImportExcel](https://github.com/dfinke/ImportExcel).
 
 Next, dbatools contributor **Andrew Wickman** talked about setting SQL Server trace flags using PowerShell. This session also features containers! After Andrew's session, dbatools contributor **Jess Pomfret** talked about her awesome compression commands which make it really easy to enable compression within SQL Server.
 

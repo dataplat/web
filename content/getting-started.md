@@ -179,10 +179,10 @@ Find-DbaInstance -ComputerName server01, server02
 ```
 
 ### Quick Wins
-- Lost sysadmin access? Use [Reset-DbaAdmin](https://dbatools.io/Reset-DbaAdmin)
-- Need to easily test your backups? Use [Test-DbaLastBackup](https://dbatools.io/Test-DbaLastBackup)
-- SPN management got you down? Use [our suite of SPN commands](https://dbatools.io/schwifty)
-- Got so many databases you can't keep track? Use [Find-DbaDatabase](https://dbatools.io/Find-DbaDatabase)
+- Lost sysadmin access? Use [Reset-DbaAdmin](/Reset-DbaAdmin)
+- Need to easily test your backups? Use [Test-DbaLastBackup](/Test-DbaLastBackup)
+- SPN management got you down? Use [our suite of SPN commands](/schwifty)
+- Got so many databases you can't keep track? Use [Find-DbaDatabase](/Find-DbaDatabase)
 
 ---
 
@@ -202,15 +202,15 @@ Get-Help Test-DbaLastBackup -Online
 
 **Resources:**
 - [Documentation](https://docs.dbatools.io)
-- [Command Reference](https://dbatools.io/commands)
-- [Blog](https://dbatools.io/blog)
-- [Slack Community](https://dbatools.io/slack)
+- [Command Reference](/commands)
+- [Blog](/blog)
+- [Slack Community](/slack)
 
 ---
 
 ## Approach to Learning
 
-dbatools now offers over [700 commands](https://dbatools.io/commands)! That number may seem overwhelming, but think of it like learning SQL Server. Start with the basics like Logins, Jobs, or Backup/Restore and later on, you can move on to Extended Events.
+dbatools now offers over [700 commands](/commands)! That number may seem overwhelming, but think of it like learning SQL Server. Start with the basics like Logins, Jobs, or Backup/Restore and later on, you can move on to Extended Events.
 
 ---
 
@@ -227,7 +227,7 @@ Get-DbaDatabase -SqlInstance sql01 -SqlCredential $cred
 ```
 
 #### Alternative Windows Credentials
-For commands that access Windows (like [Get-DbaDiskSpace](https://dbatools.io/Get-DbaDiskSpace)):
+For commands that access Windows (like [Get-DbaDiskSpace](/Get-DbaDiskSpace)):
 
 ```powershell
 $cred = Get-Credential ad\winadmin
@@ -290,7 +290,7 @@ Remove-Module dbatools -Force -ErrorAction SilentlyContinue
 Import-Module dbatools -Force
 ```
 
-For more troubleshooting help, visit our [troubleshooting guide](https://dbatools.io/troubleshooting/) or ask in [Slack](https://dbatools.io/slack).
+For more troubleshooting help, visit our [troubleshooting guide](/troubleshooting/) or ask in [Slack](/slack).
 
 ---
 
@@ -308,16 +308,16 @@ For more troubleshooting help, visit our [troubleshooting guide](https://dbatool
 
 ## More Information
 
-Want to know more? Our [blog](https://dbatools.io/blog) has great articles:
+Want to know more? Our [blog](/blog) has great articles:
 
-- [Getting complex with Restore-DbaDatabase](https://dbatools.io/complex-restores/)
-- [Scheduling PowerShell Tasks with SQL Server Agent](https://dbatools.io/agent/)
-- [Building a dedicated backup test server](https://dbatools.io/dedicated-server/)
-- [Scheduling a migration](https://dbatools.io/scheduling-a-migration/)
-- [Dealing with SPNs](https://dbatools.io/schwifty/)
-- [Installing modules from the PowerShell Gallery](https://dbatools.io/soup2nutz/)
-- [Offline installs of dbatools](https://dbatools.io/offline)
-- [Talking to your security team about PowerShell and dbatools](https://dbatools.io/secure/)
+- [Getting complex with Restore-DbaDatabase](/complex-restores/)
+- [Scheduling PowerShell Tasks with SQL Server Agent](/agent/)
+- [Building a dedicated backup test server](/dedicated-server/)
+- [Scheduling a migration](/scheduling-a-migration/)
+- [Dealing with SPNs](/schwifty/)
+- [Installing modules from the PowerShell Gallery](/soup2nutz/)
+- [Offline installs of dbatools](/offline)
+- [Talking to your security team about PowerShell and dbatools](/secure/)
 
 ---
 
@@ -327,10 +327,10 @@ Want to know more? Our [blog](https://dbatools.io/blog) has great articles:
 - ⭐ [Star us on GitHub](https://github.com/dataplat/dbatools)
 - 🐛 [Report issues](https://github.com/dataplat/dbatools/issues)
 - 💡 [Request features](https://github.com/dataplat/dbatools/issues)
-- 🤝 [Contribute code](https://dbatools.io/contributing)
+- 🤝 [Contribute code](/contributing)
 
 **Community Channels:**
-- [#dbatools on SQL Community Slack](https://dbatools.io/slack)
+- [#dbatools on SQL Community Slack](/slack)
 - [Twitter/X](https://twitter.com/psdbatools)
 
 **Stats:**

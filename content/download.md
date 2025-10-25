@@ -7,7 +7,7 @@ draft: false
 
 We subscribe to idea that developers should [**release early and release often**](https://about.gitlab.com/2016/07/21/release-early-release-often/). dbatools has been around since 2014 and has been tested by thousands of people and each release gets better and better because of your early suggestions, bug reports and feedback.
 
-> dbatools now works on PowerShell Core (aka PowerShell 6+). This means that you can run a large majority of our commands on **Linux** and **macoS** 👌👍
+> dbatools works on PowerShell Core. This means that you can run a large majority of our commands on **Linux** and **macoS** 👌👍
 
 Need a detailed walk-thru? Please see our **New to PowerShell?** section below.
 
@@ -17,14 +17,14 @@ Need a detailed walk-thru? Please see our **New to PowerShell?** section below.
 
 - SQL Server 2000
 - No PowerShell needed on the host for SQL Server-only commands
-- [PowerShell remoting](https://dbatools.io/secure) enabled on the host for remote Windows commands
+- [PowerShell remoting](/secure) enabled on the host for remote Windows commands
 
 ##### Workstation
 
 - Windows 7 with PowerShell 3
-- Linux or macOS with PowerShell 6.1
+- Linux or macOS with PowerShell 7
 
-Like SSMS, dbatools **is not** required on the server. For more information on installation and requirements see [this post](https://dbatools.io/install/).
+Like SSMS, dbatools **is not** required on the server. For more information on installation and requirements see [this post](/install/).
 
 ## Method 1: Install dbatools from the [PowerShell Gallery](https://www.powershellgallery.com/packages/dbatools) on newer systems
 
@@ -49,9 +49,9 @@ Install-Module requires Run As Administrator, and installs dbatools globally. Do
 
 > Install-Module dbatools -Scope CurrentUser
 
-## Method 3: For legacy (Win7, Win8, etc) systems: scripted installer directly from [GitHub](https://dbatools.io/git)
+## Method 3: For legacy (Win7, Win8, etc) systems: scripted installer directly from [GitHub](/git)
 
-> Invoke-Expression (Invoke-WebRequest -UseBasicParsing https://dbatools.io/in)
+> Invoke-Expression (Invoke-WebRequest -UseBasicParsing /in)
 
 This will install dbatools locally (for just the current user) to the DocumentsWindowsPowerShellModules folder. Note: please only use `Invoke-Expression (Invoke-WebRequest..)` from sources you trust, like us 👍
 
@@ -63,7 +63,7 @@ This will install dbatools locally (for just the current user) to the DocumentsW
 
 ## Method 5: Offline install
 
-Don't have Internet access on your DBA workstation? Check out our [offline install](https://dbatools.io/offline) guide.
+Don't have Internet access on your DBA workstation? Check out our [offline install](/offline) guide.
 
 ## Method 6: chocolatey!
 
@@ -75,17 +75,17 @@ Now, you can even install dbatools using [chocolatey](https://chocolatey.org/pac
 
 If you're new to PowerShell and would like in-depth walk-thrus and more, please visit:
 
-- [walk-thru: installing modules from the powershell gallery](https://dbatools.io/soup2nutz).
-- [getting started with powershell](https://dbatools.io/start)
-- [offline installs of dbatools](https://dbatools.io/offline)
-- [talking to your security team about powershell and dbatools](https://dbatools.io/secure/)
+- [walk-thru: installing modules from the powershell gallery](/soup2nutz).
+- [getting started with powershell](/start)
+- [offline installs of dbatools](/offline)
+- [talking to your security team about powershell and dbatools](/secure/)
 
 ### Using dbatools
 
 Installing the module will make hundreds of commands available to you. Here's a few:
 
-![](https://dbatools.io/wp-content/uploads/2017/12/img_5a2156ff8b67b.png?w=800&ssl=1)
+![](/wp-content/uploads/2017/12/img_5a2156ff8b67b.png?w=800&ssl=1)
 
-Unsure what to do next? Visit the [Getting Started](https://dbatools.io/getting-started/) for more information and code samples. Or check a [list of all the features](https://dbatools.io/functions), which includes some pretty documentation.
+Unsure what to do next? Visit the [Getting Started](/getting-started/) for more information and code samples. Or check a [list of all the features](/functions), which includes some pretty documentation.
 
-Like what you see? [Please rate this module on Microsoft Script Center](https://gallery.technet.microsoft.com/scriptcenter/Use-PowerShell-to-Migrate-86c841df) or [give us a star on GitHub](https://dbatools.io/git)!
+Like what you see? [Please rate this module on Microsoft Script Center](https://gallery.technet.microsoft.com/scriptcenter/Use-PowerShell-to-Migrate-86c841df) or [give us a star on GitHub](/git)!

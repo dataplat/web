@@ -24,7 +24,7 @@ Goal: rebuild the site’s theme using **Cursor.com’s design aesthetic** — s
 
    ```toml
    theme = "dbatools2025"
-   baseURL = "https://dbatools.io/"
+   baseURL = "/"
    title = "dbatools | Command-line superpowers for SQL Server automation"
    enableRobotsTXT = true
    ```
@@ -297,7 +297,7 @@ Install-Module dbatools
       <ul class="space-y-2">
         <li><a href="https://github.com/dataplat/dbatools">GitHub</a></li>
         <li><a href="https://twitter.com/dbatools">Twitter</a></li>
-        <li><a href="https://dbatools.io/discord">Discord</a></li>
+        <li><a href="/discord">Discord</a></li>
       </ul>
     </div>
     <div>
