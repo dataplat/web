@@ -35,11 +35,11 @@
   --color-text-muted: #868686;
   --color-border: #616161;
   --color-border-subtle: #181A1F;
-  --color-primary: #46BDFF;
-  --color-accent: #FF16B0;
+  --color-primary: #569cd6;
+  --color-accent: #569cd6;
   --color-hover: #37373d;
   --color-input: #3c3c3c;
-  --color-focus: #46BDFF;
+  --color-focus: #569cd6;
   --color-cursor: #B3F361;
 }
 
@@ -143,7 +143,7 @@
 /* VS Code 2024 Button Styles */
 .theme-vscode-2024 .bg-theme-text,
 .theme-vscode-2024 .dark\:bg-theme-text-dark {
-  background-color: #46BDFF !important;
+  background-color: #569cd6 !important;
 }
 
 .theme-vscode-2024 .text-white,
