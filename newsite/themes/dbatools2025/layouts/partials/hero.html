@@ -1,0 +1,82 @@
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-theme-bg-dark">
+
+  <!-- Subtle gradient background -->
+  <div class="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-white to-white dark:from-blue-950/20 dark:via-theme-bg-dark dark:to-theme-bg-dark"></div>
+
+  <!-- Radial gradient accent -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-radial from-blue-100/40 via-transparent to-transparent dark:from-blue-900/20 blur-3xl"></div>
+
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 py-32">
+
+    <!-- Centered content -->
+    <div class="max-w-4xl mx-auto text-center mb-16 animate-slide-up">
+
+      <!-- Eyebrow/badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-theme-card dark:bg-theme-card-dark border border-theme-border dark:border-theme-border-dark mb-8 text-sm font-medium text-theme-text-secondary dark:text-theme-text-secondary-dark">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+        </span>
+        600+ PowerShell commands for SQL Server
+      </div>
+
+      <!-- Hero headline -->
+      <h1 class="text-hero font-bold mb-6 text-theme-text dark:text-theme-text-dark">
+        Command-line superpowers
+        <span class="block bg-gradient-to-r from-primary via-accent-light to-primary bg-clip-text text-transparent">
+          for SQL Server automation
+        </span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="text-xl leading-relaxed text-theme-text-secondary dark:text-theme-text-secondary-dark mb-10 max-w-2xl mx-auto">
+        dbatools is a free, open-source PowerShell module that makes SQL Server administration simple, powerful, and fun.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/download/" class="group inline-flex items-center gap-2 px-6 py-3 bg-theme-text dark:bg-theme-text-dark text-white dark:text-theme-bg-dark rounded-lg font-medium hover:scale-[1.02] transition-all shadow-sm hover:shadow-md">
+          <span>Get Started</span>
+          <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+        <a href="https://docs.dbatools.io/commands" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-theme-card dark:bg-theme-card-dark text-theme-text dark:text-theme-text-dark rounded-lg font-medium hover:bg-theme-border dark:hover:bg-theme-border-dark transition-colors border border-theme-border dark:border-theme-border-dark">
+          <span>Explore Commands</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Terminal window -->
+    <div class="max-w-4xl mx-auto animate-fade-in" style="animation-delay: 0.2s">
+      <div class="bg-theme-card dark:bg-theme-card-dark rounded-2xl border border-theme-border dark:border-theme-border-dark shadow-soft-lg overflow-hidden">
+
+        <!-- Terminal header -->
+        <div class="flex items-center gap-2 px-4 py-3 border-b border-[#181A1F]/50 dark:border-[#181A1F]/50 bg-[#070825]">
+          <div class="flex gap-1.5">
+            <div class="w-3 h-3 rounded-full bg-[#f85353]"></div>
+            <div class="w-3 h-3 rounded-full bg-[#fcee54]"></div>
+            <div class="w-3 h-3 rounded-full bg-[#929292]"></div>
+          </div>
+          <div class="flex-1 text-center text-xs font-medium text-[#FF92DF]">
+            PowerShell 7.4.0
+          </div>
+        </div>
+
+        <!-- Terminal content -->
+        <div class="p-6 font-mono text-sm bg-[#070825]">
+          <pre class="text-[#46BDFF] leading-relaxed"><span class="text-[#FF16B0]">PS</span> <span class="text-[#929292]">C:\Projects\Migration></span> <span class="text-[#fcee54]" id="typewriter">Copy-DbaDatabase -Source SQL2016 -Destination SQL2022</span>
+
+<span class="text-[#929292]">[12:45:23]</span> <span class="text-[#46BDFF]">Starting database migration...</span>
+<span class="text-[#929292]">[12:45:24]</span> <span class="text-[#46BDFF]">Transferring AdventureWorks2016...</span>
+<span class="text-[#929292]">[12:46:12]</span> <span class="text-[#fcee54]">✓ AdventureWorks2016 migrated successfully</span>
+<span class="text-[#929292]">[12:46:13]</span> <span class="text-[#46BDFF]">Transferring WideWorldImporters...</span>
+<span class="text-[#929292]">[12:47:08]</span> <span class="text-[#fcee54]">✓ WideWorldImporters migrated successfully</span>
+
+<span class="text-[#fcee54] font-semibold">✓ Migration completed in 1m 45s</span></pre>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

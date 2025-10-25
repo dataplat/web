@@ -1,0 +1,22 @@
+{
+  "name": "newsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "hugo server -D",
+    "build:css": "tailwindcss -i ./themes/dbatools2025/assets/css/tailwind.css -o ./static/css/tailwind.css --minify",
+    "build:hugo": "hugo --minify",
+    "build": "npm run build:css && npm run build:hugo",
+    "watch:css": "tailwindcss -i ./themes/dbatools2025/assets/css/tailwind.css -o ./static/css/tailwind.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18"
+  }
+}

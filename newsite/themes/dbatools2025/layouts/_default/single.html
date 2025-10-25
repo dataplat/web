@@ -1,0 +1,32 @@
+{{ define "main" }}
+<div class="bg-white dark:bg-slate-900 pt-24">
+  <div class="max-w-7xl mx-auto px-12 py-16">
+
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 text-sm text-slate-600 dark:text-slate-400">
+      <a href="/" class="hover:text-primary dark:hover:text-accent transition-colors">Home</a>
+      <span class="mx-2">/</span>
+      <span class="text-slate-900 dark:text-slate-200">{{ .Title }}</span>
+    </nav>
+
+    <!-- Main Content -->
+    <article class="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-a:text-primary dark:prose-a:text-accent prose-code:text-accent prose-pre:bg-slate-900 prose-pre:text-slate-100">
+
+      <!-- Title -->
+      <h1 class="text-5xl font-bold mb-4">{{ .Title }}</h1>
+
+      <!-- Date/Meta (if available) -->
+      {{ if .Date }}
+      <p class="text-slate-500 dark:text-slate-400 text-base mb-8">
+        Published {{ .Date.Format "January 2, 2006" }}
+      </p>
+      {{ end }}
+
+      <!-- Content -->
+      {{ .Content }}
+
+    </article>
+
+  </div>
+</div>
+{{ end }}

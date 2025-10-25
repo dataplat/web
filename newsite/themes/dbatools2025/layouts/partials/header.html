@@ -1,0 +1,114 @@
+<header class="fixed w-full top-0 bg-white/60 dark:bg-theme-bg-dark/60 backdrop-blur-xl border-b border-theme-border/50 dark:border-theme-border-dark/50 z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+
+    <!-- Logo -->
+    <a href="/" class="text-xl font-semibold text-theme-text dark:text-theme-text-dark hover:opacity-70 transition-opacity">
+      dbatools
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+      <a href="/getting-started/" class="text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors">Getting Started</a>
+      <a href="https://docs.dbatools.io" target="_blank" class="text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors">Docs</a>
+      <a href="https://docs.dbatools.io/commands" target="_blank" class="text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors">Commands</a>
+      <a href="/join-us/" class="text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors">Contribute</a>
+      <a href="https://github.com/dataplat/dbatools" target="_blank" class="text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors">GitHub</a>
+    </nav>
+
+    <!-- Dark Mode Toggle & CTA Button -->
+    <div class="hidden md:flex items-center gap-4">
+      <button id="theme-toggle" class="p-2 rounded-lg hover:bg-theme-card dark:hover:bg-theme-card-dark transition-colors" aria-label="Toggle dark mode">
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-theme-text-secondary dark:text-theme-text-secondary-dark" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        </svg>
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-theme-text-secondary dark:text-theme-text-secondary-dark" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+      <a href="/download/" class="inline-flex items-center gap-2 px-4 py-2 bg-theme-text dark:bg-theme-text-dark text-white dark:text-theme-bg-dark rounded-lg text-sm font-medium hover:scale-[1.02] transition-transform">
+        <span>Install</span>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="md:hidden text-theme-text dark:text-theme-text-dark p-2" aria-label="Toggle menu">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <nav id="mobile-menu" class="hidden md:hidden bg-white dark:bg-theme-bg-dark border-t border-theme-border dark:border-theme-border-dark px-6 py-6">
+    <div class="flex flex-col gap-4">
+      <a href="/getting-started/" class="text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors py-2">Getting Started</a>
+      <a href="https://docs.dbatools.io" target="_blank" class="text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors py-2">Docs</a>
+      <a href="https://docs.dbatools.io/commands" target="_blank" class="text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors py-2">Commands</a>
+      <a href="/join-us/" class="text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors py-2">Contribute</a>
+      <a href="https://github.com/dataplat/dbatools" target="_blank" class="text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors py-2">GitHub</a>
+      <button id="theme-toggle-mobile" class="flex items-center gap-2 text-theme-text-secondary dark:text-theme-text-secondary-dark hover:text-theme-text dark:hover:text-theme-text-dark transition-colors py-2">
+        <svg id="theme-toggle-mobile-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        </svg>
+        <svg id="theme-toggle-mobile-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+        </svg>
+        <span>Toggle Dark Mode</span>
+      </button>
+      <a href="/download/" class="bg-theme-text dark:bg-theme-text-dark text-white dark:text-theme-bg-dark px-4 py-2 rounded-lg text-center font-medium mt-2">Install</a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    menu?.classList.toggle('hidden');
+  });
+
+  // Dark mode toggle functionality
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+  const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+  const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+  const themeToggleMobileDarkIcon = document.getElementById('theme-toggle-mobile-dark-icon');
+  const themeToggleMobileLightIcon = document.getElementById('theme-toggle-mobile-light-icon');
+
+  // Check for saved theme preference or default to dark mode
+  const currentTheme = localStorage.getItem('theme') || 'dark';
+
+  // Set initial theme
+  if (currentTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+    themeToggleLightIcon?.classList.remove('hidden');
+    themeToggleMobileLightIcon?.classList.remove('hidden');
+  } else {
+    document.documentElement.classList.remove('dark');
+    themeToggleDarkIcon?.classList.remove('hidden');
+    themeToggleMobileDarkIcon?.classList.remove('hidden');
+  }
+
+  // Toggle theme function
+  function toggleTheme() {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      themeToggleDarkIcon?.classList.remove('hidden');
+      themeToggleLightIcon?.classList.add('hidden');
+      themeToggleMobileDarkIcon?.classList.remove('hidden');
+      themeToggleMobileLightIcon?.classList.add('hidden');
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      themeToggleDarkIcon?.classList.add('hidden');
+      themeToggleLightIcon?.classList.remove('hidden');
+      themeToggleMobileDarkIcon?.classList.add('hidden');
+      themeToggleMobileLightIcon?.classList.remove('hidden');
+    }
+  }
+
+  // Add click event listeners
+  themeToggleBtn?.addEventListener('click', toggleTheme);
+  themeToggleMobileBtn?.addEventListener('click', toggleTheme);
+</script>

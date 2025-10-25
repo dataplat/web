@@ -1,0 +1,71 @@
+{{ define "main" }}
+<div class="bg-white dark:bg-slate-900 pt-24">
+  <div class="max-w-8xl mx-auto px-12 py-16">
+
+    <!-- Page Header -->
+    <div class="mb-16">
+      <h1 class="text-5xl font-bold mb-4">{{ .Title }}</h1>
+      {{ if .Description }}
+      <p class="text-xl text-slate-600 dark:text-slate-400">{{ .Description }}</p>
+      {{ end }}
+    </div>
+
+    <!-- Posts Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{ range .Pages }}
+      <article class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 shadow-soft hover:shadow-soft-lg hover:scale-[1.02] transition-all duration-300">
+
+        <!-- Title -->
+        <h2 class="text-2xl font-semibold mb-3">
+          <a href="{{ .Permalink }}" class="text-slate-900 dark:text-slate-100 hover:text-primary dark:hover:text-accent transition-colors">
+            {{ .Title }}
+          </a>
+        </h2>
+
+        <!-- Date -->
+        {{ if .Date }}
+        <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">
+          {{ .Date.Format "January 2, 2006" }}
+        </p>
+        {{ end }}
+
+        <!-- Summary/Excerpt -->
+        {{ if .Summary }}
+        <p class="text-base text-slate-700 dark:text-slate-300 mb-4 leading-relaxed">
+          {{ .Summary }}
+        </p>
+        {{ end }}
+
+        <!-- Read More Link -->
+        <a href="{{ .Permalink }}" class="text-primary dark:text-accent font-semibold hover:underline inline-flex items-center gap-2">
+          Read more
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+
+      </article>
+      {{ end }}
+    </div>
+
+    <!-- Pagination (if needed) -->
+    {{ if .Paginator }}
+    {{ if gt .Paginator.TotalPages 1 }}
+    <div class="flex justify-center gap-4 mt-16">
+      {{ if .Paginator.HasPrev }}
+      <a href="{{ .Paginator.Prev.URL }}" class="px-6 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-primary hover:text-white transition-all font-semibold">
+        ← Previous
+      </a>
+      {{ end }}
+      {{ if .Paginator.HasNext }}
+      <a href="{{ .Paginator.Next.URL }}" class="px-6 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-primary hover:text-white transition-all font-semibold">
+        Next →
+      </a>
+      {{ end }}
+    </div>
+    {{ end }}
+    {{ end }}
+
+  </div>
+</div>
+{{ end }}
