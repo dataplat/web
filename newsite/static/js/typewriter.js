@@ -58,3 +58,46 @@
   // Start animation after delay
   setTimeout(showNextDatabase, startDelay);
 })();
+
+// Copy install command functionality
+function copyInstallCommand() {
+  const commandText = 'Install-Module dbatools';
+
+  // Use the Clipboard API
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(commandText).then(function() {
+      showCopyFeedback();
+    }).catch(function(err) {
+      console.error('Failed to copy: ', err);
+    });
+  } else {
+    // Fallback for older browsers
+    const textArea = document.createElement('textarea');
+    textArea.value = commandText;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      showCopyFeedback();
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+    document.body.removeChild(textArea);
+  }
+}
+
+function showCopyFeedback() {
+  const button = event.target.closest('button');
+  const originalHTML = button.innerHTML;
+
+  // Show checkmark icon
+  button.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+  button.classList.add('opacity-100');
+
+  // Reset after 2 seconds
+  setTimeout(function() {
+    button.innerHTML = originalHTML;
+  }, 2000);
+}
