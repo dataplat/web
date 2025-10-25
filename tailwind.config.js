@@ -126,6 +126,12 @@ module.exports = {
               fontStyle: 'normal',
               borderLeftColor: theme('colors.primary.DEFAULT'),
             },
+            'blockquote p:first-of-type::before': {
+              content: '""',
+            },
+            'blockquote p:last-of-type::after': {
+              content: '""',
+            },
             'a': {
               textDecoration: 'none',
               fontWeight: '500',
@@ -173,6 +179,12 @@ module.exports = {
             'blockquote': {
               fontStyle: 'normal',
               borderLeftColor: '#60A5FA',
+            },
+            'blockquote p:first-of-type::before': {
+              content: '""',
+            },
+            'blockquote p:last-of-type::after': {
+              content: '""',
             },
             'a': {
               textDecoration: 'none',
