@@ -11,7 +11,7 @@ class CommandsBrowser {
     this.categories = new Set();
     this.actions = new Set();
     this.activeCategory = 'all';
-    this.activeActions = new Set();
+    this.activeAction = 'all';
     this.activeSort = 'alphabetical';
     this.showPopularOnly = false;
     this.searchQuery = '';
@@ -67,45 +67,64 @@ class CommandsBrowser {
   }
 
   renderFilters() {
-    // Render categories
+    // Render categories (same style as actions)
     const categoriesList = document.getElementById('categories-list');
     const sortedCategories = Array.from(this.categories).sort();
 
-    const allRadio = categoriesList.querySelector('input[value="all"]');
-    const allCount = this.allCommands.length;
-    allRadio.closest('.filter-item').querySelector('.filter-count').textContent = `${allCount}`;
+    // Clear the list first
+    categoriesList.innerHTML = '';
 
+    // Add "All Commands" first
+    const allCategoryDiv = document.createElement('div');
+    allCategoryDiv.className = 'category-item active';
+    allCategoryDiv.dataset.category = 'all';
+    allCategoryDiv.innerHTML = `
+      <span>All Commands</span>
+      <span class="filter-count">${this.allCommands.length}</span>
+    `;
+    allCategoryDiv.addEventListener('click', () => this.selectCategory('all'));
+    categoriesList.appendChild(allCategoryDiv);
+
+    // Add individual categories
     sortedCategories.forEach(category => {
       const count = this.allCommands.filter(cmd => cmd.category === category).length;
-      const li = document.createElement('li');
-      li.className = 'filter-item';
-      li.innerHTML = `
-        <label class="filter-label">
-          <input type="radio" name="category" value="${this.sanitizeValue(category)}" class="filter-input" data-type="category">
-          <span class="filter-text">${category} <span class="filter-count">${count}</span></span>
-        </label>
+      const div = document.createElement('div');
+      div.className = 'category-item';
+      div.dataset.category = category;
+      div.innerHTML = `
+        <span>${category}</span>
+        <span class="filter-count">${count}</span>
       `;
-      categoriesList.appendChild(li);
+      div.addEventListener('click', () => this.selectCategory(category));
+      categoriesList.appendChild(div);
     });
 
     // Render actions
     const actionsList = document.getElementById('actions-list');
     const sortedActions = Array.from(this.actions).sort();
 
+    // Add "All Actions" first
+    const allActionsDiv = document.createElement('div');
+    allActionsDiv.className = 'action-item active';
+    allActionsDiv.dataset.action = 'all';
+    allActionsDiv.innerHTML = `
+      <span>All Actions</span>
+      <span class="filter-count">${this.allCommands.length}</span>
+    `;
+    allActionsDiv.addEventListener('click', () => this.selectAction('all'));
+    actionsList.appendChild(allActionsDiv);
+
+    // Add individual actions
     sortedActions.forEach(action => {
       const count = this.allCommands.filter(cmd => cmd.verb === action).length;
       const div = document.createElement('div');
-      div.className = 'action-checkbox';
+      div.className = 'action-item';
+      div.dataset.action = action;
       div.innerHTML = `
-        <input
-          type="checkbox"
-          name="action"
-          value="${this.sanitizeValue(action)}"
-          data-action="${action}"
-          class="action-input"
-        >
-        <label>${action} (${count})</label>
+        <span>${action}</span>
+        <span class="filter-count">${count}</span>
       `;
+      div.addEventListener('click', () => this.selectAction(action));
       actionsList.appendChild(div);
     });
   }
@@ -118,16 +137,6 @@ class CommandsBrowser {
       if (e.key === 'Escape') {
         this.clearSearch();
       }
-    });
-
-    // Category filters
-    document.querySelectorAll('input[data-type="category"]').forEach(input => {
-      input.addEventListener('change', (e) => this.handleCategoryChange(e));
-    });
-
-    // Action filters
-    document.querySelectorAll('.action-input').forEach(input => {
-      input.addEventListener('change', (e) => this.handleActionChange(e));
     });
 
     // Clear search button
@@ -173,36 +182,31 @@ class CommandsBrowser {
     }
   }
 
-  handleCategoryChange(e) {
-    const value = e.target.value;
-    const actualCategory = Array.from(this.categories).find(
-      cat => this.sanitizeValue(cat) === value
-    ) || value;
+  selectCategory(category) {
+    this.activeCategory = category;
 
-    this.activeCategory = actualCategory === 'all' ? 'all' : actualCategory;
-    this.activeActions.clear();
-    document.querySelectorAll('.action-input').forEach(input => {
-      input.checked = false;
+    // Update UI
+    document.querySelectorAll('.category-item').forEach(item => {
+      item.classList.remove('active');
+      if (item.dataset.category === category) {
+        item.classList.add('active');
+      }
     });
 
     this.updateURLParams();
     this.applyAllFilters();
   }
 
-  handleActionChange(e) {
-    const action = e.target.dataset.action;
+  selectAction(action) {
+    this.activeAction = action;
 
-    if (e.target.checked) {
-      this.activeActions.add(action);
-    } else {
-      this.activeActions.delete(action);
-    }
-
-    // Reset category when using action filters
-    if (this.activeActions.size > 0 && this.activeCategory !== 'all') {
-      this.activeCategory = 'all';
-      document.querySelector('input[value="all"]').checked = true;
-    }
+    // Update UI
+    document.querySelectorAll('.action-item').forEach(item => {
+      item.classList.remove('active');
+      if (item.dataset.action === action) {
+        item.classList.add('active');
+      }
+    });
 
     this.updateURLParams();
     this.applyAllFilters();
@@ -234,9 +238,9 @@ class CommandsBrowser {
       results = results.filter(cmd => cmd.category === this.activeCategory);
     }
 
-    // Apply action filters (OR logic)
-    if (this.activeActions.size > 0) {
-      results = results.filter(cmd => this.activeActions.has(cmd.verb));
+    // Apply action filter
+    if (this.activeAction !== 'all') {
+      results = results.filter(cmd => cmd.verb === this.activeAction);
     }
 
     // Apply popular filter
@@ -352,8 +356,8 @@ class CommandsBrowser {
       params.set('category', this.sanitizeValue(this.activeCategory));
     }
 
-    if (this.activeActions.size > 0) {
-      params.set('actions', Array.from(this.activeActions).map(a => this.sanitizeValue(a)).join(','));
+    if (this.activeAction !== 'all') {
+      params.set('action', this.sanitizeValue(this.activeAction));
     }
 
     if (this.showPopularOnly) {
@@ -375,25 +379,19 @@ class CommandsBrowser {
         cat => this.sanitizeValue(cat) === category
       );
       if (actualCategory) {
-        this.activeCategory = actualCategory;
-        const radio = document.querySelector(`input[value="${category}"]`);
-        if (radio) radio.checked = true;
+        this.selectCategory(actualCategory);
       }
     }
 
-    // Load actions
-    const actions = params.get('actions');
-    if (actions) {
-      actions.split(',').forEach(action => {
-        const actualAction = Array.from(this.actions).find(
-          a => this.sanitizeValue(a) === action
-        );
-        if (actualAction) {
-          this.activeActions.add(actualAction);
-          const checkbox = document.querySelector(`input[data-action="${actualAction}"]`);
-          if (checkbox) checkbox.checked = true;
-        }
-      });
+    // Load action
+    const action = params.get('action');
+    if (action) {
+      const actualAction = Array.from(this.actions).find(
+        a => this.sanitizeValue(a) === action
+      );
+      if (actualAction) {
+        this.selectAction(actualAction);
+      }
     }
 
     // Load popular filter
@@ -408,16 +406,12 @@ class CommandsBrowser {
   resetAllFilters() {
     this.searchQuery = '';
     this.activeCategory = 'all';
-    this.activeActions.clear();
+    this.activeAction = 'all';
     this.showPopularOnly = false;
 
     document.getElementById('search-input').value = '';
-    document.querySelectorAll('input[data-type="category"]').forEach(input => {
-      input.checked = input.value === 'all';
-    });
-    document.querySelectorAll('.action-input').forEach(input => {
-      input.checked = false;
-    });
+    this.selectCategory('all');
+    this.selectAction('all');
     document.getElementById('popular-filter-btn').classList.remove('active');
     document.getElementById('sort-select').value = 'alphabetical';
     this.activeSort = 'alphabetical';

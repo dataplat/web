@@ -262,37 +262,48 @@
             color: white;
         }
 
-        /* Action Filters */
+        /* Action Filters - Styled like categories */
         .action-filters {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0;
         }
 
-        .action-checkbox {
+        .action-item {
+            padding: 0.625rem 0.75rem;
+            margin-bottom: 0.25rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.2s ease;
-        }
-
-        .action-checkbox:hover {
-            background: var(--bg-card-hover);
-        }
-
-        .action-checkbox input[type="checkbox"] {
-            width: 1.125rem;
-            height: 1.125rem;
-            cursor: pointer;
-            accent-color: var(--accent-primary);
-        }
-
-        .action-checkbox label {
-            cursor: pointer;
             font-size: 0.9rem;
+            border: 2px solid transparent;
+        }
+
+        .action-item:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-color);
+        }
+
+        .action-item.active {
+            background: var(--accent-primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .action-item .filter-count {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            background: var(--tag-bg);
+            padding: 0.125rem 0.5rem;
+            border-radius: 10px;
+        }
+
+        .action-item.active .filter-count {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
         }
 
         /* Popular Commands */
@@ -726,7 +737,7 @@
         // Current filters
         let currentSearch = '';
         let currentCategory = 'all';
-        let currentActions = new Set();
+        let currentAction = 'all';
         let showPopularOnly = false;
         let currentSort = 'alphabetical';
 
@@ -827,13 +838,13 @@
 
             // Map common verbs to action labels
             const actionLabels = {
-                'Get': 'Get (retrieve info)',
-                'Set': 'Set (configure)',
-                'Copy': 'Copy (migrate)',
-                'Test': 'Test (validate)',
-                'Invoke': 'Invoke (execute)',
-                'New': 'New (create)',
-                'Remove': 'Remove (delete)',
+                'Get': 'Get',
+                'Set': 'Set',
+                'Copy': 'Copy',
+                'Test': 'Test',
+                'Invoke': 'Invoke',
+                'New': 'New',
+                'Remove': 'Remove',
                 'Export': 'Export',
                 'Import': 'Import',
                 'Backup': 'Backup',
@@ -844,17 +855,30 @@
                 'Stop': 'Stop'
             };
 
+            // Add "All Actions" option first
+            const allItem = document.createElement('div');
+            allItem.className = 'action-item active';
+            allItem.innerHTML = `
+                <span>All Actions</span>
+                <span class="filter-count">${allCommands.length}</span>
+            `;
+            allItem.onclick = () => selectAction('all');
+            allItem.dataset.action = 'all';
+            container.appendChild(allItem);
+
+            // Add individual actions
             Object.entries(actions)
-                .sort(([a], [b]) => b - a) // Sort by count descending
-                .slice(0, 15) // Show top 15 actions
+                .sort(([a], [b]) => a.localeCompare(b)) // Sort alphabetically
                 .forEach(([action, count]) => {
-                    const label = document.createElement('label');
-                    label.className = 'action-checkbox';
-                    label.innerHTML = `
-                        <input type="checkbox" value="${action}" onchange="toggleAction('${action}')">
-                        <span>${actionLabels[action] || action} (${count})</span>
+                    const item = document.createElement('div');
+                    item.className = 'action-item';
+                    item.innerHTML = `
+                        <span>${actionLabels[action] || action}</span>
+                        <span class="filter-count">${count}</span>
                     `;
-                    container.appendChild(label);
+                    item.onclick = () => selectAction(action);
+                    item.dataset.action = action;
+                    container.appendChild(item);
                 });
         }
 
@@ -876,12 +900,17 @@
             applyFilters();
         }
 
-        function toggleAction(action) {
-            if (currentActions.has(action)) {
-                currentActions.delete(action);
-            } else {
-                currentActions.add(action);
-            }
+        function selectAction(action) {
+            currentAction = action;
+
+            // Update UI
+            document.querySelectorAll('#actionFilters .action-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.dataset.action === action) {
+                    item.classList.add('active');
+                }
+            });
+
             updateURLState();
             applyFilters();
         }
@@ -896,15 +925,15 @@
         function resetFilters() {
             currentSearch = '';
             currentCategory = 'all';
-            currentActions.clear();
+            currentAction = 'all';
             showPopularOnly = false;
 
             // Update UI
             document.getElementById('searchInput').value = '';
             document.getElementById('clearSearch').classList.remove('visible');
-            document.querySelectorAll('#actionFilters input[type="checkbox"]').forEach(cb => cb.checked = false);
             document.getElementById('popularFilter').classList.remove('active');
             selectCategory('all');
+            selectAction('all');
 
             updateURLState();
             applyFilters();
@@ -926,8 +955,8 @@
             }
 
             // Action filter
-            if (currentActions.size > 0) {
-                results = results.filter(cmd => currentActions.has(cmd.verb));
+            if (currentAction !== 'all') {
+                results = results.filter(cmd => cmd.verb === currentAction);
             }
 
             // Popular filter
@@ -1020,7 +1049,7 @@
 
             if (currentSearch) params.set('search', currentSearch);
             if (currentCategory !== 'all') params.set('category', currentCategory);
-            if (currentActions.size > 0) params.set('actions', Array.from(currentActions).join(','));
+            if (currentAction !== 'all') params.set('action', currentAction);
             if (showPopularOnly) params.set('popular', '1');
             if (currentSort !== 'alphabetical') params.set('sort', currentSort);
 
@@ -1045,16 +1074,10 @@
                 selectCategory(category);
             }
 
-            // Actions
-            const actions = params.get('actions');
-            if (actions) {
-                actions.split(',').forEach(action => {
-                    if (this.actions[action]) {
-                        currentActions.add(action);
-                        const checkbox = document.querySelector(`#actionFilters input[value="${action}"]`);
-                        if (checkbox) checkbox.checked = true;
-                    }
-                });
+            // Action
+            const action = params.get('action');
+            if (action && actions[action]) {
+                selectAction(action);
             }
 
             // Popular
