@@ -1,5 +1,5 @@
 ---
-title: "dbatools & sql on linux"
+title: "dbatools & SQL on Linux"
 date: 2019-07-09
 author: "Chrissy LeMaire"
 slug: "linux"
@@ -17,41 +17,41 @@ Today's article is part of [T-SQL Tuesday](https://tracyboggiano.com/archive/201
 
 This month's T-SQL Tuesday is hosted by Tracy Boggiano ([b](https://tracyboggiano.com/)|[t](https://twitter.com/tracyboggiano)), is all about Linux.
 
-## dbatools and linux
+## dbatools and Linux
 
 As a long-time Linux user and open-source advocate, I was beyond excited when [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) and [SQL Server](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup?view=sql-server-2017) came to Linux.
 
 A few of the decisions I made about dbatools were actually inspired by Linux. For instance, when dbatools was initially released, it was [GNU GPL](https://dbatools.io/dbatools-is-free-as-in-speech/) licensed, which is the same license as the Linux kernel (we've since re-licensed under the more permissive [MIT](https://dbatools.io/mit)). In addition, dbatools' all-lower-case naming convention was also inspired by Linux, as most commands executed within Linux are in lower-case and a number of projects use the lower-case naming convention as well.
 
-## dbatools on linux
+## dbatools on Linux
 
-Thanks to Microsoft's PowerShell and SQL Server teams, dbatools runs on Linux and mac OS!
+Thanks to Microsoft's PowerShell and SQL Server teams, dbatools runs on Linux and Mac OS!
 
-As covered in our book which'll be released next year, dbatools in a Month of Lunches, 75% of commands in dbatools are supported by Linux and mac OS.
+As covered in our book which'll be released next year, dbatools in a Month of Lunches, 75% of commands in dbatools are supported by Linux and Mac OS.
 
-![os diagram](https://dbatools.io/wp-content/uploads/2019/07/os.png)
+![os diagram](/images/os.png)
 
-Commands that are pure-SQL Server, like [Get-DbaDatabase](https://dbatools.io/Get-DbaDatabase) or [New-DbaLogin](https://dbatools.io/New-DbaLogin), work on Linux and mac OS. Others that rely on WMI or remoting, like [Get-DbaDiskSpace](https://dbatools.io/Get-DbaDiskSpace) or [Enable-DbaAgHadr](https://dbatools.io/Enable-DbaAgHadr), do not currently work on Linux.
+Commands that are pure-SQL Server, like [Get-DbaDatabase](https://dbatools.io/Get-DbaDatabase) or [New-DbaLogin](https://dbatools.io/New-DbaLogin), work on Linux and Mac OS. Others that rely on WMI or remoting, like [Get-DbaDiskSpace](https://dbatools.io/Get-DbaDiskSpace) or [Enable-DbaAgHadr](https://dbatools.io/Enable-DbaAgHadr), do not currently work on Linux.
 
-If you're curious, our [docs site](https://docs.dbatools.io) will tell you if a command is supported by Linux and mac OS.
+If you're curious, our [docs site](https://docs.dbatools.io) will tell you if a command is supported by Linux and Mac OS.
 
-![availability grid](https://dbatools.io/wp-content/uploads/2019/07/ag.png)
+![availability grid](/images/ag.png)
 
 And, of course, you can also ask on Linux itself. After installing dbatools, run `Get-Command -Module dbatools` to see all of the commands that are available.
 
-## sql on linux
+## SQL on Linux
 
 dbatools also supports SQL on Linux. If it works on SQL Server Management Studio, it'll work with dbatools as we're built on the same libraries. Also because SQL on Linux is pretty much the same everything as SQL on Windows.
 
 Interested in learning more? Check out the #1 rated SQL Server on Linux book, [Pro SQL Server on Linux](https://amzn.to/2YHPe4I) by Microsoft's [Bob Ward](https://blogs.msdn.microsoft.com/bobsql/). This book was actually edited by our friend [Anthony Nocentino](https://www.centinosystems.com/blog/) and it's rumored that Anthony will contribute some sweet Linux-centric commands to dbatools when the Year of the Linux Desktop arrives, so we're looking forward to that 😊
 
-![sad tony twitter image](https://dbatools.io/wp-content/uploads/2019/07/sadtony.jpg)
+![sad tony twitter image](/images/sadtony.jpg)
 
-Kidding aside, dbatools supports Linux and mac OS in a number of ways. Not only can you run dbatools FROM Linux, you can also connect TO SQL on Linux. We even have fantastic Registered Server support that eases authentication.
+Kidding aside, dbatools supports Linux and Mac OS in a number of ways. Not only can you run dbatools FROM Linux, you can also connect TO SQL on Linux. We even have fantastic Registered Server support that eases authentication.
 
-### to linux / mac os
+### To Linux / Mac OS
 
-Connecting to SQL Server (Windows or Linux) from Linux or mac OS is generally done with using an alternative `-SqlCredential`. So let's say you follow Microsoft's guide to setting up [SQL on Linux](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup?view=sql-server-2017) or if you use dbatools' [Docker guide](https://dbatools.io/docker), you'll likely need to authenticate with the `sa` or `sqladmin` account. Execute the following command.
+Connecting to SQL Server (Windows or Linux) from Linux or Mac OS is generally done with using an alternative `-SqlCredential`. So let's say you follow Microsoft's guide to setting up [SQL on Linux](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup?view=sql-server-2017) or if you use dbatools' [Docker guide](https://dbatools.io/docker), you'll likely need to authenticate with the `sa` or `sqladmin` account. Execute the following command.
 
 ```
 Get-DbaDatabase -SqlInstance sqlonlinux -SqlCredential sa
@@ -74,7 +74,7 @@ Get-DbaDatabase -SqlInstance sqlonlinux -SqlCredential $cred
 
 Prefer using the Windows Credential Store instead? Check out the PowerShell module, [BetterCredentials](https://github.com/Jaykul/BetterCredentials).
 
-### to linux / mac os using registered servers
+### To Linux / Mac OS Using Registered Servers
 
 You can also use Local Registered Servers! This functionality was added in dbatools 1.0
 
@@ -84,11 +84,11 @@ Connect-DbaInstance -SqlInstance sqlonlinux -SqlCredential sa | Add-DbaRegServer
 
 From there, you can see it in SQL Server Management Studio's Local Server Groups.
 
-![cms servers pane](https://dbatools.io/wp-content/uploads/2019/07/cms.png)
+![cms servers pane](/images/cms.png)
 
 And the detailed pane
 
-![registered servers detailed pane](https://dbatools.io/wp-content/uploads/2019/07/reg2.png)
+![registered servers detailed pane](/images/reg2.png)
 
 Ohhh! What! Now you can do this without worrying about authentication:
 
@@ -96,13 +96,13 @@ Ohhh! What! Now you can do this without worrying about authentication:
 Get-DbaRegServer -ServerName sqlonlinux | Get-DbaDatabase
 ```
 
-## from dbatools on mac os to sql server on windows
+## From dbatools on Mac OS to SQL Server on Windows
 
 Something that I had super fun doing was joining my Mac Mini to my homelab then authenticating flawlessly with my domain-joined, Windows-based SQL Server. Didn't even need the `-SqlCredential` because Integrated Authentication worked 👍
 
 ![mac integrated auth screenshot](https://pbs.twimg.com/media/DtS8f4BXgAAiebJ.jpg:large)
 
-If you cannot join your Linux or mac OS workstation to a Windows domain, you can still use `-SqlCredential`. This parameter not only supports SQL Logins, but Windows logins as well. So you could connect to a Windows-based SQL Server using an Active Directory account such as `ad\sqladmin`.
+If you cannot join your Linux or Mac OS workstation to a Windows domain, you can still use `-SqlCredential`. This parameter not only supports SQL Logins, but Windows logins as well. So you could connect to a Windows-based SQL Server using an Active Directory account such as `ad\sqladmin`.
 
 Got any questions, hit up #dbatools on the SQL Server Community Slack at [aka.ms/sqlslack](https://aka.ms/sqlslack) and one of our friendly community members will be there to assist.
 

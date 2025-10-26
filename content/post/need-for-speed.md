@@ -1,5 +1,5 @@
 ---
-title: "Need For Speed – Find-DbaStoredProcedure"
+title: "Need for Speed – Find-DbaStoredProcedure"
 date: 2017-03-08
 author: "Claudio Silva"
 slug: "need-for-speed"
@@ -17,7 +17,7 @@ With our recent release, "[twentyfiveschmeckles (v0.8.694)](https://dbatools.io/
 
 This command allows us to find which stored procedures have a specific string or regular expression. While that may not be groundbreaking, what is new are the features we provide and the speed at which we return them.
 
-## Use cases
+## Use Cases
 
 Let me explain at least two cases where I think this command is (very) useful:
 
@@ -36,7 +36,7 @@ If a developer asks for help, or you need to check a version of a module, you ty
 
 That's just two scenarios, I'm sure that you have encountered dozens more, or will in the future.
 
-## Why should you care?
+## Why Should You Care?
 
 > $servers | Find-DbaStoredProcedure -Pattern lemaire 👉37,545 #SQLServer stored procedures on 9 servers evaluated in 8.67 seconds! https://t.co/uTBcP6bCHJ
 >
@@ -57,7 +57,7 @@ I've done four different tests comparing dbatools command and standard SSMS appr
 
 Note: For the 3rd and 4th test I will be connected to a different instance (sql2012) in order to add the connect time. This will simulate better what dbatools uses.
 
-### For 1st test:
+### For 1st Test:
 
 We will use the following T-SQL:
 
@@ -78,7 +78,7 @@ dbatools command:
 Find-DbaStoredProcedure -SqlInstance sql2016 -Databases AdventureWorks2014 -Pattern JobTitle
 ```
 
-### For 2nd test:
+### For 2nd Test:
 
 T-SQL:
 
@@ -97,7 +97,7 @@ And the dbatools command looks like:
 Find-DbaStoredProcedure -SqlInstance sql2016 -Pattern JobTitle
 ```
 
-### 3rd test:
+### 3rd Test:
 
 T-SQL code (Note: sqlcmd mode must be enabled on SSMS to run this script – [please read this article to learn more](http://redglue.eu/it-is-possible-to-run-scripts-inside-ssms-on-multiple-instances-without-using-cms-yes-it-is/)):
 
@@ -129,7 +129,7 @@ dbatools command:
 Find-DbaStoredProcedure -SqlInstance sql2016, sql2014 -Databases AdventureWorks2014 -Pattern JobTitle
 ```
 
-### 4th and final test:
+### 4th and Final Test:
 
 T-SQL:
 
@@ -160,29 +160,29 @@ dbatools command:
 Find-DbaStoredProcedure -SqlInstance sql2016, sql2014 -Pattern JobTitle
 ```
 
-### Here are the results:
+### Here Are the Results:
 
 The values are in ms (less is better)
 
-![Results chart](https://dbatools.io/wp-content/uploads/2017/03/img_58c010e0a791c.png?w=800&ssl=1)
+![Results chart](/images/img_58c010e0a791c.png)
 
-## A tie?
+## A Tie?
 
 Not even close. Lets look to the output and see which one appears richer.
 
-### More detail in the results
+### More Detail in the Results
 
 T-SQL output:
 
-![T-SQL output](https://dbatools.io/wp-content/uploads/2017/03/img_58bffc163d740.png?resize=700%2C304&ssl=1)
+![T-SQL output](/images/img_58bffc163d740.png)
 
 dbatools output:
 
-![dbatools output](https://dbatools.io/wp-content/uploads/2017/03/img_58bffc7c5ba3b.png?resize=700%2C290&ssl=1)
+![dbatools output](/images/img_58bffc7c5ba3b.png)
 
 We show the line number where pattern was found.
 
-### And similarly, more powerful search abilities
+### And Similarly, More Powerful Search Abilities
 
 Consider accurately searching for all occurrences the following regex pattern, which represents an email address:
 
@@ -192,15 +192,15 @@ Find-DbaStoredProcedure -SqlInstance sql2016 -Pattern '\w+@\w+\.\w+'
 
 We can even output this to a grid and filter:
 
-![Grid output](https://dbatools.io/wp-content/uploads/2017/03/img_58bffd3d34b84.png?w=800&ssl=1)
+![Grid output](/images/img_58bffd3d34b84.png)
 
-## But I want nice GUI! – Redgate SQL Search for the rescue
+## But I Want Nice GUI! – Redgate SQL Search for the Rescue
 
 Well, for some of us PowerShell console is a nice GUI 😊
 
 If you want to do this type of search, you can download and use the free [SQL Search from Redgate](http://www.red-gate.com/products/sql-development/sql-search/). This is a great tool that allows us to search not only on Stored Procedures but also on other object definitions such as Tables, Views, Constraints, Triggers, Functions and even Agent Jobs.
 
-![Redgate SQL Search](https://dbatools.io/wp-content/uploads/2017/03/img_58b808142629c.png?w=800&ssl=1)
+![Redgate SQL Search](/images/img_58b808142629c.png)
 
 This is fast! See it in action.
 
@@ -212,9 +212,9 @@ You can see additional details in the grid result, such as:
 - The type of match (such as column name, just a text match)
 - The line of SQL that matches your search (Just like our Find-DbaStoredProcedure command)
 
-![Grid details](https://dbatools.io/wp-content/uploads/2017/03/img_58b811219a53c.png?w=800&ssl=1)
+![Grid details](/images/img_58b811219a53c.png)
 
-## Wrap up
+## Wrap Up
 
 So for me and those that use the traditional query(SSMS) based methods, this is like night and day when dealing with multiple databases. It really is faster!
 

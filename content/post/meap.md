@@ -19,7 +19,7 @@ For years, people have asked if any dbatools books are available and the answer 
 
 Right now, the first few chapters are available, and we're going to release a new chapter at least once a month. Here's our current [Table of Contents](/book).
 
-[![Table of Contents](/wp-content/uploads/2019/09/toc.png?resize=569%2C872&ssl=1)](/book)
+[![Table of Contents](/images/toc.png)](/book)
 
 ## What is MEAP?
 

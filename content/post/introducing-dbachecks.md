@@ -1,5 +1,5 @@
 ---
-title: "introducing dbachecks – a new module from the dbatools team!"
+title: "Introducing dbachecks – A New Module From the dbatools Team!"
 date: 2018-02-22
 author: "Chrissy LeMaire"
 slug: "introducing-dbachecks"
@@ -29,13 +29,13 @@ This module allows us to crowdsource our checklists using [Pester](https://githu
 
 We currently provide over 80 checks, as can be easily seen using `Get-DbcCheck`:
 
-![](https://dbatools.io/wp-content/uploads/2018/02/img_5a8a9d30ee2bb.png?w=800&ssl=1)
+![](/images/img_5a8a9d30ee2bb.png)
 
-## How to use
+## How to Use
 
 Usage can be approached in two ways:
 
-### Run directly from the command line
+### Run Directly From the Command Line
 
 As simple as `Invoke-DbcCheck -SqlInstance sqlprod01 -Checks SuspectPage, LastBackup`
 
@@ -53,7 +53,7 @@ Command line execution is good in a pinch, but ongoing checks are the ultimate g
 
 Check out our [commands post](https://dbachecks.io/commands) page for more information.
 
-## Power BI is awesome
+## Power BI Is Awesome
 
 dbachecks also includes [a built-in Power BI dashboard](https://app.powerbi.com/view?r=eyJrIjoiZjM0OWI1ODQtM2YwYy00M2U0LWEzNmUtMDk2NjUxYzJlZjVjIiwidCI6ImIxMjIyNDdlLTFlYmYtNGI1Mi1iMzA5LWMyYWE3NDM2ZmM2YiIsImMiOjh9) and it's *gorgeous*.
 
@@ -91,7 +91,7 @@ dbachecks is [MIT licensed](https://choosealicense.com/licenses/mit/)
 
 > The MIT license is a short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
 
-### Learn more
+### Learn More
 
 This post just touched on an overview of the new dbachecks module. To learn more about dbachecks, *check* out these posts
 

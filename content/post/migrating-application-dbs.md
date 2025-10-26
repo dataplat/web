@@ -1,5 +1,5 @@
 ---
-title: "migrating application databases with dbatools"
+title: "Migrating Application Databases with dbatools"
 date: 2018-03-15
 author: "Jess Pomfret"
 slug: "migrating-application-dbs"
@@ -15,7 +15,7 @@ I've been working on a project this year to upgrade SQL Server versions for arou
 
 I'm going to focus on the final step of this process for this post – migrating the databases during the downtime windows. Luckily for me, dbatools made this both easy and repeatable.
 
-## Step 1 – Check for connections
+## Step 1 – Check for Connections
 
 First step when we get into the downtime window is to check whether there are any active connections to the database you want to migrate. We don't want any data being changed while we migrate, there's a command for that:
 
@@ -24,7 +24,7 @@ Get-DbaProcess -SqlInstance SourceServer -Database MigratingDatabase |
 Select Host, login, Program
 ```
 
-![Get-DbaProcess output](https://dbatools.io/wp-content/uploads/2018/03/Get-DbaProcess.jpg?resize=800%2C81&ssl=1)
+![Get-DbaProcess output](/images/Get-DbaProcess.jpg)
 
 If there are connections and it's safe to remove them (if they are still coming from the application it might be worth talking to the app owners first) you can pipe them to another handy dbatools command:
 
@@ -33,7 +33,7 @@ Get-DbaProcess -SqlInstance SourceServer -Database MigratingDatabase |
 Stop-DbaProcess
 ```
 
-## Step 2 – Migrate the database
+## Step 2 – Migrate the Database
 
 Now that there are no connections we can move the database. Depending on the situation it might be worth setting the database to read only or single user mode first. In my case, I had the application taken down so I felt confident no connections would be coming in.
 
@@ -43,11 +43,11 @@ With one line of code we can select the source and destination servers, the data
 Copy-DbaDatabase -Source SourceServer -Destination DestinationServer -Database MigratingDatabase -BackupRestore -SharedPath \\fileshare\
 ```
 
-![Copy-DbaDatabase output](https://dbatools.io/wp-content/uploads/2018/03/Copy-DbaDatabase.jpg?resize=800%2C88&ssl=1)
+![Copy-DbaDatabase output](/images/Copy-DbaDatabase.jpg)
 
 There are a lot more options available on this command, including setting the number of backup files to use, which can speed things up if you have a large database. I recommend checking out the command based help for all the available options.
 
-## Step 3 – Migrate the user logins
+## Step 3 – Migrate the User Logins
 
 Once the database is on the new server we can use the following to copy the associated logins across. The nice thing about using this command is it ensures the user SIDs match up on the destination and you don't end up with any orphan SQL Logins.
 
@@ -55,9 +55,9 @@ Once the database is on the new server we can use the following to copy the asso
 Copy-DbaLogin -Source SourceServer -Destination DestinationServer -Login AppReadOnly, AppReadWrite, DOMAIN\AppUser
 ```
 
-![Copy-DbaLogin output](https://dbatools.io/wp-content/uploads/2018/03/Copy-DbaLogin.jpg?resize=800%2C104&ssl=1)
+![Copy-DbaLogin output](/images/Copy-DbaLogin.jpg)
 
-## Step 4 – Set the source database offline
+## Step 4 – Set the Source Database Offline
 
 Now that the database and associated logins have been migrated we can set the source database offline. I did this so if there were any issues getting the application up we could quickly revert back while ensuring nothing was still accessing the old copy.
 

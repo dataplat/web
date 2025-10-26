@@ -1,5 +1,5 @@
 ---
-title: "dbatools is now MIT licensed!"
+title: "dbatools is Now MIT Licensed!"
 date: 2018-03-05
 author: "Chrissy LeMaire"
 slug: "mit"
@@ -17,7 +17,7 @@ I chose the GNU GPL for nostalgic reasons and I also wanted companies who used d
 
 Many of the tools we use on a daily basis, like [VS Code](https://code.visualstudio.com/license) and even [.NET](https://github.com/Microsoft/dotnet) are MIT licensed, and MIT is [the most popular license on GitHub](https://blog.github.com/2015-03-09-open-source-license-usage-on-github-com/).
 
-![](https://dbatools.io/wp-content/uploads/2018/03/img_5a9af637b5a66.png?w=800&ssl=1)
+![](/images/img_5a9af637b5a66.png)
 
 Considering this and our lessons-learned from dbatools, we released [dbachecks](https://dbachecks.io) under the MIT license. The reception at SQL Bits was *amazing*. A number of comments were made expressing thanks and optimism about our selection of the MIT license.
 

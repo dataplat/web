@@ -17,7 +17,7 @@ A while back, I added some new features to our migration commands but I forgot t
 
 Now, you can migrate from one server to many. This applies to both `Start-DbaMigration` and all of the `Copy-Dba*` commands, including [Copy-DbaDatabase](https://dbatools.io/Copy-DbaDatabase) and [Copy-DbaLogin](https://dbatools.io/Copy-DbaLogin).
 
-![migration](https://dbatools.io/wp-content/uploads/2018/09/migration.gif?fit=300%2C300&ssl=1)
+![migration](/images/migration.gif)
 
 As you may be able to see in the title bar of this [Out-GridView](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/out-gridview?view=powershell-5.1), I am migrating from **workstation**, which is a SQL Server 2008 instance, to **localhost\sql2016** and **localhost\sql2017**. My entire command is as follows:
 
@@ -75,7 +75,7 @@ This would migrate all of my SQL Logins, with their passwords & SIDs, etc, jobs,
 
 Thanks so much for that functionality [Stuart](https://stuart-moore.com/), Oleg and Simone!
 
-## What about VLDBs?
+## What About VLDBs?
 
 For very large database migrations, we currently offer [log shipping](https://dbatools.io/logshipping). [Sander Stad](https://sqlstad.nl) made some cool enhancements to `Invoke-DbaDbLogShipping` and `Invoke-DbaDbLogShipRecovery` recently, too.
 

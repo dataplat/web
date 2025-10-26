@@ -1,5 +1,5 @@
 ---
-title: "keeping availability group logins in sync automatically"
+title: "Keeping Availability Group Logins in Sync Automatically"
 date: 2019-05-20
 author: "Andreas Schubert"
 slug: "keeping-availability-group-logins-in-sync-automatically"
@@ -27,7 +27,7 @@ Wouldn't it be nice to have a script that is flexible enough to
 
 Well, dbatools to the rescue again.
 
-## The solution
+## The Solution
 
 With dbatools, such a routine takes only a few lines of code.
 

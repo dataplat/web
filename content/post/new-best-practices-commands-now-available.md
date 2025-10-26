@@ -1,5 +1,5 @@
 ---
-title: "new best practices commands now available"
+title: "New Best Practices Commands Now Available"
 date: 2016-07-20
 author: "Chrissy LeMaire"
 slug: "new-best-practices-commands-now-available"
@@ -44,7 +44,7 @@ Ever read a really great article about how to do something properly but then kin
 - **[Find-DbaDbUnusedIndex](https://dbatools.io/Find-DbaDbUnusedIndex)**
   This command, created by [Aaron Nelson](http://sqlvariant.com), will help you to find unused indexes on a database or a list of databases. It also tells how much space you can save by dropping the index. For now only supported for CLUSTERED and NONCLUSTERED indexes.
 
-## Commands that make your life easier
+## Commands That Make Your Life Easier
 
 - **[Invoke-DbaWhoIsActive](https://dbatools.io/Invoke-DbaWhoIsActive)**
   We wrote a PowerShell command to output results of [Adam Machanic's](http://sqlblog.com/blogs/adam_machanic/) beloved [sp_WhoIsActive](http://sqlblog.com/blogs/adam_machanic/archive/tags/who+is+active/default.aspx) to a GridView (default) or DataTable. If sp_WhoIsActive is not installed in the system, it will be downloaded and installed to a database you specify with either -Database or a database you select from Show-DbaDbList.
@@ -68,12 +68,12 @@ Ever read a really great article about how to do something properly but then kin
 
   Show-SqlServerFileSystem uses SQL Management Objects to browse the directories and what you see is limited to the permissions of the account running the command. This will complement the upcoming Move-SqlDatabaseFile command.
 
-![wpf](https://dbatools.io/wp-content/uploads/2016/07/wpf-1.png?resize=208%2C300&ssl=1)
+![wpf](/images/wpf-1.png)
 
 - **[Show-DbaDbList](https://dbatools.io/Show-DbaDbList)**
   Shows a list of databases in a GUI. Returns a simple string. Hitting cancel returns null.
 
-![dblist](https://dbatools.io/wp-content/uploads/2016/07/dblist.png?resize=300%2C295&ssl=1)
+![dblist](/images/dblist.png)
 
 ## Test Commands
 
@@ -89,6 +89,6 @@ Ever read a really great article about how to do something properly but then kin
 - **[Test-DbaMigrationConstraint](https://dbatools.io/Test-DbaMigrationConstraint)**
   Shows if you can migrate the database(s) between the servers. When you want to migrate from a higher edition to a lower one there are some features that can't be used. This function will validate if you have any of this features in use and will report to you. The validation will be made ONLY on on SQL Server 2008 or higher using the 'sys.dm_db_persisted_sku_features' DMV.
 
-## Join us!
+## Join Us!
 
 Some of these commands are in their infancy. Want to help make them better? Come join the coding party! We're all hanging out on the [SQL Server Community Slack](https://dbatools.io/slack) in the #dbatools channel.

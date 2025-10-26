@@ -1,5 +1,5 @@
 ---
-title: "Minimal-downtime migrations using Invoke-DbaLogShipping"
+title: "Minimal-Downtime Migrations Using Invoke-DbaLogShipping"
 date: 2018-04-04
 author: "Garry Bargsley"
 slug: "logshipping"
@@ -41,7 +41,7 @@ However, this time we did things a little different. Our development teams now f
 
 Last week I decided to use `Invoke-DbaDbLogShipping` to get the production database built on the new server and keep it in sync with the current server.
 
-## Steps To Build Log Shipping
+## Steps to Build Log Shipping
 
 1. To get the secondary going I restored the latest Full backup and left the database in NO RECOVERY
 2. Then I ran the `Invoke-DbaDbLogShipping` command with the parameters that were needed for my environment
@@ -107,7 +107,7 @@ And just like that we are done. 17 total minutes of downtime for our product and
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cWv6CFG9ud0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-## Alternative configurations
+## Alternative Configurations
 
 Considering the number of parameters available in `Invoke-DbaDbLogShipping`, there are a number of ways to setup Log Shipping. Here are a couple available configurations using the parameters `-UseExistingFullBackup` and `-GenerateFullBackup`. These help automate the initial backup/restore process.
 

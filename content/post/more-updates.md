@@ -1,5 +1,5 @@
 ---
-title: "more updates"
+title: "More Updates"
 date: 2018-10-03
 author: "Chrissy LeMaire"
 slug: "more-updates"

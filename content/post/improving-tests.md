@@ -1,5 +1,5 @@
 ---
-title: "improving tests: code coverage usecase"
+title: "Improving Tests: Code Coverage Usecase"
 date: 2017-11-17
 author: "Simone"
 slug: "improving-tests"
@@ -13,7 +13,7 @@ draft: false
 
 A recent addition to the release pipeline is the "code coverage" report. Although you can find several posts about the intricacies of code coverage for PowerShell (my favourite is [this post by June Blender](https://www.sapien.com/blog/2016/06/24/testing-pester-code-coverage/)), you may be asking yourself what is code coverage in simple terms.
 
-## defining code coverage
+## Defining Code Coverage
 
 > Coupled with tests, code coverage is a metric that measures how much of the code is tested.
 
@@ -28,7 +28,7 @@ While reaching 100% is not entirely possible due to Powershell limitations, it s
 
 We run a suite of tests at each commit via [appveyor](https://appveyor.com). The service we chose for code coverage is [codecov](https://codecov.io). We chose them mostly due to the fact that their support is great and we needed their exclusive feature of "merge report" because we run different test suites for each build (even some C# code). Also, its interface is as good as a code coverage report can be, you can see the full source code and line-by-line coverage.
 
-## dbatools coverage
+## dbatools Coverage
 
 For public consumption, [our development branch](https://codecov.io/gh/sqlcollaborative/dbatools/branch/development) shows the most current coverage report for the whole project.
 
@@ -38,11 +38,11 @@ Let's see a practical example.
 
 A few days ago, on 2017-11-13, the development branch showed Get-DbaDbRecoveryModel.ps1 with a [90% coverage](https://codecov.io/gh/sqlcollaborative/dbatools/tree/6870dccda543988eb952f574de9f758134ee85d5/functions). Codecov's urls are prettier but for the sake of this blogpost, which must point to specific commits, they'll be lengthy and ugly.
 
-![original coverage](https://dbatools.io/wp-content/uploads/2017/11/blogpost_improving_tests_1.png?resize=800%2C130&ssl=1)
+![original coverage](/images/blogpost_improving_tests_1.png)
 
 Clicking on the [function itself](https://codecov.io/gh/sqlcollaborative/dbatools/src/6870dccda543988eb952f574de9f758134ee85d5/functions/Set-DbaDbRecoveryModel.ps1), you can see that only one line is specifically not covered
 
-![original coverage – source details](https://dbatools.io/wp-content/uploads/2017/11/blogpost_improving_tests_2.png?resize=800%2C127&ssl=1)
+![original coverage – source details](/images/blogpost_improving_tests_2.png)
 
 Line 87 basically is about the possibility to specify a specific recovery model as a filter to retrieve only matching databases.
 
@@ -59,7 +59,7 @@ If you inspect the [relevant test](https://github.com/dataplat/dbatools/blob/687
 
 Unfortunately, this means that if someone makes a modification to the function in the future, there won't be any assurance that parameter continues to work as expected. We want to extend that test to include that too, so that the behaviour will always be the same.
 
-## giving more coverage
+## Giving More Coverage
 
 First, we need to create a database to test against the new case. Remembering that *dbatoolsci_* is the default prefix for any resource created, let's go with *dbatoolsci_getrecoverymodel*.
 
@@ -112,9 +112,9 @@ Then, let's launch the test
 .\manual.pester.ps1 -path .\Get-DbaDbRecoveryModel.Tests.ps1 -TestIntegration
 ```
 
-![manual test run](https://dbatools.io/wp-content/uploads/2017/11/blogpost_improving_tests_3.png?resize=755%2C262&ssl=1)
+![manual test run](/images/blogpost_improving_tests_3.png)
 
-## merging to the dbatools repository
+## Merging to the dbatools Repository
 
 Now that we've confirmed that everything checks out, let's create the pull request (PR).
 
@@ -133,29 +133,30 @@ git push origin tests/Get-DbaRecoveryModel
 
 wait a few seconds, go on github and create the PR
 
-![open a PR](https://dbatools.io/wp-content/uploads/2017/11/blogpost_improving_tests_4.png?resize=800%2C145&ssl=1)
+![open a PR](/images/blogpost_improving_tests_4.png)
 
 change the base branch to development
 
-![change base branch](https://dbatools.io/wp-content/uploads/2017/11/blogpost_improving_tests_5.png?resize=753%2C232&ssl=1)
+![change base branch](/images/blogpost_improving_tests_5.png)
 
 Once you filled out the details, you'll have written something like [this PR](https://github.com/dataplat/dbatools/pull/2646)
 
 Now, we just wait for the build to complete (impatient ones, watch [appveyor's dbatools "homepage"](https://dbatools.io/ci) to monitor the status in real-time)
 
-## inspecting the results
+## Inspecting the Results
 
 Once the build has done, the list of recent opened PRs on codecov is at [dbatools.io/coverage](https://codecov.io/gh/sqlcollaborative/dbatools/pulls)
 
 If you inspect the one I created with this blogpost, which is [#2646](https://codecov.io/gh/sqlcollaborative/dbatools/pull/2646) , when you browse to the [functions folder](https://codecov.io/gh/sqlcollaborative/dbatools/pull/2646/tree/functions) to see what happened with the coverage of Get-DbaRecoveryModel.ps1 … voilà
 
-![coverage increase](https://dbatools.io/wp-content/uploads/2017/11/blogpost_improving_tests_6.png?resize=800%2C129&ssl=1)
+![coverage increase](/images/blogpost_improving_tests_6.png)
 
 You can click further to see the [details](https://codecov.io/gh/sqlcollaborative/dbatools/src/be3a3d976f1393a688bd2a437e452ab9c7d399f5/functions/Get-DbaDbRecoveryModel.ps1): you can see that the line which wasn't covered is now green.
 
-![coverage increase line by line](https://dbatools.io/wp-content/uploads/2017/11/blogpost_improving_tests_7.png?resize=800%2C98&ssl=1)
+![coverage increase line by line](/images/blogpost_improving_tests_7.png)
 
 Enjoyed this post? Come join the Pester-lovers on [Slack's](https://dbatools.io/slack) #dbatools-pester to improve current tests!
 
 Ciao!
 Simone 🇮🇹
+

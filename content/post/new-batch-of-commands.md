@@ -1,5 +1,5 @@
 ---
-title: "another batch of new commands now available!"
+title: "Another Batch of New Commands Now Available!"
 date: 2016-08-17
 author: "Chrissy LeMaire"
 slug: "new-batch-of-commands"
@@ -35,7 +35,7 @@ These commands Test and Set the SQL Server OS's Power Plan. It defaults to [High
 * **[Measure-DbaDbVirtualLogFile](https://dbatools.io/Measure-DbaDbVirtualLogFile)**
 This command returns database virtual log file information for database files on a SQL instance. As you may already know, having a TLog file with too many VLFs [can hurt database performance](http://blogs.msdn.com/b/saponsqlserver/archive/2012/02/22/too-many-virtual-log-files-vlfs-can-cause-slow-database-recovery.aspx). This command helps you easily see the VLF counts for all your databases, or just specific ones.
 
-## Commands that make your life easier
+## Commands That Make Your Life Easier
 
 * **[Get-DbaClusterActiveNode](https://dbatools.io/Get-DbaClusterActiveNode)**
 Returns the active node(s) of a SQL Cluster
@@ -46,7 +46,7 @@ These commands, created by [Mike Fal](http://www.mikefal.net), get information a
 * **[Install-SqlSpWhoIsActive](https://dbatools.io/Install-SqlSpWhoIsActive) and [Update-SqlSpWhoIsActive](https://dbatools.io/Update-SqlSpWhoIsActive)**
 Install and update [Adam Machanic's sp_whoisactive](http://sqlblog.com/blogs/adam_machanic/archive/2012/03/22/released-who-is-active-v11-11.aspx) with ease using these commands. The latest version of sp_whoisactive is automatically downloaded from Adam's site and installed. Update-SqlSpWhoIsActive is actually an alias for Install-SqlSpWhoIsActive since Adam's install routine handles updates.
 
-## Commands that are coming soon
+## Commands That Are Coming Soon
 
 And we've got more planned!
 
@@ -74,6 +74,6 @@ Routine to test your backups
 * Write-SqlSpWhoIsActive
 Write the results of Show-SqlSpWhoIsActive to table!
 
-## Join us!
+## Join Us!
 
 Some of these commands are in their infancy. Want to help make them better? Come join the coding party! We're all hanging out on the [SQL Server Community Slack](https://dbatools.io/slack) in the #dbatools channel.

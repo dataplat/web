@@ -1,5 +1,5 @@
 ---
-title: "more 1.0 progress"
+title: "More 1.0 Progress"
 date: 2018-11-22
 author: "Chrissy LeMaire"
 slug: "more-1-0-progress"
@@ -13,7 +13,7 @@ draft: false
 
 We've made even more progress in the past week! Here are some highlights of 0.9.520.
 
-## Non-breaking changes
+## Non-Breaking Changes
 
 Aliases have been added for the changes, so these are not breaking changes:
 
@@ -35,7 +35,7 @@ I also added a `-SqlCredential` parameter to make passing secure passwords easie
 
 The **Credential** parameter in [Connect-DbaInstance](https://dbatools.io/Connect-DbaInstance) has been changed to **SqlCredential** and an alias to Credential has been added. Also, we fixed trusted domain support in both our internal and external Connect commands. So if you've ever had a problem with that before, it should work now.
 
-## Breaking changes
+## Breaking Changes
 
 Aliases have not been created for commands using these parameters so these are breaking changes.
 
@@ -70,13 +70,13 @@ Writing more in-depth about this command is on my todo list, but I love that you
 
 ![image](https://user-images.githubusercontent.com/8278033/48857462-33e24680-edb9-11e8-8947-a8a7d2ece782.png?w=800&ssl=1)
 
-## No more breaking changes for a while
+## No More Breaking Changes for a While
 
 K that should do it for breaking changes, at least until we're closer to 1.0.
 
 We're trying our best to ensure you don't get too frustrated while we make necessary changes, and we thank you for your patience.
 
-## Big ol' bug bash 🐛
+## Big Ol' Bug Bash 🐛
 
 The bug bash is going incredibly well! We're now down from 90+ open bugs to **just 25 minor bugs** 😊 Huge thanks to everyone who has helped bring our count down to such a manageable number.
 

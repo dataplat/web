@@ -1,5 +1,5 @@
 ---
-title: "multithreading commands"
+title: "Multithreading Commands"
 date: 2019-01-04
 author: "Kin Shah"
 slug: "multithread"
@@ -17,7 +17,7 @@ In SQL Server world, we are fortunate to have a vibrant community of [PowerShell
 
 This begs a question..
 
-## Why do we need automation?
+## Why Do We Need Automation?
 
 We need automation to get rid of repetitive tasks that we have to perform on a daily basis. It is often said:
 
@@ -33,9 +33,9 @@ Once good thing about dbatools is that it has lots of commands to get all kinds 
 
 In a large organization where you have hundreds of servers to manage and you often face a situation where you want to query all your SQL server estate. For example, checking total RAM and the max memory setting or you want to get version and service pack info for your entire SQL Server estate. Doing these tasks single threaded against a ton of servers is often painful because it takes lot of time!
 
-## Multithreading to the rescue
+## Multithreading to the Rescue
 
-#### What is multithreading and how does PowerShell offer multithreading?
+#### What Is Multithreading and How Does PowerShell Offer Multithreading?
 
 In simple terms, multithreading is the ability to run multiple threads on same or separate processors at the same time resulting in parallel execution.
 
@@ -45,7 +45,7 @@ PowerShell provides many ways to allow multi-threading in your scripts. Let's ex
 
 - **PowerShell Runspaces:** A powerful and flexible way of leveraging .NET's [`system.management.automation.runspaces`](https://docs.microsoft.com/en-us/dotnet/api/system.management.automation.runspaces?redirectedfrom=MSDN&view=powershellsdk-1.1.0) namespace that exposes variety of classes designed to create, manipulate and orchestrate a pool of PowerShell processes. In simple terms, think of Runspaces as containers where everything is contained or stored and ran in an asynchronous fashion.
 
-#### How to efficiently leverage PowerShell Runspaces with high performance and less overhead ?
+#### How to Efficiently Leverage PowerShell Runspaces With High Performance and Less Overhead?
 
 Boe Prox has open sourced his awesome [PoshRSJob module](https://github.com/proxb/PoshRSJob) that provides an alternative to native PowerShell jobs with greater performance and less overhead to run commands in the background, freeing up the console and allowing throttling on the jobs.
 
@@ -63,7 +63,7 @@ Get-Command -Module dbatools -Verb Get | Where CommandType -eq Function | Measur
 
 Now let's say you are tasked to get all the databases that are part of a given Availability Group. There are two ways to approach this: the traditional (sequential) way and multithreading.
 
-#### The traditional sequential way
+#### The Traditional Sequential Way
 
 ```powershell
 # Get the list of servers. You can read directly from a text file or you can connect to your central database to get the list using tsql.
@@ -79,7 +79,7 @@ foreach ($server in $servers) {
 }
 ```
 
-#### Using PoshRSJob module to leverage Runspaces & Multithreading
+#### Using PoshRSJob Module to Leverage Runspaces & Multithreading
 
 ```powershell
 # Get the list of servers. You can read directly from a text file or you can connect to your central database to get the list using tsql.
