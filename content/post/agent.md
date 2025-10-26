@@ -1,5 +1,5 @@
 ---
-title: "scheduling powershell tasks with sql agent"
+title: "Scheduling PowerShell Tasks with SQL Agent"
 date: 2017-09-26
 author: "Chrissy LeMaire"
 slug: "agent"
@@ -29,13 +29,13 @@ Task Scheduler was decent but ultimately, not as cool as SQL Server Agent for a 
 
 With regards to credentials, you can add a task under another credential but it's so manual. Got fifteen scheduled tasks? Get ready to add that credential fifteen different times. Need to update the password? Yep, fifteen times.
 
-![](https://dbatools.io/wp-content/uploads/2017/09/img_59c633160e02e.png?w=800&ssl=1)
+![](/images/img_59c633160e02e.png)
 
 Scheduling PowerShell tasks in Task Scheduler
 
 Now, as [Fred Weinmann](http://allthingspowershell.blogspot.be/) pointed out, you can also use PowerShell itself to manage credentials in a [number](https://gallery.technet.microsoft.com/Encrypt-Credential-71c46d07) [of](https://www.powershellgallery.com/packages/CredentialManager/) [ways](https://github.com/Jaykul/BetterCredentials). But I prefer built-in management.
 
-#### The dreaded popup window
+#### The Dreaded Popup Window
 
 Next is the PowerShell window that pops up for a millisecond when tasks are running. You can avoid this by selecting "Run whether the user is logged in or not" but this requires Administrator access.
 
@@ -45,7 +45,7 @@ Next is the PowerShell window that pops up for a millisecond when tasks are runn
 
 Options for emailing were nasty, too. Unlike SQL Server where it's managed and built-in, natively emailing in Task Scheduler is [awkward at best](https://superuser.com/questions/249103/make-windows-task-scheduler-alert-me-on-fail) and deprecated at worst.
 
-![](https://dbatools.io/wp-content/uploads/2017/09/img_59c696c00368d.png?w=800&ssl=1)
+![](/images/img_59c696c00368d.png)
 
 Again, Fred pointed out that email can be sent using PowerShell's **Send-MailMessage** but the Agent handles emailing on failure in a more straightforward manner. Similar to credentials, email management is just easier and built-in to Agent.
 
@@ -55,7 +55,7 @@ Like email, logging in Task Scheduler leaves a lot to be desired. Unless you gen
 
 (What's fun about blogging is sometimes, you realize just how bad something is because you have to write it all out. Wow, Task Scheduler is really inferior to SQL Server Agent.)
 
-#### Granularity of scheduling
+#### Granularity of Scheduling
 
 [Shawn Melton](http://blog.wsmelton.info) pointed out that in Task Scheduler, he was unable to setup a task that runs every hour between 8am and 6pm. However, this **is** possible in SQL Server Agent.
 
@@ -71,7 +71,7 @@ In [Shawn's fantastic post about Agent and dbatools](https://www.pythian.com/blo
 
 Here's a (slightly updated) version of Derik's chart.
 
-![](https://dbatools.io/wp-content/uploads/2017/09/img_59c7c59543fda.png?w=800&ssl=1)
+![](/images/img_59c7c59543fda.png)
 
 So it basically boils down to this:
 
@@ -97,29 +97,29 @@ So here are the steps that I use to schedule my tasks:
 - Create the PowerShell .ps1 file
 - Create the Job and Job Step
 
-#### Create a Windows-based login in SQL Server
+#### Create a Windows-Based Login in SQL Server
 
 This is out of scope for this post, but check out [Microsoft's page on logins](https://msdn.microsoft.com/en-us/library/aa337562%28v=sql.105%29.aspx) if you need.
 
 Note that you can easily manage remote SQL Servers from a centralized SQL Server Agent. In order to do this, you will need to provide the login with appropriate permissions on the remote SQL and Windows servers.
 
-#### Ensure dbatools is available to the account
+#### Ensure Dbatools is Available to the Account
 
 Basically, you can do this by performing an explicit import of the module (*Import-Module path\to\dbatools\dbatools.psd1*) to the exact path **or**, my preference, ensuring dbatools is globally available to all accounts on the server.
 
 You can do this by placing dbatools in **Program Files\WindowsPowerShell\Modules** or using **Install-Module dbatools** from an admin prompt, which will do the same.
 
-![](https://dbatools.io/wp-content/uploads/2017/09/img_59c8c7ec2c957.png?w=800&ssl=1)
+![](/images/img_59c8c7ec2c957.png)
 
 #### Setup a SQL Server credential
 
 After the login has been created, I use the credentials (the AD username & password) to create a SQL Server Credential (Instance -> Security -> Credentials).
 
-![](https://dbatools.io/wp-content/uploads/2017/09/img_59c8e723537e9.png?w=800&ssl=1)
+![](/images/img_59c8e723537e9.png)
 
 In this example, I called it the PowerShell Service Account, but admittedly, that's a bit broad. In reality, I probably created an account like "SQL Server Audit Account" and limited my distinct auditing task requirements to that user.
 
-![](https://dbatools.io/wp-content/uploads/2017/09/img_59c7d966d1cd4.png?w=800&ssl=1)
+![](/images/img_59c7d966d1cd4.png)
 
 While the SQL Server Agent service account could be used across the board, it's better to use a distinct credential for my PowerShell tasks. This enables the granting of specific permissions to the account, as they are required.
 
@@ -127,11 +127,11 @@ While the SQL Server Agent service account could be used across the board, it's 
 
 Once the credential has been created, it must be associated with the CmdExec proxy (Instance -> SQL Server Agent -> Proxies) to ensure it appears in the drop down once you create your SQL Agent Job Step.
 
-![](https://dbatools.io/wp-content/uploads/2017/09/img_59c8e78fdd464.png?w=800&ssl=1)
+![](/images/img_59c8e78fdd464.png)
 
 In this case, I named the proxy "PowerShell Proxy" and gave it the credential I just created, "PowerShell Service Account".
 
-![](https://dbatools.io/wp-content/uploads/2017/09/img_59c7e45bf3752.png?w=800&ssl=1)
+![](/images/img_59c7e45bf3752.png)
 
 #### Create the PowerShell .ps1 file
 
@@ -147,29 +147,29 @@ Next, create the job as whatever you like, then when you get to the Job Step, cr
 
 In the **Command:** area, enter *powershell.exe -File \\location\to\file.ps1*
 
-![](https://dbatools.io/wp-content/uploads/2017/09/img_59c80d4fa0b0a.png?w=800&ssl=1)
+![](/images/img_59c80d4fa0b0a.png)
 
 Need to *Run As Administrator*? Use -Verb runAs
 
 In place of a -File path\filename, you could actually [pass a base64 string into the -EncodedCommand parameter](https://blogs.technet.microsoft.com/heyscriptingguy/2015/10/27/powertip-encode-string-and-execute-with-powershell/), but I'd rather have the ability to easily modify the script without having to reencode it.
 
-#### Now you're set!
+#### Now You're Set!
 
 Now you're all set and can [schedule this job](https://logicalread.com/scheduling-sql-server-jobs-with-sql-agent-mo01/) just like you would any other. You can even have it [email an operator on failure](https://docs.microsoft.com/en-us/sql/ssms/agent/notify-an-operator-of-job-status) after [enabling Agent to use Database Mail](https://docs.microsoft.com/en-us/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
 
 To see PowerShell and SQL Agent in practice, check out Björn Peters's post [Daily Database Copy using Powershell](http://www.sql-aus-hamburg.de/tsql2sday-94-daily-database-copy-using-powershell-dbatools/).
 
-## Ensuring failures fail
+## Ensuring Failures Fail
 
 To ensure your failed jobs show a failure in SQL Agent, you must throw a **terminating exception**.
 
-![](https://dbatools.io/wp-content/uploads/2017/11/img_5a1d665d70540.png?w=800&ssl=1)
+![](/images/img_5a1d665d70540.png)
 
 To throw a terminating exception in dbatools, use –EnableException. In most PowerShell commands, use try/catch with [–ErrorAction Stop](https://superwidgets.wordpress.com/2014/12/22/powershell-erroraction/).
 
 If you're having issues and just can't get it to fail, throw in a `[System.Environment]::Exit(1)` and that should certainly work.
 
-## In conclusion
+## In Conclusion
 
 You may be wondering why I am showing you the GUI when we've probably got some PowerShell commands to do this for us (we have a lot of 'em!). The reason is that I wanted to convey a concept.
 

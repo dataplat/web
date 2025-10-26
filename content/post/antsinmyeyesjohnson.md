@@ -1,5 +1,5 @@
 ---
-title: "new release – antsinmyeyesjohnson"
+title: "New Release – Antsinmyeyesjohnson"
 date: 2016-11-22
 author: "Chrissy LeMaire"
 slug: "antsinmyeyesjohnson"
@@ -38,7 +38,7 @@ We fixed about 10 bugs, made two commands more efficient and added 5 new command
 
 Want to see more or work on a command yourself? We have approved command ideas on [the dbatools Trello board](https://dbatools.io/trello). This board shows you what we're working on and what we're talking about.
 
-## Notable bug fixes
+## Notable Bug Fixes
 
 - **[Copy-DbaCredential](https://dbatools.io/Copy-DbaCredential) and [Copy-DbaLinkedServer](https://dbatools.io/Copy-DbaLinkedServer)**
   Both commands worked properly but made an attempt to connect to the destination that was unnecessary and sometimes generated errors.
@@ -55,6 +55,6 @@ Want to see more or work on a command yourself? We have approved command ideas o
 - **[Test-DbaPath](https://dbatools.io/Test-DbaPath)**
   Now works in all languages!
 
-## Join us!
+## Join Us!
 
 Some of these commands are in their infancy. Want to help make them better? Come join the coding party! We're all hanging out on the [SQL Server Community Slack](https://dbatools.io/slack) in the #dbatools channel.

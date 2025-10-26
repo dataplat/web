@@ -1,5 +1,5 @@
 ---
-title: "team"
+title: "Team"
 slug: "team"
 aliases:
   - /team/
@@ -11,7 +11,7 @@ The team is me. The team is you, too. We encourage [pull requests](https://dbato
 
 ## Chrissy LeMaire, Creator, SQL Server & PowerShell MVP
 
-![chrissy-lemaire.jpg](https://dbatools.io/wp-content/uploads/2016/05/lollerskate.jpg?w=800&ssl=1)
+![chrissy-lemaire.jpg](/images/lollerskate.jpg)
 
 [@cl](https://twitter.com/cl)
 [potatoqualitee](https://github.com/potatoqualitee/)

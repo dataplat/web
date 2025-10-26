@@ -1,5 +1,5 @@
 ---
-title: "sponsorship"
+title: "Sponsorship"
 date: 2019-06-24
 modified: 2020-04-22
 slug: "sponsorship"
@@ -13,11 +13,11 @@ draft: false
 
 Sponsoring one or more of our developers through [GitHub](https://github.com)'s new Developer Sponsorship Program will help dbatools continue to live on, which ultimately means an easier, funner time at work for you as you relax while dbatools does all of the heavy-lifting.
 
-[![](https://dbatools.io/wp-content/uploads/2020/06/sponsor.gif?resize=720%2C292&ssl=1)](https://dbatools.io/sponsor)
+[![](/images/sponsor.gif)](https://dbatools.io/sponsor)
 
 The great thing about GitHub Sponsorships is that **it doesn't take much to make a huge difference if enough people sponsor our work**. So three or five bucks can really mean a lot.
 
-[![](https://dbatools.io/wp-content/uploads/2020/06/github.gif?resize=486%2C366&ssl=1)](https://dbatools.io/sponsor)
+[![](/images/github.gif)](https://dbatools.io/sponsor)
 
 Clicking on the picture above will bring you to our GitHub page. You can click on any developer to read more about them. Chrissy's will look a lil like this page because this page was based off of her profile 😊
 
@@ -29,11 +29,11 @@ For the first year, **[GitHub will match sponsorship funds](https://help.github.
 
 Big ol' shout out to our friends and team members at [Data Masterminds in the Netherlands](https://www.datamasterminds.io/).
 
-[![](https://dbatools.io/wp-content/uploads/2019/07/dmm_logo_small-1.png?resize=311%2C67&ssl=1)](https://datamasterminds.io)
+[![](/images/dmm_logo_small-1.png)](https://datamasterminds.io)
 
 They've always been so supportive, from buying stickers and merch for our fans to paying our huge Appveyor $2495/year bill to ensure all of our tests run within a reasonable amount of time. Thank you all so very much ❤
 
 | Eelco Drost | William Durkin |
 |---|---|
-| ![Eelco Drost](https://dbatools.io/wp-content/uploads/2019/12/eelco-400x400.jpg?resize=300%2C300&ssl=1) | ![William Durkin](https://dbatools.io/wp-content/uploads/2019/12/william-400x400.jpg?resize=300%2C300&ssl=1) |
+| ![Eelco Drost](/images/eelco-400x400.jpg) | ![William Durkin](/images/william-400x400.jpg) |
 | **Eelco Drost** | **William Durkin** |

@@ -10,7 +10,7 @@ draft: false
 
 Slack is a collaboration platform (okay, it's kinda just an enhanced IRC ;)) It requires an invite, but you're invited! Just enter in your email and this page will send you an email with the link.
 
-![](https://dbatools.io/wp-content/uploads/2016/06/dbatools-slack.png?w=800&ssl=1)
+![](/images/dbatools-slack.png)
 
 Ultimately, you'll be joining us at [sqlcommunity.slack.com](https://sqlcommunity.slack.com) **in the #dbatools channel**. To hang out, you can use the website itself, [a desktop client](https://slack.com/downloads) or the mobile app.
 

@@ -12,7 +12,7 @@ draft: false
 
 Here are a few things to keep in mind when programming for dbatools.
 
-## Minimum requirements
+## Minimum Requirements
 
 One source of pride for this project is that it works on most systems. We at least try to make it work on SQL Server 2000, though sometimes it's not possible. SQL Server 2005 and above usually works well.
 
@@ -28,7 +28,7 @@ Program as if there is a solution. Locked out of your SQL Server because of a ba
 
 Is there something you always forget as a DBA like Trace Flags? Perhaps your command can have a dictionary or your command could be the dictionary.
 
-## Use T-SQL only when appropriate
+## Use T-SQL Only When Appropriate
 
 I can't emphasize this enough. SMO takes care of all the SQL commands for you, so use SMO by default. That way, the module will be compatible with all the different versions of SQL Server.
 
@@ -38,15 +38,15 @@ Don't know which SMO object you need? Look up the T-SQL syntax first; that's wha
 
 When is it appropriate to use T-SQL? When SMO can't be used. Like to find out supported features for a particular edition, in use right now by the database (stored in sys.dm_db_persisted_sku_features), if you need info from sys.key_encryptions or actually, if you want to detach a database but not modify the $databases collection. It happens, but it's rare.
 
-## Don't rely on SQLPS
+## Don't Rely on SQLPS
 
 Do not require the user to load SQLPS or the new awesome version of SQLPS, SqlServer. This is for a number of reasons, but [here's three](https://blog.netnerds.net/2016/03/can-we-get-these-3-sqlps-issues-fixed-before-sql-server-2016-rtms/). Remember, we program for the lowest common denominator and expect that the user is running old versions of things.
 
-## Use these templates
+## Use These Templates
 
 The GitHub repo, [dbatools-templates](https://github.com/dataplat/dbatools-templates) is dedicated to templates for commands. You can also look to similar commands for templates.
 
-## Get familiar with the current code
+## Get Familiar with the Current Code
 
 The code structure is as follows:
 
@@ -66,13 +66,13 @@ The code structure is as follows:
 
 DynamicParams.ps1 stores all of the DynamicParameters. These are all of the functions that provide tab completion. Tab completion/dynamic parameters look like this:
 
-![dropdown](https://dbatools.io/wp-content/uploads/2016/05/dropdown.gif)
+![dropdown](/images/dropdown.gif)
 
 SharedFunctions.ps1 are functions that are shared between the commands like Copy-SqlDatabase, etc.
 
 I suggest examining both of these files to see what's available to you. Also, recall there's TONS of code for you to copy/paste from, and you're encouraged to do so. If you're duplicating any functionality, just look at similar functions and copy/paste away.
 
-## This is important
+## This Is Important
 
 In order to get your function to access the shared environment that dbatools creates, you must do the following.
 

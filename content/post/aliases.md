@@ -1,5 +1,5 @@
 ---
-title: "working with sql client aliases"
+title: "Working with SQL Client Aliases"
 date: 2020-01-10
 author: "Chrissy LeMaire"
 slug: "aliases"
@@ -19,13 +19,13 @@ For the longest time, I managed these aliases using cliconfg for 64-bit applicat
 
 When I'd remember and if it was available, I'd also manage SQL Client Aliases using SQL Server Configuration Manager, which surfaces aliases for both 32-bit applications and 64-bit applications in a single pane. Here's a screenshot of both SQL Server Configuration Manager and cliconfg. Note they both show the same aliases, confirming that you can manage aliases using whichever you prefer.
 
-[![cliconfg](https://dbatools.io/wp-content/uploads/2020/01/cliconfg.png?resize=800%2C609&ssl=1)](https://dbatools.io/wp-content/uploads/2020/01/cliconfg.png?ssl=1)
+[![cliconfg](/images/cliconfg.png)](/images/cliconfg.png)
 
 SQL Native Client provides cliconfg.exe but I think it's also built into Windows. I've yet to find an OS that doesn't have cliconfg on it – and I tried all the way back to Windows 2003! So if SQL Client Aliases seem useful to you, you're in luck.
 
 While you can manage SQL Client Aliases using the GUI, I prefer using dbatools which helps me avoid logging into multiple servers at once, and creates both the 32-bit and 64-bit aliases at once.
 
-# using dbatools
+# Using Dbatools
 
 I find SQL Client Aliases most useful for facilitating easy migrations and using them is even recommended as a best practice in the [SharePoint world](https://veronicageek.com/sharepoint/sharepoint-2013/configure-sql-aliases-for-sharepoint-server/2018/04/).
 
@@ -59,9 +59,9 @@ If you're familiar with named pipe aliases, you may remember that it creates a f
 
 Now that I've created all of my required aliases, let's take a look at them using `Get-DbaClientAlias` and `Out-GridView`. Note that when I don't specify `-ComputerName`, the command executes against my local machine, in this case, WORKSTATIONX.
 
-[![getclientalias](https://dbatools.io/wp-content/uploads/2020/01/getclientalias.png?resize=694%2C232&ssl=1)](https://dbatools.io/wp-content/uploads/2020/01/getclientalias.png?ssl=1)
+[![getclientalias](/images/getclientalias.png)](/images/getclientalias.png)
 
-# try it out
+# Try It Out
 
 Test this out yourself – create a new alias, then use dbatools, Azure Data Studio or SSMS to connect to the new server using the old name. In the example below, I've migrated sql2014 to sql2016 then will use the sql2014 alias to connect.
 

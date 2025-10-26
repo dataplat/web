@@ -1,5 +1,5 @@
 ---
-title: "developing for dbatools"
+title: "Developing for Dbatools"
 date: 2016-06-30
 slug: "join-us"
 aliases:
@@ -12,9 +12,9 @@ draft: false
 
 First thing is first, if you contribute a major amount, you'll be added to the Major Contributors on the [Team](https://dbatools.io/team/) page 😀
 
-![majorcontribs](https://dbatools.io/wp-content/uploads/2016/06/majorcontribs.png?resize=566%2C192&ssl=1)
+![majorcontribs](/images/majorcontribs.png)
 
-## Help us build an amazing toolset
+## Help Us Build an Amazing Toolset
 
 The types of commands we are looking for simplify whole tasks. As Microsoft continues its work on the [PowerShell module for SQL Server](http://sqlps.io/2016), we'll be here building commands for [DBA Best Practices](https://dbatools.io/Expand-SqlTlogResponsibly/) and [common painful tasks](https://dbatools.io/Reset-SqlAdmin).
 
