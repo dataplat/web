@@ -1,5 +1,5 @@
 ---
-title: "happy belated world backup day"
+title: "Happy Belated World Backup Day"
 date: 2018-04-02
 author: "Chrissy LeMaire"
 slug: "happy-belated-world-backup-day"
@@ -29,15 +29,15 @@ SMO exports do have some limitations. For instance, it doesn't include the roles
 
 **$servers** is a variable with the servers sql2008\sql2k8, sql2012, sql2014, sql2016 and sql2017. You can specify a path but if you don't, then we automatically generate the file name and output to the current directory.
 
-![](https://dbatools.io/wp-content/uploads/2018/04/img_5ac139c486241.png?w=800&ssl=1)
+![](/images/img_5ac139c486241.png)
 
 Want to see the output? Here are the contents of [sql2017-Job-Export-04012018215831.sql](https://gist.github.com/potatoqualitee/e509e9f541eb406db7edd6e16a358026).
 
-## What else?
+## What Else?
 
 Basically, whatever you can script out in SSMS, you can script out using Export-DbaScript.
 
-![](https://dbatools.io/wp-content/uploads/2018/04/img_5ac1442b4877e.png?w=800&ssl=1)
+![](/images/img_5ac1442b4877e.png)
 
 You can also add extra options using `New-DbaScriptingOption`, which is a wrapper for [Microsoft.SqlServer.Management.Smo.ScriptingOptions](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.management.smo.scriptingoptions.aspx).
 
@@ -47,7 +47,7 @@ If you'd like to script out each object to its own file, you can do the followin
 
 <!-- GitHub Gist code block embedded: https://gist.github.com/potatoqualitee/c55ae01f4009ef5d5fdc1175f024f6e0.js -->
 
-## Other commands to ease your recovery process
+## Other Commands to Ease Your Recovery Process
 
 Here are nearly 80 commands that we created to ease recovery or migration.
 
@@ -128,7 +128,7 @@ Here are nearly 80 commands that we created to ease recovery or migration.
 - Test-DbaLastBackup
 - Test-DbaDbLogShipStatus
 
-## We ❤️ tests
+## We ❤️ Tests
 
 I've mentioned it before, but there are few things that are more reassuring than knowing that our commands will restore your data properly. In the post [a migration with every commit](https://dbatools.io/testing/), you can see that we run a ton of tests with each and every commit to [our GitHub repo](https://dbatools.io/git).
 

@@ -1,5 +1,5 @@
 ---
-title: "dbatools 1.0 progress!"
+title: "dbatools 1.0 Progress!"
 date: 2018-11-14
 author: "Chrissy LeMaire"
 slug: "dbatools-1-0-progress"
@@ -14,7 +14,7 @@ Thanks to several of our team members, we're now [progressing quickly](https://d
 
 The progress is so encouraging, I believe 1.0 is around the corner. Because of this, I wanted to let you all know that tomorrow, we'll start introducing breaking changes.
 
-## Output changes
+## Output Changes
 
 Things like output and parameter names will change. For example, the output for the command [Get-DbaPrivilege](https://dbatools.io/Get-DbaPrivilege) will be updated. Currently, it looks like this:
 
@@ -34,7 +34,7 @@ Tomorrow I'll be updating the max memory series:
 
 This update includes updated output and parameter names. Basically, I removed the "MB" and updated the docs to let people know that the output and params are measured in megabytes.
 
-## Parameter name changes
+## Parameter Name Changes
 
 Sometime in the next month, I'll also be updating [Start-DbaMigration](https://dbatools.io/Start-DbaMigration) to more closely match the parameters of [Export-DbaInstance](https://dbatools.io/Export-DbaInstance). Parameters like `NoDatabases` and `NoLogins` will be replaced by `-Exclude Databases, Logins`.
 

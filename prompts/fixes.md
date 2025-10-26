@@ -73,7 +73,7 @@ date: 2018-04-10
 **After:**
 ```yaml
 ---
-title: "Three Ways to Track Logins Using Dbatools"
+title: "Three Ways to Track Logins Using dbatools"
 date: 2018-04-10
 ---
 

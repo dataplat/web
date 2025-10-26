@@ -1,5 +1,5 @@
 ---
-title: "a few other community tools"
+title: "A Few Other Community Tools"
 date: 2018-08-31
 author: "Chrissy LeMaire"
 slug: "community-tools"
@@ -35,7 +35,7 @@ It is based on [DbUp](https://github.com/DbUp/DbUp), which is DbUp is an open so
 
 > The aim of this this project is to provide a free, repository backed, SQL Server Monitoring.
 
-![sqlwatch](https://dbatools.io/wp-content/uploads/2018/08/sqlwatch.png?resize=610%2C169&ssl=1)
+![sqlwatch](/images/sqlwatch.png)
 
 The project is [open-source](https://github.com/marcingminski/sqlwatch) and the developers are available on [Twitter](https://twitter.com/sqlwatch) and in #sqlwatch in the [SQL Server Community Slack](https://dbatools.io/slack).
 
@@ -59,11 +59,11 @@ The project is [open-source](https://github.com/dataplat/dbachecks) and [totally
 
 If you're wondering what happened to dbareports, Rob handed it off to Jason Squires who is currently in the middle of a rewrite.
 
-## your module here
+## Your Module Here
 
 If I've missed your module or project, let me know in the comments and I'll happily add it to this post!
 
-## missed pspowerhour?
+## Missed #PSPowerHour?
 
 Last night, was the [second live stream of #PSPowerHour](https://www.youtube.com/watch?v=3Yq4sVWJrWo)! Check it.
 

@@ -1,5 +1,5 @@
----
-title: "building a dedicated backup test server"
+﻿---
+title: "Building a Dedicated Backup Test Server"
 date: 2017-04-11
 author: "Chrissy LeMaire"
 slug: "dedicated-server"
@@ -15,19 +15,19 @@ So, there's a [World Backup Day](http://www.worldbackupday.com/en/), but what ab
 
 <iframe width="280" height="157" src="https://www.youtube.com/embed/Ah0jabU9G8o" frameborder="0" allowfullscreen></iframe>
 
-## Using dbatools to automate tests
+## Using dbatools to Automate Tests
 
 dbatools makes it crazy easy to automate your backup testing, as demonstrated by [Sander Stad](http://www.sqlstad.nl/powershell/testing-your-backups-with-dbatools/), [Rob Sewell](https://sqldbawithabeard.com/2017/03/20/testing-your-sql-server-backups-the-easy-way-with-powershell-dbatools/) and [Anthony Nocentino](http://www.centiExcludeSystemLoginss.com/blog/sql/using-dbatools-for-automated-restore-and-checkdb/). It even [works on Linux](https://sqldbawithabeard.com/2017/03/27/test-your-sqlserver-backups-on-linux-with-powershell-and-dbatools/)!
 
 In my environment, I have a server dedicated for testing SQL Server backups and use [Test-DbaLastBackup](https://dbatools.io/Test-DbaLastBackup). Here's how you can, too.
 
-## First, centralize your SQL Server backups
+## First, Centralize Your SQL Server Backups
 
 I use and recommend Ola Hallengren's [SQL Server Maintenance Solution](https://ola.hallengren.com/) to centralize database backups. Every SQL Server in my estate backs up its databases to a write-only UNC share.
 
 If you're required to backup locally, you can centralize your backups by automating the copy process from the SQL Servers' local disks to a network share using PowerShell's Copy-Item or robocopy. The reason this is required is because your dedicated test server must have access to the backups.
 
-## Next, build your server
+## Next, Build Your Server
 
 Even though I built my server in a pretty simplified manner, I still learned a couple things along the way.
 
@@ -49,7 +49,7 @@ If you end up needing a higher edition of SQL Server, are properly licensed and 
 
 Remember if you've got a database with FIELSTREAM enabled, you must have FILESTREAM enabled on your test sever. Same goes for FULLTEXT indexes and other things I can't recall right now.
 
-#### Service account
+#### Service Account
 
 The SQL Server service account must have access to the centralized network share.
 
@@ -69,7 +69,7 @@ Searching 15 SQL Servers and 315 databases took less than 4 seconds! The size is
 
 In my environment, I setup just one additional disk and placed both the data and logs on that disk. Test-DbaLastBackup allows you to specify different destination data and log drives, however, so you can create two additional drives instead of one if you prefer.
 
-#### tempdb
+#### Tempdb
 
 If you're running the checks, you must also ensure you have enough space for tempdb to grow. It's possible to estimate how much space you'll need with `DBCC CHECKDB(0) WITH ESTIMATEONLY` (read more at [sqlskills.com](http://www.sqlskills.com/blogs/paul/how-does-dbcc-checkdb-with-estimateonly-work/)), but honestly, the estimation wasn't even close to accurate for me and I ran out of space. I ended up throwing an extra 50GB at tempdb, which sufficed.
 
@@ -79,7 +79,7 @@ So first, I literally updated Test-DbaLastBackup today, so make sure you are at 
 
 So first, run either `Update-Module -Name dbatools` (if you've installed dbatools from the Gallery) or `Update-dbatools` if you've used the installer script.
 
-## Execute a one-liner
+## Execute a One-Liner
 
 Next, it's time to create the script that can
 
@@ -101,11 +101,11 @@ Let's break this command down
 3. **ConvertTo-DbaDataTable**: Casts the results into a DataTable type (instead of being output to screen) so that they can be consumed by SQL Server
 4. **Write-DbaDataTable**: Finally, the datatable is written to the dbatools database, to a table named **lastbackuptests**. If the table does not exist, it will be automatically created.
 
-## The output!
+## The Output!
 
 Here is a screenshot of the output, which has been saved to a SQL Server database:
 
-[![img](https://dbatools.io/wp-content/uploads/2017/04/img_58ecf0fbd28d9.png?w=800&ssl=1)](https://dbatools.io/wp-content/uploads/2017/04/img_58ecf0fbd28d9-full.png?ssl=1)
+[![img](/images/img_58ecf0fbd28d9.png)](/images/img_58ecf0fbd28d9-full.png)
 
 What's just so cool about this is that, in addition to the backup testing, I can also see how long a database will take to restore on a sub-optimized system, how long a CHECKDB will take and how long an entire instance would take to restore from backups.
 
@@ -146,3 +146,5 @@ Want to see [Test-DbaLastBackup](https://dbatools.io/Test-DbaLastBackup) in acti
 [Test-DbaLastBackup](https://dbatools.io/Test-DbaLastBackup) simplifies one of a DBA's the most important tasks. It's also pretty fun! Impress your boss and your friends by rolling your very own dedicated testing solution.
 
 \- Chrissy
+
+

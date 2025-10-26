@@ -1,5 +1,5 @@
 ---
-title: "default parameter values"
+title: "Default Parameter Values"
 date: 2018-08-15
 author: "Chrissy LeMaire"
 slug: "defaults"
@@ -55,7 +55,7 @@ If you have configured a good amount of default parameters and want to see all o
 
 Oh, and it's no big deal if a command does not support the parameter, the parameter and its value just won't be passed. And also, like most things that support defaults, you can override the defaults, as mentioned previously.
 
-## Syntax & real-world examples
+## Syntax & Real-World Examples
 
 [Michael Sorens awesome article on simple-talk](https://www.red-gate.com/simple-talk/sysadmin/powershell/powershell-time-saver-automatic-defaults/) goes in-depth about syntax, but here are some basics.
 
@@ -103,7 +103,7 @@ $PSDefaultParameterValues.Remove('Disabled')
 
 Setting **$PSDefaultParameterValues** at the command-line only lasts during that session, meaning if you close your console, it will be reset. So, if you want it the default values to persist, you'll have to [add it to your profile](https://www.red-gate.com/simple-talk/sysadmin/powershell/persistent-powershell-the-powershell-profile/) (basically: **notepad $profile**, paste, save).
 
-## Scopes are dope
+## Scopes Are Dope
 
 In dbachecks, we [set $PSDefaultParameterValues](https://github.com/dataplat/dbachecks/blob/development/internal/scripts/postimport.ps1#L43) to EnableException across the board. This allows our Pester tests to fail when a failure occurs.
 
@@ -121,3 +121,4 @@ There are some great resources that go more in-depth about Parameters Default Va
 - [Michael Sorens: PowerShell Time Saver: Automatic Defaults](https://www.red-gate.com/simple-talk/sysadmin/powershell/powershell-time-saver-automatic-defaults/)
 
 \- Chrissy
+

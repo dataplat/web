@@ -1,5 +1,5 @@
 ---
-title: "dbachecks commands"
+title: "dbachecks Commands"
 date: 2018-02-22
 author: "Chrissy LeMaire"
 slug: "dbachecks-commands"
@@ -19,11 +19,11 @@ As of version v1.0, dbachecks contains 15 commands. This article provides an ove
 
 Usage can be approached in two ways:
 
-### Run directly from the command line
+### Run Directly From the Command Line
 
 As simple as `Invoke-DbcCheck -SqlInstance sqlprod01 -Checks SuspectPage, LastBackup`
 
-### Schedule checks
+### Schedule Checks
 
 Command line execution is good in a pinch, but ongoing checks are the ultimate goal. In order to do this, you can do the following:
 
@@ -41,7 +41,7 @@ Since the output of Invoke-DbcCheck is a PowerShell object, you can extend respo
 
 Whichever approach you use, the commands below will help you easily accomplish validation of your environment.
 
-## Primary commands
+## Primary Commands
 
 #### Invoke-DbcCheck
 
@@ -55,7 +55,7 @@ We also made it convenient to run groups of checks. So **LastBackup** will run L
 
 This command lists all checks, check groups along with their required server type, either SqlInstance or ComputerName.
 
-![](https://dbatools.io/wp-content/uploads/2018/02/img_5a8a9d30ee2bb.png?w=800&ssl=1)
+![](/images/img_5a8a9d30ee2bb.png)
 
 #### Set-DbcConfig
 
@@ -65,15 +65,15 @@ What are reasonable defaults? Well for instance, out of the box, dbachecks tests
 
 `Set-DbcConfig -Name policy.backup.logmaxminutes -Value 60`
 
-![](https://dbatools.io/wp-content/uploads/2018/02/img_5a8de6b8a700a.png?w=800&ssl=1)
+![](/images/img_5a8de6b8a700a.png)
 
 #### Get-DbcConfig
 
 Retrieves dbachecks configuration elements. You can run this command with or without a search pattern.
 
-![](https://dbatools.io/wp-content/uploads/2018/02/img_5a8de7bac0d18.png?w=800&ssl=1)
+![](/images/img_5a8de7bac0d18.png)
 
-![](https://dbatools.io/wp-content/uploads/2018/02/img_5a8de7fb62bbb.png?w=800&ssl=1)
+![](/images/img_5a8de7fb62bbb.png)
 
 Piping `Get-DbcConfig` to `Out-GridView` will help make the results even more searchable.
 
@@ -105,7 +105,7 @@ Launches the [included Power BI dashboard](https://app.powerbi.com/view?r=eyJrIj
 
 Start-DbcPowerBi also supports alternative paths, in the event, you specify a new path using `Start-DbcPowerBi`.
 
-## Supporting commands
+## Supporting Commands
 
 #### Clear-DbcPowerBiDataSource
 

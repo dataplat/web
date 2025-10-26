@@ -1,5 +1,5 @@
 ---
-title: "dbatools 1.0 has arrived"
+title: "dbatools 1.0 Has Arrived"
 date: 2019-06-18
 author: "Chrissy LeMaire"
 slug: "dbatools10"
@@ -17,7 +17,7 @@ Our team had some lofty goals and met a vast majority of them 🏅. In the end, 
 
 Before we get started with what's new, let's take a look at some history.
 
-# historical milestones
+# Historical Milestones
 
 dbatools began in July of 2014 when I was tasked with migrating a SQL Server instance that supported SharePoint. No way did I want to do that by hand! Since then, the module has grown into a full-fledged data platform solution.
 
@@ -31,11 +31,11 @@ dbatools began in July of 2014 when I was tasked with migrating a SQL Server ins
 
 Thanks so much to every single person who has volunteered any time to dbatools. You've helped change the SQL Server landscape.
 
-# improvements
+# Improvements
 
 We've made a ton of enhancements that we haven't had time to share even over the past six months. Here are a few.
 
-## availability groups
+## Availability Groups
 
 Availability Group support has been solidified and is looking good and [New-DbaAvailabilityGroup](https://dbatools.io/New-DbaAvailabilityGroup) is better than ever. Try out the changes and let us know how you like them.
 
@@ -43,11 +43,11 @@ Availability Group support has been solidified and is looking good and [New-DbaA
 Get-Help New-DbaAvailabilityGroup -Examples
 ```
 
-## authentication support
+## Authentication Support
 
 We now also support all the different ways to login to SQL Server! So basically this:
 
-![SSMS Auth Dialog](https://dbatools.io/wp-content/uploads/2020/06/ssmsdialog.png?resize=477%2C315&ssl=1)
+![SSMS Auth Dialog](/images/ssmsdialog.png)
 
 Want to try it for yourself? Here are a few examples.
 
@@ -67,7 +67,7 @@ Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database abc -
 
 You can also find a couple more within the MFA [Pull Request on GitHub](https://github.com/dataplat/dbatools/pull/5593) and by using `Get-Help Connect-DbaInstance -Examples`.
 
-## registered servers
+## Registered Servers
 
 This is probably my favorite! We now support Local Server Groups and Azure Data Studio groups. Supporting Local Server Groups means that it's now a whole lot easier to manage servers that don't use Windows Authentication.
 
@@ -83,7 +83,7 @@ Get-DbaRegisteredServer -Name mydocker | Get-DbaDatabase
 
 Totally dreamy 😋
 
-## csv
+## CSV
 
 Import-DbaCsv is now far more reliable. While the previous implementation was faster, it didn't work a lot of the time. The new command should suit your needs well.
 
@@ -91,7 +91,7 @@ Import-DbaCsv is now far more reliable. While the previous implementation was fa
 Get-ChildItem C:\allmycsvs | Import-DbaCsv -SqlInstance sql2017 -Database tempdb -AutoCreateTable
 ```
 
-## future & backwards compatible
+## Future & Backwards Compatible
 
 In the past couple months, we've started focusing a bit more on Azure: both Azure SQL Database and Managed Instances. In particular, we now support migrations to Azure Managed Instances! We've also added a couple more commands to PowerShell Core., in particular, the [Masking](https://dbatools.io/commands/#masking) and [Data Generation](https://dbatools.io/commands/#Database) commands. Over 75% of our commands run on mac OS and Linux!
 
@@ -104,37 +104,37 @@ Still, we support PowerShell 3 and Windows 7 and SQL Server 2000 when we can. Ou
 - x86 and x64
 - Strict (`AllSigned`) Execution Policy
 
-## new commands
+## New Commands
 
 We've also added a bunch of new commands, mostly revolving around Roles, PII, Masking, Data Generation and even [ADS notebooks](https://dbatools.io/New-DbaDiagnosticAdsNotebook)!
 
 Want to see the full list? Check out our freshly updated [Command Index page](https://dbatools.io/commands) 🙏.
 
-## configuration enhancements
+## Configuration Enhancements
 
 A few configuration enhancements have been made and a blog post for our configuration system is long overdue. But one of the most useful, I think, is that you can now control the client name. This is the name that shows up in logs, in Profiler and in Xevents.
 
 ```powershell
 # Set it
-Set-DbatoolsConfig -FullName sql.connection.clientname -Value "my custom module built on top of dbatools" -Register
+Set-dbatoolsConfig -FullName sql.connection.clientname -Value "my custom module built on top of dbatools" -Register
 
 # Double check it
-Get-DbatoolsConfig -FullName sql.connection.clientname | Select Value, Description
+Get-dbatoolsConfig -FullName sql.connection.clientname | Select Value, Description
 ```
 
-The `-Register` parameter is basically a shortcut for piping to `Register-DbatoolsConfig`. This writes the value to the registry, otherwise, it'll be effective only for your current session.
+The `-Register` parameter is basically a shortcut for piping to `Register-dbatoolsConfig`. This writes the value to the registry, otherwise, it'll be effective only for your current session.
 
-Another configuration enhancement helps with standardization. Now, all export commands will default to **Documents\DbatoolsExport**. You can change it by issuing the following commands.
+Another configuration enhancement helps with standardization. Now, all export commands will default to **Documents\dbatoolsExport**. You can change it by issuing the following commands.
 
 ```powershell
 # Set it
-Set-DbatoolsConfig -FullName path.dbatoolsexport -Value "C:\temp\exports" -Register
+Set-dbatoolsConfig -FullName path.dbatoolsexport -Value "C:\temp\exports" -Register
 
 # Double check it
-Get-DbatoolsConfig -FullName path.dbatoolsexport | Select Value, Description
+Get-dbatoolsConfig -FullName path.dbatoolsexport | Select Value, Description
 ```
 
-## help is separated
+## Help Is Separated
 
 Something new that I like because it's "proper" PowerShell: we're now publishing our module with Help separated into its own file. We're using a super cool module called [HelpOut](https://www.powershellgallery.com/packages/HelpOut). HelpOut was created for dbatools by a former member of the PowerShell team, [James Brundage](http://startautomating.com/).
 
@@ -148,27 +148,27 @@ It's as simple as that! This does all of the heavy lifting: making the maml file
 
 Help will continue to be published to [docs.dbatools.io](https://docs.dbatools.io) and updated with each release. You can read more about HelpOut [on GitHub](https://github.com/StartAutomating/HelpOut).
 
-# breaking changes
+# Breaking Changes
 
 We've got a number of breaking changes included in 1.0.
 
-Before diving into this section, I want to emphasize that we have a command to handle a large majority of the renames! **[Invoke-DbatoolsRenameHelper](https://dbatools.io/Invoke-DbatoolsRenameHelper)** will parse your scripts and replace script names and some parameters for you.
+Before diving into this section, I want to emphasize that we have a command to handle a large majority of the renames! **[Invoke-dbatoolsRenameHelper](https://dbatools.io/Invoke-dbatoolsRenameHelper)** will parse your scripts and replace script names and some parameters for you.
 
-![Rename Helper GIF](https://dbatools.io/wp-content/uploads/2020/06/renamehelper.gif?resize=800%2C448&ssl=1)
+![Rename Helper GIF](/images/renamehelper.gif)
 
-## command renames
+## Command Renames
 
 Renames in the past 30 days were mostly changing `Instance` to `Server`. But we also made some command names more accurate:
 
 Test-DbaDbVirtualLogFile -> Measure-DbaDbVirtualLogFile
-Uninstall-DbaWatchUpdate -> Uninstall-DbatoolsWatchUpdate
-Watch-DbaUpdate -> Watch-DbatoolsUpdate
+Uninstall-DbaWatchUpdate -> Uninstall-dbatoolsWatchUpdate
+Watch-DbaUpdate -> Watch-dbatoolsUpdate
 
-## command removal
+## Command Removal
 
 Export-DbaAvailabilityGroup has been removed entirely. The same functionality can now be found using `Get-DbaAvailabiltyGroup | Export-DbaScript`.
 
-## alias removals
+## Alias Removals
 
 All but 5 command aliases have been removed. Here are the ones that are still around:
 
@@ -180,9 +180,9 @@ Write-DbaDataTable -> Write-DbaDbTableData
 
 I kept `Start-SqlMigration` because that's where it all started, and the rest are easier to remember.
 
-Also, all `ServerInstance` and `SqlServer` aliases have been removed. You must now use `SqlInstance`. For a full list of what Invoke-DbatoolsRenameHelper renames/replaces, [check out the source code](https://github.com/dataplat/dbatools/blob/prerelease/functions/Invoke-DbatoolsRenameHelper.ps1#L69).
+Also, all `ServerInstance` and `SqlServer` aliases have been removed. You must now use `SqlInstance`. For a full list of what Invoke-dbatoolsRenameHelper renames/replaces, [check out the source code](https://github.com/dataplat/dbatools/blob/prerelease/functions/Invoke-dbatoolsRenameHelper.ps1#L69).
 
-## parameter standardization
+## Parameter Standardization
 
 Most of the commands now follow the following practices we've observed in Microsoft's PowerShell modules.
 
@@ -191,7 +191,7 @@ Most of the commands now follow the following practices we've observed in Micros
 - When a distinction is required, file paths are now `-FilePath`, and not RemoteFile or BackupFileName
 - If both file and directory path needs to be distinguished, Path is used for directory and FilePath for file locations
 
-## parameter removal
+## Parameter Removal
 
 `-SyncOnly` is no longer an option in [Copy-DbaLogin](https://dbatools.io/Copy-DbaLogin). Please use [Sync-DbaLoginPermission](https://dbatools.io/Sync-DbaLoginPermission) instead.
 
@@ -199,17 +199,17 @@ Most of the commands now follow the following practices we've observed in Micros
 
 For a full list of breaking changes, you can browse our gorgeous [changelog](https://dbatools.io/changelog), maintained by [Andy Levy](https://flxsql.com/).
 
-## book party!
+## Book Party!
 
 In case you did not hear the news, [Rob Sewell](https://sqldbawithabeard.com/) and I, are currently in the process of writing **dbatools in a Months of Lunches**! We've really excited and hope to have a [MEAP (Manning Early Access Program)](https://www.manning.com/meap-program) available sometime in July. We will keep everyone updated here and on Twitter.
 
-![Book Editor GIF](https://dbatools.io/wp-content/uploads/2020/06/book2.gif?resize=768%2C441&ssl=1)
+![Book Editor GIF](/images/book2.gif)
 
 The above is what the editor looks like – a lot like markdown!
 
 If you'd like to see what the writing process is like, I did a [livestream a couple of months back](https://www.youtube.com/watch?v=EeXHlAPa_Mo) while writing Chapter 6, which is about [Find-DbaInstance](https://dbatools.io/Find-DbaInstance). Sorry about the music being a bit loud, that has been fixed in future streams which can be found at [youtube.com/dbatools](https://youtube.com/dbatools).
 
-## sponsorship
+## Sponsorship
 
 Since Microsoft acquired GitHub, they've been rolling out some really incredible features. One such feature is Developer Sponsorships, which allows you to sponsor developers with cash subscriptions. It's sorta like Patreon where you can pay monthly sponsorships with different tiers. If you or your company has benefitted from dbatools, consider [sponsoring](https://github.com/dataplat/dbatools?sponsor=1) one or more of our developers.
 
@@ -223,13 +223,13 @@ We've invited other dbatools developers to sign up as well 🙏
 
 Oh, and for the first year, **[GitHub will match sponsorship funds](https://help.github.com/en/articles/about-github-sponsors#about-the-github-sponsors-matching-fund)**! So giving to us now is like giving double.
 
-## big ol thanks
+## Big Ol Thanks
 
 I'd like to give an extra special thanks to the contributors who helped get dbatools across the finish line these past couple months: Simone Bizzotto, Joshua Corrick, Patrick Flynn, Sander Stad, Cláudio Silva, Shawn Melton, Garry Bargsley, Andy Levy, George Palacios, Friedrich Weinmann, Jess Pomfret, Gareth N, Ben Miller, Shawn Tunney, Stuart Moore, Mike Petrak, Bob Pusateri, Brian Scholer, John G "Shoe" Hohengarten, Kirill Kravtsov, James Brundage, Hüseyin Demir, Gianluca Sartori and Rob Sewell.
 
 Without you all, 1.0 would be delayed for another 5 years.
 
-## blog party!
+## Blog Party!
 
 Want to know more about dbatools? Check out some of these posts ☺
 
@@ -247,7 +247,7 @@ Want to know more about dbatools? Check out some of these posts ☺
 
 [updating sql server instances using dbatools 1.0 – Gareth N](https://ifexists.blog/updating-sql-server-instances-using-powershell/)
 
-## livestreaming
+## Livestreaming
 
 We're premiering dbatools 1.0 at [DataGrillen](https://datagrillen.com) in Lingen, Germany today and will be livestreaming on [Twitch](https://twitch.tv/potatoqualitee).
 

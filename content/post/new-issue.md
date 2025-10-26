@@ -78,11 +78,11 @@ In order to reproduce the problem, we will need you to provide the command you a
 
 We have added two commands to the module that can help us more quickly determine the issue if you are able to provide them.
 
-##### Get-DbatoolsLog
+##### Get-dbatoolsLog
 
 This command simply outputs the messaging that has been generated since you imported the module into your session. This is one reason why duplicating your issue in a new/fresh console can help. Reissue the command and let the error or bug occur again, then run this command and you will see all the output generated from the command. This output includes an internal command that may have been executed as well.
 
-##### New-DbatoolsSupportPackage
+##### New-dbatoolsSupportPackage
 
 This command will generate a compressed file of collected information from the client machine, one you are using dbatools on. Think of this like you submit a support ticket to Microsoft support, they will have your run a few utilities on the offending machine to let it collect various logs and in-memory information. We do not capture as much as Microsoft, but information pertinent to the PowerShell session you have in use. I encourage you to run this and review the contents of that compressed file before attaching to an issue; ensure you are not violating any security policies.
 

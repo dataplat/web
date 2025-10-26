@@ -1,0 +1,28 @@
+# Title and headers transformations needed:
+# title: "dbatools 1.0 has arrived" -> "dbatools 1.0 Has Arrived"
+# # historical milestones -> # Historical Milestones
+# # improvements -> # Improvements
+# ## availability groups -> ## Availability Groups
+# ## authentication support -> ## Authentication Support
+# ## registered servers -> ## Registered Servers
+# ## csv -> ## CSV
+# ## future & backwards compatible -> ## Future & Backwards Compatible
+# ## new commands -> ## New Commands
+# ## configuration enhancements -> ## Configuration Enhancements
+# ## help is separated -> ## Help Is Separated
+# # breaking changes -> # Breaking Changes
+# ## command renames -> ## Command Renames
+# ## command removal -> ## Command Removal
+# ## alias removals -> ## Alias Removals
+# ## parameter standardization -> ## Parameter Standardization
+# ## parameter removal -> ## Parameter Removal
+# ## book party! -> ## Book Party!
+# ## sponsorship -> ## Sponsorship
+# ## big ol thanks -> ## Big Ol Thanks
+# ## blog party! -> ## Blog Party!
+# ## livestreaming -> ## Livestreaming
+
+# Image path transformations:
+# https://dbatools.io/wp-content/uploads/2020/06/ssmsdialog.png?resize=477%2C315&ssl=1 -> /images/ssmsdialog.png
+# https://dbatools.io/wp-content/uploads/2020/06/renamehelper.gif?resize=800%2C448&ssl=1 -> /images/renamehelper.gif
+# https://dbatools.io/wp-content/uploads/2020/06/book2.gif?resize=768%2C441&ssl=1 -> /images/book2.gif

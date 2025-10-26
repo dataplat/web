@@ -17,7 +17,7 @@ Here's the general idea:
 
 - DbaDatabase has mostly been renamed to DbaDb with a couple exceptions
 - DbaSql has been changed to just Dba, no exceptions. Considering Microsoft reserved the Sql prefix and we can't use it, think of Dba as "Sql".
-- DbaConfig  has been renamed to DbatoolsConfig
+- DbaConfig  has been renamed to dbatoolsConfig
 - TempDbConfiguration has been renamed to TempdbConfig
 - All Configuration commands are Config except SpConfigure
 - DbaDacpac has been renamed to DbaDacPackage. Dac is the prefix for our data-tier application commands.
@@ -27,10 +27,10 @@ If you use the old name, it'll still work but will show a warning that the comma
 
 ## renaming
 
-If you'd like help renaming dbatools scripts within your command, use the newly created function **Invoke-DbatoolsRenameHelper**, available in [regularlegs](https://dbatools.io/releases). The screenshot below shows is what it looked like when I ran the this:
+If you'd like help renaming dbatools scripts within your command, use the newly created function **Invoke-dbatoolsRenameHelper**, available in [regularlegs](https://dbatools.io/releases). The screenshot below shows is what it looked like when I ran the this:
 
 ```ps
-Get-ChildItem -Recurse C:\temp\community-presentations\*.ps1 | Invoke-DbatoolsRenameHelper | Out-GridView
+Get-ChildItem -Recurse C:\temp\community-presentations\*.ps1 | Invoke-dbatoolsRenameHelper | Out-GridView
 ```
 
 ![image](https://user-images.githubusercontent.com/8278033/45200604-ed795300-b271-11e8-8d17-73b8fafbe902.png?w=800&ssl=1)

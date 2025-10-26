@@ -1,5 +1,5 @@
 ---
-title: "a new command to find all of your sql instances"
+title: "A New Command to Find All of Your SQL Instances"
 date: 2018-03-27
 author: "Chrissy LeMaire"
 slug: "find-sql-instances"
@@ -21,11 +21,11 @@ I always thought it'd be cool to have one comprehensive PowerShell command that 
 
 When I saw Scott's multi-pronged approach (including some UDP magic 🎸), I asked if he'd be interested in contributing to dbatools and he said yes! He submitted a gorgeous mock-up and I was so excited. Then came the PR, complete with great documentation and multithreading.
 
-![banana dance](https://dbatools.io/wp-content/uploads/2018/04/bananadance.gif?resize=249%2C246&ssl=1)
+![banana dance](/images/bananadance.gif)
 
 I asked our architect [Fred Weinmann](http://psframework.org/) to perform a code review and he was so taken by the command, he refactored it with some C# magic including strong types. This command, which is available in 0.9.314, is a beauty!
 
-## The basics
+## The Basics
 
 This command searches for SQL Server Instances. It supports a variety of scans for this purpose which can be separated in two categories: Discovery and Scan.
 
@@ -92,7 +92,7 @@ Once a list of computers has been provided, this command will execute a variety 
 - Target a specific domain controller using the `-DomainController` parameter
 - If using the `-DomainController` parameter, use the `-Credential` parameter to specify the credentials used to connect
 
-## Example usage
+## Example Usage
 
 Here are just a few usage examples.
 
@@ -100,7 +100,7 @@ Here are just a few usage examples.
 
 `Get-ADComputer -Filter { name -like 'sql*' } | Find-DbaInstance | Out-GridView`
 
-![Active Directory scan results](https://dbatools.io/wp-content/uploads/2018/03/img_5aba385e9c543.png?w=800&ssl=1)
+![Active Directory scan results](/images/img_5aba385e9c543.png)
 
 Scans all computers named like `sql%` in the domain for SQL Instances, using a deep probe:
 
@@ -117,9 +117,9 @@ And for more detailed information, you can use `Select *` to expose all properti
 
 `Get-ADComputer -Filter { name -like 'sql*' } | Find-DbaInstance | Select *`
 
-![Detailed scan results](https://dbatools.io/wp-content/uploads/2018/04/scan.jpg?resize=800%2C294&ssl=1)
+![Detailed scan results](/images/scan.jpg)
 
-### SPN and auto-discovery
+### SPN and Auto-Discovery
 
 `Find-DbaInstance -DiscoveryType Domain, DataSourceEnumeration`
 
@@ -129,7 +129,7 @@ Performs a network search for SQL Instances by:
 - Using the UDP broadcast based auto-discovery of SSMS
 - After that it will extensively scan all hosts thus discovered for instances
 
-### Servers from file
+### Servers From File
 
 `Get-Content .\servers.txt | Find-DbaInstance -ScanType Browser, SqlConnect -Credential (Get-Credential ad\winadmin) -SqlCredential ad\sqladmin`
 
@@ -137,7 +137,7 @@ Performs a network search for SQL Instances by:
 - Scans each of them for instances using the browser service using the ad\winadmin account
 - Attempts to connect to each instance found using the ad\sqladmin account
 
-### Do everything
+### Do Everything
 
 Warning! This one takes a long time due to the IP scan. How long? About 2 hours on my single subnet lab.
 

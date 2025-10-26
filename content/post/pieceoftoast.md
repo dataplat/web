@@ -80,10 +80,10 @@ It's also our mascot, Tron's, debut in the toolkit. You'll be seeing more of him
 - **[Watch-DbaUpdate](https://dbatools.io/Watch-DbaUpdate)**
   Just for fun – checks the PowerShell Gallery for updates to dbatools.
 
-- **[Install-DbatoolsWatchUpdate](https://dbatools.io/Install-DbatoolsWatchUpdate)**
+- **[Install-dbatoolsWatchUpdate](https://dbatools.io/Install-dbatoolsWatchUpdate)**
   Sets up a scheduled task that checks the PowerShell Gallery every 3 hours for updates to dbatools. Notifies once max per release.
 
-- **[Uninstall-DbatoolsWatchUpdate](https://dbatools.io/Uninstall-DbatoolsWatchUpdate)**
+- **[Uninstall-dbatoolsWatchUpdate](https://dbatools.io/Uninstall-dbatoolsWatchUpdate)**
   Removes the scheduled task that checks the PowerShell Gallery every 3 hours for updates to dbatools.
 
 ### Misc
@@ -110,18 +110,18 @@ It's also our mascot, Tron's, debut in the toolkit. You'll be seeing more of him
 
 We're gettin Enterprise up in here! Thanks to our newest Major Contributor [Friedrich Weinmann](http://allthingspowershell.blogspot.de/), we've now got a really cool configuration system. This will be helpful for our developers. We'll have more information in a blog post during the 1.0 redo, but here's a quick lil overview.
 
-- **[Get-DbatoolsConfig](https://dbatools.io/Get-DbatoolsConfig)**
+- **[Get-dbatoolsConfig](https://dbatools.io/Get-dbatoolsConfig)**
   Retrieves configuration elements by name. Can be used to search the existing configuration list.
 
-- **[Get-DbatoolsConfigValue](https://dbatools.io/Get-DbatoolsConfigValue)**
+- **[Get-dbatoolsConfigValue](https://dbatools.io/Get-dbatoolsConfigValue)**
   Returns the configuration value stored under the specified name. This command is usually only called by functions.
 
-- **[Set-DbatoolsConfig](https://dbatools.io/Set-DbatoolsConfig)**
+- **[Set-dbatoolsConfig](https://dbatools.io/Set-dbatoolsConfig)**
   This function creates or changes configuration values. These are used in a larger framework to provide dynamic configuration information outside the PowerShell variable system.
 
 ## Improvements & Notable bug fixes
 
-The awesomest improvement is our full on Enterprise-lookin' logging implemented by Fred. We'll be writing some blog in-depth blog posts which discuss the logging system in depth, but for now, check out what happens when I open our logging directory using `Invoke-Item (Get-DbatoolsConfigValue -Name path.dbatoolslogpath)`
+The awesomest improvement is our full on Enterprise-lookin' logging implemented by Fred. We'll be writing some blog in-depth blog posts which discuss the logging system in depth, but for now, check out what happens when I open our logging directory using `Invoke-Item (Get-dbatoolsConfigValue -Name path.dbatoolslogpath)`
 
 ![Logging directory](https://dbatools.io/wp-content/uploads/2017/02/img_58b434b604eb5.png?w=800&ssl=1)
 

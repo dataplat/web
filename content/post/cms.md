@@ -13,7 +13,7 @@ draft: false
 
 SQL Server's [Central Management Server](https://www.red-gate.com/simple-talk/sql/sql-tools/registered-servers-and-central-management-server-stores/) (CMS), first introduced in SQL Server 2008, "stores a list of instances of SQL Server that is organized into one or more central management server groups".
 
-![CMS Screenshot](https://dbatools.io/wp-content/uploads/2018/07/cms.png?resize=569%2C669&ssl=1)
+![CMS Screenshot](/images/cms.png)
 
 It's a super useful feature that not all DBAs know about. Since CMS data is stored in msdb and accessible via SMO, you can access it from SQL Server Management Studio or PowerShell modules like dbatools.
 
@@ -23,13 +23,13 @@ Central Management Server's [essential functionality](https://docs.microsoft.com
 
 I mostly use it as a visual repository of my SQL Servers. Prior to using dbatools and Invoke-DbaQuery, however, I did use CMS to easily execute code against a number of different servers.
 
-## Server grouping
+## Server Grouping
 
 The screenshot above is a sample representation of how SQL Servers can be divided into groups. I generally organize by department, but as [Cláudio Silva](https://twitter.com/ClaudioESSilva) pointed out, it's useful to organize by version when performing migrations. I've done that as well.
 
 And because a SQL Server can be listed multiple times within different groups, my buddy Brandon created an automated system that divided by both Application and assigned DBA. Too cool! In this example from [sqlmatters.com](https://www.sqlmatters.com/Articles/RegisteredServersvsCentralManagementServers.aspx), their servers are divided up by environment.
 
-![Registered Servers and Central Management Servers](https://dbatools.io/wp-content/uploads/2018/07/Registered-Servers-and-Central-Management-Servers-1.jpg?resize=400%2C600&ssl=1)
+![Registered Servers and Central Management Servers](/images/Registered-Servers-and-Central-Management-Servers-1.jpg)
 
 But wait. The screenshot also shows Registered Servers. What are those?
 
@@ -52,7 +52,7 @@ The article [Registered Servers vs Central Management Servers](https://www.sqlma
 
 I work primarily in environments where Windows Authentication works for all of my servers, so I haven't used Registered Servers in years. I also appreciate that my list of servers within CMS is backed up each day because it's stored in msdb. And, it's easily accessible through both SQL Server Management Studio and PowerShell.
 
-## dbatools commands
+## dbatools Commands
 
 We have a number of commands to help manage CMS! We even updated our command names after this blog post came out.
 
@@ -60,7 +60,7 @@ We have a number of commands to help manage CMS! We even updated our command nam
 
 Gets list of SQL Server objects stored in SQL Server Central Management Server.
 
-![Get-DbaRegServer](https://dbatools.io/wp-content/uploads/2018/07/img_5b4670e0cd968.png?w=800&ssl=1)
+![Get-DbaRegServer](/images/img_5b4670e0cd968.png)
 
 ```powershell
 # Here's how you get a list of all servers stored on the CMS instance on sql2008.
@@ -81,7 +81,7 @@ Get-DbaRegServer -SqlInstance sql2008 -Group Production\HR
 
 Adds registered servers to SQL Server Central Management Server.
 
-![Add-DbaRegServer](https://dbatools.io/wp-content/uploads/2018/07/img_5b4668c7bc3e9.png?w=800&ssl=1)
+![Add-DbaRegServer](/images/img_5b4668c7bc3e9.png)
 
 ```powershell
 # To create a registered server on sql2008's CMS which points to the SQL Server, sql01.
@@ -116,7 +116,7 @@ Get-DbaRegServerGroup -SqlInstance sql2012, sql2014 -Group HR | Add-DbaRegServer
 
 Exports Central Management Server registered servers and registered server groups to file.
 
-![Export-DbaRegServer](https://dbatools.io/wp-content/uploads/2018/07/img_5b46694e4c014.png?w=800&ssl=1)
+![Export-DbaRegServer](/images/img_5b46694e4c014.png)
 
 ```powershell
 # To export all Registered Server and Registered Server Groups on sql2008 to an automatically generated file name in the current directory
@@ -154,7 +154,7 @@ Get-DbaRegServerStore -SqlInstance sql2008
 
 Gets list of Server Groups objects stored in SQL Server Central Management Server.
 
-![Import-DbaRegServer](https://dbatools.io/wp-content/uploads/2018/07/img_5b46702b5eb54.png?w=800&ssl=1)
+![Import-DbaRegServer](/images/img_5b46702b5eb54.png)
 
 ```powershell
 # To import C:\temp\corp-regservers.xml to the CMS on sql2012
@@ -215,7 +215,7 @@ Remove-DbaRegServerGroup -SqlInstance sql2012 -Group HR, Accounting
 Remove-DbaRegServerGroup -SqlInstance sql2012 -Group HR\Development -Confirm:$false
 ```
 
-## ⭐⭐⭐⭐⭐ would use again
+## ⭐⭐⭐⭐⭐ Would Use Again
 
 CMS is a longtime favorite of mine and I'd like to give a shoutout to [Bryan Hamby](https://www.linkedin.com/in/bryan-hamby-92110016/) for helping make dbatools commands compatible with Central Management Server.
 

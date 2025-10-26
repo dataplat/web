@@ -35,10 +35,10 @@ Just a quick note that we've made more changes to align with 1.0, now available 
 [Remove-DbaCmsRegServer](http://docs.dbatools.io/#Remove-DbaCmsRegServer)
 [Remove-DbaCmsRegServerGroup](http://docs.dbatools.io/#Remove-DbaCmsRegServerGroup)
 
-And don't forget, you can use [Invoke-DbatoolsRenameHelper](http://docs.dbatools.io/#Invoke-DbatoolsRenameHelper) to rename commands in your scripts.
+And don't forget, you can use [Invoke-dbatoolsRenameHelper](http://docs.dbatools.io/#Invoke-dbatoolsRenameHelper) to rename commands in your scripts.
 
 ```powershell
-Get-ChildItem .\scripts | Invoke-DbatoolsRenameHelper
+Get-ChildItem .\scripts | Invoke-dbatoolsRenameHelper
 ```
 
 ## New

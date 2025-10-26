@@ -17,11 +17,11 @@ Today's article is part of [T-SQL Tuesday](http://www.scarydba.com/2017/06/06/t-
 
 This month's T-SQL Tuesday, hosted by Grant Fritchey ([b](http://www.scarydba.com)|[t](https://twitter.com/GFritchey)), is all about Databases and DevOps.
 
-## What is DevOps?
+## What Is DevOps?
 
 Recently, I took an Intro to DevOps Engineering class in my Masters program at [Regis.edu](http://www.regis.edu/CCIS/Academics/Degrees-Programs/Graduate-Programs/MS-Enterprise-Systems-Engineering.aspx). I actually found one of our first assignments to be one of the most challenging: define DevOps.
 
-### One definition
+### One Definition
 
 Many of my cohorts and myself pointed to [The Agile Admin](https://theagileadmin.com/what-is-devops/)'s definition, which was presented in a simplified manner.
 
@@ -40,7 +40,7 @@ By employing the above, it's easier to [achieve DevOps goals](https://en.wikiped
 - Shortened lead time between fixes
 - Faster mean time to recovery (in the event of a new release crashing or otherwise disabling the current system)
 
-### Another definition
+### Another Definition
 
 Another definition was recently shared with me by former PowerShell MVP (and now DevOps advocate at Microsoft) [Steve Murawski](https://twitter.com/StevenMurawski). This definition is an acronym, CAMS, which comes from the [DevOps Dictionary](http://devopsdictionary.com/wiki/CAMS). CAMS describes the core values of the DevOps Movement: Culture, Automation, Measurement, and Sharing.
 
@@ -60,7 +60,7 @@ Want to use VS Code to code for dbatools? Major Contributor [Shawn Melton has wr
 
 PowerShell Desired State Configuration (DSC) can help provide your environment with Infrastructure as Code (IaC), but right now, dbatools doesn't do any DSC. What we do, however, is take advantage of [Appveyor's](https://appveyor.com) IaC which helps us provide **Continuous Integration** through automated testing.
 
-I'd heard about IaC and "ephemeral servers" for a while  (and you may have, too) but I could never quite grasp how temporary servers could be beneficial to our project until I watched our teammates André Kamman & Rob Sewell present [Test your Powershell code with AppVeyor for ITPros](https://www.youtube.com/watch?v=8Nljk1deSmU) at [PSconf.eu](http://psconf.eu).
+I'd heard about IaC and "ephemeral servers" for a while  (and you may have, too) but I could never quite grasp how temporary servers could be beneficial to our project until I watched our teammates André Kamman & Rob Sewell present [Test Your PowerShell Code With AppVeyor for ITPros](https://www.youtube.com/watch?v=8Nljk1deSmU) at [PSconf.eu](http://psconf.eu).
 
 `youtube: 8Nljk1deSmU`
 
@@ -88,7 +88,7 @@ Our measurement is kind of weak right now, but it comes in the form of being ext
 
 In continuing with the DevOps theme, we also adopted a pretty fast release cycle. We aim to [release early and release often](https://about.gitlab.com/2016/07/21/release-early-release-often/), as can be seen on our [download](https://dbatools.io/download) page.
 
-![DevOps Release Cycle](https://dbatools.io/wp-content/uploads/2017/06/img_593fb5b7c4a8c.png?w=800&ssl=1)
+![DevOps Release Cycle](/images/img_593fb5b7c4a8c.png)
 
 Currently, our non-publicized releases occur with far greater frequency than our formal, publicized releases. If a major bug is reported, it can be tested and released to [PowerShell Gallery](https://dbatools.io/gallery) and [master](https://dbatools.io/git) in less than 4 hours. As you may be aware, we're working towards 1.0 right now. Each formal release takes about 8-16 hours of work for documentation and manual testing, so considering this, our formal release cycle is lagging. However, we've made AMAZING strides towards 1.0.
 
@@ -97,12 +97,14 @@ Currently, our non-publicized releases occur with far greater frequency than our
 
 We're super pumped (and I'm hoping we can pull off that Wednesday deadline – it'll be a challenge but I'd love for the newest release to be ready for our presentations at [SQL Saturday Dublin](http://www.sqlsaturday.com/620/eventhome.aspx)).
 
-## Speaking of releases
+## Speaking of Releases
 
 Our dev branch is a bit unstable right now, but it's filled with some really amazing things. As the tweet mentioned, every command now has the [Dba PowerShell prefix](https://dbatools.io/new-prefix-for-many-dbatools-commands/), our auto-populated parameters actually work well and now use caching, and the dev branch contains 232 commands as of today. Many of the newer ones revolve around encryption and certificates. We can't wait to share more soon!
 
-## Join us
+## Join Us
 
 Want to help the community *and* add some DevOps to your resume? We can offer you experience with git, GitHub, Slack, regular releases, being awesome and more. Join us on [Slack](https://dbatools.io/slack), [GitHub](https://dbatools.io/git), [YouTube](https://dbatools.io/youtube), [Twitter](https://dbatools.io/twitter) or [LinkedIn](https://dbatools.io/company).
 
 \- Chrissy
+
+

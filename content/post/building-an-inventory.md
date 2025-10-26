@@ -1,5 +1,5 @@
 ---
-title: "Building an Inventory View of SQL Servers with Dbatools"
+title: "Building an Inventory View of SQL Servers with dbatools"
 date: 2019-04-25
 author: "Andreas Schubert"
 slug: "building-an-inventory"
@@ -20,7 +20,7 @@ Since the environments usually change pretty fast, my goal is to automate this p
 
 In this series of posts, I will try to show you how I am implementing this. Of course, your requirements or implementations may differ, but hopefully this blog post can give you some ideas about your tasks too.
 
-## Enter Dbatools
+## Enter dbatools
 
 Before dbatools existed, I had to rely on either the various monitoring solutions that my customers are using or on scripts created by myself. There are a lot of really great 3rd party tools out there that do an awesome job. Unfortunately, they all differ in how they are used or what information they report back. I needed something that is easy to implement, with as few dependencies as possible and works across all SQL Server versions. That's when I started using dbatools.
 

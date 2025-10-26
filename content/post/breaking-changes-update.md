@@ -11,9 +11,9 @@ tags: []
 draft: false
 ---
 
-Before I go into the breaking changes introduced in **0.9.518**, I wanted to highlight `Invoke-DbatoolsRenameHelper` which is an awesome command that will help you with a vast majority of our renames. Using it is as simple as:
+Before I go into the breaking changes introduced in **0.9.518**, I wanted to highlight `Invoke-dbatoolsRenameHelper` which is an awesome command that will help you with a vast majority of our renames. Using it is as simple as:
 
-`Get-ChildItem *.ps1 -Recurse | Invoke-DbatoolsRenameHelper`
+`Get-ChildItem *.ps1 -Recurse | Invoke-dbatoolsRenameHelper`
 
 This command even takes care of a couple parameter renames like NetworkShare and UseLastBackups.
 

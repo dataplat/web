@@ -1,5 +1,5 @@
 ---
-title: "dbatools extension for visual studio code"
+title: "dbatools Extension for Visual Studio Code"
 date: 2018-11-28
 author: "Chrissy LeMaire"
 slug: "dbatools-extension-for-visual-studio-code"
@@ -15,11 +15,11 @@ We recently released a VS Code extension that lets you highlight terms and searc
 
 ![Search demo](https://github.com/potatoqualitee/vscode-dbatools-search/raw/master/resources/search.gif?w=800&ssl=1)
 
-## options and settings
+## Options and Settings
 
 By default, only Google, docs and dbatools are enabled but you can configure whichever providers you'd like in VS Code Settings.
 
-![Search options](https://dbatools.io/wp-content/uploads/2018/11/search-options.png?resize=454%2C530&ssl=1)
+![Search options](/images/search-options.png)
 
 At first, I was just messing around to see what it took to create a VS Code extension, but then I realized that I was actually using it and decided to share. If you use VS Code, give it a shot and let me know if you'd like any features or additional search providers!
 

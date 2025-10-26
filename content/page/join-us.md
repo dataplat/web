@@ -1,5 +1,5 @@
 ---
-title: "Developing for Dbatools"
+title: "Developing for dbatools"
 date: 2016-06-30
 slug: "join-us"
 aliases:

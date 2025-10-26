@@ -1,5 +1,5 @@
 ---
-title: "Getting complex with Restore-DbaDatabase"
+title: "Getting Complex with Restore-DbaDatabase"
 date: 2017-11-28
 author: "Stuart Moore"
 slug: "complex-restores"
@@ -17,19 +17,19 @@ As part of the `Restore-DbaDatabase` stack rewrite, I wanted to do make things e
 
 So, below we'll be looking at some examples of how you can start going to town with your restores.
 
-## Improving header scan performance
+## Improving Header Scan Performance
 
 One of the most common requests has been ways of speeding up reading the headers from the backup files. Unfortunately we have to do this so we can be sure of what they contain, and there aren't any shortcuts ([I've looked into it in some depth before](https://stuart-moore.com/reading-sql-server-backup-file-headers-directly-using-powershell/)).
 
 So we can now offer a couple more options to do this:
 
-### Spread the load over time
+### Spread the Load Over Time
 
 Using `Get-DbaBackupInformation` it's now possible to scan the headers ahead of time, and just add to them in small batches going forward. So you could scan every 3 hours, and if you needed more recent file, you'd only have to scan the files written since the last scan:
 
 <!-- Gist: 34fec9d449dd914ca455a2a4ea4980c4 -->
 
-### Run parallel jobs on a single server
+### Run Parallel Jobs on a Single Server
 
 Another option is to run multiple scans at the same time. For this example I'm using the [PoshRsJob](https://github.com/proxb/PoshRSJob) module as it's one I use a bit, but any other runspace/jobs options would work just as well.
 
@@ -37,13 +37,13 @@ In the first example we scan multiple directories on the same SQL Server Instanc
 
 <!-- Gist: 54b7e967097b6467047fa6790ab4c95f -->
 
-### Run parallel jobs on multiple servers
+### Run Parallel Jobs on Multiple Servers
 
 Perhaps you want to spread the load even more? The run the scans across multiple SQL Instances. This example uses a simple allocation routine that just 'cross joins' the options:
 
 <!-- Gist: c9a31104759d66b7427311a6b6ae7a3b -->
 
-## Custom Log and Data Folders for each database
+## Custom Log and Data Folders for Each Database
 
 Perhaps you want to restore a number of databases, and you want seperate Data and Log folders for each database, eg:
 
@@ -54,25 +54,25 @@ By dipping into the restore pipleine we can loop through the databases contained
 
 <!-- Gist: 9a6bec3aa2710d719d58f2224491911a -->
 
-## Creating multiple environments
+## Creating Multiple Environments
 
 Perhaps you need to refresh multiple environments at the same time. Using Get-DbaBackupInformation to create a BackupHistory you can use the same scanned files multiple times, saving scanning them repeatedly:
 
 <!-- Gist: 39ac060bd7904c900eac9575d03f0008 -->
 
-## Creating different points in time for comparison
+## Creating Different Points in Time for Comparison
 
 Perhaps you're trying to find out when an issue occured. This example restores the same database to multiple points in time so you can compare the state between them.
 
 <!-- Gist: 00cbc4c3cf31583cae99c36f0494bf94 -->
 
-## Rolling forward looking for data
+## Rolling Forward Looking for Data
 
 Building on the one above, perhaps you'd rather something else did the checking for you? With this script we gradually roll forward a database a minute at a time. We use a SQL query (quite a simple one here) to indicate when the process should stop.
 
 <!-- Gist: c5575e488ff3d95e60403b39b70ca7da -->
 
-## Complex Rebasing of backups
+## Complex Rebasing of Backups
 
 When people use `Get-DbaDbBackupHistory` to get the pre-created Backup History directly from SQL Server, it's a very common request for a way of changing the path of where the backup files were to where they are now. One thing that catches a lot of people out is that the Backup History object stores the Backup file paths as an array. This allows us to easily cope with striped backupsets where the backup consists of multiple files. The simplest way is a nested ForEach loop:
 

@@ -1,5 +1,5 @@
 ---
-title: "using dacpac functions to clone sql server databases"
+title: "Using DacPac Functions to Clone SQL Server Databases"
 date: 2018-08-29
 author: "Kirill Kravtsov"
 slug: "clone"
@@ -34,7 +34,7 @@ This article would explain how to:
 - Generate deployment scripts
 - Create a Jenkins job that will take care of this whole process for you
 
-## Extracting dacpac package
+## Extracting DacPac Package
 
 Let's use this simple script to extract dacpac from an existing database:
 
@@ -60,11 +60,11 @@ Export properties here are defined to control the extract process:
 
 [Export-DbaDacPackage](https://docs.dbatools.io/Export-DbaDacPackage/) function will take care of the extraction process and will return all details about the extraction, including the **Path** property that would direct us to the extracted file:
 
-![output from Export-DbaDacPackage](https://dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-01-10.jpg?resize=653%2C49&ssl=1)
+![output from Export-DbaDacPackage](/images/2018-08-24_15-01-10.jpg)
 
 You can check all other available properties (which are basically command line parameters) in a corresponding article: https://msdn.microsoft.com/en-us/library/hh550080.aspx
 
-## Deploying dacpac package
+## Deploying DacPac Package
 
 There is one important note about dacpac deployment: it requires a so called Publish Profile for the deployment. Publish profile is an xml file that contains deployment parameters that you want to enable during the deployment. You can create such profile by using one of the following options:
 
@@ -110,14 +110,14 @@ Once we have a Publish profile ready we can start the deployment by using [Publi
 - **Path** – path to the dacpac package
 - **PublishXml** – path to the publish profile
 
-![Publish-DbaDacPackage in action](https://dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-44-08.jpg?resize=800%2C379&ssl=1)
+![Publish-DbaDacPackage in action](/images/2018-08-24_15-44-08.jpg)
 
 Other parameters of [Publish-DbaDacPackage](https://docs.dbatools.io/Publish-DbaDacPackage/) that you might find useful:
 
 - **GenerateDeploymentScript** – will generate a deployment script prior to deployment
 - **ScriptOnly** – will not perform the deployment, generating a deployment script instead
 
-## Full script
+## Full Script
 
 This script below would extract the dacpac from an existing database and deploy it to a different server using the publish.xml file we created above. Feel free to modify it to your own liking!
 
@@ -159,11 +159,11 @@ if (Test-Path $exportFile.Path) {
 }
 ```
 
-## Creating a Jenkins job
+## Creating a Jenkins Job
 
 In order to create an interface and a scheduler at the same time, I would definitely recommend to make this scenario available on your Jenkins instance, similar to how it is described in a SQL Server Jenkins Lab series: [Refresh database & keep permissions – SQL Server Jenkins labs (Part 2)](https://nvarscar.wordpress.com/2018/08/08/jenkins-labs-part-2/).
 
-![sample Jenkins job](https://dbatools.io/wp-content/uploads/2018/08/2018-08-24_15-55-30.jpg?resize=668%2C502&ssl=1)
+![sample Jenkins job](/images/2018-08-24_15-55-30.jpg)
 
 ## Conclusion
 

@@ -1,5 +1,5 @@
 ---
-title: "simplifying disaster recovery with dbatools"
+title: "Simplifying Disaster Recovery With dbatools"
 date: 2018-09-20
 author: "Chrissy LeMaire"
 slug: "dr"
@@ -12,20 +12,20 @@ Over the weekend, I presented a session in Glasgow called [doomsday prepping wit
 
 It was a lot of fun, even though the audience put no effort into winning the MRE give away
 
-![](https://dbatools.io/wp-content/uploads/2018/09/mre.gif?resize=261%2C326&ssl=1)
+![](/images/mre.gif)
 
 Now **I've** got some ready-to-eat beef tacos when the zombie apocalypse hits!
 
-## down to business
+## Down to Business
 
 When we talk about Disaster Recovery or *DR*, it's often coupled with the term High Availability or *HA*. Here are some definitions from my [graduate course on HADR](http://academic.regis.edu/ccis/Syllabi/graduate/MSCT/MSCT650_Syllabus.pdf).
 
-### high availability
+### High Availability
 
 - Deals with minor outages, and failover solutions are automated
 - The goal is to restore full system functionality in a short time
 
-### disaster recovery
+### Disaster Recovery
 
 - Deals with major outages such as natural and man-made disasters
 - Focuses on manual processes and procedures to restore systems back to their original state
@@ -33,9 +33,9 @@ When we talk about Disaster Recovery or *DR*, it's often coupled with the term H
 
 In the context of [SQL Server, HA](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server) would be Availability Groups (AG), Failover Clustering (FCI), Log Shipping and more. I won't be addressing High Availability in this post, however.
 
-## disaster recovery
+## Disaster Recovery
 
-### why
+### Why
 
 There are a [number](https://www.strongholddata.com/3-important-reasons-business-needs-disaster-recovery-plan/) [of](http://www.onlinetech.com/resources/references/top-5-reasons-why-your-it-disaster-recovery-plan-should-be-a-top-priority) [articles](https://www.techadvisory.org/2016/01/the-importance-of-disaster-recovery/) discussing the importance of disaster recovery. Here are the three I list in my presentation:
 
@@ -49,7 +49,7 @@ While I can't find the original reference to cite, I once read [in my HADR class
 
 That's insane! And a very solid reason to have a well-tested DR plan.
 
-### who
+### Who
 
 You ever read [that story on reddit](https://www.reddit.com/r/cscareerquestions/comments/6ez8ag/accidentally_destroyed_production_database_on/) about the kid who accidentally dropped the production database on his first day on the job? The CTO fired him and threatened legal action. As if.
 
@@ -57,11 +57,11 @@ Companies like [Amazon](https://aws.amazon.com/message/680587/) correctly recogn
 
 Here's how you can do your part.
 
-## sql server disaster recovery
+## SQL Server Disaster Recovery
 
 [Tracy Boggiano](http://databasesuperhero.com/) has an awesome, in-depth presentation about DR titled [Disaster Recovery: Where to Begin](http://sqlps.io/hadr) that I recommend checking out. It was the primary source for my own research.
 
-### databases
+### Databases
 
 When it comes to SQL Server and Disaster Recovery, Microsoft offers a number of options.
 
@@ -74,7 +74,7 @@ When it comes to SQL Server and Disaster Recovery, Microsoft offers a number of 
 
 Tracy's slide deck didn't mention it, but Bacpacs and Dacpacs are a potential option as well.
 
-#### scenarios
+#### Scenarios
 
 > the faster you want to get data back, the more you will pay
 
@@ -90,7 +90,7 @@ If you need to recover your data far faster, you can use [Distributed Availabili
 - More resources & storage
 - More support staff
 
-### everything else
+### Everything Else
 
 Microsoft rightly places a lot of emphasis on database DR, but what about everything else? Things like:
 
@@ -111,9 +111,9 @@ Microsoft rightly places a lot of emphasis on database DR, but what about everyt
 
 How do you DR these? You can backup the required databases for some things – like msdb restores everything in Agent. Or, if it's available, you can right-click hundreds of objects, one-by-one, and export them.
 
-![](https://dbatools.io/wp-content/uploads/2018/09/right-click.png?resize=300%2C260&ssl=1)
+![](/images/right-click.png)
 
-## introducing simplified disaster recovery
+## Introducing Simplified Disaster Recovery
 
 dbatools can help ease your DR, all in one convenient command. No, not good ol' [Export-DbaScript](https://dbatools.io/happy-belated-world-backup-day/) which is essentially the command line equivalent of the screenshot above.
 
@@ -155,7 +155,7 @@ RESTORE LOG [shipped] FROM  DISK = N'\\localhost\backups\WORKSTATION$SQL2016\shi
 
 Looking good!
 
-## And now for a demo
+## And Now for a Demo
 
 Here is a slightly modified version of the demo I gave in Glasgow, commented for your enjoyment.
 
@@ -295,7 +295,7 @@ Excellent! How gorgeous is that Pester test? Well, the output is hard to read, s
 
 ![image](https://user-images.githubusercontent.com/8278033/45773900-db24ef00-bc4b-11e8-8d19-00b98bcb5e42.png?w=800&ssl=1)
 
-## And a YouTube link!
+## And a YouTube Link!
 
 I also had a blast [presenting this session virtually](https://www.youtube.com/watch?v=MqawTb9crEA) for the [Portland PowerShell User Group](https://twitter.com/PDXPoShPUG) if you'd like to see a recorded demo.
 

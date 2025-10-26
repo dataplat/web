@@ -1,5 +1,5 @@
 ---
-title: "hacktoberfest – dbatools edition"
+title: "Hacktoberfest – dbatools Edition"
 date: 2018-10-09
 author: "Patrick Flynn"
 slug: "hacktoberfest"
@@ -32,7 +32,7 @@ The activity is available to anyone who wants to help and does not require any e
 
 We are a looking for a max of 6-8 examples per command.
 
-# Not sure how to commit?
+# Not Sure How to Commit?
 
 If you'd like to participate but aren't familiar with GitHub, cloning and repos, we've got **good news!** You can update our help files using the web interface at [GitHub.com](https://github.com). Here's how:
 
@@ -40,29 +40,29 @@ First, [create an account](https://github.com/join). GitHub is free and you do n
 
 After creating your GitHub account don't forget to [register](https://hacktoberfest.digitalocean.com/sign_up/register) at hacktoberfest if you want your contributions to be recorded and to qualify for a T-Shirt.
 
-## Find the command you want to edit
+## Find the Command You Want to Edit
 
 In this case, we'll add an example to [Get-DbaClientAlias](https://docs.dbatools.io/#Get-DbaClientAlias). We can do this by clicking on the **functions** directory.
 
-![](https://dbatools.io/wp-content/uploads/2019/10/functions.png?resize=800%2C557&ssl=1)
+![](/images/functions.png)
 
 Next, click on the Get-DbaClientAlias function.
 
-![](https://dbatools.io/wp-content/uploads/2019/10/get-clientalias-list.png?resize=800%2C557&ssl=1)
+![](/images/get-clientalias-list.png)
 
 Then the edit button.
 
-![](https://dbatools.io/wp-content/uploads/2019/10/point.png?resize=800%2C557&ssl=1)
+![](/images/point.png)
 
-## Add an example
+## Add an Example
 
 If you haven't forked our repo before, you'll get a notice that GitHub has done all the work for you.
 
-![](https://dbatools.io/wp-content/uploads/2019/10/2018-10-08_14-15-35.png?resize=800%2C557&ssl=1)
+![](/images/2018-10-08_14-15-35.png)
 
 Proceed to adding the example by scrolling down to find the list of examples.
 
-![](https://dbatools.io/wp-content/uploads/2019/10/example-list.png?resize=800%2C557&ssl=1)
+![](/images/example-list.png)
 
 Copy/paste/modify.
 
@@ -73,32 +73,32 @@ If you are unsure of how to write or format examples you can look at some existi
 
 Then proceed to saving your changes by filling out the form at the bottom. Click the green "Propose file changes". Congrats! You've made your first commit.
 
-![](https://dbatools.io/wp-content/uploads/2019/10/commit.png?resize=800%2C557&ssl=1)
+![](/images/commit.png)
 
-## Create the pull request
+## Create the Pull Request
 
 You will now be prompted to create a Pull Request. Click the button that says "Create pull request".
 
-![](https://dbatools.io/wp-content/uploads/2019/10/pr.png?resize=800%2C557&ssl=1)
+![](/images/pr.png)
 
 Things are filled out for you already.
 
-![](https://dbatools.io/wp-content/uploads/2019/10/pr2.png?resize=800%2C557&ssl=1)
+![](/images/pr2.png)
 
 Modify as necessary and click "Create Pull Request".
 
-![](https://dbatools.io/wp-content/uploads/2019/10/pr3.png?resize=800%2C557&ssl=1)
+![](/images/pr3.png)
 
 ## Celebrate
 
 After a review is complete and the changes are approved, your request will be merged 👍
 
-![](https://dbatools.io/wp-content/uploads/2019/10/tada.png?resize=800%2C557&ssl=1)
+![](/images/tada.png)
 
 And now they will show up on [docs.dbatools.io](https://docs.dbatools.io/#Get-DbaClientAlias)
 
-![](https://dbatools.io/wp-content/uploads/2019/10/docs.png?resize=800%2C556&ssl=1)
+![](/images/docs.png)
 
 If you'd like more examples, check out [Möltz Jensen's](https://twitter.com/splaxi) last [two](https://github.com/dataplat/dbatools/pull/4161) [pull requests](https://github.com/dataplat/dbatools/pull/4159) where he added some useful examples.
 
-### Remember you will need five pull requests before end of October for a T-Shirt!
+### Remember You Will Need Five Pull Requests Before End of October for a T-Shirt!

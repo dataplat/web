@@ -52,11 +52,11 @@ Get-DbaDbSpace -SqlInstance sql2017 -Database master |
 
 ## Configuration
 
-You can also [configure](https://dbatools.io/config) the output. Want more than 2 numbers after the decimal points? Can do! Don't want the human-readable display by default? It can be disabled using `Set-DbatoolsConfig` 👍
+You can also [configure](https://dbatools.io/config) the output. Want more than 2 numbers after the decimal points? Can do! Don't want the human-readable display by default? It can be disabled using `Set-dbatoolsConfig` 👍
 
 ```powershell
 # Get the two properties you'll be working with
-Get-DbatoolsConfig formatting.size.* | Out-GridView
+Get-dbatoolsConfig formatting.size.* | Out-GridView
 ```
 
 This ultimately shows details for formatting.size.digits and formatting.size.style.
@@ -69,10 +69,10 @@ This setting controls how many digits are displayed after the decimal. By defaul
 
 ```powershell
 # Change value to 4
-Set-DbatoolsConfig -FullName formatting.size.digits -Value 4 | Register-DbatoolsConfig
+Set-dbatoolsConfig -FullName formatting.size.digits -Value 4 | Register-dbatoolsConfig
 ```
 
-Piping to `Register-DbatoolsConfig` persists the value across sessions. Otherwise, your digits would revert back to two when you create a new session.
+Piping to `Register-dbatoolsConfig` persists the value across sessions. Otherwise, your digits would revert back to two when you create a new session.
 
 ![four](https://dbatools.io/wp-content/uploads/2019/09/four.png?resize=800%2C370&ssl=1)
 
@@ -86,7 +86,7 @@ Now let's disable styling altogether and show values in bytes, but only for the 
 
 ```powershell
 # Removing formatting, show in bytes
-Set-DbatoolsConfig -FullName formatting.size.style -Value plain
+Set-dbatoolsConfig -FullName formatting.size.style -Value plain
 ```
 
 ![plain](https://dbatools.io/wp-content/uploads/2019/09/plain.png?resize=800%2C370&ssl=1)
@@ -97,7 +97,7 @@ Prefer that everything be displayed in terabytes by default? We support that too
 
 ```powershell
 # Set default value to terabyte
-Set-DbatoolsConfig -FullName formatting.size.style -Value Tb
+Set-dbatoolsConfig -FullName formatting.size.style -Value Tb
 ```
 
 Here are all the options available:
@@ -119,7 +119,7 @@ If you're wondering how I got that, I researched how to show an enum in PowerShe
 
 ```powershell
 # Use .NET to enumerate the available values of SizeStyle
-[System.Enum]::GetNames([Sqlcollaborative.Dbatools.Utility.SizeStyle])
+[System.Enum]::GetNames([Sqlcollaborative.dbatools.Utility.SizeStyle])
 ```
 
 Hope that helps with number formatting in dbatools! And thanks to Fred for such a beautiful, standardized way to show numbers 😊

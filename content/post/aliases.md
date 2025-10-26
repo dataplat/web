@@ -25,7 +25,7 @@ SQL Native Client provides cliconfg.exe but I think it's also built into Windows
 
 While you can manage SQL Client Aliases using the GUI, I prefer using dbatools which helps me avoid logging into multiple servers at once, and creates both the 32-bit and 64-bit aliases at once.
 
-# Using Dbatools
+# Using dbatools
 
 I find SQL Client Aliases most useful for facilitating easy migrations and using them is even recommended as a best practice in the [SharePoint world](https://veronicageek.com/sharepoint/sharepoint-2013/configure-sql-aliases-for-sharepoint-server/2018/04/).
 

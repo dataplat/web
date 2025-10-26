@@ -93,8 +93,8 @@ A bunch of security-related commands were added. I'm looking forward to a detail
 
 Along with our C# framework comes a really amazing logging system. The newest release introduces two commands that help you export logs and detailed system info for the times you encounter challenging issues.
 
-- **Get-DbatoolsLog**
-- **New-DbatoolsSupportPackage**
+- **Get-dbatoolsLog**
+- **New-dbatoolsSupportPackage**
 
 ### Computer Management Commands
 

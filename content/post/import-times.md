@@ -36,7 +36,7 @@ I asked C# wizard, Fred, how we can improve import times, and he immediately jum
 You can test this yourself by importing dbatools then running:
 
 ```
-[Sqlcollaborative.Dbatools.dbaSystem.DebugHost]::ImportTime
+[Sqlcollaborative.dbatools.dbaSystem.DebugHost]::ImportTime
 ```
 
 What you'll notice is that on that supafast machine, dbatools is now down to about a 1.78 second load! Incredible. This is how we did it:

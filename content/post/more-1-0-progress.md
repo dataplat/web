@@ -42,9 +42,9 @@ Aliases have not been created for commands using these parameters so these are b
 - Parameters and output columns containing `MB` have been changed to the parameter or column name without MB. For instance SizeMB -> Size. Corresponding documentation and examples have been updated as well.
 - Parameters such as **NoSystemLogins** have been changed to **ExcludeSystemLogins**. The basic rule I followed when determining what would change was keep No for Verbs and Exclude for nouns: NoVerb, ExcludeNoun.
 
-[Invoke-DbatoolsRenameHelper](https://dbatools.io/Invoke-DbatoolsRenameHelper) has been updated to handle the No to Exclude changes, so don't forget you can auto-update your scripts. Running it is as simple as:
+[Invoke-dbatoolsRenameHelper](https://dbatools.io/Invoke-dbatoolsRenameHelper) has been updated to handle the No to Exclude changes, so don't forget you can auto-update your scripts. Running it is as simple as:
 
-`Get-ChildItem *.ps1 -Recurse | Invoke-DbatoolsRenameHelper`
+`Get-ChildItem *.ps1 -Recurse | Invoke-dbatoolsRenameHelper`
 
 Note that it does *not* work for the breaking changes released below (they are massive) or any of the Exclude parameters in Start-DbaMigration since the change wouldn't be a one-to-one and I'm not good with regex.
 

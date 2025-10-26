@@ -15,7 +15,7 @@ Hey all! Andy Levy here. I'm a SQL Server DBA and major contributor for dbatools
 
 Most folks don't like writing documentation. It's seen as a necessary evil, something you do to just check a box, complete requirements, and move on. With many open source projects, you're lucky to get much documentation at all.
 
-## Dbatools & Documentation
+## dbatools & Documentation
 
 dbatools is different. Every function comes with extensive help including documentation of all parameters, examples for usage, and an explanation of what the function does, how and why. PowerShell's built-in [comment-based help system](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_comment_based_help?view=powershell-5.1&viewFallbackFrom=powershell-Microsoft.PowerShell.Core) is tremendously helpful with developing this; write documentation into your function using the standard template, and it's instantly accessible with `Get-Help`.
 

@@ -103,7 +103,7 @@ This is out of scope for this post, but check out [Microsoft's page on logins](h
 
 Note that you can easily manage remote SQL Servers from a centralized SQL Server Agent. In order to do this, you will need to provide the login with appropriate permissions on the remote SQL and Windows servers.
 
-#### Ensure Dbatools is Available to the Account
+#### Ensure dbatools is Available to the Account
 
 Basically, you can do this by performing an explicit import of the module (*Import-Module path\to\dbatools\dbatools.psd1*) to the exact path **or**, my preference, ensuring dbatools is globally available to all accounts on the server.
 
