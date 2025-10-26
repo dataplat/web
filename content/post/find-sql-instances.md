@@ -1,6 +1,7 @@
 ---
 title: "a new command to find all of your sql instances"
 date: 2018-03-27
+author: "Chrissy LeMaire"
 slug: "find-sql-instances"
 aliases:
   - /find-sql-instances/

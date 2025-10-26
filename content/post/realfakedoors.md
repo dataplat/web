@@ -1,6 +1,7 @@
 ---
 title: "new release – realfakedoors"
 date: 2017-03-16
+author: "Chrissy LeMaire"
 slug: "realfakedoors"
 aliases:
   - /realfakedoors/

@@ -1,6 +1,7 @@
 ---
 title: "new release – schleem"
 date: 2016-12-14
+author: "Chrissy LeMaire"
 slug: "schleem"
 aliases:
   - /schleem/

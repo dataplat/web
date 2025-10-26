@@ -1,6 +1,7 @@
 ---
 title: "Three ways to track logins using dbatools"
 date: 2018-04-10
+author: "Chrissy LeMaire"
 slug: "track-logins"
 aliases:
   - /track-logins/

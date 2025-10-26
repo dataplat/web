@@ -1,6 +1,7 @@
 ---
 title: "the commands i run before going on vacation"
 date: 2017-04-28
+author: "Chrissy LeMaire"
 slug: "vacation"
 aliases:
   - /vacation/

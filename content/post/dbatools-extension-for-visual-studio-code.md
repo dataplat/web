@@ -1,6 +1,7 @@
 ---
 title: "dbatools extension for visual studio code"
 date: 2018-11-28
+author: "Chrissy LeMaire"
 slug: "dbatools-extension-for-visual-studio-code"
 aliases:
   - /dbatools-extension-for-visual-studio-code/

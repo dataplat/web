@@ -1,6 +1,7 @@
 ---
 title: "t-sql tuesday and new module teaser"
 date: 2018-01-09
+author: "Chrissy LeMaire"
 slug: "new-module-coming-soon"
 aliases:
   - /new-module-coming-soon/

@@ -1,6 +1,7 @@
 ---
 title: "24 Hours of PASS Presentation – Now Online"
 date: 2017-08-03
+author: "Chrissy LeMaire"
 slug: "24hop"
 aliases:
   - /24hop/

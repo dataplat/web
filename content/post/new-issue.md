@@ -1,6 +1,7 @@
 ---
 title: "submitting an issue"
 date: 2018-03-14
+author: "Shawn Melton"
 slug: "new-issue"
 aliases:
   - /new-issue/

@@ -1,6 +1,7 @@
 ---
 title: "building a dedicated backup test server"
 date: 2017-04-11
+author: "Chrissy LeMaire"
 slug: "dedicated-server"
 aliases:
   - /dedicated-server/

@@ -1,6 +1,7 @@
 ---
 title: "working with file sizes in dbatools"
 date: 2019-09-12
+author: "Chrissy LeMaire"
 slug: "size"
 aliases:
   - /size/

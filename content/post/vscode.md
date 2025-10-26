@@ -1,6 +1,7 @@
 ---
 title: "Contributing with Code"
 date: 2017-03-02
+author: "Shawn Melton"
 slug: "vscode"
 aliases:
   - /vscode/

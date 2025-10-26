@@ -1,6 +1,7 @@
 ---
 title: "default parameter values"
 date: 2018-08-15
+author: "Chrissy LeMaire"
 slug: "defaults"
 aliases:
   - /defaults/

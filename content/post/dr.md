@@ -1,6 +1,7 @@
 ---
 title: "simplifying disaster recovery with dbatools"
 date: 2018-09-20
+author: "Chrissy LeMaire"
 slug: "dr"
 aliases: ["/dr/", "/dr/index.html"]
 categories: ["announcements"]

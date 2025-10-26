@@ -1,6 +1,7 @@
 ---
 title: "another batch of new commands now available!"
 date: 2016-08-17
+author: "Chrissy LeMaire"
 slug: "new-batch-of-commands"
 aliases:
   - /new-batch-of-commands/

@@ -1,6 +1,7 @@
 ---
 title: "the path to 1.0"
 date: 2018-01-16
+author: "Simone"
 slug: "the-path-to-1-0"
 aliases:
   - /the-path-to-1-0/

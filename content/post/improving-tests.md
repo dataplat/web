@@ -1,6 +1,7 @@
 ---
 title: "improving tests: code coverage usecase"
 date: 2017-11-17
+author: "Simone"
 slug: "improving-tests"
 aliases:
   - /improving-tests/

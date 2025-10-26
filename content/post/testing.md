@@ -1,6 +1,7 @@
 ---
 title: "performing a migration with every commit: testing with pester and appveyor"
 date: 2017-09-12
+author: "Chrissy LeMaire"
 slug: "testing"
 aliases:
   - /testing/

@@ -1,6 +1,7 @@
 ---
 title: "PASS Summit PowerShell Precon Agenda Now Available"
 date: 2017-10-08
+author: "Chrissy LeMaire"
 slug: "precon"
 aliases:
   - /precon/

@@ -1,6 +1,7 @@
 ---
 title: "migrating super old app databases"
 date: 2019-08-26
+author: "Chrissy LeMaire"
 slug: "oldapp"
 aliases:
   - /oldapp/

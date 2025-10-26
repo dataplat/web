@@ -1,6 +1,7 @@
 ---
 title: "dbatools advanced configuration"
 date: 2019-08-20
+author: "Claudio Silva"
 slug: "configuration"
 aliases:
   - /configuration/

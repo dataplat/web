@@ -1,6 +1,7 @@
 ---
 title: "more 1.0 progress"
 date: 2018-11-22
+author: "Chrissy LeMaire"
 slug: "more-1-0-progress"
 aliases:
   - /more-1-0-progress/

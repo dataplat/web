@@ -1,6 +1,7 @@
 ---
 title: "new release – reversegiraffe"
 date: 2017-05-04
+author: "Chrissy LeMaire"
 slug: "reversegiraffe"
 aliases:
   - /reversegiraffe/

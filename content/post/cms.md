@@ -1,6 +1,7 @@
 ---
 title: "Managing Central Management Server"
 date: 2018-07-11
+author: "Chrissy LeMaire"
 slug: "cms"
 aliases:
   - /cms/

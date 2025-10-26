@@ -1,6 +1,7 @@
 ---
 title: "happy belated world backup day"
 date: 2018-04-02
+author: "Chrissy LeMaire"
 slug: "happy-belated-world-backup-day"
 aliases:
   - /happy-belated-world-backup-day/

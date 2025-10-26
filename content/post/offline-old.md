@@ -1,6 +1,7 @@
 ---
 title: "offline installs of dbatools"
 date: 2017-07-26
+author: "Chrissy LeMaire"
 slug: "offline-old"
 aliases:
   - /offline-old/

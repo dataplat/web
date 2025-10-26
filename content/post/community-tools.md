@@ -1,6 +1,7 @@
 ---
 title: "a few other community tools"
 date: 2018-08-31
+author: "Chrissy LeMaire"
 slug: "community-tools"
 aliases:
   - /community-tools/

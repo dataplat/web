@@ -1,6 +1,7 @@
 ---
 title: "managing data compression with dbatools"
 date: 2019-01-02
+author: "Jess Pomfret"
 slug: "compression"
 aliases:
   - /compression/

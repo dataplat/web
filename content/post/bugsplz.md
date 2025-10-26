@@ -1,6 +1,7 @@
 ---
 title: "beginning the journey to 1.0 and a call for bug reports"
 date: 2017-03-03
+author: "Chrissy LeMaire"
 slug: "bugsplz"
 aliases:
   - /bugsplz/

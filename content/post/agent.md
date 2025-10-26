@@ -1,6 +1,7 @@
 ---
 title: "scheduling powershell tasks with sql agent"
 date: 2017-09-26
+author: "Chrissy LeMaire"
 slug: "agent"
 aliases:
   - /agent/

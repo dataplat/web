@@ -1,6 +1,7 @@
 ---
 title: "new release – antsinmyeyesjohnson"
 date: 2016-11-22
+author: "Chrissy LeMaire"
 slug: "antsinmyeyesjohnson"
 aliases:
   - /antsinmyeyesjohnson/

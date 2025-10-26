@@ -1,6 +1,7 @@
 ---
 title: "Need For Speed – Find-DbaStoredProcedure"
 date: 2017-03-08
+author: "Claudio Silva"
 slug: "need-for-speed"
 aliases:
   - /need-for-speed/

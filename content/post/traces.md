@@ -1,6 +1,7 @@
 ---
 title: "Stuck on older versions of SQL Server? Check out our trace commands."
 date: 2018-05-31
+author: "Chrissy LeMaire"
 slug: "traces"
 aliases:
   - /traces/

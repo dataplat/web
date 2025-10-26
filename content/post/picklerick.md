@@ -1,6 +1,7 @@
 ---
 title: "new release – picklerick"
 date: 2017-11-17
+author: "Chrissy LeMaire"
 slug: "picklerick"
 aliases:
   - /picklerick/

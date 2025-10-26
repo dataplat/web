@@ -1,6 +1,7 @@
 ---
 title: "a monumental migration to sql server 2016"
 date: 2019-01-17
+author: "Andy Levy"
 slug: "xlmigration"
 aliases:
   - /xlmigration/

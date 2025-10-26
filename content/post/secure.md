@@ -1,6 +1,7 @@
 ---
 title: "talking to your security team about powershell and dbatools"
 date: 2018-09-26
+author: "Chrissy LeMaire"
 slug: "secure"
 aliases:
   - /secure/

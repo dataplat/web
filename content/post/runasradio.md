@@ -1,6 +1,7 @@
 ---
 title: "Rob Sewell talks about dbatools on RunAs Radio"
 date: 2018-04-04
+author: "Rob Sewell"
 slug: "runasradio"
 aliases:
   - /runasradio/

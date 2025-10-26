@@ -1,6 +1,7 @@
 ---
 title: "website updates"
 date: 2017-12-01
+author: "Chrissy LeMaire"
 slug: "website-updates"
 aliases:
   - /website-updates/

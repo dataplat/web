@@ -1,6 +1,7 @@
 ---
 title: "287 commands and counting"
 date: 2017-09-13
+author: "Chrissy LeMaire"
 slug: "287-commands-and-counting"
 aliases:
   - /287-commands-and-counting/

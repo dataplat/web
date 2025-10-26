@@ -1,6 +1,7 @@
 ---
 title: "join us on the sql server community's slack"
 date: 2016-07-01
+author: "Chrissy LeMaire"
 slug: "dbatools-is-now-on-the-sql-server-communitys-slack"
 aliases:
   - /dbatools-is-now-on-the-sql-server-communitys-slack/

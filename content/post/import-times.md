@@ -1,6 +1,7 @@
 ---
 title: "decreasing module import times"
 date: 2018-04-11
+author: "Chrissy LeMaire"
 slug: "import-times"
 aliases:
   - /import-times/

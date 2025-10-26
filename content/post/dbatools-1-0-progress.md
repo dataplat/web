@@ -1,6 +1,7 @@
 ---
 title: "dbatools 1.0 progress!"
 date: 2018-11-14
+author: "Chrissy LeMaire"
 slug: "dbatools-1-0-progress"
 aliases:
   - /dbatools-1-0-progress/

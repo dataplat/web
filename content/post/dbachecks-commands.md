@@ -1,6 +1,7 @@
 ---
 title: "dbachecks commands"
 date: 2018-02-22
+author: "Chrissy LeMaire"
 slug: "dbachecks-commands"
 aliases:
   - /dbachecks-commands/

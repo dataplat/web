@@ -1,6 +1,7 @@
 ---
 title: "dbatools is now MIT licensed!"
 date: 2018-03-05
+author: "Chrissy LeMaire"
 slug: "mit"
 aliases:
   - /mit/

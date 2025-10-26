@@ -1,6 +1,7 @@
 ---
 title: "new best practices commands now available"
 date: 2016-07-20
+author: "Chrissy LeMaire"
 slug: "new-best-practices-commands-now-available"
 aliases:
   - /new-best-practices-commands-now-available/

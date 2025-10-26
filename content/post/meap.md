@@ -1,6 +1,7 @@
 ---
 title: "Learn dbatools in a Month of Lunches"
 date: 2019-09-04
+author: "Chrissy LeMaire"
 slug: "meap"
 aliases:
   - /meap/

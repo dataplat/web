@@ -1,6 +1,7 @@
 ---
 title: "PowerShell Precon at PASS Summit 2018"
 date: 2018-04-12
+author: "Chrissy LeMaire"
 slug: "psprecon"
 aliases:
   - /psprecon/

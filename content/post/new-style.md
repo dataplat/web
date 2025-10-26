@@ -1,6 +1,7 @@
 ---
 title: "new year, new standardized coding style"
 date: 2017-01-03
+author: "Chrissy LeMaire"
 slug: "new-style"
 aliases:
   - /new-style/

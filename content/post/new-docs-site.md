@@ -1,6 +1,7 @@
 ---
 title: "new docs site and updated command index"
 date: 2018-09-11
+author: "Chrissy LeMaire"
 slug: "new-docs-site"
 aliases:
   - /new-docs-site/

@@ -1,6 +1,7 @@
 ---
 title: "pspowerhour youtube livestream"
 date: 2018-08-22
+author: "Chrissy LeMaire"
 slug: "pspowerhour"
 aliases:
   - /pspowerhour/

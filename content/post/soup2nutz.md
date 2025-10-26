@@ -1,6 +1,7 @@
 ---
 title: "walk-thru: installing modules from the powershell gallery"
 date: 2017-10-18
+author: "Chrissy LeMaire"
 slug: "soup2nutz"
 aliases:
   - /soup2nutz/

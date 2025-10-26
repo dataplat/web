@@ -1,6 +1,7 @@
 ---
 title: "introducing the community-driven build reference"
 date: 2017-10-16
+author: "Simone Bizzotto"
 slug: "buildref"
 aliases:
   - /buildref/

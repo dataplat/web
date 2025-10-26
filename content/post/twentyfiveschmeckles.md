@@ -1,6 +1,7 @@
 ---
 title: "new release – twentyfiveschmeckles"
 date: 2017-02-01
+author: "Chrissy LeMaire"
 slug: "twentyfiveschmeckles"
 aliases:
   - /twentyfiveschmeckles/

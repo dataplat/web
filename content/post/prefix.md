@@ -1,6 +1,7 @@
 ---
 title: "New prefix for many dbatools commands"
 date: 2016-08-02
+author: "Chrissy LeMaire"
 slug: "prefix"
 aliases:
   - /prefix/

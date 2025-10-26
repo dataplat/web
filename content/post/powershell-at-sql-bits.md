@@ -1,6 +1,7 @@
 ---
 title: "PowerShell at SQL Bits!"
 date: 2018-02-15
+author: "Chrissy LeMaire"
 slug: "powershell-at-sql-bits"
 aliases:
   - /powershell-at-sql-bits/

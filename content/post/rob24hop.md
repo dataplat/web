@@ -1,6 +1,7 @@
 ---
 title: "Today on 24HOP: Writing PowerShell with VS Code"
 date: 2018-06-12
+author: "Chrissy LeMaire"
 slug: "rob24hop"
 aliases:
   - /rob24hop/

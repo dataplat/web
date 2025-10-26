@@ -1,6 +1,7 @@
 ---
 title: "Minimal-downtime migrations using Invoke-DbaLogShipping"
 date: 2018-04-04
+author: "Garry Bargsley"
 slug: "logshipping"
 aliases:
   - /logshipping/

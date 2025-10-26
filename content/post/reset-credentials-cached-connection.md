@@ -1,6 +1,7 @@
 ---
 title: "Using Set-DbaCmConnection to reset credentials and cached connection status"
 date: 2019-06-25
+author: "Gareth N"
 slug: "reset-credentials-cached-connection"
 aliases:
   - /reset-credentials-cached-connection/
@@ -21,14 +22,14 @@ But what if something changed since it cached the connection? Let's see how we c
 I was updating some dev instances using what has to be one of my favorite commands, [Update-DbaInstance](https://dbatools.io/Update-DbaInstance). Here's what my command looked like:
 
 ```powershell
-Update-DbaInstance -ComputerName devbox1.domain.local -Restart -Path "\\fileshare\sql updates" -Credential ad\gareth
+Update-DbaInstance -ComputerName devbox1.domain.local -Restart -Path "\fileshare\sql updates" -Credential ad\gareth
 ```
 
 For anyone new to dbatools, let's briefly talk about what this is doing for us based on this example.
 
 - Prompt us for `ad\gareth`'s password
 - Find all SQL Server instances on devbox1
-- Search fileshare "\\fileshare\sql updates" for updates relevant to any instances we found
+- Search fileshare "\fileshare\sql updates" for updates relevant to any instances we found
 - If a Windows restart is required before installing patches, then restart
 - Prompt the user to install patches for any instances that were found and need updating
 - Finally, it will restart the computer after patching

@@ -1,6 +1,7 @@
 ---
 title: "cleaning up comment-based help"
 date: 2017-11-29
+author: "Andy Levy"
 slug: "clean-cbh"
 aliases:
   - /clean-cbh/

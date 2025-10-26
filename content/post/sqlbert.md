@@ -1,6 +1,7 @@
 ---
 title: "dbatools featured on sql with bert"
 date: 2019-02-05
+author: "Chrissy LeMaire"
 slug: "sqlbert"
 aliases:
   - /sqlbert/

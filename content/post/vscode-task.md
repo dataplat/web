@@ -1,6 +1,7 @@
 ---
 title: "VS Code and Task"
 date: 2017-06-09
+author: "Shawn Melton"
 slug: "vscode-task"
 aliases:
   - /vscode-task/

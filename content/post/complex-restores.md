@@ -1,6 +1,7 @@
 ---
 title: "Getting complex with Restore-DbaDatabase"
 date: 2017-11-28
+author: "Stuart Moore"
 slug: "complex-restores"
 aliases:
   - /complex-restores/

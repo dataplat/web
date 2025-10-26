@@ -1,6 +1,7 @@
 ---
 title: "dbatools – a devops success story"
 date: 2017-06-13
+author: "Chrissy LeMaire"
 slug: "devops"
 aliases:
   - /devops/

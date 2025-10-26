@@ -1,6 +1,7 @@
 ---
 title: "using dacpac functions to clone sql server databases"
 date: 2018-08-29
+author: "Kirill Kravtsov"
 slug: "clone"
 aliases:
   - /clone/

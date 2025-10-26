@@ -1,6 +1,7 @@
 ---
 title: "scheduling a migration"
 date: 2016-09-20
+author: "Chrissy LeMaire"
 slug: "scheduling-a-migration"
 aliases:
   - /scheduling-a-migration/

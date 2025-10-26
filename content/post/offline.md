@@ -1,6 +1,7 @@
 ---
 title: "Offline Installation of dbatools 2.0 with the dbatools.library Dependency"
 date: "2023-04-05"
+author: "Chrissy LeMaire"
 slug: "offline"
 aliases:
   - /offline/

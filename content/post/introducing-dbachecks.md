@@ -1,6 +1,7 @@
 ---
 title: "introducing dbachecks – a new module from the dbatools team!"
 date: 2018-02-22
+author: "Chrissy LeMaire"
 slug: "introducing-dbachecks"
 aliases:
   - /introducing-dbachecks/

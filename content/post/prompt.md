@@ -1,6 +1,7 @@
 ---
 title: "our prompt"
 date: 2017-10-25
+author: "Chrissy LeMaire"
 slug: "prompt"
 aliases:
   - /prompt/

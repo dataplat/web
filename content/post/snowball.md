@@ -1,6 +1,7 @@
 ---
 title: "new release – snowball – all about the restore"
 date: 2017-02-23
+author: "Stuart"
 slug: "snowball"
 aliases:
   - /snowball/

@@ -1,6 +1,7 @@
 ---
 title: "dbatools & sql on linux"
 date: 2019-07-09
+author: "Chrissy LeMaire"
 slug: "linux"
 aliases:
   - /linux/

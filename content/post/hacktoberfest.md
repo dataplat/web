@@ -1,6 +1,7 @@
 ---
 title: "hacktoberfest – dbatools edition"
 date: 2018-10-09
+author: "Patrick Flynn"
 slug: "hacktoberfest"
 aliases:
   - /hacktoberfest/

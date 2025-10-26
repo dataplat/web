@@ -1,6 +1,7 @@
 ---
 title: "30 day countdown to 1.0 starts today!"
 date: 2019-05-20
+author: "Chrissy LeMaire"
 slug: "30-day-countdown-to-1-0-starts-today"
 aliases:
   - /30-day-countdown-to-1-0-starts-today/

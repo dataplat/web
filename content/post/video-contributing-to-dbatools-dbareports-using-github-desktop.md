@@ -1,6 +1,7 @@
 ---
 title: "Video: Contributing to dbatools & dbareports using GitHub Desktop"
 date: 2016-12-02
+author: "Chrissy LeMaire"
 slug: "video-contributing-to-dbatools-dbareports-using-github-desktop"
 aliases:
   - /video-contributing-to-dbatools-dbareports-using-github-desktop/

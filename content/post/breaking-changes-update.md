@@ -1,6 +1,7 @@
 ---
 title: "breaking changes update"
 date: 2018-11-16
+author: "Chrissy LeMaire"
 slug: "breaking-changes-update"
 aliases:
   - /breaking-changes-update/

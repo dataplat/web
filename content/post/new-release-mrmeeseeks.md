@@ -1,6 +1,7 @@
 ---
 title: "new release – mrmeeseeks"
 date: 2016-11-02
+author: "Chrissy LeMaire"
 slug: "new-release-mrmeeseeks"
 aliases:
   - /new-release-mrmeeseeks/

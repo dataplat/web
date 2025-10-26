@@ -1,6 +1,7 @@
 ---
 title: "multithreading commands"
 date: 2019-01-04
+author: "Kin Shah"
 slug: "multithread"
 aliases:
   - /multithread/

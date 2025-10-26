@@ -1,6 +1,7 @@
 ---
 title: "migrating application databases with dbatools"
 date: 2018-03-15
+author: "Jess Pomfret"
 slug: "migrating-application-dbs"
 aliases:
   - /migrating-application-dbs/

@@ -1,6 +1,7 @@
 ---
 title: "Getting Started With PowerShell"
 date: 2018-10-01
+author: "Chrissy LeMaire"
 slug: "start"
 aliases:
   - /start/

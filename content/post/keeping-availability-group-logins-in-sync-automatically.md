@@ -1,6 +1,7 @@
 ---
 title: "keeping availability group logins in sync automatically"
 date: 2019-05-20
+author: "Andreas Schubert"
 slug: "keeping-availability-group-logins-in-sync-automatically"
 aliases:
   - /keeping-availability-group-logins-in-sync-automatically/

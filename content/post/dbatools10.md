@@ -1,6 +1,7 @@
 ---
 title: "dbatools 1.0 has arrived"
 date: 2019-06-18
+author: "Chrissy LeMaire"
 slug: "dbatools10"
 aliases:
   - /dbatools10/

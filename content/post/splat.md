@@ -1,6 +1,7 @@
 ---
 title: "powershell splatting"
 date: 2019-01-03
+author: "Chrissy LeMaire"
 slug: "splat"
 aliases:
   - /splat/

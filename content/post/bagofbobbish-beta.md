@@ -1,6 +1,7 @@
 ---
 title: "Can you help us test this beta?"
 date: 2017-07-04
+author: "Chrissy LeMaire"
 slug: "bagofbobbish-beta"
 aliases:
   - /bagofbobbish-beta/

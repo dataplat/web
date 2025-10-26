@@ -1,6 +1,7 @@
 ---
 title: "Creating a history timeline"
 date: 2018-08-21
+author: "Marcin"
 slug: "timeline"
 aliases:
   - /timeline/

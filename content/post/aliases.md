@@ -1,6 +1,7 @@
 ---
 title: "working with sql client aliases"
 date: 2020-01-10
+author: "Chrissy LeMaire"
 slug: "aliases"
 aliases:
   - /aliases/

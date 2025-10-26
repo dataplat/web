@@ -1,6 +1,7 @@
 ---
 title: "I ❤ Invoke-DbaQuery"
 date: 2018-01-08
+author: "Pétur Grétarsson"
 slug: "i-love-invoke-query"
 aliases:
   - /i-love-invoke-query/

@@ -1,6 +1,7 @@
 ---
 title: "the dbatools team will present a full-day PASS Summit precon!"
 date: 2017-06-14
+author: "Chrissy LeMaire"
 slug: "precon-old"
 aliases:
   - /precon-old/

@@ -1,6 +1,7 @@
 ---
 title: "new release with significant but non-breaking changes"
 date: 2018-09-07
+author: "Chrissy LeMaire"
 slug: "regularlegs"
 aliases:
   - /regularlegs/

@@ -1,6 +1,7 @@
 ---
 title: "building an inventory view of SQL Servers with dbatools"
 date: 2019-04-25
+author: "Andreas Schubert"
 slug: "building-an-inventory"
 aliases:
   - /building-an-inventory/

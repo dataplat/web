@@ -1,6 +1,7 @@
 ---
 title: "SQL Server Migration Enhancements"
 date: 2018-09-24
+author: "Chrissy LeMaire"
 slug: "migration-enhancements"
 aliases:
   - /migration-enhancements/

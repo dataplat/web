@@ -1,6 +1,7 @@
 ---
 title: "simplifying extended events management with dbatools"
 date: 2018-02-26
+author: "Chrissy LeMaire"
 slug: "xevents"
 aliases:
   - /xevents/
