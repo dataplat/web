@@ -51,90 +51,121 @@
     align-items: center;
     font-size: 0.9rem;
     border: 2px solid transparent;
+    font-weight: 500;
 }
 
 .filter-item:hover {
     @apply bg-theme-border dark:bg-theme-border-dark;
-    border-color: var(--border-theme-border, #C5D1E3);
-}
-
-.dark .filter-item:hover {
-    border-color: var(--border-theme-border-dark, #273B59);
 }
 
 .filter-item.active {
-    @apply bg-primary text-white;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    background: transparent;
+    border-color: #045BDB;
+    font-weight: 600;
+    color: #045BDB;
+}
+
+.dark .filter-item.active {
+    border-color: #60A5FA;
+    color: #60A5FA;
 }
 
 .filter-count {
     font-size: 0.8rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
     @apply text-theme-text-secondary dark:text-theme-text-secondary-dark;
-    background: rgba(4, 91, 219, 0.1);
     padding: 0.125rem 0.5rem;
     border-radius: 10px;
 }
 
 .filter-item.active .filter-count {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+    color: #045BDB;
+}
+
+.dark .filter-item.active .filter-count {
+    color: #60A5FA;
 }
 
 .action-filters {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 6px;
 }
 
-.action-checkbox {
+/* Action items - match category styling */
+.action-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 6px;
+    justify-content: space-between;
     cursor: pointer;
-    transition: background 0.2s ease;
+    padding: 0.625rem 0.75rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    user-select: none;
+    font-size: 0.9rem;
+    border: 2px solid transparent;
+    font-weight: 500;
 }
 
-.action-checkbox:hover {
+.action-item:hover {
     @apply bg-theme-border dark:bg-theme-border-dark;
 }
 
-.action-checkbox input[type="checkbox"] {
-    width: 1.125rem;
-    height: 1.125rem;
-    cursor: pointer;
-    accent-color: #045BDB;
+.action-item.active {
+    background: transparent;
+    border-color: #045BDB;
+    font-weight: 600;
+    color: #045BDB;
 }
 
-.action-checkbox label {
-    cursor: pointer;
-    font-size: 0.9rem;
+.dark .action-item.active {
+    border-color: #60A5FA;
+    color: #60A5FA;
+}
+
+.action-item .filter-count {
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    @apply text-theme-text-secondary dark:text-theme-text-secondary-dark;
+    padding: 0.125rem 0.5rem;
+    border-radius: 10px;
+}
+
+.action-item.active .filter-count {
+    color: #045BDB;
+}
+
+.dark .action-item.active .filter-count {
+    color: #60A5FA;
 }
 
 .popular-filter {
-    background: rgba(4, 91, 219, 0.1);
     padding: 0.75rem;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s ease;
     text-align: center;
     border: 2px solid transparent;
-    font-weight: 600;
+    font-weight: 500;
+    background: rgba(4, 91, 219, 0.05);
 }
 
 .popular-filter:hover {
-    @apply bg-theme-border dark:bg-theme-border-dark;
-    border-color: var(--border-theme-border, #C5D1E3);
-}
-
-.dark .popular-filter:hover {
-    border-color: var(--border-theme-border-dark, #273B59);
+    background: rgba(4, 91, 219, 0.1);
 }
 
 .popular-filter.active {
-    @apply border-primary;
-    background: rgba(37, 99, 235, 0.1);
+    background: transparent;
+    border-color: #045BDB;
+    color: #045BDB;
+    font-weight: 600;
+}
+
+.dark .popular-filter.active {
+    border-color: #60A5FA;
+    color: #60A5FA;
 }
 
 .reset-filters {
@@ -208,6 +239,11 @@
     right: 1rem;
     @apply text-theme-text-secondary dark:text-theme-text-secondary-dark;
     pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.search-icon.hidden {
+    opacity: 0;
 }
 
 .clear-search {
@@ -478,7 +514,10 @@
                         placeholder="Find any command..."
                         autocomplete="off"
                     >
-                    <span class="search-icon" id="searchIcon">🔍</span>
+                    <svg class="search-icon" id="searchIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
                     <button class="clear-search" id="clearSearch" aria-label="Clear search">&times;</button>
                 </div>
             </div>
@@ -491,7 +530,10 @@
 
             <h3>Quick Filters</h3>
             <div class="popular-filter" id="popularFilter">
-                ⭐ Popular Commands
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                Popular Commands
             </div>
 
             <button class="reset-filters" id="resetFilters">Reset All Filters</button>
@@ -528,7 +570,13 @@
         </main>
     </div>
 
-    <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </button>
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 </div>
 
@@ -543,7 +591,7 @@ let fuse = null;
 // Current filters
 let currentSearch = '';
 let currentCategory = 'all';
-let currentActions = new Set();
+let currentAction = 'all';
 let showPopularOnly = false;
 let currentSort = 'alphabetical';
 
@@ -614,35 +662,30 @@ function buildCategoryFilters() {
 function buildActionFilters() {
     const container = document.getElementById('actionFilters');
 
-    const actionLabels = {
-        'Get': 'Get (retrieve info)',
-        'Set': 'Set (configure)',
-        'Copy': 'Copy (migrate)',
-        'Test': 'Test (validate)',
-        'Invoke': 'Invoke (execute)',
-        'New': 'New (create)',
-        'Remove': 'Remove (delete)',
-        'Export': 'Export',
-        'Import': 'Import',
-        'Backup': 'Backup',
-        'Restore': 'Restore',
-        'Add': 'Add',
-        'Update': 'Update',
-        'Start': 'Start',
-        'Stop': 'Stop'
-    };
+    // Add "All Actions" option
+    const allItem = document.createElement('div');
+    allItem.className = 'action-item active';
+    allItem.innerHTML = `
+        <span>All Actions</span>
+        <span class="filter-count">${allCommands.length}</span>
+    `;
+    allItem.onclick = () => selectAction('all');
+    container.appendChild(allItem);
 
+    // Add individual action filters
     Object.entries(actions)
         .sort(([,a], [,b]) => b - a)
         .slice(0, 15)
         .forEach(([action, count]) => {
-            const label = document.createElement('label');
-            label.className = 'action-checkbox';
-            label.innerHTML = `
-                <input type="checkbox" value="${action}" onchange="toggleAction('${action}')">
-                <span>${actionLabels[action] || action} (${count})</span>
+            const item = document.createElement('div');
+            item.className = 'action-item';
+            item.innerHTML = `
+                <span>${action}</span>
+                <span class="filter-count">${count}</span>
             `;
-            container.appendChild(label);
+            item.onclick = () => selectAction(action);
+            item.dataset.action = action;
+            container.appendChild(item);
         });
 }
 
@@ -663,12 +706,18 @@ function selectCategory(category) {
     applyFilters();
 }
 
-function toggleAction(action) {
-    if (currentActions.has(action)) {
-        currentActions.delete(action);
-    } else {
-        currentActions.add(action);
-    }
+function selectAction(action) {
+    currentAction = action;
+
+    document.querySelectorAll('#actionFilters .action-item').forEach(item => {
+        item.classList.remove('active');
+        if (action === 'all' && item.querySelector('span').textContent === 'All Actions') {
+            item.classList.add('active');
+        } else if (item.dataset.action === action) {
+            item.classList.add('active');
+        }
+    });
+
     updateURLState();
     applyFilters();
 }
@@ -683,14 +732,14 @@ function togglePopular() {
 function resetFilters() {
     currentSearch = '';
     currentCategory = 'all';
-    currentActions.clear();
+    currentAction = 'all';
     showPopularOnly = false;
 
     document.getElementById('searchInput').value = '';
     document.getElementById('clearSearch').classList.remove('visible');
-    document.querySelectorAll('#actionFilters input[type="checkbox"]').forEach(cb => cb.checked = false);
     document.getElementById('popularFilter').classList.remove('active');
     selectCategory('all');
+    selectAction('all');
 
     updateURLState();
     applyFilters();
@@ -709,8 +758,8 @@ function applyFilters() {
         results = results.filter(cmd => cmd.category === currentCategory);
     }
 
-    if (currentActions.size > 0) {
-        results = results.filter(cmd => currentActions.has(cmd.verb));
+    if (currentAction !== 'all') {
+        results = results.filter(cmd => cmd.verb === currentAction);
     }
 
     if (showPopularOnly) {
@@ -769,7 +818,7 @@ function renderCommands(commands) {
         <a href="${cmd.url}" class="command-card" target="_blank" rel="noopener noreferrer">
             <div class="command-header">
                 <h3 class="command-name">${cmd.name}</h3>
-                ${cmd.popular ? '<span class="popular-badge">⭐</span>' : ''}
+                ${cmd.popular ? '<svg class="popular-badge" width="20" height="20" viewBox="0 0 24 24" fill="#FCD34D"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>' : ''}
             </div>
             <p class="command-description">${cmd.description}</p>
             <div class="command-tags">
@@ -783,7 +832,9 @@ function renderCommands(commands) {
 let searchTimeout;
 function handleSearch(e) {
     const value = e.target.value;
-    document.getElementById('clearSearch').classList.toggle('visible', value.length > 0);
+    const hasValue = value.length > 0;
+    document.getElementById('clearSearch').classList.toggle('visible', hasValue);
+    document.getElementById('searchIcon').classList.toggle('hidden', hasValue);
 
     clearTimeout(searchTimeout);
     searchTimeout = setTimeout(() => {
@@ -799,7 +850,7 @@ function updateURLState() {
 
     if (currentSearch) params.set('search', currentSearch);
     if (currentCategory !== 'all') params.set('category', currentCategory);
-    if (currentActions.size > 0) params.set('actions', Array.from(currentActions).join(','));
+    if (currentAction !== 'all') params.set('action', currentAction);
     if (showPopularOnly) params.set('popular', '1');
     if (currentSort !== 'alphabetical') params.set('sort', currentSort);
 
@@ -815,6 +866,7 @@ function parseURLState() {
         currentSearch = search;
         document.getElementById('searchInput').value = search;
         document.getElementById('clearSearch').classList.add('visible');
+        document.getElementById('searchIcon').classList.add('hidden');
     }
 
     const category = params.get('category');
@@ -822,15 +874,9 @@ function parseURLState() {
         selectCategory(category);
     }
 
-    const actionsParam = params.get('actions');
-    if (actionsParam) {
-        actionsParam.split(',').forEach(action => {
-            if (actions[action]) {
-                currentActions.add(action);
-                const checkbox = document.querySelector(`#actionFilters input[value="${action}"]`);
-                if (checkbox) checkbox.checked = true;
-            }
-        });
+    const action = params.get('action');
+    if (action && actions[action]) {
+        selectAction(action);
     }
 
     if (params.get('popular') === '1') {
@@ -871,6 +917,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('clearSearch').addEventListener('click', () => {
         document.getElementById('searchInput').value = '';
         document.getElementById('clearSearch').classList.remove('visible');
+        document.getElementById('searchIcon').classList.remove('hidden');
         currentSearch = '';
         updateURLState();
         applyFilters();
