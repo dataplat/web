@@ -1,5 +1,5 @@
 ---
-title: "Improving Tests: Code Coverage Usecase"
+title: "Improving Tests: Code Coverage Use Case"
 date: 2017-11-17
 author: "Simone"
 slug: "improving-tests"

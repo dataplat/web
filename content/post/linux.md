@@ -49,7 +49,7 @@ Interested in learning more? Check out the #1 rated SQL Server on Linux book, [P
 
 Kidding aside, dbatools supports Linux and Mac OS in a number of ways. Not only can you run dbatools FROM Linux, you can also connect TO SQL on Linux. We even have fantastic Registered Server support that eases authentication.
 
-### To Linux / Mac OS
+### To Linux / macOS
 
 Connecting to SQL Server (Windows or Linux) from Linux or Mac OS is generally done with using an alternative `-SqlCredential`. So let's say you follow Microsoft's guide to setting up [SQL on Linux](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup?view=sql-server-2017) or if you use dbatools' [Docker guide](https://dbatools.io/docker), you'll likely need to authenticate with the `sa` or `sqladmin` account. Execute the following command.
 
@@ -74,7 +74,7 @@ Get-DbaDatabase -SqlInstance sqlonlinux -SqlCredential $cred
 
 Prefer using the Windows Credential Store instead? Check out the PowerShell module, [BetterCredentials](https://github.com/Jaykul/BetterCredentials).
 
-### To Linux / Mac OS Using Registered Servers
+### To Linux / macOS Using Registered Servers
 
 You can also use Local Registered Servers! This functionality was added in dbatools 1.0
 
@@ -96,7 +96,7 @@ Ohhh! What! Now you can do this without worrying about authentication:
 Get-DbaRegServer -ServerName sqlonlinux | Get-DbaDatabase
 ```
 
-## From dbatools on Mac OS to SQL Server on Windows
+## From dbatools on macOS to SQL Server on Windows
 
 Something that I had super fun doing was joining my Mac Mini to my homelab then authenticating flawlessly with my domain-joined, Windows-based SQL Server. Didn't even need the `-SqlCredential` because Integrated Authentication worked 👍
 

@@ -65,7 +65,7 @@ Now that the database and associated logins have been migrated we can set the so
 Set-DbaDbState -SqlInstance SourceServer -Database MigratingDatabase -Offline -Force
 ```
 
-![Set-DbaDbState output](https://dbatools.io/wp-content/uploads/2018/03/Set-DbaDbState-1024x190.jpg?resize=800%2C148&ssl=1)
+![Set-DbaDbState output](/images/Set-DbaDbState.jpg)
 
 In the end I was able to use 5 lines of PowerShell to get these application databases migrated to their new homes. After some testing I dropped the old offline copy of the database and eventually decommissioned the old servers.
 

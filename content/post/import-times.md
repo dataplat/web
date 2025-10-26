@@ -47,7 +47,7 @@ We noticed that the longest part of importing the module was importing all the e
 
 To address this concern, Fred added multi-threading via [runspaces](https://blog.netnerds.net/2016/12/runspaces-simplified/) to our import process. Too cool! This resulted in a significant decrease in time.
 
-### allcommands.ps1
+### Allcommands.ps1
 
 The other thing we did to significantly decrease import times was we combined all of the individual .ps1 files in [functions*.ps1](https://github.com/dataplat/dbatools/tree/development/functions) to a single .ps1 file. So now, before every release, I combine all the newly updated commands, sign it using our code signing certificate, then publish it to the [PowerShell Gallery](https://dbatools.io/gallery).
 

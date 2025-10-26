@@ -39,7 +39,7 @@ Usage can be approached in two ways:
 
 As simple as `Invoke-DbcCheck -SqlInstance sqlprod01 -Checks SuspectPage, LastBackup`
 
-### Schedule checks
+### Schedule Checks
 
 Command line execution is good in a pinch, but ongoing checks are the ultimate goal. In order do this, you can do the following:
 

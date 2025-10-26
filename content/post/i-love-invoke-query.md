@@ -17,7 +17,7 @@ I have well over 100 Availability Groups to look after in different domains so i
 
 Having said that, there's some additional monitoring I like to be able to do such as checking the health status of Availability Groups to see if there are any potential resource issues.
 
-## Invoke-DbaQuery makes monitoring easy
+## Invoke-DbaQuery Makes Monitoring Easy
 
 I've used Invoke-DbaQuery for so many things. Here's one example: how I used the new function in my latest Availability Group check.
 
@@ -79,7 +79,7 @@ FROM sys.availability_groups_cluster AS AGC
 
 We have thousands of databases in these Availability Groups so it is important to ensure that they are healthy. We have monitoring systems for the most important ones but you can imagine the cost. Therefore, it is nice to be able to build some basic checks like these. Running customized scripts and using the [Get-DbaRegisteredServer](https://dbatools.io/Get-DbaRegisteredServer) is just fantastic 😊.
 
-## Additional uses for dbatools
+## Additional Uses for dbatools
 
 I also use other dbatools commands for getting a daily summary email report for all our SQL Agent jobs which are either failing or not having failure notifications configured from all our environments. We have many people adding SQL Agent Jobs and sometimes the notifications get forgotten so this allows me to catch that immediately and get daily status report of all our SQL Agent failed jobs.
 

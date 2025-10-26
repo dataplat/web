@@ -13,7 +13,7 @@ draft: false
 
 A while back, I added some new features to our migration commands but I forgot to blog about them. Then, I used one of the new features for a fast and successful migration, got so pumped and had to share.
 
-## Multiple destinations
+## Multiple Destinations
 
 Now, you can migrate from one server to many. This applies to both `Start-DbaMigration` and all of the `Copy-Dba*` commands, including [Copy-DbaDatabase](https://dbatools.io/Copy-DbaDatabase) and [Copy-DbaLogin](https://dbatools.io/Copy-DbaLogin).
 
