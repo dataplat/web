@@ -1,6 +1,6 @@
 ---
 title: "Blog"
 description: "Latest articles and updates from the dbatools community"
-type: blog
-layout: list
+aliases:
+  - /blog/
 ---
