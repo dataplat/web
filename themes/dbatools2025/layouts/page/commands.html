@@ -522,12 +522,6 @@
                 </div>
             </div>
 
-            <h3>Categories</h3>
-            <div id="categoryFilters"></div>
-
-            <h3>Actions</h3>
-            <div class="action-filters" id="actionFilters"></div>
-
             <h3>Quick Filters</h3>
             <div class="popular-filter" id="popularFilter">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;">
@@ -535,6 +529,12 @@
                 </svg>
                 Popular Commands
             </div>
+
+            <h3>Categories</h3>
+            <div id="categoryFilters"></div>
+
+            <h3>Actions</h3>
+            <div class="action-filters" id="actionFilters"></div>
 
             <button class="reset-filters" id="resetFilters">Reset All Filters</button>
         </aside>
@@ -815,7 +815,7 @@ function renderCommands(commands) {
     }
 
     grid.innerHTML = commands.map(cmd => `
-        <a href="${cmd.url}" class="command-card" target="_blank" rel="noopener noreferrer">
+        <a href="${cmd.url}" class="command-card">
             <div class="command-header">
                 <h3 class="command-name">${cmd.name}</h3>
                 ${cmd.popular ? '<svg class="popular-badge" width="20" height="20" viewBox="0 0 24 24" fill="#FCD34D"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>' : ''}
