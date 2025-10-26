@@ -1,5 +1,5 @@
 ---
-title: "new release – snowball – all about the restore"
+title: "New Release – Snowball – All About the Restore"
 date: 2017-02-23
 author: "Stuart"
 slug: "snowball"
@@ -13,7 +13,7 @@ draft: false
 
 Just to confuse people, it's not Chrissy or Drew this time. My name's Stuart, and I've got a new dbatools release to tell you about; snowball.
 
-## This release is all about restores
+## This Release Is All About Restores
 
 DBAs spend a lot of time making sure backups work. Or at least they should, and if they aren't then putting their spare time to fixing up their CV is probably a good plan.
 
@@ -32,7 +32,7 @@ T-SQL didn't make automating restores easy! Each databases restore had to be han
 
 Just imagine the pain if you're running a weekly full, night differential and 15 minute log backups. Trying to work out what you need is a real pain.
 
-##### Not so long ago
+##### Not So Long Ago
 
 PowerShell started making that a lot easier. By combining it's power in scanning the filesystem and talking to Sql Server it became easier to work out which files you needed and then queue them up for restore. But it still too quite a bit of patience to get it all working smoothly
 
@@ -44,11 +44,11 @@ We're proud to announce that dbatools is making it as simple as we can to do res
 
 Restore-DbaDatabase ties together a lot of new features and is probably going to be your main interface with the new restore functions.
 
-### Laying the groundwork
+### Laying the Groundwork
 
 For these examples we'll be using the following backup files:
 
-![restorework](https://dbatools.io/wp-content/uploads/2017/02/RestoreWork-1.png?w=800&ssl=1)
+![restorework](/images/RestoreWork-1.png)
 
 This is a mix of Full, Differential and Log Backups.
 
@@ -62,9 +62,9 @@ Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backup
 
 This will **scan** all of the files in the folder C:\dbatools\backups and restore them onto the SQL Server instance localhost\sqlexpress2016, up to the most recent record in the backups.
 
-![restorework](https://dbatools.io/wp-content/uploads/2017/02/RestoreWork-2-1.png?w=800&ssl=1)
+![restorework](/images/RestoreWork-2-1.png)
 
-##### When we say scan, we mean it will do the following:
+##### When We Say Scan, We Mean It Will Do the Following:
 
 - All the files in that folder will be checked to see if they are SQL Server backups
 - The header information from each file will be read
@@ -81,7 +81,7 @@ With our example backups, it will have restored RestoreDemo_Full5.bak, RestoreDe
 
 As you can see, we also return a rich object with details about the restore. For the rest of the examples I'll be hiding the output by storing it a variable, just to make the screenshots more readable.
 
-### Specifying the destination directories
+### Specifying the Destination Directories
 
 **By default, Restore-DbaDatabase will restore to the default data and log directories**, but maybe you want to move the data files around when you restore the database due to smaller drives:
 
@@ -89,7 +89,7 @@ As you can see, we also return a rich object with details about the restore. For
 Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backups -DestinationDataDirectory c:\dbatools\RestoreLocation\
 ```
 
-![restorework3](https://dbatools.io/wp-content/uploads/2017/02/RestoreWork-3-1.png?w=800&ssl=1)
+![restorework3](/images/RestoreWork-3-1.png)
 
 This time, all database files (Log, Full Text, Data, etc) will be restored into the folder c:\dbatools\RestoreLocation folder
 
@@ -101,7 +101,7 @@ Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backup
 
 All your data files end up in c:\dbatools\RestoreLocation and all your log files go into c:\dbatools\RestoreLogsLocation. Nice and easy
 
-![restorework4](https://dbatools.io/wp-content/uploads/2017/02/RestoreWork-4-1.png?w=800&ssl=1)
+![restorework4](/images/RestoreWork-4-1.png)
 
 And if you want your restores to return to their original destinations, they use the ReuseSourceFolderStructure switch:
 
@@ -120,7 +120,7 @@ $FileStructure = @{
 Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backups\FullBackup.bak -FileMapping $FileStructure -DatabaseName RestoredDatabase
 ```
 
-### Restoring to specific point in time
+### Restoring to Specific Point in Time
 
 What if you don't want to restore to the latest point in time? Then you can use the RestoreTime parameter to say when you want to restore to. In our example I want to restore to just before the full backup RestoreDemo_Full5.bak
 
@@ -131,11 +131,11 @@ Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backup
 
 Now our file scan will work out which files it needs to use to perform this restore. By using the -Verbose switch we can see which ones it's picked:
 
-![restorework4](https://dbatools.io/wp-content/uploads/2017/02/RestoreWork-5-1.png?w=800&ssl=1)
+![restorework4](/images/RestoreWork-5-1.png)
 
 We can see it's restored RestoreDemo_Full1.bak, then RestoreDemo_Diff4, and finally used RestoreDemo_log6.trn to roll everything forward to the correct time.
 
-### Replaying the workload to remote lab
+### Replaying the Workload to Remote Lab
 
 Next up, perhaps your developers want to investigate some problems they've been seeing on production. They'd love to have a copy of production on a test server, but from 2 hours ago so they can replay the workload. How about this:
 
@@ -151,7 +151,7 @@ Restore-DbaDatabase -SqlServer TestDbServer -Path \\Server1\backups\ProdDb -Dest
 
 Which will overwrite the existing database for you. Be careful with this switch, it will do exactly what you tell it to! And we'll remove all the users from the database, so that safety net isn't there
 
-### Scripting out to file
+### Scripting out to File
 
 While helping your colleagues you'll have noticed that there is a little bit of time taken to process all the backups. You hear through the grapevine that this rollback is going to have to be done a couple of times while they work out what's wrong. So how about we generate the T-SQL scripts ahead of time, then you can just rerun those every time. Hey, you could even give them to the Devs to run!
 
@@ -189,7 +189,7 @@ All the examples above assume you've a single folder containting all your backup
 Restore-DbaDatabase -SqlServer MyRestoreSvr\Instance -Path e:\FullBackups\Database1, f:\LogBackups\Database1
 ```
 
-### Yes, we do support Ola Hallengren's Maintenance Solution!
+### Yes, We Do Support Ola Hallengren's Maintenance Solution!
 
 If you're running Ola Hallengren's maintenance solutions, the we've got that covered as well. Set your path to the top of you backup folder, and we'll do the rest.
 
@@ -209,7 +209,7 @@ Restore-DbaDatabase -SqlServer MyRestoreSvr\Instance -Path \\Server1\backups\Pro
 
 You will need to have sysadmin permissions on the SQL instance to use the underlying xp_dirtree stored procedure
 
-### Using the PowerShell pipeline
+### Using the PowerShell Pipeline
 
 And like all good PowerShell function we take input from the pipeline, so if you want to pipe in files we'll take them!:
 
@@ -229,7 +229,7 @@ This will query ProdSrv1 to get the backup history for the Finance1 database usi
 Get-DbaDbBackupHistory -SqlServer ProdSrv1 -Databases Finance1 | Restore-DbaDatabase -SqlServer TestSrv1 -DestinationDataDirectory d:\DataDump -RestoreTime (Get-date).AddHours(-3)
 ```
 
-### Restore-DbaDatabase parameters
+### Restore-DbaDatabase Parameters
 
 Up till now, all our examples have assumed you're only restoring a single database. But Restore-DbaDatabase will handle more that one backup at time.
 
@@ -253,7 +253,7 @@ Get-DbaDbBackupHistory -SqlServer ProdSrv1 -Databases Finance1, HR, CRM | Restor
 
 And restore all 3 database from ProdSrv1 onto TestSrv1 in one fell swoop! This feature is coming this week or next.
 
-### And, just one last thing
+### And, Just One Last Thing
 
 So we've made it super easy to restore databases. But don't think we've forgotten that you have to create the backups first. Snowball also marks the first appearance of our new backup command Backup-DbaDatabase.
 
@@ -267,10 +267,12 @@ and you're done!
 
 This is the first release of this command, so keep checking back as we add more features. So please let us know what you'd like to see adding in future releases
 
-## Going forward
+## Going Forward
 
 This is the first release of this functionality, and we're looking at extending it's capabilities over time. So we'd love to here from you with your ideas for improvements. I'd also really like to hear about any unusual or different ways you can think of using this functionality.
 
 And please, if you come across something that doesn't work, or doesn't make sense. Please come and talk to us. We hang out over on Slack at [sqlcommunity.slack.com](https://dbatools.io/slack) or you can report issues over at our Github repo at [github.com/dataplat/dbatools](https://github.com/dataplat/dbatools)
 
 - Stuart
+
+

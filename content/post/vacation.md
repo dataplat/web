@@ -1,5 +1,5 @@
 ---
-title: "the commands i run before going on vacation"
+title: "The Commands I Run Before Going on Vacation"
 date: 2017-04-28
 author: "Chrissy LeMaire"
 slug: "vacation"
@@ -13,19 +13,19 @@ draft: false
 
 My favorite vacation ever was the time I visited Steve Jones' wardrobe. It bore a striking resemblance to Maui and even came with complimentary piña coladas.
 
-![Image](https://dbatools.io/wp-content/uploads/2017/02/img_589659755f9a1.png?w=800&ssl=1)
+![Image](/images/img_589659755f9a1.png)
 
 The year was 2009. The sun was out, Colbie Caillat was on the radio and I hadn't mastered PowerShell yet, so I was left feeling frantic about the health of my SQL Server estate.
 
 Now, though, I've got dbatools which allows me to quickly check the things that concern me most. Even with monitoring systems in place, who monitors the monitors? I want reassurance everything is as I expect.
 
-## Before I begin
+## Before I Begin
 
 Before I begin running these commands against every SQL Server in my organization, I get a list from my Central Management Server using [Get-DbaRegServer](https://dbatools.io/Get-DbaRegServer). This command will undergo a definite overhaul during the [1.0 makeover](https://dbatools.io/new-style/), but for now, I run the following to get a list from my **Central Management Server** on my server dedicated to SQL Server management.
 
 Here are the servers in my Central Management server
 
-![Image](https://dbatools.io/wp-content/uploads/2017/04/img_59026563464ff.png?w=800&ssl=1)
+![Image](/images/img_59026563464ff.png)
 
 So I go and grab the instance names and add them to the variable $allservers. I actually do this in my $profile, but it works directly from the command line, of course.
 
@@ -33,11 +33,11 @@ So I go and grab the instance names and add them to the variable $allservers. I 
 $allservers = Get-DbaRegServer -SqlInstance localhost
 ```
 
-![Image](https://dbatools.io/wp-content/uploads/2017/04/img_59026619b68dc.png?w=800&ssl=1)
+![Image](/images/img_59026619b68dc.png)
 
 Of course, $allservers can be a plain-text list of servers such as **$allservers = "sql2014","sql2016","etc"** or even a list of connected SMO servers if alternative credentials are needed. I'll get into that in the future when we introduce a few new commands that keep a local JSON database of your servers and credentials.
 
-## Are any servers running low on disk space?
+## Are Any Servers Running Low on Disk Space?
 
 Next, I always try to keep at least 20% free disk space on my SQL Server drives (including C:) so I check to see if any fall below that threshold using [Get-DbaDiskSpace](https://dbatools.io/Get-DbaDiskSpace).
 
@@ -45,11 +45,11 @@ Next, I always try to keep at least 20% free disk space on my SQL Server drives 
 $allservers | Get-DbaDiskSpace | Where-Object PercentFree -lt 20
 ```
 
-![Image](https://dbatools.io/wp-content/uploads/2017/04/img_590265baf29f1.png?w=800&ssl=1)
+![Image](/images/img_590265baf29f1.png)
 
 Here, I can easily see that two of my servers may need attention while I'm out of town.
 
-## Have any jobs failed in the past 30 days?
+## Have Any Jobs Failed in the Past 30 Days?
 
 Failed jobs are the worst, especially if they're my backup jobs. Let's check failed jobs for the last 30 days using [Find-DbaAgentJob](https://dbatools.io/Find-DbaAgentJob) with either syntax below
 
@@ -58,11 +58,11 @@ $allservers | Find-DbaAgentJob -Failed -Since (Get-Date).AddDays(-30)
 $allservers | Find-DbaAgentJob -Failed -Since 1/5/2017
 ```
 
-![Image](https://dbatools.io/wp-content/uploads/2017/04/img_590272fd5646d.png?w=800&ssl=1)
+![Image](/images/img_590272fd5646d.png)
 
 Uh oh, looks like my log shipping isn't so healthy. Probably shouldn't go on vacation anytime soon 😭
 
-## How about my backups?
+## How About My Backups?
 
 Next I check to ensure that my Fulls, Diffs and Logs are in order. My servers perform FULL backups once a week, DIFFs once a day, and LOG backups every 15 minutes. Let's check to ensure this is happening with [Get-DbaLastBackup](https://dbatools.io/Get-DbaLastBackup)
 
@@ -73,15 +73,15 @@ $lastbackups | Where LastDiffBackup -lt (Get-Date).AddDays(-1)
 $lastbackups | Where LastFullBackup -lt (Get-Date).AddDays(-7)
 ```
 
-![Image](https://dbatools.io/wp-content/uploads/2017/04/img_590286dbbac74.png?w=800&ssl=1)
+![Image](/images/img_590286dbbac74.png)
 
 No results here is good; it means that all of my scheduled backups are working and no last backups were older than I expected 😊 If you're curious about the the output of Get-DbaLastBackup, it looks something like this
 
-![Image](https://dbatools.io/wp-content/uploads/2017/04/img_5902875c2f30f.png?w=800&ssl=1)
+![Image](/images/img_5902875c2f30f.png)
 
 Also, if you're into backups as much as me, check out this post I wrote about [Test-DbaLastBackup](https://dbatools.io/Test-DbaLastBackup) called [building a dedicated backup test server](https://dbatools.io/dedicated-server/).
 
-## Have any databases been failing integrity checks?
+## Have Any Databases Been Failing Integrity Checks?
 
 Next up! Such a great command – [Get-DbaLastGoodCheckDb](https://dbatools.io/Get-DbaLastGoodCheckDb). This function retrieves the last good CHECKDB of each database.
 
@@ -89,11 +89,11 @@ Next up! Such a great command – [Get-DbaLastGoodCheckDb](https://dbatools.io/G
 $allservers | Get-DbaLastGoodCheckDb | Where LastGoodCheckDb -lt (Get-Date).AddDays(-1)
 ```
 
-![Image](https://dbatools.io/wp-content/uploads/2017/04/img_5902a663c5b40.png?w=800&ssl=1)
+![Image](/images/img_5902a663c5b40.png)
 
 Oops! Looks like one of my servers is in really bad shape and CHECKDB hasn't been run on the databases or they've failed for a while. Better run a check so I can get to my 🍕!
 
-## Speaking of vacation
+## Speaking of Vacation
 
 You may be wondering about the status of 1.0. It's coming along, albeit a little slower than we expected. One of the biggest reasons was that I had really bad burnout that lasted 1.5 months. I just couldn't get motivated. It started sometime in early March but I'm back at it now.
 
@@ -101,7 +101,7 @@ Burnout is nothing new to me, but I did have an epiphany this time around. My bu
 
 In the future, I'm going to ensure that I don't get stuck by allowing myself to move on, even if it means gifting the pesky task to someone else.
 
-## World tour
+## World Tour
 
 The reason I was reminded to do this post was because I'm gonna be out of town next week for [PSConf.eu](http://psconf.eu)! PSConf.eu is an awesome PowerShell conference where you're surrounded by great friends and Hefeweizen. "Let's all have a great time together" is one of the tenets of the conference and last year's conference was the best conference I'd ever been to.
 
@@ -114,11 +114,11 @@ Rob Sewell and Stephen Bennett (not pictured), Thomas LaRock (not pictured)
 
 Which reminds me, we added a [presentations](https://dbatools.io/presentations) page to the site. If you want to know where we'll be speaking, hit it up. And! If you're speaking about dbatools, let us know and we'll promote your session 🙏❤️
 
-![Image](https://dbatools.io/wp-content/uploads/2017/04/img_59029a36e0a9e.png?w=800&ssl=1)
+![Image](/images/img_59029a36e0a9e.png)
 
 I left this small so you would click 😁
 
-## Finishing up
+## Finishing Up
 
 So here's a big ol' chunk of code you can paste into your environment. You'll have to customize it a lil' bit, but it's a good start.
 

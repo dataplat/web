@@ -1,5 +1,5 @@
 ---
-title: "talking to your security team about powershell and dbatools"
+title: "Talking to Your Security Team About PowerShell and dbatools"
 date: 2018-09-26
 author: "Chrissy LeMaire"
 slug: "secure"
@@ -15,7 +15,7 @@ Last year, during our [PASS Summit](https://sqlps.io/precon) and [SQL Bits](http
 
 I even created a cute lil logo for it 😊
 
-[![](https://dbatools.io/wp-content/uploads/2018/09/security.png?fit=300%2C300&ssl=1)](https://sqlps.io/security)
+[![](/images/security.png)](https://sqlps.io/security)
 
 Recently, our team had a [discussion](https://dbatools.io/slack) about security in [#dbatools-dev](https://sqlcommunity.slack.com/messages/C3EJ852JD/) and I realized I should probably highlight why PowerShell and dbatools are ideal for every organization, including security-minded organizations.
 
@@ -31,7 +31,7 @@ JPG -> IIS -> cmd/.NET -> file system -> SQL Server -> token theft from GUI -> d
 
 Remote PowerShell sessions do not create tokens, and consequently do not subject us to the threat of token theft and privilege escalation.
 
-## Remote PowerShell, you say?
+## Remote PowerShell, You Say?
 
 I remember when I heard the term **PowerShell Remoting** and saw some book chapters on it, I was like "aw man, another thing I gotta learn?" but it's actually [pretty straight forward](https://docs.microsoft.com/en-us/powershell/scripting/core-powershell/running-remote-commands).
 
@@ -63,7 +63,7 @@ The PowerShell team is very serious about security and their lead security archi
 
 Yet we'll sometimes see things like this:
 
-[![](https://dbatools.io/wp-content/uploads/2019/09/clickbait.png?fit=300%2C300&ssl=1)](https://www.symantec.com/connect/blogs/powershell-threats-surge-954-percent-analyzed-scripts-were-malicious)
+[![](/images/clickbait.png)](https://www.symantec.com/connect/blogs/powershell-threats-surge-954-percent-analyzed-scripts-were-malicious)
 
 Click to Tweet 🤐 So why do anti-virus (AV) companies highlight the obvious fact that suspicious files uploaded to a suspicious-file-checker will probably be suspicious?
 
@@ -79,7 +79,7 @@ Pretty convincing argument there, Lee! Thank you 🎉
 
 Looking for more? Check out [PowerShell, Remoting, and Security](https://github.com/devops-collective-inc/secrets-of-powershell-remoting/blob/master/manuscript/powershell-remoting-and-security.md) by Microsoft MVP Don Jones.
 
-## Hackers avoid PowerShell
+## Hackers Avoid PowerShell
 
 This tweet speaks volumes.
 
@@ -95,13 +95,13 @@ dbatools is an open source project so all of our coding and discussions happen o
 
 Open source is generally considered more secure, but as the SQLShack article "[SQL Server security considerations with open source tools](https://www.sqlshack.com/sql-server-security-considerations-with-open-source-tools/)" highlights, there are some concerns to address.
 
-## Code signed
+## Code Signed
 
 What data pro doesn't love integrity? #DBCCCHECK4EVER
 
 Thanks to a donation from dbatools contributors, [Data Masterminds](https://www.datamasterminds.io/), dbatools is legit, code-signed, Enterprise software.
 
-![](https://dbatools.io/wp-content/uploads/2017/10/8.gif)
+![](/images/8.gif)
 
 Code signing requires a code signing certificate. Obtaining a globally recognized code signing certificate isn't easy and took me about a month. A ton of paperwork & multiple proofs of identity were required, but I did it because I wanted dbatools to be as professional as possible.
 
@@ -111,7 +111,7 @@ What are code signing certs? [DigiCert](https://www.digicert.com/code-signing/) 
 
 Our signatures do include a timestamp, and I personally sign every release that goes into the [PowerShell Gallery](https://dbatools.io/gallery) and [chocolately](https://dbatools.io/chocolatey). [Rob Sewell](http://sqldbawithabeard.com) and I are the only two people with access to the certificate. And while Rob can also potentially sign dbatools, he uses the certificate solely to sign our sister project, [dbachecks](https://dbachecks.io).
 
-## Limited permissions to merge
+## Limited Permissions to Merge
 
 Going back to that article on [SQLShack.com](https://www.sqlshack.com/): they talk about [diffusion of responsibility](https://en.wikipedia.org/wiki/Diffusion_of_responsibility). Basically, the human impulse to say "another developer is looking, so I don't have to."
 
@@ -121,21 +121,21 @@ Only six of us can merge code into the dbatools master branch, and only six of u
 git log --graph --abbrev-commit --decorate --first-parent master --merges --pretty=format:%h-%aN
 ```
 
-![](https://dbatools.io/wp-content/uploads/2019/09/master-commiters.png?ssl=1)
+![](/images/master-commiters.png)
 
 Five of the six people (Me, Shawn, Fred, Rob, Simone and Stuart) who can **currently** merge code intro dev/master are current/former MVPs or Microsoft employees. Our primary C# library developer, [Friedrich Weinmann](https://psframework.org/), is a former MVP and current Security PFE at Microsoft. Friedrich approves all C# code. The other dbatools code is mostly approved by me and fellow MVPs Shawn Melton and Stuart Moore.
 
 We are all known by Microsoft and have visible community profiles. You'll notice that I'm the primary merger, but if you watch our repo, you'll also notice Shawn spends a good deal of time evaluating and testing code, even after I've merged it and after it's been [tested by appveyor](https://dbatools.io/ci) & [Pester](https://dbatools.io/tests).
 
-## Manageable code base
+## Manageable Code Base
 
 dbatools also has a decently manageable code base. Here are some stats about our code, courtesy of Simone who used [cloc](https://github.com/AlDanial/cloc) to produce this pretty chart.
 
-![](https://dbatools.io/wp-content/uploads/2019/09/sloc.png?ssl=1)
+![](/images/sloc.png)
 
 Note that over 35% of our PowerShell code is comments or comment-based help 😊
 
-## You can compile dbatools.dll yourself
+## You Can Compile dbatools.dll Yourself
 
 Our dbatools C# library code [can be found in our GitHub repo](https://github.com/dataplat/dbatools/tree/development/bin/projects/dbatools), AND! You can even set it to compile each time you import dbatools using the `$dbatools_alwaysbuildlibrary` variable instead of relying on our included dll.
 
@@ -148,7 +148,7 @@ The module itself [handles](https://github.com/dataplat/dbatools/blob/developmen
 
 Note that `$dbatools_alwaysbuildlibrary` is not supported by our PowerShell Gallery or chocolatey releases. If you need to compile the DLL, you'll need to either clone our repo or [download the zip](https://dbatools.io/zip) directly from GitHub.
 
-## External libraries and programs
+## External Libraries and Programs
 
 Our [external libraries and programs](https://github.com/dataplat/dbatools/tree/development/bin/smo) come primarily from Microsoft. But like SQL Server Management Studio, we also use community DLLs.
 
@@ -158,7 +158,7 @@ We also obtained permission to include bcp.exe and sqlcmd.exe, and that came dir
 
 While it'd be foolish to make a guaranteed promise that our library is 💵, we do try our best and no malware has ever been detected in my repo root or in our PowerShell Gallery and chocolatey packages.
 
-## We're on chocolatey
+## We're on Chocolatey
 
 Thanks to [Paul Broadwith](https://blog.pauby.com/), dbatools is now available in the chocolatey repository, and [chocolatey takes package integrity very seriously](https://chocolatey.org/security).
 
@@ -172,7 +172,7 @@ You can also find us on the [PowerShell Gallery](https://dbatools.io/gallery) wh
 
 According to Microsoft, all modules have to meet a minimum quality standard, which includes being free of malware and viruses.
 
-## We're used by Microsoft
+## We're Used by Microsoft
 
 Amazingly enough, Microsoft also uses dbatools (and 1999 me is totally tripping out). So while Microsoft does not officially endorse us, they appear to trust that we're a project with integrity.
 
@@ -186,7 +186,7 @@ Also, SQL PFE Patrick Keisler [wrote a post on blogs.msdn.microsoft.com](https:/
 
 Word has it, we're also used in the banking industry, the airline industry, the super fancy speedcar industry, the insurance industry, the medical industry and more.
 
-## Low-hanging fruit
+## Low-Hanging Fruit
 
 There's also some low-hanging fruit that we address, like using ScriptAnalyzer to ensure we follow security best practices. We also update our website's backend regularly and each of our sites use HTTPS.
 
@@ -194,7 +194,7 @@ There's also some low-hanging fruit that we address, like using ScriptAnalyzer t
 
 Microsoft itself has written extensively about PowerShell security.
 
-## Who's afraid of PowerShell security?
+## Who's Afraid of PowerShell Security?
 
 [Who's afraid of PowerShell security?](https://blogs.technet.microsoft.com/ashleymcglone/2016/06/29/whos-afraid-of-powershell-security/) by former Microsoft PFE Ashley McGlone was an instant classic because it was effective and succinct. This article made so many great points, including:
 

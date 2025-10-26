@@ -1,5 +1,5 @@
 ---
-title: "walk-thru: installing modules from the powershell gallery"
+title: "Walk-Thru: Installing Modules from the PowerShell Gallery"
 date: 2017-10-18
 author: "Chrissy LeMaire"
 slug: "soup2nutz"
@@ -15,7 +15,7 @@ Before Apple created the App Store and Microsoft created the Microsoft Store, Li
 
 For years, power users requested a PowerShell version of [apt-get](https://en.wikipedia.org/wiki/APT_%28Debian%29) and in 2014 Microsoft delivered with the introduction of the [PowerShell Gallery](https://www.powershellgallery.com) and an [accompanying module](https://blogs.msdn.microsoft.com/powershell/2016/09/29/powershellget-and-packagemanagement-in-powershell-gallery-and-github/) that allowed users to just **Install-Module** to install new modules, PowerShell's version of a *package*.
 
-## Installing dbatools from a super fresh Win10 install
+## Installing dbatools from a Super Fresh Win10 Install
 
 It's easy for PowerShell toolmakers to forget that new users may have questions about ExecutionPolicy and Repositories. If dbatools is the first module you've ever installed and used, this guide is intended to help you with all of your install/setup questions and concerns.
 
@@ -34,17 +34,17 @@ The default Execution Policy is **Restricted**. Microsoft says this about Restri
 
 > Does not load configuration files or run scripts. Restricted is the default execution policy.
 
-![Image description](https://dbatools.io/wp-content/uploads/2017/10/1.gif?resize=800%2C600&ssl=1)
+![Image description](/images/1.gif)
 
 I haven't dug around too much, but I it appears that at least one module, PSReadLine, is allowed to run, because the text is still colorful and pretty. Based on this and the fact that **Install-Module** is allowed to run even in Restricted mode, I assume that all default Microsoft-signed modules are allowed.
 
-### dbatools minimum requirement
+### dbatools Minimum Requirement
 
 Most PowerShell books directed at local development suggest you change your ExecutionPolicy to RemoteSigned. RemoteSigned basically means that all scripts and modules not located on your local computer must be signed. It is what most books will tell you to set your ExecutionPolicy to so that you can code locally.
 
 Thanks to [CloudDBA](http://clouddba.io/)'s generosity, our module is professionally signed using a [code signing certificate](https://www.digicert.com/code-signing/) from DigiCert. This means that you can use our module even if your environment is set to the second most restrictive Execution Policy,  AllSigned. AllSigned is probably most popular on restrictive Enterprise networks.
 
-![Image description](https://dbatools.io/wp-content/uploads/2017/10/2.gif?resize=800%2C600&ssl=1)
+![Image description](/images/2.gif)
 
 Code:
 
@@ -54,7 +54,7 @@ OR, **more realistically**, set your execution policy to RemoteSigned so you can
 
 > Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 
-## Trusting Microsoft's default repository
+## Trusting Microsoft's Default Repository
 
 Now that we've got the Execution Policy squared away, let's move on to the [PowerShell Gallery](https://www.powershellgallery.com).
 
@@ -62,7 +62,7 @@ Following [PowerShell's Security Guiding Principles](https://blogs.msdn.microsof
 
 Now that you know the Gallery is trustworthy, tell your computer to trust it as well (otherwise you'll be prompted every time.)
 
-![Image description](https://dbatools.io/wp-content/uploads/2017/10/3.gif?resize=800%2C600&ssl=1)
+![Image description](/images/3.gif)
 
 Code:
 
@@ -72,9 +72,9 @@ Code:
 
 Now that you trust the PowerShell Gallery, you can install the module, prompt free.
 
-![Image description](https://dbatools.io/wp-content/uploads/2017/10/4.gif?resize=800%2C600&ssl=1)
+![Image description](/images/4.gif)
 
-![Image description](https://dbatools.io/wp-content/uploads/2017/10/5.gif?resize=800%2C600&ssl=1)
+![Image description](/images/5.gif)
 
 Code:
 
@@ -86,7 +86,7 @@ I was so excited when we published our first signed version, [reversegiraffe](ht
 
 Considering Microsoft doesn't trust its own Gallery by default, this made sense. Go ahead and trust us by forcing an import of the module, then **A** for Always.
 
-![Image description](https://dbatools.io/wp-content/uploads/2017/10/6.gif?resize=800%2C600&ssl=1)
+![Image description](/images/6.gif)
 
 Code:
 
@@ -96,17 +96,17 @@ Code:
 
 What does trusting a publisher do? It places our public key into your Current User's Trusted Publisher PKI store.
 
-![Image description](https://dbatools.io/wp-content/uploads/2017/10/7.gif?resize=800%2C600&ssl=1)
+![Image description](/images/7.gif)
 
-![Image description](https://dbatools.io/wp-content/uploads/2017/10/8.gif?resize=800%2C600&ssl=1)
+![Image description](/images/8.gif)
 
 Cool!
 
-## Go to town
+## Go to Town
 
 Now that you've set your execution policy, trusted the gallery, installed dbatools, and trusted us as a publisher, you're set. Just run a command 🤷
 
-![Image description](https://dbatools.io/wp-content/uploads/2017/10/9.gif?resize=800%2C600&ssl=1)
+![Image description](/images/9.gif)
 
 Want to see more? dbatools Major Contributor William Durkin of [CloudDBA](http://clouddba.io/) made a [video](https://www.youtube.com/watch?v=p8N2jaxBc08)! And it's not even silent 😁
 

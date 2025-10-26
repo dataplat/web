@@ -1,5 +1,5 @@
 ---
-title: "the path to 1.0"
+title: "The Path to 1.0"
 date: 2018-01-16
 author: "Simone"
 slug: "the-path-to-1-0"
@@ -14,13 +14,13 @@ We have now reached more than 370 public functions and nearly 1000 unit and inte
 
 As you may have noticed, we release a 0.9.x update with bug fixes and new features almost daily, so why haven't we released 1.0 yet?
 
-## Shifting from "a bag of functions" to a proper module
+## Shifting From "A Bag of Functions" to a Proper Module
 
 We love new functionality, of course, but we must take a step back from new development and consolidate what we have in a properly usable module.
 
 Most of the contributors are damn good SQL Server Pros, a few are damn good PowerShell programmers, with the majority of "casual" developers being able to successfully publish a new function in less than a week time. But what we aren't so good at is advertising our needs. We recently updated our [contributing.md](https://github.com/dataplat/dbatools/blob/master/CONTRIBUTING.md) to be more on par with the latest months of developing. Stay tuned there, as the few TODOs left are coming, but the path is mostly set.
 
-## We need your help
+## We Need Your Help
 
 We're looking for contributors to help us finally reach version 1.0. Currently, we are on par with Gmail's beta schedule: a whopping 4 years. But, we're almost there and need your help finalizing our changes. If you're interested in helping us bring 1.0 alive, we identified four areas with 5 primary contacts on the [SQL Server Community Slack](https://dbatools.io/slack):
 
@@ -39,7 +39,7 @@ Data will be refreshed once or twice a week (you can see the trend on top with t
 
 Basically, we gave each function a scorecard, composed by checks that need to be tackled before 1.0.
 
-#### Becoming a core developer
+#### Becoming a Core Developer
 
 Some of the checks are "reserved for core-devs", but that doesn't mean you shouldn't tackle those, it's just you need to read on how we want the code to look like (we'll eventually group everything in a more consolidated guide, ranging from the simpler to the "most complex"):
 
@@ -50,7 +50,7 @@ Some of the checks are "reserved for core-devs", but that doesn't mean you shoul
 
 It *may* scare PowerShell newbies, but trust us, to get the gist of it and be a successful "core-dev", all you need is one week of coding. Most of us learned from Slack and Pull Request Code reviews. Sqlcollaborative is a wonderful place to learn coding in PowerShell! Checks for core-devs, despite being numerous, are a minority of the total.
 
-## Getting started
+## Getting Started
 
 The most important things you can fix even without being a skilled developer: ScriptAnalyzer and Coverage. [ScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) checks are the de-facto standard for any Powershell module and some are really, really easy to fix.
 
@@ -60,13 +60,13 @@ Having a strong suite of tests also help the casual developer contributing code,
 
 For dbatools in particular: if you factor all the things dbatools supports (think PS versions *times* SQL releases *times* editions *times* Azure/cloud envs *times* x86/x64 *times* remote/local *times* functions *times* … ).
 
-#### We've made it easy
+#### We've Made It Easy
 
 You can copy and paste from [our templates](https://github.com/dataplat/dbatools-templates/tree/master/tests) for a starting point, or dive right in to an existing tests.
 
 [Improving existing tests](https://dbatools.io/improving-tests/) is an easy first step to "dip your toes" into coverage.
 
-## Want to help?
+## Want to Help?
 
 Right now there are more than 500 tasks ready to be tackled by everyone and more than 1300 for intermediate developers. To make sure everyone doesn't jump on the same activity, you're invited to see if there's an [issue](https://dbatools.io/issues) opened on GitHub by someone else. If nothing pops up, open an "issue" , stating that you want to work the issue.
 

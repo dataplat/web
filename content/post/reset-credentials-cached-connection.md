@@ -1,5 +1,5 @@
 ---
-title: "Using Set-DbaCmConnection to reset credentials and cached connection status"
+title: "Using Set-DbaCmConnection to Reset Credentials and Cached Connection Status"
 date: 2019-06-25
 author: "Gareth N"
 slug: "reset-credentials-cached-connection"
@@ -17,7 +17,7 @@ dbatools is smart. It can do things in the background when you're using the comm
 
 But what if something changed since it cached the connection? Let's see how we can edit the existing connections if necessary.
 
-### My scenario
+### My Scenario
 
 I was updating some dev instances using what has to be one of my favorite commands, [Update-DbaInstance](https://dbatools.io/Update-DbaInstance). Here's what my command looked like:
 
@@ -36,7 +36,7 @@ For anyone new to dbatools, let's briefly talk about what this is doing for us b
 
 Works like a charm! For more details and examples, you can check out the [Update-DbaInstance help page](https://docs.dbatools.io/#Update-DbaInstance).
 
-#### Back on topic
+#### Back on Topic
 
 I came to update one instance, and my credentials were not working, I received an Access Denied message in PowerShell. I did what was necessary to get my permissions added on the windows server, confident I was good to go I tried again, but still no luck. This time the error was slightly different, "Windows authentication was used, but is known to not work!". Hmmm, not sure what this means? I went off to the dbatools slack channel for advice and got the answer I needed.
 

@@ -1,5 +1,5 @@
 ---
-title: "new release – picklerick"
+title: "New Release – PickleRick"
 date: 2017-11-17
 author: "Chrissy LeMaire"
 slug: "picklerick"
@@ -17,7 +17,7 @@ Tonight, we released **picklerick**. It has 323 super useful, [tested](/improvin
 
 I actually thought we already were, but it appears that creating the connection with an explicit `$server.ConnectionContext.Connect()` bypasses the connection pool. Turns out, we should use `$server.ConnectionContext.SqlConnectionObject.Open()` instead. Hat tip to (newly minted MVP!) Shawn Melton and Jay Robinson for that super solid fix.
 
-![picks](https://dbatools.io/wp-content/uploads/2017/11/picks.jpg?resize=800%2C449&ssl=1)
+![picks](/images/picks.jpg)
 
 So if you found dbatools hanging out for too long, please do update to [0.9.105](/git) or above.
 

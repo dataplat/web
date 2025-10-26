@@ -1,5 +1,5 @@
 ---
-title: "new release – realfakedoors"
+title: "New Release – realfakedoors"
 date: 2017-03-16
 author: "Chrissy LeMaire"
 slug: "realfakedoors"
@@ -63,7 +63,7 @@ Of the 22 new commands in this release, one command, [Get-DbaBuildReference](htt
 - **[Read-DbaTransactionLog](https://dbatools.io/Read-DbaTransactionLog)**
   Reads the live Transaction log from specied SQL Server Database
 
-### General commands
+### General Commands
 
 Based on the popularity of [Get-DbaDatabase](https://dbatools.io/Get-DbaDatabase) and a general agreement within the team, 1.0 will include a bunch of basic Gets and Sets within the module that return SMO objects. Here's the first batch!
 
@@ -103,7 +103,7 @@ Based on the popularity of [Get-DbaDatabase](https://dbatools.io/Get-DbaDatabase
 - **[Set-DbaSpConfigure](https://dbatools.io/Set-DbaSpConfigure)**
   This function changes the configured value for sp_configure settings. If the setting is dynamic this setting will be used, otherwise the user will be warned that a restart of SQL is required.
 
-## Now on tour
+## Now on Tour
 
 We recently added a [new Presentations page](https://dbatools.io/presentations) to keep track of all of the presentations around the 🌍🌎🌏 that speak all or in part about dbatools.
 
@@ -113,7 +113,7 @@ Visit the [downloads page](https://dbatools.io/download) for information about h
 
 {{< youtube 8P6ScCjEnLk >}}
 
-## Join us!
+## Join Us!
 
 We're all hanging out on the [SQL Server Community Slack](https://dbatools.io/slack) in the #dbatools channel. There's over 500 of us there now, but the conversation load is reasonable.
 

@@ -1,5 +1,5 @@
 ---
-title: "offline installs of dbatools"
+title: "Offline Installs of dbatools"
 date: 2017-07-26
 author: "Chrissy LeMaire"
 slug: "offline-old"
@@ -43,7 +43,7 @@ Note that **this will download a file ending in .nupkg**. Simply rename the file
 
 Invoke-WebRequest is a bit slow, however, because of the progress bar, so I usually just download via GUI and rename.
 
-## GitHub via dbatools.io/zip
+## GitHub via dbatools.io/Zip
 
 You can also easily download the latest version of our master GitHub repository by simply clicking on [dbatools.io/zip](https://dbatools.io/zip). If you're adventurous, you can even download our latest dev (beta) version at [dbatools.io/devzip](https://dbatools.io/devzip).
 
@@ -63,7 +63,7 @@ Our .psm1 takes care of Unblocking DLLs, but if you use the download and unzip m
 
 Just a quick note about `$env:PSMODULEPATH`. If you're not familiar with PSMODULEPATH, you may remember PATH from the DOS days and PSMODULEPATH is similar. Any module placed within your $env:PSMODULEPATH will automatically load once you execute a command from that module. Here, you can see the contents of my path and that I [manually added](https://msdn.microsoft.com/en-us/library/dd878326(v=vs.85).aspx) my git repo.
 
-![](https://dbatools.io/wp-content/uploads/2017/07/img_59786e92eb630.png?w=800&ssl=1)
+![](/images/img_59786e92eb630.png)
 
 Thanks for reading,
 - Chrissy

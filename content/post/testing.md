@@ -1,5 +1,5 @@
 ---
-title: "performing a migration with every commit: testing with pester and appveyor"
+title: "Performing a Migration With Every Commit: Testing With Pester and AppVeyor"
 date: 2017-09-12
 author: "Chrissy LeMaire"
 slug: "testing"
@@ -11,13 +11,13 @@ tags: [party]
 draft: false
 ---
 
-## not a snoozefest
+## Not a Snoozefest
 
 You may be thinking "oh man, a post about testing. booooring!" I used to, too, but have since come around and now find that creating tests is actually a lot of fun 🎉. I even have a personal goal that that every command touched by a PR gets a corresponding test. That way, we know the command works as expected and will continue to with each and every merge.
 
 Here's how I came around.
 
-## my nightmare
+## My Nightmare
 
 When it comes to dbatools, my biggest fear is creating or allowing a command that causes data loss. What if `Copy-DbaLogin -Force` dropped the login on the source instead of the destination? What if the `-WhatIf` parameter actually executed code that modifies a setting instead of just reading and reporting on it? I was horrified when I found out that even Microsoft's own SqlServer module, then known as SQLPS, actually did this and I've literally lost sleep over such possibilities with dbatools.
 
@@ -25,7 +25,7 @@ Even though we've got our own team lab complete with over 15 test instances, I d
 
 Turns out, the service we actually wanted wasn't Azure, it was a free service we were already using – [Appveyor](https://appveyor.com)! Appveyor, when combined with [Pester](https://github.com/pester/Pester), the PowerShell-based unit testing framework, was exactly what I was looking for.
 
-## my dream come true
+## My Dream Come True
 
 Appveyor is awesome and free for open source projects. It hooks into GitHub and launches a fresh VM **with each and every commit**. It comes with 4 or 5 different versions of SQL Server pre-installed, and with the way we've got it setup, **performs 8 migrations** every time code is committed to our repo. How?
 
@@ -36,23 +36,23 @@ Appveyor is awesome and free for open source projects. It hooks into GitHub and 
 
 Now, I no longer have to worry that Copy-DbaLogin or Copy-DbaDatabase will inadvertently drop the object on the wrong server when the -Force parameter is used. Why? Because the tests I wrote for those two commands perform the migration, and [tests the source (2008) server](https://github.com/dataplat/dbatools/blob/master/tests/Copy-DbaDatabase.Tests.ps1#L33) to ensure the object still exists.
 
-![Just a few of our tests](https://dbatools.io/wp-content/uploads/2017/09/img_59b65245213f6.png?w=800&ssl=1)
+![Just a few of our tests](/images/img_59b65245213f6.png)
 
 Ultimately, the team has written nearly 600 tests that touch at least 88 of our 287 commands. Our goal for 1.0 is to at least one test for 100% of our commands. And best of all, I now have so much more confidence in the state of dbatools after I hit that Merge button.
 
-## it gets even better
+## It Gets Even Better
 
 One of my favorite parts of this whole testing thing happened a few months ago when when a community member submitted a [GitHub Pull Request](https://help.github.com/articles/about-pull-requests/) that modified [Restore-DbaDatabase](https://dbatools.io/Restore-DbaDatabase). Now, Restore-DbaDatabase is one of our largest and most important commands – it's used within [Copy-DbaDatabase](https://dbatools.io/Copy-DbaDatabase), [Test-DbaLastBackup](https://dbatools.io/Test-DbaLastBackup) and [Invoke-DbaDbLogShipping](https://www.sqlstad.nl/powershell/lets-get-all-posh-log-shipping/). It was written primarily by [Stuart Moore](https://stuart-moore.com/) and I consider it his baby.
 
 It's rare I'll approve a PR for this command myself because of its intricacy, and usually leave it for Stuart. So with this PR, he merges it with the comment **"looks good to me and passes all tests."** Wait, what? Which tests? Then I take a look at [Restore-DbaDatabase.Tests.ps1](https://github.com/dataplat/dbatools/blob/master/tests/Restore-DbaDatabase.Tests.ps1) and holy moly, this thing contains 53 glorious tests! FIFTY THREE!
 
-![Output of Restore-DbaDatabase tests.](https://dbatools.io/wp-content/uploads/2017/09/img_59b6688ad97ad.png?w=800&ssl=1)
+![Output of Restore-DbaDatabase tests.](/images/img_59b6688ad97ad.png)
 
 Now, gone are the days of us manually testing if a command will work, forgetting to test a specific scenario or hoping that we properly remembered to test all related commands. Now, the same 53 tests will run every single time any command in the repo is modified.
 
 What a relief 😌
 
-## more about pester
+## More About Pester
 
 I was first introduced to Pester by the host of this T-SQL Tuesday, Rob. I've gotten a chance to see many of his Pester presentations because Rob and I often present together and we even [won the Best Speaker award](https://sqldbawithabeard.com/2017/06/21/dbatools-at-sqlsatdublin/) back in June at SQL Saturday Dublin for our dbatools presentation!
 
@@ -62,7 +62,7 @@ I always enjoy Rob's sessions and find his use of Pester to test his own present
 
 Still, when it came to creating Pester Tests for dbatools, I deferred to other team members because I didn't really get the type of testing we first started with – Unit Testing. Turns out, I better relate to and love Integration tests. I learned about this style of testing at [PSConf.eu](http://www.psconf.eu) when I dropped in on Rob and André's session, [Test your PowerShell code with AppVeyor for ITPros](https://www.youtube.com/watch?v=8Nljk1deSmU).
 
-### unit testing vs integration testing
+### Unit Testing vs Integration Testing
 
 Here's my understanding of Unit Tests vs Integration Tests.
 
@@ -71,7 +71,7 @@ Here's my understanding of Unit Tests vs Integration Tests.
 
 I think the easiest two examples of testing commands with Unit Tests are [Get-DbaBuildReference.Tests.ps1](https://github.com/dataplat/dbatools/blob/master/tests/Get-DbaBuildReference.Tests.ps1) and [Get-DbaMaxMemory.Tests.ps1](https://github.com/dataplat/dbatools/blob/master/tests/Get-DbaMaxMemory.Tests.ps1). Note, however, that Get-DbaMaxMemory.Tests.ps1 starts with a single Integration test and then goes into a bunch of Unit Tests.
 
-### keeping it simple
+### Keeping It Simple
 
 Check out this simple Integration test for the super cool command [Get-DbaSchemaChangeHistory](https://dbatools.io/Get-DbaSchemaChangeHistory), also created by Stuart Moore.
 
@@ -99,7 +99,7 @@ This test could get a lot more detailed, of course. Microsoft's Unit tests for j
 
 How did I come up with the test? I just thought about what I'd do if I were running the command manually and what I'd check.
 
-### a slightly more advanced example
+### A Slightly More Advanced Example
 
 Another example of [a test](https://github.com/dataplat/dbatools/blob/master/tests/New-DbaAgentJob.Tests.ps1) would be for, say, [New-DbaAgentJob](https://dbatools.io/New-DbaAgentJob). The test for that command (which hasn't been migrated to use BeforeAll & AfterAll)
 
@@ -109,15 +109,15 @@ Another example of [a test](https://github.com/dataplat/dbatools/blob/master/tes
 - Ensures that attempting to create the job again doesn't overwrite the existing job
 - Drops the job
 
-## appveyor in action
+## AppVeyor in Action
 
 If you'd like to see Appveyor in action, you can watch it live (we do alll the time) at [dbatools.io/ci](https://dbatools.io/ci). Some days, we're looking really good and it's all green
 
-![Appveyor green build](https://dbatools.io/wp-content/uploads/2017/09/img_59b7d00729690.png?w=800&ssl=1)
+![Appveyor green build](/images/img_59b7d00729690.png)
 
 Other days are not as good
 
-![Appveyor red build](https://dbatools.io/wp-content/uploads/2017/09/img_59b7d0c04d876.png?w=800&ssl=1)
+![Appveyor red build](/images/img_59b7d0c04d876.png)
 
 Sometimes, failed tests are because of our code. Other times, it's an exhaustion of resources because Appveyor only gives 2GB of ram per VM. In response, we split up our tests and now run them on three different VMs. It takes a little longer, but it's worth it for more reliable testing.
 

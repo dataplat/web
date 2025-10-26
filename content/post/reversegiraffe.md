@@ -1,5 +1,5 @@
 ---
-title: "new release – reversegiraffe"
+title: "New Release – Reverse Giraffe"
 date: 2017-05-04
 author: "Chrissy LeMaire"
 slug: "reversegiraffe"
@@ -24,7 +24,7 @@ In [the latest release](https://github.com/dataplat/dbatools/releases/latest), w
 
   See [Microsoft's page](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.management.smo.scriptingoptions.aspx) for more information.
 
-### General commands
+### General Commands
 
 Based on the popularity of [Get-DbaDatabase](https://dbatools.io/Get-DbaDatabase) and a general agreement within the team, 1.0 will include a bunch of basic Gets and Sets within the module that return SMO objects.
 
@@ -37,7 +37,7 @@ Based on the popularity of [Get-DbaDatabase](https://dbatools.io/Get-DbaDatabase
 - **[Set-DbaStartupParameter](https://dbatools.io/Set-DbaStartupParameter)**
   Sets the Startup Parameters for a SQL Server instance
 
-### Other commands
+### Other Commands
 
 - **[Get-DbaEstimatedCompletionTime](https://dbatools.io/Get-DbaEstimatedCompletionTime)**
   Gets execution and estimated completion time information for queries
@@ -48,7 +48,7 @@ Based on the popularity of [Get-DbaDatabase](https://dbatools.io/Get-DbaDatabase
 - **[Get-DbaDbFile](https://dbatools.io/Get-DbaDbFile)**
   This command is intended to avoid the enumeration issues that SMO causes when getting information about files and filegroups.
 
-### Name changes
+### Name Changes
 
 - **[Invoke-DbaWhoisActive](https://dbatools.io/Invoke-DbaWhoisActive)**
   Invoke-DbaWhoIsActive is now Invoke-DbaWhoisActive. To get the same Grid-View behavior, you'll have to pipe Invoke-DbaWhoisActive out to Out-GridView.
@@ -56,7 +56,7 @@ Based on the popularity of [Get-DbaDatabase](https://dbatools.io/Get-DbaDatabase
 - **[Install-DbaWhoisActive](https://dbatools.io/Install-DbaWhoisActive)**
   Install-DbaWhoIsActive is now Install-DbaWhoisActive. That's all.
 
-### Quality Assurance Lead needed
+### Quality Assurance Lead Needed
 
 Our amazing QA guy, Dan Alexander, has stepped aside for a while. Our project has seen a lot of people come and go, including myself. It's absolutely understood and even expected. With Dan's absence, however, we desperately need someone to lead the QA effort.
 
@@ -73,7 +73,7 @@ The new QA lead would be considered the owner of the process and would help gett
 
 If you're up for the task, please visit our [Slack](https://dbatools.io/slack).
 
-### Code signing
+### Code Signing
 
 One day I woke up and decided that we really must digitally sign the dbatools module. There are a number of reasons for this, but the two biggest reasons is that
 
@@ -98,7 +98,7 @@ On March 1, 2017, we initiated a new command freeze. This means that we will no 
 
 If you're available to help, we'd love it! Even if you don't know PowerShell, we'll need help updating the website with screenshots and examples with the updated parameters and command names, and other tasks of that nature. **We especially need testers**.
 
-## Join us!
+## Join Us!
 
 We're all hanging out on the [SQL Server Community Slack](https://dbatools.io/slack) in the #dbatools channel. There's over 640 of us there now, but the conversation load is reasonable.
 

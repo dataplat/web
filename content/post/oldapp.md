@@ -1,5 +1,5 @@
 ---
-title: "migrating super old app databases"
+title: "Migrating Super Old App Databases"
 date: 2019-08-26
 author: "Chrissy LeMaire"
 slug: "oldapp"
@@ -85,11 +85,11 @@ New-DbaClientAlias -ComputerName server1, server2, server3, server4, server5 -Se
 # Get-DbaClientAlias -ComputerName server1, server2, server3, server4, server5 | Where AliasName -eq APPSQL11 | Remove-DbaClientAlias
 ```
 
-# Post-migration
+# Post-Migration
 
 So the migration went *decently* well. While we didn't have to use the fallback commands, we did have to investigate a couple failures.
 
-## Failed job migration
+## Failed Job Migration
 
 A couple jobs didn't migrate because they were rejected by the new server. Seems that scripted export code referenced "server=", which was invalid because it contained the name of the old server.
 
@@ -156,7 +156,7 @@ Set-DbaSpConfigure -SqlInstance APPSQL2 -ConfigName RemoteDacConnectionsEnabled 
 
 We decrypted the views then added *COLLATE DATABASE_DEFAULT* to some queries, altered the views and voila! We were set. After the jobs ran successfully, we handed the migration off to the application team.
 
-## SSPI failures
+## SSPI Failures
 
 The application team immediately handed it right back to us 😅. Seems they encountered some "Cannot Generate SSPI Context" failures. Wait, what? The SPNs are set, right?
 
@@ -173,7 +173,7 @@ Oh, no: our dbatools connection was also using NTLM. So we checked to see if the
 
 Turns out it was an issue with a setting in Windows (didn't record which, oops), and after that was adjusted, Kerberos worked!
 
-# Now for the application
+# Now for the Application
 
 After confirming that Kerberos was totally working, I removed the newly created SQL Client aliases and they updated all of the connection strings. Still there were problems. The error message was written in `en-gb` ("initalised") so I figured it was an application error. If this was an error coming from SQL Server or IIS, it would have been written in `en-us`.
 
@@ -194,7 +194,7 @@ Invoke-DbaDbDecryptObject -SqlInstance APPSQL2 -Database appdb -Name $names
 
 Oh, la la! We found a candidate, updated the values and we were back in action! The migration was successful and the test results were accepted. With this knowledge, they were able to quickly perform a the production migration.
 
-# Out of curiosity
+# Out of Curiosity
 
 What was your most challenging migration with dbatools like? How often do you have to modify jobs and database objects like stored procedures/views?
 

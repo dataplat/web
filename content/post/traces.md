@@ -1,5 +1,5 @@
 ---
-title: "Stuck on older versions of SQL Server? Check out our trace commands."
+title: "Stuck on Older Versions of SQL Server? Check Out Our Trace Commands."
 date: 2018-05-31
 author: "Chrissy LeMaire"
 slug: "traces"
@@ -13,21 +13,21 @@ draft: false
 
 If you're still using super old versions of SQL Server and don't have access to awesome [XEvents](/xevents), we've got some commands to help simplify trace management.
 
-## Before I begin
+## Before I Begin
 
 Just a quick note, if you use newer versions of SQL Server and haven't seen the [XEvents Profiler](https://docs.microsoft.com/en-us/sql/relational-databases/extended-events/use-the-ssms-xe-profiler?view=sql-server-2017) in SSMS 17, it's awesome! In my experience, it's much faster than using Profiler and just as useful.
 
 Sadly, however, it's only available for SQL Server version 2012 and up.
 
-![](https://dbatools.io/wp-content/uploads/2018/05/xe3.png?resize=800%2C482&ssl=1)
+![](/images/xe3.png)
 
-## On to traces
+## On to Traces
 
 Traces are less exciting than Extended Events, but PowerShell makes them kinda fun to work with (at least for me). As with most of our commands, multiple servers are supported.
 
 Check out the list of traces across my lab. This information was gathered in 324ms!
 
-![](https://dbatools.io/wp-content/uploads/2018/05/traces3.png?resize=800%2C132&ssl=1)
+![](/images/traces3.png)
 
 Note that SQL Server 2000 is not in the result set, as SQL 2000 does not support sys.traces 🤩
 
@@ -46,7 +46,7 @@ Get-DbaTrace -SqlInstance sql2016 -Default
 Get-DbaTrace -SqlInstance sql2016, sql2017 -Id 2
 ```
 
-![](https://dbatools.io/wp-content/uploads/2018/05/detailedtrace.png?resize=800%2C677&ssl=1)
+![](/images/detailedtrace.png)
 
 ### Read-DbaTraceFile
 
@@ -66,7 +66,7 @@ Read-DbaTraceFile -SqlInstance sql2016 -Database master, tempdb -Path C:\traces\
 Read-DbaTraceFile -SqlInstance sql2016 -Path C:\traces\big.trc -Where "LinkedServerName = 'myls' and StartTime > '5/30/2017 4:27:52 PM'"
 ```
 
-![](https://dbatools.io/wp-content/uploads/2018/05/tracefile.png?fit=800%2C800&ssl=1)
+![](/images/tracefile.png)
 
 ### Remove-DbaTrace
 
@@ -83,7 +83,7 @@ Remove-DbaTrace -SqlInstance sql2008 -Id 2
 Get-DbaTrace -SqlInstance sql2008 | Out-GridView -PassThru | Remove-DbaTrace
 ```
 
-![](https://dbatools.io/wp-content/uploads/2018/05/remove.png?resize=800%2C201&ssl=1)
+![](/images/remove.png)
 
 ### Start-DbaTrace
 
@@ -100,7 +100,7 @@ Start-DbaTrace -SqlInstance sql2008 -Id 2
 Get-DbaTrace -SqlInstance sql2008 | Out-GridView -PassThru | Start-DbaTrace
 ```
 
-![](https://dbatools.io/wp-content/uploads/2018/05/start.png?resize=800%2C423&ssl=1)
+![](/images/start.png)
 
 ### Stop-DbaTrace
 
@@ -117,9 +117,9 @@ Stop-DbaTrace -SqlInstance sql2008 -Id 2
 Get-DbaTrace -SqlInstance $serverlist | Out-GridView -PassThru | Stop-DbaTrace
 ```
 
-![](https://dbatools.io/wp-content/uploads/2018/05/stop.png?resize=800%2C421&ssl=1)
+![](/images/stop.png)
 
-## PowerShell is awesome
+## PowerShell Is Awesome
 
 These commands really highlight my favorite thing about managing SQL Server with PowerShell. First, you can manage multiple servers as easily as managing one, and the naming convention is straight forward and easy to remember.
 

@@ -1,5 +1,5 @@
 ---
-title: "Three ways to track logins using dbatools"
+title: "Three Ways to Track Logins Using dbatools"
 date: 2018-04-10
 author: "Chrissy LeMaire"
 slug: "track-logins"
@@ -15,7 +15,7 @@ Years ago, I wrote Watch-DbaDbLogin which keeps an inventory of accounts, hosts 
 
 I found that about 80-90% of logins/applications were covered within 48-hours, but two months of data gave me total confidence.
 
-![](https://dbatools.io/wp-content/uploads/2018/04/img_5ac54a4297b52.png?w=800&ssl=1)
+![](/images/img_5ac54a4297b52.png)
 
 I always wanted to update the command, though I'm not sure Watch-DbaDbLogin is still within the scope of the module. It'll likely remove it in dbatools 1.0 so please accept this far cooler post in its place.
 
@@ -23,11 +23,11 @@ There are several ways to capture logins, all with their own pros and cons. In t
 
 **Note:** The code in this post requires dbatools version 0.9.323. I found two bugs while testing sample scenarios 😔 Also, this post addresses tracking logins for migration purposes, not for security purposes. Edit the where clauses as suitable for your environment.
 
-## Using a default trace
+## Using a Default Trace
 
 Using the default trace is pretty lightweight and backwards compatible. While I generally try to avoid traces, I like this method because it doesn't require remote access, it works on older SQL instances, it's accurate and reading from the trace isn't as CPU-intensive as it would be with an Extended Event.
 
-#### Setup the SQL table
+#### Setup the SQL Table
 
 Basically, no matter which way you track your logins, you'll need to store them somewhere. Below is some T-SQL which sets up a table that is ideal for bulk importing (which we'll do using `Write-DbaDataTable`).
 
@@ -39,11 +39,11 @@ To clarify, "duplicate" logins may show up, but not duplicate sessions. Watch-Db
 
 If you'd like the first login only, remove `StartTime ASC` from the index.
 
-#### Setup the default trace
+#### Setup the Default Trace
 
 <!-- [gist: potatoqualitee/84d326955aebb2a748a503d4a0022ae0] -->
 
-#### Setup the collector
+#### Setup the Collector
 
 Next, you'll want to setup a collector as a scheduled [SQL Agent Job](https://dbatools.io/agent).
 
@@ -57,7 +57,7 @@ How long does the collection take? Polling 15 servers took 14 seconds to read 55
 
 Audits are cool because [audits](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-server-audit-transact-sql) can "force the instance of SQL Server to shut down, if SQL Server fails to write data to the audit target for any reason". This ensures that 100% of your logins are captured. But my requirements for collecting **migration information** aren't that high and I haven't found the magical Audit Spec that only logs what I need. Here's what the .sqlaudit file for `SUCCESSFUL_LOGIN_GROUP` looks like when you rename it to .xel and open it.
 
-![](https://dbatools.io/wp-content/uploads/2019/04/audit.jpg?resize=562%2C692&ssl=1)
+![](/images/audit.jpg)
 
 Eh, I'm missing so much stuff. And since Audits are Extended Events anyway, and I have more control over what I do and don't want to see, we'll skip right to Extended Events.
 
@@ -65,15 +65,15 @@ Eh, I'm missing so much stuff. And since Audits are Extended Events anyway, and 
 
 You can also use Extended Events. This option is pretty cool but collecting the data does require UNC access for remote servers.
 
-#### Setup the SQL table
+#### Setup the SQL Table
 
 <!-- [gist: potatoqualitee/0fdd4c00d139e3ad54fab1565ee6c86e] -->
 
-#### Login Tracker template
+#### Login Tracker Template
 
 We've provided a "Login Tracker" Extended Event session template that you can easily add to your estate.
 
-![](https://dbatools.io/wp-content/uploads/2018/04/img_5ac54b594aee5.png?w=800&ssl=1)
+![](/images/img_5ac54b594aee5.png)
 
 This template creates a session that:
 
@@ -90,39 +90,39 @@ I chose sql_statement_starting because it's the only one that I found that actua
 
 <!-- [gist: potatoqualitee/fd5d739e539dafc19c635a63d3dbd8f0] -->
 
-#### Setup the collector
+#### Setup the Collector
 
 <!-- [gist: potatoqualitee/411e506835c50eb9809a6701a14fa007] -->
 
-#### UNC access
+#### UNC Access
 
 So instead of placing the burden of XML shredding on the CPU of the destination SQL instance, `Read-DbaXEFile` uses the local resources. It does this by using the `RemoteTargetFile` which is available in `Get-DbaXESession` but is not a default field. To unhide non-default fields, pipe to *SELECT **.
 
-![](https://dbatools.io/wp-content/uploads/2019/04/session.jpg?resize=800%2C540&ssl=1)
+![](/images/session.jpg)
 
 Keep in mind that the entire file is read each time you enumerate. Which is not a big deal, but should be considered if you have millions of logins.
 
 Note that I did set a max on the Login Tracker file size to 50 MB so if you want to modify that, you can use PowerShell or SSMS (Instance ➡ Management ➡ Extended Events ➡ Sessions ➡ Login Tracker ➡ right-click Properties ➡ Data Storage ➡ Remove/Add). There is no dbatools command available to do this in PowerShell yet, so you'll have to do it manually until it's added.
 
-## Using session enumeration
+## Using Session Enumeration
 
 This one requires no setup at all, but only captures whoever is logged in at the time that you run the command. This approach is what I originally used in Watch-DbaDbLogin (scheduled to run every 5 minutes) and it worked quite well.
 
 So if you've never seen the output for [Get-DbaProcess](https://dbatools.io/Get-DbaProcess), which does session enumeration, it's pretty useful. If you'd like something even more lightweight that still gives you most of the information you need, you can use [$server](https://dbatools.io/Connect-DbaInstance).EnumProcesses()
 
-![](https://dbatools.io/wp-content/uploads/2019/04/process.jpg?resize=800%2C382&ssl=1)
+![](/images/process.jpg)
 
 Actually, scratch all that. Let's go with some lightweight, backwards-compatible T-SQL that gets us only what we need and nothing more. Honestly, of all the ways, I've personally defaulted back to this one. It's just so succinct and efficient. There is the possibility that I'll miss a login, but this isn't a security audit and really, I inventoried 100% of the logins I needed for my last migration.
 
-## Setup the SQL table
+## Setup the SQL Table
 
 <!-- [gist: potatoqualitee/0808072e35277f979a3deeb5c10046a5] -->
 
-## Setup the collector
+## Setup the Collector
 
 <!-- [gist: potatoqualitee/20a3f84e987cafe03e0ebe3b4d593c65] -->
 
-## Testing your results
+## Testing Your Results
 
 If you're testing the scripts on a non-busy system like I did, you may not get any results back because we're ignoring connections from dbatools and SQL Server Management Studio.
 

@@ -1,5 +1,5 @@
 ---
-title: "dbatools teammates join Carlos and Steve for an episode of the SQL Data Partners Podcast"
+title: "dbatools Teammates Join Carlos and Steve for an Episode of the SQL Data Partners Podcast"
 date: 2017-04-12
 slug: "sql-data-partners-podcast"
 aliases:

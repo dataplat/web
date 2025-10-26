@@ -1,5 +1,5 @@
 ---
-title: "powershell splatting"
+title: "PowerShell Splatting"
 date: 2019-01-03
 author: "Chrissy LeMaire"
 slug: "splat"
@@ -121,7 +121,7 @@ then:
 
 Rob also tweeted to "be careful where your cursor is. I usually put it in the command. Sometimes it goes screwy if the cursor is at the EoL."
 
-## Have fun
+## Have Fun
 
 If you use commands with a number of parameters or even want to reuse parameter sets, splatting is an ideal solution.
 

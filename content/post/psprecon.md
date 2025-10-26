@@ -23,7 +23,7 @@ DBA's are seeing the benefit of using PowerShell to automate away the mundane. A
 
 At the end of this fun filled day with Rob, a former SQL Server DBA turned professional automator, you will be much more confident in being able to approach any task with PowerShell and you will leave with all of the code and demos. You can even follow along if you bring a laptop with an instance of SQL Server installed.
 
-![](https://dbatools.io/wp-content/uploads/2018/04/rob.jpg?resize=800%2C313&ssl=1)
+![](/images/rob.jpg)
 
 - How to learn how to interact with any technology using PowerShell
 - Understanding the syntax

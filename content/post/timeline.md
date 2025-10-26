@@ -1,5 +1,5 @@
 ---
-title: "Creating a history timeline"
+title: "Creating a History Timeline"
 date: 2018-08-21
 author: "Marcin"
 slug: "timeline"
@@ -53,7 +53,7 @@ Get-DbaAgentJobHistory -SqlInstance sql-1 -StartDate '2018-08-18 00:00' -EndDate
 
 Note the `-Encoding ASCII` – this is required for correct JavaScript and HTML formatting.
 
-![Get-DbaAgentJobHistory Timeline](https://dbatools.io/wp-content/uploads/2018/08/Get-DbaAgentJobHistory-html.jpg?resize=800%2C489&ssl=1)
+![Get-DbaAgentJobHistory Timeline](/images/Get-DbaAgentJobHistory-html.jpg)
 
 Colours are applied automatically based on the job status:
 
@@ -93,7 +93,7 @@ $messageParameters = @{
 Send-MailMessage @messageParameters -BodyAsHtml
 ```
 
-## The mechanics
+## The Mechanics
 
 We are using Google Charts Framework to generate the graph in the `ConvertTo-DbaTimeline`. The framework is JavaScript based, very easy to use and fast. The rendering happens on the client PC and no data is ever sent to Google or anywhere.
 
@@ -139,13 +139,13 @@ function drawChart() {
 }
 ```
 
-## Final note
+## Final Note
 
 Although it's a Google framework, this works great on any browser not only on Google Chrome. As per the [Google Docs](https://developers.google.com/chart/interactive/docs/): *Charts are rendered using HTML5/SVG technology to provide cross-browser compatibility (including VML for older IE versions)*.
 
 However, one last thing to keep in mind is that it does require access to the internet in order to access Google Charts and Bootstrap frameworks. As these are based on JavaScript, it is best to run on a client PC and not on Windows Server.
 
-## My experience as a contributor
+## My Experience as a Contributor
 
 Although I have been using dbatools for quite some time now this was my first contribution to the project. I never really looked how it all works behind scenes but oh boy it is impressive. Chrissy has done a fantastic job designing the dbatools framework. All the internal functions are there, as a developer I did not have to worry about how to write a message or raise an error.
 

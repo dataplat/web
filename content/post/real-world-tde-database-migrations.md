@@ -1,5 +1,5 @@
 ---
-title: "Real-world TDE database migrations"
+title: "Real-World TDE Database Migrations"
 date: 2018-02-07
 slug: "real-world-tde-database-migrations"
 aliases:
@@ -14,19 +14,19 @@ In today's post, I will tell you about how we managed to successfully complete a
 
 Although I will not go in to every detail about our process, I want to emphasize the areas were we chose to use dbatools to make our lives easier.
 
-## the goal
+## The Goal
 
 Recently, we got the green light for upgrading to SQL Server 2016 and we were ready to roll. Our task was to migrate multiple servers, each having several TDE encrypted databases on them. All the databases were mirrored on SQL Servers hosted in a different datacenter.
 
 When protecting data using TDE, special care must be taken when it comes to migrations. We had two primary options for migrating TDE protected databases.
 
-#### first option
+#### First Option
 
 One option would be decrypt the databases on the old servers prior to the migration. This can take a while depending on the database size as the process would touch every single data page on disk. Same would be true once we encrypted the databases on the new servers.
 
 If you ever decide to take this route during your migration, make sure you follow the correct and complete process to disable TDE. Otherwise you can lock your data if you don't have the certificates and keys backed up somewhere else, ready to be restored in case of emergency. And perhaps most importantly, make sure you test this process!
 
-#### second option
+#### Second Option
 
 The second option (and the one we chose) was to leave the encryption enabled. In order to be able to attach the files, or to do restores from the backups **you need to have the same certificate that was used for encryption**. This certificate is protected by the master key.
 
@@ -39,7 +39,7 @@ To accomplish this:
 
 Need help figuring all of this out? Check out Microsoft's article [Move a TDE Protected Database to Another SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). As I mentioned before make sure you test this process ahead of time!
 
-## preparation
+## Preparation
 
 In preparation for the migration day, we built all the new servers (primaries and mirrors) ahead of time and configured them based on our requirements.
 
@@ -89,7 +89,7 @@ foreach ($server in $serverList) {
 
 Couldn't be easier than this!
 
-## moving forward
+## Moving Forward
 
 Next, we created our backup jobs:
 
@@ -141,7 +141,7 @@ Restore-DbaDatabase -SqlInstance $newSQLServer_0N -Database db_N -Path \\SharedP
 
 I can do this all day long, especially when piping it directly to the `Backup-DbaDatabase` 😊
 
-## finalizing the migration
+## Finalizing the Migration
 
 During the maintenance window we just got a last DIFF for each database and restored that to the new mirrors. Some manual growth on some of the databases and the restore of the DIFFs took us the longest time (those contained several days of data for each server).
 
@@ -151,7 +151,7 @@ And, in case you're wondering, we do have valid backups. We even restore and tes
 
 I must confess, we did a bit of T-SQL to bring the mirroring up and now we're back in business, HA included.
 
-## post migration
+## Post Migration
 
 Now to the post migration stuff.
 
@@ -193,7 +193,7 @@ Now, the moment of truth. Application started and what do you know, everything j
 
 **<insert happy tears here>**
 
-## automation is awesome
+## Automation is Awesome
 
 As you can see, a lot of steps were automated using [dbatools](https://dbatools.io) and this saved us a lot of time overall, making this multi-terabyte database migration across 5 environments very smooth.
 

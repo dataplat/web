@@ -1,5 +1,5 @@
 ---
-title: "the dbatools team will present a full-day PASS Summit precon!"
+title: "The dbatools Team Will Present a Full-Day PASS Summit Precon!"
 date: 2017-06-14
 author: "Chrissy LeMaire"
 slug: "precon-old"
@@ -19,11 +19,11 @@ How cool is this? dbatools Major Contributor [Constantine Kokkinos](https://cons
 
 | | |
 |---|---|
-| ![Chrissy](https://dbatools.io/wp-content/uploads/2017/06/img_5941a8bb2cd05.png) | ![CK](https://dbatools.io/wp-content/uploads/2017/02/img_589bbc2cf18f6-full.png) |
+| ![Chrissy](/images/img_5941a8bb2cd05.png) | ![CK](/images/img_589bbc2cf18f6-full.png) |
 | Chrissy | CK |
-| ![Rob](https://dbatools.io/wp-content/uploads/2017/02/img_589bbbfd6ccd6-full.png) | ![Sander](https://dbatools.io/wp-content/uploads/2016/05/sander.jpg) |
+| ![Rob](/images/img_589bbbfd6ccd6-full.png) | ![Sander](/images/sander.jpg) |
 | Rob | Sander |
-| ![Shawn](https://dbatools.io/wp-content/uploads/2016/05/shawn.jpg) | |
+| ![Shawn](/images/shawn.jpg) | |
 | Shawn | |
 
 Want to know more? Here's our abstract.

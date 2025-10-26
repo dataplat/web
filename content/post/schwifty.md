@@ -1,5 +1,5 @@
 ---
-title: "new release – schwifty – all about SPNs"
+title: "New Release – Schwifty – All About SPNs"
 date: 2017-02-06
 slug: "schwifty"
 aliases:
@@ -49,31 +49,31 @@ A couple things to note when using these functions:
 
 Returns a list of any service principal names (SPNs) set for a given server or active directory account name
 
-![Get-DbaSpn output](https://dbatools.io/wp-content/uploads/2017/02/img_5899e6fa0bc11.png?w=800&ssl=1)
+![Get-DbaSpn output](/images/img_5899e6fa0bc11.png)
 
 ### – [Test-DbaSpn](https://dbatools.io/Test-DbaSpn)
 
 Returns of listing of "required" SPNs for a given computer's instance of SQL Server. The cmdlet will discover all instances of SQL Server on a given computer name. For each instance found, the cmdlet will generate a list of required SPNs based on active TCP/IP ports. The cmdlet will also warn you if an instance is using dynamic ports. Each returned SPN object will also specify if the SPN is currently set or not.
 
-![Test-DbaSpn output](https://dbatools.io/wp-content/uploads/2017/02/img_58984230e128a.png?w=800&ssl=1)
+![Test-DbaSpn output](/images/img_58984230e128a.png)
 
 You can even check your entire estate in just one line. Here, you can see us testing several instances in our lab.
 
-![Test-DbaSpn multiple instances](https://dbatools.io/wp-content/uploads/2017/02/img_5898aec8d2a1c.png?w=800&ssl=1)
+![Test-DbaSpn multiple instances](/images/img_5898aec8d2a1c.png)
 
 Or use Test to help easily Set all required SPNs
 
-![Test-DbaSpn with Set](https://dbatools.io/wp-content/uploads/2017/02/img_5899e4720ac5a.png?w=800&ssl=1)
+![Test-DbaSpn with Set](/images/img_5899e4720ac5a.png)
 
 ### – [Set-DbaSpn](https://dbatools.io/Set-DbaSpn)
 
 Connects to Active Directory and sets a given SPN to a given account. Will also set constrained delegation to the account to the recently added SPN.
 
-![Set-DbaSpn output](https://dbatools.io/wp-content/uploads/2017/02/img_5899e57f5a96d.png?w=800&ssl=1)
+![Set-DbaSpn output](/images/img_5899e57f5a96d.png)
 
 Both Set and Remove fully support -WhatIf
 
-![Set-DbaSpn -WhatIf output](https://dbatools.io/wp-content/uploads/2017/02/img_5899e423e98e9.png?w=800&ssl=1)
+![Set-DbaSpn -WhatIf output](/images/img_5899e423e98e9.png)
 
 ### – [Remove-DbaSpn](https://dbatools.io/Remove-DbaSpn)
 
@@ -81,7 +81,7 @@ Connects to Active Directory and removes a given SPN to a given account. Will al
 
 The following screenshot shows a way to easily remove SPNS of decommissioned servers.
 
-![Remove-DbaSpn output](https://dbatools.io/wp-content/uploads/2017/02/img_5899e3952455a.png?w=800&ssl=1)
+![Remove-DbaSpn output](/images/img_5899e3952455a.png)
 
 ## Related Commands
 

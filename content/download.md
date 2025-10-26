@@ -1,5 +1,5 @@
 ---
-title: "download"
+title: "Download"
 date: 2016-05-06
 slug: "download"
 draft: false
@@ -26,7 +26,7 @@ Need a detailed walk-thru? Please see our **New to PowerShell?** section below.
 
 Like SSMS, dbatools **is not** required on the server. For more information on installation and requirements see [this post](/install/).
 
-## Method 1: Install dbatools from the [PowerShell Gallery](https://www.powershellgallery.com/packages/dbatools) on newer systems
+## Method 1: Install dbatools from the [PowerShell Gallery](https://www.powershellgallery.com/packages/dbatools) on Newer Systems
 
 The PowerShell Gallery and the command `Install-Module` are natively available in Windows 10+ and Windows Server 2016+. If you run Windows 7, 8, Server 2012 **skip to method 2**.
 
@@ -36,7 +36,7 @@ Install-Module requires Run As Administrator, and installs dbatools globally. Do
 
 > Install-Module dbatools -Scope CurrentUser
 
-## Method 2: Install dbatools from the [PowerShell Gallery](https://www.powershellgallery.com/packages/dbatools) on older systems
+## Method 2: Install dbatools from the [PowerShell Gallery](https://www.powershellgallery.com/packages/dbatools) on Older Systems
 
 If you run Windows 7, 8, Server 2012 & below you can either [install PackageManagement from powershellgallery.com](https://docs.microsoft.com/en-us/powershell/scripting/gallery/getting-started).
 
@@ -49,7 +49,7 @@ Install-Module requires Run As Administrator, and installs dbatools globally. Do
 
 > Install-Module dbatools -Scope CurrentUser
 
-## Method 3: For legacy (Win7, Win8, etc) systems: scripted installer directly from [GitHub](/git)
+## Method 3: For Legacy (Win7, Win8, etc) Systems: Scripted Installer Directly from [GitHub](/git)
 
 > Invoke-Expression (Invoke-WebRequest -UseBasicParsing /in)
 
@@ -57,15 +57,15 @@ This will install dbatools locally (for just the current user) to the DocumentsW
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8P6ScCjEnLk" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 
-## Method 4: Clone the repository from [GitHub](http://git.io/b3oo)
+## Method 4: Clone the Repository from [GitHub](http://git.io/b3oo)
 
 > git clone https://github.com/dataplat/dbatools
 
-## Method 5: Offline install
+## Method 5: Offline Install
 
 Don't have Internet access on your DBA workstation? Check out our [offline install](/offline) guide.
 
-## Method 6: chocolatey!
+## Method 6: Chocolatey!
 
 Now, you can even install dbatools using [chocolatey](https://chocolatey.org/packages/dbatools)
 
@@ -84,7 +84,7 @@ If you're new to PowerShell and would like in-depth walk-thrus and more, please 
 
 Installing the module will make hundreds of commands available to you. Here's a few:
 
-![](/wp-content/uploads/2017/12/img_5a2156ff8b67b.png?w=800&ssl=1)
+![](/images/img_5a2156ff8b67b.png)
 
 Unsure what to do next? Visit the [Getting Started](/getting-started/) for more information and code samples. Or check a [list of all the features](/functions), which includes some pretty documentation.
 

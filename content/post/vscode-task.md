@@ -35,11 +35,11 @@ Right off I want to show a caveat for using Task:
 
 A workspace is simply a folder of scripts/files, like the dbatools module. If you have dbatools open in VS Code, you can open the command palette (CTRL+SHIFT+P) and type *task* to see all the commands:
 
-![VS Code Task commands](https://dbatools.io/wp-content/uploads/2017/05/vscode_task_1.png?ssl=1)
+![VS Code Task commands](/images/vscode_task_1.png)
 
 To generate the initial "task.json" file for your workspace just select the *Task: Configure Task Runner*. In the next prompt you can simply select *Others*.
 
-![VS Code Task configuration](https://dbatools.io/wp-content/uploads/2017/05/vscode_task_2.png?ssl=1)
+![VS Code Task configuration](/images/vscode_task_2.png)
 
 ## Tasking
 
@@ -59,7 +59,7 @@ The sample task that is generated comes with one simple task called *Test*, at t
 
 The full json file is provided at the end of this post. I wanted to just go over a few areas to help you understand what it is doing.
 
-### How do task Run?
+### How Do Tasks Run?
 
 As stated before a task allows you to run an external process, so our first step is to configure that external process. Which in our case is just the PowerShell.exe executable.
 
@@ -122,7 +122,7 @@ To burst your bubble up front: *No you have to use Write-Host in this situation*
 
 The *args* is where the meat of it all sits. This section calls Invoke-Pester on the script found in the: root folder of the current workspace (dbatools repository folder), the test folder and then takes the name of the function file (minus the extension, *.ps1*) and appends *.Tests.ps1* to it. So the end result if I run this task for Get-DbaDatabase would be *dbatools\tests\Get-DbaDatabase.Test.ps1*.
 
-### Task for specific Pester Test
+### Task for Specific Pester Test
 
 The additional task I added was to have only the integration test executed for the whole module. In Pester you can organize your test using tags, and we utilize this by setting it to *Integrationtests*. So I can use the Invoke-Pester command to only go through all the test and just run those context blocks.
 
@@ -133,7 +133,7 @@ The additional task I added was to have only the integration test executed for t
 
 The *args* value for this task is to simply use the *-Tag* parameter for Invoke-Pester and then pass it the tag I need to run. You can create additional task for each tag you use in your test if you wanted.
 
-## Example Run Test Task
+## Example Running Test Task
 
 I have intentionally changed a test for the *Get-DbaDatabase* function to show a passed test and a failed test. The video below illustrates the output you see in the terminal panel. It also shows that you can use the problem panel to see the exact test that failed with simpler output.
 
@@ -141,7 +141,7 @@ One additional thing you can do in both panels is click on the failed test and V
 
 `youtube: ufL5kE5_82Q`
 
-## Full *task.json* file
+## Full *task.json* File
 
 ```json
 // Available variables which can be used inside of strings.

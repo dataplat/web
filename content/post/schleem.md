@@ -1,5 +1,5 @@
 ---
-title: "new release – schleem"
+title: "New Release – Schleem"
 date: 2016-12-14
 author: "Chrissy LeMaire"
 slug: "schleem"
@@ -13,13 +13,13 @@ draft: false
 
 In [this release](https://github.com/dataplat/dbatools/releases/tag/v0.8.69), we gained 4 new [contributors](https://github.com/dataplat/dbatools/graphs/contributors) to the [dbatools master repository](https://github.com/dataplat/dbatools) for a grand total of of 33! We even added 4 new [Major Contributors](https://dbatools.io/team) to the team. Thanks to all who have joined in to make the awesomest toolset for SQL Server DBAs — we're now offering the community over 100 quality commands 😀
 
-## Just a quick highlight
+## Just a Quick Highlight
 
 I'm especially excited about every one of the commands in this release. One in particular that stands out to me, though, is [Test-DbaWindowsLogin](https://dbatools.io/Test-DbaWindowsLogin). I like this one because it's a perfect example of a simple PowerShell command that would be a nightmare to pull off using pure T-SQL.
 
 Test-DbaWindowsLogin gathers all of the surrounding Active Directory domains (trusted and within the forest), logs into a SQL Server, gets the list of logins that are Windows users and groups, then queries Active Directory to see if they are still valid.
 
-![](https://dbatools.io/wp-content/uploads/2016/12/img_58513046e8be1.png?w=800&ssl=1)
+![](/images/img_58513046e8be1.png)
 
 Gorgeous! Thanks so much to Major Contributor [Stephen Bennett](https://sqlnotesfromtheunderground.wordpress.com/) for suggesting and creating this command. It's something I've already started to use in my own environment.
 
@@ -61,7 +61,7 @@ We fixed about 16 bugs, made a couple commands more efficient and added 10 new c
 
 {{< youtube 50xEuEZr6as >}}
 
-## Notable bug fixes
+## Notable Bug Fixes
 
 - **[Remove-DbaDatabaseSafely](https://dbatools.io/Remove-DbaDatabaseSafely)**
   Fixed an issue with it not detecting that SQL Agent was running.
@@ -84,7 +84,7 @@ Rob Sewell of [dbareports.io](https://dbareports.io) fame spent a few days addin
 
 Want to help create tests? We're in desperate need of testers and Pester fans. Or, if you want to learn Pester, this is a great opportunity. Both dbatools and dbareports are in need.
 
-## What is schleem? Sounds nasty.
+## What Is Schleem? Sounds Nasty
 
 All of our release names are taken from my favorite cartoon, [Rick and Morty](http://www.adultswim.com/videos/rick-and-morty/). I'm obsessed! What's schleem? It's the stuff that smooths out the dingle bop, which is an important part of a plumbus.
 

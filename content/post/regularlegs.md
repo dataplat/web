@@ -1,5 +1,5 @@
 ---
-title: "new release with significant but non-breaking changes"
+title: "New Release with Significant but Non-Breaking Changes"
 date: 2018-09-07
 author: "Chrissy LeMaire"
 slug: "regularlegs"
@@ -25,7 +25,7 @@ Here's the general idea:
 
 If you use the old name, it'll still work but will show a warning that the command name has been changed and its alias will be removed in 1.0. Oh, also, `Get-DbaTrigger` has been removed and `Get-DbaInstanceTrigger` and `Get-DbaDbTrigger` have been added in its place. Unfortunately, there was no appropriate alias, so it was removed without an alias.
 
-## renaming
+## Renaming
 
 If you'd like help renaming dbatools scripts within your command, use the newly created function **Invoke-dbatoolsRenameHelper**, available in [regularlegs](https://dbatools.io/releases). The screenshot below shows is what it looked like when I ran the this:
 
@@ -37,7 +37,7 @@ Get-ChildItem -Recurse C:\temp\community-presentations\*.ps1 | Invoke-dbatoolsRe
 
 Thanks, PowerShell! 😊
 
-## other updates
+## Other Updates
 
 There are other cool updates with this release. In preparation for my [doomsday prepping with dbatools](https://sqlgla.co.uk/schedule/) presentation at SQLGLA, I created a new command, Export-DbaInstance, which I'll write more about in a future post.
 
@@ -61,7 +61,7 @@ In order for Export-DbaInstance to work well, I had to create a number of underl
 - Get-DbaPbmPolicy
 - Get-DbaPbmStore
 
-## new website documentation coming soon
+## New Website Documentation Coming Soon
 
 We'll soon be moving our documentation to a system that automatically generates docs from markdown! Expect to see that by next week. It'll be a great relief once released because keeping the website manually updated with all these changes is a near impossible task.
 

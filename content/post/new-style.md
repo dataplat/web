@@ -1,5 +1,5 @@
 ---
-title: "new year, new standardized coding style"
+title: "New Year, New Standardized Coding Style"
 date: 2017-01-03
 author: "Chrissy LeMaire"
 slug: "new-style"
@@ -14,7 +14,7 @@ First, I'd like to thank everyone for a super amazing year! 🎉 Back at the sta
 
 With the help of these 32 contributors, the module has grown from 23 [commands](https://dbatools.io/commands) to 106! That's 106 ways to help ease the administrative burden faced by SQL Server DBA's and developers.
 
-## The good, the bad, and the beautiful
+## The Good, the Bad, and the Beautiful
 
 A large majority of the progress we made was beautiful, but there was some ugly. Along the way, during nights of caffeine-fueled coding streaks, I tried my best to keep parameter names, outputs and documentation consistent, but I wasn't as successful as I'd hoped. Without a well thought out style guide, there were 31 other people who didn't have a strict standard to follow, either. Our templates helped but they weren't a perfect solution.
 
@@ -52,7 +52,7 @@ We expect that the code freeze will take about 2 months while we
 
 If you are interested in helping with this process, please do join in! We'll need all the help we can get. You can hit us up in the #dbatools or #dbatools-style [Slack](https://dbatools.io/slack) channels.
 
-## 1.0 will contain breaking changes
+## 1.0 Will Contain Breaking Changes
 
 I want to emphasize sooner than later that 1.0 will contain breaking changes. Scripts that previously used -SqlServer, for instance, will have to be changed to use -SqlInstance. we'll be removing all aliased commands, too. For instance, right now, if you run Reset-DbaAdmin (a command from the old days), it will run Reset-DbaAdmin for you. In 1.0, the Reset-DbaAdmin alias will be removed.
 
@@ -60,7 +60,7 @@ We will also rename **all** Sql-prefixed commands to Dba. Initially, [I chose to
 
 We will also remove support for all pluralized parameter names.
 
-## About those plural parameters
+## About Those Plural Parameters
 
 Initially when I was creating dbatools, I decided to break a few best practices in order to convey ideas better. For instance:
 
@@ -75,13 +75,13 @@ Then I talked to one of my heroes, [Aleksandar Nikolić](http://www.powershellma
 
 Damn, so true. Looks like we'll be making a concerted effort to ensure that people know about the support for multiple items, whether it be in the docs and examples, or within individual blog posts that we all work on (like this one ;)).
 
-## But what about the burden on new developers?
+## But What About the Burden on New Developers?
 
 I'd rather help rewrite all of someone's code than to have anyone run away from the development process because it seems overwhelming. From now until the release of 1.0, we're also going to work out how to best integrate new developers.
 
 I think it will be similar to the way we're doing it now — provide some unintimidating templates and mention any needed changes during the code reviews. Either way, we'll do our best to ensure that new contributors feel that contributing to dbatools is within reach without tedious onboarding.
 
-## Thank you so much
+## Thank You So Much
 
 Thanks again to everyone who has helped make this an amazing year, whether you are an e-mail subscriber, an end-user, idea giver, bug reporter or developer.
 

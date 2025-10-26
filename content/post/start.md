@@ -19,7 +19,7 @@ Now that you've [convinced your security team](/secure/) that PowerShell improve
 
 Hands down, the one book most people recommend for learning PowerShell is **Learn Windows PowerShell in a Month of Lunches** by [Don Jones](https://donjones.com/powershell/) and [Jeffrey Hicks](http://jdhitsolutions.com/blog/). You can buy the 3rd edition from [Amazon](https://www.amazon.com/exec/obidos/redirect?tag=realcajunreci-20&path=ASIN/1617294160) or [directly from Manning](https://www.manning.com/books/learn-windows-powershell-in-a-month-of-lunches-third-edition).
 
-![Learn PowerShell in a Month of Lunches cover](https://dbatools.io/wp-content/uploads/2018/09/monthoflunches.gif?resize=398%2C500&ssl=1)
+![Learn PowerShell in a Month of Lunches cover](/images/monthoflunches.gif)
 
 This book even comes with its own [YouTube series](https://www.youtube.com/playlist?list=PL6D474E721138865A), featuring author Don Jones.
 
@@ -29,7 +29,7 @@ There's also a website called [More lunches](https://morelunches.com/) but it ha
 
 Want to learn about dbatools, specifically? Chrissy and Rob are currently writing [Learn dbatools in a Month of Lunches](/book) and it is available via [Manning's Early Access Program](/meap)!
 
-![Learn dbatools in a Month of Lunches cover](https://dbatools.io/wp-content/uploads/2018/10/start-dbatools.jpg?resize=398%2C499&ssl=1)
+![Learn dbatools in a Month of Lunches cover](/images/start-dbatools.jpg)
 
 One reviewer said the following about our book 💓:
 
@@ -51,7 +51,7 @@ You can also check out [The PowerShell Conference Book](https://www.amazon.com/e
 
 Just skip everything else and use [Microsoft VS Code](https://code.visualstudio.com/docs/languages/powershell) with the [PowerShell extensions](https://code.visualstudio.com/docs/languages/powershell).
 
-![VS Code with PowerShell extensions](https://dbatools.io/wp-content/uploads/2018/09/vscode.png?resize=800%2C466&ssl=1)
+![VS Code with PowerShell extensions](/images/vscode.png)
 
 The ISE is no longer being developed and [Microsoft officially says](https://blogs.msdn.microsoft.com/powershell/2017/05/10/announcing-powershell-for-visual-studio-code-1-0/):
 
@@ -61,7 +61,7 @@ The ISE is no longer being developed and [Microsoft officially says](https://blo
 
 Nearly everyone I know uses VS Code and new cool extensions are added or enhanced every day in the [Extension Gallery](https://code.visualstudio.com/docs/editor/extension-gallery). There are so many cool extensions like [gitlens](https://gitlens.amod.io/) which allows you to see who wrote a specific line of code:
 
-![VS Code with gitlens extension](https://dbatools.io/wp-content/uploads/2018/09/morevscode.png?resize=800%2C367&ssl=1)
+![VS Code with gitlens extension](/images/morevscode.png)
 
 You can also share your screen with colleagues using Visual Studio Live Share.
 
@@ -99,7 +99,7 @@ And, of course, the regularly scheduled [PSPowerHour](https://www.youtube.com/ch
 
 [Microsoft Docs](https://docs.microsoft.com/en-us/powershell/) is updated regularly, easy-to-read, and useful.
 
-![Microsoft Docs](https://dbatools.io/wp-content/uploads/2018/09/docs.gif?resize=800%2C484&ssl=1)
+![Microsoft Docs](/images/docs.gif)
 
 ## Live Chat
 

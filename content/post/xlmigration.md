@@ -1,5 +1,5 @@
 ---
-title: "a monumental migration to sql server 2016"
+title: "A Monumental Migration to SQL Server 2016"
 date: 2019-01-17
 author: "Andy Levy"
 slug: "xlmigration"
@@ -68,13 +68,13 @@ The source instance is several years old and has built up a lot of cruft; this m
 
 We were able to fix that up easily enough but I found it strange that of all things, the passwords weren't copied properly. Especially since I've done this successfully with dbatools in the past.
 
-### Moving logins
+### Moving Logins
 
 Although I only wanted to migrate the currently-active logins, I wanted the ability to re-create any disabled logins just in case, so I needed to extract the create scripts for them. I achieved this via [`Get-DbaLogin`](https://docs.dbatools.io/#Get-DbaLogin), [`Export-DbaLogin`](https://docs.dbatools.io/#Export-DbaLogin), and [`Copy-DbaLogin`](https://docs.dbatools.io/#Copy-DbaLogin):
 
 <script src="https://gist.github.com/alevyinroc/bdc52ca2334b5f5da4778745b5172317.js"></script>
 
-### Moving Agent jobs
+### Moving Agent Jobs
 
 I had the same need for Agent jobs, and achieved it similarly. However, because I excluded the `AgentServer` from `Start-DbaMigration`, I had to peek into that function to find out all the other things it copies before copying the jobs. I also wanted to leave the jobs disabled on the new server so they didn't run before we were ready to test & monitor them in a more controlled way.
 
@@ -143,7 +143,7 @@ In practice, I only used the first four in the initial attachment of the databas
 
 `Get-MountProgress` is a variation on one of the functions in my multithreading post above, which let me keep tabs on the progress as the function ran. I ran the above code ten (well, eleven) times, once for each "batch" of 10% of the databases. The first group ran great! Only about 6 minutes to attach the databases. The next batch was 10 minutes. Then 16. And then, and then, and then…
 
-![Progress just kept getting slower](https://dbatools.io/wp-content/uploads/2019/01/BigMigration-logfiles.png?w=800&ssl=1)
+![Progress just kept getting slower](/images/BigMigration-logfiles.png)
 
 From the timestamps on the log files, you can see that each batch took progressively longer and longer. It was *agonizing* once we got past the 5th group. I have observed that SMO's enumeration when connecting to a database instance can be lengthy with large numbers of databases on the instance, which would correlate to what I observed; the more databases I have, the longer it takes. But I can't completely attribute the slowdown to this.
 

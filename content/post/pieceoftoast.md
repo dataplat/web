@@ -1,5 +1,5 @@
 ---
-title: "new release – pieceoftoast"
+title: "New Release – Pieceoftoast"
 date: 2017-02-27
 slug: "pieceoftoast"
 aliases:
@@ -52,7 +52,7 @@ In this release we have **22 new commands**, several bugs fixes and a bunch of i
 - **[Copy-DbaDbQueryStoreOption](https://dbatools.io/Copy-DbaDbQueryStoreOption)**
   Copies the configuration of a Query Store enabled database and sets the copied configuration on other databases.
 
-### Finding things
+### Finding Things
 
 - **[Find-DbaCommand](https://dbatools.io/Find-DbaCommand)**
   Finds dbatools commands searching through the inline help text, building a consolidated json index and querying it because Get-Help is too slow.
@@ -63,7 +63,7 @@ In this release we have **22 new commands**, several bugs fixes and a bunch of i
 - **[Find-DbaUserObject](https://dbatools.io/Find-DbaUserObject)**
   Have a developer, DBA or other employee leaving the company and need to know what they own? This command can help. It searches SQL Server to find user-owned objects (ie. not dbo or sa) or for any object owned by a specific user specified by the Pattern parameter.
 
-### Protocol info
+### Protocol Info
 
 - **[Get-DbaClientProtocol](https://dbatools.io/Get-DbaClientProtocol)**
   Gets the SQL Server related client protocols on a computer.
@@ -71,7 +71,7 @@ In this release we have **22 new commands**, several bugs fixes and a bunch of i
 - **[Get-DbaServerProtocol](https://dbatools.io/Get-DbaServerProtocol)**
   Gets the SQL Server related server protocols on a computer.
 
-### Update tracking
+### Update Tracking
 
 We actually release to the gallery a little more often than we blog about. If you're using Windows 10, have access to the PowerShell Gallery (some corporate networks may not) and would like to be notified about updates, use Watch-DbaUpdate. It's super cute and tries not to be annoying.
 
@@ -106,7 +106,7 @@ It's also our mascot, Tron's, debut in the toolkit. You'll be seeing more of him
 - **[New-DbaDirectory](https://dbatools.io/New-DbaDirectory)**
   Uses master.dbo.xp_create_subdir to create the path. Returns $true if the path can be created, $false otherwise.
 
-### Internal configurations
+### Internal Configurations
 
 We're gettin Enterprise up in here! Thanks to our newest Major Contributor [Friedrich Weinmann](http://allthingspowershell.blogspot.de/), we've now got a really cool configuration system. This will be helpful for our developers. We'll have more information in a blog post during the 1.0 redo, but here's a quick lil overview.
 
@@ -119,11 +119,11 @@ We're gettin Enterprise up in here! Thanks to our newest Major Contributor [Frie
 - **[Set-dbatoolsConfig](https://dbatools.io/Set-dbatoolsConfig)**
   This function creates or changes configuration values. These are used in a larger framework to provide dynamic configuration information outside the PowerShell variable system.
 
-## Improvements & Notable bug fixes
+## Improvements & Notable Bug Fixes
 
 The awesomest improvement is our full on Enterprise-lookin' logging implemented by Fred. We'll be writing some blog in-depth blog posts which discuss the logging system in depth, but for now, check out what happens when I open our logging directory using `Invoke-Item (Get-dbatoolsConfigValue -Name path.dbatoolslogpath)`
 
-![Logging directory](https://dbatools.io/wp-content/uploads/2017/02/img_58b434b604eb5.png?w=800&ssl=1)
+![Logging directory](/images/img_58b434b604eb5.png)
 
 Whaat! Such good looking logging. Thank you Fred for all of your work on this!
 
@@ -149,7 +149,7 @@ We plan to resolve all bug issues first and will continue releasing on a regular
 
 Visit the [downloads page](https://dbatools.io/download) for information about how to download and install dbatools (it's 1 command).
 
-## Join us!
+## Join Us!
 
 Some of these commands are in their infancy. Want to help make them better? Come join the coding party! We're all hanging out on the [SQL Server Community Slack](https://dbatools.io/slack) in the #dbatools channel. There's almost 500 of us there now (but the conversation load is reasonable).
 

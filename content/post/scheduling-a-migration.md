@@ -1,5 +1,5 @@
 ---
-title: "scheduling a migration"
+title: "Scheduling a Migration"
 date: 2016-09-20
 author: "Chrissy LeMaire"
 slug: "scheduling-a-migration"
@@ -22,11 +22,11 @@ Here's the scheduled-migration.ps1 script that ultimately worked for me.
 ```powershell
 Start-Transcript C:\logs\db-migration-9-1-2016.txt
 Import-Module C:\scripts\dbatools\dbatools.psd1
-Copy-DbaDatabase -Source sql01 -Destination sql02 -Databases WSS_Content, WSS_Content2 -BackupRestore -SharedPath \\nas\sql\migration
+Copy-DbaDatabase -Source sql01 -Destination sql02 -Databases WSS_Content, WSS_Content2 -BackupRestore -SharedPath \nas\sql\migration
 Stop-Transcript
 ```
 
-## What it does
+## What It Does
 
 First, I did not need to migrate an entire instance, so I did not use [Start-DbaMigration](https://dbatools.io/Start-DbaMigration). Instead, I used [Copy-DbaDatabase](https://dbatools.io/Copy-DbaDatabase) which doesn't transcribe automatically like Start-DbaMigration. Because of this, I explicitly requested a transcript.
 
@@ -44,13 +44,13 @@ Because Copy-DbaDatabase runs so many checks and supports -WhatIf, I then tested
 2. Ran scheduled-migration.ps1 from the command line, and it worked
 3. Setup a scheduled task to run once, that night at 9pm, ensuring that the migration occurred no matter if I was logged in or not.
 
-![scheduled](https://dbatools.io/wp-content/uploads/2016/09/scheduled.png?resize=696%2C301&ssl=1)
+![scheduled](/images/scheduled.png)
 
 4. Then I executed the scheduled task manually, waited until it finished, then checked the transcript
 5. All the tests passed!
 6. I then removed the -WhatIf from Copy-DbaDatabase inside scheduled-migration.ps1 and went home for the night 😊
 7. The next morning, I excitedly checked my transcript and boom, both databases had migrated as planned!
 
-## In conclusion..
+## In Conclusion
 
 You don't need to be at the office to migrate your data. So schedule that migration. Go home to your family, your cats, and/or your video console. Or drink a craft beer and watch some Rick and Morty. You deserve it.

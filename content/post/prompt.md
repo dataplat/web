@@ -1,5 +1,5 @@
 ---
-title: "our prompt"
+title: "Our Prompt"
 date: 2017-10-25
 author: "Chrissy LeMaire"
 slug: "prompt"
@@ -15,7 +15,7 @@ A few months back, dbatools wizard Fred created a prompt that was so awesome, I 
 
 Performance is important to us so that's what the prompt is all about. Nothing fancy, just the current working directory and how long the command took to run.
 
-![](https://dbatools.io/wp-content/uploads/2017/10/img_59f0a3f8112ce.png?w=800&ssl=1)
+![](/images/img_59f0a3f8112ce.png)
 
 As you can see in the screenshot above, the first time `Get-DbaDatabase` runs, it takes 740 ms. This is because we're caching the database names, login names, and some other auto-populated variables in the background.
 

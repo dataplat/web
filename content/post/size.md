@@ -1,5 +1,5 @@
 ---
-title: "working with file sizes in dbatools"
+title: "Working with File Sizes in dbatools"
 date: 2019-09-12
 author: "Chrissy LeMaire"
 slug: "size"
@@ -13,7 +13,7 @@ draft: false
 
 Within dbatools, you may notice file sizes are pretty and human-readable.
 
-![disksize](https://dbatools.io/wp-content/uploads/2019/09/disksize.png?resize=800%2C370&ssl=1)
+![disksize](/images/disksize.png)
 
 That was some C# based magic created by Microsoft PFE and creator of [PSFramework](http://psframework.org/), [Fred Weinmann](https://twitter.com/FredWeinmann). In the background, SQL Server often gives us different types of numbers to represent file sizes. Sometimes it's bytes, sometimes it's megabytes. We wanted to standardize the sizing in dbatools, and thus the `dbasize` type was born.
 
@@ -21,7 +21,7 @@ That was some C# based magic created by Microsoft PFE and creator of [PSFramewor
 
 This size type is cool because it looks beautiful, showing KB, MB, GB, TB and PB. But it's also packed with usable data behind-the-scenes. This can be seen when you expand the property, either by using `.ColumnName` or `Select -ExpandProperty ColumnName`.
 
-![usedspace](https://dbatools.io/wp-content/uploads/2019/09/usedspace.png?resize=800%2C155&ssl=1)
+![usedspace](/images/usedspace.png)
 
 This means that you don't have to parse the results to get the bits and bytes – it's all there in the background. Here's the code used in the above screenshot:
 
@@ -61,7 +61,7 @@ Get-dbatoolsConfig formatting.size.* | Out-GridView
 
 This ultimately shows details for formatting.size.digits and formatting.size.style.
 
-![sizeconfig](https://dbatools.io/wp-content/uploads/2019/09/sizeconfig.png?resize=800%2C100&ssl=1)
+![sizeconfig](/images/sizeconfig.png)
 
 ### formatting.size.digits
 
@@ -74,7 +74,7 @@ Set-dbatoolsConfig -FullName formatting.size.digits -Value 4 | Register-dbatools
 
 Piping to `Register-dbatoolsConfig` persists the value across sessions. Otherwise, your digits would revert back to two when you create a new session.
 
-![four](https://dbatools.io/wp-content/uploads/2019/09/four.png?resize=800%2C370&ssl=1)
+![four](/images/four.png)
 
 Now you can see that there are 4 digits after the decimal! Cool. I didn't even realize this before writing this blog post 😄
 
@@ -89,7 +89,7 @@ Now let's disable styling altogether and show values in bytes, but only for the 
 Set-dbatoolsConfig -FullName formatting.size.style -Value plain
 ```
 
-![plain](https://dbatools.io/wp-content/uploads/2019/09/plain.png?resize=800%2C370&ssl=1)
+![plain](/images/plain.png)
 
 Note in the screenshot above that UsedSpace is now an unformatted number.
 

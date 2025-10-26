@@ -1,5 +1,5 @@
 ---
-title: "t-sql tuesday and new module teaser"
+title: "T-SQL Tuesday and New Module Teaser"
 date: 2018-01-09
 author: "Chrissy LeMaire"
 slug: "new-module-coming-soon"
@@ -17,7 +17,7 @@ Today's blog post is part of [T-SQL Tuesday](https://blobeater.blog/2018/01/02/t
 
 This month's T-SQL Tuesday, hosted by Arun Sirpal ([blog](https://blobeater.blog)|[twitter](https://twitter.com/blobeater1)), is all about overcoming technical challenges.
 
-## The challenge
+## The Challenge
 
 I always try to solve my technical issues with natively available (aka Microsoft) solutions. It's one of the many reasons I love PowerShell.
 
@@ -25,11 +25,11 @@ When it comes to monitoring, I know there are some really wonderful solutions ou
 
 Ever since I was a baby DBA, I've wanted to create a centralized solution that I could roll in with and get going with after finding all of my servers. Over the years, I've tried to put together some ASP/VBScript solutions, then when I learned PowerShell, tried PowerShell and SQL Agent, but I just wasn't feeling it. I could never figure out how to make the checks modular and universal. That is, until I learned about [Pester](https://sqldbawithabeard.com/2017/11/16/write-your-first-pester-test-today/) in-depth from [Rob Sewell](https://sqldbawithabeard.com/).
 
-## The solution
+## The Solution
 
 The solution I've been looking for turns out to be a mix of dbatools and Pester. Pester is the first Open Source community project formally included in a Windows release! Windows 10 and Windows Server 2016 include Pester by default.
 
-[![Pester Logo](https://dbatools.io/wp-content/uploads/2018/01/pester-med-logo.png?resize=312%2C122&ssl=1)](https://github.com/Pester/Pester/wiki/)
+[![Pester Logo](/images/pester-med-logo.png)](https://github.com/Pester/Pester/wiki/)
 
 Pester makes it easy to standardize tests or "checks" because it can output its results in a number of standardized formats, including NunitXml and JSON. It's all PowerShell, after all.
 
@@ -43,19 +43,19 @@ The result has been a dream come true!
 
 Index of checks. You can run them all, run by group or only run the specific tests that matter to your environment.
 
-[![Index Screenshot](https://dbatools.io/wp-content/uploads/2018/01/index.jpg?resize=800%2C545&ssl=1)](https://dbatools.io/wp-content/uploads/2018/01/index.jpg?ssl=1)
+[![Index Screenshot](/images/index.jpg)](/images/index.jpg)
 
 ## Power BI Universal Dashboard
 
 Courtesy of [Cláudio Silva](https://twitter.com/claudioessilva). Just hit refresh and you're all set!
 
-[![Power BI Dashboard](https://dbatools.io/wp-content/uploads/2018/01/dash.png?resize=800%2C450&ssl=1)](https://dbatools.io/wp-content/uploads/2018/01/dash.png?ssl=1)
+[![Power BI Dashboard](/images/dash.png)](/images/dash.png)
 
 ## Included Parser & Mailer
 
 Also from Rob's repo!
 
-[![Mail Screenshot](https://dbatools.io/wp-content/uploads/2018/01/mail.png?resize=800%2C475&ssl=1)](https://dbatools.io/wp-content/uploads/2018/01/mail.png?ssl=1)
+[![Mail Screenshot](/images/mail.png)](/images/mail.png)
 
 We are still working on the checks, but these screenshots should give you an idea about the new SQL PowerShell module that Rob and I will be premiering at our [SQLBits PowerShell Precon](https://sqlps.io/bitsprecon), `Reliable, Repeatable, & Automated: PowerShell for DBAs`, in London on Thursday, February 22 2018.
 

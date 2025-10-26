@@ -1,5 +1,5 @@
 ---
-title: "simplifying extended events management with dbatools"
+title: "Simplifying Extended Events Management with dbatools"
 date: 2018-02-26
 author: "Chrissy LeMaire"
 slug: "xevents"
@@ -17,7 +17,7 @@ draft: false
 
 SQLBits was awesome! The people, the events, the speaker shirt, the swag, the food, the everything. If you ever get a chance to go, I highly recommend it.
 
-## So why do people keep using Traces / Profiler?
+## So Why Do People Keep Using Traces / Profiler?
 
 As you may know, Microsoft deprecated Profiler/traces 5 years ago in favor of Extended Events. Unlike traces, XEvents are lightweight and even offer more information about what's going on within the engine.
 
@@ -71,7 +71,7 @@ So why do people keep using traces? We compiled a list of reasons from Erin Stel
 
 Whewf! That's *a lot* of compelling reasons not to make the switch. So let's see how we can address each of them using PowerShell. All code listed here can be found at [sqlps.io/xecode](https://sqlps.io/xecode).
 
-## PowerShell/dbatools can help
+## PowerShell/dbatools Can Help
 
 First, I'll start with the bad news. There were a few things we couldn't address.
 
@@ -79,7 +79,7 @@ First, I'll start with the bad news. There were a few things we couldn't address
 
 But now for those we could! (note: for those of you reading this as email, please visit the blog post for the embedded GitHub code.)
 
-### Existing library of Profiler templates
+### Existing Library of Profiler Templates
 
 No problem! We took Jonathan Kehayias's [awesome sp_SQLskills_ConvertTraceToExtendedEvents script](https://www.sqlskills.com/blogs/jonathan/converting-sql-trace-to-extended-events-in-sql-server-2012/), wrapped it in PowerShell and made it easy to convert all of your traces on all of your servers to Extended Events.
 
@@ -88,7 +88,7 @@ No problem! We took Jonathan Kehayias's [awesome sp_SQLskills_ConvertTraceToExte
 Here's the output
 ![conversion](https://pbs.twimg.com/media/DWzwV8OWsAA4-P1.jpg:large)
 
-### It's faster to setup quick traces
+### It's Faster to Setup Quick Traces
 
 To setup a trace in Profiler, you connect to a **single server**, click, click, click and you're set.
 
@@ -102,7 +102,7 @@ Here's a snippet of the list that we've gathered from XE experts plus the templa
 
 ![templates](https://pbs.twimg.com/media/DWzw2uwW0AEnwes.jpg:large)
 
-### Unlike traces, Extended Event Sessions persist
+### Unlike Traces, Extended Event Sessions Persist
 
 It's true, they do! And this annoyed me at first too, but now I appreciate it. One reason is that XEvents are so hard to manage. You gotta go server by server, click Management -> Extended Events -> Sessions.
 
@@ -114,7 +114,7 @@ Ultimately, when it's hard to manage Extended Events, you don't want many of the
 
 ![big ol list](https://user-images.githubusercontent.com/8278033/36645230-d30e44b6-1a65-11e8-87d9-4319c08eba77.png?w=800&ssl=1)
 
-### Remembering to stop a session
+### Remembering to Stop a Session
 
 Within Profiler, it's easy to set a time to stop a trace. But traces don't support this functionality out of the box – Profiler does. If you need to stop a session after a set amount of time, we can help!
 
@@ -122,7 +122,7 @@ Within Profiler, it's easy to set a time to stop a trace. But traces don't suppo
 
 ![auto-disappearing](https://pbs.twimg.com/media/DWzxxyGX4AAFdj5.jpg:large)
 
-### Extended Events requires knowledge of XML and XPATH to query
+### Extended Events Requires Knowledge of XML and XPATH to Query
 
 I know – I was horrified when I saw a [sample XEvent Query](https://blogs.msdn.microsoft.com/grahamk/2009/09/29/using-xquery-to-query-extended-events-asynchronous-file-target-results/). But now with SQL Server Management Studio 17.x and dbatools, it's way easier to see and filter the results of XEvents.
 
@@ -138,25 +138,25 @@ And here's the human-readable output 😄
 
 ![image](https://user-images.githubusercontent.com/8278033/36645300-cc20b03e-1a66-11e8-8470-51369b6e31bf.png?w=800&ssl=1)
 
-### Extended Events are a lot of work
+### Extended Events Are a Lot of Work
 
 PowerShell enables laziness, or as I prefer calling it, "efficiency" 😉 But heck, PowerShell MVP Francois-Xavier Cat even calls himself [lazywinadmin](https://lazywinadmin.github.io/). So if you're lazy, we've got you.
 
 <!-- [Gist: 88ebb746281329dca3c146f851215a18] -->
 
-### Can't replay Extended Events
+### Can't Replay Extended Events
 
 Profiler offers a number of ways to replay data. We offer two solutions, including a preview version of [Gianluca's XESmartTarget Replay](https://spaghettidba.com/tag/extended-events/).
 
 <!-- [Gist: 7c9a31e5e4ccaad123176b5e91bbfbfb] -->
 
-#### Email notification bonus
+#### Email Notification Bonus
 
 XESmartTarget within dbatools also offers the option of being notified when an event occurs! Check this out
 
 <!-- [Gist: 9d23ad33ce9fb9020dbb1aec1918a39e] -->
 
-### Profiler offers the ability to compare PerfMon and Trace
+### Profiler Offers the Ability to Compare PerfMon and Trace
 
 So Microsoft does not offer this ability and according to [Erin Stellato](https://www.sqlskills.com/about/erin-stellato/)'s session at Bits, they don't plan to. When attempting to provide a solution for this, I immediately thought of putting it in Power BI and making it beautiful. Because Profiler's version ain't pretty 😅
 
@@ -172,19 +172,19 @@ Here's what we came up with:
 
 And from the Perfmon, we created a universal dashboard:
 
-[![](https://dbatools.io/wp-content/uploads/2018/02/img_5a946668978d5.png?w=800&ssl=1)](https://dbatools.io/wp-content/uploads/2018/02/img_5a946668978d5-full.png?ssl=1)
+[![](/images/img_5a946668978d5.png?w=800&ssl=1)](/images/img_5a946668978d5-full.png?ssl=1)
 
 But! It still needs some work. At SQLBits, we asked for Power BI pros to help us with performance and mashing this data and the eternally awesome [Johan Ludvig Brattås](https://twitter.com/intoleranse) volunteered 🙌 I *cannot* wait to see what Johan comes up with with the Power BI dashboard.
 
 Also, I'm planning to write more in-depth about the Performance Monitor commands so expect more about that soon.
 
-### Reading using xe_file_target_read_file taxes the SQL Server CPU
+### Reading Using xe_file_target_read_file Taxes the SQL Server CPU
 
 Now you can offload that resource usage to your local workstation. Behind the scenes, we use [Microsoft's streaming API](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/), similar to the one, I assume, used in SSMS.
 
 <!-- [Gist: af6ed0d40638461e7cb6f5adb1f25b0c] -->
 
-## In conclusion
+## In Conclusion
 
 Hope this article has convinced you to switch from #TeamProfiler! PowerShell sure convinced me 👍
 

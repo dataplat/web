@@ -1,5 +1,5 @@
 ---
-title: "new release – twentyfiveschmeckles"
+title: "New Release – Twentyfiveschmeckles"
 date: 2017-02-01
 author: "Chrissy LeMaire"
 slug: "twentyfiveschmeckles"
@@ -13,7 +13,7 @@ draft: false
 
 In [this release](https://github.com/dataplat/dbatools/releases/tag/v0.8.694), we gained 4 new [contributors](https://github.com/dataplat/dbatools/graphs/contributors) to the [dbatools master repository](https://github.com/dataplat/dbatools) for a grand total of of 39! We even added 4 new [Major Contributors](https://dbatools.io/team) to the team. Thanks to all who have joined in to make the awesomest toolset for SQL Server DBAs — we're now offering the community 126 quality commands.
 
-## Sorry for the delay, we've been really busy!
+## Sorry for the Delay, We've Been Really Busy!
 
 Our last release came out around mid-December. Ideally, we aim for releasing more often, but [Rob](https://sqldbawithabeard.com/) and I were out presenting about dbatools and [dbareports](https://dbareports.io) at a few conferences and ran out of time. We did merge a mini-release (v0.8.693) to master in early January, though. So that kinda counts 😉
 
@@ -103,7 +103,7 @@ In this release we have **22 new commands**, several bugs fixes and a bunch of i
 - **[Copy-DbaLogin](https://dbatools.io/Copy-DbaLogin)**
   If you try to transfer a local account (non-domain) you get a "Skipped", because is a local machine account. ([#275](https://github.com/dataplat/dbatools/issues/275))
 
-## Notable bug fixes
+## Notable Bug Fixes
 
 - **[Copy-DbaDatabase](https://dbatools.io/Copy-DbaDatabase)**
   Fixed an issue where -WithReplace was not working properly ([#601](https://github.com/dataplat/dbatools/issues/601))
@@ -117,7 +117,7 @@ In this release we have **22 new commands**, several bugs fixes and a bunch of i
 - **[Remove-DbaDatabaseSafely](https://dbatools.io/Remove-DbaDatabaseSafely)**
   Remove-DbaDatabaseSafely failed to perform final drop w/ no additional information. ([#238](https://github.com/dataplat/dbatools/issues/238))
 
-## How's 1.0 coming along?
+## How's 1.0 Coming Along?
 
 Very well! We're working through the [style guide](https://dbatools.io/tstyle) right now and have been decisive and moving forward quickly. The feature code freeze is still planned for the end of February then we'll begin working on:
 
@@ -139,7 +139,7 @@ Want to help create tests? We're in desperate need of testers and Pester fans. O
 
 Visit the [downloads page](https://dbatools.io/download) for information about how to download and install dbatools (it's 1 command).
 
-## Join us!
+## Join Us!
 
 Some of these commands are in their infancy. Want to help make them better? Come join the coding party! We're all hanging out on the [SQL Server Community Slack](https://dbatools.io/slack) in the #dbatools channel. There's like 430 of us there now.
 

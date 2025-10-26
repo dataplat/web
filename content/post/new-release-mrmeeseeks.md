@@ -1,5 +1,5 @@
 ---
-title: "new release – mrmeeseeks"
+title: "New Release – Mr. Meeseeks"
 date: 2016-11-02
 author: "Chrissy LeMaire"
 slug: "new-release-mrmeeseeks"
@@ -65,7 +65,7 @@ We fixed 15 bugs and added 9 new commands including one that migrates SQL Server
 
   These are just general recommendations for SQL Server and are a good starting point for setting the "max degree of parallelism" option.
 
-## Next batch
+## Next Batch
 
 Some commands almost made it to this release, but didn't.
 
@@ -91,6 +91,6 @@ Some commands almost made it to this release, but didn't.
 
 Want to see more or work on a command yourself? We have approved command ideas on [the dbatools Trello board](https://dbatools.io/trello). This board shows you what we're working on and what we're talking about. We'd love if you'd join us.
 
-## Join us!
+## Join Us!
 
 Some of these commands are in their infancy. Want to help make them better? Come join the coding party! We're all hanging out on the [SQL Server Community Slack](https://dbatools.io/slack) in the #dbatools channel.

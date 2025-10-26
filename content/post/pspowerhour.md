@@ -1,5 +1,5 @@
 ---
-title: "pspowerhour youtube livestream"
+title: "PSPowerHour YouTube Livestream"
 date: 2018-08-22
 author: "Chrissy LeMaire"
 slug: "pspowerhour"
@@ -41,7 +41,7 @@ Finally for dbatools content, major contributor **Andy Levy** talks discusses sa
 
 After that **Josh King** talked about his very impressive and beautiful module [BurntToast](https://github.com/Windos/BurntToast). And the hour is wrapped up by **Daniel Silva** who has a fantastic demo where he controls a Raspberry Pi with PowerShell ❤
 
-## Next meeting
+## Next Meeting
 
 The next PSPowerHour will happen on August 30. The [meeting's agenda](https://github.com/PSPowerHour/PSPowerHour/issues/35) is already posted and features sessions about ChatOps, VS Code, SQL Server, getters & setters, PSKoans, PowerShell 6.0 and converting code using PowerShell.
 

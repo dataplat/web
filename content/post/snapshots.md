@@ -1,5 +1,5 @@
 ---
-title: "simplifying snapshots"
+title: "Simplifying Snapshots"
 date: 2018-06-25
 author: "Chrissy LeMaire"
 slug: "snapshots"
@@ -13,7 +13,7 @@ draft: false
 
 I remember the first time I saw [database snapshots](https://www.red-gate.com/simple-talk/sql/database-administration/sql-server-2005-snapshots/), I was so excited. Then I right-clicked in SSMS and..
 
-![](/wp-content/uploads/2018/05/rightclick.png)
+![](/images/rightclick.png)
 
 No way to easily create a snapshot. So then I researched how to create one using T-SQL and I had to know the exact path. UGH.
 
@@ -23,7 +23,7 @@ FILENAME = N'M:\MSSQL14.MSSQLSERVER\MSSQL\DATA\db1_snapshot_preupgrade.ss')
 AS SNAPSHOT OF db1
 ```
 
-## intro to snapshots
+## Intro to Snapshots
 
 Basically, database snapshots are similar to VM snapshots but for databases. If you update an application and its database, you can take a snapshot and if the upgrade goes poorly, you can *super quickly* restore the snapshot and even a multi-TB database can be restored in no time. Here's a more technical [definition from Microsoft](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-snapshots-sql-server).
 
@@ -31,7 +31,7 @@ Basically, database snapshots are similar to VM snapshots but for databases. If 
 
 I've never done this but my BFF and DBA Brandon swears by it. He noted that up until SQL Server 2016 SP1, snapshots were solely available in Enterprise Edition. With SQL Server 2016 SP1 and up, they are available in every edition, even Express!
 
-### benefits
+### Benefits
 
 Benefits, as listed on [Microsoft's Snapshot page on docs](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-snapshots-sql-server?view=sql-server-2017#Benefits) are listed as follows:
 
@@ -46,7 +46,7 @@ That last example is pretty cool and relatable. In a testing environment, snapsh
 
 One thing Microsoft didn't emphasize as a bullet-point is how useful snapshots can be when upgrading an application. As mentioned above the upgrade goes poorly, it's fast and easy to revert.
 
-## snapshot commands
+## Snapshot Commands
 
 One of our awesome devs, Simone Bizzoto, created a series of snapshot commands which make them way easier to work with. Like most other dbatools commands, these commands are flexible but require as little information as possible by default.
 
@@ -99,7 +99,7 @@ Get-DbaDbSnapshot -SqlInstance sql2017 -Snapshot HR_snap_20161201
 Get-DbaRegisteredServer -SqlInstance SQLCMS | Get-DbaDbSnapshot
 ```
 
-![](/wp-content/uploads/2018/06/snap.png)
+![](/images/snap.png)
 
 ### Restore-DbaDbSnapshot
 
@@ -139,7 +139,7 @@ Remove-DbaDbSnapshot -SqlInstance sql2014 -AllSnapshots -Confirm
 
 Note that these commands will *not* remove your base database! Also, if you try to pass in a regular database object, the command will tell you it's a real database and skip the drop 👍
 
-## snapshots are 🔥
+## Snapshots Are 🔥
 
 Hopefully, there will be a greater adoption of SQL Server snapshots both because their use has been simplified with PowerShell and because Microsoft has made this feature available in all editions of SQL Server 2016 SP1 and above.
 
