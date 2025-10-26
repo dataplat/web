@@ -1,0 +1,28 @@
+baseURL = "https://dbatools.io/"
+title = "dbatools | Command-line superpowers for SQL Server automation"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+theme = "dbatools2025"
+enableRobotsTXT = true
+
+[permalinks]
+post = "/:slug/"
+
+[params]
+description = "A free, open-source PowerShell module with 600+ commands that make SQL Server administration simple, powerful, and fun."
+
+[markup]
+defaultMarkdownHandler = "goldmark"
+
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.goldmark.parser]
+autoHeadingID = true
+autoHeadingIDType = "github"
+wrapStandAloneImageWithinParagraph = true
+
+[markup.goldmark.parser.attribute]
+block = false
+title = true

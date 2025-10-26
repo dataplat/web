@@ -1,0 +1,25 @@
+# Node modules
+node_modules/
+
+# Hugo build output
+public/
+resources/
+
+# Generated CSS
+static/css/tailwind.css
+
+# Hugo build lock
+.hugo_build.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+/old
+/old

@@ -1,0 +1,105 @@
+name: Deploy Hugo Site with Jekyll Redirects
+
+on:
+  push:
+    branches:
+      - main
+      - html
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.128.0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Build Tailwind CSS
+        run: npm run build:css
+
+      - name: Build Hugo site
+        run: hugo --minify
+
+      - name: Setup Ruby for Jekyll redirects
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.1"
+          bundler-cache: false
+
+      - name: Install Jekyll and dependencies
+        run: |
+          gem install jekyll bundler
+          gem install jekyll-redirect-from
+
+      - name: Build Jekyll redirects
+        run: |
+          # Build Jekyll site with redirects
+          # Jekyll will process all .md files in redirect/ folder and create HTML redirects
+          jekyll build --source . --destination _site
+          # Copy only the generated redirect HTML files to Hugo's public directory
+          # Skip copying other Jekyll-generated content
+          if [ -d "_site/redirect" ]; then
+            cp -r _site/redirect/* public/ 2>/dev/null || true
+          fi
+          # Also copy any top-level redirect files that were generated
+          find _site -maxdepth 1 -name "*.html" -type f | while read file; do
+            basename_file=$(basename "$file")
+            # Skip index.html and other non-redirect files
+            if [ "$basename_file" != "index.html" ]; then
+              cp "$file" "public/$basename_file" 2>/dev/null || true
+            fi
+          done
+          rm -rf _site
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,32 @@
+{{ define "main" }}
+<div class="bg-white dark:bg-theme-bg-dark pt-24">
+  <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
+
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 text-sm text-theme-text-secondary dark:text-theme-text-secondary-dark">
+      <a href="/" class="hover:text-primary transition-colors">Home</a>
+      <span class="mx-2">/</span>
+      <span class="text-theme-text dark:text-theme-text-dark">{{ .Title }}</span>
+    </nav>
+
+    <!-- Main Content -->
+    <article class="prose prose-lg prose-headings:font-bold dark:prose-invert max-w-none">
+
+      <!-- Title -->
+      <h1 class="text-5xl font-bold mb-4">{{ .Title }}</h1>
+
+      <!-- Date/Meta (if available) -->
+      {{ if .Date }}
+      <p class="text-theme-text-secondary dark:text-theme-text-secondary-dark text-base mb-8">
+        Published {{ .Date.Format "January 2, 2006" }}
+      </p>
+      {{ end }}
+
+      <!-- Content -->
+      {{ .Content }}
+
+    </article>
+
+  </div>
+</div>
+{{ end }}
