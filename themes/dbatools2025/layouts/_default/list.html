@@ -12,7 +12,7 @@
 
     <!-- Posts Grid -->
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {{ range .Pages }}
+      {{ range where site.RegularPages "Type" "post" }}
       <article class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 shadow-soft hover:shadow-soft-lg hover:scale-[1.02] transition-all duration-300">
 
         <!-- Title -->
