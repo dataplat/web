@@ -21,7 +21,7 @@ VSCode is a cross-platform tool that works on Windows, Linux and Mac. You can do
 
 You will also need to [download and install Git](http://git-scm.com/download). If you already have GitHub Desktop installed, you will still need to install Git.
 
-## Where to Start
+## Where To Start
 
 Getting started with VSCode can be a bit challenging at first if you normally use something like the PowerShell ISE. Just like any new tool it requires a bit of time to acclimate yourself to it. The [documentation for VSCode](https://code.visualstudio.com/docs) is laid out well and was a big help for me getting started. I would encourage you to spend time going through, at a minimum, the following sections:
 

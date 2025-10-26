@@ -70,7 +70,7 @@ Colours are applied automatically based on the job status:
 Get-DbaDbBackupHistory -SqlInstance sql-1 -Since '2018-08-18 00:00' | ConvertTo-DbaTimeline | Out-File C:\temp\Get-DbaDbBackupHistory.html -Encoding ascii
 ```
 
-![Get-DbaDbBackupHistory Timeline](https://dbatools.io/wp-content/uploads/2018/08/Get-DbaDbBackupHistory-html-1024x566.jpg?resize=800%2C442&ssl=1)
+![Get-DbaDbBackupHistory Timeline](/images/Get-DbaDbBackupHistory-html-1024x566.jpg)
 
 And again, each backup type has its own colour. This time, however, they are not pre-configured but are set automatically by the Google's framework so could be random.
 

@@ -212,7 +212,7 @@ This post is practically a book, and even making an outline would be too long. I
 
 My favorite part was this easy-to-understand visual bit that shows why PowerShell is mega-secure 💪
 
-![](https://msdnshared.blob.core.windows.net/media/2017/04/comparitive_security.png)
+![](/images/comparitive_security.png)
 
 I hope this addresses everything your security department needs. If not, post a comment or email me at clemaire@gmail.com and we'll see what we can do.
 

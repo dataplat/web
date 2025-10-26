@@ -27,7 +27,7 @@ There are several ways to capture logins, all with their own pros and cons. In t
 
 Using the default trace is pretty lightweight and backwards compatible. While I generally try to avoid traces, I like this method because it doesn't require remote access, it works on older SQL instances, it's accurate and reading from the trace isn't as CPU-intensive as it would be with an Extended Event.
 
-#### Setup the SQL Table
+#### Set Up the SQL Table
 
 Basically, no matter which way you track your logins, you'll need to store them somewhere. Below is some T-SQL which sets up a table that is ideal for bulk importing (which we'll do using `Write-DbaDataTable`).
 
@@ -39,11 +39,11 @@ To clarify, "duplicate" logins may show up, but not duplicate sessions. Watch-Db
 
 If you'd like the first login only, remove `StartTime ASC` from the index.
 
-#### Setup the Default Trace
+#### Set Up the Default Trace
 
 <!-- [gist: potatoqualitee/84d326955aebb2a748a503d4a0022ae0] -->
 
-#### Setup the Collector
+#### Set Up the Collector
 
 Next, you'll want to setup a collector as a scheduled [SQL Agent Job](https://dbatools.io/agent).
 
@@ -65,7 +65,7 @@ Eh, I'm missing so much stuff. And since Audits are Extended Events anyway, and 
 
 You can also use Extended Events. This option is pretty cool but collecting the data does require UNC access for remote servers.
 
-#### Setup the SQL Table
+#### Set Up the SQL Table
 
 <!-- [gist: potatoqualitee/0fdd4c00d139e3ad54fab1565ee6c86e] -->
 
@@ -86,11 +86,11 @@ This template creates a session that:
 
 I chose sql_statement_starting because it's the only one that I found that actually included the database name. If this doesn't work for you, you can modify then export/import the modified Session. If you have a better suggestion, I'd love that. Please let me know; I kinda feel like this one is overkill.
 
-#### Setup the XESession
+#### Set Up the XESession
 
 <!-- [gist: potatoqualitee/fd5d739e539dafc19c635a63d3dbd8f0] -->
 
-#### Setup the Collector
+#### Set Up the Collector
 
 <!-- [gist: potatoqualitee/411e506835c50eb9809a6701a14fa007] -->
 
@@ -114,11 +114,11 @@ So if you've never seen the output for [Get-DbaProcess](https://dbatools.io/Get-
 
 Actually, scratch all that. Let's go with some lightweight, backwards-compatible T-SQL that gets us only what we need and nothing more. Honestly, of all the ways, I've personally defaulted back to this one. It's just so succinct and efficient. There is the possibility that I'll miss a login, but this isn't a security audit and really, I inventoried 100% of the logins I needed for my last migration.
 
-## Setup the SQL Table
+## Set Up the SQL Table
 
 <!-- [gist: potatoqualitee/0808072e35277f979a3deeb5c10046a5] -->
 
-## Setup the Collector
+## Set Up the Collector
 
 <!-- [gist: potatoqualitee/20a3f84e987cafe03e0ebe3b4d593c65] -->
 

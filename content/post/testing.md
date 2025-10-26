@@ -125,7 +125,7 @@ If you're wondering what a live run of Appveyor looks like, you can watch it [on
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/rgLmUZ2xTDU" frameborder="0" allowfullscreen></iframe>
 
-## In conclusion
+## In Conclusion
 
 There's sooo much that could be written about Pester and Appveyor, it was a challenge to keep this post to a reasonable length. But I hope, at least, that you understand our process a little better and got some ideas on how to apply it to your own development environment. For day-to-day testing, check out [Cláudio Silva's T-SQL Tuesday post](https://claudioessilva.eu/2017/09/12/someone-is-not-following-the-best-practices-dbatools-and-pester-dont-lie/), which applies Pester and dbatools to regularly scheduled environmental checks!
 

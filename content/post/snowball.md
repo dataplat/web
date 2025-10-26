@@ -109,7 +109,7 @@ And if you want your restores to return to their original destinations, they use
 Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backups -ReuseSourceFolderStructure
 ```
 
-If you really want to go to town with moving files around during the restore, the we offer teh FileMapping parameter. To use this, you have to pass in a HashTable with a key/value pair for every file in the database you're restoring. The key is the logical name of your data file, and the value is the full path of where you want the file to be placed. For example:
+If you really want to go to town with moving files around during the restore, the we offer the FileMapping parameter. To use this, you have to pass in a HashTable with a key/value pair for every file in the database you're restoring. The key is the logical name of your data file, and the value is the full path of where you want the file to be placed. For example:
 
 ```powershell
 $FileStructure = @{
@@ -151,7 +151,7 @@ Restore-DbaDatabase -SqlServer TestDbServer -Path \\Server1\backups\ProdDb -Dest
 
 Which will overwrite the existing database for you. Be careful with this switch, it will do exactly what you tell it to! And we'll remove all the users from the database, so that safety net isn't there
 
-### Scripting out to File
+### Scripting Out to File
 
 While helping your colleagues you'll have noticed that there is a little bit of time taken to process all the backups. You hear through the grapevine that this rollback is going to have to be done a couple of times while they work out what's wrong. So how about we generate the T-SQL scripts ahead of time, then you can just rerun those every time. Hey, you could even give them to the Devs to run!
 

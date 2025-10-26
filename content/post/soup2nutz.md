@@ -15,7 +15,7 @@ Before Apple created the App Store and Microsoft created the Microsoft Store, Li
 
 For years, power users requested a PowerShell version of [apt-get](https://en.wikipedia.org/wiki/APT_%28Debian%29) and in 2014 Microsoft delivered with the introduction of the [PowerShell Gallery](https://www.powershellgallery.com) and an [accompanying module](https://blogs.msdn.microsoft.com/powershell/2016/09/29/powershellget-and-packagemanagement-in-powershell-gallery-and-github/) that allowed users to just **Install-Module** to install new modules, PowerShell's version of a *package*.
 
-## Installing dbatools from a Super Fresh Win10 Install
+## Installing dbatools From a Super Fresh Windows 10 Install
 
 It's easy for PowerShell toolmakers to forget that new users may have questions about ExecutionPolicy and Repositories. If dbatools is the first module you've ever installed and used, this guide is intended to help you with all of your install/setup questions and concerns.
 

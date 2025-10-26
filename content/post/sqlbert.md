@@ -1,5 +1,5 @@
 ---
-title: "dbatools featured on sql with bert"
+title: "dbatools Featured on SQL With Bert"
 date: 2019-02-05
 author: "Chrissy LeMaire"
 slug: "sqlbert"
