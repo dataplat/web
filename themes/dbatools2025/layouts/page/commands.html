@@ -587,6 +587,7 @@ let filteredCommands = [];
 let categories = {};
 let actions = {};
 let fuse = null;
+let dbaToolsVersion = '';
 
 // Current filters
 let currentSearch = '';
@@ -594,6 +595,28 @@ let currentCategory = 'all';
 let currentAction = 'all';
 let showPopularOnly = false;
 let currentSort = 'alphabetical';
+
+// Load and display dbatools version
+async function loadVersion() {
+    try {
+        const response = await fetch('/data/external.json');
+        const data = await response.json();
+        if (data.version) {
+            dbaToolsVersion = data.version;
+            updateVersionDisplay();
+        }
+    } catch (error) {
+        console.error('Error loading version:', error);
+    }
+}
+
+// Update version display
+function updateVersionDisplay() {
+    const versionEl = document.getElementById('dbatools-version');
+    if (versionEl && dbaToolsVersion) {
+        versionEl.textContent = `(v${dbaToolsVersion})`;
+    }
+}
 
 // Load commands
 async function loadCommands() {
@@ -802,7 +825,10 @@ function renderCommands(commands) {
     const grid = document.getElementById('commandsGrid');
     const count = document.getElementById('resultsCount');
 
-    count.textContent = `Showing ${commands.length} command${commands.length !== 1 ? 's' : ''}`;
+    count.innerHTML = `Showing ${commands.length} command${commands.length !== 1 ? 's' : ''} <span id="dbatools-version" class="text-sm font-normal text-theme-text-secondary dark:text-theme-text-secondary-dark ml-2"></span>`;
+
+    // Update version after rendering
+    updateVersionDisplay();
 
     if (commands.length === 0) {
         grid.innerHTML = `
@@ -911,6 +937,7 @@ function toggleMobileSidebar() {
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
+    loadVersion();
     loadCommands();
 
     document.getElementById('searchInput').addEventListener('input', handleSearch);

@@ -1,0 +1,17 @@
+{
+  "version": "2.7.6",
+  "external_links": [
+    {
+      "name": "offline installs of dbatools",
+      "href": "https://dbatools.io/offline"
+    },
+    {
+      "name": "dbatools commands",
+      "href": "https://dbatools.io/commands"
+    },
+    {
+      "name": "dbatools documentation",
+      "href": "https://docs.dbatools.io"
+    }
+  ]
+}
