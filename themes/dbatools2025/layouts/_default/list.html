@@ -12,7 +12,7 @@
 
     <!-- Posts Grid -->
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {{ range where site.RegularPages "Type" "post" }}
+      {{ range .Paginator.Pages }}
       <article class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 shadow-soft hover:shadow-soft-lg hover:scale-[1.02] transition-all duration-300">
 
         <!-- Title -->
@@ -22,12 +22,19 @@
           </a>
         </h2>
 
-        <!-- Date -->
-        {{ if .Date }}
-        <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">
-          {{ .Date.Format "January 2, 2006" }}
-        </p>
-        {{ end }}
+        <!-- Author and Date -->
+        <div class="flex items-center justify-between mb-4">
+          {{ if .Params.author }}
+          <p class="text-sm text-slate-600 dark:text-slate-400 font-medium">
+            {{ .Params.author }}
+          </p>
+          {{ end }}
+          {{ if .Date }}
+          <p class="text-sm text-slate-500 dark:text-slate-400">
+            {{ .Date.Format "Jan 2, 2006" }}
+          </p>
+          {{ end }}
+        </div>
 
         <!-- Summary/Excerpt -->
         {{ if .Summary }}
@@ -48,20 +55,47 @@
       {{ end }}
     </div>
 
-    <!-- Pagination (if needed) -->
+    <!-- Pagination -->
     {{ if .Paginator }}
     {{ if gt .Paginator.TotalPages 1 }}
-    <div class="flex justify-center gap-4 mt-16">
+    <div class="flex justify-center items-center gap-2 mt-16">
+      <!-- Previous Button -->
       {{ if .Paginator.HasPrev }}
-      <a href="{{ .Paginator.Prev.URL }}" class="px-6 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-primary hover:text-white transition-all font-semibold">
+      <a href="{{ .Paginator.Prev.URL }}" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-primary hover:text-white transition-all font-semibold text-sm">
         ← Previous
       </a>
+      {{ else }}
+      <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-400 dark:text-slate-600 text-sm font-semibold cursor-not-allowed">
+        ← Previous
+      </span>
       {{ end }}
+
+      <!-- Page Numbers -->
+      <div class="flex gap-1">
+        {{ range $num := seq 1 .Paginator.TotalPages }}
+          {{ if eq $num $.Paginator.PageNumber }}
+          <span class="px-3 py-2 bg-primary text-white rounded-lg font-semibold text-sm">{{ $num }}</span>
+          {{ else }}
+          <a href="{{ $.Paginator.Page $num }}" class="px-3 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-primary hover:text-white transition-all font-semibold text-sm">{{ $num }}</a>
+          {{ end }}
+        {{ end }}
+      </div>
+
+      <!-- Next Button -->
       {{ if .Paginator.HasNext }}
-      <a href="{{ .Paginator.Next.URL }}" class="px-6 py-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-primary hover:text-white transition-all font-semibold">
+      <a href="{{ .Paginator.Next.URL }}" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-primary hover:text-white transition-all font-semibold text-sm">
         Next →
       </a>
+      {{ else }}
+      <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-400 dark:text-slate-600 text-sm font-semibold cursor-not-allowed">
+        Next →
+      </span>
       {{ end }}
+    </div>
+
+    <!-- Page Info -->
+    <div class="text-center mt-4 text-sm text-slate-500 dark:text-slate-400">
+      Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}
     </div>
     {{ end }}
     {{ end }}
