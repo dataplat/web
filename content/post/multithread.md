@@ -99,10 +99,10 @@ Start-RSJob -InputObject $servers -Throttle $throttle -ModulesToImport dbatools 
 
 # Get-RSJob will display all jobs that are currently available to include completed and currently running jobs.
 # Receive-RSJob Gets the results of the Windows PowerShell runspace jobs in the current session. Also you can use -OutVariable variableName e.g. -OutVariable Results and then do $Results to get all the output
-Get-RSJob | Where-Object  {{State -like "Completed"} -and  {HasMoreData -like "False"} -and {HasErrors -like "False"} }  | Receive-RSJob
+Get-RSJob | Where-Object {$_.State -like "Completed" -and $_.HasMoreData -like "False" -and $_.HasErrors -like "False"} | Receive-RSJob
 
 # cleanup only the jobs that are completed, does not have more data and no errors
-Get-RSJob | Where-Object  {{State -like "Completed"} -and  {HasMoreData -like "False"} -and {HasErrors -like "False"} } | Remove-RSJob
+Get-RSJob | Where-Object {$_.State -like "Completed" -and $_.HasMoreData -like "False" -and $_.HasErrors -like "False"} | Remove-RSJob
 ```
 
 #### Breakdown
