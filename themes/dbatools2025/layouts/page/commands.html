@@ -1,0 +1,905 @@
+{{ define "main" }}
+
+<style>
+/* Commands Browser Styles - Integrated with Theme */
+.commands-main-layout {
+    display: flex;
+    max-width: 1600px;
+    margin: 0 auto;
+    min-height: calc(100vh - 200px);
+    padding-top: 5rem;
+}
+
+.commands-sidebar {
+    width: 280px;
+    background: var(--bg-theme-card, #F8F9FA);
+    padding: 2rem 1.5rem;
+    border-right: 2px solid var(--border-theme-border, #C5D1E3);
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+.dark .commands-sidebar {
+    background: var(--bg-theme-card-dark, #0B234A);
+    border-right-color: var(--border-theme-border-dark, #273B59);
+}
+
+.commands-sidebar h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.commands-sidebar h3:first-child {
+    margin-top: 0;
+}
+
+.filter-item {
+    padding: 0.625rem 0.75rem;
+    margin-bottom: 0.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    border: 2px solid transparent;
+}
+
+.filter-item:hover {
+    @apply bg-theme-border dark:bg-theme-border-dark;
+    border-color: var(--border-theme-border, #C5D1E3);
+}
+
+.dark .filter-item:hover {
+    border-color: var(--border-theme-border-dark, #273B59);
+}
+
+.filter-item.active {
+    @apply bg-primary text-white;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.filter-count {
+    font-size: 0.8rem;
+    @apply text-theme-text-secondary dark:text-theme-text-secondary-dark;
+    background: rgba(4, 91, 219, 0.1);
+    padding: 0.125rem 0.5rem;
+    border-radius: 10px;
+}
+
+.filter-item.active .filter-count {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.action-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.action-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.action-checkbox:hover {
+    @apply bg-theme-border dark:bg-theme-border-dark;
+}
+
+.action-checkbox input[type="checkbox"] {
+    width: 1.125rem;
+    height: 1.125rem;
+    cursor: pointer;
+    accent-color: #045BDB;
+}
+
+.action-checkbox label {
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.popular-filter {
+    background: rgba(4, 91, 219, 0.1);
+    padding: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    border: 2px solid transparent;
+    font-weight: 600;
+}
+
+.popular-filter:hover {
+    @apply bg-theme-border dark:bg-theme-border-dark;
+    border-color: var(--border-theme-border, #C5D1E3);
+}
+
+.dark .popular-filter:hover {
+    border-color: var(--border-theme-border-dark, #273B59);
+}
+
+.popular-filter.active {
+    @apply border-primary;
+    background: rgba(37, 99, 235, 0.1);
+}
+
+.reset-filters {
+    @apply bg-primary text-white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.reset-filters:hover {
+    @apply bg-accent-light;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.commands-main-content {
+    flex: 1;
+    padding: 2rem 1.5rem;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.results-count {
+    font-size: 1.1rem;
+    @apply text-theme-text-secondary dark:text-theme-text-secondary-dark;
+}
+
+.search-section {
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.875rem 3rem 0.875rem 1rem;
+    font-size: 1rem;
+    @apply border-2 border-theme-border dark:border-theme-border-dark;
+    border-radius: 10px;
+    @apply bg-white dark:bg-theme-card-dark;
+    @apply text-theme-text dark:text-theme-text-dark;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.search-input:focus {
+    outline: none;
+    @apply border-primary;
+    box-shadow: 0 0 0 4px rgba(4, 91, 219, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    right: 1rem;
+    @apply text-theme-text-secondary dark:text-theme-text-secondary-dark;
+    pointer-events: none;
+}
+
+.clear-search {
+    position: absolute;
+    right: 1rem;
+    background: none;
+    border: none;
+    @apply text-theme-text-secondary dark:text-theme-text-secondary-dark;
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 0.25rem;
+    display: none;
+    transition: color 0.2s ease;
+}
+
+.clear-search:hover {
+    @apply text-theme-text dark:text-theme-text-dark;
+}
+
+.clear-search.visible {
+    display: block;
+}
+
+.sort-dropdown {
+    padding: 0.625rem 1rem;
+    @apply border-2 border-theme-border dark:border-theme-border-dark;
+    border-radius: 8px;
+    @apply bg-theme-card dark:bg-theme-card-dark;
+    @apply text-theme-text dark:text-theme-text-dark;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sort-dropdown:hover {
+    @apply border-primary;
+}
+
+.sort-dropdown:focus {
+    outline: none;
+    @apply border-primary;
+    box-shadow: 0 0 0 4px rgba(4, 91, 219, 0.1);
+}
+
+.commands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.command-card {
+    @apply bg-theme-card dark:bg-theme-card-dark;
+    @apply border-2 border-theme-border dark:border-theme-border-dark;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.command-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #045BDB, #27C93F);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.command-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+    @apply border-primary;
+}
+
+.command-card:hover::before {
+    opacity: 1;
+}
+
+.command-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 0.75rem;
+}
+
+.command-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #27C93F;
+    word-break: break-word;
+    letter-spacing: -0.01em;
+}
+
+.popular-badge {
+    font-size: 1.25rem;
+    margin-left: 0.5rem;
+}
+
+.command-description {
+    @apply text-theme-text-secondary dark:text-theme-text-secondary-dark;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.command-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background: rgba(4, 91, 219, 0.1);
+    color: #045BDB;
+    padding: 0.25rem 0.625rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.dark .tag {
+    background: rgba(4, 91, 219, 0.2);
+    color: #60A5FA;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    @apply text-theme-text-secondary dark:text-theme-text-secondary-dark;
+    grid-column: 1 / -1;
+}
+
+.empty-state h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    @apply text-theme-text dark:text-theme-text-dark;
+}
+
+.skeleton-card {
+    @apply bg-theme-card dark:bg-theme-card-dark;
+    @apply border border-theme-border dark:border-theme-border-dark;
+    border-radius: 8px;
+    padding: 1.5rem;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.skeleton-line {
+    @apply bg-theme-border dark:bg-theme-border-dark;
+    height: 1rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+}
+
+.skeleton-line.short {
+    width: 60%;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    @apply bg-primary text-white;
+    border: none;
+    padding: 1rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+    transform: scale(1.05);
+}
+
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+}
+
+.sidebar-overlay.visible {
+    display: block;
+}
+
+@media (max-width: 1024px) {
+    .commands-sidebar {
+        position: fixed;
+        left: -280px;
+        top: 0;
+        height: 100vh;
+        max-height: 100vh;
+        z-index: 999;
+        transition: left 0.3s ease;
+    }
+
+    .commands-sidebar.open {
+        left: 0;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .commands-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .commands-main-content {
+        padding: 1.5rem 1rem;
+    }
+
+    .commands-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .content-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+</style>
+
+<!-- Add JetBrains Mono font -->
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Add Fuse.js -->
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+
+<div class="bg-white dark:bg-theme-bg-dark">
+    <div class="commands-main-layout">
+        <aside class="commands-sidebar" id="sidebar">
+            <div class="search-section">
+                <div class="search-wrapper">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        class="search-input"
+                        placeholder="Find any command..."
+                        autocomplete="off"
+                    >
+                    <span class="search-icon" id="searchIcon">🔍</span>
+                    <button class="clear-search" id="clearSearch" aria-label="Clear search">&times;</button>
+                </div>
+            </div>
+
+            <h3>Categories</h3>
+            <div id="categoryFilters"></div>
+
+            <h3>Actions</h3>
+            <div class="action-filters" id="actionFilters"></div>
+
+            <h3>Quick Filters</h3>
+            <div class="popular-filter" id="popularFilter">
+                ⭐ Popular Commands
+            </div>
+
+            <button class="reset-filters" id="resetFilters">Reset All Filters</button>
+        </aside>
+
+        <main class="commands-main-content">
+            <div class="content-header">
+                <div class="results-count" id="resultsCount">Loading commands...</div>
+                <select class="sort-dropdown" id="sortDropdown">
+                    <option value="alphabetical">Alphabetical</option>
+                    <option value="popular">Popular First</option>
+                    <option value="category">By Category</option>
+                </select>
+            </div>
+
+            <div class="commands-grid" id="commandsGrid">
+                <!-- Loading skeleton -->
+                <div class="skeleton-card">
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line short"></div>
+                    <div class="skeleton-line"></div>
+                </div>
+                <div class="skeleton-card">
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line short"></div>
+                    <div class="skeleton-line"></div>
+                </div>
+                <div class="skeleton-card">
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line short"></div>
+                    <div class="skeleton-line"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+</div>
+
+<script>
+// State management
+let allCommands = [];
+let filteredCommands = [];
+let categories = {};
+let actions = {};
+let fuse = null;
+
+// Current filters
+let currentSearch = '';
+let currentCategory = 'all';
+let currentActions = new Set();
+let showPopularOnly = false;
+let currentSort = 'alphabetical';
+
+// Load commands
+async function loadCommands() {
+    try {
+        const response = await fetch('/commands.json');
+        allCommands = await response.json();
+
+        // Build categories and actions
+        allCommands.forEach(cmd => {
+            if (cmd.category) {
+                categories[cmd.category] = (categories[cmd.category] || 0) + 1;
+            }
+            if (cmd.verb) {
+                actions[cmd.verb] = (actions[cmd.verb] || 0) + 1;
+            }
+        });
+
+        // Initialize Fuse.js for fuzzy search
+        fuse = new Fuse(allCommands, {
+            keys: ['name', 'description', 'tags'],
+            threshold: 0.3,
+            includeScore: true,
+            ignoreLocation: true
+        });
+
+        // Build UI
+        buildCategoryFilters();
+        buildActionFilters();
+        parseURLState();
+        applyFilters();
+    } catch (error) {
+        console.error('Error loading commands:', error);
+        showError();
+    }
+}
+
+// Build category filters
+function buildCategoryFilters() {
+    const container = document.getElementById('categoryFilters');
+
+    const allItem = document.createElement('div');
+    allItem.className = 'filter-item active';
+    allItem.innerHTML = `
+        <span>All Commands</span>
+        <span class="filter-count">${allCommands.length}</span>
+    `;
+    allItem.onclick = () => selectCategory('all');
+    container.appendChild(allItem);
+
+    Object.entries(categories)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .forEach(([category, count]) => {
+            const item = document.createElement('div');
+            item.className = 'filter-item';
+            item.innerHTML = `
+                <span>${category}</span>
+                <span class="filter-count">${count}</span>
+            `;
+            item.onclick = () => selectCategory(category);
+            item.dataset.category = category;
+            container.appendChild(item);
+        });
+}
+
+// Build action filters
+function buildActionFilters() {
+    const container = document.getElementById('actionFilters');
+
+    const actionLabels = {
+        'Get': 'Get (retrieve info)',
+        'Set': 'Set (configure)',
+        'Copy': 'Copy (migrate)',
+        'Test': 'Test (validate)',
+        'Invoke': 'Invoke (execute)',
+        'New': 'New (create)',
+        'Remove': 'Remove (delete)',
+        'Export': 'Export',
+        'Import': 'Import',
+        'Backup': 'Backup',
+        'Restore': 'Restore',
+        'Add': 'Add',
+        'Update': 'Update',
+        'Start': 'Start',
+        'Stop': 'Stop'
+    };
+
+    Object.entries(actions)
+        .sort(([,a], [,b]) => b - a)
+        .slice(0, 15)
+        .forEach(([action, count]) => {
+            const label = document.createElement('label');
+            label.className = 'action-checkbox';
+            label.innerHTML = `
+                <input type="checkbox" value="${action}" onchange="toggleAction('${action}')">
+                <span>${actionLabels[action] || action} (${count})</span>
+            `;
+            container.appendChild(label);
+        });
+}
+
+// Filter functions
+function selectCategory(category) {
+    currentCategory = category;
+
+    document.querySelectorAll('#categoryFilters .filter-item').forEach(item => {
+        item.classList.remove('active');
+        if (category === 'all' && item.querySelector('span').textContent === 'All Commands') {
+            item.classList.add('active');
+        } else if (item.dataset.category === category) {
+            item.classList.add('active');
+        }
+    });
+
+    updateURLState();
+    applyFilters();
+}
+
+function toggleAction(action) {
+    if (currentActions.has(action)) {
+        currentActions.delete(action);
+    } else {
+        currentActions.add(action);
+    }
+    updateURLState();
+    applyFilters();
+}
+
+function togglePopular() {
+    showPopularOnly = !showPopularOnly;
+    document.getElementById('popularFilter').classList.toggle('active', showPopularOnly);
+    updateURLState();
+    applyFilters();
+}
+
+function resetFilters() {
+    currentSearch = '';
+    currentCategory = 'all';
+    currentActions.clear();
+    showPopularOnly = false;
+
+    document.getElementById('searchInput').value = '';
+    document.getElementById('clearSearch').classList.remove('visible');
+    document.querySelectorAll('#actionFilters input[type="checkbox"]').forEach(cb => cb.checked = false);
+    document.getElementById('popularFilter').classList.remove('active');
+    selectCategory('all');
+
+    updateURLState();
+    applyFilters();
+}
+
+// Apply all filters
+function applyFilters() {
+    let results = allCommands;
+
+    if (currentSearch) {
+        const fuseResults = fuse.search(currentSearch);
+        results = fuseResults.map(result => result.item);
+    }
+
+    if (currentCategory !== 'all') {
+        results = results.filter(cmd => cmd.category === currentCategory);
+    }
+
+    if (currentActions.size > 0) {
+        results = results.filter(cmd => currentActions.has(cmd.verb));
+    }
+
+    if (showPopularOnly) {
+        results = results.filter(cmd => cmd.popular);
+    }
+
+    filteredCommands = results;
+    sortAndRender();
+}
+
+// Sort and render
+function sortAndRender() {
+    let sorted = [...filteredCommands];
+
+    switch (currentSort) {
+        case 'alphabetical':
+            sorted.sort((a, b) => a.name.localeCompare(b.name));
+            break;
+        case 'popular':
+            sorted.sort((a, b) => {
+                if (a.popular && !b.popular) return -1;
+                if (!a.popular && b.popular) return 1;
+                return a.name.localeCompare(b.name);
+            });
+            break;
+        case 'category':
+            sorted.sort((a, b) => {
+                const catCompare = (a.category || '').localeCompare(b.category || '');
+                if (catCompare !== 0) return catCompare;
+                return a.name.localeCompare(b.name);
+            });
+            break;
+    }
+
+    renderCommands(sorted);
+}
+
+// Render commands
+function renderCommands(commands) {
+    const grid = document.getElementById('commandsGrid');
+    const count = document.getElementById('resultsCount');
+
+    count.textContent = `Showing ${commands.length} command${commands.length !== 1 ? 's' : ''}`;
+
+    if (commands.length === 0) {
+        grid.innerHTML = `
+            <div class="empty-state">
+                <h2>No commands found</h2>
+                <p>Try different keywords or browse categories</p>
+            </div>
+        `;
+        return;
+    }
+
+    grid.innerHTML = commands.map(cmd => `
+        <a href="${cmd.url}" class="command-card" target="_blank" rel="noopener noreferrer">
+            <div class="command-header">
+                <h3 class="command-name">${cmd.name}</h3>
+                ${cmd.popular ? '<span class="popular-badge">⭐</span>' : ''}
+            </div>
+            <p class="command-description">${cmd.description}</p>
+            <div class="command-tags">
+                ${cmd.tags.slice(0, 3).map(tag => `<span class="tag">#${tag}</span>`).join('')}
+            </div>
+        </a>
+    `).join('');
+}
+
+// Search handling
+let searchTimeout;
+function handleSearch(e) {
+    const value = e.target.value;
+    document.getElementById('clearSearch').classList.toggle('visible', value.length > 0);
+
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+        currentSearch = value;
+        updateURLState();
+        applyFilters();
+    }, 150);
+}
+
+// URL state management
+function updateURLState() {
+    const params = new URLSearchParams();
+
+    if (currentSearch) params.set('search', currentSearch);
+    if (currentCategory !== 'all') params.set('category', currentCategory);
+    if (currentActions.size > 0) params.set('actions', Array.from(currentActions).join(','));
+    if (showPopularOnly) params.set('popular', '1');
+    if (currentSort !== 'alphabetical') params.set('sort', currentSort);
+
+    const newURL = params.toString() ? `?${params.toString()}` : window.location.pathname;
+    window.history.replaceState({}, '', newURL);
+}
+
+function parseURLState() {
+    const params = new URLSearchParams(window.location.search);
+
+    const search = params.get('search');
+    if (search) {
+        currentSearch = search;
+        document.getElementById('searchInput').value = search;
+        document.getElementById('clearSearch').classList.add('visible');
+    }
+
+    const category = params.get('category');
+    if (category && categories[category]) {
+        selectCategory(category);
+    }
+
+    const actionsParam = params.get('actions');
+    if (actionsParam) {
+        actionsParam.split(',').forEach(action => {
+            if (actions[action]) {
+                currentActions.add(action);
+                const checkbox = document.querySelector(`#actionFilters input[value="${action}"]`);
+                if (checkbox) checkbox.checked = true;
+            }
+        });
+    }
+
+    if (params.get('popular') === '1') {
+        showPopularOnly = true;
+        document.getElementById('popularFilter').classList.add('active');
+    }
+
+    const sort = params.get('sort');
+    if (sort) {
+        currentSort = sort;
+        document.getElementById('sortDropdown').value = sort;
+    }
+}
+
+function showError() {
+    const grid = document.getElementById('commandsGrid');
+    grid.innerHTML = `
+        <div class="empty-state">
+            <h2>Error loading commands</h2>
+            <p>Please refresh the page to try again</p>
+        </div>
+    `;
+}
+
+// Mobile sidebar toggle
+function toggleMobileSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('visible');
+}
+
+// Event listeners
+document.addEventListener('DOMContentLoaded', () => {
+    loadCommands();
+
+    document.getElementById('searchInput').addEventListener('input', handleSearch);
+    document.getElementById('clearSearch').addEventListener('click', () => {
+        document.getElementById('searchInput').value = '';
+        document.getElementById('clearSearch').classList.remove('visible');
+        currentSearch = '';
+        updateURLState();
+        applyFilters();
+    });
+    document.getElementById('popularFilter').addEventListener('click', togglePopular);
+    document.getElementById('resetFilters').addEventListener('click', resetFilters);
+    document.getElementById('sortDropdown').addEventListener('change', (e) => {
+        currentSort = e.target.value;
+        updateURLState();
+        sortAndRender();
+    });
+    document.getElementById('mobileMenuToggle').addEventListener('click', toggleMobileSidebar);
+    document.getElementById('sidebarOverlay').addEventListener('click', toggleMobileSidebar);
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+        if (e.key === '/' && e.target.tagName !== 'INPUT') {
+            e.preventDefault();
+            document.getElementById('searchInput').focus();
+        }
+        if (e.key === 'Escape') {
+            if (document.getElementById('sidebar').classList.contains('open')) {
+                toggleMobileSidebar();
+            } else if (currentSearch) {
+                document.getElementById('clearSearch').click();
+            }
+        }
+    });
+});
+</script>
+
+{{ end }}
