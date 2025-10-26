@@ -2,6 +2,6 @@
 layout: redirected
 sitemap: false
 redirect_to:
-  - https://www.manning.com/books/learn-dbatools-in-a-month-of-lunches
+  - https://www.manning.com/books/learn-dbatools-in-a-month-of-lunches?a_aid=clemaire&
 permalink: /book
 ---
