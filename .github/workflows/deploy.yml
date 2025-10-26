@@ -67,8 +67,8 @@ jobs:
       - name: Build Jekyll redirects
         run: |
           # Build Jekyll site with redirects
-          # Jekyll will process all .md files in redirect/ folder and create HTML redirects
-          jekyll build --source . --destination _site
+          # Jekyll will process only the redirect/ folder and create HTML redirects
+          jekyll build --source ./redirect --destination _site/redirect
           # Copy only the generated redirect HTML files to Hugo's public directory
           # Skip copying other Jekyll-generated content
           if [ -d "_site/redirect" ]; then
