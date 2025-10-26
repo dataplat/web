@@ -111,7 +111,7 @@ You can do this by placing dbatools in **Program Files\WindowsPowerShell\Modules
 
 ![](/images/img_59c8c7ec2c957.png)
 
-#### Setup a SQL Server credential
+#### Setup a SQL Server Credential
 
 After the login has been created, I use the credentials (the AD username & password) to create a SQL Server Credential (Instance -> Security -> Credentials).
 

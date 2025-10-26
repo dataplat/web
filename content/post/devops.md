@@ -1,5 +1,5 @@
 ---
-title: "dbatools – a devops success story"
+title: "dbatools – A DevOps Success Story"
 date: 2017-06-13
 author: "Chrissy LeMaire"
 slug: "devops"
@@ -48,7 +48,7 @@ Another definition was recently shared with me by former PowerShell MVP (and now
 
 I remember when I was taking the class, I made a list of what we're doing at dbatools that aligns with DevOps. Because how cool would it be to not only add it to my own resume, but to be able to offer that skillset and experience to all of our contributors? Turns out, after we added automated tests, we were 100% DevOps!
 
-#### dbatools ❤️ you
+#### dbatools ❤️ You
 
 We've now got nearly 60 contributors to [our GitHub repository](https://dbatools.io/git). Our team is an awesome mix of database administrators, systems engineers, data architects, C# devs, BI devs, PowerShell dev and more. Quite a nice combo of dev and ops 😊
 

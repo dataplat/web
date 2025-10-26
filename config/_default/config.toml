@@ -7,6 +7,7 @@ enableRobotsTXT = true
 
 [permalinks]
 post = "/:slug/"
+page = "/:slug/"
 
 [params]
 description = "A free, open-source PowerShell module with 600+ commands that make SQL Server administration simple, powerful, and fun."

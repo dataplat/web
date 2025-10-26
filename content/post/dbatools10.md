@@ -223,7 +223,7 @@ We've invited other dbatools developers to sign up as well 🙏
 
 Oh, and for the first year, **[GitHub will match sponsorship funds](https://help.github.com/en/articles/about-github-sponsors#about-the-github-sponsors-matching-fund)**! So giving to us now is like giving double.
 
-## Big Ol Thanks
+## Big Ol' Thanks
 
 I'd like to give an extra special thanks to the contributors who helped get dbatools across the finish line these past couple months: Simone Bizzotto, Joshua Corrick, Patrick Flynn, Sander Stad, Cláudio Silva, Shawn Melton, Garry Bargsley, Andy Levy, George Palacios, Friedrich Weinmann, Jess Pomfret, Gareth N, Ben Miller, Shawn Tunney, Stuart Moore, Mike Petrak, Bob Pusateri, Brian Scholer, John G "Shoe" Hohengarten, Kirill Kravtsov, James Brundage, Hüseyin Demir, Gianluca Sartori and Rob Sewell.
 

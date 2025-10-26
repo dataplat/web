@@ -1,5 +1,5 @@
 ---
-title: "#dbatools on sqlcommunity.slack.com"
+title: "#dbatools on Sqlcommunity.slack.com"
 date: 2016-06-29
 slug: "slack"
 aliases:

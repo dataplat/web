@@ -1,5 +1,5 @@
 ---
-title: "New Release – Antsinmyeyesjohnson"
+title: "New Release – Ants in My Eyes Johnson"
 date: 2016-11-22
 author: "Chrissy LeMaire"
 slug: "antsinmyeyesjohnson"

@@ -20,7 +20,7 @@ If you're already familiar with the project and would like to bypass the intro, 
 
 {{< youtube pcKCTn618s0 >}}
 
-## Want to know more?
+## Want to Know More?
 
 During our [PASS Summit pre-con](https://sqlps.io/precon), we're aiming to go in-depth with topics like when to use T-SQL vs. when to use PowerShell, and how you can build your own SQL PowerShell commands, complete with Pester tests, too. We'll also touch on important topics like PowerShell Security Myths vs. Facts.
 
