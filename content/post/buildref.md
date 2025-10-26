@@ -1,5 +1,5 @@
 ---
-title: "introducing the community-driven build reference"
+title: "Introducing the Community-Driven Build Reference"
 date: 2017-10-16
 author: "Simone Bizzotto"
 slug: "buildref"
@@ -13,7 +13,7 @@ draft: false
 
 Yet another post from the dbatools team, I'm Simone Bizzotto. Hit me up on [Slack](https://dbatools.io/slack), I'm @niphlod.
 
-## the problem
+## The Problem
 
 Even the accidental DBA has to manage those pesky SQL Server Updates. Be it a bug fix, a security fix, a "new features" release, well… it needs to be installed.
 
@@ -38,13 +38,13 @@ And I'm totally sure I'm missing a few.
 
 All of the above sites/lists are maintained by a different set of people (kudos to everyone), who helped DBAs, but all for different "angles"; every time you need a complete set of information, you need to go on more than one of those lists. And every time you need to get what version your instance is, well, you need to go fetch it.
 
-## the solutions
+## The Solutions
 
 Enter the JSON-based dbatools commmand, [Get-DbaBuildReference](https://docs.dbatools.io/Get-DbaBuildReference/), and accompanying [build website](https://dbatools.io/builds)! Back in March, dbatools released a shiny new command, which will save you a lot of time in the "inventory" part of the deal.
 
-### the command
+### The Command
 
-![Get-DbaBuildReference command output](https://dbatools.io/wp-content/uploads/2017/10/img_59e2103a5fd37.png?w=800&ssl=1)
+![Get-DbaBuildReference command output](/images/img_59e2103a5fd37.png)
 
 You get back on a jiffy:
 – the Build
@@ -66,7 +66,7 @@ If you are more curious , you can check out the [source](https://github.com/data
 
 You'll see that information comes from a json file, which is shipped with the module, and that the *-Update* switch fetches a publicly available json file from [https://sqlcollaborative.github.io/assets/dbatools-buildref-index.json](https://sqlcollaborative.github.io/assets/dbatools-buildref-index.json).
 
-### omg the website
+### OMG the Website
 
 Our PowerShell command is easy to use but some just won't dabble in Powershell. For everyone's delight (hopefully), we crafted a page that builds a nice table containing all the build information, and **it** just does **that** based on that json file. So the same JSON file that powers Get-DbaBuildReference is being used to power this super easy to use site.
 
@@ -74,11 +74,11 @@ Hell, you can even fetch the [source](https://github.com/dataplat/sqlcollaborati
 
 Need the info? Bookmark [dbatools.io/builds](https://dbatools.io/builds), hit it, enter your build number in the search box and have all the info back. I'm not a fast clicker and had this done in less than 2 seconds.
 
-![Build reference website demo](https://dbatools.io/wp-content/uploads/2017/10/build.gif?resize=800%2C450&ssl=1)
+![Build reference website demo](/images/build.gif)
 
 Are you a spreadsheet fan? Presto! Press on "Copy" or "Excel" and lookup (or VLOOKUP) all the way.
 
-## open source means even faster updates
+## Open Source Means Even Faster Updates
 
 The website, the command and the json are all publicly available and editable. The website is hosted on gh-pages, and dbatools is on GitHub.
 

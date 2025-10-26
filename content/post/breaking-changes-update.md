@@ -1,5 +1,5 @@
 ---
-title: "breaking changes update"
+title: "Breaking Changes Update"
 date: 2018-11-16
 author: "Chrissy LeMaire"
 slug: "breaking-changes-update"
@@ -28,7 +28,7 @@ It's been a busy couple days! Here's a list of our breaking changes
 - UseLastBackups has been renamed to UseLastBackup
 - Most NoXyz in Start-DbaMigration has been renamed to ExcludeXyz
 
-## New commands
+## New Commands
 
 Recently, we've also added a bunch of new WSFC, Mirroring and AG commands (like [Sync-DbaAvailabilityGroup](https://dbatools.io/Sync-DbaAvailabilityGroup)!) that I'll write about more in-depth about later. If you'd like to test the commands now and give us feedback, check out the [Availability Groups section](https://dbatools.io/commands/#AGs) of the [Commands Index](https://dbatools.io/commands).
 
@@ -42,7 +42,7 @@ We also have other new commands including
 
 `New-DbaDatabase` allows you to create databases easily. It even allows you to create multiple databases on multiple servers at once!
 
-![image](https://dbatools.io/wp-content/uploads/2018/11/new-db.png?resize=800%2C608&ssl=1)
+![image](/images/new-db.png)
 
 Also, a teammate suggested we highlight that `Install-DbaSqlWatch`, which installs [sqlwatch](https://sqlwatch.io) is different from [Install-DbaWatchUpdate](https://dbatools.io/Install-DbaWatchUpdate) which watches for updates to dbatools.
 

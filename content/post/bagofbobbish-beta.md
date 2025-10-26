@@ -1,5 +1,5 @@
 ---
-title: "Can you help us test this beta?"
+title: "Can You Help Us Test This Beta?"
 date: 2017-07-04
 author: "Chrissy LeMaire"
 slug: "bagofbobbish-beta"
@@ -13,11 +13,11 @@ draft: false
 
 Well, first we'd like to give a big ol' shoutout to our teammate and new PowerShell MVP [Rob Sewell](https://twitter.com/sqldbawithbeard)!
 
-![](https://dbatools.io/wp-content/uploads/2017/07/img_595a59e042de1.png?w=800&ssl=1)
+![](/images/img_595a59e042de1.png)
 
 Rob is one of the most visible members of the SQL PowerShell community, an officer in the [PASS PowerShell Virtual Group](https://sqlps.io) and an outstanding evangelist & Pester test maker for dbatools. We're all so excited about Rob's well-deserved recognition – love you, buddy! ❤️
 
-## bagofbobbish beta testing
+## Bagofbobbish Beta Testing
 
 Before the official release of [bagofbobbish](https://www.youtube.com/watch?v=phWud759zs8) to master and the PowerShell Gallery, we need help finding bugs. Then, we'll need some time to resolve those bugs. Hopefully this can be done before community members show off dbatools at a few key [SQLSaturdays](http://sqlsaturday.com/) around the world this Saturday, July 8th.
 
@@ -27,7 +27,7 @@ If you find any bugs, please [file a report on GitHub](https://dbatools.io/issue
 
 Currently, there aren't any webpages for the commands listed in this post, but all commands have help, so when you need help, simply type **Get-Help commandName -Examples** or **Get-Help commandName -Full**.
 
-## What's changed?
+## What's Changed?
 
 It's been two months since our last major release and we've made leaps and bounds towards 1.0. Here's a list of some of the changes included in the 1700+ commits since our last release:
 
@@ -40,13 +40,13 @@ It's been two months since our last major release and we've made leaps and bound
 
 Speaking of compiling, C# dev [Justin Dearing](https://twitter.com/zippy1981) recently joined the team! Now we'll have someone to provide [Fred](https://twitter.com/FredWeinmann), our in-house magician, some relief. So far, Justin's added some efficiency cleanup, code style and tests – thanks, man!
 
-## 63 new commands
+## 63 New Commands
 
 In addition to making all of those changes, we also added 63 new commands! The number is a bit high because we hadn't announced a couple extra special ones that were previously included in the code, but not the site or blog post.
 
 Namely, we merged [André Kamman](http://andrekamman.com/)'s Diagnostic Query commands that make working with [Glenn Berry's Diagnostic DMV Queries](https://www.sqlskills.com/blogs/glenn/category/dmv-diagnostic-queries-detailed/) incredibly easy!
 
-### Diagnostic query scripts
+### Diagnostic Query Scripts
 
 - **Invoke-DbaDiagnosticQuery**
   Executes the scripts provided by Glenn Berry's DMV scripts on specified servers.
@@ -63,7 +63,7 @@ I made a [pretty crude video](https://www.youtube.com/watch?v=xOiGXhAShCs) showi
 
 More in-depth blog post coming soon!
 
-### Security commands
+### Security Commands
 
 A bunch of security-related commands were added. I'm looking forward to a detailed blog post about these, they really simplify things like forcing network encryption.
 
@@ -89,14 +89,14 @@ A bunch of security-related commands were added. I'm looking forward to a detail
 - **Restore-DbaDbCertificate**
 - **Set-DbaNetworkCertificate**
 
-### Troubleshooting commands
+### Troubleshooting Commands
 
 Along with our C# framework comes a really amazing logging system. The newest release introduces two commands that help you export logs and detailed system info for the times you encounter challenging issues.
 
 - **Get-DbatoolsLog**
 - **New-DbatoolsSupportPackage**
 
-### Computer Management commands
+### Computer Management Commands
 
 We also introduced a computer management system that we'll detail soon. These commands are primarily for our developers, but also help provide you insight into how we are connecting to your remote computers when you use a Windows-based command such as Test-DbaDiskSpace.
 
@@ -108,14 +108,14 @@ Why don't we just use what's out of the box with PowerShell? Well, in order to s
 - **Set-DbaCmConnection**
 - **Test-DbaCmConnection**
 
-### Log shipping
+### Log Shipping
 
 [Sander Stad](https://twitter.com/sqlstad) created some really cool Log Shipping wrappers! We'd love some testers to give feedback.
 
 - **Invoke-DbaDbLogShipping**
 - **Invoke-DbaDbLogShipRecovery**
 
-### Agent commands
+### Agent Commands
 
 A bunch of Agent commands in support of the Log Shipping wrappers and Get-DbaAgentJobHistory was a cherry on top.
 
@@ -131,7 +131,7 @@ A bunch of Agent commands in support of the Log Shipping wrappers and Get-DbaAge
 - **Set-DbaAgentJobStep**
 - **Set-DbaAgentSchedule**
 
-### Other awesome commands
+### Other Awesome Commands
 
 And here are a bunch of super fun commands! Check them out in your lab, let us know what you think.
 
@@ -155,7 +155,7 @@ And here are a bunch of super fun commands! Check them out in your lab, let us k
 - **Set-DbaTcpPort**
 - **Test-DbaManagementObject**
 
-## Testing and reporting issues
+## Testing and Reporting Issues
 
 For those of you interested in testing, thank you! Again, you can get this release by [downloading the zip](https://dbatools.io/bobzip) manually [from GitHub](https://github.com/dataplat/dbatools/releases). From there, you can manually import it using **Import-Module C:\pathto\dbatools\dbatools.psd1 -Force**. Note that this beta release is not digitally signed but the final release will be.
 

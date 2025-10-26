@@ -1,5 +1,5 @@
 ---
-title: "beginning the journey to 1.0 and a call for bug reports"
+title: "Beginning the Journey to 1.0 and a Call for Bug Reports"
 date: 2017-03-03
 author: "Chrissy LeMaire"
 slug: "bugsplz"
@@ -15,7 +15,7 @@ So, we've made the first step to 1.0 – we've stopped accepting Pull Requests t
 
 Our [pull request queue](https://dbatools.io/pr) is currently filled with new commands that we still need to review, along with a couple bug fixes. Early next week, we'll release an update with all these newer commands.
 
-## what to expect in the next few months
+## What to Expect in the Next Few Months
 
 We're going to be really busy! Here's a non-exhaustive list of what to expect:
 
@@ -29,7 +29,7 @@ Major breaking changes? Yep, mostly, command names and parameters will change. T
 
 But while we will be introducing breaking changes, we're also hoping to provide a script converter that searches for the changes we're making and updates your scripts accordingly.
 
-## we need you
+## We Need You
 
 We want 1.0 to be as solid as possible and **need you to report any bugs you've come across** to our **[issues](https://dbatools.io/issues)** list. If you've been putting it off, now is the time.
 
@@ -37,7 +37,7 @@ If you don't want to create a GitHub account, you can email clemaire@gmail.com, 
 
 We also need bug fixers and testers. We've got a number of people who have volunteered to help but the more help we have, the faster we can get 1.0 finalized. Right now, our hope is that 1.0 will be available on June 1, 2017.
 
-## i want to help fix bugs, how do i start?
+## I Want to Help Fix Bugs, How Do I Start?
 
 First, from all of us, THANK YOU 🙏 Second..
 

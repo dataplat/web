@@ -1,5 +1,5 @@
 ---
-title: "building an inventory view of SQL Servers with dbatools"
+title: "Building an Inventory View of SQL Servers with Dbatools"
 date: 2019-04-25
 author: "Andreas Schubert"
 slug: "building-an-inventory"
@@ -10,7 +10,7 @@ categories: [announcements]
 draft: false
 ---
 
-## The situation
+## The Situation
 
 Hey all, I am Andreas Schubert and I am working as a Principal Consultant and Database Reliability Engineer for SQL Server & Azure for multiple national and international companies. My focus is on implementing and operating complex 24/7 SQL environments with tens and hundreds of servers and multi-terrabyte databases.
 
@@ -20,7 +20,7 @@ Since the environments usually change pretty fast, my goal is to automate this p
 
 In this series of posts, I will try to show you how I am implementing this. Of course, your requirements or implementations may differ, but hopefully this blog post can give you some ideas about your tasks too.
 
-## Enter dbatools
+## Enter Dbatools
 
 Before dbatools existed, I had to rely on either the various monitoring solutions that my customers are using or on scripts created by myself. There are a lot of really great 3rd party tools out there that do an awesome job. Unfortunately, they all differ in how they are used or what information they report back. I needed something that is easy to implement, with as few dependencies as possible and works across all SQL Server versions. That's when I started using dbatools.
 
@@ -28,7 +28,7 @@ I immediately felt in love with how flexible it is. And boy, did its functionali
 
 Today, there are tons of commands available that cover almost all, of the various, areas SQL Server has to offer.
 
-## The task
+## The Task
 
 Before I dive into specific SQL Servers for in-depth analysis, I want to see some sort of inventory. The minimum information I would like to collect is:
 
@@ -43,7 +43,7 @@ Whoever has built an inventory script in the past knows that collecting the abov
 
 OK, enough talk, let's jump straight into the code.
 
-## The solution
+## The Solution
 
 Right at the beginning of any of my scripts, I am defining the root of the script itself. I do this because I re-use a lot of functions.
 
@@ -51,7 +51,7 @@ Since we want to collect the information for more than one SQL Server instance, 
 
 The names of the Servers will be coming from a simple text file in our example. Just do me a favour and do NOT put your server list into an unsecured network location – again, we need to keep security in mind.
 
-![Picture 1: our server list](https://dbatools.io/wp-content/uploads/2019/04/SQLInventory_servers.png)
+![Picture 1: our server list](/images/SQLInventory_servers.png)
 
 Next, we need to load this file into our PowerShell session. For the sake of simplicity, I am loading it explicitely into my script. Normally, I have a variable populated with the servers in my profile, so I don't have to do this each time.
 
@@ -62,7 +62,7 @@ $ProductionServers = Get-Content (Join-Path $script:root -ChildPath 'Production.
 
 Similar to the actual server list, I am using a text file "AliasList.txt" to store the alias information i mentioned above:
 
-![Picture 2: the alias list](https://dbatools.io/wp-content/uploads/2019/04/SQLInventory_aliasList.png)
+![Picture 2: the alias list](/images/SQLInventory_aliasList.png)
 
 It's the same system: the name of the server or instance, followed by the alias name. Both values are separated by a semicolon. Loading and storing the alias information in a hash table is a simple one-liner in PowerShell:
 
@@ -178,7 +178,7 @@ $html = $rawData | ConvertTo-Html -Fragment -PreContent "$($css)<h2>Instance KPI
 
 The result is a nicely formatted html report:
 
-![Picture 3: the result](https://dbatools.io/wp-content/uploads/2019/04/SQLInventory_results.png)
+![Picture 3: the result](/images/SQLInventory_results.png)
 
 This was only a very basic example of what you can do with PSTools, PowerShell and a bit of magic piping. I hope you found this useful.
 
