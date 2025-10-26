@@ -76,7 +76,7 @@
           {{ if eq $num $.Paginator.PageNumber }}
           <span class="px-3 py-2 bg-primary text-white rounded-lg font-semibold text-sm">{{ $num }}</span>
           {{ else }}
-          <a href="{{ $.Paginator.Page $num }}" class="px-3 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-primary hover:text-white transition-all font-semibold text-sm">{{ $num }}</a>
+          <a href="{{ if eq $num 1 }}{{ $.Paginator.First.URL }}{{ else }}{{ printf "%s/page/%d/" $.RelPermalink $num | strings.TrimSuffix "/" }}/{{ end }}" class="px-3 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-primary hover:text-white transition-all font-semibold text-sm">{{ $num }}</a>
           {{ end }}
         {{ end }}
       </div>
