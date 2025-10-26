@@ -78,7 +78,7 @@ Ever read a really great article about how to do something properly but then kin
 ## Test Commands
 
 - **[Test-DbaTempdbConfig](https://dbatools.io/Test-DbaTempdbConfig)**
-  Test your TempDb Configuration
+  Test Your TempDb Configuration
 
 - **[Test-DbaNetworkLatency](https://dbatools.io/Test-DbaNetworkLatency)**
   This function is intended to help measure SQL Server network latency by establishing a connection and making a simple query. This is a better alternative than ping because it actually creates the connection to the SQL Server, and times not only the entire routine, but also how long the actual queries take vs how long it takes to get the results.

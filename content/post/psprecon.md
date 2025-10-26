@@ -38,7 +38,7 @@ At the end of this fun filled day with Rob, a former SQL Server DBA turned profe
 
 We will have a lot of fun along the way and you will return to work with a lot of ideas, samples and better habits to become a PowerShell ninja and save yourself and your organisation time and effort.
 
-### Register now
+### Register Now
 
 To register, visit the shortlink [sqlps.io/precon](https://sqlps.io/precon)
 

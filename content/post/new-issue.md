@@ -64,7 +64,7 @@ You would be surprised how often this can happen, so we have to ask. With the nu
 
 Not all modules play nice with each other. We have found in particular that the [sqlserver module](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-ps-module) can cause issues with our module loading properly. So if you happen to import modules prior to or after importing dbatools, it helps to identify that none of those modules are adversely affecting dbatools execution.
 
-#### Version and Edition information
+#### Version and Edition Information
 
 Just the basics. This information is pivotal when we get down to debugging bugs and errors, helps to ensure we have a similar setup in our lab(s) to more closely get root cause. As well, we may identify flavors of each that may not play well together (e.g. [credential prompts](https://github.com/dataplat/dbatools/issues/2003) when using CIM/WMI). In particular, if you happen to be working with the migration commands (Copy-Dba* commands) or moving an object in some other process, it can help to include the version information for your source and destination/target.
 
