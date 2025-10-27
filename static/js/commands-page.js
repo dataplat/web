@@ -429,6 +429,13 @@ class CommandsBrowser {
     if (params.get('popular') === 'true' || params.get('popular') === '1') {
       this.showPopularOnly = true;
       document.getElementById('popular-filter-btn').classList.add('active');
+      // Auto-select "Popular First" sorting when loading from URL
+      this.activeSort = 'popular';
+      document.getElementById('sort-select').value = 'popular';
+      const popularityNote = document.getElementById('popularity-note');
+      if (popularityNote) {
+        popularityNote.classList.add('show');
+      }
     }
 
     this.applyAllFilters();

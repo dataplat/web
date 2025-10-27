@@ -1,4 +1,150 @@
-/* Command Documentation Styles - GitHub Light Theme */
+/* Command Documentation Styles - Beautiful Modern Design */
+
+/* Command Header - Hero Style */
+.command-header {
+  background: linear-gradient(135deg, #f6f8fa 0%, #ffffff 100%);
+  border: 1px solid #d1d9e0;
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 2px 8px rgba(27, 31, 35, 0.04);
+  transition: all 0.3s ease;
+}
+
+.command-header:hover {
+  box-shadow: 0 4px 16px rgba(27, 31, 35, 0.08);
+  border-color: #22C55E;
+}
+
+.command-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.command-header h1 {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: #22C55E !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+  flex: 1;
+  min-width: 300px;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: linear-gradient(135deg, #1f2328 0%, #0d1117 100%);
+  color: #ffffff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.github-link:hover {
+  background: linear-gradient(135deg, #2d333b 0%, #1c2128 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.github-link svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+}
+
+.command-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d1d9e0;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #59636e;
+  font-size: 0.9rem;
+}
+
+.meta-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #0969da;
+  flex-shrink: 0;
+}
+
+/* Dark mode styles */
+.dark .command-header {
+  background: linear-gradient(135deg, #0B234A 0%, #0e2a57 100%);
+  border-color: #273B59;
+}
+
+.dark .command-header:hover {
+  border-color: #22C55E;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.dark .command-header h1 {
+  color: #22C55E !important;
+}
+
+.dark .github-link {
+  background: linear-gradient(135deg, #e6edf3 0%, #ffffff 100%);
+  color: #1f2328;
+}
+
+.dark .github-link:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #f6f8fa 100%);
+}
+
+.dark .command-meta {
+  border-top-color: #273B59;
+}
+
+.dark .meta-item {
+  color: #9198a1;
+}
+
+.dark .meta-icon {
+  color: #60A5FA;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .command-header {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .command-header h1 {
+    font-size: 1.75rem !important;
+  }
+
+  .command-header-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .github-link {
+    width: 100%;
+    justify-content: center;
+  }
+}
 
 /* Code blocks - styled like command cards with subtle borders */
 article pre {
@@ -10,6 +156,7 @@ article pre {
   overflow-x: auto;
   transition: all 0.15s ease;
   box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04), 0 0 0 1px rgba(27, 31, 35, 0.04);
+  max-width: 100%;
 }
 
 article pre:hover {
@@ -54,9 +201,12 @@ article table {
   border-collapse: separate;
   border-spacing: 0;
   width: 100%;
+  max-width: 100%;
   margin: 1.5rem 0;
   overflow: hidden;
   box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04), 0 0 0 1px rgba(27, 31, 35, 0.04);
+  display: block;
+  overflow-x: auto;
 }
 
 article table th {
