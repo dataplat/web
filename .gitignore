@@ -22,7 +22,5 @@ Thumbs.db
 *.swo
 *~
 /old
-/old
 nul
-/content/commands
 web.code-workspace

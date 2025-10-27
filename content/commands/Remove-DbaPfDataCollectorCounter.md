@@ -1,0 +1,191 @@
+---
+title: "Remove-DbaPfDataCollectorCounter"
+slug: "Remove-DbaPfDataCollectorCounter"
+date: 2024-01-01
+layout: "single"
+author: "Chrissy LeMaire (@cl), netnerds.net"
+availability: "Windows, Linux, macOS"
+synopsis: "Removes specific performance counters from Windows Performance Monitor Data Collector Sets."
+tags:
+  - "PerfMon"
+sourceUrl: "https://github.com/dataplat/dbatools/blob/master/public/Remove-DbaPfDataCollectorCounter.ps1"
+bohUrl: "https://dataplat.github.io/boh#Remove-DbaPfDataCollectorCounter"
+draft: false
+---
+
+# Remove-DbaPfDataCollectorCounter
+
+| Property | Value |
+| --- | --- |
+| **Author** | Chrissy LeMaire (@cl), netnerds.net |
+| **Availability** | Windows, Linux, macOS |
+
+&nbsp;
+
+Want to see the source code for this command? Check out [Remove-DbaPfDataCollectorCounter](https://github.com/dataplat/dbatools/blob/master/public/Remove-DbaPfDataCollectorCounter.ps1) on GitHub.
+<br>
+Want to see the Bill Of Health for this command? Check out [Remove-DbaPfDataCollectorCounter](https://dataplat.github.io/boh#Remove-DbaPfDataCollectorCounter).
+
+## Synopsis
+
+Removes specific performance counters from Windows Performance Monitor Data Collector Sets.
+
+## Description
+
+Removes performance counters from existing Data Collector Sets in Windows Performance Monitor. This allows you to clean up monitoring configurations by removing counters that are no longer needed, reducing resource consumption and focusing on relevant metrics. Commonly used when fine-tuning SQL Server performance monitoring setups or removing counters that were added for troubleshooting specific issues.
+
+## Syntax
+
+```powershell
+Remove-DbaPfDataCollectorCounter
+    [[-ComputerName] <DbaInstanceParameter[]>]
+    [[-Credential] <PSCredential>]
+    [[-CollectorSet] <String[]>]
+    [[-Collector] <String[]>]
+    [-Counter] <Object[]>
+    [[-InputObject] <Object[]>]
+    [-EnableException]
+    [-WhatIf]
+    [-Confirm]
+    [<CommonParameters>]
+
+```
+
+&nbsp;
+
+## Examples
+
+&nbsp;
+
+
+#####  Example:  1 
+
+```powershell
+PS C:\> Remove-DbaPfDataCollectorCounter -ComputerName sql2017 -CollectorSet 'System Correlation' -Collector DataCollector01  -Counter '\LogicalDisk(*)\Avg. Disk Queue Length'
+```
+
+Prompts for confirmation then removes the '\LogicalDisk(*)\Avg. Disk Queue Length' counter within the DataCollector01 collector within the System Correlation collector set on sql2017.<br>
+
+#####  Example:  2 
+
+```powershell
+PS C:\> Get-DbaPfDataCollectorCounter | Out-GridView -PassThru | Remove-DbaPfDataCollectorCounter -Confirm:$false
+```
+
+Allows you to select which counters you'd like on localhost and does not prompt for confirmation.<br>
+
+### Required Parameters
+
+##### -Counter
+
+Specifies the exact performance counter name(s) to remove from the data collector. Must use the full counter path format like '\Processor(_Total)\% Processor Time' or '\SQLServer:Buffer   
+Manager\Buffer cache hit ratio'.  
+Use this when you need to remove specific SQL Server or system performance counters that are no longer needed for monitoring, such as counters added for troubleshooting that are now consuming   
+unnecessary resources.
+
+| Property | Value |
+| --- | --- |
+| Alias | Name |
+| Required | True |
+| Pipeline | true (ByPropertyName) |
+| Default Value |  |
+
+### Optional Parameters
+
+##### -ComputerName
+
+Specifies the target computer(s) where the Performance Monitor Data Collector Set is configured. Accepts multiple computer names for bulk operations.  
+Use this when you need to remove counters from collector sets on remote SQL Server machines or when managing performance monitoring across multiple servers.
+
+| Property | Value |
+| --- | --- |
+| Alias |  |
+| Required | False |
+| Pipeline | false |
+| Default Value | $env:COMPUTERNAME |
+
+##### -Credential
+
+Allows you to login to the target computer using alternative credentials. To use:  
+$cred = Get-Credential, then pass $cred object to the -Credential parameter.
+
+| Property | Value |
+| --- | --- |
+| Alias |  |
+| Required | False |
+| Pipeline | false |
+| Default Value |  |
+
+##### -CollectorSet
+
+Specifies the name of the Performance Monitor Data Collector Set containing the counters to be removed. Supports wildcards for pattern matching across multiple sets.  
+Use this when you know the specific collector set name where your performance counters are configured, such as 'System Correlation' or custom SQL Server monitoring sets.
+
+| Property | Value |
+| --- | --- |
+| Alias | DataCollectorSet |
+| Required | False |
+| Pipeline | false |
+| Default Value |  |
+
+##### -Collector
+
+Specifies the name of the individual data collector within the collector set that contains the performance counters to remove. Supports multiple collector names.  
+Use this to target specific data collectors when your collector set contains multiple collectors, allowing you to remove counters from only the collectors you specify.
+
+| Property | Value |
+| --- | --- |
+| Alias | DataCollector |
+| Required | False |
+| Pipeline | false |
+| Default Value |  |
+
+##### -InputObject
+
+Accepts performance counter objects from Get-DbaPfDataCollectorCounter via the pipeline, allowing you to remove counters discovered through previous queries.  
+Use this when you want to first review existing counters with Get-DbaPfDataCollectorCounter and then selectively remove specific ones through pipeline operations.
+
+| Property | Value |
+| --- | --- |
+| Alias |  |
+| Required | False |
+| Pipeline | true (ByValue) |
+| Default Value |  |
+
+##### -EnableException
+
+By default, when something goes wrong we try to catch it, interpret it and give you a friendly warning message.  
+This avoids overwhelming you with "sea of red" exceptions, but is inconvenient because it basically disables advanced scripting.  
+Using this switch turns this "nice by default" feature off and enables you to catch exceptions with your own try/catch.
+
+| Property | Value |
+| --- | --- |
+| Alias |  |
+| Required | False |
+| Pipeline | false |
+| Default Value | False |
+
+##### -WhatIf
+
+If this switch is enabled, no actions are performed but informational messages will be displayed that explain what would happen if the command were to run.
+
+| Property | Value |
+| --- | --- |
+| Alias | wi |
+| Required | False |
+| Pipeline | false |
+| Default Value |  |
+
+##### -Confirm
+
+If this switch is enabled, you will be prompted for confirmation before executing any operations that change state.
+
+| Property | Value |
+| --- | --- |
+| Alias | cf |
+| Required | False |
+| Pipeline | false |
+| Default Value |  |
+
+
+&nbsp;

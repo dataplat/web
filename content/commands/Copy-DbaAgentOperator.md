@@ -1,0 +1,217 @@
+---
+title: "Copy-DbaAgentOperator"
+slug: "Copy-DbaAgentOperator"
+date: 2024-01-01
+layout: "single"
+author: "Chrissy LeMaire (@cl), netnerds.net"
+availability: "Windows, Linux, macOS"
+synopsis: "Copies SQL Server Agent operators between instances for migration and standardization."
+tags:
+  - "Migration"
+  - "Agent"
+  - "Operator"
+sourceUrl: "https://github.com/dataplat/dbatools/blob/master/public/Copy-DbaAgentOperator.ps1"
+bohUrl: "https://dataplat.github.io/boh#Copy-DbaAgentOperator"
+draft: false
+---
+
+# Copy-DbaAgentOperator
+
+| Property | Value |
+| --- | --- |
+| **Author** | Chrissy LeMaire (@cl), netnerds.net |
+| **Availability** | Windows, Linux, macOS |
+
+&nbsp;
+
+Want to see the source code for this command? Check out [Copy-DbaAgentOperator](https://github.com/dataplat/dbatools/blob/master/public/Copy-DbaAgentOperator.ps1) on GitHub.
+<br>
+Want to see the Bill Of Health for this command? Check out [Copy-DbaAgentOperator](https://dataplat.github.io/boh#Copy-DbaAgentOperator).
+
+## Synopsis
+
+Copies SQL Server Agent operators between instances for migration and standardization.
+
+## Description
+
+Copies SQL Server Agent operators from a source instance to one or more destination instances, preserving all operator properties including email addresses, pager numbers, and notification schedules. This is essential during server migrations, environment standardization, or when setting up identical alerting configurations across multiple instances.  
+  
+All operators are copied by default, but you can target specific operators or exclude certain ones. Existing operators on the destination are skipped unless you use -Force to overwrite them. The function protects failsafe operators from being accidentally dropped during forced operations.  
+  
+Each operator is scripted from the source using SQL Management Objects and recreated on the destination, ensuring all configuration details are preserved exactly as configured on the source instance.
+
+## Syntax
+
+```powershell
+Copy-DbaAgentOperator
+    [-Source] <DbaInstanceParameter>
+    [[-SourceSqlCredential] <PSCredential>]
+    [-Destination] <DbaInstanceParameter[]>
+    [[-DestinationSqlCredential] <PSCredential>]
+    [[-Operator] <Object[]>]
+    [[-ExcludeOperator] <Object[]>]
+    [-Force]
+    [-EnableException]
+    [-WhatIf]
+    [-Confirm]
+    [<CommonParameters>]
+
+```
+
+&nbsp;
+
+## Examples
+
+&nbsp;
+
+
+#####  Example:  1 
+
+```powershell
+PS C:\> Copy-DbaAgentOperator -Source sqlserver2014a -Destination sqlcluster
+```
+
+Copies all operators from sqlserver2014a to sqlcluster using Windows credentials. If operators with the same name exist on sqlcluster, they will be skipped.<br>
+
+#####  Example:  2 
+
+```powershell
+PS C:\> Copy-DbaAgentOperator -Source sqlserver2014a -Destination sqlcluster -Operator PSOperator -SourceSqlCredential $cred -Force
+```
+
+Copies only the PSOperator operator from sqlserver2014a to sqlcluster using SQL credentials for sqlserver2014a and Windows credentials for sqlcluster. If an operator with the same name exists on <br>
+sqlcluster, it will be dropped and recreated because -Force was used.<br>
+
+#####  Example:  3 
+
+```powershell
+PS C:\> Copy-DbaAgentOperator -Source sqlserver2014a -Destination sqlcluster -WhatIf -Force
+```
+
+Shows what would happen if the command were executed using force.<br>
+
+### Required Parameters
+
+##### -Source
+
+The SQL Server instance containing the operators you want to copy from. Must be SQL Server 2000 or higher.  
+Use this to specify which instance has the existing operators that need to be migrated or replicated to other instances.
+
+| Property | Value |
+| --- | --- |
+| Alias |  |
+| Required | True |
+| Pipeline | false |
+| Default Value |  |
+
+##### -Destination
+
+One or more SQL Server instances where the operators will be copied to. Must be SQL Server 2000 or higher.  
+Accepts multiple instances to copy operators to several servers at once during migrations or standardization projects.
+
+| Property | Value |
+| --- | --- |
+| Alias |  |
+| Required | True |
+| Pipeline | false |
+| Default Value |  |
+
+### Optional Parameters
+
+##### -SourceSqlCredential
+
+Credentials for connecting to the source SQL Server instance when Windows Authentication is not available.  
+Use this when the source server requires SQL Server Authentication or when running under a different user context than your current Windows session.
+
+| Property | Value |
+| --- | --- |
+| Alias |  |
+| Required | False |
+| Pipeline | false |
+| Default Value |  |
+
+##### -DestinationSqlCredential
+
+Credentials for connecting to the destination SQL Server instances when Windows Authentication is not available.  
+Use this when the destination servers require SQL Server Authentication or when running under a different user context than your current Windows session.
+
+| Property | Value |
+| --- | --- |
+| Alias |  |
+| Required | False |
+| Pipeline | false |
+| Default Value |  |
+
+##### -Operator
+
+Specifies which operators to copy by name. Accepts wildcards and multiple operator names.  
+Use this when you only need to migrate specific operators instead of copying all operators from the source instance.
+
+| Property | Value |
+| --- | --- |
+| Alias |  |
+| Required | False |
+| Pipeline | false |
+| Default Value |  |
+
+##### -ExcludeOperator
+
+Operators to skip during the copy operation. Accepts wildcards and multiple operator names.  
+Use this to copy most operators while excluding specific ones, such as development-only or temporary operators.
+
+| Property | Value |
+| --- | --- |
+| Alias |  |
+| Required | False |
+| Pipeline | false |
+| Default Value |  |
+
+##### -Force
+
+Drops and recreates operators that already exist on the destination instances.  
+Use this when you need to overwrite existing operators with updated configurations from the source, but note that failsafe operators are protected and will be skipped.
+
+| Property | Value |
+| --- | --- |
+| Alias |  |
+| Required | False |
+| Pipeline | false |
+| Default Value | False |
+
+##### -EnableException
+
+By default, when something goes wrong we try to catch it, interpret it and give you a friendly warning message.  
+This avoids overwhelming you with "sea of red" exceptions, but is inconvenient because it basically disables advanced scripting.  
+Using this switch turns this "nice by default" feature off and enables you to catch exceptions with your own try/catch.
+
+| Property | Value |
+| --- | --- |
+| Alias |  |
+| Required | False |
+| Pipeline | false |
+| Default Value | False |
+
+##### -WhatIf
+
+If this switch is enabled, no actions are performed but informational messages will be displayed that explain what would happen if the command were to run.
+
+| Property | Value |
+| --- | --- |
+| Alias | wi |
+| Required | False |
+| Pipeline | false |
+| Default Value |  |
+
+##### -Confirm
+
+If this switch is enabled, you will be prompted for confirmation before executing any operations that change state.
+
+| Property | Value |
+| --- | --- |
+| Alias | cf |
+| Required | False |
+| Pipeline | false |
+| Default Value |  |
+
+
+&nbsp;
