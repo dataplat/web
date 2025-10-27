@@ -214,6 +214,17 @@ class CommandsBrowser {
 
   handleSortChange(e) {
     this.activeSort = e.target.value;
+
+    // Ensure popularity note is only shown when Popular Commands filter is active
+    const popularityNote = document.getElementById('popularity-note');
+    if (popularityNote) {
+      if (this.showPopularOnly) {
+        popularityNote.classList.add('show');
+      } else {
+        popularityNote.classList.remove('show');
+      }
+    }
+
     this.render();
   }
 
