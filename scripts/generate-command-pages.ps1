@@ -192,6 +192,7 @@ function New-CommandMarkdown {
         $examples = $command.Examples.Replace("`r`n", "`n") -replace '(\r\n){2,8}', "`n"
         $examples = $examples.Replace("`r", '').Split("`n")
         $inside = 0
+        $cleanCode = New-Object System.Collections.ArrayList
 
         foreach ($row in $examples) {
             if ($row -like '*----*') {
@@ -199,17 +200,28 @@ function New-CommandMarkdown {
                 $null = $markdown.Add('##### ' + ($row -replace '-{4,}([^-]*)-{4,}', '$1').Replace('EXAMPLE', 'Example: '))
             } elseif (($row -like 'PS C:\>*') -or ($row -like '>>*')) {
                 if ($inside -eq 0) {
+                    $cleanCode.Clear()
                     $null = $markdown.Add('')
                     $null = $markdown.Add('```powershell')
                 }
+                # Add formatted line with prompt
                 $null = $markdown.Add(($row.Trim() -replace 'PS C:\\>\s*', 'PS C:\> '))
+
+                # Collect clean code without prompts
+                $cleanLine = $row.Trim() -replace '^PS C:\\>\s*', '' -replace '^>>\s*', ''
+                if ($cleanLine) {
+                    $null = $cleanCode.Add($cleanLine)
+                }
                 $inside = 1
             } elseif ($row.Trim() -eq '' -or $row.Trim() -eq 'Description') {
                 # Skip empty lines and Description headers
             } else {
                 if ($inside -eq 1) {
                     $inside = 0
+                    # Close code block with data attribute containing clean code
+                    $cleanCodeStr = ($cleanCode -join "`n").Replace('"', '&quot;').Replace('<', '&lt;').Replace('>', '&gt;')
                     $null = $markdown.Add('```')
+                    $null = $markdown.Add("{: data-copyable=`"true`" data-clean-code=`"$cleanCodeStr`" }")
                     $null = $markdown.Add('')
                 }
                 $null = $markdown.Add("$($row.Replace("`n", "  `n"))<br>")
@@ -217,7 +229,10 @@ function New-CommandMarkdown {
         }
 
         if ($inside -eq 1) {
+            # Close final code block with data attribute
+            $cleanCodeStr = ($cleanCode -join "`n").Replace('"', '&quot;').Replace('<', '&lt;').Replace('>', '&gt;')
             $null = $markdown.Add('```')
+            $null = $markdown.Add("{: data-copyable=`"true`" data-clean-code=`"$cleanCodeStr`" }")
         }
     }
 
