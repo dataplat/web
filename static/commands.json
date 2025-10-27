@@ -9,7 +9,8 @@
     ],
     "verb": "Attach",
     "popular": false,
-    "url": "https://docs.dbatools.io/Attach-DbaDatabase.html"
+    "url": "/commands/Attach-DbaDatabase",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaSysDbUserObject",
@@ -20,7 +21,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaSysDbUserObject.html"
+    "url": "/commands/Copy-DbaSysDbUserObject",
+    "popularityRank": 0
   },
   {
     "name": "Detach-DbaDatabase",
@@ -32,7 +34,8 @@
     ],
     "verb": "Detach",
     "popular": false,
-    "url": "https://docs.dbatools.io/Detach-DbaDatabase.html"
+    "url": "/commands/Detach-DbaDatabase",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbaRepServerSetting",
@@ -44,7 +47,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbaRepServerSetting.html"
+    "url": "/commands/Export-DbaRepServerSetting",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaBuildReference",
@@ -55,7 +59,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaBuildReference.html"
+    "url": "/commands/Get-DbaBuildReference",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbModule",
@@ -66,7 +71,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbModule.html"
+    "url": "/commands/Get-DbaDbModule",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaRegisteredServer",
@@ -78,7 +84,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaRegisteredServer.html"
+    "url": "/commands/Get-DbaRegisteredServer",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaRepDistributor",
@@ -89,7 +96,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaRepDistributor.html"
+    "url": "/commands/Get-DbaRepDistributor",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaRepPublication",
@@ -100,7 +108,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaRepPublication.html"
+    "url": "/commands/Get-DbaRepPublication",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaRepServer",
@@ -112,7 +121,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaRepServer.html"
+    "url": "/commands/Get-DbaRepServer",
+    "popularityRank": 0
   },
   {
     "name": "Start-SqlMigration",
@@ -124,7 +134,8 @@
     ],
     "verb": "Start",
     "popular": false,
-    "url": "https://docs.dbatools.io/Start-SqlMigration.html"
+    "url": "/commands/Start-SqlMigration",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaRepLatency",
@@ -135,7 +146,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaRepLatency.html"
+    "url": "/commands/Test-DbaRepLatency",
+    "popularityRank": 0
   },
   {
     "name": "Write-DbaDataTable",
@@ -147,7 +159,8 @@
     ],
     "verb": "Write",
     "popular": false,
-    "url": "https://docs.dbatools.io/Write-DbaDataTable.html"
+    "url": "/commands/Write-DbaDataTable",
+    "popularityRank": 0
   },
   {
     "name": "Add-DbaAgDatabase",
@@ -160,7 +173,8 @@
     ],
     "verb": "Add",
     "popular": true,
-    "url": "https://docs.dbatools.io/Add-DbaAgDatabase.html"
+    "url": "/commands/Add-DbaAgDatabase",
+    "popularityRank": 23
   },
   {
     "name": "Add-DbaAgListener",
@@ -172,7 +186,8 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "https://docs.dbatools.io/Add-DbaAgListener.html"
+    "url": "/commands/Add-DbaAgListener",
+    "popularityRank": 0
   },
   {
     "name": "Add-DbaAgReplica",
@@ -184,7 +199,8 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "https://docs.dbatools.io/Add-DbaAgReplica.html"
+    "url": "/commands/Add-DbaAgReplica",
+    "popularityRank": 0
   },
   {
     "name": "Add-DbaComputerCertificate",
@@ -196,7 +212,8 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "https://docs.dbatools.io/Add-DbaComputerCertificate.html"
+    "url": "/commands/Add-DbaComputerCertificate",
+    "popularityRank": 0
   },
   {
     "name": "Add-DbaDbMirrorMonitor",
@@ -208,7 +225,8 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "https://docs.dbatools.io/Add-DbaDbMirrorMonitor.html"
+    "url": "/commands/Add-DbaDbMirrorMonitor",
+    "popularityRank": 0
   },
   {
     "name": "Add-DbaDbRoleMember",
@@ -219,7 +237,8 @@
     ],
     "verb": "Add",
     "popular": true,
-    "url": "https://docs.dbatools.io/Add-DbaDbRoleMember.html"
+    "url": "/commands/Add-DbaDbRoleMember",
+    "popularityRank": 42
   },
   {
     "name": "Add-DbaExtendedProperty",
@@ -230,7 +249,8 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "https://docs.dbatools.io/Add-DbaExtendedProperty.html"
+    "url": "/commands/Add-DbaExtendedProperty",
+    "popularityRank": 0
   },
   {
     "name": "Add-DbaPfDataCollectorCounter",
@@ -241,7 +261,8 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "https://docs.dbatools.io/Add-DbaPfDataCollectorCounter.html"
+    "url": "/commands/Add-DbaPfDataCollectorCounter",
+    "popularityRank": 0
   },
   {
     "name": "Add-DbaRegServer",
@@ -253,7 +274,8 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "https://docs.dbatools.io/Add-DbaRegServer.html"
+    "url": "/commands/Add-DbaRegServer",
+    "popularityRank": 0
   },
   {
     "name": "Add-DbaRegServerGroup",
@@ -265,7 +287,8 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "https://docs.dbatools.io/Add-DbaRegServerGroup.html"
+    "url": "/commands/Add-DbaRegServerGroup",
+    "popularityRank": 0
   },
   {
     "name": "Add-DbaReplArticle",
@@ -276,7 +299,8 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "https://docs.dbatools.io/Add-DbaReplArticle.html"
+    "url": "/commands/Add-DbaReplArticle",
+    "popularityRank": 0
   },
   {
     "name": "Add-DbaServerRoleMember",
@@ -288,7 +312,8 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "https://docs.dbatools.io/Add-DbaServerRoleMember.html"
+    "url": "/commands/Add-DbaServerRoleMember",
+    "popularityRank": 0
   },
   {
     "name": "Backup-DbaComputerCertificate",
@@ -300,7 +325,8 @@
     ],
     "verb": "Backup",
     "popular": false,
-    "url": "https://docs.dbatools.io/Backup-DbaComputerCertificate.html"
+    "url": "/commands/Backup-DbaComputerCertificate",
+    "popularityRank": 0
   },
   {
     "name": "Backup-DbaDatabase",
@@ -312,7 +338,8 @@
     ],
     "verb": "Backup",
     "popular": true,
-    "url": "https://docs.dbatools.io/Backup-DbaDatabase.html"
+    "url": "/commands/Backup-DbaDatabase",
+    "popularityRank": 7
   },
   {
     "name": "Backup-DbaDbCertificate",
@@ -324,7 +351,8 @@
     ],
     "verb": "Backup",
     "popular": false,
-    "url": "https://docs.dbatools.io/Backup-DbaDbCertificate.html"
+    "url": "/commands/Backup-DbaDbCertificate",
+    "popularityRank": 0
   },
   {
     "name": "Backup-DbaDbMasterKey",
@@ -335,7 +363,8 @@
     ],
     "verb": "Backup",
     "popular": false,
-    "url": "https://docs.dbatools.io/Backup-DbaDbMasterKey.html"
+    "url": "/commands/Backup-DbaDbMasterKey",
+    "popularityRank": 0
   },
   {
     "name": "Backup-DbaServiceMasterKey",
@@ -346,7 +375,8 @@
     ],
     "verb": "Backup",
     "popular": false,
-    "url": "https://docs.dbatools.io/Backup-DbaServiceMasterKey.html"
+    "url": "/commands/Backup-DbaServiceMasterKey",
+    "popularityRank": 0
   },
   {
     "name": "Clear-DbaConnectionPool",
@@ -357,7 +387,8 @@
     ],
     "verb": "Clear",
     "popular": false,
-    "url": "https://docs.dbatools.io/Clear-DbaConnectionPool.html"
+    "url": "/commands/Clear-DbaConnectionPool",
+    "popularityRank": 0
   },
   {
     "name": "Clear-DbaLatchStatistics",
@@ -368,7 +399,8 @@
     ],
     "verb": "Clear",
     "popular": false,
-    "url": "https://docs.dbatools.io/Clear-DbaLatchStatistics.html"
+    "url": "/commands/Clear-DbaLatchStatistics",
+    "popularityRank": 0
   },
   {
     "name": "Clear-DbaPlanCache",
@@ -379,7 +411,8 @@
     ],
     "verb": "Clear",
     "popular": false,
-    "url": "https://docs.dbatools.io/Clear-DbaPlanCache.html"
+    "url": "/commands/Clear-DbaPlanCache",
+    "popularityRank": 0
   },
   {
     "name": "Clear-DbaWaitStatistics",
@@ -390,7 +423,8 @@
     ],
     "verb": "Clear",
     "popular": false,
-    "url": "https://docs.dbatools.io/Clear-DbaWaitStatistics.html"
+    "url": "/commands/Clear-DbaWaitStatistics",
+    "popularityRank": 0
   },
   {
     "name": "Connect-DbaInstance",
@@ -402,7 +436,8 @@
     ],
     "verb": "Connect",
     "popular": true,
-    "url": "https://docs.dbatools.io/Connect-DbaInstance.html"
+    "url": "/commands/Connect-DbaInstance",
+    "popularityRank": 9
   },
   {
     "name": "ConvertTo-DbaDataTable",
@@ -413,7 +448,8 @@
     ],
     "verb": "Other",
     "popular": false,
-    "url": "https://docs.dbatools.io/ConvertTo-DbaDataTable.html"
+    "url": "/commands/ConvertTo-DbaDataTable",
+    "popularityRank": 0
   },
   {
     "name": "ConvertTo-DbaTimeline",
@@ -422,7 +458,8 @@
     "tags": [],
     "verb": "Other",
     "popular": false,
-    "url": "https://docs.dbatools.io/ConvertTo-DbaTimeline.html"
+    "url": "/commands/ConvertTo-DbaTimeline",
+    "popularityRank": 0
   },
   {
     "name": "ConvertTo-DbaXESession",
@@ -431,7 +468,8 @@
     "tags": [],
     "verb": "Other",
     "popular": false,
-    "url": "https://docs.dbatools.io/ConvertTo-DbaXESession.html"
+    "url": "/commands/ConvertTo-DbaXESession",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaAgentAlert",
@@ -444,7 +482,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaAgentAlert.html"
+    "url": "/commands/Copy-DbaAgentAlert",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaAgentJob",
@@ -458,7 +497,8 @@
     ],
     "verb": "Copy",
     "popular": true,
-    "url": "https://docs.dbatools.io/Copy-DbaAgentJob.html"
+    "url": "/commands/Copy-DbaAgentJob",
+    "popularityRank": 10
   },
   {
     "name": "Copy-DbaAgentJobCategory",
@@ -472,7 +512,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaAgentJobCategory.html"
+    "url": "/commands/Copy-DbaAgentJobCategory",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaAgentOperator",
@@ -485,7 +526,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaAgentOperator.html"
+    "url": "/commands/Copy-DbaAgentOperator",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaAgentProxy",
@@ -498,7 +540,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaAgentProxy.html"
+    "url": "/commands/Copy-DbaAgentProxy",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaAgentSchedule",
@@ -511,7 +554,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaAgentSchedule.html"
+    "url": "/commands/Copy-DbaAgentSchedule",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaAgentServer",
@@ -525,7 +569,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaAgentServer.html"
+    "url": "/commands/Copy-DbaAgentServer",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaBackupDevice",
@@ -537,7 +582,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaBackupDevice.html"
+    "url": "/commands/Copy-DbaBackupDevice",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaCredential",
@@ -548,7 +594,8 @@
     ],
     "verb": "Copy",
     "popular": true,
-    "url": "https://docs.dbatools.io/Copy-DbaCredential.html"
+    "url": "/commands/Copy-DbaCredential",
+    "popularityRank": 38
   },
   {
     "name": "Copy-DbaCustomError",
@@ -559,7 +606,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaCustomError.html"
+    "url": "/commands/Copy-DbaCustomError",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaDatabase",
@@ -571,7 +619,8 @@
     ],
     "verb": "Copy",
     "popular": true,
-    "url": "https://docs.dbatools.io/Copy-DbaDatabase.html"
+    "url": "/commands/Copy-DbaDatabase",
+    "popularityRank": 3
   },
   {
     "name": "Copy-DbaDataCollector",
@@ -582,7 +631,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaDataCollector.html"
+    "url": "/commands/Copy-DbaDataCollector",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaDbAssembly",
@@ -593,7 +643,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaDbAssembly.html"
+    "url": "/commands/Copy-DbaDbAssembly",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaDbCertificate",
@@ -605,7 +656,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaDbCertificate.html"
+    "url": "/commands/Copy-DbaDbCertificate",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaDbMail",
@@ -616,7 +668,8 @@
     ],
     "verb": "Copy",
     "popular": true,
-    "url": "https://docs.dbatools.io/Copy-DbaDbMail.html"
+    "url": "/commands/Copy-DbaDbMail",
+    "popularityRank": 29
   },
   {
     "name": "Copy-DbaDbQueryStoreOption",
@@ -628,7 +681,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaDbQueryStoreOption.html"
+    "url": "/commands/Copy-DbaDbQueryStoreOption",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaDbTableData",
@@ -640,7 +694,8 @@
     ],
     "verb": "Copy",
     "popular": true,
-    "url": "https://docs.dbatools.io/Copy-DbaDbTableData.html"
+    "url": "/commands/Copy-DbaDbTableData",
+    "popularityRank": 11
   },
   {
     "name": "Copy-DbaDbViewData",
@@ -651,7 +706,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaDbViewData.html"
+    "url": "/commands/Copy-DbaDbViewData",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaEndpoint",
@@ -662,7 +718,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaEndpoint.html"
+    "url": "/commands/Copy-DbaEndpoint",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaInstanceAudit",
@@ -674,7 +731,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaInstanceAudit.html"
+    "url": "/commands/Copy-DbaInstanceAudit",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaInstanceAuditSpecification",
@@ -686,7 +744,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaInstanceAuditSpecification.html"
+    "url": "/commands/Copy-DbaInstanceAuditSpecification",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaInstanceTrigger",
@@ -698,7 +757,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaInstanceTrigger.html"
+    "url": "/commands/Copy-DbaInstanceTrigger",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaLinkedServer",
@@ -710,7 +770,8 @@
     ],
     "verb": "Copy",
     "popular": true,
-    "url": "https://docs.dbatools.io/Copy-DbaLinkedServer.html"
+    "url": "/commands/Copy-DbaLinkedServer",
+    "popularityRank": 20
   },
   {
     "name": "Copy-DbaLogin",
@@ -722,7 +783,8 @@
     ],
     "verb": "Copy",
     "popular": true,
-    "url": "https://docs.dbatools.io/Copy-DbaLogin.html"
+    "url": "/commands/Copy-DbaLogin",
+    "popularityRank": 2
   },
   {
     "name": "Copy-DbaPolicyManagement",
@@ -734,7 +796,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaPolicyManagement.html"
+    "url": "/commands/Copy-DbaPolicyManagement",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaRegServer",
@@ -746,7 +809,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaRegServer.html"
+    "url": "/commands/Copy-DbaRegServer",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaResourceGovernor",
@@ -757,7 +821,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaResourceGovernor.html"
+    "url": "/commands/Copy-DbaResourceGovernor",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaSpConfigure",
@@ -768,7 +833,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaSpConfigure.html"
+    "url": "/commands/Copy-DbaSpConfigure",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaSsisCatalog",
@@ -779,7 +845,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaSsisCatalog.html"
+    "url": "/commands/Copy-DbaSsisCatalog",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaStartupProcedure",
@@ -790,7 +857,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaStartupProcedure.html"
+    "url": "/commands/Copy-DbaStartupProcedure",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaSystemDbUserObject",
@@ -801,7 +869,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaSystemDbUserObject.html"
+    "url": "/commands/Copy-DbaSystemDbUserObject",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaXESession",
@@ -812,7 +881,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaXESession.html"
+    "url": "/commands/Copy-DbaXESession",
+    "popularityRank": 0
   },
   {
     "name": "Copy-DbaXESessionTemplate",
@@ -823,7 +893,8 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "https://docs.dbatools.io/Copy-DbaXESessionTemplate.html"
+    "url": "/commands/Copy-DbaXESessionTemplate",
+    "popularityRank": 0
   },
   {
     "name": "Disable-DbaAgHadr",
@@ -835,7 +906,8 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Disable-DbaAgHadr.html"
+    "url": "/commands/Disable-DbaAgHadr",
+    "popularityRank": 0
   },
   {
     "name": "Disable-DbaDbEncryption",
@@ -847,7 +919,8 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Disable-DbaDbEncryption.html"
+    "url": "/commands/Disable-DbaDbEncryption",
+    "popularityRank": 0
   },
   {
     "name": "Disable-DbaFilestream",
@@ -858,7 +931,8 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Disable-DbaFilestream.html"
+    "url": "/commands/Disable-DbaFilestream",
+    "popularityRank": 0
   },
   {
     "name": "Disable-DbaForceNetworkEncryption",
@@ -870,7 +944,8 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Disable-DbaForceNetworkEncryption.html"
+    "url": "/commands/Disable-DbaForceNetworkEncryption",
+    "popularityRank": 0
   },
   {
     "name": "Disable-DbaHideInstance",
@@ -882,7 +957,8 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Disable-DbaHideInstance.html"
+    "url": "/commands/Disable-DbaHideInstance",
+    "popularityRank": 0
   },
   {
     "name": "Disable-DbaReplDistributor",
@@ -893,7 +969,8 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Disable-DbaReplDistributor.html"
+    "url": "/commands/Disable-DbaReplDistributor",
+    "popularityRank": 0
   },
   {
     "name": "Disable-DbaReplPublishing",
@@ -904,7 +981,8 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Disable-DbaReplPublishing.html"
+    "url": "/commands/Disable-DbaReplPublishing",
+    "popularityRank": 0
   },
   {
     "name": "Disable-DbaStartupProcedure",
@@ -915,7 +993,8 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Disable-DbaStartupProcedure.html"
+    "url": "/commands/Disable-DbaStartupProcedure",
+    "popularityRank": 0
   },
   {
     "name": "Disable-DbaTraceFlag",
@@ -927,7 +1006,8 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Disable-DbaTraceFlag.html"
+    "url": "/commands/Disable-DbaTraceFlag",
+    "popularityRank": 0
   },
   {
     "name": "Disconnect-DbaInstance",
@@ -939,7 +1019,8 @@
     ],
     "verb": "Disconnect",
     "popular": false,
-    "url": "https://docs.dbatools.io/Disconnect-DbaInstance.html"
+    "url": "/commands/Disconnect-DbaInstance",
+    "popularityRank": 0
   },
   {
     "name": "Dismount-DbaDatabase",
@@ -951,7 +1032,8 @@
     ],
     "verb": "Dismount",
     "popular": false,
-    "url": "https://docs.dbatools.io/Dismount-DbaDatabase.html"
+    "url": "/commands/Dismount-DbaDatabase",
+    "popularityRank": 0
   },
   {
     "name": "Enable-DbaAgHadr",
@@ -963,7 +1045,8 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Enable-DbaAgHadr.html"
+    "url": "/commands/Enable-DbaAgHadr",
+    "popularityRank": 0
   },
   {
     "name": "Enable-DbaDbEncryption",
@@ -975,7 +1058,8 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Enable-DbaDbEncryption.html"
+    "url": "/commands/Enable-DbaDbEncryption",
+    "popularityRank": 0
   },
   {
     "name": "Enable-DbaFilestream",
@@ -986,7 +1070,8 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Enable-DbaFilestream.html"
+    "url": "/commands/Enable-DbaFilestream",
+    "popularityRank": 0
   },
   {
     "name": "Enable-DbaForceNetworkEncryption",
@@ -998,7 +1083,8 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Enable-DbaForceNetworkEncryption.html"
+    "url": "/commands/Enable-DbaForceNetworkEncryption",
+    "popularityRank": 0
   },
   {
     "name": "Enable-DbaHideInstance",
@@ -1010,7 +1096,8 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Enable-DbaHideInstance.html"
+    "url": "/commands/Enable-DbaHideInstance",
+    "popularityRank": 0
   },
   {
     "name": "Enable-DbaReplDistributor",
@@ -1021,7 +1108,8 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Enable-DbaReplDistributor.html"
+    "url": "/commands/Enable-DbaReplDistributor",
+    "popularityRank": 0
   },
   {
     "name": "Enable-DbaReplPublishing",
@@ -1032,7 +1120,8 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Enable-DbaReplPublishing.html"
+    "url": "/commands/Enable-DbaReplPublishing",
+    "popularityRank": 0
   },
   {
     "name": "Enable-DbaStartupProcedure",
@@ -1043,7 +1132,8 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Enable-DbaStartupProcedure.html"
+    "url": "/commands/Enable-DbaStartupProcedure",
+    "popularityRank": 0
   },
   {
     "name": "Enable-DbaTraceFlag",
@@ -1055,7 +1145,8 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "https://docs.dbatools.io/Enable-DbaTraceFlag.html"
+    "url": "/commands/Enable-DbaTraceFlag",
+    "popularityRank": 0
   },
   {
     "name": "Expand-DbaDbLogFile",
@@ -1066,7 +1157,8 @@
     ],
     "verb": "Expand",
     "popular": false,
-    "url": "https://docs.dbatools.io/Expand-DbaDbLogFile.html"
+    "url": "/commands/Expand-DbaDbLogFile",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbaBinaryFile",
@@ -1077,7 +1169,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbaBinaryFile.html"
+    "url": "/commands/Export-DbaBinaryFile",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbaCredential",
@@ -1088,7 +1181,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbaCredential.html"
+    "url": "/commands/Export-DbaCredential",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbaDacPackage",
@@ -1100,7 +1194,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbaDacPackage.html"
+    "url": "/commands/Export-DbaDacPackage",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbaDbRole",
@@ -1111,7 +1206,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbaDbRole.html"
+    "url": "/commands/Export-DbaDbRole",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbaDbTableData",
@@ -1123,7 +1219,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbaDbTableData.html"
+    "url": "/commands/Export-DbaDbTableData",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbaDiagnosticQuery",
@@ -1136,7 +1233,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbaDiagnosticQuery.html"
+    "url": "/commands/Export-DbaDiagnosticQuery",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbaExecutionPlan",
@@ -1147,7 +1245,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbaExecutionPlan.html"
+    "url": "/commands/Export-DbaExecutionPlan",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbaInstance",
@@ -1159,7 +1258,8 @@
     ],
     "verb": "Export",
     "popular": true,
-    "url": "https://docs.dbatools.io/Export-DbaInstance.html"
+    "url": "/commands/Export-DbaInstance",
+    "popularityRank": 32
   },
   {
     "name": "Export-DbaLinkedServer",
@@ -1171,7 +1271,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbaLinkedServer.html"
+    "url": "/commands/Export-DbaLinkedServer",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbaLogin",
@@ -1183,7 +1284,8 @@
     ],
     "verb": "Export",
     "popular": true,
-    "url": "https://docs.dbatools.io/Export-DbaLogin.html"
+    "url": "/commands/Export-DbaLogin",
+    "popularityRank": 14
   },
   {
     "name": "Export-DbaPfDataCollectorSetTemplate",
@@ -1194,7 +1296,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbaPfDataCollectorSetTemplate.html"
+    "url": "/commands/Export-DbaPfDataCollectorSetTemplate",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbaRegServer",
@@ -1206,7 +1309,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbaRegServer.html"
+    "url": "/commands/Export-DbaRegServer",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbaReplServerSetting",
@@ -1218,7 +1322,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbaReplServerSetting.html"
+    "url": "/commands/Export-DbaReplServerSetting",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbaScript",
@@ -1229,7 +1334,8 @@
     ],
     "verb": "Export",
     "popular": true,
-    "url": "https://docs.dbatools.io/Export-DbaScript.html"
+    "url": "/commands/Export-DbaScript",
+    "popularityRank": 13
   },
   {
     "name": "Export-DbaServerRole",
@@ -1241,7 +1347,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbaServerRole.html"
+    "url": "/commands/Export-DbaServerRole",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbaSpConfigure",
@@ -1252,7 +1359,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbaSpConfigure.html"
+    "url": "/commands/Export-DbaSpConfigure",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbaSysDbUserObject",
@@ -1263,7 +1371,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbaSysDbUserObject.html"
+    "url": "/commands/Export-DbaSysDbUserObject",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbatoolsConfig",
@@ -1274,7 +1383,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbatoolsConfig.html"
+    "url": "/commands/Export-DbatoolsConfig",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbaUser",
@@ -1285,7 +1395,8 @@
     ],
     "verb": "Export",
     "popular": true,
-    "url": "https://docs.dbatools.io/Export-DbaUser.html"
+    "url": "/commands/Export-DbaUser",
+    "popularityRank": 25
   },
   {
     "name": "Export-DbaXESession",
@@ -1296,7 +1407,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbaXESession.html"
+    "url": "/commands/Export-DbaXESession",
+    "popularityRank": 0
   },
   {
     "name": "Export-DbaXESessionTemplate",
@@ -1307,7 +1419,8 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "https://docs.dbatools.io/Export-DbaXESessionTemplate.html"
+    "url": "/commands/Export-DbaXESessionTemplate",
+    "popularityRank": 0
   },
   {
     "name": "Find-DbaAgentJob",
@@ -1321,7 +1434,8 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "https://docs.dbatools.io/Find-DbaAgentJob.html"
+    "url": "/commands/Find-DbaAgentJob",
+    "popularityRank": 0
   },
   {
     "name": "Find-DbaBackup",
@@ -1333,7 +1447,8 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "https://docs.dbatools.io/Find-DbaBackup.html"
+    "url": "/commands/Find-DbaBackup",
+    "popularityRank": 0
   },
   {
     "name": "Find-DbaCommand",
@@ -1344,7 +1459,8 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "https://docs.dbatools.io/Find-DbaCommand.html"
+    "url": "/commands/Find-DbaCommand",
+    "popularityRank": 0
   },
   {
     "name": "Find-DbaDatabase",
@@ -1356,7 +1472,8 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "https://docs.dbatools.io/Find-DbaDatabase.html"
+    "url": "/commands/Find-DbaDatabase",
+    "popularityRank": 0
   },
   {
     "name": "Find-DbaDbDisabledIndex",
@@ -1367,7 +1484,8 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "https://docs.dbatools.io/Find-DbaDbDisabledIndex.html"
+    "url": "/commands/Find-DbaDbDisabledIndex",
+    "popularityRank": 0
   },
   {
     "name": "Find-DbaDbDuplicateIndex",
@@ -1378,7 +1496,8 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "https://docs.dbatools.io/Find-DbaDbDuplicateIndex.html"
+    "url": "/commands/Find-DbaDbDuplicateIndex",
+    "popularityRank": 0
   },
   {
     "name": "Find-DbaDbGrowthEvent",
@@ -1389,7 +1508,8 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "https://docs.dbatools.io/Find-DbaDbGrowthEvent.html"
+    "url": "/commands/Find-DbaDbGrowthEvent",
+    "popularityRank": 0
   },
   {
     "name": "Find-DbaDbUnusedIndex",
@@ -1400,7 +1520,8 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "https://docs.dbatools.io/Find-DbaDbUnusedIndex.html"
+    "url": "/commands/Find-DbaDbUnusedIndex",
+    "popularityRank": 0
   },
   {
     "name": "Find-DbaInstance",
@@ -1412,7 +1533,8 @@
     ],
     "verb": "Find",
     "popular": true,
-    "url": "https://docs.dbatools.io/Find-DbaInstance.html"
+    "url": "/commands/Find-DbaInstance",
+    "popularityRank": 33
   },
   {
     "name": "Find-DbaLoginInGroup",
@@ -1424,7 +1546,8 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "https://docs.dbatools.io/Find-DbaLoginInGroup.html"
+    "url": "/commands/Find-DbaLoginInGroup",
+    "popularityRank": 0
   },
   {
     "name": "Find-DbaOrphanedFile",
@@ -1435,7 +1558,8 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "https://docs.dbatools.io/Find-DbaOrphanedFile.html"
+    "url": "/commands/Find-DbaOrphanedFile",
+    "popularityRank": 0
   },
   {
     "name": "Find-DbaSimilarTable",
@@ -1447,7 +1571,8 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "https://docs.dbatools.io/Find-DbaSimilarTable.html"
+    "url": "/commands/Find-DbaSimilarTable",
+    "popularityRank": 0
   },
   {
     "name": "Find-DbaStoredProcedure",
@@ -1458,7 +1583,8 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "https://docs.dbatools.io/Find-DbaStoredProcedure.html"
+    "url": "/commands/Find-DbaStoredProcedure",
+    "popularityRank": 0
   },
   {
     "name": "Find-DbaTrigger",
@@ -1469,7 +1595,8 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "https://docs.dbatools.io/Find-DbaTrigger.html"
+    "url": "/commands/Find-DbaTrigger",
+    "popularityRank": 0
   },
   {
     "name": "Find-DbaUserObject",
@@ -1480,7 +1607,8 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "https://docs.dbatools.io/Find-DbaUserObject.html"
+    "url": "/commands/Find-DbaUserObject",
+    "popularityRank": 0
   },
   {
     "name": "Find-DbaView",
@@ -1491,7 +1619,8 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "https://docs.dbatools.io/Find-DbaView.html"
+    "url": "/commands/Find-DbaView",
+    "popularityRank": 0
   },
   {
     "name": "Format-DbaBackupInformation",
@@ -1503,7 +1632,8 @@
     ],
     "verb": "Format",
     "popular": false,
-    "url": "https://docs.dbatools.io/Format-DbaBackupInformation.html"
+    "url": "/commands/Format-DbaBackupInformation",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaAgBackupHistory",
@@ -1516,7 +1646,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaAgBackupHistory.html"
+    "url": "/commands/Get-DbaAgBackupHistory",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaAgDatabase",
@@ -1529,7 +1660,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaAgDatabase.html"
+    "url": "/commands/Get-DbaAgDatabase",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaAgentAlert",
@@ -1542,7 +1674,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaAgentAlert.html"
+    "url": "/commands/Get-DbaAgentAlert",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaAgentAlertCategory",
@@ -1555,7 +1688,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaAgentAlertCategory.html"
+    "url": "/commands/Get-DbaAgentAlertCategory",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaAgentJob",
@@ -1569,7 +1703,8 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "https://docs.dbatools.io/Get-DbaAgentJob.html"
+    "url": "/commands/Get-DbaAgentJob",
+    "popularityRank": 24
   },
   {
     "name": "Get-DbaAgentJobCategory",
@@ -1583,7 +1718,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaAgentJobCategory.html"
+    "url": "/commands/Get-DbaAgentJobCategory",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaAgentJobHistory",
@@ -1597,7 +1733,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaAgentJobHistory.html"
+    "url": "/commands/Get-DbaAgentJobHistory",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaAgentJobOutputFile",
@@ -1611,7 +1748,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaAgentJobOutputFile.html"
+    "url": "/commands/Get-DbaAgentJobOutputFile",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaAgentJobStep",
@@ -1625,7 +1763,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaAgentJobStep.html"
+    "url": "/commands/Get-DbaAgentJobStep",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaAgentLog",
@@ -1638,7 +1777,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaAgentLog.html"
+    "url": "/commands/Get-DbaAgentLog",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaAgentOperator",
@@ -1651,7 +1791,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaAgentOperator.html"
+    "url": "/commands/Get-DbaAgentOperator",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaAgentProxy",
@@ -1664,7 +1805,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaAgentProxy.html"
+    "url": "/commands/Get-DbaAgentProxy",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaAgentSchedule",
@@ -1677,7 +1819,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaAgentSchedule.html"
+    "url": "/commands/Get-DbaAgentSchedule",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaAgentServer",
@@ -1691,7 +1834,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaAgentServer.html"
+    "url": "/commands/Get-DbaAgentServer",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaAgHadr",
@@ -1703,7 +1847,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaAgHadr.html"
+    "url": "/commands/Get-DbaAgHadr",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaAgListener",
@@ -1715,7 +1860,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaAgListener.html"
+    "url": "/commands/Get-DbaAgListener",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaAgReplica",
@@ -1727,7 +1873,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaAgReplica.html"
+    "url": "/commands/Get-DbaAgReplica",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaAvailabilityGroup",
@@ -1739,7 +1886,8 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "https://docs.dbatools.io/Get-DbaAvailabilityGroup.html"
+    "url": "/commands/Get-DbaAvailabilityGroup",
+    "popularityRank": 37
   },
   {
     "name": "Get-DbaAvailableCollation",
@@ -1750,7 +1898,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaAvailableCollation.html"
+    "url": "/commands/Get-DbaAvailableCollation",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaBackupDevice",
@@ -1762,7 +1911,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaBackupDevice.html"
+    "url": "/commands/Get-DbaBackupDevice",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaBackupInformation",
@@ -1774,7 +1924,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaBackupInformation.html"
+    "url": "/commands/Get-DbaBackupInformation",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaBinaryFileTable",
@@ -1786,7 +1937,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaBinaryFileTable.html"
+    "url": "/commands/Get-DbaBinaryFileTable",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaBuild",
@@ -1797,7 +1949,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaBuild.html"
+    "url": "/commands/Get-DbaBuild",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaClientAlias",
@@ -1808,7 +1961,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaClientAlias.html"
+    "url": "/commands/Get-DbaClientAlias",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaClientProtocol",
@@ -1819,7 +1973,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaClientProtocol.html"
+    "url": "/commands/Get-DbaClientProtocol",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaCmConnection",
@@ -1830,7 +1985,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaCmConnection.html"
+    "url": "/commands/Get-DbaCmConnection",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaCmObject",
@@ -1841,7 +1997,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaCmObject.html"
+    "url": "/commands/Get-DbaCmObject",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaComputerCertificate",
@@ -1853,7 +2010,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaComputerCertificate.html"
+    "url": "/commands/Get-DbaComputerCertificate",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaComputerSystem",
@@ -1864,7 +2022,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaComputerSystem.html"
+    "url": "/commands/Get-DbaComputerSystem",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaConnectedInstance",
@@ -1876,7 +2035,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaConnectedInstance.html"
+    "url": "/commands/Get-DbaConnectedInstance",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaConnection",
@@ -1887,7 +2047,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaConnection.html"
+    "url": "/commands/Get-DbaConnection",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaCpuRingBuffer",
@@ -1898,7 +2059,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaCpuRingBuffer.html"
+    "url": "/commands/Get-DbaCpuRingBuffer",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaCpuUsage",
@@ -1910,7 +2072,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaCpuUsage.html"
+    "url": "/commands/Get-DbaCpuUsage",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaCredential",
@@ -1921,7 +2084,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaCredential.html"
+    "url": "/commands/Get-DbaCredential",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaCustomError",
@@ -1932,7 +2096,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaCustomError.html"
+    "url": "/commands/Get-DbaCustomError",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDatabase",
@@ -1944,7 +2109,8 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "https://docs.dbatools.io/Get-DbaDatabase.html"
+    "url": "/commands/Get-DbaDatabase",
+    "popularityRank": 12
   },
   {
     "name": "Get-DbaDbAssembly",
@@ -1955,7 +2121,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbAssembly.html"
+    "url": "/commands/Get-DbaDbAssembly",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbAsymmetricKey",
@@ -1966,7 +2133,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbAsymmetricKey.html"
+    "url": "/commands/Get-DbaDbAsymmetricKey",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbBackupHistory",
@@ -1978,7 +2146,8 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "https://docs.dbatools.io/Get-DbaDbBackupHistory.html"
+    "url": "/commands/Get-DbaDbBackupHistory",
+    "popularityRank": 45
   },
   {
     "name": "Get-DbaDbccHelp",
@@ -1989,7 +2158,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbccHelp.html"
+    "url": "/commands/Get-DbaDbccHelp",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbccMemoryStatus",
@@ -2000,7 +2170,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbccMemoryStatus.html"
+    "url": "/commands/Get-DbaDbccMemoryStatus",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbccProcCache",
@@ -2011,7 +2182,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbccProcCache.html"
+    "url": "/commands/Get-DbaDbccProcCache",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbccSessionBuffer",
@@ -2022,7 +2194,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbccSessionBuffer.html"
+    "url": "/commands/Get-DbaDbccSessionBuffer",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbccStatistic",
@@ -2033,7 +2206,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbccStatistic.html"
+    "url": "/commands/Get-DbaDbccStatistic",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbccUserOption",
@@ -2044,7 +2218,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbccUserOption.html"
+    "url": "/commands/Get-DbaDbccUserOption",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbCertificate",
@@ -2056,7 +2231,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbCertificate.html"
+    "url": "/commands/Get-DbaDbCertificate",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbCheckConstraint",
@@ -2067,7 +2243,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbCheckConstraint.html"
+    "url": "/commands/Get-DbaDbCheckConstraint",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbCompatibility",
@@ -2078,7 +2255,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbCompatibility.html"
+    "url": "/commands/Get-DbaDbCompatibility",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbCompression",
@@ -2089,7 +2267,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbCompression.html"
+    "url": "/commands/Get-DbaDbCompression",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbDbccOpenTran",
@@ -2100,7 +2279,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbDbccOpenTran.html"
+    "url": "/commands/Get-DbaDbDbccOpenTran",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbDetachedFileInfo",
@@ -2111,7 +2291,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbDetachedFileInfo.html"
+    "url": "/commands/Get-DbaDbDetachedFileInfo",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbEncryption",
@@ -2123,7 +2304,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbEncryption.html"
+    "url": "/commands/Get-DbaDbEncryption",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbEncryptionKey",
@@ -2135,7 +2317,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbEncryptionKey.html"
+    "url": "/commands/Get-DbaDbEncryptionKey",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbExtentDiff",
@@ -2146,7 +2329,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbExtentDiff.html"
+    "url": "/commands/Get-DbaDbExtentDiff",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbFeatureUsage",
@@ -2158,7 +2342,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbFeatureUsage.html"
+    "url": "/commands/Get-DbaDbFeatureUsage",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbFile",
@@ -2169,7 +2354,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbFile.html"
+    "url": "/commands/Get-DbaDbFile",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbFileGroup",
@@ -2180,7 +2366,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbFileGroup.html"
+    "url": "/commands/Get-DbaDbFileGroup",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbFileGrowth",
@@ -2191,7 +2378,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbFileGrowth.html"
+    "url": "/commands/Get-DbaDbFileGrowth",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbFileMapping",
@@ -2202,7 +2390,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbFileMapping.html"
+    "url": "/commands/Get-DbaDbFileMapping",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbForeignKey",
@@ -2213,7 +2402,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbForeignKey.html"
+    "url": "/commands/Get-DbaDbForeignKey",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbIdentity",
@@ -2224,7 +2414,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbIdentity.html"
+    "url": "/commands/Get-DbaDbIdentity",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbLogShipError",
@@ -2235,7 +2426,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbLogShipError.html"
+    "url": "/commands/Get-DbaDbLogShipError",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbLogSpace",
@@ -2246,7 +2438,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbLogSpace.html"
+    "url": "/commands/Get-DbaDbLogSpace",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbMail",
@@ -2257,7 +2450,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbMail.html"
+    "url": "/commands/Get-DbaDbMail",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbMailAccount",
@@ -2268,7 +2462,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbMailAccount.html"
+    "url": "/commands/Get-DbaDbMailAccount",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbMailConfig",
@@ -2279,7 +2474,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbMailConfig.html"
+    "url": "/commands/Get-DbaDbMailConfig",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbMailHistory",
@@ -2290,7 +2486,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbMailHistory.html"
+    "url": "/commands/Get-DbaDbMailHistory",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbMailLog",
@@ -2301,7 +2498,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbMailLog.html"
+    "url": "/commands/Get-DbaDbMailLog",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbMailProfile",
@@ -2312,7 +2510,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbMailProfile.html"
+    "url": "/commands/Get-DbaDbMailProfile",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbMailServer",
@@ -2324,7 +2523,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbMailServer.html"
+    "url": "/commands/Get-DbaDbMailServer",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbMasterKey",
@@ -2335,7 +2535,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbMasterKey.html"
+    "url": "/commands/Get-DbaDbMasterKey",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbMemoryUsage",
@@ -2347,7 +2548,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbMemoryUsage.html"
+    "url": "/commands/Get-DbaDbMemoryUsage",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbMirror",
@@ -2359,7 +2561,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbMirror.html"
+    "url": "/commands/Get-DbaDbMirror",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbMirrorMonitor",
@@ -2371,7 +2574,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbMirrorMonitor.html"
+    "url": "/commands/Get-DbaDbMirrorMonitor",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbObjectTrigger",
@@ -2382,7 +2586,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbObjectTrigger.html"
+    "url": "/commands/Get-DbaDbObjectTrigger",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbOrphanUser",
@@ -2393,7 +2598,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbOrphanUser.html"
+    "url": "/commands/Get-DbaDbOrphanUser",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbPageInfo",
@@ -2405,7 +2611,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbPageInfo.html"
+    "url": "/commands/Get-DbaDbPageInfo",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbPartitionFunction",
@@ -2416,7 +2623,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbPartitionFunction.html"
+    "url": "/commands/Get-DbaDbPartitionFunction",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbPartitionScheme",
@@ -2427,7 +2635,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbPartitionScheme.html"
+    "url": "/commands/Get-DbaDbPartitionScheme",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbQueryStoreOption",
@@ -2439,7 +2648,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbQueryStoreOption.html"
+    "url": "/commands/Get-DbaDbQueryStoreOption",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbRecoveryModel",
@@ -2450,7 +2660,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbRecoveryModel.html"
+    "url": "/commands/Get-DbaDbRecoveryModel",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbRestoreHistory",
@@ -2462,7 +2673,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbRestoreHistory.html"
+    "url": "/commands/Get-DbaDbRestoreHistory",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbRole",
@@ -2473,7 +2685,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbRole.html"
+    "url": "/commands/Get-DbaDbRole",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbRoleMember",
@@ -2484,7 +2697,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbRoleMember.html"
+    "url": "/commands/Get-DbaDbRoleMember",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbSchema",
@@ -2495,7 +2709,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbSchema.html"
+    "url": "/commands/Get-DbaDbSchema",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbSequence",
@@ -2506,7 +2721,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbSequence.html"
+    "url": "/commands/Get-DbaDbSequence",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbServiceBrokerQueue",
@@ -2517,7 +2733,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbServiceBrokerQueue.html"
+    "url": "/commands/Get-DbaDbServiceBrokerQueue",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbServiceBrokerService",
@@ -2528,7 +2745,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbServiceBrokerService.html"
+    "url": "/commands/Get-DbaDbServiceBrokerService",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbSharePoint",
@@ -2539,7 +2757,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbSharePoint.html"
+    "url": "/commands/Get-DbaDbSharePoint",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbSnapshot",
@@ -2550,7 +2769,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbSnapshot.html"
+    "url": "/commands/Get-DbaDbSnapshot",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbSpace",
@@ -2561,7 +2781,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbSpace.html"
+    "url": "/commands/Get-DbaDbSpace",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbState",
@@ -2572,7 +2793,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbState.html"
+    "url": "/commands/Get-DbaDbState",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbStoredProcedure",
@@ -2583,7 +2805,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbStoredProcedure.html"
+    "url": "/commands/Get-DbaDbStoredProcedure",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbSynonym",
@@ -2594,7 +2817,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbSynonym.html"
+    "url": "/commands/Get-DbaDbSynonym",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbTable",
@@ -2606,7 +2830,8 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "https://docs.dbatools.io/Get-DbaDbTable.html"
+    "url": "/commands/Get-DbaDbTable",
+    "popularityRank": 31
   },
   {
     "name": "Get-DbaDbTrigger",
@@ -2617,7 +2842,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbTrigger.html"
+    "url": "/commands/Get-DbaDbTrigger",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbUdf",
@@ -2628,7 +2854,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbUdf.html"
+    "url": "/commands/Get-DbaDbUdf",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbUser",
@@ -2639,7 +2866,8 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "https://docs.dbatools.io/Get-DbaDbUser.html"
+    "url": "/commands/Get-DbaDbUser",
+    "popularityRank": 48
   },
   {
     "name": "Get-DbaDbUserDefinedTableType",
@@ -2651,7 +2879,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbUserDefinedTableType.html"
+    "url": "/commands/Get-DbaDbUserDefinedTableType",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbView",
@@ -2662,7 +2891,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbView.html"
+    "url": "/commands/Get-DbaDbView",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDbVirtualLogFile",
@@ -2673,7 +2903,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDbVirtualLogFile.html"
+    "url": "/commands/Get-DbaDbVirtualLogFile",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDefaultPath",
@@ -2684,7 +2915,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDefaultPath.html"
+    "url": "/commands/Get-DbaDefaultPath",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDependency",
@@ -2695,7 +2927,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDependency.html"
+    "url": "/commands/Get-DbaDependency",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDeprecatedFeature",
@@ -2706,7 +2939,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDeprecatedFeature.html"
+    "url": "/commands/Get-DbaDeprecatedFeature",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaDiskSpace",
@@ -2717,7 +2951,8 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "https://docs.dbatools.io/Get-DbaDiskSpace.html"
+    "url": "/commands/Get-DbaDiskSpace",
+    "popularityRank": 46
   },
   {
     "name": "Get-DbaDump",
@@ -2728,7 +2963,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaDump.html"
+    "url": "/commands/Get-DbaDump",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaEndpoint",
@@ -2739,7 +2975,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaEndpoint.html"
+    "url": "/commands/Get-DbaEndpoint",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaErrorLog",
@@ -2750,7 +2987,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaErrorLog.html"
+    "url": "/commands/Get-DbaErrorLog",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaErrorLogConfig",
@@ -2761,7 +2999,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaErrorLogConfig.html"
+    "url": "/commands/Get-DbaErrorLogConfig",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaEstimatedCompletionTime",
@@ -2772,7 +3011,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaEstimatedCompletionTime.html"
+    "url": "/commands/Get-DbaEstimatedCompletionTime",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaExecutionPlan",
@@ -2783,7 +3023,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaExecutionPlan.html"
+    "url": "/commands/Get-DbaExecutionPlan",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaExtendedProperty",
@@ -2794,7 +3035,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaExtendedProperty.html"
+    "url": "/commands/Get-DbaExtendedProperty",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaExtendedProtection",
@@ -2805,7 +3047,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaExtendedProtection.html"
+    "url": "/commands/Get-DbaExtendedProtection",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaExternalProcess",
@@ -2816,7 +3059,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaExternalProcess.html"
+    "url": "/commands/Get-DbaExternalProcess",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaFeature",
@@ -2827,7 +3071,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaFeature.html"
+    "url": "/commands/Get-DbaFeature",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaFile",
@@ -2838,7 +3083,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaFile.html"
+    "url": "/commands/Get-DbaFile",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaFilestream",
@@ -2849,7 +3095,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaFilestream.html"
+    "url": "/commands/Get-DbaFilestream",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaFirewallRule",
@@ -2860,7 +3107,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaFirewallRule.html"
+    "url": "/commands/Get-DbaFirewallRule",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaForceNetworkEncryption",
@@ -2872,7 +3120,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaForceNetworkEncryption.html"
+    "url": "/commands/Get-DbaForceNetworkEncryption",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaHelpIndex",
@@ -2883,7 +3132,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaHelpIndex.html"
+    "url": "/commands/Get-DbaHelpIndex",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaHideInstance",
@@ -2895,7 +3145,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaHideInstance.html"
+    "url": "/commands/Get-DbaHideInstance",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaInstalledPatch",
@@ -2906,7 +3157,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaInstalledPatch.html"
+    "url": "/commands/Get-DbaInstalledPatch",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaInstanceAudit",
@@ -2918,7 +3170,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaInstanceAudit.html"
+    "url": "/commands/Get-DbaInstanceAudit",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaInstanceAuditSpecification",
@@ -2930,7 +3183,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaInstanceAuditSpecification.html"
+    "url": "/commands/Get-DbaInstanceAuditSpecification",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaInstanceInstallDate",
@@ -2942,7 +3196,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaInstanceInstallDate.html"
+    "url": "/commands/Get-DbaInstanceInstallDate",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaInstanceProperty",
@@ -2954,7 +3209,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaInstanceProperty.html"
+    "url": "/commands/Get-DbaInstanceProperty",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaInstanceProtocol",
@@ -2966,7 +3222,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaInstanceProtocol.html"
+    "url": "/commands/Get-DbaInstanceProtocol",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaInstanceTrigger",
@@ -2978,7 +3235,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaInstanceTrigger.html"
+    "url": "/commands/Get-DbaInstanceTrigger",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaInstanceUserOption",
@@ -2990,7 +3248,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaInstanceUserOption.html"
+    "url": "/commands/Get-DbaInstanceUserOption",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaIoLatency",
@@ -3001,7 +3260,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaIoLatency.html"
+    "url": "/commands/Get-DbaIoLatency",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaKbUpdate",
@@ -3012,7 +3272,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaKbUpdate.html"
+    "url": "/commands/Get-DbaKbUpdate",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaLastBackup",
@@ -3024,7 +3285,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaLastBackup.html"
+    "url": "/commands/Get-DbaLastBackup",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaLastGoodCheckDb",
@@ -3035,7 +3297,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaLastGoodCheckDb.html"
+    "url": "/commands/Get-DbaLastGoodCheckDb",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaLatchStatistic",
@@ -3046,7 +3309,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaLatchStatistic.html"
+    "url": "/commands/Get-DbaLatchStatistic",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaLinkedServer",
@@ -3058,7 +3322,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaLinkedServer.html"
+    "url": "/commands/Get-DbaLinkedServer",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaLinkedServerLogin",
@@ -3071,7 +3336,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaLinkedServerLogin.html"
+    "url": "/commands/Get-DbaLinkedServerLogin",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaLocaleSetting",
@@ -3082,7 +3348,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaLocaleSetting.html"
+    "url": "/commands/Get-DbaLocaleSetting",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaLogin",
@@ -3094,7 +3361,8 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "https://docs.dbatools.io/Get-DbaLogin.html"
+    "url": "/commands/Get-DbaLogin",
+    "popularityRank": 19
   },
   {
     "name": "Get-DbaMaintenanceSolutionLog",
@@ -3105,7 +3373,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaMaintenanceSolutionLog.html"
+    "url": "/commands/Get-DbaMaintenanceSolutionLog",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaManagementObject",
@@ -3117,7 +3386,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaManagementObject.html"
+    "url": "/commands/Get-DbaManagementObject",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaMaxMemory",
@@ -3128,7 +3398,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaMaxMemory.html"
+    "url": "/commands/Get-DbaMaxMemory",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaMemoryCondition",
@@ -3139,7 +3410,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaMemoryCondition.html"
+    "url": "/commands/Get-DbaMemoryCondition",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaMemoryUsage",
@@ -3151,7 +3423,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaMemoryUsage.html"
+    "url": "/commands/Get-DbaMemoryUsage",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaModule",
@@ -3162,7 +3435,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaModule.html"
+    "url": "/commands/Get-DbaModule",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaMsdtc",
@@ -3173,7 +3447,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaMsdtc.html"
+    "url": "/commands/Get-DbaMsdtc",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaNetworkActivity",
@@ -3184,7 +3459,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaNetworkActivity.html"
+    "url": "/commands/Get-DbaNetworkActivity",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaNetworkCertificate",
@@ -3196,7 +3472,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaNetworkCertificate.html"
+    "url": "/commands/Get-DbaNetworkCertificate",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaNetworkConfiguration",
@@ -3207,7 +3484,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaNetworkConfiguration.html"
+    "url": "/commands/Get-DbaNetworkConfiguration",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaOleDbProvider",
@@ -3218,7 +3496,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaOleDbProvider.html"
+    "url": "/commands/Get-DbaOleDbProvider",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaOpenTransaction",
@@ -3229,7 +3508,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaOpenTransaction.html"
+    "url": "/commands/Get-DbaOpenTransaction",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaOperatingSystem",
@@ -3240,7 +3520,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaOperatingSystem.html"
+    "url": "/commands/Get-DbaOperatingSystem",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaPageFileSetting",
@@ -3252,7 +3533,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaPageFileSetting.html"
+    "url": "/commands/Get-DbaPageFileSetting",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaPbmCategory",
@@ -3263,7 +3545,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaPbmCategory.html"
+    "url": "/commands/Get-DbaPbmCategory",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaPbmCategorySubscription",
@@ -3274,7 +3557,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaPbmCategorySubscription.html"
+    "url": "/commands/Get-DbaPbmCategorySubscription",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaPbmCondition",
@@ -3285,7 +3569,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaPbmCondition.html"
+    "url": "/commands/Get-DbaPbmCondition",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaPbmObjectSet",
@@ -3296,7 +3581,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaPbmObjectSet.html"
+    "url": "/commands/Get-DbaPbmObjectSet",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaPbmPolicy",
@@ -3307,7 +3593,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaPbmPolicy.html"
+    "url": "/commands/Get-DbaPbmPolicy",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaPbmStore",
@@ -3318,7 +3605,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaPbmStore.html"
+    "url": "/commands/Get-DbaPbmStore",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaPermission",
@@ -3330,7 +3618,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaPermission.html"
+    "url": "/commands/Get-DbaPermission",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaPfAvailableCounter",
@@ -3341,7 +3630,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaPfAvailableCounter.html"
+    "url": "/commands/Get-DbaPfAvailableCounter",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaPfDataCollector",
@@ -3352,7 +3642,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaPfDataCollector.html"
+    "url": "/commands/Get-DbaPfDataCollector",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaPfDataCollectorCounter",
@@ -3363,7 +3654,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaPfDataCollectorCounter.html"
+    "url": "/commands/Get-DbaPfDataCollectorCounter",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaPfDataCollectorCounterSample",
@@ -3374,7 +3666,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaPfDataCollectorCounterSample.html"
+    "url": "/commands/Get-DbaPfDataCollectorCounterSample",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaPfDataCollectorSet",
@@ -3385,7 +3678,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaPfDataCollectorSet.html"
+    "url": "/commands/Get-DbaPfDataCollectorSet",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaPfDataCollectorSetTemplate",
@@ -3396,7 +3690,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaPfDataCollectorSetTemplate.html"
+    "url": "/commands/Get-DbaPfDataCollectorSetTemplate",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaPlanCache",
@@ -3407,7 +3702,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaPlanCache.html"
+    "url": "/commands/Get-DbaPlanCache",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaPowerPlan",
@@ -3418,7 +3714,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaPowerPlan.html"
+    "url": "/commands/Get-DbaPowerPlan",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaPrivilege",
@@ -3429,7 +3726,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaPrivilege.html"
+    "url": "/commands/Get-DbaPrivilege",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaProcess",
@@ -3440,7 +3738,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaProcess.html"
+    "url": "/commands/Get-DbaProcess",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaProductKey",
@@ -3451,7 +3750,8 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "https://docs.dbatools.io/Get-DbaProductKey.html"
+    "url": "/commands/Get-DbaProductKey",
+    "popularityRank": 34
   },
   {
     "name": "Get-DbaQueryExecutionTime",
@@ -3463,7 +3763,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaQueryExecutionTime.html"
+    "url": "/commands/Get-DbaQueryExecutionTime",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaRandomizedDataset",
@@ -3474,7 +3775,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaRandomizedDataset.html"
+    "url": "/commands/Get-DbaRandomizedDataset",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaRandomizedDatasetTemplate",
@@ -3485,7 +3787,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaRandomizedDatasetTemplate.html"
+    "url": "/commands/Get-DbaRandomizedDatasetTemplate",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaRandomizedType",
@@ -3496,7 +3799,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaRandomizedType.html"
+    "url": "/commands/Get-DbaRandomizedType",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaRandomizedValue",
@@ -3507,7 +3811,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaRandomizedValue.html"
+    "url": "/commands/Get-DbaRandomizedValue",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaRegistryRoot",
@@ -3518,7 +3823,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaRegistryRoot.html"
+    "url": "/commands/Get-DbaRegistryRoot",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaRegServer",
@@ -3530,7 +3836,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaRegServer.html"
+    "url": "/commands/Get-DbaRegServer",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaRegServerGroup",
@@ -3542,7 +3849,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaRegServerGroup.html"
+    "url": "/commands/Get-DbaRegServerGroup",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaRegServerStore",
@@ -3554,7 +3862,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaRegServerStore.html"
+    "url": "/commands/Get-DbaRegServerStore",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaReplArticle",
@@ -3565,7 +3874,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaReplArticle.html"
+    "url": "/commands/Get-DbaReplArticle",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaReplArticleColumn",
@@ -3576,7 +3886,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaReplArticleColumn.html"
+    "url": "/commands/Get-DbaReplArticleColumn",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaReplDistributor",
@@ -3587,7 +3898,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaReplDistributor.html"
+    "url": "/commands/Get-DbaReplDistributor",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaReplPublication",
@@ -3598,7 +3910,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaReplPublication.html"
+    "url": "/commands/Get-DbaReplPublication",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaReplPublisher",
@@ -3609,7 +3922,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaReplPublisher.html"
+    "url": "/commands/Get-DbaReplPublisher",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaReplServer",
@@ -3621,7 +3935,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaReplServer.html"
+    "url": "/commands/Get-DbaReplServer",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaReplSubscription",
@@ -3632,7 +3947,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaReplSubscription.html"
+    "url": "/commands/Get-DbaReplSubscription",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaResourceGovernor",
@@ -3643,7 +3959,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaResourceGovernor.html"
+    "url": "/commands/Get-DbaResourceGovernor",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaRgClassifierFunction",
@@ -3654,7 +3971,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaRgClassifierFunction.html"
+    "url": "/commands/Get-DbaRgClassifierFunction",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaRgResourcePool",
@@ -3665,7 +3983,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaRgResourcePool.html"
+    "url": "/commands/Get-DbaRgResourcePool",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaRgWorkloadGroup",
@@ -3676,7 +3995,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaRgWorkloadGroup.html"
+    "url": "/commands/Get-DbaRgWorkloadGroup",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaRunningJob",
@@ -3688,7 +4008,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaRunningJob.html"
+    "url": "/commands/Get-DbaRunningJob",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaSchemaChangeHistory",
@@ -3699,7 +4020,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaSchemaChangeHistory.html"
+    "url": "/commands/Get-DbaSchemaChangeHistory",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaServerRole",
@@ -3711,7 +4033,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaServerRole.html"
+    "url": "/commands/Get-DbaServerRole",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaServerRoleMember",
@@ -3723,7 +4046,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaServerRoleMember.html"
+    "url": "/commands/Get-DbaServerRoleMember",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaService",
@@ -3734,7 +4058,8 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "https://docs.dbatools.io/Get-DbaService.html"
+    "url": "/commands/Get-DbaService",
+    "popularityRank": 27
   },
   {
     "name": "Get-DbaSpConfigure",
@@ -3745,7 +4070,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaSpConfigure.html"
+    "url": "/commands/Get-DbaSpConfigure",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaSpinLockStatistic",
@@ -3756,7 +4082,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaSpinLockStatistic.html"
+    "url": "/commands/Get-DbaSpinLockStatistic",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaSpn",
@@ -3767,7 +4094,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaSpn.html"
+    "url": "/commands/Get-DbaSpn",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaSsisEnvironmentVariable",
@@ -3778,7 +4106,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaSsisEnvironmentVariable.html"
+    "url": "/commands/Get-DbaSsisEnvironmentVariable",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaSsisExecutionHistory",
@@ -3789,7 +4118,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaSsisExecutionHistory.html"
+    "url": "/commands/Get-DbaSsisExecutionHistory",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaStartupParameter",
@@ -3800,7 +4130,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaStartupParameter.html"
+    "url": "/commands/Get-DbaStartupParameter",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaStartupProcedure",
@@ -3811,7 +4142,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaStartupProcedure.html"
+    "url": "/commands/Get-DbaStartupProcedure",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaSuspectPage",
@@ -3823,7 +4155,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaSuspectPage.html"
+    "url": "/commands/Get-DbaSuspectPage",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaTcpPort",
@@ -3834,7 +4167,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaTcpPort.html"
+    "url": "/commands/Get-DbaTcpPort",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaTempdbUsage",
@@ -3846,7 +4180,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaTempdbUsage.html"
+    "url": "/commands/Get-DbaTempdbUsage",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbatoolsChangeLog",
@@ -3857,7 +4192,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbatoolsChangeLog.html"
+    "url": "/commands/Get-DbatoolsChangeLog",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbatoolsConfig",
@@ -3868,7 +4204,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbatoolsConfig.html"
+    "url": "/commands/Get-DbatoolsConfig",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbatoolsConfigValue",
@@ -3879,7 +4216,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbatoolsConfigValue.html"
+    "url": "/commands/Get-DbatoolsConfigValue",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbatoolsError",
@@ -3890,7 +4228,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbatoolsError.html"
+    "url": "/commands/Get-DbatoolsError",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbatoolsLog",
@@ -3901,7 +4240,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbatoolsLog.html"
+    "url": "/commands/Get-DbatoolsLog",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbatoolsPath",
@@ -3912,7 +4252,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbatoolsPath.html"
+    "url": "/commands/Get-DbatoolsPath",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaTopResourceUsage",
@@ -3924,7 +4265,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaTopResourceUsage.html"
+    "url": "/commands/Get-DbaTopResourceUsage",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaTrace",
@@ -3935,7 +4277,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaTrace.html"
+    "url": "/commands/Get-DbaTrace",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaTraceFlag",
@@ -3947,7 +4290,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaTraceFlag.html"
+    "url": "/commands/Get-DbaTraceFlag",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaUptime",
@@ -3958,7 +4302,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaUptime.html"
+    "url": "/commands/Get-DbaUptime",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaUserPermission",
@@ -3970,7 +4315,8 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "https://docs.dbatools.io/Get-DbaUserPermission.html"
+    "url": "/commands/Get-DbaUserPermission",
+    "popularityRank": 35
   },
   {
     "name": "Get-DbaWaitingTask",
@@ -3981,7 +4327,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaWaitingTask.html"
+    "url": "/commands/Get-DbaWaitingTask",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaWaitResource",
@@ -3992,7 +4339,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaWaitResource.html"
+    "url": "/commands/Get-DbaWaitResource",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaWaitStatistic",
@@ -4003,7 +4351,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaWaitStatistic.html"
+    "url": "/commands/Get-DbaWaitStatistic",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaWindowsLog",
@@ -4014,7 +4363,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaWindowsLog.html"
+    "url": "/commands/Get-DbaWindowsLog",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaWsfcAvailableDisk",
@@ -4025,7 +4375,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaWsfcAvailableDisk.html"
+    "url": "/commands/Get-DbaWsfcAvailableDisk",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaWsfcCluster",
@@ -4036,7 +4387,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaWsfcCluster.html"
+    "url": "/commands/Get-DbaWsfcCluster",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaWsfcDisk",
@@ -4047,7 +4399,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaWsfcDisk.html"
+    "url": "/commands/Get-DbaWsfcDisk",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaWsfcNetwork",
@@ -4058,7 +4411,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaWsfcNetwork.html"
+    "url": "/commands/Get-DbaWsfcNetwork",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaWsfcNetworkInterface",
@@ -4069,7 +4423,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaWsfcNetworkInterface.html"
+    "url": "/commands/Get-DbaWsfcNetworkInterface",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaWsfcNode",
@@ -4080,7 +4435,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaWsfcNode.html"
+    "url": "/commands/Get-DbaWsfcNode",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaWsfcResource",
@@ -4091,7 +4447,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaWsfcResource.html"
+    "url": "/commands/Get-DbaWsfcResource",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaWsfcResourceGroup",
@@ -4102,7 +4459,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaWsfcResourceGroup.html"
+    "url": "/commands/Get-DbaWsfcResourceGroup",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaWsfcResourceType",
@@ -4113,7 +4471,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaWsfcResourceType.html"
+    "url": "/commands/Get-DbaWsfcResourceType",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaWsfcRole",
@@ -4124,7 +4483,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaWsfcRole.html"
+    "url": "/commands/Get-DbaWsfcRole",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaWsfcSharedVolume",
@@ -4135,7 +4495,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaWsfcSharedVolume.html"
+    "url": "/commands/Get-DbaWsfcSharedVolume",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaXEObject",
@@ -4146,7 +4507,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaXEObject.html"
+    "url": "/commands/Get-DbaXEObject",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaXESession",
@@ -4157,7 +4519,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaXESession.html"
+    "url": "/commands/Get-DbaXESession",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaXESessionTarget",
@@ -4168,7 +4531,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaXESessionTarget.html"
+    "url": "/commands/Get-DbaXESessionTarget",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaXESessionTargetFile",
@@ -4179,7 +4543,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaXESessionTargetFile.html"
+    "url": "/commands/Get-DbaXESessionTargetFile",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaXESessionTemplate",
@@ -4190,7 +4555,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaXESessionTemplate.html"
+    "url": "/commands/Get-DbaXESessionTemplate",
+    "popularityRank": 0
   },
   {
     "name": "Get-DbaXEStore",
@@ -4201,7 +4567,8 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "https://docs.dbatools.io/Get-DbaXEStore.html"
+    "url": "/commands/Get-DbaXEStore",
+    "popularityRank": 0
   },
   {
     "name": "Grant-DbaAgPermission",
@@ -4214,7 +4581,8 @@
     ],
     "verb": "Grant",
     "popular": false,
-    "url": "https://docs.dbatools.io/Grant-DbaAgPermission.html"
+    "url": "/commands/Grant-DbaAgPermission",
+    "popularityRank": 0
   },
   {
     "name": "Import-DbaBinaryFile",
@@ -4225,7 +4593,8 @@
     ],
     "verb": "Import",
     "popular": false,
-    "url": "https://docs.dbatools.io/Import-DbaBinaryFile.html"
+    "url": "/commands/Import-DbaBinaryFile",
+    "popularityRank": 0
   },
   {
     "name": "Import-DbaCsv",
@@ -4236,7 +4605,8 @@
     ],
     "verb": "Import",
     "popular": true,
-    "url": "https://docs.dbatools.io/Import-DbaCsv.html"
+    "url": "/commands/Import-DbaCsv",
+    "popularityRank": 16
   },
   {
     "name": "Import-DbaPfDataCollectorSetTemplate",
@@ -4247,7 +4617,8 @@
     ],
     "verb": "Import",
     "popular": false,
-    "url": "https://docs.dbatools.io/Import-DbaPfDataCollectorSetTemplate.html"
+    "url": "/commands/Import-DbaPfDataCollectorSetTemplate",
+    "popularityRank": 0
   },
   {
     "name": "Import-DbaRegServer",
@@ -4259,7 +4630,8 @@
     ],
     "verb": "Import",
     "popular": false,
-    "url": "https://docs.dbatools.io/Import-DbaRegServer.html"
+    "url": "/commands/Import-DbaRegServer",
+    "popularityRank": 0
   },
   {
     "name": "Import-DbaSpConfigure",
@@ -4270,7 +4642,8 @@
     ],
     "verb": "Import",
     "popular": false,
-    "url": "https://docs.dbatools.io/Import-DbaSpConfigure.html"
+    "url": "/commands/Import-DbaSpConfigure",
+    "popularityRank": 0
   },
   {
     "name": "Import-DbatoolsConfig",
@@ -4281,7 +4654,8 @@
     ],
     "verb": "Import",
     "popular": false,
-    "url": "https://docs.dbatools.io/Import-DbatoolsConfig.html"
+    "url": "/commands/Import-DbatoolsConfig",
+    "popularityRank": 0
   },
   {
     "name": "Import-DbaXESessionTemplate",
@@ -4292,7 +4666,8 @@
     ],
     "verb": "Import",
     "popular": false,
-    "url": "https://docs.dbatools.io/Import-DbaXESessionTemplate.html"
+    "url": "/commands/Import-DbaXESessionTemplate",
+    "popularityRank": 0
   },
   {
     "name": "Install-DbaAgentAdminAlert",
@@ -4305,7 +4680,8 @@
     ],
     "verb": "Install",
     "popular": false,
-    "url": "https://docs.dbatools.io/Install-DbaAgentAdminAlert.html"
+    "url": "/commands/Install-DbaAgentAdminAlert",
+    "popularityRank": 0
   },
   {
     "name": "Install-DbaDarlingData",
@@ -4316,7 +4692,8 @@
     ],
     "verb": "Install",
     "popular": false,
-    "url": "https://docs.dbatools.io/Install-DbaDarlingData.html"
+    "url": "/commands/Install-DbaDarlingData",
+    "popularityRank": 0
   },
   {
     "name": "Install-DbaFirstResponderKit",
@@ -4327,7 +4704,8 @@
     ],
     "verb": "Install",
     "popular": false,
-    "url": "https://docs.dbatools.io/Install-DbaFirstResponderKit.html"
+    "url": "/commands/Install-DbaFirstResponderKit",
+    "popularityRank": 0
   },
   {
     "name": "Install-DbaInstance",
@@ -4339,7 +4717,8 @@
     ],
     "verb": "Install",
     "popular": true,
-    "url": "https://docs.dbatools.io/Install-DbaInstance.html"
+    "url": "/commands/Install-DbaInstance",
+    "popularityRank": 17
   },
   {
     "name": "Install-DbaMaintenanceSolution",
@@ -4350,7 +4729,8 @@
     ],
     "verb": "Install",
     "popular": true,
-    "url": "https://docs.dbatools.io/Install-DbaMaintenanceSolution.html"
+    "url": "/commands/Install-DbaMaintenanceSolution",
+    "popularityRank": 39
   },
   {
     "name": "Install-DbaMultiTool",
@@ -4361,7 +4741,8 @@
     ],
     "verb": "Install",
     "popular": false,
-    "url": "https://docs.dbatools.io/Install-DbaMultiTool.html"
+    "url": "/commands/Install-DbaMultiTool",
+    "popularityRank": 0
   },
   {
     "name": "Install-DbaSqlPackage",
@@ -4373,7 +4754,8 @@
     ],
     "verb": "Install",
     "popular": false,
-    "url": "https://docs.dbatools.io/Install-DbaSqlPackage.html"
+    "url": "/commands/Install-DbaSqlPackage",
+    "popularityRank": 0
   },
   {
     "name": "Install-DbaSqlWatch",
@@ -4384,7 +4766,8 @@
     ],
     "verb": "Install",
     "popular": true,
-    "url": "https://docs.dbatools.io/Install-DbaSqlWatch.html"
+    "url": "/commands/Install-DbaSqlWatch",
+    "popularityRank": 26
   },
   {
     "name": "Install-DbaWhoIsActive",
@@ -4395,7 +4778,8 @@
     ],
     "verb": "Install",
     "popular": false,
-    "url": "https://docs.dbatools.io/Install-DbaWhoIsActive.html"
+    "url": "/commands/Install-DbaWhoIsActive",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaAdvancedInstall",
@@ -4406,7 +4790,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaAdvancedInstall.html"
+    "url": "/commands/Invoke-DbaAdvancedInstall",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaAdvancedRestore",
@@ -4418,7 +4803,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaAdvancedRestore.html"
+    "url": "/commands/Invoke-DbaAdvancedRestore",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaAdvancedUpdate",
@@ -4429,7 +4815,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaAdvancedUpdate.html"
+    "url": "/commands/Invoke-DbaAdvancedUpdate",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaAgFailover",
@@ -4441,7 +4828,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaAgFailover.html"
+    "url": "/commands/Invoke-DbaAgFailover",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaBalanceDataFiles",
@@ -4452,7 +4840,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaBalanceDataFiles.html"
+    "url": "/commands/Invoke-DbaBalanceDataFiles",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaCycleErrorLog",
@@ -4463,7 +4852,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaCycleErrorLog.html"
+    "url": "/commands/Invoke-DbaCycleErrorLog",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaDbccDropCleanBuffer",
@@ -4474,7 +4864,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaDbccDropCleanBuffer.html"
+    "url": "/commands/Invoke-DbaDbccDropCleanBuffer",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaDbccFreeCache",
@@ -4485,7 +4876,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaDbccFreeCache.html"
+    "url": "/commands/Invoke-DbaDbccFreeCache",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaDbClone",
@@ -4496,7 +4888,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaDbClone.html"
+    "url": "/commands/Invoke-DbaDbClone",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaDbDataGenerator",
@@ -4508,7 +4901,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaDbDataGenerator.html"
+    "url": "/commands/Invoke-DbaDbDataGenerator",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaDbDataMasking",
@@ -4519,7 +4913,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaDbDataMasking.html"
+    "url": "/commands/Invoke-DbaDbDataMasking",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaDbDbccCheckConstraint",
@@ -4530,7 +4925,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaDbDbccCheckConstraint.html"
+    "url": "/commands/Invoke-DbaDbDbccCheckConstraint",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaDbDbccCleanTable",
@@ -4542,7 +4938,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaDbDbccCleanTable.html"
+    "url": "/commands/Invoke-DbaDbDbccCleanTable",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaDbDbccUpdateUsage",
@@ -4554,7 +4951,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaDbDbccUpdateUsage.html"
+    "url": "/commands/Invoke-DbaDbDbccUpdateUsage",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaDbDecryptObject",
@@ -4565,7 +4963,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaDbDecryptObject.html"
+    "url": "/commands/Invoke-DbaDbDecryptObject",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaDbLogShipping",
@@ -4576,7 +4975,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaDbLogShipping.html"
+    "url": "/commands/Invoke-DbaDbLogShipping",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaDbLogShipRecovery",
@@ -4587,7 +4987,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaDbLogShipRecovery.html"
+    "url": "/commands/Invoke-DbaDbLogShipRecovery",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaDbMirrorFailover",
@@ -4599,7 +5000,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaDbMirrorFailover.html"
+    "url": "/commands/Invoke-DbaDbMirrorFailover",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaDbMirroring",
@@ -4611,7 +5013,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaDbMirroring.html"
+    "url": "/commands/Invoke-DbaDbMirroring",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaDbPiiScan",
@@ -4622,7 +5025,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaDbPiiScan.html"
+    "url": "/commands/Invoke-DbaDbPiiScan",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaDbShrink",
@@ -4633,7 +5037,8 @@
     ],
     "verb": "Invoke",
     "popular": true,
-    "url": "https://docs.dbatools.io/Invoke-DbaDbShrink.html"
+    "url": "/commands/Invoke-DbaDbShrink",
+    "popularityRank": 50
   },
   {
     "name": "Invoke-DbaDbTransfer",
@@ -4644,7 +5049,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaDbTransfer.html"
+    "url": "/commands/Invoke-DbaDbTransfer",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaDbUpgrade",
@@ -4655,7 +5061,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaDbUpgrade.html"
+    "url": "/commands/Invoke-DbaDbUpgrade",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaDiagnosticQuery",
@@ -4668,7 +5075,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaDiagnosticQuery.html"
+    "url": "/commands/Invoke-DbaDiagnosticQuery",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaPfRelog",
@@ -4679,7 +5087,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaPfRelog.html"
+    "url": "/commands/Invoke-DbaPfRelog",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaQuery",
@@ -4691,7 +5100,8 @@
     ],
     "verb": "Invoke",
     "popular": true,
-    "url": "https://docs.dbatools.io/Invoke-DbaQuery.html"
+    "url": "/commands/Invoke-DbaQuery",
+    "popularityRank": 4
   },
   {
     "name": "Invoke-DbatoolsFormatter",
@@ -4702,7 +5112,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbatoolsFormatter.html"
+    "url": "/commands/Invoke-DbatoolsFormatter",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbatoolsRenameHelper",
@@ -4713,7 +5124,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbatoolsRenameHelper.html"
+    "url": "/commands/Invoke-DbatoolsRenameHelper",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaWhoIsActive",
@@ -4724,7 +5136,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaWhoIsActive.html"
+    "url": "/commands/Invoke-DbaWhoIsActive",
+    "popularityRank": 0
   },
   {
     "name": "Invoke-DbaXEReplay",
@@ -4735,7 +5148,8 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Invoke-DbaXEReplay.html"
+    "url": "/commands/Invoke-DbaXEReplay",
+    "popularityRank": 0
   },
   {
     "name": "Join-DbaAvailabilityGroup",
@@ -4747,7 +5161,8 @@
     ],
     "verb": "Join",
     "popular": false,
-    "url": "https://docs.dbatools.io/Join-DbaAvailabilityGroup.html"
+    "url": "/commands/Join-DbaAvailabilityGroup",
+    "popularityRank": 0
   },
   {
     "name": "Join-DbaPath",
@@ -4758,7 +5173,8 @@
     ],
     "verb": "Join",
     "popular": false,
-    "url": "https://docs.dbatools.io/Join-DbaPath.html"
+    "url": "/commands/Join-DbaPath",
+    "popularityRank": 0
   },
   {
     "name": "Measure-DbaBackupThroughput",
@@ -4770,7 +5186,8 @@
     ],
     "verb": "Measure",
     "popular": false,
-    "url": "https://docs.dbatools.io/Measure-DbaBackupThroughput.html"
+    "url": "/commands/Measure-DbaBackupThroughput",
+    "popularityRank": 0
   },
   {
     "name": "Measure-DbaDbVirtualLogFile",
@@ -4781,7 +5198,8 @@
     ],
     "verb": "Measure",
     "popular": false,
-    "url": "https://docs.dbatools.io/Measure-DbaDbVirtualLogFile.html"
+    "url": "/commands/Measure-DbaDbVirtualLogFile",
+    "popularityRank": 0
   },
   {
     "name": "Measure-DbaDiskSpaceRequirement",
@@ -4792,7 +5210,8 @@
     ],
     "verb": "Measure",
     "popular": false,
-    "url": "https://docs.dbatools.io/Measure-DbaDiskSpaceRequirement.html"
+    "url": "/commands/Measure-DbaDiskSpaceRequirement",
+    "popularityRank": 0
   },
   {
     "name": "Measure-DbatoolsImport",
@@ -4803,7 +5222,8 @@
     ],
     "verb": "Measure",
     "popular": false,
-    "url": "https://docs.dbatools.io/Measure-DbatoolsImport.html"
+    "url": "/commands/Measure-DbatoolsImport",
+    "popularityRank": 0
   },
   {
     "name": "Mount-DbaDatabase",
@@ -4815,7 +5235,8 @@
     ],
     "verb": "Mount",
     "popular": false,
-    "url": "https://docs.dbatools.io/Mount-DbaDatabase.html"
+    "url": "/commands/Mount-DbaDatabase",
+    "popularityRank": 0
   },
   {
     "name": "Move-DbaDbFile",
@@ -4826,7 +5247,8 @@
     ],
     "verb": "Move",
     "popular": false,
-    "url": "https://docs.dbatools.io/Move-DbaDbFile.html"
+    "url": "/commands/Move-DbaDbFile",
+    "popularityRank": 0
   },
   {
     "name": "Move-DbaRegServer",
@@ -4838,7 +5260,8 @@
     ],
     "verb": "Move",
     "popular": false,
-    "url": "https://docs.dbatools.io/Move-DbaRegServer.html"
+    "url": "/commands/Move-DbaRegServer",
+    "popularityRank": 0
   },
   {
     "name": "Move-DbaRegServerGroup",
@@ -4850,7 +5273,8 @@
     ],
     "verb": "Move",
     "popular": false,
-    "url": "https://docs.dbatools.io/Move-DbaRegServerGroup.html"
+    "url": "/commands/Move-DbaRegServerGroup",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaAgentAlert",
@@ -4863,7 +5287,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaAgentAlert.html"
+    "url": "/commands/New-DbaAgentAlert",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaAgentAlertCategory",
@@ -4876,7 +5301,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaAgentAlertCategory.html"
+    "url": "/commands/New-DbaAgentAlertCategory",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaAgentJob",
@@ -4890,7 +5316,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaAgentJob.html"
+    "url": "/commands/New-DbaAgentJob",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaAgentJobCategory",
@@ -4904,7 +5331,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaAgentJobCategory.html"
+    "url": "/commands/New-DbaAgentJobCategory",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaAgentJobStep",
@@ -4918,7 +5346,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaAgentJobStep.html"
+    "url": "/commands/New-DbaAgentJobStep",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaAgentOperator",
@@ -4931,7 +5360,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaAgentOperator.html"
+    "url": "/commands/New-DbaAgentOperator",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaAgentProxy",
@@ -4944,7 +5374,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaAgentProxy.html"
+    "url": "/commands/New-DbaAgentProxy",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaAgentSchedule",
@@ -4957,7 +5388,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaAgentSchedule.html"
+    "url": "/commands/New-DbaAgentSchedule",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaAvailabilityGroup",
@@ -4969,7 +5401,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaAvailabilityGroup.html"
+    "url": "/commands/New-DbaAvailabilityGroup",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaAzAccessToken",
@@ -4980,7 +5413,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaAzAccessToken.html"
+    "url": "/commands/New-DbaAzAccessToken",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaClientAlias",
@@ -4991,7 +5425,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaClientAlias.html"
+    "url": "/commands/New-DbaClientAlias",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaCmConnection",
@@ -5002,7 +5437,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaCmConnection.html"
+    "url": "/commands/New-DbaCmConnection",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaComputerCertificate",
@@ -5014,7 +5450,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaComputerCertificate.html"
+    "url": "/commands/New-DbaComputerCertificate",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaComputerCertificateSigningRequest",
@@ -5026,7 +5463,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaComputerCertificateSigningRequest.html"
+    "url": "/commands/New-DbaComputerCertificateSigningRequest",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaConnectionString",
@@ -5037,7 +5475,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaConnectionString.html"
+    "url": "/commands/New-DbaConnectionString",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaConnectionStringBuilder",
@@ -5048,7 +5487,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaConnectionStringBuilder.html"
+    "url": "/commands/New-DbaConnectionStringBuilder",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaCredential",
@@ -5059,7 +5499,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaCredential.html"
+    "url": "/commands/New-DbaCredential",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaCustomError",
@@ -5070,7 +5511,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaCustomError.html"
+    "url": "/commands/New-DbaCustomError",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDacOption",
@@ -5081,7 +5523,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDacOption.html"
+    "url": "/commands/New-DbaDacOption",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDacProfile",
@@ -5092,7 +5535,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDacProfile.html"
+    "url": "/commands/New-DbaDacProfile",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDatabase",
@@ -5104,7 +5548,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDatabase.html"
+    "url": "/commands/New-DbaDatabase",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDbAsymmetricKey",
@@ -5115,7 +5560,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDbAsymmetricKey.html"
+    "url": "/commands/New-DbaDbAsymmetricKey",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDbCertificate",
@@ -5127,7 +5573,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDbCertificate.html"
+    "url": "/commands/New-DbaDbCertificate",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDbDataGeneratorConfig",
@@ -5139,7 +5586,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDbDataGeneratorConfig.html"
+    "url": "/commands/New-DbaDbDataGeneratorConfig",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDbEncryptionKey",
@@ -5151,7 +5599,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDbEncryptionKey.html"
+    "url": "/commands/New-DbaDbEncryptionKey",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDbFileGroup",
@@ -5162,7 +5611,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDbFileGroup.html"
+    "url": "/commands/New-DbaDbFileGroup",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDbMailAccount",
@@ -5173,7 +5623,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDbMailAccount.html"
+    "url": "/commands/New-DbaDbMailAccount",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDbMailProfile",
@@ -5184,7 +5635,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDbMailProfile.html"
+    "url": "/commands/New-DbaDbMailProfile",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDbMaskingConfig",
@@ -5195,7 +5647,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDbMaskingConfig.html"
+    "url": "/commands/New-DbaDbMaskingConfig",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDbMasterKey",
@@ -5206,7 +5659,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDbMasterKey.html"
+    "url": "/commands/New-DbaDbMasterKey",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDbRole",
@@ -5217,7 +5671,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDbRole.html"
+    "url": "/commands/New-DbaDbRole",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDbSchema",
@@ -5228,7 +5683,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDbSchema.html"
+    "url": "/commands/New-DbaDbSchema",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDbSequence",
@@ -5239,7 +5695,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDbSequence.html"
+    "url": "/commands/New-DbaDbSequence",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDbSnapshot",
@@ -5250,7 +5707,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDbSnapshot.html"
+    "url": "/commands/New-DbaDbSnapshot",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDbSynonym",
@@ -5261,7 +5719,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDbSynonym.html"
+    "url": "/commands/New-DbaDbSynonym",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDbTable",
@@ -5273,7 +5732,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDbTable.html"
+    "url": "/commands/New-DbaDbTable",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDbTransfer",
@@ -5284,7 +5744,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDbTransfer.html"
+    "url": "/commands/New-DbaDbTransfer",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDbUser",
@@ -5295,7 +5756,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDbUser.html"
+    "url": "/commands/New-DbaDbUser",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDiagnosticAdsNotebook",
@@ -5307,7 +5769,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDiagnosticAdsNotebook.html"
+    "url": "/commands/New-DbaDiagnosticAdsNotebook",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaDirectory",
@@ -5318,7 +5781,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaDirectory.html"
+    "url": "/commands/New-DbaDirectory",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaEndpoint",
@@ -5329,7 +5793,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaEndpoint.html"
+    "url": "/commands/New-DbaEndpoint",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaFirewallRule",
@@ -5340,7 +5805,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaFirewallRule.html"
+    "url": "/commands/New-DbaFirewallRule",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaLinkedServer",
@@ -5352,7 +5818,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaLinkedServer.html"
+    "url": "/commands/New-DbaLinkedServer",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaLinkedServerLogin",
@@ -5365,7 +5832,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaLinkedServerLogin.html"
+    "url": "/commands/New-DbaLinkedServerLogin",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaLogin",
@@ -5377,7 +5845,8 @@
     ],
     "verb": "New",
     "popular": true,
-    "url": "https://docs.dbatools.io/New-DbaLogin.html"
+    "url": "/commands/New-DbaLogin",
+    "popularityRank": 43
   },
   {
     "name": "New-DbaReplCreationScriptOptions",
@@ -5388,7 +5857,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaReplCreationScriptOptions.html"
+    "url": "/commands/New-DbaReplCreationScriptOptions",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaReplPublication",
@@ -5399,7 +5869,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaReplPublication.html"
+    "url": "/commands/New-DbaReplPublication",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaReplSubscription",
@@ -5410,7 +5881,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaReplSubscription.html"
+    "url": "/commands/New-DbaReplSubscription",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaRgResourcePool",
@@ -5421,7 +5893,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaRgResourcePool.html"
+    "url": "/commands/New-DbaRgResourcePool",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaRgWorkloadGroup",
@@ -5432,7 +5905,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaRgWorkloadGroup.html"
+    "url": "/commands/New-DbaRgWorkloadGroup",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaScriptingOption",
@@ -5443,7 +5917,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaScriptingOption.html"
+    "url": "/commands/New-DbaScriptingOption",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaServerRole",
@@ -5455,7 +5930,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaServerRole.html"
+    "url": "/commands/New-DbaServerRole",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaServiceMasterKey",
@@ -5466,7 +5942,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaServiceMasterKey.html"
+    "url": "/commands/New-DbaServiceMasterKey",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaSqlParameter",
@@ -5477,7 +5954,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaSqlParameter.html"
+    "url": "/commands/New-DbaSqlParameter",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaSsisCatalog",
@@ -5488,7 +5966,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaSsisCatalog.html"
+    "url": "/commands/New-DbaSsisCatalog",
+    "popularityRank": 0
   },
   {
     "name": "New-DbatoolsSupportPackage",
@@ -5500,7 +5979,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbatoolsSupportPackage.html"
+    "url": "/commands/New-DbatoolsSupportPackage",
+    "popularityRank": 0
   },
   {
     "name": "New-DbaXESession",
@@ -5511,7 +5991,8 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "https://docs.dbatools.io/New-DbaXESession.html"
+    "url": "/commands/New-DbaXESession",
+    "popularityRank": 0
   },
   {
     "name": "Publish-DbaDacPackage",
@@ -5523,7 +6004,8 @@
     ],
     "verb": "Publish",
     "popular": false,
-    "url": "https://docs.dbatools.io/Publish-DbaDacPackage.html"
+    "url": "/commands/Publish-DbaDacPackage",
+    "popularityRank": 0
   },
   {
     "name": "Read-DbaAuditFile",
@@ -5534,7 +6016,8 @@
     ],
     "verb": "Read",
     "popular": false,
-    "url": "https://docs.dbatools.io/Read-DbaAuditFile.html"
+    "url": "/commands/Read-DbaAuditFile",
+    "popularityRank": 0
   },
   {
     "name": "Read-DbaBackupHeader",
@@ -5546,7 +6029,8 @@
     ],
     "verb": "Read",
     "popular": false,
-    "url": "https://docs.dbatools.io/Read-DbaBackupHeader.html"
+    "url": "/commands/Read-DbaBackupHeader",
+    "popularityRank": 0
   },
   {
     "name": "Read-DbaTraceFile",
@@ -5557,7 +6041,8 @@
     ],
     "verb": "Read",
     "popular": false,
-    "url": "https://docs.dbatools.io/Read-DbaTraceFile.html"
+    "url": "/commands/Read-DbaTraceFile",
+    "popularityRank": 0
   },
   {
     "name": "Read-DbaTransactionLog",
@@ -5568,7 +6053,8 @@
     ],
     "verb": "Read",
     "popular": false,
-    "url": "https://docs.dbatools.io/Read-DbaTransactionLog.html"
+    "url": "/commands/Read-DbaTransactionLog",
+    "popularityRank": 0
   },
   {
     "name": "Read-DbaXEFile",
@@ -5579,7 +6065,8 @@
     ],
     "verb": "Read",
     "popular": false,
-    "url": "https://docs.dbatools.io/Read-DbaXEFile.html"
+    "url": "/commands/Read-DbaXEFile",
+    "popularityRank": 0
   },
   {
     "name": "Register-DbatoolsConfig",
@@ -5590,7 +6077,8 @@
     ],
     "verb": "Register",
     "popular": false,
-    "url": "https://docs.dbatools.io/Register-DbatoolsConfig.html"
+    "url": "/commands/Register-DbatoolsConfig",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaAgDatabase",
@@ -5603,7 +6091,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaAgDatabase.html"
+    "url": "/commands/Remove-DbaAgDatabase",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaAgentAlert",
@@ -5616,7 +6105,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaAgentAlert.html"
+    "url": "/commands/Remove-DbaAgentAlert",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaAgentAlertCategory",
@@ -5629,7 +6119,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaAgentAlertCategory.html"
+    "url": "/commands/Remove-DbaAgentAlertCategory",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaAgentJob",
@@ -5643,7 +6134,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaAgentJob.html"
+    "url": "/commands/Remove-DbaAgentJob",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaAgentJobCategory",
@@ -5657,7 +6149,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaAgentJobCategory.html"
+    "url": "/commands/Remove-DbaAgentJobCategory",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaAgentJobStep",
@@ -5671,7 +6164,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaAgentJobStep.html"
+    "url": "/commands/Remove-DbaAgentJobStep",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaAgentOperator",
@@ -5684,7 +6178,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaAgentOperator.html"
+    "url": "/commands/Remove-DbaAgentOperator",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaAgentProxy",
@@ -5697,7 +6192,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaAgentProxy.html"
+    "url": "/commands/Remove-DbaAgentProxy",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaAgentSchedule",
@@ -5710,7 +6206,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaAgentSchedule.html"
+    "url": "/commands/Remove-DbaAgentSchedule",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaAgListener",
@@ -5722,7 +6219,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaAgListener.html"
+    "url": "/commands/Remove-DbaAgListener",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaAgReplica",
@@ -5734,7 +6232,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaAgReplica.html"
+    "url": "/commands/Remove-DbaAgReplica",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaAvailabilityGroup",
@@ -5746,7 +6245,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaAvailabilityGroup.html"
+    "url": "/commands/Remove-DbaAvailabilityGroup",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaBackup",
@@ -5758,7 +6258,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaBackup.html"
+    "url": "/commands/Remove-DbaBackup",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaClientAlias",
@@ -5769,7 +6270,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaClientAlias.html"
+    "url": "/commands/Remove-DbaClientAlias",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaCmConnection",
@@ -5780,7 +6282,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaCmConnection.html"
+    "url": "/commands/Remove-DbaCmConnection",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaComputerCertificate",
@@ -5792,7 +6295,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaComputerCertificate.html"
+    "url": "/commands/Remove-DbaComputerCertificate",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaCredential",
@@ -5803,7 +6307,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaCredential.html"
+    "url": "/commands/Remove-DbaCredential",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaCustomError",
@@ -5814,7 +6319,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaCustomError.html"
+    "url": "/commands/Remove-DbaCustomError",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDatabase",
@@ -5826,7 +6332,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDatabase.html"
+    "url": "/commands/Remove-DbaDatabase",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDatabaseSafely",
@@ -5838,7 +6345,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDatabaseSafely.html"
+    "url": "/commands/Remove-DbaDatabaseSafely",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbAsymmetricKey",
@@ -5849,7 +6357,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbAsymmetricKey.html"
+    "url": "/commands/Remove-DbaDbAsymmetricKey",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbBackupRestoreHistory",
@@ -5862,7 +6371,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbBackupRestoreHistory.html"
+    "url": "/commands/Remove-DbaDbBackupRestoreHistory",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbCertificate",
@@ -5874,7 +6384,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbCertificate.html"
+    "url": "/commands/Remove-DbaDbCertificate",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbCheckConstraint",
@@ -5885,7 +6396,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbCheckConstraint.html"
+    "url": "/commands/Remove-DbaDbCheckConstraint",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbData",
@@ -5896,7 +6408,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbData.html"
+    "url": "/commands/Remove-DbaDbData",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbEncryptionKey",
@@ -5908,7 +6421,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbEncryptionKey.html"
+    "url": "/commands/Remove-DbaDbEncryptionKey",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbFileGroup",
@@ -5919,7 +6433,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbFileGroup.html"
+    "url": "/commands/Remove-DbaDbFileGroup",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbLogShipping",
@@ -5930,7 +6445,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbLogShipping.html"
+    "url": "/commands/Remove-DbaDbLogShipping",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbMailAccount",
@@ -5941,7 +6457,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbMailAccount.html"
+    "url": "/commands/Remove-DbaDbMailAccount",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbMailProfile",
@@ -5952,7 +6469,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbMailProfile.html"
+    "url": "/commands/Remove-DbaDbMailProfile",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbMasterKey",
@@ -5963,7 +6481,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbMasterKey.html"
+    "url": "/commands/Remove-DbaDbMasterKey",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbMirror",
@@ -5975,7 +6494,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbMirror.html"
+    "url": "/commands/Remove-DbaDbMirror",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbMirrorMonitor",
@@ -5987,7 +6507,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbMirrorMonitor.html"
+    "url": "/commands/Remove-DbaDbMirrorMonitor",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbOrphanUser",
@@ -5998,7 +6519,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbOrphanUser.html"
+    "url": "/commands/Remove-DbaDbOrphanUser",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbPartitionFunction",
@@ -6009,7 +6531,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbPartitionFunction.html"
+    "url": "/commands/Remove-DbaDbPartitionFunction",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbPartitionScheme",
@@ -6020,7 +6543,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbPartitionScheme.html"
+    "url": "/commands/Remove-DbaDbPartitionScheme",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbRole",
@@ -6031,7 +6555,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbRole.html"
+    "url": "/commands/Remove-DbaDbRole",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbRoleMember",
@@ -6042,7 +6567,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbRoleMember.html"
+    "url": "/commands/Remove-DbaDbRoleMember",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbSchema",
@@ -6053,7 +6579,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbSchema.html"
+    "url": "/commands/Remove-DbaDbSchema",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbSequence",
@@ -6064,7 +6591,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbSequence.html"
+    "url": "/commands/Remove-DbaDbSequence",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbSnapshot",
@@ -6075,7 +6603,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbSnapshot.html"
+    "url": "/commands/Remove-DbaDbSnapshot",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbSynonym",
@@ -6086,7 +6615,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbSynonym.html"
+    "url": "/commands/Remove-DbaDbSynonym",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbTable",
@@ -6098,7 +6628,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbTable.html"
+    "url": "/commands/Remove-DbaDbTable",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbTableData",
@@ -6110,7 +6641,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbTableData.html"
+    "url": "/commands/Remove-DbaDbTableData",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbUdf",
@@ -6121,7 +6653,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbUdf.html"
+    "url": "/commands/Remove-DbaDbUdf",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbUser",
@@ -6132,7 +6665,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbUser.html"
+    "url": "/commands/Remove-DbaDbUser",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaDbView",
@@ -6143,7 +6677,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaDbView.html"
+    "url": "/commands/Remove-DbaDbView",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaEndpoint",
@@ -6154,7 +6689,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaEndpoint.html"
+    "url": "/commands/Remove-DbaEndpoint",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaExtendedProperty",
@@ -6165,7 +6701,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaExtendedProperty.html"
+    "url": "/commands/Remove-DbaExtendedProperty",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaFirewallRule",
@@ -6176,7 +6713,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaFirewallRule.html"
+    "url": "/commands/Remove-DbaFirewallRule",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaLinkedServer",
@@ -6188,7 +6726,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaLinkedServer.html"
+    "url": "/commands/Remove-DbaLinkedServer",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaLinkedServerLogin",
@@ -6201,7 +6740,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaLinkedServerLogin.html"
+    "url": "/commands/Remove-DbaLinkedServerLogin",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaLogin",
@@ -6213,7 +6753,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaLogin.html"
+    "url": "/commands/Remove-DbaLogin",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaNetworkCertificate",
@@ -6225,7 +6766,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaNetworkCertificate.html"
+    "url": "/commands/Remove-DbaNetworkCertificate",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaPfDataCollectorCounter",
@@ -6236,7 +6778,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaPfDataCollectorCounter.html"
+    "url": "/commands/Remove-DbaPfDataCollectorCounter",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaPfDataCollectorSet",
@@ -6247,7 +6790,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaPfDataCollectorSet.html"
+    "url": "/commands/Remove-DbaPfDataCollectorSet",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaRegServer",
@@ -6259,7 +6803,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaRegServer.html"
+    "url": "/commands/Remove-DbaRegServer",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaRegServerGroup",
@@ -6271,7 +6816,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaRegServerGroup.html"
+    "url": "/commands/Remove-DbaRegServerGroup",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaReplArticle",
@@ -6282,7 +6828,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaReplArticle.html"
+    "url": "/commands/Remove-DbaReplArticle",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaReplPublication",
@@ -6293,7 +6840,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaReplPublication.html"
+    "url": "/commands/Remove-DbaReplPublication",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaReplSubscription",
@@ -6304,7 +6852,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaReplSubscription.html"
+    "url": "/commands/Remove-DbaReplSubscription",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaRgResourcePool",
@@ -6315,7 +6864,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaRgResourcePool.html"
+    "url": "/commands/Remove-DbaRgResourcePool",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaRgWorkloadGroup",
@@ -6326,7 +6876,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaRgWorkloadGroup.html"
+    "url": "/commands/Remove-DbaRgWorkloadGroup",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaServerRole",
@@ -6338,7 +6889,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaServerRole.html"
+    "url": "/commands/Remove-DbaServerRole",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaServerRoleMember",
@@ -6350,7 +6902,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaServerRoleMember.html"
+    "url": "/commands/Remove-DbaServerRoleMember",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaSpn",
@@ -6361,7 +6914,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaSpn.html"
+    "url": "/commands/Remove-DbaSpn",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaTrace",
@@ -6372,7 +6926,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaTrace.html"
+    "url": "/commands/Remove-DbaTrace",
+    "popularityRank": 0
   },
   {
     "name": "Remove-DbaXESession",
@@ -6383,7 +6938,8 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "https://docs.dbatools.io/Remove-DbaXESession.html"
+    "url": "/commands/Remove-DbaXESession",
+    "popularityRank": 0
   },
   {
     "name": "Rename-DbaDatabase",
@@ -6395,7 +6951,8 @@
     ],
     "verb": "Rename",
     "popular": false,
-    "url": "https://docs.dbatools.io/Rename-DbaDatabase.html"
+    "url": "/commands/Rename-DbaDatabase",
+    "popularityRank": 0
   },
   {
     "name": "Rename-DbaLogin",
@@ -6407,7 +6964,8 @@
     ],
     "verb": "Rename",
     "popular": false,
-    "url": "https://docs.dbatools.io/Rename-DbaLogin.html"
+    "url": "/commands/Rename-DbaLogin",
+    "popularityRank": 0
   },
   {
     "name": "Repair-DbaDbMirror",
@@ -6419,7 +6977,8 @@
     ],
     "verb": "Repair",
     "popular": false,
-    "url": "https://docs.dbatools.io/Repair-DbaDbMirror.html"
+    "url": "/commands/Repair-DbaDbMirror",
+    "popularityRank": 0
   },
   {
     "name": "Repair-DbaDbOrphanUser",
@@ -6430,7 +6989,8 @@
     ],
     "verb": "Repair",
     "popular": true,
-    "url": "https://docs.dbatools.io/Repair-DbaDbOrphanUser.html"
+    "url": "/commands/Repair-DbaDbOrphanUser",
+    "popularityRank": 44
   },
   {
     "name": "Repair-DbaInstanceName",
@@ -6442,7 +7002,8 @@
     ],
     "verb": "Repair",
     "popular": false,
-    "url": "https://docs.dbatools.io/Repair-DbaInstanceName.html"
+    "url": "/commands/Repair-DbaInstanceName",
+    "popularityRank": 0
   },
   {
     "name": "Reset-DbaAdmin",
@@ -6453,7 +7014,8 @@
     ],
     "verb": "Reset",
     "popular": true,
-    "url": "https://docs.dbatools.io/Reset-DbaAdmin.html"
+    "url": "/commands/Reset-DbaAdmin",
+    "popularityRank": 5
   },
   {
     "name": "Reset-DbatoolsConfig",
@@ -6464,7 +7026,8 @@
     ],
     "verb": "Reset",
     "popular": false,
-    "url": "https://docs.dbatools.io/Reset-DbatoolsConfig.html"
+    "url": "/commands/Reset-DbatoolsConfig",
+    "popularityRank": 0
   },
   {
     "name": "Resolve-DbaNetworkName",
@@ -6475,7 +7038,8 @@
     ],
     "verb": "Resolve",
     "popular": false,
-    "url": "https://docs.dbatools.io/Resolve-DbaNetworkName.html"
+    "url": "/commands/Resolve-DbaNetworkName",
+    "popularityRank": 0
   },
   {
     "name": "Resolve-DbaPath",
@@ -6486,7 +7050,8 @@
     ],
     "verb": "Resolve",
     "popular": false,
-    "url": "https://docs.dbatools.io/Resolve-DbaPath.html"
+    "url": "/commands/Resolve-DbaPath",
+    "popularityRank": 0
   },
   {
     "name": "Restart-DbaService",
@@ -6497,7 +7062,8 @@
     ],
     "verb": "Restart",
     "popular": false,
-    "url": "https://docs.dbatools.io/Restart-DbaService.html"
+    "url": "/commands/Restart-DbaService",
+    "popularityRank": 0
   },
   {
     "name": "Restore-DbaDatabase",
@@ -6509,7 +7075,8 @@
     ],
     "verb": "Restore",
     "popular": true,
-    "url": "https://docs.dbatools.io/Restore-DbaDatabase.html"
+    "url": "/commands/Restore-DbaDatabase",
+    "popularityRank": 1
   },
   {
     "name": "Restore-DbaDbCertificate",
@@ -6521,7 +7088,8 @@
     ],
     "verb": "Restore",
     "popular": false,
-    "url": "https://docs.dbatools.io/Restore-DbaDbCertificate.html"
+    "url": "/commands/Restore-DbaDbCertificate",
+    "popularityRank": 0
   },
   {
     "name": "Restore-DbaDbSnapshot",
@@ -6532,7 +7100,8 @@
     ],
     "verb": "Restore",
     "popular": false,
-    "url": "https://docs.dbatools.io/Restore-DbaDbSnapshot.html"
+    "url": "/commands/Restore-DbaDbSnapshot",
+    "popularityRank": 0
   },
   {
     "name": "Resume-DbaAgDbDataMovement",
@@ -6544,7 +7113,8 @@
     ],
     "verb": "Resume",
     "popular": false,
-    "url": "https://docs.dbatools.io/Resume-DbaAgDbDataMovement.html"
+    "url": "/commands/Resume-DbaAgDbDataMovement",
+    "popularityRank": 0
   },
   {
     "name": "Revoke-DbaAgPermission",
@@ -6557,7 +7127,8 @@
     ],
     "verb": "Revoke",
     "popular": false,
-    "url": "https://docs.dbatools.io/Revoke-DbaAgPermission.html"
+    "url": "/commands/Revoke-DbaAgPermission",
+    "popularityRank": 0
   },
   {
     "name": "Save-DbaCommunitySoftware",
@@ -6568,7 +7139,8 @@
     ],
     "verb": "Save",
     "popular": false,
-    "url": "https://docs.dbatools.io/Save-DbaCommunitySoftware.html"
+    "url": "/commands/Save-DbaCommunitySoftware",
+    "popularityRank": 0
   },
   {
     "name": "Save-DbaDiagnosticQueryScript",
@@ -6581,7 +7153,8 @@
     ],
     "verb": "Save",
     "popular": false,
-    "url": "https://docs.dbatools.io/Save-DbaDiagnosticQueryScript.html"
+    "url": "/commands/Save-DbaDiagnosticQueryScript",
+    "popularityRank": 0
   },
   {
     "name": "Save-DbaKbUpdate",
@@ -6592,7 +7165,8 @@
     ],
     "verb": "Save",
     "popular": false,
-    "url": "https://docs.dbatools.io/Save-DbaKbUpdate.html"
+    "url": "/commands/Save-DbaKbUpdate",
+    "popularityRank": 0
   },
   {
     "name": "Select-DbaBackupInformation",
@@ -6604,7 +7178,8 @@
     ],
     "verb": "Select",
     "popular": false,
-    "url": "https://docs.dbatools.io/Select-DbaBackupInformation.html"
+    "url": "/commands/Select-DbaBackupInformation",
+    "popularityRank": 0
   },
   {
     "name": "Select-DbaDbSequenceNextValue",
@@ -6615,7 +7190,8 @@
     ],
     "verb": "Select",
     "popular": false,
-    "url": "https://docs.dbatools.io/Select-DbaDbSequenceNextValue.html"
+    "url": "/commands/Select-DbaDbSequenceNextValue",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaAgentAlert",
@@ -6628,7 +7204,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaAgentAlert.html"
+    "url": "/commands/Set-DbaAgentAlert",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaAgentJob",
@@ -6642,7 +7219,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaAgentJob.html"
+    "url": "/commands/Set-DbaAgentJob",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaAgentJobCategory",
@@ -6656,7 +7234,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaAgentJobCategory.html"
+    "url": "/commands/Set-DbaAgentJobCategory",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaAgentJobOutputFile",
@@ -6670,7 +7249,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaAgentJobOutputFile.html"
+    "url": "/commands/Set-DbaAgentJobOutputFile",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaAgentJobOwner",
@@ -6684,7 +7264,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaAgentJobOwner.html"
+    "url": "/commands/Set-DbaAgentJobOwner",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaAgentJobStep",
@@ -6698,7 +7279,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaAgentJobStep.html"
+    "url": "/commands/Set-DbaAgentJobStep",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaAgentOperator",
@@ -6711,7 +7293,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaAgentOperator.html"
+    "url": "/commands/Set-DbaAgentOperator",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaAgentSchedule",
@@ -6724,7 +7307,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaAgentSchedule.html"
+    "url": "/commands/Set-DbaAgentSchedule",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaAgentServer",
@@ -6738,7 +7322,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaAgentServer.html"
+    "url": "/commands/Set-DbaAgentServer",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaAgListener",
@@ -6750,7 +7335,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaAgListener.html"
+    "url": "/commands/Set-DbaAgListener",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaAgReplica",
@@ -6762,7 +7348,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaAgReplica.html"
+    "url": "/commands/Set-DbaAgReplica",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaAvailabilityGroup",
@@ -6774,7 +7361,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaAvailabilityGroup.html"
+    "url": "/commands/Set-DbaAvailabilityGroup",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaCmConnection",
@@ -6785,7 +7373,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaCmConnection.html"
+    "url": "/commands/Set-DbaCmConnection",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaDbCompatibility",
@@ -6796,7 +7385,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaDbCompatibility.html"
+    "url": "/commands/Set-DbaDbCompatibility",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaDbCompression",
@@ -6807,7 +7397,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaDbCompression.html"
+    "url": "/commands/Set-DbaDbCompression",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaDbFileGroup",
@@ -6818,7 +7409,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaDbFileGroup.html"
+    "url": "/commands/Set-DbaDbFileGroup",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaDbFileGrowth",
@@ -6829,7 +7421,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaDbFileGrowth.html"
+    "url": "/commands/Set-DbaDbFileGrowth",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaDbIdentity",
@@ -6840,7 +7433,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaDbIdentity.html"
+    "url": "/commands/Set-DbaDbIdentity",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaDbMirror",
@@ -6852,7 +7446,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaDbMirror.html"
+    "url": "/commands/Set-DbaDbMirror",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaDbOwner",
@@ -6863,7 +7458,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaDbOwner.html"
+    "url": "/commands/Set-DbaDbOwner",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaDbQueryStoreOption",
@@ -6875,7 +7471,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaDbQueryStoreOption.html"
+    "url": "/commands/Set-DbaDbQueryStoreOption",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaDbRecoveryModel",
@@ -6886,7 +7483,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaDbRecoveryModel.html"
+    "url": "/commands/Set-DbaDbRecoveryModel",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaDbSchema",
@@ -6897,7 +7495,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaDbSchema.html"
+    "url": "/commands/Set-DbaDbSchema",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaDbSequence",
@@ -6908,7 +7507,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaDbSequence.html"
+    "url": "/commands/Set-DbaDbSequence",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaDbState",
@@ -6919,7 +7519,8 @@
     ],
     "verb": "Set",
     "popular": true,
-    "url": "https://docs.dbatools.io/Set-DbaDbState.html"
+    "url": "/commands/Set-DbaDbState",
+    "popularityRank": 47
   },
   {
     "name": "Set-DbaDefaultPath",
@@ -6930,7 +7531,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaDefaultPath.html"
+    "url": "/commands/Set-DbaDefaultPath",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaEndpoint",
@@ -6941,7 +7543,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaEndpoint.html"
+    "url": "/commands/Set-DbaEndpoint",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaErrorLogConfig",
@@ -6952,7 +7555,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaErrorLogConfig.html"
+    "url": "/commands/Set-DbaErrorLogConfig",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaExtendedProperty",
@@ -6963,7 +7567,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaExtendedProperty.html"
+    "url": "/commands/Set-DbaExtendedProperty",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaExtendedProtection",
@@ -6974,7 +7579,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaExtendedProtection.html"
+    "url": "/commands/Set-DbaExtendedProtection",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaLogin",
@@ -6986,7 +7592,8 @@
     ],
     "verb": "Set",
     "popular": true,
-    "url": "https://docs.dbatools.io/Set-DbaLogin.html"
+    "url": "/commands/Set-DbaLogin",
+    "popularityRank": 49
   },
   {
     "name": "Set-DbaMaxDop",
@@ -6997,7 +7604,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaMaxDop.html"
+    "url": "/commands/Set-DbaMaxDop",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaMaxMemory",
@@ -7008,7 +7616,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaMaxMemory.html"
+    "url": "/commands/Set-DbaMaxMemory",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaNetworkCertificate",
@@ -7020,7 +7629,8 @@
     ],
     "verb": "Set",
     "popular": true,
-    "url": "https://docs.dbatools.io/Set-DbaNetworkCertificate.html"
+    "url": "/commands/Set-DbaNetworkCertificate",
+    "popularityRank": 36
   },
   {
     "name": "Set-DbaNetworkConfiguration",
@@ -7031,7 +7641,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaNetworkConfiguration.html"
+    "url": "/commands/Set-DbaNetworkConfiguration",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaPowerPlan",
@@ -7042,7 +7653,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaPowerPlan.html"
+    "url": "/commands/Set-DbaPowerPlan",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaPrivilege",
@@ -7053,7 +7665,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaPrivilege.html"
+    "url": "/commands/Set-DbaPrivilege",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaResourceGovernor",
@@ -7064,7 +7677,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaResourceGovernor.html"
+    "url": "/commands/Set-DbaResourceGovernor",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaRgResourcePool",
@@ -7075,7 +7689,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaRgResourcePool.html"
+    "url": "/commands/Set-DbaRgResourcePool",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaRgWorkloadGroup",
@@ -7086,7 +7701,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaRgWorkloadGroup.html"
+    "url": "/commands/Set-DbaRgWorkloadGroup",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaSpConfigure",
@@ -7097,7 +7713,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaSpConfigure.html"
+    "url": "/commands/Set-DbaSpConfigure",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaSpn",
@@ -7108,7 +7725,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaSpn.html"
+    "url": "/commands/Set-DbaSpn",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaStartupParameter",
@@ -7119,7 +7737,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaStartupParameter.html"
+    "url": "/commands/Set-DbaStartupParameter",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaTcpPort",
@@ -7130,7 +7749,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaTcpPort.html"
+    "url": "/commands/Set-DbaTcpPort",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbaTempDbConfig",
@@ -7141,7 +7761,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbaTempDbConfig.html"
+    "url": "/commands/Set-DbaTempDbConfig",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbatoolsInsecureConnection",
@@ -7152,7 +7773,8 @@
     ],
     "verb": "Set",
     "popular": true,
-    "url": "https://docs.dbatools.io/Set-DbatoolsInsecureConnection.html"
+    "url": "/commands/Set-DbatoolsInsecureConnection",
+    "popularityRank": 18
   },
   {
     "name": "Set-DbatoolsPath",
@@ -7163,7 +7785,8 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbatoolsPath.html"
+    "url": "/commands/Set-DbatoolsPath",
+    "popularityRank": 0
   },
   {
     "name": "Show-DbaDbList",
@@ -7174,7 +7797,8 @@
     ],
     "verb": "Show",
     "popular": false,
-    "url": "https://docs.dbatools.io/Show-DbaDbList.html"
+    "url": "/commands/Show-DbaDbList",
+    "popularityRank": 0
   },
   {
     "name": "Show-DbaInstanceFileSystem",
@@ -7186,7 +7810,8 @@
     ],
     "verb": "Show",
     "popular": false,
-    "url": "https://docs.dbatools.io/Show-DbaInstanceFileSystem.html"
+    "url": "/commands/Show-DbaInstanceFileSystem",
+    "popularityRank": 0
   },
   {
     "name": "Start-DbaAgentJob",
@@ -7200,7 +7825,8 @@
     ],
     "verb": "Start",
     "popular": false,
-    "url": "https://docs.dbatools.io/Start-DbaAgentJob.html"
+    "url": "/commands/Start-DbaAgentJob",
+    "popularityRank": 0
   },
   {
     "name": "Start-DbaDbEncryption",
@@ -7212,7 +7838,8 @@
     ],
     "verb": "Start",
     "popular": false,
-    "url": "https://docs.dbatools.io/Start-DbaDbEncryption.html"
+    "url": "/commands/Start-DbaDbEncryption",
+    "popularityRank": 0
   },
   {
     "name": "Start-DbaEndpoint",
@@ -7223,7 +7850,8 @@
     ],
     "verb": "Start",
     "popular": false,
-    "url": "https://docs.dbatools.io/Start-DbaEndpoint.html"
+    "url": "/commands/Start-DbaEndpoint",
+    "popularityRank": 0
   },
   {
     "name": "Start-DbaMigration",
@@ -7235,7 +7863,8 @@
     ],
     "verb": "Start",
     "popular": true,
-    "url": "https://docs.dbatools.io/Start-DbaMigration.html"
+    "url": "/commands/Start-DbaMigration",
+    "popularityRank": 8
   },
   {
     "name": "Start-DbaPfDataCollectorSet",
@@ -7246,7 +7875,8 @@
     ],
     "verb": "Start",
     "popular": false,
-    "url": "https://docs.dbatools.io/Start-DbaPfDataCollectorSet.html"
+    "url": "/commands/Start-DbaPfDataCollectorSet",
+    "popularityRank": 0
   },
   {
     "name": "Start-DbaService",
@@ -7257,7 +7887,8 @@
     ],
     "verb": "Start",
     "popular": false,
-    "url": "https://docs.dbatools.io/Start-DbaService.html"
+    "url": "/commands/Start-DbaService",
+    "popularityRank": 0
   },
   {
     "name": "Start-DbaTrace",
@@ -7268,7 +7899,8 @@
     ],
     "verb": "Start",
     "popular": false,
-    "url": "https://docs.dbatools.io/Start-DbaTrace.html"
+    "url": "/commands/Start-DbaTrace",
+    "popularityRank": 0
   },
   {
     "name": "Start-DbaXESession",
@@ -7279,7 +7911,8 @@
     ],
     "verb": "Start",
     "popular": false,
-    "url": "https://docs.dbatools.io/Start-DbaXESession.html"
+    "url": "/commands/Start-DbaXESession",
+    "popularityRank": 0
   },
   {
     "name": "Stop-DbaAgentJob",
@@ -7293,7 +7926,8 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "https://docs.dbatools.io/Stop-DbaAgentJob.html"
+    "url": "/commands/Stop-DbaAgentJob",
+    "popularityRank": 0
   },
   {
     "name": "Stop-DbaDbEncryption",
@@ -7305,7 +7939,8 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "https://docs.dbatools.io/Stop-DbaDbEncryption.html"
+    "url": "/commands/Stop-DbaDbEncryption",
+    "popularityRank": 0
   },
   {
     "name": "Stop-DbaEndpoint",
@@ -7316,7 +7951,8 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "https://docs.dbatools.io/Stop-DbaEndpoint.html"
+    "url": "/commands/Stop-DbaEndpoint",
+    "popularityRank": 0
   },
   {
     "name": "Stop-DbaExternalProcess",
@@ -7327,7 +7963,8 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "https://docs.dbatools.io/Stop-DbaExternalProcess.html"
+    "url": "/commands/Stop-DbaExternalProcess",
+    "popularityRank": 0
   },
   {
     "name": "Stop-DbaPfDataCollectorSet",
@@ -7338,7 +7975,8 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "https://docs.dbatools.io/Stop-DbaPfDataCollectorSet.html"
+    "url": "/commands/Stop-DbaPfDataCollectorSet",
+    "popularityRank": 0
   },
   {
     "name": "Stop-DbaProcess",
@@ -7349,7 +7987,8 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "https://docs.dbatools.io/Stop-DbaProcess.html"
+    "url": "/commands/Stop-DbaProcess",
+    "popularityRank": 0
   },
   {
     "name": "Stop-DbaService",
@@ -7360,7 +7999,8 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "https://docs.dbatools.io/Stop-DbaService.html"
+    "url": "/commands/Stop-DbaService",
+    "popularityRank": 0
   },
   {
     "name": "Stop-DbaTrace",
@@ -7371,7 +8011,8 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "https://docs.dbatools.io/Stop-DbaTrace.html"
+    "url": "/commands/Stop-DbaTrace",
+    "popularityRank": 0
   },
   {
     "name": "Stop-DbaXESession",
@@ -7382,7 +8023,8 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "https://docs.dbatools.io/Stop-DbaXESession.html"
+    "url": "/commands/Stop-DbaXESession",
+    "popularityRank": 0
   },
   {
     "name": "Suspend-DbaAgDbDataMovement",
@@ -7394,7 +8036,8 @@
     ],
     "verb": "Suspend",
     "popular": false,
-    "url": "https://docs.dbatools.io/Suspend-DbaAgDbDataMovement.html"
+    "url": "/commands/Suspend-DbaAgDbDataMovement",
+    "popularityRank": 0
   },
   {
     "name": "Sync-DbaAvailabilityGroup",
@@ -7406,7 +8049,8 @@
     ],
     "verb": "Sync",
     "popular": true,
-    "url": "https://docs.dbatools.io/Sync-DbaAvailabilityGroup.html"
+    "url": "/commands/Sync-DbaAvailabilityGroup",
+    "popularityRank": 22
   },
   {
     "name": "Sync-DbaLoginPermission",
@@ -7419,7 +8063,8 @@
     ],
     "verb": "Sync",
     "popular": true,
-    "url": "https://docs.dbatools.io/Sync-DbaLoginPermission.html"
+    "url": "/commands/Sync-DbaLoginPermission",
+    "popularityRank": 28
   },
   {
     "name": "Test-DbaAgentJobOwner",
@@ -7433,7 +8078,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaAgentJobOwner.html"
+    "url": "/commands/Test-DbaAgentJobOwner",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaAgSpn",
@@ -7445,7 +8091,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaAgSpn.html"
+    "url": "/commands/Test-DbaAgSpn",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaAvailabilityGroup",
@@ -7457,7 +8104,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaAvailabilityGroup.html"
+    "url": "/commands/Test-DbaAvailabilityGroup",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaBackupEncrypted",
@@ -7470,7 +8118,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaBackupEncrypted.html"
+    "url": "/commands/Test-DbaBackupEncrypted",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaBackupInformation",
@@ -7482,7 +8131,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaBackupInformation.html"
+    "url": "/commands/Test-DbaBackupInformation",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaBuild",
@@ -7493,7 +8143,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaBuild.html"
+    "url": "/commands/Test-DbaBuild",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaCmConnection",
@@ -7504,7 +8155,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaCmConnection.html"
+    "url": "/commands/Test-DbaCmConnection",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaComputerCertificateExpiration",
@@ -7516,7 +8168,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaComputerCertificateExpiration.html"
+    "url": "/commands/Test-DbaComputerCertificateExpiration",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaConnection",
@@ -7527,7 +8180,8 @@
     ],
     "verb": "Test",
     "popular": true,
-    "url": "https://docs.dbatools.io/Test-DbaConnection.html"
+    "url": "/commands/Test-DbaConnection",
+    "popularityRank": 30
   },
   {
     "name": "Test-DbaConnectionAuthScheme",
@@ -7538,7 +8192,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaConnectionAuthScheme.html"
+    "url": "/commands/Test-DbaConnectionAuthScheme",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaDbCollation",
@@ -7549,7 +8204,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaDbCollation.html"
+    "url": "/commands/Test-DbaDbCollation",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaDbCompatibility",
@@ -7560,7 +8216,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaDbCompatibility.html"
+    "url": "/commands/Test-DbaDbCompatibility",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaDbCompression",
@@ -7571,7 +8228,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaDbCompression.html"
+    "url": "/commands/Test-DbaDbCompression",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaDbDataGeneratorConfig",
@@ -7583,7 +8241,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaDbDataGeneratorConfig.html"
+    "url": "/commands/Test-DbaDbDataGeneratorConfig",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaDbDataMaskingConfig",
@@ -7594,7 +8253,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaDbDataMaskingConfig.html"
+    "url": "/commands/Test-DbaDbDataMaskingConfig",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaDbLogShipStatus",
@@ -7605,7 +8265,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaDbLogShipStatus.html"
+    "url": "/commands/Test-DbaDbLogShipStatus",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaDbOwner",
@@ -7616,7 +8277,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaDbOwner.html"
+    "url": "/commands/Test-DbaDbOwner",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaDbQueryStore",
@@ -7628,7 +8290,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaDbQueryStore.html"
+    "url": "/commands/Test-DbaDbQueryStore",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaDbRecoveryModel",
@@ -7639,7 +8302,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaDbRecoveryModel.html"
+    "url": "/commands/Test-DbaDbRecoveryModel",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaDiskAlignment",
@@ -7650,7 +8314,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaDiskAlignment.html"
+    "url": "/commands/Test-DbaDiskAlignment",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaDiskAllocation",
@@ -7661,7 +8326,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaDiskAllocation.html"
+    "url": "/commands/Test-DbaDiskAllocation",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaDiskSpeed",
@@ -7672,7 +8338,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaDiskSpeed.html"
+    "url": "/commands/Test-DbaDiskSpeed",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaEndpoint",
@@ -7683,7 +8350,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaEndpoint.html"
+    "url": "/commands/Test-DbaEndpoint",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaIdentityUsage",
@@ -7695,7 +8363,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaIdentityUsage.html"
+    "url": "/commands/Test-DbaIdentityUsage",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaInstanceName",
@@ -7707,7 +8376,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaInstanceName.html"
+    "url": "/commands/Test-DbaInstanceName",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaLastBackup",
@@ -7719,7 +8389,8 @@
     ],
     "verb": "Test",
     "popular": true,
-    "url": "https://docs.dbatools.io/Test-DbaLastBackup.html"
+    "url": "/commands/Test-DbaLastBackup",
+    "popularityRank": 40
   },
   {
     "name": "Test-DbaLinkedServerConnection",
@@ -7731,7 +8402,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaLinkedServerConnection.html"
+    "url": "/commands/Test-DbaLinkedServerConnection",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaLoginPassword",
@@ -7743,7 +8415,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaLoginPassword.html"
+    "url": "/commands/Test-DbaLoginPassword",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaManagementObject",
@@ -7755,7 +8428,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaManagementObject.html"
+    "url": "/commands/Test-DbaManagementObject",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaMaxDop",
@@ -7766,7 +8440,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaMaxDop.html"
+    "url": "/commands/Test-DbaMaxDop",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaMaxMemory",
@@ -7777,7 +8452,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaMaxMemory.html"
+    "url": "/commands/Test-DbaMaxMemory",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaMigrationConstraint",
@@ -7789,7 +8465,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaMigrationConstraint.html"
+    "url": "/commands/Test-DbaMigrationConstraint",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaNetworkLatency",
@@ -7800,7 +8477,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaNetworkLatency.html"
+    "url": "/commands/Test-DbaNetworkLatency",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaOptimizeForAdHoc",
@@ -7811,7 +8489,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaOptimizeForAdHoc.html"
+    "url": "/commands/Test-DbaOptimizeForAdHoc",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaPath",
@@ -7822,7 +8501,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaPath.html"
+    "url": "/commands/Test-DbaPath",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaPowerPlan",
@@ -7833,7 +8513,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaPowerPlan.html"
+    "url": "/commands/Test-DbaPowerPlan",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaReplLatency",
@@ -7844,7 +8525,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaReplLatency.html"
+    "url": "/commands/Test-DbaReplLatency",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaSpn",
@@ -7855,7 +8537,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaSpn.html"
+    "url": "/commands/Test-DbaSpn",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaTempDbConfig",
@@ -7866,7 +8549,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaTempDbConfig.html"
+    "url": "/commands/Test-DbaTempDbConfig",
+    "popularityRank": 0
   },
   {
     "name": "Test-DbaWindowsLogin",
@@ -7878,7 +8562,8 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "https://docs.dbatools.io/Test-DbaWindowsLogin.html"
+    "url": "/commands/Test-DbaWindowsLogin",
+    "popularityRank": 0
   },
   {
     "name": "Uninstall-DbaSqlWatch",
@@ -7889,7 +8574,8 @@
     ],
     "verb": "Uninstall",
     "popular": false,
-    "url": "https://docs.dbatools.io/Uninstall-DbaSqlWatch.html"
+    "url": "/commands/Uninstall-DbaSqlWatch",
+    "popularityRank": 0
   },
   {
     "name": "Unregister-DbatoolsConfig",
@@ -7900,7 +8586,8 @@
     ],
     "verb": "Unregister",
     "popular": false,
-    "url": "https://docs.dbatools.io/Unregister-DbatoolsConfig.html"
+    "url": "/commands/Unregister-DbatoolsConfig",
+    "popularityRank": 0
   },
   {
     "name": "Update-DbaBuildReference",
@@ -7911,7 +8598,8 @@
     ],
     "verb": "Update",
     "popular": false,
-    "url": "https://docs.dbatools.io/Update-DbaBuildReference.html"
+    "url": "/commands/Update-DbaBuildReference",
+    "popularityRank": 0
   },
   {
     "name": "Update-DbaInstance",
@@ -7923,7 +8611,8 @@
     ],
     "verb": "Update",
     "popular": true,
-    "url": "https://docs.dbatools.io/Update-DbaInstance.html"
+    "url": "/commands/Update-DbaInstance",
+    "popularityRank": 15
   },
   {
     "name": "Update-DbaMaintenanceSolution",
@@ -7934,7 +8623,8 @@
     ],
     "verb": "Update",
     "popular": false,
-    "url": "https://docs.dbatools.io/Update-DbaMaintenanceSolution.html"
+    "url": "/commands/Update-DbaMaintenanceSolution",
+    "popularityRank": 0
   },
   {
     "name": "Update-DbaServiceAccount",
@@ -7945,7 +8635,8 @@
     ],
     "verb": "Update",
     "popular": true,
-    "url": "https://docs.dbatools.io/Update-DbaServiceAccount.html"
+    "url": "/commands/Update-DbaServiceAccount",
+    "popularityRank": 51
   },
   {
     "name": "Update-Dbatools",
@@ -7956,7 +8647,8 @@
     ],
     "verb": "Update",
     "popular": true,
-    "url": "https://docs.dbatools.io/Update-Dbatools.html"
+    "url": "/commands/Update-Dbatools",
+    "popularityRank": 41
   },
   {
     "name": "Watch-DbaDbLogin",
@@ -7968,7 +8660,8 @@
     ],
     "verb": "Watch",
     "popular": false,
-    "url": "https://docs.dbatools.io/Watch-DbaDbLogin.html"
+    "url": "/commands/Watch-DbaDbLogin",
+    "popularityRank": 0
   },
   {
     "name": "Watch-DbaXESession",
@@ -7979,7 +8672,8 @@
     ],
     "verb": "Watch",
     "popular": false,
-    "url": "https://docs.dbatools.io/Watch-DbaXESession.html"
+    "url": "/commands/Watch-DbaXESession",
+    "popularityRank": 0
   },
   {
     "name": "Write-DbaDbTableData",
@@ -7991,7 +8685,8 @@
     ],
     "verb": "Write",
     "popular": true,
-    "url": "https://docs.dbatools.io/Write-DbaDbTableData.html"
+    "url": "/commands/Write-DbaDbTableData",
+    "popularityRank": 21
   },
   {
     "name": "Select-DbaObject",
@@ -8002,7 +8697,8 @@
     ],
     "verb": "Select",
     "popular": false,
-    "url": "https://docs.dbatools.io/Select-DbaObject.html"
+    "url": "/commands/Select-DbaObject",
+    "popularityRank": 0
   },
   {
     "name": "Set-DbatoolsConfig",
@@ -8013,6 +8709,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "https://docs.dbatools.io/Set-DbatoolsConfig.html"
+    "url": "/commands/Set-DbatoolsConfig",
+    "popularityRank": 0
   }
 ]

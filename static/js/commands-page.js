@@ -32,7 +32,7 @@ class CommandsBrowser {
 
   async loadCommands() {
     try {
-      const response = await fetch('/data/commands.json');
+      const response = await fetch('/commands.json');
       this.allCommands = await response.json();
       console.log(`Loaded ${this.allCommands.length} commands`);
     } catch (error) {
@@ -220,11 +220,18 @@ class CommandsBrowser {
   togglePopularFilter() {
     this.showPopularOnly = !this.showPopularOnly;
     const btn = document.getElementById('popular-filter-btn');
+    const sortSelect = document.getElementById('sort-select');
+    const popularityNote = document.getElementById('popularity-note');
 
     if (this.showPopularOnly) {
       btn.classList.add('active');
+      // Auto-select "Popular First" sorting
+      this.activeSort = 'popular';
+      sortSelect.value = 'popular';
+      popularityNote.classList.add('show');
     } else {
       btn.classList.remove('active');
+      popularityNote.classList.remove('show');
     }
 
     this.applyAllFilters();
@@ -329,10 +336,15 @@ class CommandsBrowser {
 
       case 'popular':
         sorted.sort((a, b) => {
-          if (b.popular === a.popular) {
-            return a.name.localeCompare(b.name);
+          // Sort by popularityRank (lower rank = more popular)
+          if (a.popular && b.popular) {
+            return a.popularityRank - b.popularityRank;
           }
-          return b.popular ? 1 : -1;
+          // Popular commands come first
+          if (a.popular && !b.popular) return -1;
+          if (!a.popular && b.popular) return 1;
+          // Both non-popular, sort alphabetically
+          return a.name.localeCompare(b.name);
         });
         break;
 
@@ -372,6 +384,14 @@ class CommandsBrowser {
   loadURLParams() {
     const params = new URLSearchParams(window.location.search);
 
+    // Load search query
+    const search = params.get('search');
+    if (search) {
+      this.searchQuery = search;
+      document.getElementById('search-input').value = search;
+      this.updateSearchUI();
+    }
+
     // Load category
     const category = params.get('category');
     if (category) {
@@ -395,7 +415,7 @@ class CommandsBrowser {
     }
 
     // Load popular filter
-    if (params.get('popular') === 'true') {
+    if (params.get('popular') === 'true' || params.get('popular') === '1') {
       this.showPopularOnly = true;
       document.getElementById('popular-filter-btn').classList.add('active');
     }

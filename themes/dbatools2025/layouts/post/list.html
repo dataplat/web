@@ -1,12 +1,12 @@
 {{ define "main" }}
-<div class="bg-white dark:bg-slate-900 pt-24">
+<div class="bg-white pt-24">
   <div class="max-w-8xl mx-auto px-12 py-16">
 
     <!-- Page Header -->
     <div class="mb-16">
       <h1 class="text-5xl font-bold mb-4">{{ .Title }}</h1>
       {{ if .Description }}
-      <p class="text-xl text-slate-600 dark:text-slate-400">{{ .Description }}</p>
+      <p class="text-xl text-slate-600">{{ .Description }}</p>
       {{ end }}
     </div>
 
@@ -14,11 +14,11 @@
     {{ $paginator := .Paginate .Pages 20 }}
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {{ range $paginator.Pages }}
-      <article class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 shadow-soft hover:shadow-soft-lg hover:scale-[1.02] transition-all duration-300">
+      <article class="bg-slate-50 rounded-2xl p-8 shadow-soft hover:shadow-soft-lg hover:scale-[1.02] transition-all duration-300">
 
         <!-- Title -->
         <h2 class="text-2xl font-semibold mb-3">
-          <a href="{{ .Permalink }}" class="text-slate-900 dark:text-slate-100 hover:text-primary dark:hover:text-accent transition-colors">
+          <a href="{{ .Permalink }}" class="text-slate-900 hover:text-primary transition-colors">
             {{ .Title }}
           </a>
         </h2>
@@ -26,12 +26,12 @@
         <!-- Author and Date -->
         <div class="flex items-center justify-between mb-4">
           {{ if .Params.author }}
-          <p class="text-sm text-slate-600 dark:text-slate-400 font-medium">
+          <p class="text-sm text-slate-600 font-medium">
             {{ .Params.author }}
           </p>
           {{ end }}
           {{ if .Date }}
-          <p class="text-sm text-slate-500 dark:text-slate-400">
+          <p class="text-sm text-slate-500">
             {{ .Date.Format "Jan 2, 2006" }}
           </p>
           {{ end }}
@@ -39,13 +39,13 @@
 
         <!-- Summary/Excerpt -->
         {{ if .Summary }}
-        <p class="text-base text-slate-700 dark:text-slate-300 mb-4 leading-relaxed">
+        <p class="text-base text-slate-700 mb-4 leading-relaxed">
           {{ .Summary }}
         </p>
         {{ end }}
 
         <!-- Read More Link -->
-        <a href="{{ .Permalink }}" class="text-primary dark:text-accent font-semibold hover:underline inline-flex items-center gap-2">
+        <a href="{{ .Permalink }}" class="text-primary font-semibold hover:underline inline-flex items-center gap-2">
           Read more
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -62,11 +62,11 @@
     <div class="flex justify-center items-center gap-2 mt-16">
       <!-- Previous Button -->
       {{ if $paginator.HasPrev }}
-      <a href="{{ $paginator.Prev.URL }}" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-primary hover:text-white transition-all font-semibold text-sm">
+      <a href="{{ $paginator.Prev.URL }}" class="px-4 py-2 bg-slate-100 rounded-lg hover:bg-primary hover:text-white transition-all font-semibold text-sm">
         ← Previous
       </a>
       {{ else }}
-      <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-400 dark:text-slate-600 text-sm font-semibold cursor-not-allowed">
+      <span class="px-4 py-2 bg-slate-100 rounded-lg text-slate-400 text-sm font-semibold cursor-not-allowed">
         ← Previous
       </span>
       {{ end }}
@@ -77,25 +77,25 @@
           {{ if eq $num $paginator.PageNumber }}
           <span class="px-3 py-2 bg-primary text-white rounded-lg font-semibold text-sm">{{ $num }}</span>
           {{ else }}
-          <a href="{{ if eq $num 1 }}{{ $paginator.First.URL }}{{ else }}{{ printf "%s/page/%d/" $.RelPermalink $num | strings.TrimSuffix "/" }}/{{ end }}" class="px-3 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-primary hover:text-white transition-all font-semibold text-sm">{{ $num }}</a>
+          <a href="{{ if eq $num 1 }}{{ $paginator.First.URL }}{{ else }}{{ printf "%s/page/%d/" $.RelPermalink $num | strings.TrimSuffix "/" }}/{{ end }}" class="px-3 py-2 bg-slate-100 rounded-lg hover:bg-primary hover:text-white transition-all font-semibold text-sm">{{ $num }}</a>
           {{ end }}
         {{ end }}
       </div>
 
       <!-- Next Button -->
       {{ if $paginator.HasNext }}
-      <a href="{{ $paginator.Next.URL }}" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-primary hover:text-white transition-all font-semibold text-sm">
+      <a href="{{ $paginator.Next.URL }}" class="px-4 py-2 bg-slate-100 rounded-lg hover:bg-primary hover:text-white transition-all font-semibold text-sm">
         Next →
       </a>
       {{ else }}
-      <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-400 dark:text-slate-600 text-sm font-semibold cursor-not-allowed">
+      <span class="px-4 py-2 bg-slate-100 rounded-lg text-slate-400 text-sm font-semibold cursor-not-allowed">
         Next →
       </span>
       {{ end }}
     </div>
 
     <!-- Page Info -->
-    <div class="text-center mt-4 text-sm text-slate-500 dark:text-slate-400">
+    <div class="text-center mt-4 text-sm text-slate-500">
       Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }} ({{ $paginator.TotalNumberOfElements }} total posts)
     </div>
     {{ end }}

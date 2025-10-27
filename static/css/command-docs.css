@@ -1,0 +1,313 @@
+/* Command Documentation Styles - GitHub Light Theme */
+
+/* Code blocks - styled like command cards with subtle borders */
+article pre {
+  background-color: #f6f8fa !important;
+  border: 1px solid #d1d9e0 !important;
+  border-radius: 6px !important;
+  padding: 16px !important;
+  margin: 1.5rem 0 !important;
+  overflow-x: auto;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04), 0 0 0 1px rgba(27, 31, 35, 0.04);
+}
+
+article pre:hover {
+  background-color: #ffffff !important;
+  border-color: #818b98 !important;
+  box-shadow: 0 3px 6px rgba(140, 149, 159, 0.15);
+}
+
+article pre code {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #1f2328;
+}
+
+/* Inline code */
+article code {
+  background-color: #f6f8fa;
+  border: 1px solid #d1d9e0;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.9em;
+  color: #22C55E;
+  font-weight: 500;
+}
+
+article pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* Tables - match the card styling */
+article table {
+  border: 1px solid #d1d9e0;
+  border-radius: 6px;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  margin: 1.5rem 0;
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04), 0 0 0 1px rgba(27, 31, 35, 0.04);
+}
+
+article table th {
+  background-color: #f6f8fa;
+  border-bottom: 1px solid #d1d9e0;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #1f2328;
+}
+
+article table td {
+  border-bottom: 1px solid #d1d9e0;
+  padding: 12px 16px;
+  color: #59636e;
+}
+
+article table tr:last-child td {
+  border-bottom: none;
+}
+
+article table tbody tr:hover {
+  background-color: #f6f8fa;
+}
+
+/* Headings */
+article h1 {
+  color: #22C55E;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+
+article h2 {
+  color: #1f2328;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #d1d9e0;
+}
+
+article h3 {
+  color: #1f2328;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+article h4 {
+  color: #1f2328;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+article h5 {
+  color: #0969da;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Links */
+article a {
+  color: #0969da;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+article a:hover {
+  color: #0860ca;
+  text-decoration: underline;
+}
+
+/* Paragraphs and text */
+article p {
+  color: #1f2328;
+  line-height: 1.7;
+  margin: 1rem 0;
+}
+
+article p code {
+  background-color: #f6f8fa;
+}
+
+/* Lists */
+article ul,
+article ol {
+  color: #1f2328;
+  line-height: 1.7;
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+article li {
+  margin: 0.5rem 0;
+}
+
+/* Blockquotes */
+article blockquote {
+  border-left: 4px solid #0969da;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: #59636e;
+  font-style: italic;
+}
+
+/* Horizontal rules */
+article hr {
+  border: none;
+  border-top: 2px solid #d1d9e0;
+  margin: 2rem 0;
+}
+
+/* Scrollbar styling for code blocks */
+article pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+article pre::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+article pre::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+article pre::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+/* Dark mode support */
+.dark article pre {
+  background-color: #0B234A !important;
+  border-color: #273B59 !important;
+}
+
+.dark article pre:hover {
+  background-color: #0e2a57 !important;
+  border-color: #3a4d6b !important;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark article pre code {
+  color: #e6edf3;
+}
+
+.dark article code {
+  background-color: #0B234A;
+  border-color: #273B59;
+  color: #22C55E;
+}
+
+.dark article table {
+  border-color: #273B59;
+}
+
+.dark article table th {
+  background-color: #0B234A;
+  border-color: #273B59;
+  color: #e6edf3;
+}
+
+.dark article table td {
+  border-color: #273B59;
+  color: #9198a1;
+}
+
+.dark article table tbody tr:hover {
+  background-color: #0e2a57;
+}
+
+.dark article h1 {
+  color: #22C55E;
+}
+
+.dark article h2,
+.dark article h3,
+.dark article h4 {
+  color: #e6edf3;
+  border-color: #273B59;
+}
+
+.dark article h5 {
+  color: #60A5FA;
+}
+
+.dark article a {
+  color: #60A5FA;
+}
+
+.dark article a:hover {
+  color: #93c5fd;
+}
+
+.dark article p {
+  color: #e6edf3;
+}
+
+.dark article ul,
+.dark article ol {
+  color: #e6edf3;
+}
+
+.dark article blockquote {
+  border-left-color: #60A5FA;
+  color: #9198a1;
+}
+
+.dark article hr {
+  border-color: #273B59;
+}
+
+.dark article pre::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dark article pre::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark article pre::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  article h1 {
+    font-size: 2rem;
+  }
+
+  article h2 {
+    font-size: 1.5rem;
+  }
+
+  article h3 {
+    font-size: 1.25rem;
+  }
+
+  article pre {
+    padding: 12px !important;
+    font-size: 0.85rem;
+  }
+}

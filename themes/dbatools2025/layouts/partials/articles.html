@@ -1,12 +1,12 @@
-<section class="py-16 bg-white dark:bg-theme-bg-dark">
+<section class="py-16 bg-white">
   <div class="max-w-7xl mx-auto px-6">
 
     <!-- Section header -->
     <div class="text-center mb-16">
-      <h2 class="text-display font-bold mb-4 text-theme-text dark:text-theme-text-dark">
+      <h2 class="text-display font-bold mb-4 text-theme-text">
         Latest Articles
       </h2>
-      <p class="text-lg text-theme-text-secondary dark:text-theme-text-secondary-dark max-w-2xl mx-auto">
+      <p class="text-lg text-theme-text-secondary max-w-2xl mx-auto">
         Tips, guides, and updates from the dbatools community
       </p>
     </div>
@@ -14,31 +14,31 @@
     <!-- Articles grid -->
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
       {{ range first 6 (where site.RegularPages "Type" "post") }}
-      <article class="bg-theme-card dark:bg-theme-card-dark rounded-xl p-6 border border-theme-border dark:border-theme-border-dark hover:border-primary/50 dark:hover:border-primary/50 transition-all">
+      <article class="bg-theme-card rounded-xl p-6 border border-theme-border hover:border-primary/50 transition-all">
 
         <!-- Date -->
         {{ if .Date }}
-        <p class="text-sm text-theme-text-secondary dark:text-theme-text-secondary-dark mb-3">
+        <p class="text-sm text-theme-text-secondary mb-3">
           {{ .Date.Format "January 2, 2006" }}
         </p>
         {{ end }}
 
         <!-- Title -->
         <h3 class="text-lg font-semibold mb-3">
-          <a href="{{ .Permalink }}" class="text-theme-text dark:text-theme-text-dark hover:text-primary dark:hover:text-primary transition-colors">
+          <a href="{{ .Permalink }}" class="text-theme-text hover:text-primary transition-colors">
             {{ .Title }}
           </a>
         </h3>
 
         <!-- Summary -->
         {{ if .Summary }}
-        <p class="text-sm leading-relaxed text-theme-text-secondary dark:text-theme-text-secondary-dark mb-4">
+        <p class="text-sm leading-relaxed text-theme-text-secondary mb-4">
           {{ .Summary }}
         </p>
         {{ end }}
 
         <!-- Read More Link -->
-        <a href="{{ .Permalink }}" class="text-primary dark:text-primary font-semibold hover:underline inline-flex items-center gap-2 text-sm">
+        <a href="{{ .Permalink }}" class="text-primary font-semibold hover:underline inline-flex items-center gap-2 text-sm">
           Read more
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>

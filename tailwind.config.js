@@ -3,39 +3,75 @@ module.exports = {
     "./themes/dbatools2025/layouts/**/*.html",
     "./content/**/*.md"
   ],
-  darkMode: "class",
   theme: {
     extend: {
       colors: {
+        // GitHub Light Theme Colors
         primary: {
-          DEFAULT: '#045BDB',
-          dark: '#0B234A',
+          DEFAULT: '#0969da',
+          hover: '#0860ca',
+          active: '#0757ba',
         },
         accent: {
-          red: '#FF5F56',
-          yellow: '#FFBD2E',
-          green: '#27C93F',
+          DEFAULT: '#8250df',
+          blue: '#0969da',
+          green: '#1f883d',
+          red: '#cf222e',
+          orange: '#bc4c00',
+          purple: '#8250df',
+          pink: '#bf3989',
+          yellow: '#9a6700',
         },
-        // Default theme colors
+        success: {
+          DEFAULT: '#1a7f37',
+          emphasis: '#1f883d',
+          muted: '#dafbe1',
+        },
+        danger: {
+          DEFAULT: '#d1242f',
+          emphasis: '#cf222e',
+        },
+        attention: {
+          DEFAULT: '#9a6700',
+          muted: '#fff8c5',
+        },
+        severe: {
+          DEFAULT: '#bc4c00',
+        },
+        sponsors: {
+          DEFAULT: '#bf3989',
+        },
+        // Semantic theme colors
         theme: {
           bg: {
-            DEFAULT: '#FFFFFF',
-            dark: '#0E1A2F',
+            DEFAULT: '#ffffff',
+            secondary: '#f6f8fa',
+            muted: '#f6f8fa',
+            emphasis: '#25292e',
           },
           card: {
-            DEFAULT: '#F8F9FA',
-            dark: '#0B234A',
+            DEFAULT: '#f6f8fa',
           },
           border: {
-            DEFAULT: '#C5D1E3',
-            dark: '#273B59',
+            DEFAULT: '#d1d9e0',
+            emphasis: '#818b98',
           },
           text: {
-            DEFAULT: '#0E1A2F',
-            secondary: '#273B59',
-            dark: '#FFFFFF',
-            'secondary-dark': '#C5D1E3',
+            DEFAULT: '#1f2328',
+            secondary: '#59636e',
+            muted: '#59636e',
           }
+        },
+        // Data visualization colors
+        data: {
+          blue: '#006edb',
+          green: '#30a147',
+          red: '#df0c24',
+          orange: '#eb670f',
+          purple: '#894ceb',
+          pink: '#ce2c85',
+          yellow: '#b88700',
+          gray: '#808fa3',
         },
       },
       fontFamily: {
@@ -125,60 +161,6 @@ module.exports = {
             'blockquote': {
               fontStyle: 'normal',
               borderLeftColor: theme('colors.primary.DEFAULT'),
-            },
-            'blockquote p:first-of-type::before': {
-              content: '""',
-            },
-            'blockquote p:last-of-type::after': {
-              content: '""',
-            },
-            'a': {
-              textDecoration: 'none',
-              fontWeight: '500',
-              '&:hover': {
-                textDecoration: 'underline',
-              },
-            },
-          },
-        },
-        invert: {
-          css: {
-            '--tw-prose-body': theme('colors.theme.text.dark'),
-            '--tw-prose-headings': theme('colors.theme.text.dark'),
-            '--tw-prose-links': '#60A5FA',
-            '--tw-prose-bold': theme('colors.theme.text.dark'),
-            '--tw-prose-counters': theme('colors.theme.text.secondary-dark'),
-            '--tw-prose-bullets': theme('colors.theme.text.secondary-dark'),
-            '--tw-prose-hr': theme('colors.theme.border.dark'),
-            '--tw-prose-quotes': theme('colors.theme.text.dark'),
-            '--tw-prose-quote-borders': theme('colors.theme.border.dark'),
-            '--tw-prose-code': '#F472B6',
-            '--tw-prose-pre-code': '#E5E7EB',
-            '--tw-prose-pre-bg': '#1F2937',
-            'code': {
-              backgroundColor: 'rgba(59, 130, 246, 0.1)',
-              padding: '0.125rem 0.375rem',
-              borderRadius: '0.25rem',
-              fontWeight: '500',
-            },
-            'code::before': {
-              content: '""',
-            },
-            'code::after': {
-              content: '""',
-            },
-            'pre': {
-              backgroundColor: '#1F2937',
-              border: '1px solid #374151',
-            },
-            'pre code': {
-              backgroundColor: 'transparent',
-              padding: '0',
-              color: '#E5E7EB',
-            },
-            'blockquote': {
-              fontStyle: 'normal',
-              borderLeftColor: '#60A5FA',
             },
             'blockquote p:first-of-type::before': {
               content: '""',

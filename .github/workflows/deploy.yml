@@ -54,6 +54,13 @@ jobs:
         run: |
           curl -o static/data/external.json https://raw.githubusercontent.com/dataplat/dbatools-docs/main/assets/external.json || echo "Warning: Could not sync version data"
 
+      - name: Generate command documentation pages
+        shell: pwsh
+        run: |
+          Write-Host "Generating command documentation markdown files..."
+          ./scripts/generate-command-pages.ps1
+          Write-Host "Command pages generated successfully"
+
       - name: Build Hugo site
         run: hugo --minify
 

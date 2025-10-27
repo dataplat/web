@@ -2,27 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Theme Color Variables */
+/* Theme Color Variables - GitHub Light Theme */
 :root {
-  /* Default theme (light) */
-  --color-bg: #FFFFFF;
-  --color-bg-secondary: #F8F9FA;
-  --color-text: #0E1A2F;
-  --color-text-secondary: #273B59;
-  --color-border: #C5D1E3;
-  --color-primary: #045BDB;
-  --color-accent: #FF5F56;
-}
+  /* Foundational colors */
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f6f8fa;
+  --color-bg-muted: #f6f8fa;
+  --color-bg-emphasis: #25292e;
 
-.dark {
-  /* Default theme (dark) */
-  --color-bg: #0E1A2F;
-  --color-bg-secondary: #0B234A;
-  --color-text: #FFFFFF;
-  --color-text-secondary: #C5D1E3;
-  --color-border: #273B59;
-  --color-primary: #0B234A;
-  --color-accent: #FF5F56;
+  /* Text colors */
+  --color-text: #1f2328;
+  --color-text-secondary: #59636e;
+  --color-text-muted: #59636e;
+
+  /* Border colors */
+  --color-border: #d1d9e0;
+  --color-border-emphasis: #818b98;
+
+  /* Primary/Accent colors (GitHub blue) */
+  --color-primary: #0969da;
+  --color-primary-hover: #0860ca;
+  --color-primary-active: #0757ba;
+
+  /* Success/Green colors */
+  --color-success: #1a7f37;
+  --color-success-emphasis: #1f883d;
+  --color-success-muted: #dafbe1;
+
+  /* Danger/Red colors */
+  --color-danger: #d1242f;
+  --color-danger-emphasis: #cf222e;
+
+  /* Attention/Warning colors */
+  --color-attention: #9a6700;
+  --color-attention-muted: #fff8c5;
+
+  /* Accent colors */
+  --color-accent: #8250df;
+  --color-accent-muted: #ddf4ff;
+
+  /* Severe/Orange */
+  --color-severe: #bc4c00;
+
+  /* Sponsors/Pink */
+  --color-sponsors: #bf3989;
+
+  /* Data visualization colors */
+  --color-data-blue: #006edb;
+  --color-data-green: #30a147;
+  --color-data-red: #df0c24;
+  --color-data-orange: #eb670f;
+  --color-data-purple: #894ceb;
+  --color-data-pink: #ce2c85;
+  --color-data-yellow: #b88700;
+  --color-data-gray: #808fa3;
 }
 
 /* Custom animations */
