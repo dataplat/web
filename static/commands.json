@@ -22,7 +22,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaSysDbUserObject",
-    "popularityRank": 0
+    "popularityRank": 277
   },
   {
     "name": "Detach-DbaDatabase",
@@ -48,19 +48,19 @@
     "verb": "Export",
     "popular": false,
     "url": "/commands/Export-DbaRepServerSetting",
-    "popularityRank": 0
+    "popularityRank": 186
   },
   {
     "name": "Get-DbaBuildReference",
-    "description": "Retrieves information about BuildReference",
+    "description": "Retrieves SQL Server build numbers and version information.",
     "category": "Server Management",
     "tags": [
       "get"
     ],
     "verb": "Get",
-    "popular": false,
+    "popular": true,
     "url": "/commands/Get-DbaBuildReference",
-    "popularityRank": 0
+    "popularityRank": 44
   },
   {
     "name": "Get-DbaDbModule",
@@ -97,7 +97,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaRepDistributor",
-    "popularityRank": 0
+    "popularityRank": 381
   },
   {
     "name": "Get-DbaRepPublication",
@@ -109,7 +109,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaRepPublication",
-    "popularityRank": 0
+    "popularityRank": 332
   },
   {
     "name": "Get-DbaRepServer",
@@ -122,7 +122,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaRepServer",
-    "popularityRank": 0
+    "popularityRank": 364
   },
   {
     "name": "Start-SqlMigration",
@@ -147,7 +147,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaRepLatency",
-    "popularityRank": 0
+    "popularityRank": 295
   },
   {
     "name": "Write-DbaDataTable",
@@ -164,7 +164,7 @@
   },
   {
     "name": "Add-DbaAgDatabase",
-    "description": "Adds AgDatabase to configuration",
+    "description": "Adds databases to SQL Server Always On Availability Groups.",
     "category": "Database Operations",
     "tags": [
       "add",
@@ -174,7 +174,7 @@
     "verb": "Add",
     "popular": true,
     "url": "/commands/Add-DbaAgDatabase",
-    "popularityRank": 23
+    "popularityRank": 15
   },
   {
     "name": "Add-DbaAgListener",
@@ -187,7 +187,7 @@
     "verb": "Add",
     "popular": false,
     "url": "/commands/Add-DbaAgListener",
-    "popularityRank": 0
+    "popularityRank": 72
   },
   {
     "name": "Add-DbaAgReplica",
@@ -200,7 +200,7 @@
     "verb": "Add",
     "popular": false,
     "url": "/commands/Add-DbaAgReplica",
-    "popularityRank": 0
+    "popularityRank": 74
   },
   {
     "name": "Add-DbaComputerCertificate",
@@ -213,7 +213,7 @@
     "verb": "Add",
     "popular": false,
     "url": "/commands/Add-DbaComputerCertificate",
-    "popularityRank": 0
+    "popularityRank": 86
   },
   {
     "name": "Add-DbaDbMirrorMonitor",
@@ -226,11 +226,11 @@
     "verb": "Add",
     "popular": false,
     "url": "/commands/Add-DbaDbMirrorMonitor",
-    "popularityRank": 0
+    "popularityRank": 273
   },
   {
     "name": "Add-DbaDbRoleMember",
-    "description": "Adds DbRoleMember to configuration",
+    "description": "Adds users to database roles.",
     "category": "Security",
     "tags": [
       "add"
@@ -238,7 +238,7 @@
     "verb": "Add",
     "popular": true,
     "url": "/commands/Add-DbaDbRoleMember",
-    "popularityRank": 42
+    "popularityRank": 41
   },
   {
     "name": "Add-DbaExtendedProperty",
@@ -250,7 +250,7 @@
     "verb": "Add",
     "popular": false,
     "url": "/commands/Add-DbaExtendedProperty",
-    "popularityRank": 0
+    "popularityRank": 257
   },
   {
     "name": "Add-DbaPfDataCollectorCounter",
@@ -262,7 +262,7 @@
     "verb": "Add",
     "popular": false,
     "url": "/commands/Add-DbaPfDataCollectorCounter",
-    "popularityRank": 0
+    "popularityRank": 304
   },
   {
     "name": "Add-DbaRegServer",
@@ -275,7 +275,7 @@
     "verb": "Add",
     "popular": false,
     "url": "/commands/Add-DbaRegServer",
-    "popularityRank": 0
+    "popularityRank": 81
   },
   {
     "name": "Add-DbaRegServerGroup",
@@ -288,7 +288,7 @@
     "verb": "Add",
     "popular": false,
     "url": "/commands/Add-DbaRegServerGroup",
-    "popularityRank": 0
+    "popularityRank": 279
   },
   {
     "name": "Add-DbaReplArticle",
@@ -300,7 +300,7 @@
     "verb": "Add",
     "popular": false,
     "url": "/commands/Add-DbaReplArticle",
-    "popularityRank": 0
+    "popularityRank": 400
   },
   {
     "name": "Add-DbaServerRoleMember",
@@ -313,7 +313,7 @@
     "verb": "Add",
     "popular": false,
     "url": "/commands/Add-DbaServerRoleMember",
-    "popularityRank": 0
+    "popularityRank": 99
   },
   {
     "name": "Backup-DbaComputerCertificate",
@@ -326,11 +326,11 @@
     "verb": "Backup",
     "popular": false,
     "url": "/commands/Backup-DbaComputerCertificate",
-    "popularityRank": 0
+    "popularityRank": 217
   },
   {
     "name": "Backup-DbaDatabase",
-    "description": "Creates backups of Database",
+    "description": "Creates full, differential, or transaction log backups of SQL Server databases.",
     "category": "Backup & Restore",
     "tags": [
       "backup",
@@ -339,7 +339,7 @@
     "verb": "Backup",
     "popular": true,
     "url": "/commands/Backup-DbaDatabase",
-    "popularityRank": 7
+    "popularityRank": 5
   },
   {
     "name": "Backup-DbaDbCertificate",
@@ -352,7 +352,7 @@
     "verb": "Backup",
     "popular": false,
     "url": "/commands/Backup-DbaDbCertificate",
-    "popularityRank": 0
+    "popularityRank": 130
   },
   {
     "name": "Backup-DbaDbMasterKey",
@@ -364,7 +364,7 @@
     "verb": "Backup",
     "popular": false,
     "url": "/commands/Backup-DbaDbMasterKey",
-    "popularityRank": 0
+    "popularityRank": 179
   },
   {
     "name": "Backup-DbaServiceMasterKey",
@@ -376,7 +376,7 @@
     "verb": "Backup",
     "popular": false,
     "url": "/commands/Backup-DbaServiceMasterKey",
-    "popularityRank": 0
+    "popularityRank": 227
   },
   {
     "name": "Clear-DbaConnectionPool",
@@ -388,7 +388,7 @@
     "verb": "Clear",
     "popular": false,
     "url": "/commands/Clear-DbaConnectionPool",
-    "popularityRank": 0
+    "popularityRank": 172
   },
   {
     "name": "Clear-DbaLatchStatistics",
@@ -400,7 +400,7 @@
     "verb": "Clear",
     "popular": false,
     "url": "/commands/Clear-DbaLatchStatistics",
-    "popularityRank": 0
+    "popularityRank": 375
   },
   {
     "name": "Clear-DbaPlanCache",
@@ -412,7 +412,7 @@
     "verb": "Clear",
     "popular": false,
     "url": "/commands/Clear-DbaPlanCache",
-    "popularityRank": 0
+    "popularityRank": 333
   },
   {
     "name": "Clear-DbaWaitStatistics",
@@ -424,11 +424,11 @@
     "verb": "Clear",
     "popular": false,
     "url": "/commands/Clear-DbaWaitStatistics",
-    "popularityRank": 0
+    "popularityRank": 313
   },
   {
     "name": "Connect-DbaInstance",
-    "description": "Manages Instance",
+    "description": "Establishes a connection to a SQL Server instance and returns a SQL Server Management Object.",
     "category": "Server Management",
     "tags": [
       "connect",
@@ -437,7 +437,7 @@
     "verb": "Connect",
     "popular": true,
     "url": "/commands/Connect-DbaInstance",
-    "popularityRank": 9
+    "popularityRank": 8
   },
   {
     "name": "ConvertTo-DbaDataTable",
@@ -449,7 +449,7 @@
     "verb": "Other",
     "popular": false,
     "url": "/commands/ConvertTo-DbaDataTable",
-    "popularityRank": 0
+    "popularityRank": 62
   },
   {
     "name": "ConvertTo-DbaTimeline",
@@ -459,7 +459,7 @@
     "verb": "Other",
     "popular": false,
     "url": "/commands/ConvertTo-DbaTimeline",
-    "popularityRank": 0
+    "popularityRank": 146
   },
   {
     "name": "ConvertTo-DbaXESession",
@@ -469,7 +469,7 @@
     "verb": "Other",
     "popular": false,
     "url": "/commands/ConvertTo-DbaXESession",
-    "popularityRank": 0
+    "popularityRank": 404
   },
   {
     "name": "Copy-DbaAgentAlert",
@@ -483,11 +483,11 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaAgentAlert",
-    "popularityRank": 0
+    "popularityRank": 56
   },
   {
     "name": "Copy-DbaAgentJob",
-    "description": "Copies AgentJob between SQL Server instances",
+    "description": "Migrates SQL Server Agent jobs between instances, including schedules and job steps.",
     "category": "Migration",
     "tags": [
       "copy",
@@ -498,7 +498,7 @@
     "verb": "Copy",
     "popular": true,
     "url": "/commands/Copy-DbaAgentJob",
-    "popularityRank": 10
+    "popularityRank": 9
   },
   {
     "name": "Copy-DbaAgentJobCategory",
@@ -513,7 +513,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaAgentJobCategory",
-    "popularityRank": 0
+    "popularityRank": 187
   },
   {
     "name": "Copy-DbaAgentOperator",
@@ -527,7 +527,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaAgentOperator",
-    "popularityRank": 0
+    "popularityRank": 70
   },
   {
     "name": "Copy-DbaAgentProxy",
@@ -555,7 +555,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaAgentSchedule",
-    "popularityRank": 0
+    "popularityRank": 150
   },
   {
     "name": "Copy-DbaAgentServer",
@@ -570,7 +570,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaAgentServer",
-    "popularityRank": 0
+    "popularityRank": 131
   },
   {
     "name": "Copy-DbaBackupDevice",
@@ -583,11 +583,11 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaBackupDevice",
-    "popularityRank": 0
+    "popularityRank": 260
   },
   {
     "name": "Copy-DbaCredential",
-    "description": "Copies Credential between SQL Server instances",
+    "description": "Migrates SQL Server credentials between instances.",
     "category": "Migration",
     "tags": [
       "copy"
@@ -595,7 +595,7 @@
     "verb": "Copy",
     "popular": true,
     "url": "/commands/Copy-DbaCredential",
-    "popularityRank": 38
+    "popularityRank": 30
   },
   {
     "name": "Copy-DbaCustomError",
@@ -607,11 +607,11 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaCustomError",
-    "popularityRank": 0
+    "popularityRank": 406
   },
   {
     "name": "Copy-DbaDatabase",
-    "description": "Copies Database between SQL Server instances",
+    "description": "Copies or migrates databases between SQL Server instances using backup/restore or detach/attach methods.",
     "category": "Migration",
     "tags": [
       "copy",
@@ -620,7 +620,7 @@
     "verb": "Copy",
     "popular": true,
     "url": "/commands/Copy-DbaDatabase",
-    "popularityRank": 3
+    "popularityRank": 4
   },
   {
     "name": "Copy-DbaDataCollector",
@@ -632,7 +632,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaDataCollector",
-    "popularityRank": 0
+    "popularityRank": 331
   },
   {
     "name": "Copy-DbaDbAssembly",
@@ -644,7 +644,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaDbAssembly",
-    "popularityRank": 0
+    "popularityRank": 297
   },
   {
     "name": "Copy-DbaDbCertificate",
@@ -657,11 +657,11 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaDbCertificate",
-    "popularityRank": 0
+    "popularityRank": 105
   },
   {
     "name": "Copy-DbaDbMail",
-    "description": "Copies DbMail between SQL Server instances",
+    "description": "Migrates Database Mail profiles, accounts, and configurations between instances.",
     "category": "Migration",
     "tags": [
       "copy"
@@ -669,7 +669,7 @@
     "verb": "Copy",
     "popular": true,
     "url": "/commands/Copy-DbaDbMail",
-    "popularityRank": 29
+    "popularityRank": 35
   },
   {
     "name": "Copy-DbaDbQueryStoreOption",
@@ -682,11 +682,11 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaDbQueryStoreOption",
-    "popularityRank": 0
+    "popularityRank": 424
   },
   {
     "name": "Copy-DbaDbTableData",
-    "description": "Copies DbTableData between SQL Server instances",
+    "description": "Copies data from one table to another, supporting cross-instance and cross-database operations.",
     "category": "Migration",
     "tags": [
       "copy",
@@ -695,7 +695,7 @@
     "verb": "Copy",
     "popular": true,
     "url": "/commands/Copy-DbaDbTableData",
-    "popularityRank": 11
+    "popularityRank": 12
   },
   {
     "name": "Copy-DbaDbViewData",
@@ -707,7 +707,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaDbViewData",
-    "popularityRank": 0
+    "popularityRank": 154
   },
   {
     "name": "Copy-DbaEndpoint",
@@ -719,7 +719,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaEndpoint",
-    "popularityRank": 0
+    "popularityRank": 330
   },
   {
     "name": "Copy-DbaInstanceAudit",
@@ -732,7 +732,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaInstanceAudit",
-    "popularityRank": 0
+    "popularityRank": 181
   },
   {
     "name": "Copy-DbaInstanceAuditSpecification",
@@ -745,7 +745,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaInstanceAuditSpecification",
-    "popularityRank": 0
+    "popularityRank": 383
   },
   {
     "name": "Copy-DbaInstanceTrigger",
@@ -758,11 +758,11 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaInstanceTrigger",
-    "popularityRank": 0
+    "popularityRank": 325
   },
   {
     "name": "Copy-DbaLinkedServer",
-    "description": "Copies LinkedServer between SQL Server instances",
+    "description": "Migrates linked servers between SQL Server instances, including credentials.",
     "category": "Migration",
     "tags": [
       "copy",
@@ -771,11 +771,11 @@
     "verb": "Copy",
     "popular": true,
     "url": "/commands/Copy-DbaLinkedServer",
-    "popularityRank": 20
+    "popularityRank": 23
   },
   {
     "name": "Copy-DbaLogin",
-    "description": "Copies Login between SQL Server instances",
+    "description": "Migrates SQL Server logins between instances, including passwords, SIDs, server roles, and permissions.",
     "category": "Migration",
     "tags": [
       "copy",
@@ -784,7 +784,7 @@
     "verb": "Copy",
     "popular": true,
     "url": "/commands/Copy-DbaLogin",
-    "popularityRank": 2
+    "popularityRank": 1
   },
   {
     "name": "Copy-DbaPolicyManagement",
@@ -797,7 +797,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaPolicyManagement",
-    "popularityRank": 0
+    "popularityRank": 447
   },
   {
     "name": "Copy-DbaRegServer",
@@ -810,7 +810,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaRegServer",
-    "popularityRank": 0
+    "popularityRank": 267
   },
   {
     "name": "Copy-DbaResourceGovernor",
@@ -822,7 +822,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaResourceGovernor",
-    "popularityRank": 0
+    "popularityRank": 461
   },
   {
     "name": "Copy-DbaSpConfigure",
@@ -834,7 +834,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaSpConfigure",
-    "popularityRank": 0
+    "popularityRank": 97
   },
   {
     "name": "Copy-DbaSsisCatalog",
@@ -846,7 +846,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaSsisCatalog",
-    "popularityRank": 0
+    "popularityRank": 100
   },
   {
     "name": "Copy-DbaStartupProcedure",
@@ -858,7 +858,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaStartupProcedure",
-    "popularityRank": 0
+    "popularityRank": 355
   },
   {
     "name": "Copy-DbaSystemDbUserObject",
@@ -870,7 +870,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaSystemDbUserObject",
-    "popularityRank": 0
+    "popularityRank": 320
   },
   {
     "name": "Copy-DbaXESession",
@@ -882,7 +882,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaXESession",
-    "popularityRank": 0
+    "popularityRank": 373
   },
   {
     "name": "Copy-DbaXESessionTemplate",
@@ -894,7 +894,7 @@
     "verb": "Copy",
     "popular": false,
     "url": "/commands/Copy-DbaXESessionTemplate",
-    "popularityRank": 0
+    "popularityRank": 549
   },
   {
     "name": "Disable-DbaAgHadr",
@@ -907,7 +907,7 @@
     "verb": "Disable",
     "popular": false,
     "url": "/commands/Disable-DbaAgHadr",
-    "popularityRank": 0
+    "popularityRank": 398
   },
   {
     "name": "Disable-DbaDbEncryption",
@@ -920,7 +920,7 @@
     "verb": "Disable",
     "popular": false,
     "url": "/commands/Disable-DbaDbEncryption",
-    "popularityRank": 0
+    "popularityRank": 315
   },
   {
     "name": "Disable-DbaFilestream",
@@ -932,7 +932,7 @@
     "verb": "Disable",
     "popular": false,
     "url": "/commands/Disable-DbaFilestream",
-    "popularityRank": 0
+    "popularityRank": 588
   },
   {
     "name": "Disable-DbaForceNetworkEncryption",
@@ -945,7 +945,7 @@
     "verb": "Disable",
     "popular": false,
     "url": "/commands/Disable-DbaForceNetworkEncryption",
-    "popularityRank": 0
+    "popularityRank": 162
   },
   {
     "name": "Disable-DbaHideInstance",
@@ -958,7 +958,7 @@
     "verb": "Disable",
     "popular": false,
     "url": "/commands/Disable-DbaHideInstance",
-    "popularityRank": 0
+    "popularityRank": 575
   },
   {
     "name": "Disable-DbaReplDistributor",
@@ -970,7 +970,7 @@
     "verb": "Disable",
     "popular": false,
     "url": "/commands/Disable-DbaReplDistributor",
-    "popularityRank": 0
+    "popularityRank": 618
   },
   {
     "name": "Disable-DbaReplPublishing",
@@ -982,7 +982,7 @@
     "verb": "Disable",
     "popular": false,
     "url": "/commands/Disable-DbaReplPublishing",
-    "popularityRank": 0
+    "popularityRank": 639
   },
   {
     "name": "Disable-DbaStartupProcedure",
@@ -994,7 +994,7 @@
     "verb": "Disable",
     "popular": false,
     "url": "/commands/Disable-DbaStartupProcedure",
-    "popularityRank": 0
+    "popularityRank": 623
   },
   {
     "name": "Disable-DbaTraceFlag",
@@ -1007,7 +1007,7 @@
     "verb": "Disable",
     "popular": false,
     "url": "/commands/Disable-DbaTraceFlag",
-    "popularityRank": 0
+    "popularityRank": 535
   },
   {
     "name": "Disconnect-DbaInstance",
@@ -1020,7 +1020,7 @@
     "verb": "Disconnect",
     "popular": false,
     "url": "/commands/Disconnect-DbaInstance",
-    "popularityRank": 0
+    "popularityRank": 121
   },
   {
     "name": "Dismount-DbaDatabase",
@@ -1033,7 +1033,7 @@
     "verb": "Dismount",
     "popular": false,
     "url": "/commands/Dismount-DbaDatabase",
-    "popularityRank": 0
+    "popularityRank": 188
   },
   {
     "name": "Enable-DbaAgHadr",
@@ -1046,7 +1046,7 @@
     "verb": "Enable",
     "popular": false,
     "url": "/commands/Enable-DbaAgHadr",
-    "popularityRank": 0
+    "popularityRank": 166
   },
   {
     "name": "Enable-DbaDbEncryption",
@@ -1059,7 +1059,7 @@
     "verb": "Enable",
     "popular": false,
     "url": "/commands/Enable-DbaDbEncryption",
-    "popularityRank": 0
+    "popularityRank": 203
   },
   {
     "name": "Enable-DbaFilestream",
@@ -1071,7 +1071,7 @@
     "verb": "Enable",
     "popular": false,
     "url": "/commands/Enable-DbaFilestream",
-    "popularityRank": 0
+    "popularityRank": 453
   },
   {
     "name": "Enable-DbaForceNetworkEncryption",
@@ -1084,7 +1084,7 @@
     "verb": "Enable",
     "popular": false,
     "url": "/commands/Enable-DbaForceNetworkEncryption",
-    "popularityRank": 0
+    "popularityRank": 226
   },
   {
     "name": "Enable-DbaHideInstance",
@@ -1097,7 +1097,7 @@
     "verb": "Enable",
     "popular": false,
     "url": "/commands/Enable-DbaHideInstance",
-    "popularityRank": 0
+    "popularityRank": 519
   },
   {
     "name": "Enable-DbaReplDistributor",
@@ -1109,7 +1109,7 @@
     "verb": "Enable",
     "popular": false,
     "url": "/commands/Enable-DbaReplDistributor",
-    "popularityRank": 0
+    "popularityRank": 581
   },
   {
     "name": "Enable-DbaReplPublishing",
@@ -1121,7 +1121,7 @@
     "verb": "Enable",
     "popular": false,
     "url": "/commands/Enable-DbaReplPublishing",
-    "popularityRank": 0
+    "popularityRank": 599
   },
   {
     "name": "Enable-DbaStartupProcedure",
@@ -1133,7 +1133,7 @@
     "verb": "Enable",
     "popular": false,
     "url": "/commands/Enable-DbaStartupProcedure",
-    "popularityRank": 0
+    "popularityRank": 550
   },
   {
     "name": "Enable-DbaTraceFlag",
@@ -1146,7 +1146,7 @@
     "verb": "Enable",
     "popular": false,
     "url": "/commands/Enable-DbaTraceFlag",
-    "popularityRank": 0
+    "popularityRank": 302
   },
   {
     "name": "Expand-DbaDbLogFile",
@@ -1158,7 +1158,7 @@
     "verb": "Expand",
     "popular": false,
     "url": "/commands/Expand-DbaDbLogFile",
-    "popularityRank": 0
+    "popularityRank": 195
   },
   {
     "name": "Export-DbaBinaryFile",
@@ -1170,7 +1170,7 @@
     "verb": "Export",
     "popular": false,
     "url": "/commands/Export-DbaBinaryFile",
-    "popularityRank": 0
+    "popularityRank": 387
   },
   {
     "name": "Export-DbaCredential",
@@ -1182,7 +1182,7 @@
     "verb": "Export",
     "popular": false,
     "url": "/commands/Export-DbaCredential",
-    "popularityRank": 0
+    "popularityRank": 107
   },
   {
     "name": "Export-DbaDacPackage",
@@ -1195,7 +1195,7 @@
     "verb": "Export",
     "popular": false,
     "url": "/commands/Export-DbaDacPackage",
-    "popularityRank": 0
+    "popularityRank": 128
   },
   {
     "name": "Export-DbaDbRole",
@@ -1207,20 +1207,20 @@
     "verb": "Export",
     "popular": false,
     "url": "/commands/Export-DbaDbRole",
-    "popularityRank": 0
+    "popularityRank": 122
   },
   {
     "name": "Export-DbaDbTableData",
-    "description": "Exports DbTableData to file or script",
+    "description": "Exports table data to various formats including CSV and JSON.",
     "category": "Migration",
     "tags": [
       "export",
       "table"
     ],
     "verb": "Export",
-    "popular": false,
+    "popular": true,
     "url": "/commands/Export-DbaDbTableData",
-    "popularityRank": 0
+    "popularityRank": 40
   },
   {
     "name": "Export-DbaDiagnosticQuery",
@@ -1234,7 +1234,7 @@
     "verb": "Export",
     "popular": false,
     "url": "/commands/Export-DbaDiagnosticQuery",
-    "popularityRank": 0
+    "popularityRank": 164
   },
   {
     "name": "Export-DbaExecutionPlan",
@@ -1246,11 +1246,11 @@
     "verb": "Export",
     "popular": false,
     "url": "/commands/Export-DbaExecutionPlan",
-    "popularityRank": 0
+    "popularityRank": 385
   },
   {
     "name": "Export-DbaInstance",
-    "description": "Exports Instance to file or script",
+    "description": "Exports entire SQL Server instance configurations as T-SQL scripts.",
     "category": "Migration",
     "tags": [
       "export",
@@ -1259,7 +1259,7 @@
     "verb": "Export",
     "popular": true,
     "url": "/commands/Export-DbaInstance",
-    "popularityRank": 32
+    "popularityRank": 42
   },
   {
     "name": "Export-DbaLinkedServer",
@@ -1272,11 +1272,11 @@
     "verb": "Export",
     "popular": false,
     "url": "/commands/Export-DbaLinkedServer",
-    "popularityRank": 0
+    "popularityRank": 78
   },
   {
     "name": "Export-DbaLogin",
-    "description": "Exports Login to file or script",
+    "description": "Exports SQL Server logins as T-SQL scripts for migration or backup.",
     "category": "Migration",
     "tags": [
       "export",
@@ -1285,7 +1285,7 @@
     "verb": "Export",
     "popular": true,
     "url": "/commands/Export-DbaLogin",
-    "popularityRank": 14
+    "popularityRank": 18
   },
   {
     "name": "Export-DbaPfDataCollectorSetTemplate",
@@ -1297,7 +1297,7 @@
     "verb": "Export",
     "popular": false,
     "url": "/commands/Export-DbaPfDataCollectorSetTemplate",
-    "popularityRank": 0
+    "popularityRank": 611
   },
   {
     "name": "Export-DbaRegServer",
@@ -1310,7 +1310,7 @@
     "verb": "Export",
     "popular": false,
     "url": "/commands/Export-DbaRegServer",
-    "popularityRank": 0
+    "popularityRank": 280
   },
   {
     "name": "Export-DbaReplServerSetting",
@@ -1323,11 +1323,11 @@
     "verb": "Export",
     "popular": false,
     "url": "/commands/Export-DbaReplServerSetting",
-    "popularityRank": 0
+    "popularityRank": 516
   },
   {
     "name": "Export-DbaScript",
-    "description": "Exports Script to file or script",
+    "description": "Generates T-SQL scripts for SQL Server objects.",
     "category": "Migration",
     "tags": [
       "export"
@@ -1335,7 +1335,7 @@
     "verb": "Export",
     "popular": true,
     "url": "/commands/Export-DbaScript",
-    "popularityRank": 13
+    "popularityRank": 10
   },
   {
     "name": "Export-DbaServerRole",
@@ -1348,7 +1348,7 @@
     "verb": "Export",
     "popular": false,
     "url": "/commands/Export-DbaServerRole",
-    "popularityRank": 0
+    "popularityRank": 268
   },
   {
     "name": "Export-DbaSpConfigure",
@@ -1360,7 +1360,7 @@
     "verb": "Export",
     "popular": false,
     "url": "/commands/Export-DbaSpConfigure",
-    "popularityRank": 0
+    "popularityRank": 156
   },
   {
     "name": "Export-DbaSysDbUserObject",
@@ -1372,7 +1372,7 @@
     "verb": "Export",
     "popular": false,
     "url": "/commands/Export-DbaSysDbUserObject",
-    "popularityRank": 0
+    "popularityRank": 327
   },
   {
     "name": "Export-DbatoolsConfig",
@@ -1384,11 +1384,11 @@
     "verb": "Export",
     "popular": false,
     "url": "/commands/Export-DbatoolsConfig",
-    "popularityRank": 0
+    "popularityRank": 350
   },
   {
     "name": "Export-DbaUser",
-    "description": "Exports User to file or script",
+    "description": "Exports database users as T-SQL scripts for migration or backup.",
     "category": "Migration",
     "tags": [
       "export"
@@ -1396,7 +1396,7 @@
     "verb": "Export",
     "popular": true,
     "url": "/commands/Export-DbaUser",
-    "popularityRank": 25
+    "popularityRank": 28
   },
   {
     "name": "Export-DbaXESession",
@@ -1408,7 +1408,7 @@
     "verb": "Export",
     "popular": false,
     "url": "/commands/Export-DbaXESession",
-    "popularityRank": 0
+    "popularityRank": 442
   },
   {
     "name": "Export-DbaXESessionTemplate",
@@ -1420,7 +1420,7 @@
     "verb": "Export",
     "popular": false,
     "url": "/commands/Export-DbaXESessionTemplate",
-    "popularityRank": 0
+    "popularityRank": 637
   },
   {
     "name": "Find-DbaAgentJob",
@@ -1435,7 +1435,7 @@
     "verb": "Find",
     "popular": false,
     "url": "/commands/Find-DbaAgentJob",
-    "popularityRank": 0
+    "popularityRank": 191
   },
   {
     "name": "Find-DbaBackup",
@@ -1448,7 +1448,7 @@
     "verb": "Find",
     "popular": false,
     "url": "/commands/Find-DbaBackup",
-    "popularityRank": 0
+    "popularityRank": 190
   },
   {
     "name": "Find-DbaCommand",
@@ -1460,7 +1460,7 @@
     "verb": "Find",
     "popular": false,
     "url": "/commands/Find-DbaCommand",
-    "popularityRank": 0
+    "popularityRank": 253
   },
   {
     "name": "Find-DbaDatabase",
@@ -1473,7 +1473,7 @@
     "verb": "Find",
     "popular": false,
     "url": "/commands/Find-DbaDatabase",
-    "popularityRank": 0
+    "popularityRank": 93
   },
   {
     "name": "Find-DbaDbDisabledIndex",
@@ -1485,7 +1485,7 @@
     "verb": "Find",
     "popular": false,
     "url": "/commands/Find-DbaDbDisabledIndex",
-    "popularityRank": 0
+    "popularityRank": 505
   },
   {
     "name": "Find-DbaDbDuplicateIndex",
@@ -1497,7 +1497,7 @@
     "verb": "Find",
     "popular": false,
     "url": "/commands/Find-DbaDbDuplicateIndex",
-    "popularityRank": 0
+    "popularityRank": 290
   },
   {
     "name": "Find-DbaDbGrowthEvent",
@@ -1509,7 +1509,7 @@
     "verb": "Find",
     "popular": false,
     "url": "/commands/Find-DbaDbGrowthEvent",
-    "popularityRank": 0
+    "popularityRank": 308
   },
   {
     "name": "Find-DbaDbUnusedIndex",
@@ -1521,11 +1521,11 @@
     "verb": "Find",
     "popular": false,
     "url": "/commands/Find-DbaDbUnusedIndex",
-    "popularityRank": 0
+    "popularityRank": 224
   },
   {
     "name": "Find-DbaInstance",
-    "description": "Searches for Instance",
+    "description": "Discovers SQL Server instances on local networks or specified computers.",
     "category": "Server Management",
     "tags": [
       "find",
@@ -1534,7 +1534,7 @@
     "verb": "Find",
     "popular": true,
     "url": "/commands/Find-DbaInstance",
-    "popularityRank": 33
+    "popularityRank": 24
   },
   {
     "name": "Find-DbaLoginInGroup",
@@ -1547,7 +1547,7 @@
     "verb": "Find",
     "popular": false,
     "url": "/commands/Find-DbaLoginInGroup",
-    "popularityRank": 0
+    "popularityRank": 223
   },
   {
     "name": "Find-DbaOrphanedFile",
@@ -1559,7 +1559,7 @@
     "verb": "Find",
     "popular": false,
     "url": "/commands/Find-DbaOrphanedFile",
-    "popularityRank": 0
+    "popularityRank": 200
   },
   {
     "name": "Find-DbaSimilarTable",
@@ -1572,7 +1572,7 @@
     "verb": "Find",
     "popular": false,
     "url": "/commands/Find-DbaSimilarTable",
-    "popularityRank": 0
+    "popularityRank": 392
   },
   {
     "name": "Find-DbaStoredProcedure",
@@ -1584,7 +1584,7 @@
     "verb": "Find",
     "popular": false,
     "url": "/commands/Find-DbaStoredProcedure",
-    "popularityRank": 0
+    "popularityRank": 240
   },
   {
     "name": "Find-DbaTrigger",
@@ -1596,7 +1596,7 @@
     "verb": "Find",
     "popular": false,
     "url": "/commands/Find-DbaTrigger",
-    "popularityRank": 0
+    "popularityRank": 503
   },
   {
     "name": "Find-DbaUserObject",
@@ -1608,7 +1608,7 @@
     "verb": "Find",
     "popular": false,
     "url": "/commands/Find-DbaUserObject",
-    "popularityRank": 0
+    "popularityRank": 259
   },
   {
     "name": "Find-DbaView",
@@ -1620,7 +1620,7 @@
     "verb": "Find",
     "popular": false,
     "url": "/commands/Find-DbaView",
-    "popularityRank": 0
+    "popularityRank": 337
   },
   {
     "name": "Format-DbaBackupInformation",
@@ -1633,7 +1633,7 @@
     "verb": "Format",
     "popular": false,
     "url": "/commands/Format-DbaBackupInformation",
-    "popularityRank": 0
+    "popularityRank": 212
   },
   {
     "name": "Get-DbaAgBackupHistory",
@@ -1647,7 +1647,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaAgBackupHistory",
-    "popularityRank": 0
+    "popularityRank": 134
   },
   {
     "name": "Get-DbaAgDatabase",
@@ -1661,7 +1661,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaAgDatabase",
-    "popularityRank": 0
+    "popularityRank": 60
   },
   {
     "name": "Get-DbaAgentAlert",
@@ -1675,7 +1675,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaAgentAlert",
-    "popularityRank": 0
+    "popularityRank": 202
   },
   {
     "name": "Get-DbaAgentAlertCategory",
@@ -1689,11 +1689,11 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaAgentAlertCategory",
-    "popularityRank": 0
+    "popularityRank": 617
   },
   {
     "name": "Get-DbaAgentJob",
-    "description": "Retrieves information about AgentJob",
+    "description": "Retrieves SQL Server Agent job definitions and properties.",
     "category": "Agent & Jobs",
     "tags": [
       "get",
@@ -1704,7 +1704,7 @@
     "verb": "Get",
     "popular": true,
     "url": "/commands/Get-DbaAgentJob",
-    "popularityRank": 24
+    "popularityRank": 20
   },
   {
     "name": "Get-DbaAgentJobCategory",
@@ -1719,7 +1719,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaAgentJobCategory",
-    "popularityRank": 0
+    "popularityRank": 484
   },
   {
     "name": "Get-DbaAgentJobHistory",
@@ -1734,7 +1734,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaAgentJobHistory",
-    "popularityRank": 0
+    "popularityRank": 84
   },
   {
     "name": "Get-DbaAgentJobOutputFile",
@@ -1749,7 +1749,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaAgentJobOutputFile",
-    "popularityRank": 0
+    "popularityRank": 378
   },
   {
     "name": "Get-DbaAgentJobStep",
@@ -1764,7 +1764,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaAgentJobStep",
-    "popularityRank": 0
+    "popularityRank": 139
   },
   {
     "name": "Get-DbaAgentLog",
@@ -1778,7 +1778,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaAgentLog",
-    "popularityRank": 0
+    "popularityRank": 326
   },
   {
     "name": "Get-DbaAgentOperator",
@@ -1792,7 +1792,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaAgentOperator",
-    "popularityRank": 0
+    "popularityRank": 286
   },
   {
     "name": "Get-DbaAgentProxy",
@@ -1820,7 +1820,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaAgentSchedule",
-    "popularityRank": 0
+    "popularityRank": 153
   },
   {
     "name": "Get-DbaAgentServer",
@@ -1835,7 +1835,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaAgentServer",
-    "popularityRank": 0
+    "popularityRank": 388
   },
   {
     "name": "Get-DbaAgHadr",
@@ -1848,7 +1848,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaAgHadr",
-    "popularityRank": 0
+    "popularityRank": 95
   },
   {
     "name": "Get-DbaAgListener",
@@ -1861,7 +1861,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaAgListener",
-    "popularityRank": 0
+    "popularityRank": 120
   },
   {
     "name": "Get-DbaAgReplica",
@@ -1874,11 +1874,11 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaAgReplica",
-    "popularityRank": 0
+    "popularityRank": 51
   },
   {
     "name": "Get-DbaAvailabilityGroup",
-    "description": "Retrieves information about AvailabilityGroup",
+    "description": "Retrieves Always On Availability Group configurations and status.",
     "category": "Utilities",
     "tags": [
       "get",
@@ -1887,7 +1887,7 @@
     "verb": "Get",
     "popular": true,
     "url": "/commands/Get-DbaAvailabilityGroup",
-    "popularityRank": 37
+    "popularityRank": 32
   },
   {
     "name": "Get-DbaAvailableCollation",
@@ -1899,7 +1899,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaAvailableCollation",
-    "popularityRank": 0
+    "popularityRank": 423
   },
   {
     "name": "Get-DbaBackupDevice",
@@ -1912,7 +1912,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaBackupDevice",
-    "popularityRank": 0
+    "popularityRank": 409
   },
   {
     "name": "Get-DbaBackupInformation",
@@ -1925,7 +1925,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaBackupInformation",
-    "popularityRank": 0
+    "popularityRank": 52
   },
   {
     "name": "Get-DbaBinaryFileTable",
@@ -1938,19 +1938,19 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaBinaryFileTable",
-    "popularityRank": 0
+    "popularityRank": 621
   },
   {
     "name": "Get-DbaBuild",
-    "description": "Retrieves information about Build",
+    "description": "Returns the SQL Server build version and related information.",
     "category": "Server Management",
     "tags": [
       "get"
     ],
     "verb": "Get",
-    "popular": false,
+    "popular": true,
     "url": "/commands/Get-DbaBuild",
-    "popularityRank": 0
+    "popularityRank": 46
   },
   {
     "name": "Get-DbaClientAlias",
@@ -1962,7 +1962,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaClientAlias",
-    "popularityRank": 0
+    "popularityRank": 309
   },
   {
     "name": "Get-DbaClientProtocol",
@@ -1974,7 +1974,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaClientProtocol",
-    "popularityRank": 0
+    "popularityRank": 487
   },
   {
     "name": "Get-DbaCmConnection",
@@ -1986,7 +1986,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaCmConnection",
-    "popularityRank": 0
+    "popularityRank": 247
   },
   {
     "name": "Get-DbaCmObject",
@@ -1998,7 +1998,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaCmObject",
-    "popularityRank": 0
+    "popularityRank": 389
   },
   {
     "name": "Get-DbaComputerCertificate",
@@ -2011,7 +2011,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaComputerCertificate",
-    "popularityRank": 0
+    "popularityRank": 125
   },
   {
     "name": "Get-DbaComputerSystem",
@@ -2023,7 +2023,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaComputerSystem",
-    "popularityRank": 0
+    "popularityRank": 129
   },
   {
     "name": "Get-DbaConnectedInstance",
@@ -2036,7 +2036,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaConnectedInstance",
-    "popularityRank": 0
+    "popularityRank": 170
   },
   {
     "name": "Get-DbaConnection",
@@ -2048,7 +2048,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaConnection",
-    "popularityRank": 0
+    "popularityRank": 85
   },
   {
     "name": "Get-DbaCpuRingBuffer",
@@ -2060,7 +2060,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaCpuRingBuffer",
-    "popularityRank": 0
+    "popularityRank": 419
   },
   {
     "name": "Get-DbaCpuUsage",
@@ -2073,7 +2073,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaCpuUsage",
-    "popularityRank": 0
+    "popularityRank": 112
   },
   {
     "name": "Get-DbaCredential",
@@ -2085,7 +2085,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaCredential",
-    "popularityRank": 0
+    "popularityRank": 101
   },
   {
     "name": "Get-DbaCustomError",
@@ -2097,11 +2097,11 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaCustomError",
-    "popularityRank": 0
+    "popularityRank": 555
   },
   {
     "name": "Get-DbaDatabase",
-    "description": "Retrieves information about Database",
+    "description": "Retrieves database objects and properties from SQL Server instances.",
     "category": "Database Operations",
     "tags": [
       "get",
@@ -2110,7 +2110,7 @@
     "verb": "Get",
     "popular": true,
     "url": "/commands/Get-DbaDatabase",
-    "popularityRank": 12
+    "popularityRank": 7
   },
   {
     "name": "Get-DbaDbAssembly",
@@ -2122,7 +2122,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbAssembly",
-    "popularityRank": 0
+    "popularityRank": 405
   },
   {
     "name": "Get-DbaDbAsymmetricKey",
@@ -2134,11 +2134,11 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbAsymmetricKey",
-    "popularityRank": 0
+    "popularityRank": 542
   },
   {
     "name": "Get-DbaDbBackupHistory",
-    "description": "Retrieves information about DbBackupHistory",
+    "description": "Retrieves backup history for databases from msdb.",
     "category": "Backup & Restore",
     "tags": [
       "get",
@@ -2147,7 +2147,7 @@
     "verb": "Get",
     "popular": true,
     "url": "/commands/Get-DbaDbBackupHistory",
-    "popularityRank": 45
+    "popularityRank": 37
   },
   {
     "name": "Get-DbaDbccHelp",
@@ -2159,7 +2159,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbccHelp",
-    "popularityRank": 0
+    "popularityRank": 263
   },
   {
     "name": "Get-DbaDbccMemoryStatus",
@@ -2171,7 +2171,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbccMemoryStatus",
-    "popularityRank": 0
+    "popularityRank": 311
   },
   {
     "name": "Get-DbaDbccProcCache",
@@ -2183,7 +2183,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbccProcCache",
-    "popularityRank": 0
+    "popularityRank": 570
   },
   {
     "name": "Get-DbaDbccSessionBuffer",
@@ -2195,7 +2195,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbccSessionBuffer",
-    "popularityRank": 0
+    "popularityRank": 612
   },
   {
     "name": "Get-DbaDbccStatistic",
@@ -2207,7 +2207,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbccStatistic",
-    "popularityRank": 0
+    "popularityRank": 272
   },
   {
     "name": "Get-DbaDbccUserOption",
@@ -2219,7 +2219,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbccUserOption",
-    "popularityRank": 0
+    "popularityRank": 548
   },
   {
     "name": "Get-DbaDbCertificate",
@@ -2232,7 +2232,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbCertificate",
-    "popularityRank": 0
+    "popularityRank": 167
   },
   {
     "name": "Get-DbaDbCheckConstraint",
@@ -2244,7 +2244,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbCheckConstraint",
-    "popularityRank": 0
+    "popularityRank": 408
   },
   {
     "name": "Get-DbaDbCompatibility",
@@ -2256,7 +2256,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbCompatibility",
-    "popularityRank": 0
+    "popularityRank": 264
   },
   {
     "name": "Get-DbaDbCompression",
@@ -2268,7 +2268,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbCompression",
-    "popularityRank": 0
+    "popularityRank": 411
   },
   {
     "name": "Get-DbaDbDbccOpenTran",
@@ -2280,7 +2280,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbDbccOpenTran",
-    "popularityRank": 0
+    "popularityRank": 526
   },
   {
     "name": "Get-DbaDbDetachedFileInfo",
@@ -2292,7 +2292,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbDetachedFileInfo",
-    "popularityRank": 0
+    "popularityRank": 414
   },
   {
     "name": "Get-DbaDbEncryption",
@@ -2305,7 +2305,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbEncryption",
-    "popularityRank": 0
+    "popularityRank": 266
   },
   {
     "name": "Get-DbaDbEncryptionKey",
@@ -2318,7 +2318,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbEncryptionKey",
-    "popularityRank": 0
+    "popularityRank": 255
   },
   {
     "name": "Get-DbaDbExtentDiff",
@@ -2330,7 +2330,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbExtentDiff",
-    "popularityRank": 0
+    "popularityRank": 454
   },
   {
     "name": "Get-DbaDbFeatureUsage",
@@ -2343,7 +2343,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbFeatureUsage",
-    "popularityRank": 0
+    "popularityRank": 321
   },
   {
     "name": "Get-DbaDbFile",
@@ -2355,7 +2355,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbFile",
-    "popularityRank": 0
+    "popularityRank": 90
   },
   {
     "name": "Get-DbaDbFileGroup",
@@ -2367,7 +2367,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbFileGroup",
-    "popularityRank": 0
+    "popularityRank": 460
   },
   {
     "name": "Get-DbaDbFileGrowth",
@@ -2379,7 +2379,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbFileGrowth",
-    "popularityRank": 0
+    "popularityRank": 206
   },
   {
     "name": "Get-DbaDbFileMapping",
@@ -2391,7 +2391,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbFileMapping",
-    "popularityRank": 0
+    "popularityRank": 276
   },
   {
     "name": "Get-DbaDbForeignKey",
@@ -2403,7 +2403,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbForeignKey",
-    "popularityRank": 0
+    "popularityRank": 390
   },
   {
     "name": "Get-DbaDbIdentity",
@@ -2415,7 +2415,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbIdentity",
-    "popularityRank": 0
+    "popularityRank": 395
   },
   {
     "name": "Get-DbaDbLogShipError",
@@ -2427,7 +2427,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbLogShipError",
-    "popularityRank": 0
+    "popularityRank": 245
   },
   {
     "name": "Get-DbaDbLogSpace",
@@ -2439,7 +2439,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbLogSpace",
-    "popularityRank": 0
+    "popularityRank": 274
   },
   {
     "name": "Get-DbaDbMail",
@@ -2451,7 +2451,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbMail",
-    "popularityRank": 0
+    "popularityRank": 160
   },
   {
     "name": "Get-DbaDbMailAccount",
@@ -2463,7 +2463,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbMailAccount",
-    "popularityRank": 0
+    "popularityRank": 349
   },
   {
     "name": "Get-DbaDbMailConfig",
@@ -2475,7 +2475,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbMailConfig",
-    "popularityRank": 0
+    "popularityRank": 354
   },
   {
     "name": "Get-DbaDbMailHistory",
@@ -2487,7 +2487,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbMailHistory",
-    "popularityRank": 0
+    "popularityRank": 604
   },
   {
     "name": "Get-DbaDbMailLog",
@@ -2499,7 +2499,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbMailLog",
-    "popularityRank": 0
+    "popularityRank": 569
   },
   {
     "name": "Get-DbaDbMailProfile",
@@ -2511,7 +2511,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbMailProfile",
-    "popularityRank": 0
+    "popularityRank": 351
   },
   {
     "name": "Get-DbaDbMailServer",
@@ -2524,7 +2524,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbMailServer",
-    "popularityRank": 0
+    "popularityRank": 440
   },
   {
     "name": "Get-DbaDbMasterKey",
@@ -2536,7 +2536,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbMasterKey",
-    "popularityRank": 0
+    "popularityRank": 384
   },
   {
     "name": "Get-DbaDbMemoryUsage",
@@ -2549,7 +2549,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbMemoryUsage",
-    "popularityRank": 0
+    "popularityRank": 229
   },
   {
     "name": "Get-DbaDbMirror",
@@ -2562,7 +2562,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbMirror",
-    "popularityRank": 0
+    "popularityRank": 379
   },
   {
     "name": "Get-DbaDbMirrorMonitor",
@@ -2575,7 +2575,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbMirrorMonitor",
-    "popularityRank": 0
+    "popularityRank": 485
   },
   {
     "name": "Get-DbaDbObjectTrigger",
@@ -2587,7 +2587,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbObjectTrigger",
-    "popularityRank": 0
+    "popularityRank": 458
   },
   {
     "name": "Get-DbaDbOrphanUser",
@@ -2599,7 +2599,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbOrphanUser",
-    "popularityRank": 0
+    "popularityRank": 66
   },
   {
     "name": "Get-DbaDbPageInfo",
@@ -2612,7 +2612,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbPageInfo",
-    "popularityRank": 0
+    "popularityRank": 441
   },
   {
     "name": "Get-DbaDbPartitionFunction",
@@ -2624,7 +2624,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbPartitionFunction",
-    "popularityRank": 0
+    "popularityRank": 470
   },
   {
     "name": "Get-DbaDbPartitionScheme",
@@ -2636,7 +2636,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbPartitionScheme",
-    "popularityRank": 0
+    "popularityRank": 541
   },
   {
     "name": "Get-DbaDbQueryStoreOption",
@@ -2649,7 +2649,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbQueryStoreOption",
-    "popularityRank": 0
+    "popularityRank": 402
   },
   {
     "name": "Get-DbaDbRecoveryModel",
@@ -2661,7 +2661,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbRecoveryModel",
-    "popularityRank": 0
+    "popularityRank": 239
   },
   {
     "name": "Get-DbaDbRestoreHistory",
@@ -2674,7 +2674,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbRestoreHistory",
-    "popularityRank": 0
+    "popularityRank": 218
   },
   {
     "name": "Get-DbaDbRole",
@@ -2686,7 +2686,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbRole",
-    "popularityRank": 0
+    "popularityRank": 119
   },
   {
     "name": "Get-DbaDbRoleMember",
@@ -2698,7 +2698,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbRoleMember",
-    "popularityRank": 0
+    "popularityRank": 94
   },
   {
     "name": "Get-DbaDbSchema",
@@ -2710,7 +2710,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbSchema",
-    "popularityRank": 0
+    "popularityRank": 117
   },
   {
     "name": "Get-DbaDbSequence",
@@ -2722,7 +2722,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbSequence",
-    "popularityRank": 0
+    "popularityRank": 553
   },
   {
     "name": "Get-DbaDbServiceBrokerQueue",
@@ -2734,7 +2734,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbServiceBrokerQueue",
-    "popularityRank": 0
+    "popularityRank": 647
   },
   {
     "name": "Get-DbaDbServiceBrokerService",
@@ -2746,7 +2746,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbServiceBrokerService",
-    "popularityRank": 0
+    "popularityRank": 494
   },
   {
     "name": "Get-DbaDbSharePoint",
@@ -2758,7 +2758,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbSharePoint",
-    "popularityRank": 0
+    "popularityRank": 481
   },
   {
     "name": "Get-DbaDbSnapshot",
@@ -2770,7 +2770,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbSnapshot",
-    "popularityRank": 0
+    "popularityRank": 289
   },
   {
     "name": "Get-DbaDbSpace",
@@ -2782,7 +2782,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbSpace",
-    "popularityRank": 0
+    "popularityRank": 67
   },
   {
     "name": "Get-DbaDbState",
@@ -2794,7 +2794,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbState",
-    "popularityRank": 0
+    "popularityRank": 183
   },
   {
     "name": "Get-DbaDbStoredProcedure",
@@ -2806,7 +2806,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbStoredProcedure",
-    "popularityRank": 0
+    "popularityRank": 92
   },
   {
     "name": "Get-DbaDbSynonym",
@@ -2818,11 +2818,11 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbSynonym",
-    "popularityRank": 0
+    "popularityRank": 479
   },
   {
     "name": "Get-DbaDbTable",
-    "description": "Retrieves information about DbTable",
+    "description": "Retrieves table objects and properties from SQL Server databases.",
     "category": "Utilities",
     "tags": [
       "get",
@@ -2843,7 +2843,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbTrigger",
-    "popularityRank": 0
+    "popularityRank": 401
   },
   {
     "name": "Get-DbaDbUdf",
@@ -2855,11 +2855,11 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbUdf",
-    "popularityRank": 0
+    "popularityRank": 356
   },
   {
     "name": "Get-DbaDbUser",
-    "description": "Retrieves information about DbUser",
+    "description": "Retrieves database user information including roles and permissions.",
     "category": "Security",
     "tags": [
       "get"
@@ -2867,7 +2867,7 @@
     "verb": "Get",
     "popular": true,
     "url": "/commands/Get-DbaDbUser",
-    "popularityRank": 48
+    "popularityRank": 33
   },
   {
     "name": "Get-DbaDbUserDefinedTableType",
@@ -2880,7 +2880,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbUserDefinedTableType",
-    "popularityRank": 0
+    "popularityRank": 482
   },
   {
     "name": "Get-DbaDbView",
@@ -2892,7 +2892,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbView",
-    "popularityRank": 0
+    "popularityRank": 158
   },
   {
     "name": "Get-DbaDbVirtualLogFile",
@@ -2904,7 +2904,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDbVirtualLogFile",
-    "popularityRank": 0
+    "popularityRank": 318
   },
   {
     "name": "Get-DbaDefaultPath",
@@ -2916,7 +2916,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDefaultPath",
-    "popularityRank": 0
+    "popularityRank": 296
   },
   {
     "name": "Get-DbaDependency",
@@ -2928,7 +2928,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDependency",
-    "popularityRank": 0
+    "popularityRank": 334
   },
   {
     "name": "Get-DbaDeprecatedFeature",
@@ -2940,11 +2940,11 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDeprecatedFeature",
-    "popularityRank": 0
+    "popularityRank": 579
   },
   {
     "name": "Get-DbaDiskSpace",
-    "description": "Retrieves information about DiskSpace",
+    "description": "Retrieves disk space information for SQL Server data and log files.",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2952,7 +2952,7 @@
     "verb": "Get",
     "popular": true,
     "url": "/commands/Get-DbaDiskSpace",
-    "popularityRank": 46
+    "popularityRank": 47
   },
   {
     "name": "Get-DbaDump",
@@ -2964,7 +2964,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaDump",
-    "popularityRank": 0
+    "popularityRank": 275
   },
   {
     "name": "Get-DbaEndpoint",
@@ -2976,7 +2976,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaEndpoint",
-    "popularityRank": 0
+    "popularityRank": 303
   },
   {
     "name": "Get-DbaErrorLog",
@@ -2988,7 +2988,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaErrorLog",
-    "popularityRank": 0
+    "popularityRank": 115
   },
   {
     "name": "Get-DbaErrorLogConfig",
@@ -3000,7 +3000,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaErrorLogConfig",
-    "popularityRank": 0
+    "popularityRank": 464
   },
   {
     "name": "Get-DbaEstimatedCompletionTime",
@@ -3012,7 +3012,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaEstimatedCompletionTime",
-    "popularityRank": 0
+    "popularityRank": 361
   },
   {
     "name": "Get-DbaExecutionPlan",
@@ -3024,7 +3024,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaExecutionPlan",
-    "popularityRank": 0
+    "popularityRank": 341
   },
   {
     "name": "Get-DbaExtendedProperty",
@@ -3036,7 +3036,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaExtendedProperty",
-    "popularityRank": 0
+    "popularityRank": 352
   },
   {
     "name": "Get-DbaExtendedProtection",
@@ -3048,7 +3048,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaExtendedProtection",
-    "popularityRank": 0
+    "popularityRank": 598
   },
   {
     "name": "Get-DbaExternalProcess",
@@ -3060,7 +3060,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaExternalProcess",
-    "popularityRank": 0
+    "popularityRank": 533
   },
   {
     "name": "Get-DbaFeature",
@@ -3072,7 +3072,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaFeature",
-    "popularityRank": 0
+    "popularityRank": 220
   },
   {
     "name": "Get-DbaFile",
@@ -3084,7 +3084,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaFile",
-    "popularityRank": 0
+    "popularityRank": 184
   },
   {
     "name": "Get-DbaFilestream",
@@ -3096,7 +3096,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaFilestream",
-    "popularityRank": 0
+    "popularityRank": 616
   },
   {
     "name": "Get-DbaFirewallRule",
@@ -3108,7 +3108,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaFirewallRule",
-    "popularityRank": 0
+    "popularityRank": 306
   },
   {
     "name": "Get-DbaForceNetworkEncryption",
@@ -3121,7 +3121,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaForceNetworkEncryption",
-    "popularityRank": 0
+    "popularityRank": 443
   },
   {
     "name": "Get-DbaHelpIndex",
@@ -3133,7 +3133,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaHelpIndex",
-    "popularityRank": 0
+    "popularityRank": 110
   },
   {
     "name": "Get-DbaHideInstance",
@@ -3146,7 +3146,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaHideInstance",
-    "popularityRank": 0
+    "popularityRank": 582
   },
   {
     "name": "Get-DbaInstalledPatch",
@@ -3158,7 +3158,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaInstalledPatch",
-    "popularityRank": 0
+    "popularityRank": 88
   },
   {
     "name": "Get-DbaInstanceAudit",
@@ -3171,7 +3171,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaInstanceAudit",
-    "popularityRank": 0
+    "popularityRank": 169
   },
   {
     "name": "Get-DbaInstanceAuditSpecification",
@@ -3184,7 +3184,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaInstanceAuditSpecification",
-    "popularityRank": 0
+    "popularityRank": 427
   },
   {
     "name": "Get-DbaInstanceInstallDate",
@@ -3197,7 +3197,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaInstanceInstallDate",
-    "popularityRank": 0
+    "popularityRank": 357
   },
   {
     "name": "Get-DbaInstanceProperty",
@@ -3210,7 +3210,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaInstanceProperty",
-    "popularityRank": 0
+    "popularityRank": 61
   },
   {
     "name": "Get-DbaInstanceProtocol",
@@ -3223,7 +3223,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaInstanceProtocol",
-    "popularityRank": 0
+    "popularityRank": 391
   },
   {
     "name": "Get-DbaInstanceTrigger",
@@ -3236,7 +3236,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaInstanceTrigger",
-    "popularityRank": 0
+    "popularityRank": 514
   },
   {
     "name": "Get-DbaInstanceUserOption",
@@ -3249,7 +3249,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaInstanceUserOption",
-    "popularityRank": 0
+    "popularityRank": 508
   },
   {
     "name": "Get-DbaIoLatency",
@@ -3261,7 +3261,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaIoLatency",
-    "popularityRank": 0
+    "popularityRank": 204
   },
   {
     "name": "Get-DbaKbUpdate",
@@ -3273,7 +3273,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaKbUpdate",
-    "popularityRank": 0
+    "popularityRank": 108
   },
   {
     "name": "Get-DbaLastBackup",
@@ -3286,7 +3286,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaLastBackup",
-    "popularityRank": 0
+    "popularityRank": 80
   },
   {
     "name": "Get-DbaLastGoodCheckDb",
@@ -3298,7 +3298,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaLastGoodCheckDb",
-    "popularityRank": 0
+    "popularityRank": 246
   },
   {
     "name": "Get-DbaLatchStatistic",
@@ -3310,7 +3310,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaLatchStatistic",
-    "popularityRank": 0
+    "popularityRank": 496
   },
   {
     "name": "Get-DbaLinkedServer",
@@ -3323,7 +3323,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaLinkedServer",
-    "popularityRank": 0
+    "popularityRank": 98
   },
   {
     "name": "Get-DbaLinkedServerLogin",
@@ -3337,7 +3337,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaLinkedServerLogin",
-    "popularityRank": 0
+    "popularityRank": 209
   },
   {
     "name": "Get-DbaLocaleSetting",
@@ -3349,11 +3349,11 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaLocaleSetting",
-    "popularityRank": 0
+    "popularityRank": 500
   },
   {
     "name": "Get-DbaLogin",
-    "description": "Retrieves information about Login",
+    "description": "Retrieves SQL Server login information including authentication type and permissions.",
     "category": "Security",
     "tags": [
       "get",
@@ -3362,7 +3362,7 @@
     "verb": "Get",
     "popular": true,
     "url": "/commands/Get-DbaLogin",
-    "popularityRank": 19
+    "popularityRank": 17
   },
   {
     "name": "Get-DbaMaintenanceSolutionLog",
@@ -3374,7 +3374,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaMaintenanceSolutionLog",
-    "popularityRank": 0
+    "popularityRank": 232
   },
   {
     "name": "Get-DbaManagementObject",
@@ -3387,7 +3387,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaManagementObject",
-    "popularityRank": 0
+    "popularityRank": 292
   },
   {
     "name": "Get-DbaMaxMemory",
@@ -3399,7 +3399,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaMaxMemory",
-    "popularityRank": 0
+    "popularityRank": 114
   },
   {
     "name": "Get-DbaMemoryCondition",
@@ -3411,7 +3411,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaMemoryCondition",
-    "popularityRank": 0
+    "popularityRank": 407
   },
   {
     "name": "Get-DbaMemoryUsage",
@@ -3424,7 +3424,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaMemoryUsage",
-    "popularityRank": 0
+    "popularityRank": 221
   },
   {
     "name": "Get-DbaModule",
@@ -3436,7 +3436,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaModule",
-    "popularityRank": 0
+    "popularityRank": 422
   },
   {
     "name": "Get-DbaMsdtc",
@@ -3448,7 +3448,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaMsdtc",
-    "popularityRank": 0
+    "popularityRank": 488
   },
   {
     "name": "Get-DbaNetworkActivity",
@@ -3460,7 +3460,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaNetworkActivity",
-    "popularityRank": 0
+    "popularityRank": 412
   },
   {
     "name": "Get-DbaNetworkCertificate",
@@ -3473,7 +3473,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaNetworkCertificate",
-    "popularityRank": 0
+    "popularityRank": 133
   },
   {
     "name": "Get-DbaNetworkConfiguration",
@@ -3485,7 +3485,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaNetworkConfiguration",
-    "popularityRank": 0
+    "popularityRank": 241
   },
   {
     "name": "Get-DbaOleDbProvider",
@@ -3497,7 +3497,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaOleDbProvider",
-    "popularityRank": 0
+    "popularityRank": 573
   },
   {
     "name": "Get-DbaOpenTransaction",
@@ -3509,7 +3509,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaOpenTransaction",
-    "popularityRank": 0
+    "popularityRank": 421
   },
   {
     "name": "Get-DbaOperatingSystem",
@@ -3521,7 +3521,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaOperatingSystem",
-    "popularityRank": 0
+    "popularityRank": 210
   },
   {
     "name": "Get-DbaPageFileSetting",
@@ -3534,7 +3534,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaPageFileSetting",
-    "popularityRank": 0
+    "popularityRank": 492
   },
   {
     "name": "Get-DbaPbmCategory",
@@ -3546,7 +3546,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaPbmCategory",
-    "popularityRank": 0
+    "popularityRank": 648
   },
   {
     "name": "Get-DbaPbmCategorySubscription",
@@ -3558,7 +3558,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaPbmCategorySubscription",
-    "popularityRank": 0
+    "popularityRank": 670
   },
   {
     "name": "Get-DbaPbmCondition",
@@ -3570,7 +3570,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaPbmCondition",
-    "popularityRank": 0
+    "popularityRank": 682
   },
   {
     "name": "Get-DbaPbmObjectSet",
@@ -3582,7 +3582,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaPbmObjectSet",
-    "popularityRank": 0
+    "popularityRank": 652
   },
   {
     "name": "Get-DbaPbmPolicy",
@@ -3594,7 +3594,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaPbmPolicy",
-    "popularityRank": 0
+    "popularityRank": 574
   },
   {
     "name": "Get-DbaPbmStore",
@@ -3606,20 +3606,20 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaPbmStore",
-    "popularityRank": 0
+    "popularityRank": 631
   },
   {
     "name": "Get-DbaPermission",
-    "description": "Retrieves information about Permission",
+    "description": "Retrieves comprehensive permission information across SQL Server instances.",
     "category": "Security",
     "tags": [
       "get",
       "permission"
     ],
     "verb": "Get",
-    "popular": false,
+    "popular": true,
     "url": "/commands/Get-DbaPermission",
-    "popularityRank": 0
+    "popularityRank": 50
   },
   {
     "name": "Get-DbaPfAvailableCounter",
@@ -3631,7 +3631,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaPfAvailableCounter",
-    "popularityRank": 0
+    "popularityRank": 522
   },
   {
     "name": "Get-DbaPfDataCollector",
@@ -3643,7 +3643,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaPfDataCollector",
-    "popularityRank": 0
+    "popularityRank": 525
   },
   {
     "name": "Get-DbaPfDataCollectorCounter",
@@ -3655,7 +3655,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaPfDataCollectorCounter",
-    "popularityRank": 0
+    "popularityRank": 602
   },
   {
     "name": "Get-DbaPfDataCollectorCounterSample",
@@ -3667,7 +3667,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaPfDataCollectorCounterSample",
-    "popularityRank": 0
+    "popularityRank": 632
   },
   {
     "name": "Get-DbaPfDataCollectorSet",
@@ -3679,7 +3679,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaPfDataCollectorSet",
-    "popularityRank": 0
+    "popularityRank": 634
   },
   {
     "name": "Get-DbaPfDataCollectorSetTemplate",
@@ -3691,7 +3691,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaPfDataCollectorSetTemplate",
-    "popularityRank": 0
+    "popularityRank": 665
   },
   {
     "name": "Get-DbaPlanCache",
@@ -3703,7 +3703,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaPlanCache",
-    "popularityRank": 0
+    "popularityRank": 476
   },
   {
     "name": "Get-DbaPowerPlan",
@@ -3715,7 +3715,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaPowerPlan",
-    "popularityRank": 0
+    "popularityRank": 345
   },
   {
     "name": "Get-DbaPrivilege",
@@ -3727,7 +3727,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaPrivilege",
-    "popularityRank": 0
+    "popularityRank": 207
   },
   {
     "name": "Get-DbaProcess",
@@ -3739,11 +3739,11 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaProcess",
-    "popularityRank": 0
+    "popularityRank": 208
   },
   {
     "name": "Get-DbaProductKey",
-    "description": "Retrieves information about ProductKey",
+    "description": "Retrieves SQL Server product keys from local or remote computers.",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3751,7 +3751,7 @@
     "verb": "Get",
     "popular": true,
     "url": "/commands/Get-DbaProductKey",
-    "popularityRank": 34
+    "popularityRank": 21
   },
   {
     "name": "Get-DbaQueryExecutionTime",
@@ -3764,7 +3764,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaQueryExecutionTime",
-    "popularityRank": 0
+    "popularityRank": 335
   },
   {
     "name": "Get-DbaRandomizedDataset",
@@ -3776,7 +3776,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaRandomizedDataset",
-    "popularityRank": 0
+    "popularityRank": 301
   },
   {
     "name": "Get-DbaRandomizedDatasetTemplate",
@@ -3788,7 +3788,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaRandomizedDatasetTemplate",
-    "popularityRank": 0
+    "popularityRank": 527
   },
   {
     "name": "Get-DbaRandomizedType",
@@ -3800,7 +3800,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaRandomizedType",
-    "popularityRank": 0
+    "popularityRank": 625
   },
   {
     "name": "Get-DbaRandomizedValue",
@@ -3812,7 +3812,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaRandomizedValue",
-    "popularityRank": 0
+    "popularityRank": 564
   },
   {
     "name": "Get-DbaRegistryRoot",
@@ -3824,7 +3824,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaRegistryRoot",
-    "popularityRank": 0
+    "popularityRank": 489
   },
   {
     "name": "Get-DbaRegServer",
@@ -3837,7 +3837,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaRegServer",
-    "popularityRank": 0
+    "popularityRank": 64
   },
   {
     "name": "Get-DbaRegServerGroup",
@@ -3850,7 +3850,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaRegServerGroup",
-    "popularityRank": 0
+    "popularityRank": 265
   },
   {
     "name": "Get-DbaRegServerStore",
@@ -3863,7 +3863,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaRegServerStore",
-    "popularityRank": 0
+    "popularityRank": 430
   },
   {
     "name": "Get-DbaReplArticle",
@@ -3875,7 +3875,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaReplArticle",
-    "popularityRank": 0
+    "popularityRank": 600
   },
   {
     "name": "Get-DbaReplArticleColumn",
@@ -3887,7 +3887,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaReplArticleColumn",
-    "popularityRank": 0
+    "popularityRank": 671
   },
   {
     "name": "Get-DbaReplDistributor",
@@ -3899,7 +3899,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaReplDistributor",
-    "popularityRank": 0
+    "popularityRank": 627
   },
   {
     "name": "Get-DbaReplPublication",
@@ -3911,7 +3911,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaReplPublication",
-    "popularityRank": 0
+    "popularityRank": 601
   },
   {
     "name": "Get-DbaReplPublisher",
@@ -3923,7 +3923,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaReplPublisher",
-    "popularityRank": 0
+    "popularityRank": 669
   },
   {
     "name": "Get-DbaReplServer",
@@ -3936,7 +3936,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaReplServer",
-    "popularityRank": 0
+    "popularityRank": 586
   },
   {
     "name": "Get-DbaReplSubscription",
@@ -3948,7 +3948,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaReplSubscription",
-    "popularityRank": 0
+    "popularityRank": 594
   },
   {
     "name": "Get-DbaResourceGovernor",
@@ -3960,7 +3960,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaResourceGovernor",
-    "popularityRank": 0
+    "popularityRank": 562
   },
   {
     "name": "Get-DbaRgClassifierFunction",
@@ -3972,7 +3972,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaRgClassifierFunction",
-    "popularityRank": 0
+    "popularityRank": 642
   },
   {
     "name": "Get-DbaRgResourcePool",
@@ -3984,7 +3984,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaRgResourcePool",
-    "popularityRank": 0
+    "popularityRank": 673
   },
   {
     "name": "Get-DbaRgWorkloadGroup",
@@ -3996,7 +3996,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaRgWorkloadGroup",
-    "popularityRank": 0
+    "popularityRank": 675
   },
   {
     "name": "Get-DbaRunningJob",
@@ -4009,7 +4009,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaRunningJob",
-    "popularityRank": 0
+    "popularityRank": 281
   },
   {
     "name": "Get-DbaSchemaChangeHistory",
@@ -4021,7 +4021,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaSchemaChangeHistory",
-    "popularityRank": 0
+    "popularityRank": 399
   },
   {
     "name": "Get-DbaServerRole",
@@ -4034,7 +4034,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaServerRole",
-    "popularityRank": 0
+    "popularityRank": 189
   },
   {
     "name": "Get-DbaServerRoleMember",
@@ -4047,11 +4047,11 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaServerRoleMember",
-    "popularityRank": 0
+    "popularityRank": 147
   },
   {
     "name": "Get-DbaService",
-    "description": "Retrieves information about Service",
+    "description": "Retrieves SQL Server service information including status and startup accounts.",
     "category": "Server Management",
     "tags": [
       "get"
@@ -4059,7 +4059,7 @@
     "verb": "Get",
     "popular": true,
     "url": "/commands/Get-DbaService",
-    "popularityRank": 27
+    "popularityRank": 34
   },
   {
     "name": "Get-DbaSpConfigure",
@@ -4071,7 +4071,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaSpConfigure",
-    "popularityRank": 0
+    "popularityRank": 138
   },
   {
     "name": "Get-DbaSpinLockStatistic",
@@ -4083,7 +4083,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaSpinLockStatistic",
-    "popularityRank": 0
+    "popularityRank": 501
   },
   {
     "name": "Get-DbaSpn",
@@ -4095,7 +4095,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaSpn",
-    "popularityRank": 0
+    "popularityRank": 79
   },
   {
     "name": "Get-DbaSsisEnvironmentVariable",
@@ -4107,7 +4107,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaSsisEnvironmentVariable",
-    "popularityRank": 0
+    "popularityRank": 462
   },
   {
     "name": "Get-DbaSsisExecutionHistory",
@@ -4119,7 +4119,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaSsisExecutionHistory",
-    "popularityRank": 0
+    "popularityRank": 363
   },
   {
     "name": "Get-DbaStartupParameter",
@@ -4131,7 +4131,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaStartupParameter",
-    "popularityRank": 0
+    "popularityRank": 339
   },
   {
     "name": "Get-DbaStartupProcedure",
@@ -4143,7 +4143,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaStartupProcedure",
-    "popularityRank": 0
+    "popularityRank": 571
   },
   {
     "name": "Get-DbaSuspectPage",
@@ -4156,7 +4156,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaSuspectPage",
-    "popularityRank": 0
+    "popularityRank": 563
   },
   {
     "name": "Get-DbaTcpPort",
@@ -4168,7 +4168,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaTcpPort",
-    "popularityRank": 0
+    "popularityRank": 173
   },
   {
     "name": "Get-DbaTempdbUsage",
@@ -4181,7 +4181,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaTempdbUsage",
-    "popularityRank": 0
+    "popularityRank": 137
   },
   {
     "name": "Get-DbatoolsChangeLog",
@@ -4193,7 +4193,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbatoolsChangeLog",
-    "popularityRank": 0
+    "popularityRank": 531
   },
   {
     "name": "Get-DbatoolsConfig",
@@ -4205,7 +4205,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbatoolsConfig",
-    "popularityRank": 0
+    "popularityRank": 185
   },
   {
     "name": "Get-DbatoolsConfigValue",
@@ -4217,7 +4217,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbatoolsConfigValue",
-    "popularityRank": 0
+    "popularityRank": 417
   },
   {
     "name": "Get-DbatoolsError",
@@ -4229,7 +4229,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbatoolsError",
-    "popularityRank": 0
+    "popularityRank": 480
   },
   {
     "name": "Get-DbatoolsLog",
@@ -4241,7 +4241,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbatoolsLog",
-    "popularityRank": 0
+    "popularityRank": 258
   },
   {
     "name": "Get-DbatoolsPath",
@@ -4253,7 +4253,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbatoolsPath",
-    "popularityRank": 0
+    "popularityRank": 451
   },
   {
     "name": "Get-DbaTopResourceUsage",
@@ -4266,7 +4266,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaTopResourceUsage",
-    "popularityRank": 0
+    "popularityRank": 288
   },
   {
     "name": "Get-DbaTrace",
@@ -4278,7 +4278,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaTrace",
-    "popularityRank": 0
+    "popularityRank": 370
   },
   {
     "name": "Get-DbaTraceFlag",
@@ -4291,7 +4291,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaTraceFlag",
-    "popularityRank": 0
+    "popularityRank": 432
   },
   {
     "name": "Get-DbaUptime",
@@ -4303,11 +4303,11 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaUptime",
-    "popularityRank": 0
+    "popularityRank": 192
   },
   {
     "name": "Get-DbaUserPermission",
-    "description": "Retrieves information about UserPermission",
+    "description": "Retrieves effective permissions for SQL Server logins and users.",
     "category": "Security",
     "tags": [
       "get",
@@ -4316,7 +4316,7 @@
     "verb": "Get",
     "popular": true,
     "url": "/commands/Get-DbaUserPermission",
-    "popularityRank": 35
+    "popularityRank": 39
   },
   {
     "name": "Get-DbaWaitingTask",
@@ -4328,7 +4328,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaWaitingTask",
-    "popularityRank": 0
+    "popularityRank": 444
   },
   {
     "name": "Get-DbaWaitResource",
@@ -4340,7 +4340,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaWaitResource",
-    "popularityRank": 0
+    "popularityRank": 459
   },
   {
     "name": "Get-DbaWaitStatistic",
@@ -4352,7 +4352,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaWaitStatistic",
-    "popularityRank": 0
+    "popularityRank": 298
   },
   {
     "name": "Get-DbaWindowsLog",
@@ -4364,7 +4364,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaWindowsLog",
-    "popularityRank": 0
+    "popularityRank": 473
   },
   {
     "name": "Get-DbaWsfcAvailableDisk",
@@ -4376,7 +4376,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaWsfcAvailableDisk",
-    "popularityRank": 0
+    "popularityRank": 468
   },
   {
     "name": "Get-DbaWsfcCluster",
@@ -4388,7 +4388,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaWsfcCluster",
-    "popularityRank": 0
+    "popularityRank": 118
   },
   {
     "name": "Get-DbaWsfcDisk",
@@ -4400,7 +4400,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaWsfcDisk",
-    "popularityRank": 0
+    "popularityRank": 530
   },
   {
     "name": "Get-DbaWsfcNetwork",
@@ -4412,7 +4412,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaWsfcNetwork",
-    "popularityRank": 0
+    "popularityRank": 509
   },
   {
     "name": "Get-DbaWsfcNetworkInterface",
@@ -4424,7 +4424,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaWsfcNetworkInterface",
-    "popularityRank": 0
+    "popularityRank": 620
   },
   {
     "name": "Get-DbaWsfcNode",
@@ -4436,7 +4436,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaWsfcNode",
-    "popularityRank": 0
+    "popularityRank": 251
   },
   {
     "name": "Get-DbaWsfcResource",
@@ -4448,7 +4448,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaWsfcResource",
-    "popularityRank": 0
+    "popularityRank": 374
   },
   {
     "name": "Get-DbaWsfcResourceGroup",
@@ -4460,7 +4460,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaWsfcResourceGroup",
-    "popularityRank": 0
+    "popularityRank": 678
   },
   {
     "name": "Get-DbaWsfcResourceType",
@@ -4472,7 +4472,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaWsfcResourceType",
-    "popularityRank": 0
+    "popularityRank": 565
   },
   {
     "name": "Get-DbaWsfcRole",
@@ -4484,7 +4484,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaWsfcRole",
-    "popularityRank": 0
+    "popularityRank": 322
   },
   {
     "name": "Get-DbaWsfcSharedVolume",
@@ -4496,7 +4496,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaWsfcSharedVolume",
-    "popularityRank": 0
+    "popularityRank": 576
   },
   {
     "name": "Get-DbaXEObject",
@@ -4508,7 +4508,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaXEObject",
-    "popularityRank": 0
+    "popularityRank": 554
   },
   {
     "name": "Get-DbaXESession",
@@ -4520,7 +4520,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaXESession",
-    "popularityRank": 0
+    "popularityRank": 366
   },
   {
     "name": "Get-DbaXESessionTarget",
@@ -4532,7 +4532,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaXESessionTarget",
-    "popularityRank": 0
+    "popularityRank": 606
   },
   {
     "name": "Get-DbaXESessionTargetFile",
@@ -4544,7 +4544,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaXESessionTargetFile",
-    "popularityRank": 0
+    "popularityRank": 561
   },
   {
     "name": "Get-DbaXESessionTemplate",
@@ -4556,7 +4556,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaXESessionTemplate",
-    "popularityRank": 0
+    "popularityRank": 619
   },
   {
     "name": "Get-DbaXEStore",
@@ -4568,7 +4568,7 @@
     "verb": "Get",
     "popular": false,
     "url": "/commands/Get-DbaXEStore",
-    "popularityRank": 0
+    "popularityRank": 608
   },
   {
     "name": "Grant-DbaAgPermission",
@@ -4582,7 +4582,7 @@
     "verb": "Grant",
     "popular": false,
     "url": "/commands/Grant-DbaAgPermission",
-    "popularityRank": 0
+    "popularityRank": 254
   },
   {
     "name": "Import-DbaBinaryFile",
@@ -4594,11 +4594,11 @@
     "verb": "Import",
     "popular": false,
     "url": "/commands/Import-DbaBinaryFile",
-    "popularityRank": 0
+    "popularityRank": 520
   },
   {
     "name": "Import-DbaCsv",
-    "description": "Imports Csv from file",
+    "description": "Imports CSV files into SQL Server tables with automatic table creation and data type detection.",
     "category": "Migration",
     "tags": [
       "import"
@@ -4606,7 +4606,7 @@
     "verb": "Import",
     "popular": true,
     "url": "/commands/Import-DbaCsv",
-    "popularityRank": 16
+    "popularityRank": 14
   },
   {
     "name": "Import-DbaPfDataCollectorSetTemplate",
@@ -4618,7 +4618,7 @@
     "verb": "Import",
     "popular": false,
     "url": "/commands/Import-DbaPfDataCollectorSetTemplate",
-    "popularityRank": 0
+    "popularityRank": 638
   },
   {
     "name": "Import-DbaRegServer",
@@ -4631,7 +4631,7 @@
     "verb": "Import",
     "popular": false,
     "url": "/commands/Import-DbaRegServer",
-    "popularityRank": 0
+    "popularityRank": 362
   },
   {
     "name": "Import-DbaSpConfigure",
@@ -4643,7 +4643,7 @@
     "verb": "Import",
     "popular": false,
     "url": "/commands/Import-DbaSpConfigure",
-    "popularityRank": 0
+    "popularityRank": 504
   },
   {
     "name": "Import-DbatoolsConfig",
@@ -4655,7 +4655,7 @@
     "verb": "Import",
     "popular": false,
     "url": "/commands/Import-DbatoolsConfig",
-    "popularityRank": 0
+    "popularityRank": 515
   },
   {
     "name": "Import-DbaXESessionTemplate",
@@ -4667,7 +4667,7 @@
     "verb": "Import",
     "popular": false,
     "url": "/commands/Import-DbaXESessionTemplate",
-    "popularityRank": 0
+    "popularityRank": 540
   },
   {
     "name": "Install-DbaAgentAdminAlert",
@@ -4681,7 +4681,7 @@
     "verb": "Install",
     "popular": false,
     "url": "/commands/Install-DbaAgentAdminAlert",
-    "popularityRank": 0
+    "popularityRank": 477
   },
   {
     "name": "Install-DbaDarlingData",
@@ -4693,7 +4693,7 @@
     "verb": "Install",
     "popular": false,
     "url": "/commands/Install-DbaDarlingData",
-    "popularityRank": 0
+    "popularityRank": 96
   },
   {
     "name": "Install-DbaFirstResponderKit",
@@ -4705,11 +4705,11 @@
     "verb": "Install",
     "popular": false,
     "url": "/commands/Install-DbaFirstResponderKit",
-    "popularityRank": 0
+    "popularityRank": 104
   },
   {
     "name": "Install-DbaInstance",
-    "description": "Installs Instance",
+    "description": "Installs SQL Server instances using provided installation media.",
     "category": "Server Management",
     "tags": [
       "install",
@@ -4718,11 +4718,11 @@
     "verb": "Install",
     "popular": true,
     "url": "/commands/Install-DbaInstance",
-    "popularityRank": 17
+    "popularityRank": 22
   },
   {
     "name": "Install-DbaMaintenanceSolution",
-    "description": "Installs MaintenanceSolution",
+    "description": "Installs Ola Hallengren's SQL Server maintenance solution.",
     "category": "Utilities",
     "tags": [
       "install"
@@ -4730,7 +4730,7 @@
     "verb": "Install",
     "popular": true,
     "url": "/commands/Install-DbaMaintenanceSolution",
-    "popularityRank": 39
+    "popularityRank": 43
   },
   {
     "name": "Install-DbaMultiTool",
@@ -4742,7 +4742,7 @@
     "verb": "Install",
     "popular": false,
     "url": "/commands/Install-DbaMultiTool",
-    "popularityRank": 0
+    "popularityRank": 102
   },
   {
     "name": "Install-DbaSqlPackage",
@@ -4755,11 +4755,11 @@
     "verb": "Install",
     "popular": false,
     "url": "/commands/Install-DbaSqlPackage",
-    "popularityRank": 0
+    "popularityRank": 696
   },
   {
     "name": "Install-DbaSqlWatch",
-    "description": "Installs SqlWatch",
+    "description": "Installs SQLWatch monitoring solution on SQL Server instances.",
     "category": "Utilities",
     "tags": [
       "install"
@@ -4767,7 +4767,7 @@
     "verb": "Install",
     "popular": true,
     "url": "/commands/Install-DbaSqlWatch",
-    "popularityRank": 26
+    "popularityRank": 45
   },
   {
     "name": "Install-DbaWhoIsActive",
@@ -4779,7 +4779,7 @@
     "verb": "Install",
     "popular": false,
     "url": "/commands/Install-DbaWhoIsActive",
-    "popularityRank": 0
+    "popularityRank": 123
   },
   {
     "name": "Invoke-DbaAdvancedInstall",
@@ -4791,7 +4791,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaAdvancedInstall",
-    "popularityRank": 0
+    "popularityRank": 168
   },
   {
     "name": "Invoke-DbaAdvancedRestore",
@@ -4804,7 +4804,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaAdvancedRestore",
-    "popularityRank": 0
+    "popularityRank": 142
   },
   {
     "name": "Invoke-DbaAdvancedUpdate",
@@ -4816,7 +4816,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaAdvancedUpdate",
-    "popularityRank": 0
+    "popularityRank": 222
   },
   {
     "name": "Invoke-DbaAgFailover",
@@ -4829,7 +4829,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaAgFailover",
-    "popularityRank": 0
+    "popularityRank": 59
   },
   {
     "name": "Invoke-DbaBalanceDataFiles",
@@ -4841,7 +4841,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaBalanceDataFiles",
-    "popularityRank": 0
+    "popularityRank": 353
   },
   {
     "name": "Invoke-DbaCycleErrorLog",
@@ -4853,7 +4853,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaCycleErrorLog",
-    "popularityRank": 0
+    "popularityRank": 577
   },
   {
     "name": "Invoke-DbaDbccDropCleanBuffer",
@@ -4865,7 +4865,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaDbccDropCleanBuffer",
-    "popularityRank": 0
+    "popularityRank": 645
   },
   {
     "name": "Invoke-DbaDbccFreeCache",
@@ -4877,7 +4877,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaDbccFreeCache",
-    "popularityRank": 0
+    "popularityRank": 557
   },
   {
     "name": "Invoke-DbaDbClone",
@@ -4889,7 +4889,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaDbClone",
-    "popularityRank": 0
+    "popularityRank": 178
   },
   {
     "name": "Invoke-DbaDbDataGenerator",
@@ -4902,7 +4902,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaDbDataGenerator",
-    "popularityRank": 0
+    "popularityRank": 376
   },
   {
     "name": "Invoke-DbaDbDataMasking",
@@ -4914,7 +4914,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaDbDataMasking",
-    "popularityRank": 0
+    "popularityRank": 124
   },
   {
     "name": "Invoke-DbaDbDbccCheckConstraint",
@@ -4926,7 +4926,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaDbDbccCheckConstraint",
-    "popularityRank": 0
+    "popularityRank": 510
   },
   {
     "name": "Invoke-DbaDbDbccCleanTable",
@@ -4939,7 +4939,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaDbDbccCleanTable",
-    "popularityRank": 0
+    "popularityRank": 523
   },
   {
     "name": "Invoke-DbaDbDbccUpdateUsage",
@@ -4952,7 +4952,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaDbDbccUpdateUsage",
-    "popularityRank": 0
+    "popularityRank": 528
   },
   {
     "name": "Invoke-DbaDbDecryptObject",
@@ -4964,7 +4964,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaDbDecryptObject",
-    "popularityRank": 0
+    "popularityRank": 434
   },
   {
     "name": "Invoke-DbaDbLogShipping",
@@ -4976,7 +4976,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaDbLogShipping",
-    "popularityRank": 0
+    "popularityRank": 75
   },
   {
     "name": "Invoke-DbaDbLogShipRecovery",
@@ -4988,7 +4988,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaDbLogShipRecovery",
-    "popularityRank": 0
+    "popularityRank": 235
   },
   {
     "name": "Invoke-DbaDbMirrorFailover",
@@ -5001,7 +5001,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaDbMirrorFailover",
-    "popularityRank": 0
+    "popularityRank": 467
   },
   {
     "name": "Invoke-DbaDbMirroring",
@@ -5014,7 +5014,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaDbMirroring",
-    "popularityRank": 0
+    "popularityRank": 340
   },
   {
     "name": "Invoke-DbaDbPiiScan",
@@ -5026,7 +5026,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaDbPiiScan",
-    "popularityRank": 0
+    "popularityRank": 230
   },
   {
     "name": "Invoke-DbaDbShrink",
@@ -5036,9 +5036,9 @@
       "invoke"
     ],
     "verb": "Invoke",
-    "popular": true,
+    "popular": false,
     "url": "/commands/Invoke-DbaDbShrink",
-    "popularityRank": 50
+    "popularityRank": 57
   },
   {
     "name": "Invoke-DbaDbTransfer",
@@ -5050,7 +5050,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaDbTransfer",
-    "popularityRank": 0
+    "popularityRank": 293
   },
   {
     "name": "Invoke-DbaDbUpgrade",
@@ -5062,7 +5062,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaDbUpgrade",
-    "popularityRank": 0
+    "popularityRank": 243
   },
   {
     "name": "Invoke-DbaDiagnosticQuery",
@@ -5076,7 +5076,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaDiagnosticQuery",
-    "popularityRank": 0
+    "popularityRank": 73
   },
   {
     "name": "Invoke-DbaPfRelog",
@@ -5088,11 +5088,11 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaPfRelog",
-    "popularityRank": 0
+    "popularityRank": 589
   },
   {
     "name": "Invoke-DbaQuery",
-    "description": "Executes Query operation",
+    "description": "Executes SQL queries and returns results as PowerShell objects.",
     "category": "Utilities",
     "tags": [
       "invoke",
@@ -5101,7 +5101,7 @@
     "verb": "Invoke",
     "popular": true,
     "url": "/commands/Invoke-DbaQuery",
-    "popularityRank": 4
+    "popularityRank": 2
   },
   {
     "name": "Invoke-DbatoolsFormatter",
@@ -5113,7 +5113,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbatoolsFormatter",
-    "popularityRank": 0
+    "popularityRank": 517
   },
   {
     "name": "Invoke-DbatoolsRenameHelper",
@@ -5125,7 +5125,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbatoolsRenameHelper",
-    "popularityRank": 0
+    "popularityRank": 567
   },
   {
     "name": "Invoke-DbaWhoIsActive",
@@ -5137,7 +5137,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaWhoIsActive",
-    "popularityRank": 0
+    "popularityRank": 403
   },
   {
     "name": "Invoke-DbaXEReplay",
@@ -5149,7 +5149,7 @@
     "verb": "Invoke",
     "popular": false,
     "url": "/commands/Invoke-DbaXEReplay",
-    "popularityRank": 0
+    "popularityRank": 691
   },
   {
     "name": "Join-DbaAvailabilityGroup",
@@ -5162,7 +5162,7 @@
     "verb": "Join",
     "popular": false,
     "url": "/commands/Join-DbaAvailabilityGroup",
-    "popularityRank": 0
+    "popularityRank": 177
   },
   {
     "name": "Join-DbaPath",
@@ -5174,7 +5174,7 @@
     "verb": "Join",
     "popular": false,
     "url": "/commands/Join-DbaPath",
-    "popularityRank": 0
+    "popularityRank": 524
   },
   {
     "name": "Measure-DbaBackupThroughput",
@@ -5187,7 +5187,7 @@
     "verb": "Measure",
     "popular": false,
     "url": "/commands/Measure-DbaBackupThroughput",
-    "popularityRank": 0
+    "popularityRank": 347
   },
   {
     "name": "Measure-DbaDbVirtualLogFile",
@@ -5199,7 +5199,7 @@
     "verb": "Measure",
     "popular": false,
     "url": "/commands/Measure-DbaDbVirtualLogFile",
-    "popularityRank": 0
+    "popularityRank": 365
   },
   {
     "name": "Measure-DbaDiskSpaceRequirement",
@@ -5211,7 +5211,7 @@
     "verb": "Measure",
     "popular": false,
     "url": "/commands/Measure-DbaDiskSpaceRequirement",
-    "popularityRank": 0
+    "popularityRank": 282
   },
   {
     "name": "Measure-DbatoolsImport",
@@ -5223,7 +5223,7 @@
     "verb": "Measure",
     "popular": false,
     "url": "/commands/Measure-DbatoolsImport",
-    "popularityRank": 0
+    "popularityRank": 583
   },
   {
     "name": "Mount-DbaDatabase",
@@ -5236,7 +5236,7 @@
     "verb": "Mount",
     "popular": false,
     "url": "/commands/Mount-DbaDatabase",
-    "popularityRank": 0
+    "popularityRank": 175
   },
   {
     "name": "Move-DbaDbFile",
@@ -5248,7 +5248,7 @@
     "verb": "Move",
     "popular": false,
     "url": "/commands/Move-DbaDbFile",
-    "popularityRank": 0
+    "popularityRank": 87
   },
   {
     "name": "Move-DbaRegServer",
@@ -5261,7 +5261,7 @@
     "verb": "Move",
     "popular": false,
     "url": "/commands/Move-DbaRegServer",
-    "popularityRank": 0
+    "popularityRank": 532
   },
   {
     "name": "Move-DbaRegServerGroup",
@@ -5274,7 +5274,7 @@
     "verb": "Move",
     "popular": false,
     "url": "/commands/Move-DbaRegServerGroup",
-    "popularityRank": 0
+    "popularityRank": 666
   },
   {
     "name": "New-DbaAgentAlert",
@@ -5288,7 +5288,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaAgentAlert",
-    "popularityRank": 0
+    "popularityRank": 587
   },
   {
     "name": "New-DbaAgentAlertCategory",
@@ -5302,7 +5302,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaAgentAlertCategory",
-    "popularityRank": 0
+    "popularityRank": 629
   },
   {
     "name": "New-DbaAgentJob",
@@ -5317,7 +5317,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaAgentJob",
-    "popularityRank": 0
+    "popularityRank": 157
   },
   {
     "name": "New-DbaAgentJobCategory",
@@ -5332,7 +5332,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaAgentJobCategory",
-    "popularityRank": 0
+    "popularityRank": 539
   },
   {
     "name": "New-DbaAgentJobStep",
@@ -5347,7 +5347,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaAgentJobStep",
-    "popularityRank": 0
+    "popularityRank": 180
   },
   {
     "name": "New-DbaAgentOperator",
@@ -5361,7 +5361,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaAgentOperator",
-    "popularityRank": 0
+    "popularityRank": 465
   },
   {
     "name": "New-DbaAgentProxy",
@@ -5389,7 +5389,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaAgentSchedule",
-    "popularityRank": 0
+    "popularityRank": 198
   },
   {
     "name": "New-DbaAvailabilityGroup",
@@ -5402,7 +5402,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaAvailabilityGroup",
-    "popularityRank": 0
+    "popularityRank": 89
   },
   {
     "name": "New-DbaAzAccessToken",
@@ -5414,7 +5414,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaAzAccessToken",
-    "popularityRank": 0
+    "popularityRank": 228
   },
   {
     "name": "New-DbaClientAlias",
@@ -5426,7 +5426,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaClientAlias",
-    "popularityRank": 0
+    "popularityRank": 368
   },
   {
     "name": "New-DbaCmConnection",
@@ -5438,7 +5438,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaCmConnection",
-    "popularityRank": 0
+    "popularityRank": 558
   },
   {
     "name": "New-DbaComputerCertificate",
@@ -5451,7 +5451,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaComputerCertificate",
-    "popularityRank": 0
+    "popularityRank": 140
   },
   {
     "name": "New-DbaComputerCertificateSigningRequest",
@@ -5464,19 +5464,19 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaComputerCertificateSigningRequest",
-    "popularityRank": 0
+    "popularityRank": 310
   },
   {
     "name": "New-DbaConnectionString",
-    "description": "Creates new ConnectionString",
+    "description": "Builds SQL Server connection strings with specified parameters.",
     "category": "Utilities",
     "tags": [
       "new"
     ],
     "verb": "New",
-    "popular": false,
+    "popular": true,
     "url": "/commands/New-DbaConnectionString",
-    "popularityRank": 0
+    "popularityRank": 25
   },
   {
     "name": "New-DbaConnectionStringBuilder",
@@ -5488,7 +5488,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaConnectionStringBuilder",
-    "popularityRank": 0
+    "popularityRank": 367
   },
   {
     "name": "New-DbaCredential",
@@ -5500,7 +5500,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaCredential",
-    "popularityRank": 0
+    "popularityRank": 201
   },
   {
     "name": "New-DbaCustomError",
@@ -5512,7 +5512,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaCustomError",
-    "popularityRank": 0
+    "popularityRank": 674
   },
   {
     "name": "New-DbaDacOption",
@@ -5524,7 +5524,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDacOption",
-    "popularityRank": 0
+    "popularityRank": 307
   },
   {
     "name": "New-DbaDacProfile",
@@ -5536,7 +5536,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDacProfile",
-    "popularityRank": 0
+    "popularityRank": 511
   },
   {
     "name": "New-DbaDatabase",
@@ -5549,7 +5549,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDatabase",
-    "popularityRank": 0
+    "popularityRank": 77
   },
   {
     "name": "New-DbaDbAsymmetricKey",
@@ -5561,7 +5561,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDbAsymmetricKey",
-    "popularityRank": 0
+    "popularityRank": 635
   },
   {
     "name": "New-DbaDbCertificate",
@@ -5574,7 +5574,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDbCertificate",
-    "popularityRank": 0
+    "popularityRank": 283
   },
   {
     "name": "New-DbaDbDataGeneratorConfig",
@@ -5587,7 +5587,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDbDataGeneratorConfig",
-    "popularityRank": 0
+    "popularityRank": 435
   },
   {
     "name": "New-DbaDbEncryptionKey",
@@ -5600,7 +5600,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDbEncryptionKey",
-    "popularityRank": 0
+    "popularityRank": 343
   },
   {
     "name": "New-DbaDbFileGroup",
@@ -5612,7 +5612,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDbFileGroup",
-    "popularityRank": 0
+    "popularityRank": 566
   },
   {
     "name": "New-DbaDbMailAccount",
@@ -5624,7 +5624,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDbMailAccount",
-    "popularityRank": 0
+    "popularityRank": 244
   },
   {
     "name": "New-DbaDbMailProfile",
@@ -5636,7 +5636,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDbMailProfile",
-    "popularityRank": 0
+    "popularityRank": 278
   },
   {
     "name": "New-DbaDbMaskingConfig",
@@ -5648,7 +5648,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDbMaskingConfig",
-    "popularityRank": 0
+    "popularityRank": 219
   },
   {
     "name": "New-DbaDbMasterKey",
@@ -5660,7 +5660,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDbMasterKey",
-    "popularityRank": 0
+    "popularityRank": 433
   },
   {
     "name": "New-DbaDbRole",
@@ -5672,7 +5672,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDbRole",
-    "popularityRank": 0
+    "popularityRank": 249
   },
   {
     "name": "New-DbaDbSchema",
@@ -5684,7 +5684,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDbSchema",
-    "popularityRank": 0
+    "popularityRank": 483
   },
   {
     "name": "New-DbaDbSequence",
@@ -5696,7 +5696,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDbSequence",
-    "popularityRank": 0
+    "popularityRank": 663
   },
   {
     "name": "New-DbaDbSnapshot",
@@ -5708,7 +5708,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDbSnapshot",
-    "popularityRank": 0
+    "popularityRank": 269
   },
   {
     "name": "New-DbaDbSynonym",
@@ -5720,7 +5720,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDbSynonym",
-    "popularityRank": 0
+    "popularityRank": 607
   },
   {
     "name": "New-DbaDbTable",
@@ -5733,7 +5733,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDbTable",
-    "popularityRank": 0
+    "popularityRank": 182
   },
   {
     "name": "New-DbaDbTransfer",
@@ -5745,7 +5745,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDbTransfer",
-    "popularityRank": 0
+    "popularityRank": 252
   },
   {
     "name": "New-DbaDbUser",
@@ -5757,7 +5757,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDbUser",
-    "popularityRank": 0
+    "popularityRank": 53
   },
   {
     "name": "New-DbaDiagnosticAdsNotebook",
@@ -5770,7 +5770,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDiagnosticAdsNotebook",
-    "popularityRank": 0
+    "popularityRank": 439
   },
   {
     "name": "New-DbaDirectory",
@@ -5782,7 +5782,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaDirectory",
-    "popularityRank": 0
+    "popularityRank": 490
   },
   {
     "name": "New-DbaEndpoint",
@@ -5794,7 +5794,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaEndpoint",
-    "popularityRank": 0
+    "popularityRank": 426
   },
   {
     "name": "New-DbaFirewallRule",
@@ -5806,7 +5806,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaFirewallRule",
-    "popularityRank": 0
+    "popularityRank": 431
   },
   {
     "name": "New-DbaLinkedServer",
@@ -5819,7 +5819,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaLinkedServer",
-    "popularityRank": 0
+    "popularityRank": 475
   },
   {
     "name": "New-DbaLinkedServerLogin",
@@ -5833,11 +5833,11 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaLinkedServerLogin",
-    "popularityRank": 0
+    "popularityRank": 305
   },
   {
     "name": "New-DbaLogin",
-    "description": "Creates new Login",
+    "description": "Creates new SQL Server logins with specified authentication and permissions.",
     "category": "Security",
     "tags": [
       "new",
@@ -5846,7 +5846,7 @@
     "verb": "New",
     "popular": true,
     "url": "/commands/New-DbaLogin",
-    "popularityRank": 43
+    "popularityRank": 36
   },
   {
     "name": "New-DbaReplCreationScriptOptions",
@@ -5858,7 +5858,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaReplCreationScriptOptions",
-    "popularityRank": 0
+    "popularityRank": 578
   },
   {
     "name": "New-DbaReplPublication",
@@ -5870,7 +5870,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaReplPublication",
-    "popularityRank": 0
+    "popularityRank": 584
   },
   {
     "name": "New-DbaReplSubscription",
@@ -5882,7 +5882,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaReplSubscription",
-    "popularityRank": 0
+    "popularityRank": 630
   },
   {
     "name": "New-DbaRgResourcePool",
@@ -5894,7 +5894,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaRgResourcePool",
-    "popularityRank": 0
+    "popularityRank": 683
   },
   {
     "name": "New-DbaRgWorkloadGroup",
@@ -5906,7 +5906,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaRgWorkloadGroup",
-    "popularityRank": 0
+    "popularityRank": 681
   },
   {
     "name": "New-DbaScriptingOption",
@@ -5918,7 +5918,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaScriptingOption",
-    "popularityRank": 0
+    "popularityRank": 136
   },
   {
     "name": "New-DbaServerRole",
@@ -5931,7 +5931,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaServerRole",
-    "popularityRank": 0
+    "popularityRank": 450
   },
   {
     "name": "New-DbaServiceMasterKey",
@@ -5943,7 +5943,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaServiceMasterKey",
-    "popularityRank": 0
+    "popularityRank": 543
   },
   {
     "name": "New-DbaSqlParameter",
@@ -5955,7 +5955,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaSqlParameter",
-    "popularityRank": 0
+    "popularityRank": 348
   },
   {
     "name": "New-DbaSsisCatalog",
@@ -5967,7 +5967,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaSsisCatalog",
-    "popularityRank": 0
+    "popularityRank": 493
   },
   {
     "name": "New-DbatoolsSupportPackage",
@@ -5980,7 +5980,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbatoolsSupportPackage",
-    "popularityRank": 0
+    "popularityRank": 628
   },
   {
     "name": "New-DbaXESession",
@@ -5992,7 +5992,7 @@
     "verb": "New",
     "popular": false,
     "url": "/commands/New-DbaXESession",
-    "popularityRank": 0
+    "popularityRank": 486
   },
   {
     "name": "Publish-DbaDacPackage",
@@ -6005,7 +6005,7 @@
     "verb": "Publish",
     "popular": false,
     "url": "/commands/Publish-DbaDacPackage",
-    "popularityRank": 0
+    "popularityRank": 144
   },
   {
     "name": "Read-DbaAuditFile",
@@ -6017,7 +6017,7 @@
     "verb": "Read",
     "popular": false,
     "url": "/commands/Read-DbaAuditFile",
-    "popularityRank": 0
+    "popularityRank": 336
   },
   {
     "name": "Read-DbaBackupHeader",
@@ -6030,7 +6030,7 @@
     "verb": "Read",
     "popular": false,
     "url": "/commands/Read-DbaBackupHeader",
-    "popularityRank": 0
+    "popularityRank": 261
   },
   {
     "name": "Read-DbaTraceFile",
@@ -6042,7 +6042,7 @@
     "verb": "Read",
     "popular": false,
     "url": "/commands/Read-DbaTraceFile",
-    "popularityRank": 0
+    "popularityRank": 521
   },
   {
     "name": "Read-DbaTransactionLog",
@@ -6054,7 +6054,7 @@
     "verb": "Read",
     "popular": false,
     "url": "/commands/Read-DbaTransactionLog",
-    "popularityRank": 0
+    "popularityRank": 346
   },
   {
     "name": "Read-DbaXEFile",
@@ -6066,7 +6066,7 @@
     "verb": "Read",
     "popular": false,
     "url": "/commands/Read-DbaXEFile",
-    "popularityRank": 0
+    "popularityRank": 312
   },
   {
     "name": "Register-DbatoolsConfig",
@@ -6078,7 +6078,7 @@
     "verb": "Register",
     "popular": false,
     "url": "/commands/Register-DbatoolsConfig",
-    "popularityRank": 0
+    "popularityRank": 328
   },
   {
     "name": "Remove-DbaAgDatabase",
@@ -6092,7 +6092,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaAgDatabase",
-    "popularityRank": 0
+    "popularityRank": 103
   },
   {
     "name": "Remove-DbaAgentAlert",
@@ -6106,7 +6106,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaAgentAlert",
-    "popularityRank": 0
+    "popularityRank": 660
   },
   {
     "name": "Remove-DbaAgentAlertCategory",
@@ -6120,7 +6120,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaAgentAlertCategory",
-    "popularityRank": 0
+    "popularityRank": 695
   },
   {
     "name": "Remove-DbaAgentJob",
@@ -6135,7 +6135,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaAgentJob",
-    "popularityRank": 0
+    "popularityRank": 213
   },
   {
     "name": "Remove-DbaAgentJobCategory",
@@ -6150,7 +6150,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaAgentJobCategory",
-    "popularityRank": 0
+    "popularityRank": 688
   },
   {
     "name": "Remove-DbaAgentJobStep",
@@ -6165,7 +6165,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaAgentJobStep",
-    "popularityRank": 0
+    "popularityRank": 568
   },
   {
     "name": "Remove-DbaAgentOperator",
@@ -6179,7 +6179,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaAgentOperator",
-    "popularityRank": 0
+    "popularityRank": 646
   },
   {
     "name": "Remove-DbaAgentProxy",
@@ -6207,7 +6207,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaAgentSchedule",
-    "popularityRank": 0
+    "popularityRank": 506
   },
   {
     "name": "Remove-DbaAgListener",
@@ -6220,7 +6220,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaAgListener",
-    "popularityRank": 0
+    "popularityRank": 536
   },
   {
     "name": "Remove-DbaAgReplica",
@@ -6233,7 +6233,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaAgReplica",
-    "popularityRank": 0
+    "popularityRank": 445
   },
   {
     "name": "Remove-DbaAvailabilityGroup",
@@ -6246,7 +6246,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaAvailabilityGroup",
-    "popularityRank": 0
+    "popularityRank": 377
   },
   {
     "name": "Remove-DbaBackup",
@@ -6259,7 +6259,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaBackup",
-    "popularityRank": 0
+    "popularityRank": 231
   },
   {
     "name": "Remove-DbaClientAlias",
@@ -6271,7 +6271,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaClientAlias",
-    "popularityRank": 0
+    "popularityRank": 656
   },
   {
     "name": "Remove-DbaCmConnection",
@@ -6283,7 +6283,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaCmConnection",
-    "popularityRank": 0
+    "popularityRank": 650
   },
   {
     "name": "Remove-DbaComputerCertificate",
@@ -6296,7 +6296,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaComputerCertificate",
-    "popularityRank": 0
+    "popularityRank": 537
   },
   {
     "name": "Remove-DbaCredential",
@@ -6308,7 +6308,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaCredential",
-    "popularityRank": 0
+    "popularityRank": 614
   },
   {
     "name": "Remove-DbaCustomError",
@@ -6320,7 +6320,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaCustomError",
-    "popularityRank": 0
+    "popularityRank": 697
   },
   {
     "name": "Remove-DbaDatabase",
@@ -6333,7 +6333,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDatabase",
-    "popularityRank": 0
+    "popularityRank": 63
   },
   {
     "name": "Remove-DbaDatabaseSafely",
@@ -6346,7 +6346,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDatabaseSafely",
-    "popularityRank": 0
+    "popularityRank": 386
   },
   {
     "name": "Remove-DbaDbAsymmetricKey",
@@ -6358,7 +6358,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbAsymmetricKey",
-    "popularityRank": 0
+    "popularityRank": 693
   },
   {
     "name": "Remove-DbaDbBackupRestoreHistory",
@@ -6372,7 +6372,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbBackupRestoreHistory",
-    "popularityRank": 0
+    "popularityRank": 452
   },
   {
     "name": "Remove-DbaDbCertificate",
@@ -6385,7 +6385,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbCertificate",
-    "popularityRank": 0
+    "popularityRank": 572
   },
   {
     "name": "Remove-DbaDbCheckConstraint",
@@ -6397,7 +6397,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbCheckConstraint",
-    "popularityRank": 0
+    "popularityRank": 667
   },
   {
     "name": "Remove-DbaDbData",
@@ -6409,7 +6409,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbData",
-    "popularityRank": 0
+    "popularityRank": 393
   },
   {
     "name": "Remove-DbaDbEncryptionKey",
@@ -6422,7 +6422,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbEncryptionKey",
-    "popularityRank": 0
+    "popularityRank": 580
   },
   {
     "name": "Remove-DbaDbFileGroup",
@@ -6434,7 +6434,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbFileGroup",
-    "popularityRank": 0
+    "popularityRank": 595
   },
   {
     "name": "Remove-DbaDbLogShipping",
@@ -6446,7 +6446,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbLogShipping",
-    "popularityRank": 0
+    "popularityRank": 324
   },
   {
     "name": "Remove-DbaDbMailAccount",
@@ -6458,7 +6458,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbMailAccount",
-    "popularityRank": 0
+    "popularityRank": 591
   },
   {
     "name": "Remove-DbaDbMailProfile",
@@ -6470,7 +6470,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbMailProfile",
-    "popularityRank": 0
+    "popularityRank": 633
   },
   {
     "name": "Remove-DbaDbMasterKey",
@@ -6482,7 +6482,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbMasterKey",
-    "popularityRank": 0
+    "popularityRank": 649
   },
   {
     "name": "Remove-DbaDbMirror",
@@ -6495,7 +6495,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbMirror",
-    "popularityRank": 0
+    "popularityRank": 551
   },
   {
     "name": "Remove-DbaDbMirrorMonitor",
@@ -6508,7 +6508,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbMirrorMonitor",
-    "popularityRank": 0
+    "popularityRank": 690
   },
   {
     "name": "Remove-DbaDbOrphanUser",
@@ -6520,7 +6520,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbOrphanUser",
-    "popularityRank": 0
+    "popularityRank": 126
   },
   {
     "name": "Remove-DbaDbPartitionFunction",
@@ -6532,7 +6532,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbPartitionFunction",
-    "popularityRank": 0
+    "popularityRank": 685
   },
   {
     "name": "Remove-DbaDbPartitionScheme",
@@ -6544,7 +6544,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbPartitionScheme",
-    "popularityRank": 0
+    "popularityRank": 701
   },
   {
     "name": "Remove-DbaDbRole",
@@ -6556,7 +6556,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbRole",
-    "popularityRank": 0
+    "popularityRank": 545
   },
   {
     "name": "Remove-DbaDbRoleMember",
@@ -6568,7 +6568,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbRoleMember",
-    "popularityRank": 0
+    "popularityRank": 429
   },
   {
     "name": "Remove-DbaDbSchema",
@@ -6580,7 +6580,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbSchema",
-    "popularityRank": 0
+    "popularityRank": 546
   },
   {
     "name": "Remove-DbaDbSequence",
@@ -6592,7 +6592,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbSequence",
-    "popularityRank": 0
+    "popularityRank": 676
   },
   {
     "name": "Remove-DbaDbSnapshot",
@@ -6604,7 +6604,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbSnapshot",
-    "popularityRank": 0
+    "popularityRank": 498
   },
   {
     "name": "Remove-DbaDbSynonym",
@@ -6616,7 +6616,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbSynonym",
-    "popularityRank": 0
+    "popularityRank": 657
   },
   {
     "name": "Remove-DbaDbTable",
@@ -6629,7 +6629,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbTable",
-    "popularityRank": 0
+    "popularityRank": 270
   },
   {
     "name": "Remove-DbaDbTableData",
@@ -6642,7 +6642,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbTableData",
-    "popularityRank": 0
+    "popularityRank": 161
   },
   {
     "name": "Remove-DbaDbUdf",
@@ -6654,7 +6654,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbUdf",
-    "popularityRank": 0
+    "popularityRank": 664
   },
   {
     "name": "Remove-DbaDbUser",
@@ -6666,7 +6666,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbUser",
-    "popularityRank": 0
+    "popularityRank": 132
   },
   {
     "name": "Remove-DbaDbView",
@@ -6678,7 +6678,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaDbView",
-    "popularityRank": 0
+    "popularityRank": 636
   },
   {
     "name": "Remove-DbaEndpoint",
@@ -6690,7 +6690,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaEndpoint",
-    "popularityRank": 0
+    "popularityRank": 643
   },
   {
     "name": "Remove-DbaExtendedProperty",
@@ -6702,7 +6702,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaExtendedProperty",
-    "popularityRank": 0
+    "popularityRank": 651
   },
   {
     "name": "Remove-DbaFirewallRule",
@@ -6714,7 +6714,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaFirewallRule",
-    "popularityRank": 0
+    "popularityRank": 686
   },
   {
     "name": "Remove-DbaLinkedServer",
@@ -6727,7 +6727,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaLinkedServer",
-    "popularityRank": 0
+    "popularityRank": 518
   },
   {
     "name": "Remove-DbaLinkedServerLogin",
@@ -6741,7 +6741,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaLinkedServerLogin",
-    "popularityRank": 0
+    "popularityRank": 653
   },
   {
     "name": "Remove-DbaLogin",
@@ -6754,7 +6754,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaLogin",
-    "popularityRank": 0
+    "popularityRank": 91
   },
   {
     "name": "Remove-DbaNetworkCertificate",
@@ -6767,7 +6767,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaNetworkCertificate",
-    "popularityRank": 0
+    "popularityRank": 529
   },
   {
     "name": "Remove-DbaPfDataCollectorCounter",
@@ -6779,7 +6779,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaPfDataCollectorCounter",
-    "popularityRank": 0
+    "popularityRank": 692
   },
   {
     "name": "Remove-DbaPfDataCollectorSet",
@@ -6791,7 +6791,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaPfDataCollectorSet",
-    "popularityRank": 0
+    "popularityRank": 687
   },
   {
     "name": "Remove-DbaRegServer",
@@ -6804,7 +6804,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaRegServer",
-    "popularityRank": 0
+    "popularityRank": 457
   },
   {
     "name": "Remove-DbaRegServerGroup",
@@ -6817,7 +6817,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaRegServerGroup",
-    "popularityRank": 0
+    "popularityRank": 624
   },
   {
     "name": "Remove-DbaReplArticle",
@@ -6829,7 +6829,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaReplArticle",
-    "popularityRank": 0
+    "popularityRank": 684
   },
   {
     "name": "Remove-DbaReplPublication",
@@ -6841,7 +6841,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaReplPublication",
-    "popularityRank": 0
+    "popularityRank": 644
   },
   {
     "name": "Remove-DbaReplSubscription",
@@ -6853,7 +6853,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaReplSubscription",
-    "popularityRank": 0
+    "popularityRank": 626
   },
   {
     "name": "Remove-DbaRgResourcePool",
@@ -6865,7 +6865,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaRgResourcePool",
-    "popularityRank": 0
+    "popularityRank": 700
   },
   {
     "name": "Remove-DbaRgWorkloadGroup",
@@ -6877,7 +6877,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaRgWorkloadGroup",
-    "popularityRank": 0
+    "popularityRank": 698
   },
   {
     "name": "Remove-DbaServerRole",
@@ -6890,7 +6890,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaServerRole",
-    "popularityRank": 0
+    "popularityRank": 613
   },
   {
     "name": "Remove-DbaServerRoleMember",
@@ -6903,7 +6903,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaServerRoleMember",
-    "popularityRank": 0
+    "popularityRank": 512
   },
   {
     "name": "Remove-DbaSpn",
@@ -6915,7 +6915,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaSpn",
-    "popularityRank": 0
+    "popularityRank": 413
   },
   {
     "name": "Remove-DbaTrace",
@@ -6927,7 +6927,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaTrace",
-    "popularityRank": 0
+    "popularityRank": 677
   },
   {
     "name": "Remove-DbaXESession",
@@ -6939,7 +6939,7 @@
     "verb": "Remove",
     "popular": false,
     "url": "/commands/Remove-DbaXESession",
-    "popularityRank": 0
+    "popularityRank": 661
   },
   {
     "name": "Rename-DbaDatabase",
@@ -6952,7 +6952,7 @@
     "verb": "Rename",
     "popular": false,
     "url": "/commands/Rename-DbaDatabase",
-    "popularityRank": 0
+    "popularityRank": 141
   },
   {
     "name": "Rename-DbaLogin",
@@ -6965,7 +6965,7 @@
     "verb": "Rename",
     "popular": false,
     "url": "/commands/Rename-DbaLogin",
-    "popularityRank": 0
+    "popularityRank": 396
   },
   {
     "name": "Repair-DbaDbMirror",
@@ -6978,11 +6978,11 @@
     "verb": "Repair",
     "popular": false,
     "url": "/commands/Repair-DbaDbMirror",
-    "popularityRank": 0
+    "popularityRank": 609
   },
   {
     "name": "Repair-DbaDbOrphanUser",
-    "description": "Manages DbOrphanUser",
+    "description": "Remaps orphaned database users to existing logins.",
     "category": "Security",
     "tags": [
       "repair"
@@ -6990,7 +6990,7 @@
     "verb": "Repair",
     "popular": true,
     "url": "/commands/Repair-DbaDbOrphanUser",
-    "popularityRank": 44
+    "popularityRank": 49
   },
   {
     "name": "Repair-DbaInstanceName",
@@ -7003,11 +7003,11 @@
     "verb": "Repair",
     "popular": false,
     "url": "/commands/Repair-DbaInstanceName",
-    "popularityRank": 0
+    "popularityRank": 380
   },
   {
     "name": "Reset-DbaAdmin",
-    "description": "Manages Admin",
+    "description": "Grants sysadmin access to SQL Server when normal login methods fail.",
     "category": "Utilities",
     "tags": [
       "reset"
@@ -7015,7 +7015,7 @@
     "verb": "Reset",
     "popular": true,
     "url": "/commands/Reset-DbaAdmin",
-    "popularityRank": 5
+    "popularityRank": 19
   },
   {
     "name": "Reset-DbatoolsConfig",
@@ -7027,7 +7027,7 @@
     "verb": "Reset",
     "popular": false,
     "url": "/commands/Reset-DbatoolsConfig",
-    "popularityRank": 0
+    "popularityRank": 497
   },
   {
     "name": "Resolve-DbaNetworkName",
@@ -7039,7 +7039,7 @@
     "verb": "Resolve",
     "popular": false,
     "url": "/commands/Resolve-DbaNetworkName",
-    "popularityRank": 0
+    "popularityRank": 299
   },
   {
     "name": "Resolve-DbaPath",
@@ -7051,7 +7051,7 @@
     "verb": "Resolve",
     "popular": false,
     "url": "/commands/Resolve-DbaPath",
-    "popularityRank": 0
+    "popularityRank": 534
   },
   {
     "name": "Restart-DbaService",
@@ -7063,11 +7063,11 @@
     "verb": "Restart",
     "popular": false,
     "url": "/commands/Restart-DbaService",
-    "popularityRank": 0
+    "popularityRank": 135
   },
   {
     "name": "Restore-DbaDatabase",
-    "description": "Restores Database from backup",
+    "description": "Restores SQL Server database backups with support for point-in-time recovery and filegroup restores.",
     "category": "Backup & Restore",
     "tags": [
       "restore",
@@ -7076,7 +7076,7 @@
     "verb": "Restore",
     "popular": true,
     "url": "/commands/Restore-DbaDatabase",
-    "popularityRank": 1
+    "popularityRank": 3
   },
   {
     "name": "Restore-DbaDbCertificate",
@@ -7089,7 +7089,7 @@
     "verb": "Restore",
     "popular": false,
     "url": "/commands/Restore-DbaDbCertificate",
-    "popularityRank": 0
+    "popularityRank": 225
   },
   {
     "name": "Restore-DbaDbSnapshot",
@@ -7101,7 +7101,7 @@
     "verb": "Restore",
     "popular": false,
     "url": "/commands/Restore-DbaDbSnapshot",
-    "popularityRank": 0
+    "popularityRank": 371
   },
   {
     "name": "Resume-DbaAgDbDataMovement",
@@ -7114,7 +7114,7 @@
     "verb": "Resume",
     "popular": false,
     "url": "/commands/Resume-DbaAgDbDataMovement",
-    "popularityRank": 0
+    "popularityRank": 316
   },
   {
     "name": "Revoke-DbaAgPermission",
@@ -7128,7 +7128,7 @@
     "verb": "Revoke",
     "popular": false,
     "url": "/commands/Revoke-DbaAgPermission",
-    "popularityRank": 0
+    "popularityRank": 596
   },
   {
     "name": "Save-DbaCommunitySoftware",
@@ -7140,7 +7140,7 @@
     "verb": "Save",
     "popular": false,
     "url": "/commands/Save-DbaCommunitySoftware",
-    "popularityRank": 0
+    "popularityRank": 338
   },
   {
     "name": "Save-DbaDiagnosticQueryScript",
@@ -7154,7 +7154,7 @@
     "verb": "Save",
     "popular": false,
     "url": "/commands/Save-DbaDiagnosticQueryScript",
-    "popularityRank": 0
+    "popularityRank": 471
   },
   {
     "name": "Save-DbaKbUpdate",
@@ -7166,7 +7166,7 @@
     "verb": "Save",
     "popular": false,
     "url": "/commands/Save-DbaKbUpdate",
-    "popularityRank": 0
+    "popularityRank": 214
   },
   {
     "name": "Select-DbaBackupInformation",
@@ -7179,7 +7179,7 @@
     "verb": "Select",
     "popular": false,
     "url": "/commands/Select-DbaBackupInformation",
-    "popularityRank": 0
+    "popularityRank": 176
   },
   {
     "name": "Select-DbaDbSequenceNextValue",
@@ -7191,7 +7191,7 @@
     "verb": "Select",
     "popular": false,
     "url": "/commands/Select-DbaDbSequenceNextValue",
-    "popularityRank": 0
+    "popularityRank": 658
   },
   {
     "name": "Set-DbaAgentAlert",
@@ -7205,7 +7205,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaAgentAlert",
-    "popularityRank": 0
+    "popularityRank": 369
   },
   {
     "name": "Set-DbaAgentJob",
@@ -7220,7 +7220,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaAgentJob",
-    "popularityRank": 0
+    "popularityRank": 82
   },
   {
     "name": "Set-DbaAgentJobCategory",
@@ -7235,7 +7235,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaAgentJobCategory",
-    "popularityRank": 0
+    "popularityRank": 605
   },
   {
     "name": "Set-DbaAgentJobOutputFile",
@@ -7250,7 +7250,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaAgentJobOutputFile",
-    "popularityRank": 0
+    "popularityRank": 560
   },
   {
     "name": "Set-DbaAgentJobOwner",
@@ -7265,7 +7265,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaAgentJobOwner",
-    "popularityRank": 0
+    "popularityRank": 372
   },
   {
     "name": "Set-DbaAgentJobStep",
@@ -7280,7 +7280,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaAgentJobStep",
-    "popularityRank": 0
+    "popularityRank": 215
   },
   {
     "name": "Set-DbaAgentOperator",
@@ -7294,7 +7294,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaAgentOperator",
-    "popularityRank": 0
+    "popularityRank": 469
   },
   {
     "name": "Set-DbaAgentSchedule",
@@ -7308,7 +7308,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaAgentSchedule",
-    "popularityRank": 0
+    "popularityRank": 233
   },
   {
     "name": "Set-DbaAgentServer",
@@ -7323,7 +7323,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaAgentServer",
-    "popularityRank": 0
+    "popularityRank": 436
   },
   {
     "name": "Set-DbaAgListener",
@@ -7336,7 +7336,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaAgListener",
-    "popularityRank": 0
+    "popularityRank": 382
   },
   {
     "name": "Set-DbaAgReplica",
@@ -7349,7 +7349,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaAgReplica",
-    "popularityRank": 0
+    "popularityRank": 163
   },
   {
     "name": "Set-DbaAvailabilityGroup",
@@ -7362,7 +7362,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaAvailabilityGroup",
-    "popularityRank": 0
+    "popularityRank": 197
   },
   {
     "name": "Set-DbaCmConnection",
@@ -7374,7 +7374,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaCmConnection",
-    "popularityRank": 0
+    "popularityRank": 538
   },
   {
     "name": "Set-DbaDbCompatibility",
@@ -7386,7 +7386,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaDbCompatibility",
-    "popularityRank": 0
+    "popularityRank": 152
   },
   {
     "name": "Set-DbaDbCompression",
@@ -7398,7 +7398,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaDbCompression",
-    "popularityRank": 0
+    "popularityRank": 344
   },
   {
     "name": "Set-DbaDbFileGroup",
@@ -7410,7 +7410,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaDbFileGroup",
-    "popularityRank": 0
+    "popularityRank": 437
   },
   {
     "name": "Set-DbaDbFileGrowth",
@@ -7422,7 +7422,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaDbFileGrowth",
-    "popularityRank": 0
+    "popularityRank": 300
   },
   {
     "name": "Set-DbaDbIdentity",
@@ -7434,7 +7434,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaDbIdentity",
-    "popularityRank": 0
+    "popularityRank": 552
   },
   {
     "name": "Set-DbaDbMirror",
@@ -7447,7 +7447,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaDbMirror",
-    "popularityRank": 0
+    "popularityRank": 415
   },
   {
     "name": "Set-DbaDbOwner",
@@ -7459,7 +7459,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaDbOwner",
-    "popularityRank": 0
+    "popularityRank": 68
   },
   {
     "name": "Set-DbaDbQueryStoreOption",
@@ -7472,7 +7472,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaDbQueryStoreOption",
-    "popularityRank": 0
+    "popularityRank": 342
   },
   {
     "name": "Set-DbaDbRecoveryModel",
@@ -7484,7 +7484,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaDbRecoveryModel",
-    "popularityRank": 0
+    "popularityRank": 127
   },
   {
     "name": "Set-DbaDbSchema",
@@ -7496,7 +7496,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaDbSchema",
-    "popularityRank": 0
+    "popularityRank": 410
   },
   {
     "name": "Set-DbaDbSequence",
@@ -7508,7 +7508,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaDbSequence",
-    "popularityRank": 0
+    "popularityRank": 654
   },
   {
     "name": "Set-DbaDbState",
@@ -7518,9 +7518,9 @@
       "set"
     ],
     "verb": "Set",
-    "popular": true,
+    "popular": false,
     "url": "/commands/Set-DbaDbState",
-    "popularityRank": 47
+    "popularityRank": 71
   },
   {
     "name": "Set-DbaDefaultPath",
@@ -7532,7 +7532,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaDefaultPath",
-    "popularityRank": 0
+    "popularityRank": 418
   },
   {
     "name": "Set-DbaEndpoint",
@@ -7544,7 +7544,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaEndpoint",
-    "popularityRank": 0
+    "popularityRank": 507
   },
   {
     "name": "Set-DbaErrorLogConfig",
@@ -7556,7 +7556,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaErrorLogConfig",
-    "popularityRank": 0
+    "popularityRank": 448
   },
   {
     "name": "Set-DbaExtendedProperty",
@@ -7568,7 +7568,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaExtendedProperty",
-    "popularityRank": 0
+    "popularityRank": 491
   },
   {
     "name": "Set-DbaExtendedProtection",
@@ -7580,7 +7580,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaExtendedProtection",
-    "popularityRank": 0
+    "popularityRank": 622
   },
   {
     "name": "Set-DbaLogin",
@@ -7591,9 +7591,9 @@
       "login"
     ],
     "verb": "Set",
-    "popular": true,
+    "popular": false,
     "url": "/commands/Set-DbaLogin",
-    "popularityRank": 49
+    "popularityRank": 55
   },
   {
     "name": "Set-DbaMaxDop",
@@ -7605,7 +7605,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaMaxDop",
-    "popularityRank": 0
+    "popularityRank": 319
   },
   {
     "name": "Set-DbaMaxMemory",
@@ -7617,7 +7617,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaMaxMemory",
-    "popularityRank": 0
+    "popularityRank": 145
   },
   {
     "name": "Set-DbaNetworkCertificate",
@@ -7628,9 +7628,9 @@
       "certificate"
     ],
     "verb": "Set",
-    "popular": true,
+    "popular": false,
     "url": "/commands/Set-DbaNetworkCertificate",
-    "popularityRank": 36
+    "popularityRank": 58
   },
   {
     "name": "Set-DbaNetworkConfiguration",
@@ -7642,7 +7642,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaNetworkConfiguration",
-    "popularityRank": 0
+    "popularityRank": 294
   },
   {
     "name": "Set-DbaPowerPlan",
@@ -7654,7 +7654,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaPowerPlan",
-    "popularityRank": 0
+    "popularityRank": 463
   },
   {
     "name": "Set-DbaPrivilege",
@@ -7666,7 +7666,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaPrivilege",
-    "popularityRank": 0
+    "popularityRank": 199
   },
   {
     "name": "Set-DbaResourceGovernor",
@@ -7678,7 +7678,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaResourceGovernor",
-    "popularityRank": 0
+    "popularityRank": 640
   },
   {
     "name": "Set-DbaRgResourcePool",
@@ -7690,7 +7690,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaRgResourcePool",
-    "popularityRank": 0
+    "popularityRank": 679
   },
   {
     "name": "Set-DbaRgWorkloadGroup",
@@ -7702,7 +7702,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaRgWorkloadGroup",
-    "popularityRank": 0
+    "popularityRank": 680
   },
   {
     "name": "Set-DbaSpConfigure",
@@ -7714,7 +7714,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaSpConfigure",
-    "popularityRank": 0
+    "popularityRank": 155
   },
   {
     "name": "Set-DbaSpn",
@@ -7726,7 +7726,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaSpn",
-    "popularityRank": 0
+    "popularityRank": 106
   },
   {
     "name": "Set-DbaStartupParameter",
@@ -7738,7 +7738,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaStartupParameter",
-    "popularityRank": 0
+    "popularityRank": 165
   },
   {
     "name": "Set-DbaTcpPort",
@@ -7750,7 +7750,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaTcpPort",
-    "popularityRank": 0
+    "popularityRank": 291
   },
   {
     "name": "Set-DbaTempDbConfig",
@@ -7762,11 +7762,11 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbaTempDbConfig",
-    "popularityRank": 0
+    "popularityRank": 143
   },
   {
     "name": "Set-DbatoolsInsecureConnection",
-    "description": "Configures toolsInsecureConnection settings",
+    "description": "Configures dbatools to allow insecure connections for testing purposes.",
     "category": "Utilities",
     "tags": [
       "set"
@@ -7774,7 +7774,7 @@
     "verb": "Set",
     "popular": true,
     "url": "/commands/Set-DbatoolsInsecureConnection",
-    "popularityRank": 18
+    "popularityRank": 11
   },
   {
     "name": "Set-DbatoolsPath",
@@ -7786,7 +7786,7 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbatoolsPath",
-    "popularityRank": 0
+    "popularityRank": 585
   },
   {
     "name": "Show-DbaDbList",
@@ -7798,7 +7798,7 @@
     "verb": "Show",
     "popular": false,
     "url": "/commands/Show-DbaDbList",
-    "popularityRank": 0
+    "popularityRank": 284
   },
   {
     "name": "Show-DbaInstanceFileSystem",
@@ -7811,7 +7811,7 @@
     "verb": "Show",
     "popular": false,
     "url": "/commands/Show-DbaInstanceFileSystem",
-    "popularityRank": 0
+    "popularityRank": 329
   },
   {
     "name": "Start-DbaAgentJob",
@@ -7826,7 +7826,7 @@
     "verb": "Start",
     "popular": false,
     "url": "/commands/Start-DbaAgentJob",
-    "popularityRank": 0
+    "popularityRank": 116
   },
   {
     "name": "Start-DbaDbEncryption",
@@ -7839,7 +7839,7 @@
     "verb": "Start",
     "popular": false,
     "url": "/commands/Start-DbaDbEncryption",
-    "popularityRank": 0
+    "popularityRank": 317
   },
   {
     "name": "Start-DbaEndpoint",
@@ -7851,11 +7851,11 @@
     "verb": "Start",
     "popular": false,
     "url": "/commands/Start-DbaEndpoint",
-    "popularityRank": 0
+    "popularityRank": 597
   },
   {
     "name": "Start-DbaMigration",
-    "description": "Starts Migration process or service",
+    "description": "Performs a comprehensive migration of SQL Server objects, including logins, jobs, databases, and instance-level settings.",
     "category": "Migration",
     "tags": [
       "start",
@@ -7864,7 +7864,7 @@
     "verb": "Start",
     "popular": true,
     "url": "/commands/Start-DbaMigration",
-    "popularityRank": 8
+    "popularityRank": 6
   },
   {
     "name": "Start-DbaPfDataCollectorSet",
@@ -7876,7 +7876,7 @@
     "verb": "Start",
     "popular": false,
     "url": "/commands/Start-DbaPfDataCollectorSet",
-    "popularityRank": 0
+    "popularityRank": 603
   },
   {
     "name": "Start-DbaService",
@@ -7888,7 +7888,7 @@
     "verb": "Start",
     "popular": false,
     "url": "/commands/Start-DbaService",
-    "popularityRank": 0
+    "popularityRank": 205
   },
   {
     "name": "Start-DbaTrace",
@@ -7900,7 +7900,7 @@
     "verb": "Start",
     "popular": false,
     "url": "/commands/Start-DbaTrace",
-    "popularityRank": 0
+    "popularityRank": 360
   },
   {
     "name": "Start-DbaXESession",
@@ -7912,7 +7912,7 @@
     "verb": "Start",
     "popular": false,
     "url": "/commands/Start-DbaXESession",
-    "popularityRank": 0
+    "popularityRank": 547
   },
   {
     "name": "Stop-DbaAgentJob",
@@ -7927,7 +7927,7 @@
     "verb": "Stop",
     "popular": false,
     "url": "/commands/Stop-DbaAgentJob",
-    "popularityRank": 0
+    "popularityRank": 358
   },
   {
     "name": "Stop-DbaDbEncryption",
@@ -7940,7 +7940,7 @@
     "verb": "Stop",
     "popular": false,
     "url": "/commands/Stop-DbaDbEncryption",
-    "popularityRank": 0
+    "popularityRank": 593
   },
   {
     "name": "Stop-DbaEndpoint",
@@ -7952,7 +7952,7 @@
     "verb": "Stop",
     "popular": false,
     "url": "/commands/Stop-DbaEndpoint",
-    "popularityRank": 0
+    "popularityRank": 668
   },
   {
     "name": "Stop-DbaExternalProcess",
@@ -7964,7 +7964,7 @@
     "verb": "Stop",
     "popular": false,
     "url": "/commands/Stop-DbaExternalProcess",
-    "popularityRank": 0
+    "popularityRank": 655
   },
   {
     "name": "Stop-DbaPfDataCollectorSet",
@@ -7976,7 +7976,7 @@
     "verb": "Stop",
     "popular": false,
     "url": "/commands/Stop-DbaPfDataCollectorSet",
-    "popularityRank": 0
+    "popularityRank": 694
   },
   {
     "name": "Stop-DbaProcess",
@@ -7988,7 +7988,7 @@
     "verb": "Stop",
     "popular": false,
     "url": "/commands/Stop-DbaProcess",
-    "popularityRank": 0
+    "popularityRank": 248
   },
   {
     "name": "Stop-DbaService",
@@ -8000,7 +8000,7 @@
     "verb": "Stop",
     "popular": false,
     "url": "/commands/Stop-DbaService",
-    "popularityRank": 0
+    "popularityRank": 236
   },
   {
     "name": "Stop-DbaTrace",
@@ -8012,7 +8012,7 @@
     "verb": "Stop",
     "popular": false,
     "url": "/commands/Stop-DbaTrace",
-    "popularityRank": 0
+    "popularityRank": 672
   },
   {
     "name": "Stop-DbaXESession",
@@ -8024,7 +8024,7 @@
     "verb": "Stop",
     "popular": false,
     "url": "/commands/Stop-DbaXESession",
-    "popularityRank": 0
+    "popularityRank": 659
   },
   {
     "name": "Suspend-DbaAgDbDataMovement",
@@ -8037,11 +8037,11 @@
     "verb": "Suspend",
     "popular": false,
     "url": "/commands/Suspend-DbaAgDbDataMovement",
-    "popularityRank": 0
+    "popularityRank": 394
   },
   {
     "name": "Sync-DbaAvailabilityGroup",
-    "description": "Synchronizes AvailabilityGroup between instances",
+    "description": "Synchronizes Always On Availability Group databases and configurations.",
     "category": "Utilities",
     "tags": [
       "sync",
@@ -8050,11 +8050,11 @@
     "verb": "Sync",
     "popular": true,
     "url": "/commands/Sync-DbaAvailabilityGroup",
-    "popularityRank": 22
+    "popularityRank": 26
   },
   {
     "name": "Sync-DbaLoginPermission",
-    "description": "Synchronizes LoginPermission between instances",
+    "description": "Synchronizes login permissions across SQL Server instances.",
     "category": "Security",
     "tags": [
       "sync",
@@ -8064,7 +8064,7 @@
     "verb": "Sync",
     "popular": true,
     "url": "/commands/Sync-DbaLoginPermission",
-    "popularityRank": 28
+    "popularityRank": 38
   },
   {
     "name": "Test-DbaAgentJobOwner",
@@ -8079,7 +8079,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaAgentJobOwner",
-    "popularityRank": 0
+    "popularityRank": 428
   },
   {
     "name": "Test-DbaAgSpn",
@@ -8092,7 +8092,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaAgSpn",
-    "popularityRank": 0
+    "popularityRank": 466
   },
   {
     "name": "Test-DbaAvailabilityGroup",
@@ -8105,7 +8105,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaAvailabilityGroup",
-    "popularityRank": 0
+    "popularityRank": 76
   },
   {
     "name": "Test-DbaBackupEncrypted",
@@ -8119,7 +8119,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaBackupEncrypted",
-    "popularityRank": 0
+    "popularityRank": 456
   },
   {
     "name": "Test-DbaBackupInformation",
@@ -8132,7 +8132,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaBackupInformation",
-    "popularityRank": 0
+    "popularityRank": 194
   },
   {
     "name": "Test-DbaBuild",
@@ -8144,7 +8144,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaBuild",
-    "popularityRank": 0
+    "popularityRank": 83
   },
   {
     "name": "Test-DbaCmConnection",
@@ -8156,7 +8156,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaCmConnection",
-    "popularityRank": 0
+    "popularityRank": 314
   },
   {
     "name": "Test-DbaComputerCertificateExpiration",
@@ -8169,11 +8169,11 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaComputerCertificateExpiration",
-    "popularityRank": 0
+    "popularityRank": 271
   },
   {
     "name": "Test-DbaConnection",
-    "description": "Validates Connection configuration or status",
+    "description": "Tests connectivity to SQL Server instances and validates authentication.",
     "category": "Utilities",
     "tags": [
       "test"
@@ -8181,7 +8181,7 @@
     "verb": "Test",
     "popular": true,
     "url": "/commands/Test-DbaConnection",
-    "popularityRank": 30
+    "popularityRank": 29
   },
   {
     "name": "Test-DbaConnectionAuthScheme",
@@ -8193,7 +8193,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaConnectionAuthScheme",
-    "popularityRank": 0
+    "popularityRank": 397
   },
   {
     "name": "Test-DbaDbCollation",
@@ -8205,7 +8205,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaDbCollation",
-    "popularityRank": 0
+    "popularityRank": 416
   },
   {
     "name": "Test-DbaDbCompatibility",
@@ -8217,7 +8217,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaDbCompatibility",
-    "popularityRank": 0
+    "popularityRank": 420
   },
   {
     "name": "Test-DbaDbCompression",
@@ -8229,7 +8229,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaDbCompression",
-    "popularityRank": 0
+    "popularityRank": 323
   },
   {
     "name": "Test-DbaDbDataGeneratorConfig",
@@ -8242,7 +8242,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaDbDataGeneratorConfig",
-    "popularityRank": 0
+    "popularityRank": 590
   },
   {
     "name": "Test-DbaDbDataMaskingConfig",
@@ -8254,7 +8254,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaDbDataMaskingConfig",
-    "popularityRank": 0
+    "popularityRank": 472
   },
   {
     "name": "Test-DbaDbLogShipStatus",
@@ -8266,7 +8266,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaDbLogShipStatus",
-    "popularityRank": 0
+    "popularityRank": 234
   },
   {
     "name": "Test-DbaDbOwner",
@@ -8278,7 +8278,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaDbOwner",
-    "popularityRank": 0
+    "popularityRank": 250
   },
   {
     "name": "Test-DbaDbQueryStore",
@@ -8291,7 +8291,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaDbQueryStore",
-    "popularityRank": 0
+    "popularityRank": 359
   },
   {
     "name": "Test-DbaDbRecoveryModel",
@@ -8303,7 +8303,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaDbRecoveryModel",
-    "popularityRank": 0
+    "popularityRank": 438
   },
   {
     "name": "Test-DbaDiskAlignment",
@@ -8315,7 +8315,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaDiskAlignment",
-    "popularityRank": 0
+    "popularityRank": 287
   },
   {
     "name": "Test-DbaDiskAllocation",
@@ -8327,7 +8327,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaDiskAllocation",
-    "popularityRank": 0
+    "popularityRank": 237
   },
   {
     "name": "Test-DbaDiskSpeed",
@@ -8339,7 +8339,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaDiskSpeed",
-    "popularityRank": 0
+    "popularityRank": 151
   },
   {
     "name": "Test-DbaEndpoint",
@@ -8351,7 +8351,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaEndpoint",
-    "popularityRank": 0
+    "popularityRank": 502
   },
   {
     "name": "Test-DbaIdentityUsage",
@@ -8364,7 +8364,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaIdentityUsage",
-    "popularityRank": 0
+    "popularityRank": 478
   },
   {
     "name": "Test-DbaInstanceName",
@@ -8377,11 +8377,11 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaInstanceName",
-    "popularityRank": 0
+    "popularityRank": 256
   },
   {
     "name": "Test-DbaLastBackup",
-    "description": "Validates LastBackup configuration or status",
+    "description": "Tests the integrity of database backups by performing test restores.",
     "category": "Backup & Restore",
     "tags": [
       "test",
@@ -8390,7 +8390,7 @@
     "verb": "Test",
     "popular": true,
     "url": "/commands/Test-DbaLastBackup",
-    "popularityRank": 40
+    "popularityRank": 48
   },
   {
     "name": "Test-DbaLinkedServerConnection",
@@ -8403,7 +8403,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaLinkedServerConnection",
-    "popularityRank": 0
+    "popularityRank": 242
   },
   {
     "name": "Test-DbaLoginPassword",
@@ -8416,7 +8416,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaLoginPassword",
-    "popularityRank": 0
+    "popularityRank": 193
   },
   {
     "name": "Test-DbaManagementObject",
@@ -8429,7 +8429,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaManagementObject",
-    "popularityRank": 0
+    "popularityRank": 556
   },
   {
     "name": "Test-DbaMaxDop",
@@ -8441,7 +8441,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaMaxDop",
-    "popularityRank": 0
+    "popularityRank": 159
   },
   {
     "name": "Test-DbaMaxMemory",
@@ -8453,7 +8453,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaMaxMemory",
-    "popularityRank": 0
+    "popularityRank": 109
   },
   {
     "name": "Test-DbaMigrationConstraint",
@@ -8466,7 +8466,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaMigrationConstraint",
-    "popularityRank": 0
+    "popularityRank": 148
   },
   {
     "name": "Test-DbaNetworkLatency",
@@ -8478,7 +8478,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaNetworkLatency",
-    "popularityRank": 0
+    "popularityRank": 216
   },
   {
     "name": "Test-DbaOptimizeForAdHoc",
@@ -8490,7 +8490,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaOptimizeForAdHoc",
-    "popularityRank": 0
+    "popularityRank": 446
   },
   {
     "name": "Test-DbaPath",
@@ -8502,7 +8502,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaPath",
-    "popularityRank": 0
+    "popularityRank": 285
   },
   {
     "name": "Test-DbaPowerPlan",
@@ -8514,7 +8514,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaPowerPlan",
-    "popularityRank": 0
+    "popularityRank": 425
   },
   {
     "name": "Test-DbaReplLatency",
@@ -8526,7 +8526,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaReplLatency",
-    "popularityRank": 0
+    "popularityRank": 559
   },
   {
     "name": "Test-DbaSpn",
@@ -8538,7 +8538,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaSpn",
-    "popularityRank": 0
+    "popularityRank": 54
   },
   {
     "name": "Test-DbaTempDbConfig",
@@ -8550,7 +8550,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaTempDbConfig",
-    "popularityRank": 0
+    "popularityRank": 174
   },
   {
     "name": "Test-DbaWindowsLogin",
@@ -8563,7 +8563,7 @@
     "verb": "Test",
     "popular": false,
     "url": "/commands/Test-DbaWindowsLogin",
-    "popularityRank": 0
+    "popularityRank": 196
   },
   {
     "name": "Uninstall-DbaSqlWatch",
@@ -8575,7 +8575,7 @@
     "verb": "Uninstall",
     "popular": false,
     "url": "/commands/Uninstall-DbaSqlWatch",
-    "popularityRank": 0
+    "popularityRank": 449
   },
   {
     "name": "Unregister-DbatoolsConfig",
@@ -8587,7 +8587,7 @@
     "verb": "Unregister",
     "popular": false,
     "url": "/commands/Unregister-DbatoolsConfig",
-    "popularityRank": 0
+    "popularityRank": 641
   },
   {
     "name": "Update-DbaBuildReference",
@@ -8599,11 +8599,11 @@
     "verb": "Update",
     "popular": false,
     "url": "/commands/Update-DbaBuildReference",
-    "popularityRank": 0
+    "popularityRank": 111
   },
   {
     "name": "Update-DbaInstance",
-    "description": "Updates Instance",
+    "description": "Applies SQL Server updates, service packs, and cumulative updates.",
     "category": "Server Management",
     "tags": [
       "update",
@@ -8612,7 +8612,7 @@
     "verb": "Update",
     "popular": true,
     "url": "/commands/Update-DbaInstance",
-    "popularityRank": 15
+    "popularityRank": 16
   },
   {
     "name": "Update-DbaMaintenanceSolution",
@@ -8624,7 +8624,7 @@
     "verb": "Update",
     "popular": false,
     "url": "/commands/Update-DbaMaintenanceSolution",
-    "popularityRank": 0
+    "popularityRank": 238
   },
   {
     "name": "Update-DbaServiceAccount",
@@ -8634,13 +8634,13 @@
       "update"
     ],
     "verb": "Update",
-    "popular": true,
+    "popular": false,
     "url": "/commands/Update-DbaServiceAccount",
-    "popularityRank": 51
+    "popularityRank": 69
   },
   {
     "name": "Update-Dbatools",
-    "description": "Updates tools",
+    "description": "Updates the dbatools PowerShell module to the latest version.",
     "category": "Utilities",
     "tags": [
       "update"
@@ -8648,7 +8648,7 @@
     "verb": "Update",
     "popular": true,
     "url": "/commands/Update-Dbatools",
-    "popularityRank": 41
+    "popularityRank": 27
   },
   {
     "name": "Watch-DbaDbLogin",
@@ -8661,7 +8661,7 @@
     "verb": "Watch",
     "popular": false,
     "url": "/commands/Watch-DbaDbLogin",
-    "popularityRank": 0
+    "popularityRank": 113
   },
   {
     "name": "Watch-DbaXESession",
@@ -8673,11 +8673,11 @@
     "verb": "Watch",
     "popular": false,
     "url": "/commands/Watch-DbaXESession",
-    "popularityRank": 0
+    "popularityRank": 455
   },
   {
     "name": "Write-DbaDbTableData",
-    "description": "Writes data to DbTableData",
+    "description": "Efficiently writes data from PowerShell objects to SQL Server tables.",
     "category": "Data Operations",
     "tags": [
       "write",
@@ -8686,7 +8686,7 @@
     "verb": "Write",
     "popular": true,
     "url": "/commands/Write-DbaDbTableData",
-    "popularityRank": 21
+    "popularityRank": 13
   },
   {
     "name": "Select-DbaObject",
@@ -8698,7 +8698,7 @@
     "verb": "Select",
     "popular": false,
     "url": "/commands/Select-DbaObject",
-    "popularityRank": 0
+    "popularityRank": 262
   },
   {
     "name": "Set-DbatoolsConfig",
@@ -8710,6 +8710,6 @@
     "verb": "Set",
     "popular": false,
     "url": "/commands/Set-DbatoolsConfig",
-    "popularityRank": 0
+    "popularityRank": 65
   }
 ]
