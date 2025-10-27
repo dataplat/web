@@ -15,18 +15,26 @@ bohUrl: "https://dataplat.github.io/boh#Test-DbaLastBackup"
 draft: false
 ---
 
-# Test-DbaLastBackup
-
-| Property | Value |
-| --- | --- |
-| **Author** | Chrissy LeMaire (@cl), netnerds.net |
-| **Availability** | Windows, Linux, macOS |
-
-&nbsp;
-
-Want to see the source code for this command? Check out [Test-DbaLastBackup](https://github.com/dataplat/dbatools/blob/master/public/Test-DbaLastBackup.ps1) on GitHub.
-<br>
-Want to see the Bill Of Health for this command? Check out [Test-DbaLastBackup](https://dataplat.github.io/boh#Test-DbaLastBackup).
+<!-- Command Header Section -->
+<div class="command-header">
+  <div class="command-header-top">
+    <h1>Test-DbaLastBackup</h1>
+    <a href="https://github.com/dataplat/dbatools/blob/master/public/Test-DbaLastBackup.ps1" target="_blank" rel="noopener noreferrer" class="github-link" title="View source on GitHub">
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      <span>View Source</span>
+    </a>
+  </div>
+  <div class="command-meta">
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+      <span>Chrissy LeMaire (@cl), netnerds.net</span>
+    </div>
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+      <span>Windows, Linux, macOS</span>
+    </div>
+  </div>
+</div>
 
 ## Synopsis
 
@@ -92,6 +100,7 @@ Test-DbaLastBackup
 ```powershell
 PS C:\> Test-DbaLastBackup -SqlInstance sql2016
 ```
+{: data-copyable="true" data-clean-code="Test-DbaLastBackup -SqlInstance sql2016" }
 
 Determines the last full backup for ALL databases, attempts to restore all databases (with a different name and file structure), then performs a DBCC CHECKDB. Once the test is complete, the test <br>
 restore will be dropped.<br>
@@ -101,6 +110,7 @@ restore will be dropped.<br>
 ```powershell
 PS C:\> Test-DbaLastBackup -SqlInstance sql2016 -Database SharePoint_Config
 ```
+{: data-copyable="true" data-clean-code="Test-DbaLastBackup -SqlInstance sql2016 -Database SharePoint_Config" }
 
 Determines the last full backup for SharePoint_Config, attempts to restore it, then performs a DBCC CHECKDB.<br>
 
@@ -109,6 +119,7 @@ Determines the last full backup for SharePoint_Config, attempts to restore it, t
 ```powershell
 PS C:\> Get-DbaDatabase -SqlInstance sql2016, sql2017 | Test-DbaLastBackup
 ```
+{: data-copyable="true" data-clean-code="Get-DbaDatabase -SqlInstance sql2016, sql2017 | Test-DbaLastBackup" }
 
 Tests every database backup on sql2016 and sql2017<br>
 
@@ -117,6 +128,7 @@ Tests every database backup on sql2016 and sql2017<br>
 ```powershell
 PS C:\> Get-DbaDatabase -SqlInstance sql2016, sql2017 -Database SharePoint_Config | Test-DbaLastBackup
 ```
+{: data-copyable="true" data-clean-code="Get-DbaDatabase -SqlInstance sql2016, sql2017 -Database SharePoint_Config | Test-DbaLastBackup" }
 
 Tests the database backup for the SharePoint_Config database on sql2016 and sql2017<br>
 
@@ -125,6 +137,7 @@ Tests the database backup for the SharePoint_Config database on sql2016 and sql2
 ```powershell
 PS C:\> Test-DbaLastBackup -SqlInstance sql2016 -Database model, master -VerifyOnly
 ```
+{: data-copyable="true" data-clean-code="Test-DbaLastBackup -SqlInstance sql2016 -Database model, master -VerifyOnly" }
 
 Skips performing an action restore of the database and simply verifies the backup using VERIFYONLY option of the restore.<br>
 
@@ -133,6 +146,7 @@ Skips performing an action restore of the database and simply verifies the backu
 ```powershell
 PS C:\> Test-DbaLastBackup -SqlInstance sql2016 -NoCheck -NoDrop
 ```
+{: data-copyable="true" data-clean-code="Test-DbaLastBackup -SqlInstance sql2016 -NoCheck -NoDrop" }
 
 Skips the DBCC CHECKDB check. This can help speed up the tests but makes it less tested. The test restores will remain on the server.<br>
 
@@ -141,6 +155,7 @@ Skips the DBCC CHECKDB check. This can help speed up the tests but makes it less
 ```powershell
 PS C:\> Test-DbaLastBackup -SqlInstance sql2016 -DataDirectory E:\bigdrive -LogDirectory L:\bigdrive -MaxSize 10240
 ```
+{: data-copyable="true" data-clean-code="Test-DbaLastBackup -SqlInstance sql2016 -DataDirectory E:\bigdrive -LogDirectory L:\bigdrive -MaxSize 10240" }
 
 Restores data and log files to alternative locations and only restores databases that are smaller than 10 GB.<br>
 
@@ -149,6 +164,7 @@ Restores data and log files to alternative locations and only restores databases
 ```powershell
 PS C:\> Test-DbaLastBackup -SqlInstance sql2014 -Destination sql2016 -CopyFile
 ```
+{: data-copyable="true" data-clean-code="Test-DbaLastBackup -SqlInstance sql2014 -Destination sql2016 -CopyFile" }
 
 Copies the backup files for sql2014 databases to sql2016 default backup locations and then attempts restore from there.<br>
 
@@ -157,6 +173,7 @@ Copies the backup files for sql2014 databases to sql2016 default backup location
 ```powershell
 PS C:\> Test-DbaLastBackup -SqlInstance sql2014 -Destination sql2016 -CopyFile -CopyPath "\\BackupShare\TestRestore\"
 ```
+{: data-copyable="true" data-clean-code="Test-DbaLastBackup -SqlInstance sql2014 -Destination sql2016 -CopyFile -CopyPath &quot;\\BackupShare\TestRestore\&quot;" }
 
 Copies the backup files for sql2014 databases to sql2016 default backup locations and then attempts restore from there.<br>
 
@@ -165,6 +182,7 @@ Copies the backup files for sql2014 databases to sql2016 default backup location
 ```powershell
 PS C:\> Test-DbaLastBackup -SqlInstance sql2016 -NoCheck -MaxTransferSize 4194302 -BufferCount 24
 ```
+{: data-copyable="true" data-clean-code="Test-DbaLastBackup -SqlInstance sql2016 -NoCheck -MaxTransferSize 4194302 -BufferCount 24" }
 
 Determines the last full backup for ALL databases, attempts to restore all databases (with a different name and file structure).<br>
 The Restore will use more memory for reading the backup files. Do not set these values to high or you can get an Out of Memory error!!!<br>
@@ -178,6 +196,7 @@ https://www.mssqltips.com/sqlservertip/4935/optimize-sql-server-database-restore
 ```powershell
 PS C:\> Test-DbaLastBackup -SqlInstance sql2016 -MaxDop 4
 ```
+{: data-copyable="true" data-clean-code="Test-DbaLastBackup -SqlInstance sql2016 -MaxDop 4" }
 
 The use of the MaxDop parameter will limit the number of processors used during the DBCC command<br>
 

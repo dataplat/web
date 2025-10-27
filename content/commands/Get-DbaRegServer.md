@@ -14,18 +14,26 @@ bohUrl: "https://dataplat.github.io/boh#Get-DbaRegServer"
 draft: false
 ---
 
-# Get-DbaRegServer
-
-| Property | Value |
-| --- | --- |
-| **Author** | Bryan Hamby (@galador) , Chrissy LeMaire (@cl) |
-| **Availability** | Windows, Linux, macOS |
-
-&nbsp;
-
-Want to see the source code for this command? Check out [Get-DbaRegServer](https://github.com/dataplat/dbatools/blob/master/public/Get-DbaRegServer.ps1) on GitHub.
-<br>
-Want to see the Bill Of Health for this command? Check out [Get-DbaRegServer](https://dataplat.github.io/boh#Get-DbaRegServer).
+<!-- Command Header Section -->
+<div class="command-header">
+  <div class="command-header-top">
+    <h1>Get-DbaRegServer</h1>
+    <a href="https://github.com/dataplat/dbatools/blob/master/public/Get-DbaRegServer.ps1" target="_blank" rel="noopener noreferrer" class="github-link" title="View source on GitHub">
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      <span>View Source</span>
+    </a>
+  </div>
+  <div class="command-meta">
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+      <span>Bryan Hamby (@galador) , Chrissy LeMaire (@cl)</span>
+    </div>
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+      <span>Windows, Linux, macOS</span>
+    </div>
+  </div>
+</div>
 
 ## Synopsis
 
@@ -70,6 +78,7 @@ Get-DbaRegServer
 ```powershell
 PS C:\> Get-DbaRegServer
 ```
+{: data-copyable="true" data-clean-code="Get-DbaRegServer" }
 
 Gets a list of servers from the local registered servers and azure data studio<br>
 
@@ -78,6 +87,7 @@ Gets a list of servers from the local registered servers and azure data studio<b
 ```powershell
 PS C:\> Get-DbaRegServer -SqlInstance sqlserver2014a
 ```
+{: data-copyable="true" data-clean-code="Get-DbaRegServer -SqlInstance sqlserver2014a" }
 
 Gets a list of servers from the CMS on sqlserver2014a, using Windows Credentials.<br>
 
@@ -86,6 +96,7 @@ Gets a list of servers from the CMS on sqlserver2014a, using Windows Credentials
 ```powershell
 PS C:\> Get-DbaRegServer -SqlInstance sqlserver2014a -IncludeSelf
 ```
+{: data-copyable="true" data-clean-code="Get-DbaRegServer -SqlInstance sqlserver2014a -IncludeSelf" }
 
 Gets a list of servers from the CMS on sqlserver2014a and includes sqlserver2014a in the output results.<br>
 
@@ -94,6 +105,7 @@ Gets a list of servers from the CMS on sqlserver2014a and includes sqlserver2014
 ```powershell
 PS C:\> Get-DbaRegServer -SqlInstance sqlserver2014a -SqlCredential $credential | Select-Object -Unique -ExpandProperty ServerName
 ```
+{: data-copyable="true" data-clean-code="Get-DbaRegServer -SqlInstance sqlserver2014a -SqlCredential $credential | Select-Object -Unique -ExpandProperty ServerName" }
 
 Returns only the server names from the CMS on sqlserver2014a, using SQL Authentication to authenticate to the server.<br>
 
@@ -102,6 +114,7 @@ Returns only the server names from the CMS on sqlserver2014a, using SQL Authenti
 ```powershell
 PS C:\> Get-DbaRegServer -SqlInstance sqlserver2014a -Group HR, Accounting
 ```
+{: data-copyable="true" data-clean-code="Get-DbaRegServer -SqlInstance sqlserver2014a -Group HR, Accounting" }
 
 Gets a list of servers in the HR and Accounting groups from the CMS on sqlserver2014a.<br>
 
@@ -110,6 +123,7 @@ Gets a list of servers in the HR and Accounting groups from the CMS on sqlserver
 ```powershell
 PS C:\> Get-DbaRegServer -SqlInstance sqlserver2014a -Group HR\Development
 ```
+{: data-copyable="true" data-clean-code="Get-DbaRegServer -SqlInstance sqlserver2014a -Group HR\Development" }
 
 Returns a list of servers in the HR and sub-group Development from the CMS on sqlserver2014a.<br>
 

@@ -13,18 +13,26 @@ bohUrl: "https://dataplat.github.io/boh#Get-DbaDatabase"
 draft: false
 ---
 
-# Get-DbaDatabase
-
-| Property | Value |
-| --- | --- |
-| **Author** | Garry Bargsley (@gbargsley), blog.garrybargsley.com , Klaas Vandenberghe (@PowerDbaKlaas) , Simone Bizzotto (@niphlod) |
-| **Availability** | Windows, Linux, macOS |
-
-&nbsp;
-
-Want to see the source code for this command? Check out [Get-DbaDatabase](https://github.com/dataplat/dbatools/blob/master/public/Get-DbaDatabase.ps1) on GitHub.
-<br>
-Want to see the Bill Of Health for this command? Check out [Get-DbaDatabase](https://dataplat.github.io/boh#Get-DbaDatabase).
+<!-- Command Header Section -->
+<div class="command-header">
+  <div class="command-header-top">
+    <h1>Get-DbaDatabase</h1>
+    <a href="https://github.com/dataplat/dbatools/blob/master/public/Get-DbaDatabase.ps1" target="_blank" rel="noopener noreferrer" class="github-link" title="View source on GitHub">
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      <span>View Source</span>
+    </a>
+  </div>
+  <div class="command-meta">
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+      <span>Garry Bargsley (@gbargsley), blog.garrybargsley.com , Klaas Vandenberghe (@PowerDbaKlaas) , Simone Bizzotto (@niphlod)</span>
+    </div>
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+      <span>Windows, Linux, macOS</span>
+    </div>
+  </div>
+</div>
 
 ## Synopsis
 
@@ -75,6 +83,7 @@ Get-DbaDatabase
 ```powershell
 PS C:\> Get-DbaDatabase -SqlInstance localhost
 ```
+{: data-copyable="true" data-clean-code="Get-DbaDatabase -SqlInstance localhost" }
 
 Returns all databases on the local default SQL Server instance.<br>
 
@@ -83,6 +92,7 @@ Returns all databases on the local default SQL Server instance.<br>
 ```powershell
 PS C:\> Get-DbaDatabase -SqlInstance localhost -ExcludeUser
 ```
+{: data-copyable="true" data-clean-code="Get-DbaDatabase -SqlInstance localhost -ExcludeUser" }
 
 Returns only the system databases on the local default SQL Server instance.<br>
 
@@ -91,6 +101,7 @@ Returns only the system databases on the local default SQL Server instance.<br>
 ```powershell
 PS C:\> Get-DbaDatabase -SqlInstance localhost -ExcludeSystem
 ```
+{: data-copyable="true" data-clean-code="Get-DbaDatabase -SqlInstance localhost -ExcludeSystem" }
 
 Returns only the user databases on the local default SQL Server instance.<br>
 
@@ -99,6 +110,7 @@ Returns only the user databases on the local default SQL Server instance.<br>
 ```powershell
 PS C:\> 'localhost','sql2016' | Get-DbaDatabase
 ```
+{: data-copyable="true" data-clean-code="'localhost','sql2016' | Get-DbaDatabase" }
 
 Returns databases on multiple instances piped into the function.<br>
 
@@ -107,6 +119,7 @@ Returns databases on multiple instances piped into the function.<br>
 ```powershell
 PS C:\> Get-DbaDatabase -SqlInstance SQL1\SQLExpress -RecoveryModel full,Simple
 ```
+{: data-copyable="true" data-clean-code="Get-DbaDatabase -SqlInstance SQL1\SQLExpress -RecoveryModel full,Simple" }
 
 Returns only the user databases in Full or Simple recovery model from SQL Server instance SQL1\SQLExpress.<br>
 
@@ -115,6 +128,7 @@ Returns only the user databases in Full or Simple recovery model from SQL Server
 ```powershell
 PS C:\> Get-DbaDatabase -SqlInstance SQL1\SQLExpress -Status Normal
 ```
+{: data-copyable="true" data-clean-code="Get-DbaDatabase -SqlInstance SQL1\SQLExpress -Status Normal" }
 
 Returns only the user databases with status 'normal' from SQL Server instance SQL1\SQLExpress.<br>
 
@@ -123,6 +137,7 @@ Returns only the user databases with status 'normal' from SQL Server instance SQ
 ```powershell
 PS C:\> Get-DbaDatabase -SqlInstance SQL1\SQLExpress -IncludeLastUsed
 ```
+{: data-copyable="true" data-clean-code="Get-DbaDatabase -SqlInstance SQL1\SQLExpress -IncludeLastUsed" }
 
 Returns the databases from SQL Server instance SQL1\SQLExpress and includes the last used information<br>
 from the sys.dm_db_index_usage_stats DMV.<br>
@@ -132,6 +147,7 @@ from the sys.dm_db_index_usage_stats DMV.<br>
 ```powershell
 PS C:\> Get-DbaDatabase -SqlInstance SQL1\SQLExpress,SQL2 -ExcludeDatabase model,master
 ```
+{: data-copyable="true" data-clean-code="Get-DbaDatabase -SqlInstance SQL1\SQLExpress,SQL2 -ExcludeDatabase model,master" }
 
 Returns all databases except master and model from SQL Server instances SQL1\SQLExpress and SQL2.<br>
 
@@ -140,6 +156,7 @@ Returns all databases except master and model from SQL Server instances SQL1\SQL
 ```powershell
 PS C:\> Get-DbaDatabase -SqlInstance SQL1\SQLExpress,SQL2 -Encrypted
 ```
+{: data-copyable="true" data-clean-code="Get-DbaDatabase -SqlInstance SQL1\SQLExpress,SQL2 -Encrypted" }
 
 Returns only databases using TDE from SQL Server instances SQL1\SQLExpress and SQL2.<br>
 
@@ -148,6 +165,7 @@ Returns only databases using TDE from SQL Server instances SQL1\SQLExpress and S
 ```powershell
 PS C:\> Get-DbaDatabase -SqlInstance SQL1\SQLExpress,SQL2 -Access ReadOnly
 ```
+{: data-copyable="true" data-clean-code="Get-DbaDatabase -SqlInstance SQL1\SQLExpress,SQL2 -Access ReadOnly" }
 
 Returns only read only databases from SQL Server instances SQL1\SQLExpress and SQL2.<br>
 
@@ -156,6 +174,7 @@ Returns only read only databases from SQL Server instances SQL1\SQLExpress and S
 ```powershell
 PS C:\> Get-DbaDatabase -SqlInstance SQL2,SQL3 -Database OneDB,OtherDB
 ```
+{: data-copyable="true" data-clean-code="Get-DbaDatabase -SqlInstance SQL2,SQL3 -Database OneDB,OtherDB" }
 
 Returns databases 'OneDb' and 'OtherDB' from SQL Server instances SQL2 and SQL3 if databases by those names exist on those instances.<br>
 

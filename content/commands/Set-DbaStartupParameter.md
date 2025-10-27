@@ -15,18 +15,26 @@ bohUrl: "https://dataplat.github.io/boh#Set-DbaStartupParameter"
 draft: false
 ---
 
-# Set-DbaStartupParameter
-
-| Property | Value |
-| --- | --- |
-| **Author** | Stuart Moore (@napalmgram), stuart-moore.com |
-| **Availability** | Windows, Linux, macOS |
-
-&nbsp;
-
-Want to see the source code for this command? Check out [Set-DbaStartupParameter](https://github.com/dataplat/dbatools/blob/master/public/Set-DbaStartupParameter.ps1) on GitHub.
-<br>
-Want to see the Bill Of Health for this command? Check out [Set-DbaStartupParameter](https://dataplat.github.io/boh#Set-DbaStartupParameter).
+<!-- Command Header Section -->
+<div class="command-header">
+  <div class="command-header-top">
+    <h1>Set-DbaStartupParameter</h1>
+    <a href="https://github.com/dataplat/dbatools/blob/master/public/Set-DbaStartupParameter.ps1" target="_blank" rel="noopener noreferrer" class="github-link" title="View source on GitHub">
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      <span>View Source</span>
+    </a>
+  </div>
+  <div class="command-meta">
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+      <span>Stuart Moore (@napalmgram), stuart-moore.com</span>
+    </div>
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+      <span>Windows, Linux, macOS</span>
+    </div>
+  </div>
+</div>
 
 ## Synopsis
 
@@ -85,6 +93,7 @@ Set-DbaStartupParameter
 ```powershell
 PS C:\> Set-DbaStartupParameter -SqlInstance server1\instance1 -SingleUser
 ```
+{: data-copyable="true" data-clean-code="Set-DbaStartupParameter -SqlInstance server1\instance1 -SingleUser" }
 
 Will configure the SQL Instance server1\instance1 to startup up in Single User mode at next startup<br>
 
@@ -93,6 +102,7 @@ Will configure the SQL Instance server1\instance1 to startup up in Single User m
 ```powershell
 PS C:\> Set-DbaStartupParameter -SqlInstance sql2016 -IncreasedExtents
 ```
+{: data-copyable="true" data-clean-code="Set-DbaStartupParameter -SqlInstance sql2016 -IncreasedExtents" }
 
 Will configure the SQL Instance sql2016 to IncreasedExtents = True (-E)<br>
 
@@ -101,6 +111,7 @@ Will configure the SQL Instance sql2016 to IncreasedExtents = True (-E)<br>
 ```powershell
 PS C:\> Set-DbaStartupParameter -SqlInstance sql2016  -IncreasedExtents:$false -WhatIf
 ```
+{: data-copyable="true" data-clean-code="Set-DbaStartupParameter -SqlInstance sql2016  -IncreasedExtents:$false -WhatIf" }
 
 Shows what would happen if you attempted to configure the SQL Instance sql2016 to IncreasedExtents = False (no -E)<br>
 
@@ -109,6 +120,7 @@ Shows what would happen if you attempted to configure the SQL Instance sql2016 t
 ```powershell
 PS C:\> Set-DbaStartupParameter -SqlInstance server1\instance1 -TraceFlag 8032,8048
 ```
+{: data-copyable="true" data-clean-code="Set-DbaStartupParameter -SqlInstance server1\instance1 -TraceFlag 8032,8048" }
 
 This will append Trace Flags 8032 and 8048 to the startup parameters<br>
 
@@ -117,6 +129,7 @@ This will append Trace Flags 8032 and 8048 to the startup parameters<br>
 ```powershell
 PS C:\> Set-DbaStartupParameter -SqlInstance sql2016 -SingleUser:$false -TraceFlagOverride
 ```
+{: data-copyable="true" data-clean-code="Set-DbaStartupParameter -SqlInstance sql2016 -SingleUser:$false -TraceFlagOverride" }
 
 This will remove all trace flags and set SingleUser to false<br>
 
@@ -125,6 +138,7 @@ This will remove all trace flags and set SingleUser to false<br>
 ```powershell
 PS C:\> Set-DbaStartupParameter -SqlInstance server1\instance1 -SingleUser -TraceFlag 8032,8048 -TraceFlagOverride
 ```
+{: data-copyable="true" data-clean-code="Set-DbaStartupParameter -SqlInstance server1\instance1 -SingleUser -TraceFlag 8032,8048 -TraceFlagOverride" }
 
 This will set Trace Flags 8032 and 8048 to the startup parameters, removing any existing Trace Flags<br>
 
@@ -133,6 +147,7 @@ This will set Trace Flags 8032 and 8048 to the startup parameters, removing any 
 ```powershell
 PS C:\> Set-DbaStartupParameter -SqlInstance sql2016 -SingleUser:$false -TraceFlagOverride -Offline
 ```
+{: data-copyable="true" data-clean-code="Set-DbaStartupParameter -SqlInstance sql2016 -SingleUser:$false -TraceFlagOverride -Offline" }
 
 This will remove all trace flags and set SingleUser to false from an offline instance<br>
 
@@ -141,6 +156,7 @@ This will remove all trace flags and set SingleUser to false from an offline ins
 ```powershell
 PS C:\> Set-DbaStartupParameter -SqlInstance sql2016 -ErrorLog c:\Sql\ -Offline
 ```
+{: data-copyable="true" data-clean-code="Set-DbaStartupParameter -SqlInstance sql2016 -ErrorLog c:\Sql\ -Offline" }
 
 This will attempt to change the ErrorLog path to c:\sql\. However, with the offline switch this will not happen. To force it, use the -Force switch like so:<br>
 Set-DbaStartupParameter -SqlInstance sql2016 -ErrorLog c:\Sql\ -Offline -Force<br>
@@ -155,6 +171,12 @@ PS C:\> #Do Some work
 PS C:\> Set-DbaStartupParameter -SqlInstance server1\instance1 -StartupConfig $StartupConfig
 PS C:\> #Restart your SQL instance with the tool of choice and you're back to normal
 ```
+{: data-copyable="true" data-clean-code="$StartupConfig = Get-DbaStartupParameter -SqlInstance server1\instance1
+Set-DbaStartupParameter -SqlInstance server1\instance1 -SingleUser -NoLoggingToWinEvents
+#Restart your SQL instance with the tool of choice
+#Do Some work
+Set-DbaStartupParameter -SqlInstance server1\instance1 -StartupConfig $StartupConfig
+#Restart your SQL instance with the tool of choice and you're back to normal" }
 
 In this example we take a copy of the existing startup configuration of server1\instance1<br>
 We then change the startup parameters ahead of some work<br>

@@ -16,18 +16,26 @@ bohUrl: "https://dataplat.github.io/boh#Update-DbaInstance"
 draft: false
 ---
 
-# Update-DbaInstance
-
-| Property | Value |
-| --- | --- |
-| **Author** | Kirill Kravtsov (@nvarscar), nvarscar.wordpress.com |
-| **Availability** | Windows, Linux, macOS |
-
-&nbsp;
-
-Want to see the source code for this command? Check out [Update-DbaInstance](https://github.com/dataplat/dbatools/blob/master/public/Update-DbaInstance.ps1) on GitHub.
-<br>
-Want to see the Bill Of Health for this command? Check out [Update-DbaInstance](https://dataplat.github.io/boh#Update-DbaInstance).
+<!-- Command Header Section -->
+<div class="command-header">
+  <div class="command-header-top">
+    <h1>Update-DbaInstance</h1>
+    <a href="https://github.com/dataplat/dbatools/blob/master/public/Update-DbaInstance.ps1" target="_blank" rel="noopener noreferrer" class="github-link" title="View source on GitHub">
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      <span>View Source</span>
+    </a>
+  </div>
+  <div class="command-meta">
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+      <span>Kirill Kravtsov (@nvarscar), nvarscar.wordpress.com</span>
+    </div>
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+      <span>Windows, Linux, macOS</span>
+    </div>
+  </div>
+</div>
 
 ## Synopsis
 
@@ -111,6 +119,7 @@ Update-DbaInstance
 ```powershell
 PS C:\> Update-DbaInstance -ComputerName SQL1 -Version SP3 -Path \\network\share
 ```
+{: data-copyable="true" data-clean-code="Update-DbaInstance -ComputerName SQL1 -Version SP3 -Path \\network\share" }
 
 Updates all applicable SQL Server installations on SQL1 to SP3.<br>
 Binary files for the update will be searched among all files and folders recursively in \\network\share.<br>
@@ -121,6 +130,7 @@ Prompts for confirmation before the update.<br>
 ```powershell
 PS C:\> Update-DbaInstance -ComputerName SQL1, SQL2 -Restart -Path \\network\share -Confirm:$false
 ```
+{: data-copyable="true" data-clean-code="Update-DbaInstance -ComputerName SQL1, SQL2 -Restart -Path \\network\share -Confirm:$false" }
 
 Updates all applicable SQL Server installations on SQL1 and SQL2 with the most recent patch (that has at least a "CU" flag).<br>
 It will install latest ServicePack, restart the computers, install latest Cumulative Update, and finally restart the computer once again.<br>
@@ -132,6 +142,7 @@ Does not prompt for confirmation.<br>
 ```powershell
 PS C:\> Update-DbaInstance -ComputerName SQL1 -Version 2012 -Type ServicePack -Path \\network\share
 ```
+{: data-copyable="true" data-clean-code="Update-DbaInstance -ComputerName SQL1 -Version 2012 -Type ServicePack -Path \\network\share" }
 
 Updates SQL Server 2012 on SQL1 with the most recent ServicePack found in your patch repository.<br>
 Binary files for the update will be searched among all files and folders recursively in \\network\share.<br>
@@ -142,6 +153,7 @@ Prompts for confirmation before the update.<br>
 ```powershell
 PS C:\> Update-DbaInstance -ComputerName SQL1 -KB 123456 -Restart -Path \\network\share -Confirm:$false
 ```
+{: data-copyable="true" data-clean-code="Update-DbaInstance -ComputerName SQL1 -KB 123456 -Restart -Path \\network\share -Confirm:$false" }
 
 Installs KB 123456 on SQL1 and restarts the computer.<br>
 Binary files for the update will be searched among all files and folders recursively in \\network\share.<br>
@@ -152,6 +164,7 @@ Does not prompt for confirmation.<br>
 ```powershell
 PS C:\> Update-DbaInstance -ComputerName Server1 -Version SQL2012SP3, SQL2016SP2CU3 -Path \\network\share -Restart -Confirm:$false
 ```
+{: data-copyable="true" data-clean-code="Update-DbaInstance -ComputerName Server1 -Version SQL2012SP3, SQL2016SP2CU3 -Path \\network\share -Restart -Confirm:$false" }
 
 Updates SQL 2012 to SP3 and SQL 2016 to SP2CU3 on Server1. Each update will be followed by a restart.<br>
 Binary files for the update will be searched among all files and folders recursively in \\network\share.<br>
@@ -162,6 +175,7 @@ Does not prompt for confirmation.<br>
 ```powershell
 PS C:\> Update-DbaInstance -ComputerName Server1 -Path \\network\share -Restart -Confirm:$false -ExtractPath "C:\temp"
 ```
+{: data-copyable="true" data-clean-code="Update-DbaInstance -ComputerName Server1 -Path \\network\share -Restart -Confirm:$false -ExtractPath &quot;C:\temp&quot;" }
 
 Updates all applicable SQL Server installations on Server1 with the most recent patch. Each update will be followed by a restart.<br>
 Binary files for the update will be searched among all files and folders recursively in \\network\share.<br>
@@ -173,6 +187,7 @@ Extracts the files in local driver on Server1 C:\temp.<br>
 ```powershell
 PS C:\> Update-DbaInstance -ComputerName Server1 -Path \\network\share -ArgumentList "/SkipRules=RebootRequiredCheck"
 ```
+{: data-copyable="true" data-clean-code="Update-DbaInstance -ComputerName Server1 -Path \\network\share -ArgumentList &quot;/SkipRules=RebootRequiredCheck&quot;" }
 
 Updates all applicable SQL Server installations on Server1 with the most recent patch.<br>
 Additional command line parameters would be passed to the executable.<br>
@@ -183,6 +198,7 @@ Binary files for the update will be searched among all files and folders recursi
 ```powershell
 PS C:\> Update-DbaInstance -ComputerName SQL1 -Version CU3 -Download -Path \\network\share -Confirm:$false
 ```
+{: data-copyable="true" data-clean-code="Update-DbaInstance -ComputerName SQL1 -Version CU3 -Download -Path \\network\share -Confirm:$false" }
 
 Downloads an appropriate CU KB to \\network\share and installs it onto SQL1.<br>
 Does not prompt for confirmation.<br>

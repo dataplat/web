@@ -15,18 +15,26 @@ bohUrl: "https://dataplat.github.io/boh#Restore-DbaDatabase"
 draft: false
 ---
 
-# Restore-DbaDatabase
-
-| Property | Value |
-| --- | --- |
-| **Author** | Stuart Moore (@napalmgram), stuart-moore.com |
-| **Availability** | Windows, Linux, macOS |
-
-&nbsp;
-
-Want to see the source code for this command? Check out [Restore-DbaDatabase](https://github.com/dataplat/dbatools/blob/master/public/Restore-DbaDatabase.ps1) on GitHub.
-<br>
-Want to see the Bill Of Health for this command? Check out [Restore-DbaDatabase](https://dataplat.github.io/boh#Restore-DbaDatabase).
+<!-- Command Header Section -->
+<div class="command-header">
+  <div class="command-header-top">
+    <h1>Restore-DbaDatabase</h1>
+    <a href="https://github.com/dataplat/dbatools/blob/master/public/Restore-DbaDatabase.ps1" target="_blank" rel="noopener noreferrer" class="github-link" title="View source on GitHub">
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      <span>View Source</span>
+    </a>
+  </div>
+  <div class="command-meta">
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+      <span>Stuart Moore (@napalmgram), stuart-moore.com</span>
+    </div>
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+      <span>Windows, Linux, macOS</span>
+    </div>
+  </div>
+</div>
 
 ## Synopsis
 
@@ -167,6 +175,7 @@ Restore-DbaDatabase -SqlInstance <DbaInstanceParameter>
 ```powershell
 PS C:\> Restore-DbaDatabase -SqlInstance server1\instance1 -Path \\server2\backups
 ```
+{: data-copyable="true" data-clean-code="Restore-DbaDatabase -SqlInstance server1\instance1 -Path \\server2\backups" }
 
 Scans all the backup files in \\server2\backups, filters them and restores the database to server1\instance1<br>
 
@@ -175,6 +184,7 @@ Scans all the backup files in \\server2\backups, filters them and restores the d
 ```powershell
 PS C:\> Restore-DbaDatabase -SqlInstance server1\instance1 -Path \\server2\backups -MaintenanceSolutionBackup -DestinationDataDirectory c:\restores
 ```
+{: data-copyable="true" data-clean-code="Restore-DbaDatabase -SqlInstance server1\instance1 -Path \\server2\backups -MaintenanceSolutionBackup -DestinationDataDirectory c:\restores" }
 
 Scans all the backup files in \\server2\backups$ stored in an Ola Hallengren style folder structure,<br>
 filters them and restores the database to the c:\restores folder on server1\instance1<br>
@@ -184,6 +194,7 @@ filters them and restores the database to the c:\restores folder on server1\inst
 ```powershell
 PS C:\> Get-ChildItem c:\SQLbackups1\, \\server\sqlbackups2 | Restore-DbaDatabase -SqlInstance server1\instance1
 ```
+{: data-copyable="true" data-clean-code="Get-ChildItem c:\SQLbackups1\, \\server\sqlbackups2 | Restore-DbaDatabase -SqlInstance server1\instance1" }
 
 Takes the provided files from multiple directories and restores them on  server1\instance1<br>
 
@@ -193,6 +204,8 @@ Takes the provided files from multiple directories and restores them on  server1
 PS C:\> $RestoreTime = Get-Date('11:19 23/12/2016')
 PS C:\> Restore-DbaDatabase -SqlInstance server1\instance1 -Path \\server2\backups -MaintenanceSolutionBackup -DestinationDataDirectory c:\restores -RestoreTime $RestoreTime
 ```
+{: data-copyable="true" data-clean-code="$RestoreTime = Get-Date('11:19 23/12/2016')
+Restore-DbaDatabase -SqlInstance server1\instance1 -Path \\server2\backups -MaintenanceSolutionBackup -DestinationDataDirectory c:\restores -RestoreTime $RestoreTime" }
 
 Scans all the backup files in \\server2\backups stored in an Ola Hallengren style folder structure,<br>
 filters them and restores the database to the c:\restores folder on server1\instance1 up to 11:19 23/12/2016<br>
@@ -203,6 +216,8 @@ filters them and restores the database to the c:\restores folder on server1\inst
 PS C:\> $result = Restore-DbaDatabase -SqlInstance server1\instance1 -Path \\server2\backups -DestinationDataDirectory c:\restores -OutputScriptOnly
 PS C:\> $result | Out-File -Filepath c:\scripts\restore.sql
 ```
+{: data-copyable="true" data-clean-code="$result = Restore-DbaDatabase -SqlInstance server1\instance1 -Path \\server2\backups -DestinationDataDirectory c:\restores -OutputScriptOnly
+$result | Out-File -Filepath c:\scripts\restore.sql" }
 
 Scans all the backup files in \\server2\backups, filters them and generate the T-SQL Scripts to restore the database to the latest point in time, and then stores the output in a file for later <br>
 retrieval<br>
@@ -212,6 +227,7 @@ retrieval<br>
 ```powershell
 PS C:\> Restore-DbaDatabase -SqlInstance server1\instance1 -Path c:\backups -DestinationDataDirectory c:\DataFiles -DestinationLogDirectory c:\LogFile
 ```
+{: data-copyable="true" data-clean-code="Restore-DbaDatabase -SqlInstance server1\instance1 -Path c:\backups -DestinationDataDirectory c:\DataFiles -DestinationLogDirectory c:\LogFile" }
 
 Scans all the files in c:\backups and then restores them onto the SQL Server Instance server1\instance1, placing data files<br>
 c:\DataFiles and all the log files into c:\LogFiles<br>
@@ -221,6 +237,7 @@ c:\DataFiles and all the log files into c:\LogFiles<br>
 ```powershell
 PS C:\> Restore-DbaDatabase -SqlInstance server1\instance1 -Path http://demo.blob.core.windows.net/backups/dbbackup.bak -AzureCredential MyAzureCredential
 ```
+{: data-copyable="true" data-clean-code="Restore-DbaDatabase -SqlInstance server1\instance1 -Path http://demo.blob.core.windows.net/backups/dbbackup.bak -AzureCredential MyAzureCredential" }
 
 Will restore the backup held at  http://demo.blob.core.windows.net/backups/dbbackup.bak to server1\instance1. The connection to Azure will be made using the<br>
 credential MyAzureCredential held on instance Server1\instance1<br>
@@ -230,6 +247,7 @@ credential MyAzureCredential held on instance Server1\instance1<br>
 ```powershell
 PS C:\> Restore-DbaDatabase -SqlInstance server1\instance1 -Path http://demo.blob.core.windows.net/backups/dbbackup.bak
 ```
+{: data-copyable="true" data-clean-code="Restore-DbaDatabase -SqlInstance server1\instance1 -Path http://demo.blob.core.windows.net/backups/dbbackup.bak" }
 
 Will attempt to restore the backups from http://demo.blob.core.windows.net/backups/dbbackup.bak if a SAS credential with the name http://demo.blob.core.windows.net/backups exists on server1\instance1<br>
 
@@ -239,6 +257,8 @@ Will attempt to restore the backups from http://demo.blob.core.windows.net/backu
 PS C:\> $File = Get-ChildItem c:\backups, \\server1\backups
 PS C:\> $File | Restore-DbaDatabase -SqlInstance Server1\Instance -UseDestinationDefaultDirectories
 ```
+{: data-copyable="true" data-clean-code="$File = Get-ChildItem c:\backups, \\server1\backups
+$File | Restore-DbaDatabase -SqlInstance Server1\Instance -UseDestinationDefaultDirectories" }
 
 This will take all of the files found under the folders c:\backups and \\server1\backups, and pipeline them into<br>
 Restore-DbaDatabase. Restore-DbaDatabase will then scan all of the files, and restore all of the databases included<br>
@@ -268,6 +288,24 @@ PS C:\> $files | Restore-DbaDatabase @params
 PS C:\> Invoke-DbaQuery -SQLInstance server\instance1 -Query "select top 1 * from Restored.dbo.steps order by dt desc"
 PS C:\> Restore-DbaDatabase -SqlInstance server\instance1 -DestinationFilePrefix prefix -DatabaseName Restored -Continue -WithReplace
 ```
+{: data-copyable="true" data-clean-code="$files = Get-ChildItem C:\dbatools\db1
+$params = @{
+SqlInstance = 'server\instance1'
+DestinationFilePrefix = 'prefix'
+DatabaseName ='Restored'
+RestoreTime = (get-date &quot;14:58:30 22/05/2017&quot;)
+NoRecovery = $true
+WithReplace = $true
+StandbyDirectory = 'C:\dbatools\standby'
+}
+$files | Restore-DbaDatabase @params
+Invoke-DbaQuery -SQLInstance server\instance1 -Query &quot;select top 1 * from Restored.dbo.steps order by dt desc&quot;
+$params.RestoreTime = (get-date &quot;15:09:30 22/05/2017&quot;)
+$params.NoRecovery = $false
+$params.Add(&quot;Continue&quot;,$true)
+$files | Restore-DbaDatabase @params
+Invoke-DbaQuery -SQLInstance server\instance1 -Query &quot;select top 1 * from Restored.dbo.steps order by dt desc&quot;
+Restore-DbaDatabase -SqlInstance server\instance1 -DestinationFilePrefix prefix -DatabaseName Restored -Continue -WithReplace" }
 
 In this example we step through the backup files held in c:\dbatools\db1 folder.<br>
 First we restore the database to a point in time in standby mode. This means we can check some details in the databases<br>
@@ -281,6 +319,8 @@ At each step, only the log files needed to roll the database forward are restore
 PS C:\> Restore-DbaDatabase -SqlInstance server\instance1 -Path c:\backups -DatabaseName example1 -NoRecovery
 PS C:\> Restore-DbaDatabase -SqlInstance server\instance1 -Recover -DatabaseName example1
 ```
+{: data-copyable="true" data-clean-code="Restore-DbaDatabase -SqlInstance server\instance1 -Path c:\backups -DatabaseName example1 -NoRecovery
+Restore-DbaDatabase -SqlInstance server\instance1 -Recover -DatabaseName example1" }
 
 In this example we restore example1 database with no recovery, and then the second call is to set the database to recovery.<br>
 
@@ -290,6 +330,8 @@ In this example we restore example1 database with no recovery, and then the seco
 PS C:\> $SuspectPage = Get-DbaSuspectPage -SqlInstance server\instance1 -Database ProdFinance
 PS C:\> Get-DbaDbBackupHistory -SqlInstance server\instance1 -Database ProdFinance -Last | Restore-DbaDatabase -PageRestore $SuspectPage -PageRestoreTailFolder c:\temp -TrustDbBackupHistory
 ```
+{: data-copyable="true" data-clean-code="$SuspectPage = Get-DbaSuspectPage -SqlInstance server\instance1 -Database ProdFinance
+Get-DbaDbBackupHistory -SqlInstance server\instance1 -Database ProdFinance -Last | Restore-DbaDatabase -PageRestore $SuspectPage -PageRestoreTailFolder c:\temp -TrustDbBackupHistory" }
 
 Gets a list of Suspect Pages using Get-DbaSuspectPage. Then uses Get-DbaDbBackupHistory and Restore-DbaDatabase to perform a restore of the suspect pages and bring them up to date<br>
 If server\instance1 is Enterprise edition this will be done online, if not it will be performed offline<br>
@@ -300,6 +342,8 @@ If server\instance1 is Enterprise edition this will be done online, if not it wi
 PS C:\> $BackupHistory = Get-DbaBackupInformation -SqlInstance sql2005 -Path \\backups\sql2000\ProdDb
 PS C:\> $BackupHistory | Restore-DbaDatabase -SqlInstance sql2000 -TrustDbBackupHistory
 ```
+{: data-copyable="true" data-clean-code="$BackupHistory = Get-DbaBackupInformation -SqlInstance sql2005 -Path \\backups\sql2000\ProdDb
+$BackupHistory | Restore-DbaDatabase -SqlInstance sql2000 -TrustDbBackupHistory" }
 
 Due to SQL Server 2000 not returning all the backup headers we cannot restore directly. As this is an issues with the SQL engine all we can offer is the following workaround<br>
 This will use a SQL Server instance > 2000 to read the headers, and then pass them in to Restore-DbaDatabase as a BackupHistory object.<br>
@@ -310,6 +354,8 @@ This will use a SQL Server instance > 2000 to read the headers, and then pass th
 PS C:\> Restore-DbaDatabase -SqlInstance server1\instance1 -Path "C:\Temp\devops_prod_full.bak" -DatabaseName "DevOps_DEV" -ReplaceDbNameInFile
 PS C:\> Rename-DbaDatabase -SqlInstance server1\instance1 -Database "DevOps_DEV" -LogicalName "<DBN>_<FT>"
 ```
+{: data-copyable="true" data-clean-code="Restore-DbaDatabase -SqlInstance server1\instance1 -Path &quot;C:\Temp\devops_prod_full.bak&quot; -DatabaseName &quot;DevOps_DEV&quot; -ReplaceDbNameInFile
+Rename-DbaDatabase -SqlInstance server1\instance1 -Database &quot;DevOps_DEV&quot; -LogicalName &quot;&lt;DBN&gt;_&lt;FT&gt;&quot;" }
 
 This will restore the database from the "C:\Temp\devops_prod_full.bak" file, with the new name "DevOps_DEV" and store the different physical files with the new name. It will use the system default <br>
 configured data and log locations.<br>
@@ -325,6 +371,11 @@ PS C:\> $FileStructure = @{
 >>
 PS C:\> Restore-DbaDatabase -SqlInstance server1 -Path \\ServerName\ShareName\File -DatabaseName database -FileMapping $FileStructure
 ```
+{: data-copyable="true" data-clean-code="$FileStructure = @{
+'database_data' = 'C:\Data\database_data.mdf'
+'database_log' = 'C:\Log\database_log.ldf'
+}
+Restore-DbaDatabase -SqlInstance server1 -Path \\ServerName\ShareName\File -DatabaseName database -FileMapping $FileStructure" }
 
 Restores 'database' to 'server1' and moves the files to new locations. The format for the $FileStructure HashTable is the file logical name as the Key, and the new location as the Value.<br>
 
@@ -334,6 +385,8 @@ Restores 'database' to 'server1' and moves the files to new locations. The forma
 PS C:\> $filemap = Get-DbaDbFileMapping -SqlInstance sql2016 -Database test
 PS C:\> Get-ChildItem \\nas\db\backups\test | Restore-DbaDatabase -SqlInstance sql2019 -Database test -FileMapping $filemap.FileMapping
 ```
+{: data-copyable="true" data-clean-code="$filemap = Get-DbaDbFileMapping -SqlInstance sql2016 -Database test
+Get-ChildItem \\nas\db\backups\test | Restore-DbaDatabase -SqlInstance sql2019 -Database test -FileMapping $filemap.FileMapping" }
 
 Restores test to sql2019 using the file structure built from the existing database on sql2016<br>
 
@@ -342,6 +395,7 @@ Restores test to sql2019 using the file structure built from the existing databa
 ```powershell
 PS C:\> Restore-DbaDatabase -SqlInstance server1 -Path \\ServerName\ShareName\File -DatabaseName database -StopMark OvernightStart -StopBefore -StopAfterDate Get-Date('21:00 10/05/2020')
 ```
+{: data-copyable="true" data-clean-code="Restore-DbaDatabase -SqlInstance server1 -Path \\ServerName\ShareName\File -DatabaseName database -StopMark OvernightStart -StopBefore -StopAfterDate Get-Date('21:00 10/05/2020')" }
 
 Restores the backups from \\ServerName\ShareName\File as database, stops before the first 'OvernightStart' mark that occurs after '21:00 10/05/2020'.<br>
 Note that Date time needs to be specified in your local SQL Server culture<br>

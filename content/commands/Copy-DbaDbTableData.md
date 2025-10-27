@@ -14,18 +14,26 @@ bohUrl: "https://dataplat.github.io/boh#Copy-DbaDbTableData"
 draft: false
 ---
 
-# Copy-DbaDbTableData
-
-| Property | Value |
-| --- | --- |
-| **Author** | Simone Bizzotto (@niphlod) |
-| **Availability** | Windows, Linux, macOS |
-
-&nbsp;
-
-Want to see the source code for this command? Check out [Copy-DbaDbTableData](https://github.com/dataplat/dbatools/blob/master/public/Copy-DbaDbTableData.ps1) on GitHub.
-<br>
-Want to see the Bill Of Health for this command? Check out [Copy-DbaDbTableData](https://dataplat.github.io/boh#Copy-DbaDbTableData).
+<!-- Command Header Section -->
+<div class="command-header">
+  <div class="command-header-top">
+    <h1>Copy-DbaDbTableData</h1>
+    <a href="https://github.com/dataplat/dbatools/blob/master/public/Copy-DbaDbTableData.ps1" target="_blank" rel="noopener noreferrer" class="github-link" title="View source on GitHub">
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      <span>View Source</span>
+    </a>
+  </div>
+  <div class="command-meta">
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+      <span>Simone Bizzotto (@niphlod)</span>
+    </div>
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+      <span>Windows, Linux, macOS</span>
+    </div>
+  </div>
+</div>
 
 ## Synopsis
 
@@ -85,6 +93,7 @@ Copy-DbaDbTableData
 ```powershell
 PS C:\> Copy-DbaDbTableData -SqlInstance sql1 -Destination sql2 -Database dbatools_from -Table dbo.test_table
 ```
+{: data-copyable="true" data-clean-code="Copy-DbaDbTableData -SqlInstance sql1 -Destination sql2 -Database dbatools_from -Table dbo.test_table" }
 
 Copies all the data from table dbo.test_table (2-part name) in database dbatools_from on sql1 to table test_table in database dbatools_from on sql2.<br>
 
@@ -93,6 +102,7 @@ Copies all the data from table dbo.test_table (2-part name) in database dbatools
 ```powershell
 PS C:\> Copy-DbaDbTableData -SqlInstance sql1 -Destination sql2 -Database dbatools_from -DestinationDatabase dbatools_dest -Table [Schema].[test table]
 ```
+{: data-copyable="true" data-clean-code="Copy-DbaDbTableData -SqlInstance sql1 -Destination sql2 -Database dbatools_from -DestinationDatabase dbatools_dest -Table [Schema].[test table]" }
 
 Copies all the data from table [Schema].[test table] (2-part name) in database dbatools_from on sql1 to table [Schema].[test table] in database dbatools_dest on sql2<br>
 
@@ -101,6 +111,7 @@ Copies all the data from table [Schema].[test table] (2-part name) in database d
 ```powershell
 PS C:\> Get-DbaDbTable -SqlInstance sql1 -Database tempdb -Table tb1, tb2 | Copy-DbaDbTableData -DestinationTable tb3
 ```
+{: data-copyable="true" data-clean-code="Get-DbaDbTable -SqlInstance sql1 -Database tempdb -Table tb1, tb2 | Copy-DbaDbTableData -DestinationTable tb3" }
 
 Copies all data from tables tb1 and tb2 in tempdb on sql1 to tb3 in tempdb on sql1<br>
 
@@ -109,6 +120,7 @@ Copies all data from tables tb1 and tb2 in tempdb on sql1 to tb3 in tempdb on sq
 ```powershell
 PS C:\> Get-DbaDbTable -SqlInstance sql1 -Database tempdb -Table tb1, tb2 | Copy-DbaDbTableData -Destination sql2
 ```
+{: data-copyable="true" data-clean-code="Get-DbaDbTable -SqlInstance sql1 -Database tempdb -Table tb1, tb2 | Copy-DbaDbTableData -Destination sql2" }
 
 Copies data from tb1 and tb2 in tempdb on sql1 to the same table in tempdb on sql2<br>
 
@@ -117,6 +129,7 @@ Copies data from tb1 and tb2 in tempdb on sql1 to the same table in tempdb on sq
 ```powershell
 PS C:\> Copy-DbaDbTableData -SqlInstance sql1 -Destination sql2 -Database dbatools_from -Table test_table -KeepIdentity -Truncate
 ```
+{: data-copyable="true" data-clean-code="Copy-DbaDbTableData -SqlInstance sql1 -Destination sql2 -Database dbatools_from -Table test_table -KeepIdentity -Truncate" }
 
 Copies all the data in table test_table from sql1 to sql2, using the database dbatools_from, keeping identity columns and truncating the destination<br>
 
@@ -138,6 +151,19 @@ PS C:\> $params = @{
 >>
 PS C:\> Copy-DbaDbTableData @params
 ```
+{: data-copyable="true" data-clean-code="$params = @{
+SqlInstance = 'sql1'
+Destination = 'sql2'
+Database = 'dbatools_from'
+DestinationDatabase = 'dbatools_dest'
+Table = '[Schema].[Table]'
+DestinationTable = '[dbo].[Table.Copy]'
+KeepIdentity = $true
+KeepNulls = $true
+Truncate = $true
+BatchSize = 10000
+}
+Copy-DbaDbTableData @params" }
 
 Copies all the data from table [Schema].[Table] (2-part name) in database dbatools_from on sql1 to table [dbo].[Table.Copy] in database dbatools_dest on sql2<br>
 Keeps identity columns and Nulls, truncates the destination and processes in BatchSize of 10000.<br>
@@ -158,6 +184,17 @@ PS C:\> $params = @{
 >>
 PS C:\> Copy-DbaDbTableData @params
 ```
+{: data-copyable="true" data-clean-code="$params = @{
+SqlInstance = 'server1'
+Destination = 'server1'
+Database = 'AdventureWorks2017'
+DestinationDatabase = 'AdventureWorks2017'
+DestinationTable = '[AdventureWorks2017].[Person].[EmailPromotion]'
+BatchSize = 10000
+Table = '[OtherDb].[Person].[Person]'
+Query = &quot;SELECT * FROM [OtherDb].[Person].[Person] where EmailPromotion = 1&quot;
+}
+Copy-DbaDbTableData @params" }
 
 Copies data returned from the query on server1 into the AdventureWorks2017 on server1, using a 3-part name for the DestinationTable parameter. Copy is processed in BatchSize of 10000 rows.<br>
 See the Query param documentation for more details.<br>
@@ -167,6 +204,7 @@ See the Query param documentation for more details.<br>
 ```powershell
 PS C:\> Copy-DbaDbTableData -SqlInstance sql1 -Database tempdb -View [tempdb].[dbo].[vw1] -DestinationTable [SampleDb].[SampleSchema].[SampleTable] -AutoCreateTable
 ```
+{: data-copyable="true" data-clean-code="Copy-DbaDbTableData -SqlInstance sql1 -Database tempdb -View [tempdb].[dbo].[vw1] -DestinationTable [SampleDb].[SampleSchema].[SampleTable] -AutoCreateTable" }
 
 Copies all data from [tempdb].[dbo].[vw1] (3-part name) view on instance sql1 to an auto-created table [SampleDb].[SampleSchema].[SampleTable] on instance sql1<br>
 

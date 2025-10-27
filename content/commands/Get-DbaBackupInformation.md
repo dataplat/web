@@ -15,18 +15,26 @@ bohUrl: "https://dataplat.github.io/boh#Get-DbaBackupInformation"
 draft: false
 ---
 
-# Get-DbaBackupInformation
-
-| Property | Value |
-| --- | --- |
-| **Author** | Chrissy LeMaire (@cl) , Stuart Moore (@napalmgram) |
-| **Availability** | Windows, Linux, macOS |
-
-&nbsp;
-
-Want to see the source code for this command? Check out [Get-DbaBackupInformation](https://github.com/dataplat/dbatools/blob/master/public/Get-DbaBackupInformation.ps1) on GitHub.
-<br>
-Want to see the Bill Of Health for this command? Check out [Get-DbaBackupInformation](https://dataplat.github.io/boh#Get-DbaBackupInformation).
+<!-- Command Header Section -->
+<div class="command-header">
+  <div class="command-header-top">
+    <h1>Get-DbaBackupInformation</h1>
+    <a href="https://github.com/dataplat/dbatools/blob/master/public/Get-DbaBackupInformation.ps1" target="_blank" rel="noopener noreferrer" class="github-link" title="View source on GitHub">
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      <span>View Source</span>
+    </a>
+  </div>
+  <div class="command-meta">
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+      <span>Chrissy LeMaire (@cl) , Stuart Moore (@napalmgram)</span>
+    </div>
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+      <span>Windows, Linux, macOS</span>
+    </div>
+  </div>
+</div>
 
 ## Synopsis
 
@@ -92,6 +100,7 @@ Get-DbaBackupInformation -Path <Object[]>
 ```powershell
 PS C:\> Get-DbaBackupInformation -SqlInstance Server1 -Path c:\backups\ -DirectoryRecurse
 ```
+{: data-copyable="true" data-clean-code="Get-DbaBackupInformation -SqlInstance Server1 -Path c:\backups\ -DirectoryRecurse" }
 
 Will use the Server1 instance to recursively read all backup files under c:\backups, and return a dbatools BackupHistory object<br>
 
@@ -102,6 +111,9 @@ PS C:\> Get-DbaBackupInformation -SqlInstance Server1 -Path c:\backups\ -Directo
 PS C:\> robocopy c:\store\ \\remoteMachine\C$\store\ BackupHistory.xml
 PS C:\> Get-DbaBackupInformation -Import -Path  c:\store\BackupHistory.xml | Restore-DbaDatabase -SqlInstance Server2 -TrustDbBackupHistory
 ```
+{: data-copyable="true" data-clean-code="Get-DbaBackupInformation -SqlInstance Server1 -Path c:\backups\ -DirectoryRecurse -ExportPath c:\store\BackupHistory.xml
+robocopy c:\store\ \\remoteMachine\C$\store\ BackupHistory.xml
+Get-DbaBackupInformation -Import -Path  c:\store\BackupHistory.xml | Restore-DbaDatabase -SqlInstance Server2 -TrustDbBackupHistory" }
 
 This example creates backup history output from server1 and copies the file to the remote machine in order to preserve backup history. It is then used to restore the databases onto server2.<br>
 
@@ -110,6 +122,7 @@ This example creates backup history output from server1 and copies the file to t
 ```powershell
 PS C:\> Get-DbaBackupInformation -SqlInstance Server1 -Path c:\backups\ -DirectoryRecurse -ExportPath C:\store\BackupHistory.xml -PassThru | Restore-DbaDatabase -SqlInstance Server2
 ```
+{: data-copyable="true" data-clean-code="Get-DbaBackupInformation -SqlInstance Server1 -Path c:\backups\ -DirectoryRecurse -ExportPath C:\store\BackupHistory.xml -PassThru | Restore-DbaDatabase -SqlInstance Server2" }
 
 -TrustDbBackupHistory<br>
 In this example we gather backup information, export it to an xml file, and then pass it on through to Restore-DbaDatabase.<br>
@@ -120,6 +133,7 @@ This allows us to repeat the restore without having to scan all the backup files
 ```powershell
 PS C:\> Get-ChildItem c:\backups\ -recurse -files | Where-Object {$_.extension -in ('.bak','.trn') -and $_.LastWriteTime -gt (get-date).AddMonths(-1)} | Get-DbaBackupInformation -SqlInstance Server1
 ```
+{: data-copyable="true" data-clean-code="Get-ChildItem c:\backups\ -recurse -files | Where-Object {$_.extension -in ('.bak','.trn') -and $_.LastWriteTime -gt (get-date).AddMonths(-1)} | Get-DbaBackupInformation -SqlInstance Server1" }
 
 -ExportPath C:\backupHistory.xml<br>
 This lets you keep a record of all backup history from the last month on hand to speed up refreshes<br>
@@ -130,6 +144,8 @@ This lets you keep a record of all backup history from the last month on hand to
 PS C:\> $Backups = Get-DbaBackupInformation -SqlInstance Server1 -Path \\network\backups
 PS C:\> $Backups += Get-DbaBackupInformation -SqlInstance Server2 -NoXpDirTree -Path c:\backups
 ```
+{: data-copyable="true" data-clean-code="$Backups = Get-DbaBackupInformation -SqlInstance Server1 -Path \\network\backups
+$Backups += Get-DbaBackupInformation -SqlInstance Server2 -NoXpDirTree -Path c:\backups" }
 
 Scan the unc folder \\network\backups with Server1, and then scan the C:\backups folder on<br>
 Server2 not using xp_dirtree, adding the results to the first set.<br>
@@ -139,6 +155,7 @@ Server2 not using xp_dirtree, adding the results to the first set.<br>
 ```powershell
 PS C:\> $Backups = Get-DbaBackupInformation -SqlInstance Server1 -Path \\network\backups -MaintenanceSolution
 ```
+{: data-copyable="true" data-clean-code="$Backups = Get-DbaBackupInformation -SqlInstance Server1 -Path \\network\backups -MaintenanceSolution" }
 
 When MaintenanceSolution is indicated we know we are dealing with the output from Ola Hallengren backup scripts. So we make sure that a FULL folder exists in the first level of Path, if not we <br>
 shortcut scanning all the files as we have nothing to work with<br>
@@ -148,6 +165,7 @@ shortcut scanning all the files as we have nothing to work with<br>
 ```powershell
 PS C:\> $Backups = Get-DbaBackupInformation -SqlInstance Server1 -Path \\network\backups -MaintenanceSolution -IgnoreLogBackup
 ```
+{: data-copyable="true" data-clean-code="$Backups = Get-DbaBackupInformation -SqlInstance Server1 -Path \\network\backups -MaintenanceSolution -IgnoreLogBackup" }
 
 As we know we are dealing with an Ola Hallengren style backup folder from the MaintenanceSolution switch, when IgnoreLogBackup is also included we can ignore the LOG folder to skip any scanning of <br>
 log backups. Note this also means they WON'T be restored<br>

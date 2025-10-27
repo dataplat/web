@@ -15,18 +15,26 @@ bohUrl: "https://dataplat.github.io/boh#Export-DbaScript"
 draft: false
 ---
 
-# Export-DbaScript
-
-| Property | Value |
-| --- | --- |
-| **Author** | Chrissy LeMaire (@cl), netnerds.net |
-| **Availability** | Windows, Linux, macOS |
-
-&nbsp;
-
-Want to see the source code for this command? Check out [Export-DbaScript](https://github.com/dataplat/dbatools/blob/master/public/Export-DbaScript.ps1) on GitHub.
-<br>
-Want to see the Bill Of Health for this command? Check out [Export-DbaScript](https://dataplat.github.io/boh#Export-DbaScript).
+<!-- Command Header Section -->
+<div class="command-header">
+  <div class="command-header-top">
+    <h1>Export-DbaScript</h1>
+    <a href="https://github.com/dataplat/dbatools/blob/master/public/Export-DbaScript.ps1" target="_blank" rel="noopener noreferrer" class="github-link" title="View source on GitHub">
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      <span>View Source</span>
+    </a>
+  </div>
+  <div class="command-meta">
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+      <span>Chrissy LeMaire (@cl), netnerds.net</span>
+    </div>
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+      <span>Windows, Linux, macOS</span>
+    </div>
+  </div>
+</div>
 
 ## Synopsis
 
@@ -69,6 +77,7 @@ Export-DbaScript
 ```powershell
 PS C:\> Get-DbaAgentJob -SqlInstance sql2016 | Export-DbaScript
 ```
+{: data-copyable="true" data-clean-code="Get-DbaAgentJob -SqlInstance sql2016 | Export-DbaScript" }
 
 Exports all jobs on the SQL Server sql2016 instance using a trusted connection - automatically determines filename based on the Path.DbatoolsExport configuration setting, current time and server name.<br>
 
@@ -77,6 +86,7 @@ Exports all jobs on the SQL Server sql2016 instance using a trusted connection -
 ```powershell
 PS C:\> Get-DbaAgentJob -SqlInstance sql2016 | Export-DbaScript -FilePath C:\temp\export.sql -Append
 ```
+{: data-copyable="true" data-clean-code="Get-DbaAgentJob -SqlInstance sql2016 | Export-DbaScript -FilePath C:\temp\export.sql -Append" }
 
 Exports all jobs on the SQL Server sql2016 instance using a trusted connection - Will append the output to the file C:\temp\export.sql if it already exists<br>
 Inclusion of Batch Separator in script depends on the configuration s not include Batch Separator and will not compile<br>
@@ -86,6 +96,7 @@ Inclusion of Batch Separator in script depends on the configuration s not includ
 ```powershell
 PS C:\> Get-DbaDbTable -SqlInstance sql2016 -Database MyDatabase -Table 'dbo.Table1', 'dbo.Table2' -SqlCredential sqladmin | Export-DbaScript -FilePath C:\temp\export.sql
 ```
+{: data-copyable="true" data-clean-code="Get-DbaDbTable -SqlInstance sql2016 -Database MyDatabase -Table 'dbo.Table1', 'dbo.Table2' -SqlCredential sqladmin | Export-DbaScript -FilePath C:\temp\export.sql" }
 
 Exports only script for 'dbo.Table1' and 'dbo.Table2' in MyDatabase to C:temp\export.sql and uses the SQL login "sqladmin" to login to sql2016<br>
 
@@ -94,6 +105,7 @@ Exports only script for 'dbo.Table1' and 'dbo.Table2' in MyDatabase to C:temp\ex
 ```powershell
 PS C:\> Get-DbaAgentJob -SqlInstance sql2016 -Job syspolicy_purge_history, 'Hourly Log Backups' -SqlCredential sqladmin | Export-DbaScript -FilePath C:\temp\export.sql -NoPrefix
 ```
+{: data-copyable="true" data-clean-code="Get-DbaAgentJob -SqlInstance sql2016 -Job syspolicy_purge_history, 'Hourly Log Backups' -SqlCredential sqladmin | Export-DbaScript -FilePath C:\temp\export.sql -NoPrefix" }
 
 Exports only syspolicy_purge_history and 'Hourly Log Backups' to C:temp\export.sql and uses the SQL login "sqladmin" to login to sql2016<br>
 Suppress the output of a Prefix<br>
@@ -110,6 +122,14 @@ PS C:\> $Options.ScriptBatchTerminator = $true
 PS C:\> $Options.AnsiFile = $true
 PS C:\> Get-DbaAgentJob -SqlInstance sql2016 -Job syspolicy_purge_history, 'Hourly Log Backups' -SqlCredential sqladmin | Export-DbaScript -FilePath C:\temp\export.sql -ScriptingOptionsObject $options
 ```
+{: data-copyable="true" data-clean-code="$options = New-DbaScriptingOption
+$options.ScriptSchema = $true
+$options.IncludeDatabaseContext  = $true
+$options.IncludeHeaders = $false
+$Options.NoCommandTerminator = $false
+$Options.ScriptBatchTerminator = $true
+$Options.AnsiFile = $true
+Get-DbaAgentJob -SqlInstance sql2016 -Job syspolicy_purge_history, 'Hourly Log Backups' -SqlCredential sqladmin | Export-DbaScript -FilePath C:\temp\export.sql -ScriptingOptionsObject $options" }
 
 Exports only syspolicy_purge_history and 'Hourly Log Backups' to C:temp\export.sql and uses the SQL login "sqladmin" to login to sql2016<br>
 Uses Scripting options to ensure Batch Terminator is set<br>
@@ -119,6 +139,7 @@ Uses Scripting options to ensure Batch Terminator is set<br>
 ```powershell
 PS C:\> Get-DbaAgentJob -SqlInstance sql2014 | Export-DbaScript -Passthru | ForEach-Object { $_.Replace('sql2014','sql2016') } | Set-Content -Path C:\temp\export.sql
 ```
+{: data-copyable="true" data-clean-code="Get-DbaAgentJob -SqlInstance sql2014 | Export-DbaScript -Passthru | ForEach-Object { $_.Replace('sql2014','sql2016') } | Set-Content -Path C:\temp\export.sql" }
 
 Exports jobs and replaces all instances of the servername "sql2014" with "sql2016" then writes to C:\temp\export.sql<br>
 
@@ -137,6 +158,17 @@ PS C:\> foreach ($db in $Databases) {
 >>        Export-DbaScript -InputObject $db -FilePath C:\temp\export.sql -Append -Encoding UTF8 -ScriptingOptionsObject $options -NoPrefix
 >> }
 ```
+{: data-copyable="true" data-clean-code="$options = New-DbaScriptingOption
+$options.ScriptSchema = $true
+$options.IncludeDatabaseContext  = $true
+$options.IncludeHeaders = $false
+$Options.NoCommandTerminator = $false
+$Options.ScriptBatchTerminator = $true
+$Options.AnsiFile = $true
+$Databases = Get-DbaDatabase -SqlInstance sql2016 -ExcludeDatabase master, model, msdb, tempdb
+foreach ($db in $Databases) {
+Export-DbaScript -InputObject $db -FilePath C:\temp\export.sql -Append -Encoding UTF8 -ScriptingOptionsObject $options -NoPrefix
+}" }
 
 Exports Script for each database on sql2016 excluding system databases<br>
 Uses Scripting options to ensure Batch Terminator is set<br>

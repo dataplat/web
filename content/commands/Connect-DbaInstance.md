@@ -13,18 +13,26 @@ bohUrl: "https://dataplat.github.io/boh#Connect-DbaInstance"
 draft: false
 ---
 
-# Connect-DbaInstance
-
-| Property | Value |
-| --- | --- |
-| **Author** | Chrissy LeMaire (@cl), netnerds.net |
-| **Availability** | Windows, Linux, macOS |
-
-&nbsp;
-
-Want to see the source code for this command? Check out [Connect-DbaInstance](https://github.com/dataplat/dbatools/blob/master/public/Connect-DbaInstance.ps1) on GitHub.
-<br>
-Want to see the Bill Of Health for this command? Check out [Connect-DbaInstance](https://dataplat.github.io/boh#Connect-DbaInstance).
+<!-- Command Header Section -->
+<div class="command-header">
+  <div class="command-header-top">
+    <h1>Connect-DbaInstance</h1>
+    <a href="https://github.com/dataplat/dbatools/blob/master/public/Connect-DbaInstance.ps1" target="_blank" rel="noopener noreferrer" class="github-link" title="View source on GitHub">
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      <span>View Source</span>
+    </a>
+  </div>
+  <div class="command-meta">
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+      <span>Chrissy LeMaire (@cl), netnerds.net</span>
+    </div>
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+      <span>Windows, Linux, macOS</span>
+    </div>
+  </div>
+</div>
 
 ## Synopsis
 
@@ -101,6 +109,7 @@ Connect-DbaInstance
 ```powershell
 PS C:\> Connect-DbaInstance -SqlInstance sql2014
 ```
+{: data-copyable="true" data-clean-code="Connect-DbaInstance -SqlInstance sql2014" }
 
 Creates an SMO Server object that connects using Windows Authentication<br>
 
@@ -110,6 +119,8 @@ Creates an SMO Server object that connects using Windows Authentication<br>
 PS C:\> $wincred = Get-Credential ad\sqladmin
 PS C:\> Connect-DbaInstance -SqlInstance sql2014 -SqlCredential $wincred
 ```
+{: data-copyable="true" data-clean-code="$wincred = Get-Credential ad\sqladmin
+Connect-DbaInstance -SqlInstance sql2014 -SqlCredential $wincred" }
 
 Creates an SMO Server object that connects using alternative Windows credentials<br>
 
@@ -119,6 +130,8 @@ Creates an SMO Server object that connects using alternative Windows credentials
 PS C:\> $sqlcred = Get-Credential sqladmin
 PS C:\> $server = Connect-DbaInstance -SqlInstance sql2014 -SqlCredential $sqlcred
 ```
+{: data-copyable="true" data-clean-code="$sqlcred = Get-Credential sqladmin
+$server = Connect-DbaInstance -SqlInstance sql2014 -SqlCredential $sqlcred" }
 
 Login to sql2014 as SQL login sqladmin.<br>
 
@@ -127,6 +140,7 @@ Login to sql2014 as SQL login sqladmin.<br>
 ```powershell
 PS C:\> $server = Connect-DbaInstance -SqlInstance sql2014 -ClientName "my connection"
 ```
+{: data-copyable="true" data-clean-code="$server = Connect-DbaInstance -SqlInstance sql2014 -ClientName &quot;my connection&quot;" }
 
 Creates an SMO Server object that connects using Windows Authentication and uses the client name "my connection".<br>
 So when you open up profiler or use extended events, you can search for "my connection".<br>
@@ -136,6 +150,7 @@ So when you open up profiler or use extended events, you can search for "my conn
 ```powershell
 PS C:\> $server = Connect-DbaInstance -SqlInstance sql2014 -AppendConnectionString "Packet Size=4096;AttachDbFilename=C:\MyFolder\MyDataFile.mdf;User Instance=true;"
 ```
+{: data-copyable="true" data-clean-code="$server = Connect-DbaInstance -SqlInstance sql2014 -AppendConnectionString &quot;Packet Size=4096;AttachDbFilename=C:\MyFolder\MyDataFile.mdf;User Instance=true;&quot;" }
 
 Creates an SMO Server object that connects to sql2014 using Windows Authentication, then it sets the packet size (this can also be done via -PacketSize) and other connection attributes.<br>
 
@@ -144,6 +159,7 @@ Creates an SMO Server object that connects to sql2014 using Windows Authenticati
 ```powershell
 PS C:\> $server = Connect-DbaInstance -SqlInstance sql2014 -NetworkProtocol TcpIp -MultiSubnetFailover
 ```
+{: data-copyable="true" data-clean-code="$server = Connect-DbaInstance -SqlInstance sql2014 -NetworkProtocol TcpIp -MultiSubnetFailover" }
 
 Creates an SMO Server object that connects using Windows Authentication that uses TCP/IP and has MultiSubnetFailover enabled.<br>
 
@@ -152,6 +168,7 @@ Creates an SMO Server object that connects using Windows Authentication that use
 ```powershell
 PS C:\> $server = Connect-DbaInstance sql2016 -ApplicationIntent ReadOnly
 ```
+{: data-copyable="true" data-clean-code="$server = Connect-DbaInstance sql2016 -ApplicationIntent ReadOnly" }
 
 Connects with ReadOnly ApplicationIntent.<br>
 
@@ -161,6 +178,8 @@ Connects with ReadOnly ApplicationIntent.<br>
 PS C:\> $server = Connect-DbaInstance -SqlInstance myserver.database.windows.net -Database mydb -SqlCredential me@mydomain.onmicrosoft.com -DisableException
 PS C:\> Invoke-DbaQuery -SqlInstance $server -Query "select 1 as test"
 ```
+{: data-copyable="true" data-clean-code="$server = Connect-DbaInstance -SqlInstance myserver.database.windows.net -Database mydb -SqlCredential me@mydomain.onmicrosoft.com -DisableException
+Invoke-DbaQuery -SqlInstance $server -Query &quot;select 1 as test&quot;" }
 
 Logs into Azure SQL DB using AAD / Azure Active Directory, then performs a sample query.<br>
 
@@ -170,6 +189,8 @@ Logs into Azure SQL DB using AAD / Azure Active Directory, then performs a sampl
 PS C:\> $server = Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database dbatools -DisableException
 PS C:\> Invoke-DbaQuery -SqlInstance $server -Query "select 1 as test"
 ```
+{: data-copyable="true" data-clean-code="$server = Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database dbatools -DisableException
+Invoke-DbaQuery -SqlInstance $server -Query &quot;select 1 as test&quot;" }
 
 Logs into Azure SQL DB using AAD Integrated Auth, then performs a sample query.<br>
 
@@ -179,6 +200,8 @@ Logs into Azure SQL DB using AAD Integrated Auth, then performs a sample query.<
 PS C:\> $server = Connect-DbaInstance -SqlInstance "myserver.public.cust123.database.windows.net,3342" -Database mydb -SqlCredential me@mydomain.onmicrosoft.com -DisableException
 PS C:\> Invoke-DbaQuery -SqlInstance $server -Query "select 1 as test"
 ```
+{: data-copyable="true" data-clean-code="$server = Connect-DbaInstance -SqlInstance &quot;myserver.public.cust123.database.windows.net,3342&quot; -Database mydb -SqlCredential me@mydomain.onmicrosoft.com -DisableException
+Invoke-DbaQuery -SqlInstance $server -Query &quot;select 1 as test&quot;" }
 
 Logs into Azure SQL Managed instance using AAD / Azure Active Directory, then performs a sample query.<br>
 
@@ -188,6 +211,8 @@ Logs into Azure SQL Managed instance using AAD / Azure Active Directory, then pe
 PS C:\> $server = Connect-DbaInstance -SqlInstance db.mycustomazure.com -Database mydb -AzureDomain mycustomazure.com -DisableException
 PS C:\> Invoke-DbaQuery -SqlInstance $server -Query "select 1 as test"
 ```
+{: data-copyable="true" data-clean-code="$server = Connect-DbaInstance -SqlInstance db.mycustomazure.com -Database mydb -AzureDomain mycustomazure.com -DisableException
+Invoke-DbaQuery -SqlInstance $server -Query &quot;select 1 as test&quot;" }
 
 In the event your AzureSqlDb is not on a database.windows.net domain, you can set a custom domain using the AzureDomain parameter.<br>
 This tells Connect-DbaInstance to login to the database using the method that works best with Azure.<br>
@@ -199,6 +224,9 @@ PS C:\> $connstring = "Data Source=TCP:mydb.database.windows.net,1433;User ID=sq
 PS C:\> $server = Connect-DbaInstance -ConnectionString $connstring
 PS C:\> Invoke-DbaQuery -SqlInstance $server -Query "select 1 as test"
 ```
+{: data-copyable="true" data-clean-code="$connstring = &quot;Data Source=TCP:mydb.database.windows.net,1433;User ID=sqladmin;Password=adfasdf;Connect Timeout=30;&quot;
+$server = Connect-DbaInstance -ConnectionString $connstring
+Invoke-DbaQuery -SqlInstance $server -Query &quot;select 1 as test&quot;" }
 
 Logs into Azure using a preconstructed connstring, then performs a sample query.<br>
 ConnectionString is an alias of SqlInstance, so you can use -SqlInstance $connstring as well.<br>
@@ -210,6 +238,9 @@ PS C:\> $cred = Get-Credential guid-app-id-here # appid for username, clientsecr
 PS C:\> $server = Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database abc -SqlCredential $cred -Tenant guidheremaybename
 PS C:\> Invoke-DbaQuery -SqlInstance $server -Query "select 1 as test"
 ```
+{: data-copyable="true" data-clean-code="$cred = Get-Credential guid-app-id-here # appid for username, clientsecret for password
+$server = Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database abc -SqlCredential $cred -Tenant guidheremaybename
+Invoke-DbaQuery -SqlInstance $server -Query &quot;select 1 as test&quot;" }
 
 When connecting from a non-Azure workstation, logs into Azure using Universal with MFA Support with a username and password, then performs a sample query.<br>
 Note that generating access tokens is not supported on Core, so when using Tenant on Core, we rewrite the connection string with Active Directory Service Principal authentication instead.<br>
@@ -224,6 +255,12 @@ PS C:\> Set-DbatoolsConfig -FullName azure.clientsecret -Value $cred.Password -P
 PS C:\> Set-DbatoolsConfig -FullName sql.connection.database -Value abc -Passthru | Register-DbatoolsConfig
 PS C:\> Connect-DbaInstance -SqlInstance psdbatools.database.windows.net
 ```
+{: data-copyable="true" data-clean-code="$cred = Get-Credential guid-app-id-here # appid for username, clientsecret for password
+Set-DbatoolsConfig -FullName azure.tenantid -Value 'guidheremaybename' -Passthru | Register-DbatoolsConfig
+Set-DbatoolsConfig -FullName azure.appid -Value $cred.Username -Passthru | Register-DbatoolsConfig
+Set-DbatoolsConfig -FullName azure.clientsecret -Value $cred.Password -Passthru | Register-DbatoolsConfig # requires securestring
+Set-DbatoolsConfig -FullName sql.connection.database -Value abc -Passthru | Register-DbatoolsConfig
+Connect-DbaInstance -SqlInstance psdbatools.database.windows.net" }
 
 Permanently sets some app id config values. To set them temporarily (just for a session), remove -Passthru | Register-DbatoolsConfig<br>
 When connecting from a non-Azure workstation or an Azure VM without .NET 4.7.2 and higher, logs into Azure using Universal with MFA Support, then performs a sample query.<br>
@@ -239,6 +276,13 @@ PS C:\> $azureDatabase = "MYDATABASE"
 PS C:\> $server = Connect-DbaInstance -SqlInstance $azureInstance -Database $azureDatabase -AccessToken $azureToken
 PS C:\> Invoke-DbaQuery -SqlInstance $server -Query "select 1 as test"
 ```
+{: data-copyable="true" data-clean-code="$azureCredential = Get-Credential -Message 'Azure Credential'
+$azureAccount = Connect-AzAccount -Credential $azureCredential
+$azureToken = Get-AzAccessToken -ResourceUrl https://database.windows.net
+$azureInstance = &quot;YOURSERVER.database.windows.net&quot;
+$azureDatabase = &quot;MYDATABASE&quot;
+$server = Connect-DbaInstance -SqlInstance $azureInstance -Database $azureDatabase -AccessToken $azureToken
+Invoke-DbaQuery -SqlInstance $server -Query &quot;select 1 as test&quot;" }
 
 Connect to an Azure SQL Database or an Azure SQL Managed Instance with an AccessToken.<br>
 Works with both Azure PowerShell v13 (string tokens) and v14+ (SecureString tokens).<br>
@@ -254,6 +298,12 @@ PS C:\> $azureInstance = "YOUR-AZURE-SQL-MANAGED-INSTANCE.database.windows.net"
 PS C:\> $server = Connect-DbaInstance -SqlInstance $azureInstance -Database "YOURDATABASE" -AccessToken $azureToken
 PS C:\> Invoke-DbaQuery -SqlInstance $server -Query "select 1 as test"
 ```
+{: data-copyable="true" data-clean-code="# Azure PowerShell v14+ with SecureString token support
+Connect-AzAccount
+$azureToken = (Get-AzAccessToken -ResourceUrl https://database.windows.net).Token
+$azureInstance = &quot;YOUR-AZURE-SQL-MANAGED-INSTANCE.database.windows.net&quot;
+$server = Connect-DbaInstance -SqlInstance $azureInstance -Database &quot;YOURDATABASE&quot; -AccessToken $azureToken
+Invoke-DbaQuery -SqlInstance $server -Query &quot;select 1 as test&quot;" }
 
 Connect to an Azure SQL Managed Instance using Azure PowerShell v14+ where Get-AzAccessToken returns a SecureString.<br>
 The function automatically detects and converts the SecureString token to the required format.<br>
@@ -264,6 +314,8 @@ The function automatically detects and converts the SecureString token to the re
 PS C:\> $token = New-DbaAzAccessToken -Type RenewableServicePrincipal -Subtype AzureSqlDb -Tenant $tenantid -Credential $cred
 PS C:\> Connect-DbaInstance -SqlInstance sample.database.windows.net -Accesstoken $token
 ```
+{: data-copyable="true" data-clean-code="$token = New-DbaAzAccessToken -Type RenewableServicePrincipal -Subtype AzureSqlDb -Tenant $tenantid -Credential $cred
+Connect-DbaInstance -SqlInstance sample.database.windows.net -Accesstoken $token" }
 
 Uses dbatools to generate the access token for an Azure SQL Database, then logs in using that AccessToken.<br>
 
@@ -275,6 +327,10 @@ PS C:\> $dbaProcess = Get-DbaProcess -SqlInstance $server -ExcludeSystemSpids
 PS C:\> $killedProcess = $dbaProcess | Out-GridView -OutputMode Multiple | Stop-DbaProcess
 PS C:\> $server | Disconnect-DbaInstance
 ```
+{: data-copyable="true" data-clean-code="$server = Connect-DbaInstance -SqlInstance srv1 -DedicatedAdminConnection
+$dbaProcess = Get-DbaProcess -SqlInstance $server -ExcludeSystemSpids
+$killedProcess = $dbaProcess | Out-GridView -OutputMode Multiple | Stop-DbaProcess
+$server | Disconnect-DbaInstance" }
 
 Creates a dedicated admin connection (DAC) to the default instance on server srv1.<br>
 Receives all non-system processes from the instance using the DAC.<br>

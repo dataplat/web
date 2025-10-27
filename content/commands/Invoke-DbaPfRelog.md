@@ -16,18 +16,26 @@ bohUrl: "https://dataplat.github.io/boh#Invoke-DbaPfRelog"
 draft: false
 ---
 
-# Invoke-DbaPfRelog
-
-| Property | Value |
-| --- | --- |
-| **Author** | Chrissy LeMaire (@cl), netnerds.net |
-| **Availability** | Windows, Linux, macOS |
-
-&nbsp;
-
-Want to see the source code for this command? Check out [Invoke-DbaPfRelog](https://github.com/dataplat/dbatools/blob/master/public/Invoke-DbaPfRelog.ps1) on GitHub.
-<br>
-Want to see the Bill Of Health for this command? Check out [Invoke-DbaPfRelog](https://dataplat.github.io/boh#Invoke-DbaPfRelog).
+<!-- Command Header Section -->
+<div class="command-header">
+  <div class="command-header-top">
+    <h1>Invoke-DbaPfRelog</h1>
+    <a href="https://github.com/dataplat/dbatools/blob/master/public/Invoke-DbaPfRelog.ps1" target="_blank" rel="noopener noreferrer" class="github-link" title="View source on GitHub">
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      <span>View Source</span>
+    </a>
+  </div>
+  <div class="command-meta">
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+      <span>Chrissy LeMaire (@cl), netnerds.net</span>
+    </div>
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+      <span>Windows, Linux, macOS</span>
+    </div>
+  </div>
+</div>
 
 ## Synopsis
 
@@ -81,6 +89,7 @@ Invoke-DbaPfRelog
 ```powershell
 PS C:\> Invoke-DbaPfRelog -Path C:\temp\perfmon.blg
 ```
+{: data-copyable="true" data-clean-code="Invoke-DbaPfRelog -Path C:\temp\perfmon.blg" }
 
 Creates C:\temp\perfmon.tsv from C:\temp\perfmon.blg.<br>
 
@@ -89,6 +98,7 @@ Creates C:\temp\perfmon.tsv from C:\temp\perfmon.blg.<br>
 ```powershell
 PS C:\> Invoke-DbaPfRelog -Path C:\temp\perfmon.blg -Destination C:\temp\a\b\c
 ```
+{: data-copyable="true" data-clean-code="Invoke-DbaPfRelog -Path C:\temp\perfmon.blg -Destination C:\temp\a\b\c" }
 
 Creates the temp, a, and b directories if needed, then generates c.tsv (tab separated) from C:\temp\perfmon.blg.<br>
 Returns the newly created file as a file object.<br>
@@ -98,6 +108,7 @@ Returns the newly created file as a file object.<br>
 ```powershell
 PS C:\> Get-DbaPfDataCollectorSet -ComputerName sql2016 | Get-DbaPfDataCollector | Invoke-DbaPfRelog -Destination C:\temp\perf
 ```
+{: data-copyable="true" data-clean-code="Get-DbaPfDataCollectorSet -ComputerName sql2016 | Get-DbaPfDataCollector | Invoke-DbaPfRelog -Destination C:\temp\perf" }
 
 Creates C:\temp\perf if needed, then generates computername-datacollectorname.tsv (tab separated) from the latest logs of all data collector sets on sql2016. This destination format was chosen to <br>
 avoid naming conflicts with piped input.<br>
@@ -125,6 +136,21 @@ PS C:\> Invoke-DbaPfRelog -Path C:\temp\perfmon.blg -Destination C:\temp\a\b\c -
 >> Samples:  2227
 >> The command completed successfully.
 ```
+{: data-copyable="true" data-clean-code="Invoke-DbaPfRelog -Path C:\temp\perfmon.blg -Destination C:\temp\a\b\c -Raw
+[Invoke-DbaPfRelog][21:21:35] relog &quot;C:\temp\perfmon.blg&quot; -f csv -o C:\temp\a\b\c
+Input
+File(s):
+C:\temp\perfmon.blg (Binary)
+Begin:    1/13/2018 5:13:23
+End:      1/13/2018 14:29:55
+Samples:  2227
+100.00%
+Output
+File:     C:\temp\a\b\c.csv
+Begin:    1/13/2018 5:13:23
+End:      1/13/2018 14:29:55
+Samples:  2227
+The command completed successfully." }
 
 Creates the temp, a, and b directories if needed, then generates c.tsv (tab separated) from C:\temp\perfmon.blg then outputs the raw results of the relog command.<br>
 
@@ -133,6 +159,7 @@ Creates the temp, a, and b directories if needed, then generates c.tsv (tab sepa
 ```powershell
 PS C:\> Invoke-DbaPfRelog -Path 'C:\temp\perflog with spaces.blg' -Destination C:\temp\a\b\c -Type csv -BeginTime ((Get-Date).AddDays(-30)) -EndTime ((Get-Date).AddDays(-1))
 ```
+{: data-copyable="true" data-clean-code="Invoke-DbaPfRelog -Path 'C:\temp\perflog with spaces.blg' -Destination C:\temp\a\b\c -Type csv -BeginTime ((Get-Date).AddDays(-30)) -EndTime ((Get-Date).AddDays(-1))" }
 
 Creates the temp, a, and b directories if needed, then generates c.csv (comma separated) from C:\temp\perflog with spaces.blg', starts 30 days ago and ends one day ago.<br>
 
@@ -141,6 +168,7 @@ Creates the temp, a, and b directories if needed, then generates c.csv (comma se
 ```powershell
 PS C:\> $servers | Get-DbaPfDataCollectorSet | Get-DbaPfDataCollector | Invoke-DbaPfRelog -Multithread -AllowClobber
 ```
+{: data-copyable="true" data-clean-code="$servers | Get-DbaPfDataCollectorSet | Get-DbaPfDataCollector | Invoke-DbaPfRelog -Multithread -AllowClobber" }
 
 Relogs latest data files from all collectors within the servers listed in $servers.<br>
 
@@ -149,6 +177,7 @@ Relogs latest data files from all collectors within the servers listed in $serve
 ```powershell
 PS C:\> Get-DbaPfDataCollector -Collector DataCollector01 | Invoke-DbaPfRelog -AllowClobber -AllTime
 ```
+{: data-copyable="true" data-clean-code="Get-DbaPfDataCollector -Collector DataCollector01 | Invoke-DbaPfRelog -AllowClobber -AllTime" }
 
 Relogs all the log files from the DataCollector01 on the local computer and allows overwrite.<br>
 

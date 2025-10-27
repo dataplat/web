@@ -15,18 +15,26 @@ bohUrl: "https://dataplat.github.io/boh#New-DbaConnectionString"
 draft: false
 ---
 
-# New-DbaConnectionString
-
-| Property | Value |
-| --- | --- |
-| **Author** | Chrissy LeMaire (@cl), netnerds.net |
-| **Availability** | Windows, Linux, macOS |
-
-&nbsp;
-
-Want to see the source code for this command? Check out [New-DbaConnectionString](https://github.com/dataplat/dbatools/blob/master/public/New-DbaConnectionString.ps1) on GitHub.
-<br>
-Want to see the Bill Of Health for this command? Check out [New-DbaConnectionString](https://dataplat.github.io/boh#New-DbaConnectionString).
+<!-- Command Header Section -->
+<div class="command-header">
+  <div class="command-header-top">
+    <h1>New-DbaConnectionString</h1>
+    <a href="https://github.com/dataplat/dbatools/blob/master/public/New-DbaConnectionString.ps1" target="_blank" rel="noopener noreferrer" class="github-link" title="View source on GitHub">
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      <span>View Source</span>
+    </a>
+  </div>
+  <div class="command-meta">
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+      <span>Chrissy LeMaire (@cl), netnerds.net</span>
+    </div>
+    <div class="meta-item">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+      <span>Windows, Linux, macOS</span>
+    </div>
+  </div>
+</div>
 
 ## Synopsis
 
@@ -92,6 +100,7 @@ New-DbaConnectionString
 ```powershell
 PS C:\> New-DbaConnectionString -SqlInstance sql2014
 ```
+{: data-copyable="true" data-clean-code="New-DbaConnectionString -SqlInstance sql2014" }
 
 Creates a connection string that connects using Windows Authentication<br>
 
@@ -100,6 +109,7 @@ Creates a connection string that connects using Windows Authentication<br>
 ```powershell
 PS C:\> Connect-DbaInstance -SqlInstance sql2016 | New-DbaConnectionString
 ```
+{: data-copyable="true" data-clean-code="Connect-DbaInstance -SqlInstance sql2016 | New-DbaConnectionString" }
 
 Builds a connected SMO object using Connect-DbaInstance then extracts and displays the connection string<br>
 
@@ -109,6 +119,8 @@ Builds a connected SMO object using Connect-DbaInstance then extracts and displa
 PS C:\> $wincred = Get-Credential ad\sqladmin
 PS C:\> New-DbaConnectionString -SqlInstance sql2014 -Credential $wincred
 ```
+{: data-copyable="true" data-clean-code="$wincred = Get-Credential ad\sqladmin
+New-DbaConnectionString -SqlInstance sql2014 -Credential $wincred" }
 
 Creates a connection string that connects using alternative Windows credentials<br>
 
@@ -118,6 +130,8 @@ Creates a connection string that connects using alternative Windows credentials<
 PS C:\> $sqlcred = Get-Credential sqladmin
 PS C:\> $server = New-DbaConnectionString -SqlInstance sql2014 -Credential $sqlcred
 ```
+{: data-copyable="true" data-clean-code="$sqlcred = Get-Credential sqladmin
+$server = New-DbaConnectionString -SqlInstance sql2014 -Credential $sqlcred" }
 
 Login to sql2014 as SQL login sqladmin.<br>
 
@@ -126,6 +140,7 @@ Login to sql2014 as SQL login sqladmin.<br>
 ```powershell
 PS C:\> $connstring = New-DbaConnectionString -SqlInstance mydb.database.windows.net -SqlCredential me@myad.onmicrosoft.com -Database db
 ```
+{: data-copyable="true" data-clean-code="$connstring = New-DbaConnectionString -SqlInstance mydb.database.windows.net -SqlCredential me@myad.onmicrosoft.com -Database db" }
 
 Creates a connection string for an Azure Active Directory login to Azure SQL db. Output looks like this:<br>
 Data Source=TCP:mydb.database.windows.net,1433;Initial Catalog=db;User ID=me@myad.onmicrosoft.com;Password=fakepass;MultipleActiveResultSets=False;Connect <br>
@@ -136,6 +151,7 @@ Timeout=30;Encrypt=True;TrustServerCertificate=False;Application Name="dbatools 
 ```powershell
 PS C:\> $server = New-DbaConnectionString -SqlInstance sql2014 -ClientName "mah connection"
 ```
+{: data-copyable="true" data-clean-code="$server = New-DbaConnectionString -SqlInstance sql2014 -ClientName &quot;mah connection&quot;" }
 
 Creates a connection string that connects using Windows Authentication and uses the client name "mah connection". So when you open up profiler or use extended events, you can search for "mah <br>
 connection".<br>
@@ -145,6 +161,7 @@ connection".<br>
 ```powershell
 PS C:\> $server = New-DbaConnectionString -SqlInstance sql2014 -AppendConnectionString "Packet Size=4096;AttachDbFilename=C:\MyFolder\MyDataFile.mdf;User Instance=true;"
 ```
+{: data-copyable="true" data-clean-code="$server = New-DbaConnectionString -SqlInstance sql2014 -AppendConnectionString &quot;Packet Size=4096;AttachDbFilename=C:\MyFolder\MyDataFile.mdf;User Instance=true;&quot;" }
 
 Creates a connection string that connects to sql2014 using Windows Authentication, then it sets the packet size (this can also be done via -PacketSize) and other connection attributes.<br>
 
@@ -153,6 +170,7 @@ Creates a connection string that connects to sql2014 using Windows Authenticatio
 ```powershell
 PS C:\> $server = New-DbaConnectionString -SqlInstance sql2014 -NetworkProtocol TcpIp -MultiSubnetFailover
 ```
+{: data-copyable="true" data-clean-code="$server = New-DbaConnectionString -SqlInstance sql2014 -NetworkProtocol TcpIp -MultiSubnetFailover" }
 
 Creates a connection string with Windows Authentication that uses TCPIP and has MultiSubnetFailover enabled.<br>
 
@@ -161,6 +179,7 @@ Creates a connection string with Windows Authentication that uses TCPIP and has 
 ```powershell
 PS C:\> $connstring = New-DbaConnectionString sql2016 -ApplicationIntent ReadOnly
 ```
+{: data-copyable="true" data-clean-code="$connstring = New-DbaConnectionString sql2016 -ApplicationIntent ReadOnly" }
 
 Creates a connection string with ReadOnly ApplicationIntent.<br>
 
