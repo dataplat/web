@@ -559,7 +559,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <p style="text-align: center; margin: 3rem 0; color: #718096; font-size: 1.1rem;">
-  And many more amazing contributors who make dbatools better every day! 💜
+  And many more amazing contributors who make dbatools better every day! 💙
 </p>
 
 <div class="creator-section">
