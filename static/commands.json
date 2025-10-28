@@ -1760,7 +1760,7 @@
       "backup"
     ],
     "verb": "Get",
-    "popular": false,
+    "popular": true,
     "url": "/commands/Get-DbaBackupInformation",
     "popularityRank": 52
   },
