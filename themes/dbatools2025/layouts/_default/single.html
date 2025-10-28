@@ -1,4 +1,18 @@
 {{ define "main" }}
+
+<!-- Custom CSS for Command Documentation -->
+<link rel="stylesheet" href="/css/command-docs.css">
+
+<!-- Add JetBrains Mono font for code -->
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Syntax Highlighting -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" class="light-theme">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" class="dark-theme" disabled>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/powershell.min.js"></script>
+
 <div class="bg-white pt-24">
   <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
 
@@ -29,4 +43,168 @@
 
   </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Syntax highlighting
+    hljs.highlightAll();
+
+    // Update highlight.js theme based on dark mode
+    function updateHighlightTheme() {
+        const isDark = document.documentElement.classList.contains('dark');
+        const lightTheme = document.querySelector('.light-theme');
+        const darkTheme = document.querySelector('.dark-theme');
+        if (lightTheme) lightTheme.disabled = isDark;
+        if (darkTheme) darkTheme.disabled = !isDark;
+    }
+
+    const observer = new MutationObserver(updateHighlightTheme);
+    observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class']
+    });
+    updateHighlightTheme();
+
+    // Add copy buttons to code blocks
+    addCopyButtons();
+});
+
+function addCopyButtons() {
+    // Find all pre elements in the article
+    const preElements = document.querySelectorAll('article pre');
+
+    preElements.forEach((pre, index) => {
+        // Check if this is a copyable code block (has data-clean-code attribute)
+        const nextSibling = pre.nextElementSibling;
+        let cleanCode = null;
+
+        // Look for the data attribute pattern in the next element or in a comment
+        if (nextSibling && nextSibling.textContent) {
+            const match = nextSibling.textContent.match(/data-clean-code="([^"]*)"/);
+            if (match) {
+                cleanCode = match[1]
+                    .replace(/&quot;/g, '"')
+                    .replace(/&lt;/g, '<')
+                    .replace(/&gt;/g, '>')
+                    .replace(/&amp;/g, '&');
+            }
+        }
+
+        // Also check if the pre has inline data attribute
+        if (!cleanCode && pre.hasAttribute('data-clean-code')) {
+            cleanCode = pre.getAttribute('data-clean-code')
+                .replace(/&quot;/g, '"')
+                .replace(/&lt;/g, '<')
+                .replace(/&gt;/g, '>')
+                .replace(/&amp;/g, '&');
+        }
+
+        // If no clean code found, try to extract it from the code block
+        if (!cleanCode) {
+            const codeElement = pre.querySelector('code');
+            if (codeElement) {
+                // Check if it's a PowerShell code block
+                const isPowerShell = codeElement.classList.contains('language-powershell') ||
+                                    codeElement.textContent.includes('PS C:\\>');
+
+                if (isPowerShell) {
+                    if (codeElement.textContent.includes('PS C:\\>')) {
+                        cleanCode = extractCleanCode(codeElement.textContent);
+                    } else {
+                        // For plain PowerShell code blocks without prompts, use the text as-is
+                        cleanCode = codeElement.textContent.trim();
+                    }
+                } else {
+                    // Skip non-PowerShell code blocks
+                    return;
+                }
+            }
+        }
+
+        if (!cleanCode || cleanCode.trim() === '') {
+            return;
+        }
+
+        // Wrap pre in a div if not already wrapped
+        if (!pre.parentElement.classList.contains('code-block-wrapper')) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'code-block-wrapper';
+            pre.parentNode.insertBefore(wrapper, pre);
+            wrapper.appendChild(pre);
+        }
+
+        // Create copy button
+        const button = document.createElement('button');
+        button.className = 'copy-code-button';
+        button.setAttribute('aria-label', 'Copy code');
+        button.innerHTML = `
+            <svg viewBox="0 0 16 16" fill="currentColor">
+                <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path>
+                <path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+            </svg>
+            <span>Copy</span>
+        `;
+
+        // Add click handler
+        button.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(cleanCode);
+
+                // Update button to show success
+                button.classList.add('copied');
+                button.innerHTML = `
+                    <svg viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+                    </svg>
+                    <span>Copied!</span>
+                `;
+
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    button.classList.remove('copied');
+                    button.innerHTML = `
+                        <svg viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path>
+                            <path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+                        </svg>
+                        <span>Copy</span>
+                    `;
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy code:', err);
+                button.innerHTML = `
+                    <svg viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z"></path>
+                    </svg>
+                    <span>Failed</span>
+                `;
+            }
+        });
+
+        // Add button to the wrapper
+        pre.parentElement.appendChild(button);
+    });
+}
+
+// Helper function to extract clean PowerShell code from text with prompts
+function extractCleanCode(text) {
+    const lines = text.split('\n');
+    const cleanLines = [];
+
+    for (let line of lines) {
+        // Remove PS C:\> prompt
+        line = line.replace(/^PS C:\\>\s*/, '');
+        // Remove >> continuation prompt
+        line = line.replace(/^>>\s*/, '');
+
+        // Only add non-empty lines
+        if (line.trim()) {
+            cleanLines.push(line);
+        }
+    }
+
+    return cleanLines.join('\n');
+}
+</script>
+
 {{ end }}

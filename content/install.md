@@ -5,19 +5,47 @@ slug: "install"
 draft: false
 ---
 
-We subscribe to idea that developers should [**release early and release often**](https://about.gitlab.com/2016/07/21/release-early-release-often/). dbatools has been around since 2014 and has been tested by thousands of people and each release gets better and better because of your early suggestions, bug reports and feedback.
+dbatools is digitally signed with Azure Trusted Signing, ensuring code integrity and security. [Learn more about our signing process](https://blog.netnerds.net/2025/08/dbatools-azure-trusted-signing/).
 
-> dbatools works on PowerShell Core. This means that you can run a large majority of our commands on **Linux** and **macoS** 👌👍
+## Install from the PowerShell Gallery
 
-> dbatools values backward compatibility. We still deliver for people running PowerShell v3 and SQL Server 2000.
+```powershell
+Install-Module dbatools
+```
 
-Need a detailed walk-thru? Please see our **New to PowerShell?** section below.
+The PowerShell Gallery and the command `Install-Module` are available in Windows 10+, Windows Server 2016+, and PowerShell 7.
+
+Install-Module requires Run As Administrator and installs dbatools globally. Don't have admin access or want to install dbatools only for yourself?
+
+```powershell
+Install-Module dbatools -Scope CurrentUser
+```
+
+**Note:** dbatools has dependent libraries that will be installed automatically.
+
+For Windows 7, 8, Server 2012, first install WMF5 from [https://aka.ms/wmf5download](https://aka.ms/wmf5download) then reboot.
+
+## Install-PSResource (PowerShell 7.4+)
+
+For PowerShell 7.4 and above, you can also use `Install-PSResource`:
+
+```powershell
+Install-PSResource dbatools
+```
+
+To install for all users (requires Run As Administrator):
+
+```powershell
+Install-PSResource dbatools -Scope AllUsers
+```
 
 ## Minimum Requirements
 
+dbatools values backward compatibility. We still deliver for people running PowerShell v3 and SQL Server 2000.
+
 ##### Server
 
-- SQL Server 2000
+- SQL Server 2000 - SQL Server 2025
 - No PowerShell needed on the host for SQL Server-only commands
 - [PowerShell remoting](/secure) enabled on the host for remote Windows commands
 
@@ -26,39 +54,19 @@ Need a detailed walk-thru? Please see our **New to PowerShell?** section below.
 - Windows 7 with PowerShell 3
 - Linux or macOS with PowerShell 7
 
-Like SSMS, dbatools **is not** required on the server. For more information on installation and requirements see [this post](/install/).
+Like SSMS, dbatools **is not** required on the server.
 
-## Method 1: Install dbatools using Install-PSResource (PowerShell 7.4+)
-
-For PowerShell 7.4 and above, Microsoft recommends using `Install-PSResource`:
-
-> Install-PSResource dbatools
-
-Install-PSResource requires Run As Administrator, and installs dbatools globally. Don't have admin access or want to install dbatools only for yourself?
-
-> Install-PSResource dbatools -Scope CurrentUser
-
-## Method 2: Install dbatools using Install-Module
-
-The PowerShell Gallery and the command `Install-Module` are available in Windows 10+, Windows Server 2016+, and PowerShell 7. For Windows 7, 8, Server 2012, first install WMF5 from [https://aka.ms/wmf5download](https://aka.ms/wmf5download) then reboot.
-
-> Install-Module dbatools
-
-Install-Module requires Run As Administrator, and installs dbatools globally. Don't have admin access or want to install dbatools only for yourself?
-
-> Install-Module dbatools -Scope CurrentUser
-
-**Note:** dbatools has dependent libraries that will be installed automatically when using Install-Module or Install-PSResource.
-
-## Method 3: Offline Install
+## Offline Install
 
 Don't have Internet access on your DBA workstation? Check out our [offline install](/offline) guide.
 
-## Method 4: Chocolatey
+## Chocolatey
 
 You can also install dbatools using [chocolatey](https://chocolatey.org/packages/dbatools)
 
-> choco install dbatools
+```powershell
+choco install dbatools
+```
 
 ## New to PowerShell?
 
@@ -71,10 +79,8 @@ If you're new to PowerShell and would like in-depth walk-thrus and more, please 
 
 ### Using dbatools
 
-Installing the module will make hundreds of commands available to you. Here's a few:
+Installing the module will make hundreds of commands available to you.
 
-![](/images/img_5a2156ff8b67b.png)
+Unsure what to do next? Visit the [Getting Started](/getting-started/) for more information and code samples, or check out our [popular commands](https://dbatools.io/commands/?popular=1).
 
-Unsure what to do next? Visit the [Getting Started](/getting-started/) for more information and code samples. Or check a [list of all the features](/functions), which includes some pretty documentation.
-
-Like what you see? [Please rate this module on Microsoft Script Center](https://gallery.technet.microsoft.com/scriptcenter/Use-PowerShell-to-Migrate-86c841df) or [give us a star on GitHub](/git)!
+Like what you see? [Give us a star on GitHub](/git)!
