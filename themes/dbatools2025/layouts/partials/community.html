@@ -1,4 +1,4 @@
-<section class="py-16 bg-white">
+<section class="py-16 bg-white dark:bg-theme-bg">
   <div class="max-w-4xl mx-auto text-center px-6">
     <h2 class="text-display font-bold mb-4 text-theme-text whitespace-nowrap">
       Ready to automate your SQL Servers?
@@ -9,12 +9,248 @@
     </p>
     <!-- Quick start example -->
     <div class="max-w-2xl mx-auto mb-10">
-      <div class="bg-theme-bg border border-theme-border rounded-lg p-6 font-mono text-sm text-left">
-        <div class="text-theme-text-secondary mb-2"># Install</div>
-        <div class="text-theme-text mb-4">Install-Module dbatools</div>
-        <div class="text-theme-text-secondary mb-2"># Check who's connected right now</div>
-        <div class="text-theme-text">Get-DbaProcess -SqlInstance sql01</div>
+      <div class="cta-code-wrapper">
+        <pre class="cta-code-block"><code class="language-powershell"># Install
+Install-Module dbatools
+
+# Check who's connected right now
+Get-DbaProcess -SqlInstance sql01</code></pre>
+        <button class="cta-copy-button" aria-label="Copy code">
+          <svg viewBox="0 0 16 16" fill="currentColor">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path>
+            <path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+          </svg>
+          <span>Copy</span>
+        </button>
       </div>
     </div>
 
 </section>
+
+<style>
+/* CTA Code Block Styling */
+.cta-code-wrapper {
+  position: relative;
+  max-width: 100%;
+}
+
+.cta-code-block {
+  background: linear-gradient(135deg, #f6f8fa 0%, #ffffff 100%) !important;
+  border: 2px solid #d1d9e0 !important;
+  border-radius: 12px !important;
+  padding: 2rem 2.5rem !important;
+  margin: 0 !important;
+  overflow-x: auto;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.cta-code-block:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #f6f8fa 100%) !important;
+  border-color: #22C55E !important;
+  box-shadow: 0 8px 16px rgba(34, 197, 94, 0.1), 0 2px 6px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.cta-code-block code {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #1f2328;
+  display: block;
+  font-weight: 600;
+}
+
+/* Copy button for CTA section */
+.cta-copy-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #ffffff 0%, #f6f8fa 100%);
+  border: 2px solid #d1d9e0;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #59636e;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.cta-code-wrapper:hover .cta-copy-button {
+  opacity: 1;
+}
+
+.cta-copy-button:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #e6edf3 100%);
+  border-color: #22C55E;
+  color: #1f2328;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+}
+
+.cta-copy-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cta-copy-button svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.cta-copy-button.copied {
+  background: linear-gradient(135deg, #22C55E 0%, #16a34a 100%);
+  border-color: #16a34a;
+  color: white;
+}
+
+/* Dark mode styles */
+.dark .cta-code-block {
+  background: linear-gradient(135deg, #0B234A 0%, #0e2a57 100%) !important;
+  border-color: #273B59 !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.dark .cta-code-block:hover {
+  background: linear-gradient(135deg, #0e2a57 0%, #162f5a 100%) !important;
+  border-color: #22C55E !important;
+  box-shadow: 0 8px 16px rgba(34, 197, 94, 0.3), 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.dark .cta-code-block code {
+  color: #e6edf3;
+  font-weight: 600;
+}
+
+.dark .cta-copy-button {
+  background: linear-gradient(135deg, #0e2a57 0%, #0B234A 100%);
+  border-color: #273B59;
+  color: #9198a1;
+}
+
+.dark .cta-copy-button:hover {
+  background: linear-gradient(135deg, #162f5a 0%, #0e2a57 100%);
+  border-color: #22C55E;
+  color: #e6edf3;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.dark .cta-copy-button.copied {
+  background: linear-gradient(135deg, #22C55E 0%, #16a34a 100%);
+  border-color: #16a34a;
+  color: white;
+}
+
+/* Scrollbar styling */
+.cta-code-block::-webkit-scrollbar {
+  height: 8px;
+}
+
+.cta-code-block::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.cta-code-block::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-code-block::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.dark .cta-code-block::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dark .cta-code-block::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .cta-code-block::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cta-code-block {
+    padding: 1.5rem 1.25rem !important;
+    font-size: 0.9rem;
+  }
+
+  .cta-copy-button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .cta-copy-button svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+</style>
+
+<script>
+// Copy functionality for CTA code block
+document.addEventListener('DOMContentLoaded', () => {
+  const copyButton = document.querySelector('.cta-copy-button');
+  const codeBlock = document.querySelector('.cta-code-block code');
+
+  if (copyButton && codeBlock) {
+    copyButton.addEventListener('click', async () => {
+      const code = `Install-Module dbatools
+Get-DbaProcess -SqlInstance sql01`;
+
+      try {
+        await navigator.clipboard.writeText(code);
+
+        // Update button to show success
+        copyButton.classList.add('copied');
+        copyButton.innerHTML = `
+          <svg viewBox="0 0 16 16" fill="currentColor">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+          </svg>
+          <span>Copied!</span>
+        `;
+
+        // Reset after 2 seconds
+        setTimeout(() => {
+          copyButton.classList.remove('copied');
+          copyButton.innerHTML = `
+            <svg viewBox="0 0 16 16" fill="currentColor">
+              <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path>
+              <path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+            </svg>
+            <span>Copy</span>
+          `;
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy code:', err);
+        copyButton.innerHTML = `
+          <svg viewBox="0 0 16 16" fill="currentColor">
+            <path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z"></path>
+          </svg>
+          <span>Failed</span>
+        `;
+      }
+    });
+  }
+});
+</script>
