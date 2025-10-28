@@ -111,6 +111,9 @@
 
 .dark .github-link:hover {
   background: linear-gradient(135deg, #ffffff 0%, #f6f8fa 100%);
+  color: #0d1117;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
 }
 
 .dark .command-meta {

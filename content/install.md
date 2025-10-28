@@ -1,13 +1,15 @@
 ---
-title: "Download"
+title: "Install"
 date: 2016-05-06
-slug: "download"
+slug: "install"
 draft: false
 ---
 
 We subscribe to idea that developers should [**release early and release often**](https://about.gitlab.com/2016/07/21/release-early-release-often/). dbatools has been around since 2014 and has been tested by thousands of people and each release gets better and better because of your early suggestions, bug reports and feedback.
 
 > dbatools works on PowerShell Core. This means that you can run a large majority of our commands on **Linux** and **macoS** 👌👍
+
+> dbatools values backward compatibility. We still deliver for people running PowerShell v3 and SQL Server 2000.
 
 Need a detailed walk-thru? Please see our **New to PowerShell?** section below.
 
@@ -26,9 +28,19 @@ Need a detailed walk-thru? Please see our **New to PowerShell?** section below.
 
 Like SSMS, dbatools **is not** required on the server. For more information on installation and requirements see [this post](/install/).
 
-## Method 1: Install dbatools from the [PowerShell Gallery](https://www.powershellgallery.com/packages/dbatools) on Newer Systems
+## Method 1: Install dbatools using Install-PSResource (PowerShell 7.4+)
 
-The PowerShell Gallery and the command `Install-Module` are natively available in Windows 10+ and Windows Server 2016+. If you run Windows 7, 8, Server 2012 **skip to method 2**.
+For PowerShell 7.4 and above, Microsoft recommends using `Install-PSResource`:
+
+> Install-PSResource dbatools
+
+Install-PSResource requires Run As Administrator, and installs dbatools globally. Don't have admin access or want to install dbatools only for yourself?
+
+> Install-PSResource dbatools -Scope CurrentUser
+
+## Method 2: Install dbatools using Install-Module
+
+The PowerShell Gallery and the command `Install-Module` are available in Windows 10+, Windows Server 2016+, and PowerShell 7. For Windows 7, 8, Server 2012, first install WMF5 from [https://aka.ms/wmf5download](https://aka.ms/wmf5download) then reboot.
 
 > Install-Module dbatools
 
@@ -36,38 +48,15 @@ Install-Module requires Run As Administrator, and installs dbatools globally. Do
 
 > Install-Module dbatools -Scope CurrentUser
 
-## Method 2: Install dbatools from the [PowerShell Gallery](https://www.powershellgallery.com/packages/dbatools) on Older Systems
+**Note:** dbatools has dependent libraries that will be installed automatically when using Install-Module or Install-PSResource.
 
-If you run Windows 7, 8, Server 2012 & below you can either [install PackageManagement from powershellgallery.com](https://docs.microsoft.com/en-us/powershell/scripting/gallery/getting-started).
-
-First, install WMF5 from [https://aka.ms/wmf5download](https://aka.ms/wmf5download) then reboot the computer.
-
-> Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-> Install-Module dbatools
-
-Install-Module requires Run As Administrator, and installs dbatools globally. Don't have admin access or want to install dbatools only for yourself?
-
-> Install-Module dbatools -Scope CurrentUser
-
-## Method 3: For Legacy (Win7, Win8, etc) Systems: Scripted Installer Directly from [GitHub](/git)
-
-> Invoke-Expression (Invoke-WebRequest -UseBasicParsing /in)
-
-This will install dbatools locally (for just the current user) to the DocumentsWindowsPowerShellModules folder. Note: please only use `Invoke-Expression (Invoke-WebRequest..)` from sources you trust, like us 👍
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8P6ScCjEnLk" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-
-## Method 4: Clone the Repository from [GitHub](http://git.io/b3oo)
-
-> git clone https://github.com/dataplat/dbatools
-
-## Method 5: Offline Install
+## Method 3: Offline Install
 
 Don't have Internet access on your DBA workstation? Check out our [offline install](/offline) guide.
 
-## Method 6: Chocolatey!
+## Method 4: Chocolatey
 
-Now, you can even install dbatools using [chocolatey](https://chocolatey.org/packages/dbatools)
+You can also install dbatools using [chocolatey](https://chocolatey.org/packages/dbatools)
 
 > choco install dbatools
 
