@@ -7,9 +7,7 @@ draft: false
 
 dbatools is a **free** PowerShell module with nearly **700 commands** that replace manual SQL Server administration with powerful and fun automation.
 
-**Migrate SQL Server instances in minutes instead of days.** Test hundreds of backups automatically. Find that one database across 50 servers.
-
-**Performance at Scale:** Migrate terabyte databases in under an hour. Test 1000+ backups per hour. Manage 100+ SQL instances from a single console.
+**Migrate SQL Server instances in minutes instead of days.** Test hundreds of backups automatically. Find that one database across 50 servers. **Performance at Scale:** Migrate terabyte databases in under an hour. Test 1000+ backups per hour. Manage 100+ SQL instances from a single console.
 
 ---
 
@@ -20,13 +18,13 @@ dbatools is a **free** PowerShell module with nearly **700 commands** that repla
 Install-Module dbatools -Scope CurrentUser
 
 # See your databases
-Get-DbaDatabase -SqlInstance localhost
+Get-DbaDatabase -SqlInstance sql01
 
 # Check your backups
-Get-DbaLastBackup -SqlInstance localhost | Format-Table
+Get-DbaLastBackup -SqlInstance sql01
 
 # Test your last backup (yes, really!)
-Test-DbaLastBackup -SqlInstance localhost
+Test-DbaLastBackup -SqlInstance sql01
 ```
 
 ---
@@ -331,7 +329,7 @@ Want to know more? Our [blog](/blog) has great articles:
 
 **Community Channels:**
 - [#dbatools on SQL Community Slack](/slack)
-- [Twitter/X](https://twitter.com/psdbatools)
+- [Bluesky](https://bsky.app/profile/dbatools.io)
 
 **Stats:**
 - 📦 7+ million downloads on [PowerShell Gallery](https://www.powershellgallery.com/packages/dbatools)
