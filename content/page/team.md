@@ -13,14 +13,10 @@ draft: false
   max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 12px;
-  color: white;
-}
-
-.team-intro h2 {
-  margin-top: 0;
-  color: white;
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  color: #24292f;
 }
 
 .creator-section {
@@ -39,7 +35,7 @@ draft: false
   width: 150px;
   height: 150px;
   object-fit: cover;
-  border: 4px solid #667eea;
+  border: 4px solid #0969da;
 }
 
 .creator-info {
@@ -56,15 +52,16 @@ draft: false
 
 .creator-links a {
   padding: 0.5rem 1rem;
-  background: #667eea;
-  color: white;
+  background: #0969da;
+  color: white !important;
   text-decoration: none;
   border-radius: 6px;
   transition: all 0.3s;
 }
 
 .creator-links a:hover {
-  background: #764ba2;
+  background: #0860ca;
+  color: white !important;
   transform: translateY(-2px);
 }
 
@@ -90,8 +87,8 @@ draft: false
 
 .contributor-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(102, 126, 234, 0.3);
-  border-color: #667eea;
+  box-shadow: 0 8px 15px rgba(9, 105, 218, 0.3);
+  border-color: #0969da;
 }
 
 .contributor-avatar {
@@ -99,7 +96,7 @@ draft: false
   height: 100px;
   border-radius: 50%;
   margin-bottom: 1rem;
-  border: 3px solid #667eea;
+  border: 3px solid #0969da;
 }
 
 .contributor-name {
@@ -110,7 +107,7 @@ draft: false
 }
 
 .contributor-username {
-  color: #667eea;
+  color: #0969da;
   text-decoration: none;
   font-weight: 600;
   margin: 0.5rem 0;
@@ -139,7 +136,7 @@ draft: false
 .stat-value {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #667eea;
+  color: #0969da;
 }
 
 .stat-label {
@@ -149,7 +146,7 @@ draft: false
 }
 
 .rank-badge {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #60a5fa 0%, #0969da 100%);
   color: white;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
@@ -171,7 +168,7 @@ draft: false
   display: block;
   width: 100px;
   height: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #60a5fa 0%, #0969da 100%);
   margin: 1rem auto;
   border-radius: 2px;
 }
@@ -200,8 +197,8 @@ draft: false
 
 .maintainer-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(102, 126, 234, 0.3);
-  border-color: #667eea;
+  box-shadow: 0 8px 15px rgba(9, 105, 218, 0.3);
+  border-color: #0969da;
 }
 
 .maintainer-card a {
@@ -214,7 +211,7 @@ draft: false
   height: 80px;
   border-radius: 50%;
   margin-bottom: 0.75rem;
-  border: 3px solid #667eea;
+  border: 3px solid #0969da;
 }
 
 .maintainer-name {
@@ -254,8 +251,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <div class="team-intro">
-  <h2>The dbatools Team</h2>
-  <p>We encourage <a href="https://dbatools.io/firstpull" style="color: white; text-decoration: underline;">pull requests</a> and <a href="https://dbatools.io/contributing" style="color: white; text-decoration: underline;">development participation</a>. There's also a <a href="https://dbatools.io/slack" style="color: white; text-decoration: underline;">#dbatools channel</a> on the SQL Server Community Slack if you'd like to discuss the module or just hang out.</p>
+  <p>We encourage <a href="https://dbatools.io/firstpull">pull requests</a> and <a href="https://dbatools.io/contributing">development participation</a>. There's also a <a href="https://dbatools.io/slack">#dbatools channel</a> on the SQL Server Slack if you'd like to discuss the module or just hang out.</p>
 </div>
 
 <h2 class="section-header">Core Maintainers</h2>
@@ -569,7 +565,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="creator-section">
   <img src="/images/lollerskate.jpg" alt="Chrissy LeMaire">
   <div class="creator-info">
-    <h2>Chrissy LeMaire</h2>
+    <h2>Chrissy LeMaire, dbatools creator</h2>
     <h3>SQL Server & PowerShell MVP</h3>
     <div class="creator-links">
       <a href="https://github.com/potatoqualitee">GitHub</a>
@@ -578,7 +574,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <a href="http://www.linkedin.com/in/chrissylemaire">LinkedIn</a>
       <a href="https://www.reddit.com/user/thebeersgoodnbelgium/">Reddit</a>
     </div>
-    <p>Hey, I'm Chrissy, the original creator and current maintainer of dbatools. I'm a <a href="http://www.realcajunrecipes.com">Cajun</a> living in Europe and a SQL Server DBA with over 20 years of experience.</p>
+    <p>Hey, I'm Chrissy. I'm a <a href="http://www.realcajunrecipes.com">Cajun</a> living in Europe and a SQL Server DBA with over 20 years of experience.</p>
     <p>I've been a fan of Linux and Open Source since I was first introduced back in the 90's, right around the time I moved to California to work in tech. I've loved SQL Server for nearly as long. And of course, PowerShell, which I've worked with since 2005.</p>
   </div>
 </div>
