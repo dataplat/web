@@ -1,4 +1,11 @@
-/* Command Documentation Styles - Beautiful Modern Design */
+/*
+ * Command Documentation Styles
+ * Used by: layouts/commands/single.html (individual command pages)
+ * Styles the ARTICLE CONTENT within command pages (headings, code blocks, tables, etc.)
+ * Do NOT confuse with:
+ *   - command-single.css (layout, sidebar, filters for individual command pages)
+ *   - commands-page.css (for /commands listing page)
+ */
 
 /* Command Header - Hero Style */
 .command-header {

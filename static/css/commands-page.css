@@ -1,4 +1,10 @@
-/* dbatools Commands Page Styles - GitHub Light Theme */
+/*
+ * Commands Listing Page Styles
+ * Used by: layouts/page/commands.html (/commands page - listing of all commands)
+ * Do NOT confuse with:
+ *   - command-single.css (for individual command pages like /Add-DbaAgDatabase)
+ *   - command-docs.css (for documentation styling)
+ */
 
 :root {
   /* GitHub Light Theme Colors */

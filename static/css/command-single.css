@@ -1,0 +1,356 @@
+/*
+ * Command Single Page Styles
+ * Used by: layouts/commands/single.html (individual command pages)
+ * Do NOT confuse with:
+ *   - commands-page.css (for /commands listing page)
+ *   - command-docs.css (for documentation styling within command pages)
+ */
+
+/* Commands Browser Styles - Integrated with Theme */
+.commands-main-layout {
+    display: flex;
+    max-width: 1600px;
+    margin: 0 auto;
+    min-height: calc(100vh - 200px);
+    padding-top: 5rem;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Sidebar - NO SCROLLBAR on individual command pages */
+.commands-sidebar {
+    width: 280px;
+    min-width: 280px;
+    flex-shrink: 0;
+    background: var(--bg-theme-card, #F8F9FA);
+    padding: 2rem 1.5rem;
+    border-right: 1px solid rgba(197, 209, 227, 0.3);
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    /* NO scrollbar - removed max-height, overflow-y, scrollbar properties */
+}
+
+.dark .commands-sidebar {
+    background: var(--bg-theme-card-dark, #0B234A);
+    border-right-color: rgba(39, 59, 89, 0.3);
+}
+
+.commands-sidebar h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.commands-sidebar h3:first-child {
+    margin-top: 0;
+}
+
+/* Filter Items */
+.filter-item {
+    padding: 0.625rem 0.75rem;
+    margin-bottom: 0.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    border: 2px solid transparent;
+    font-weight: 500;
+}
+
+.filter-item:hover {
+    background: var(--bg-theme-border, rgba(197, 209, 227, 0.3));
+}
+
+.filter-item.active {
+    background: transparent;
+    border-color: #045BDB;
+    font-weight: 600;
+    color: #045BDB;
+}
+
+.dark .filter-item.active {
+    border-color: #60A5FA;
+    color: #60A5FA;
+}
+
+/* Filter Count - Gray boxes around numbers */
+.filter-count {
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-theme-text-secondary, #59636e);
+    padding: 0.125rem 0.5rem;
+    border-radius: 10px;
+    background-color: rgba(175, 184, 193, 0.2); /* Gray box */
+}
+
+.filter-item.active .filter-count {
+    color: #045BDB;
+}
+
+.dark .filter-item.active .filter-count {
+    color: #60A5FA;
+}
+
+/* Action Filters */
+.action-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.action-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 0.625rem 0.75rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    user-select: none;
+    font-size: 0.9rem;
+    border: 2px solid transparent;
+    font-weight: 500;
+}
+
+.action-item:hover {
+    background: var(--bg-theme-border, rgba(197, 209, 227, 0.3));
+}
+
+.action-item.active {
+    background: transparent;
+    border-color: #045BDB;
+    font-weight: 600;
+    color: #045BDB;
+}
+
+.dark .action-item.active {
+    border-color: #60A5FA;
+    color: #60A5FA;
+}
+
+.action-item .filter-count {
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-theme-text-secondary, #59636e);
+    padding: 0.125rem 0.5rem;
+    border-radius: 10px;
+    background-color: rgba(175, 184, 193, 0.2); /* Gray box */
+}
+
+.action-item.active .filter-count {
+    color: #045BDB;
+}
+
+.dark .action-item.active .filter-count {
+    color: #60A5FA;
+}
+
+/* Popular Filter */
+.popular-filter {
+    padding: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    border: 2px solid transparent;
+    font-weight: 500;
+    background: rgba(4, 91, 219, 0.05);
+}
+
+.popular-filter:hover {
+    background: rgba(4, 91, 219, 0.1);
+}
+
+.popular-filter.active {
+    background: transparent;
+    border-color: #045BDB;
+    color: #045BDB;
+    font-weight: 600;
+}
+
+.dark .popular-filter.active {
+    border-color: #60A5FA;
+    color: #60A5FA;
+}
+
+/* Reset Filters Button */
+.reset-filters {
+    background: var(--bg-primary, #045BDB);
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.reset-filters:hover {
+    background: var(--bg-accent-light, #0369d1);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+/* Main Content */
+.commands-main-content {
+    flex: 1;
+    padding: 2rem 1.5rem;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Search Section */
+.search-section {
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.875rem 3rem 0.875rem 1rem;
+    font-size: 1rem;
+    border: 2px solid var(--border-theme-border, #d1d9e0);
+    border-radius: 10px;
+    background: white;
+    color: var(--text-theme-text, #1f2328);
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--border-primary, #045BDB);
+    box-shadow: 0 0 0 4px rgba(4, 91, 219, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    right: 1rem;
+    color: var(--text-theme-text-secondary, #59636e);
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.search-icon.hidden {
+    opacity: 0;
+}
+
+.clear-search {
+    position: absolute;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-theme-text-secondary, #59636e);
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 0.25rem;
+    display: none;
+    transition: color 0.2s ease;
+}
+
+.clear-search:hover {
+    color: var(--text-theme-text, #1f2328);
+}
+
+.clear-search.visible {
+    display: block;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--bg-primary, #045BDB);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+    transform: scale(1.05);
+}
+
+/* Sidebar Overlay */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+}
+
+.sidebar-overlay.visible {
+    display: block;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 1024px) {
+    .commands-sidebar {
+        position: fixed;
+        left: -280px;
+        top: 0;
+        height: 100vh;
+        max-height: 100vh;
+        z-index: 999;
+        transition: left 0.3s ease;
+    }
+
+    .commands-sidebar.open {
+        left: 0;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    /* Hide categories and actions on mobile, keep search and popular */
+    #categoriesHeading,
+    #categoryFilters,
+    #actionsHeading,
+    #actionFilters,
+    .reset-filters {
+        display: none !important;
+    }
+
+    /* Keep search and popular visible */
+    .search-section,
+    #quickFiltersHeading,
+    .popular-filter {
+        display: block !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .commands-main-content {
+        padding: 1.5rem 1rem;
+    }
+}
