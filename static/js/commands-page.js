@@ -332,7 +332,7 @@ class CommandsBrowser {
   highlightMatch(text) {
     if (!this.searchQuery) return text;
 
-    const query = this.searchQuery.toLowerCase();
+    const query = this.searchQuery;
     const regex = new RegExp(`(${query})`, 'gi');
     return text.replace(regex, '<mark>$1</mark>');
   }
@@ -458,7 +458,7 @@ class CommandsBrowser {
   }
 
   sanitizeValue(text) {
-    return text.toLowerCase().replace(/\s+/g, '-').replace(/[&]/g, 'and');
+    return text.replace(/\s+/g, '-').replace(/[&]/g, 'and');
   }
 
   showError(message) {
