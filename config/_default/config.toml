@@ -27,7 +27,7 @@ autoHeadingIDType = "github"
 wrapStandAloneImageWithinParagraph = true
 
 [markup.goldmark.parser.attribute]
-block = false
+block = true
 title = true
 
 [mediaTypes]
