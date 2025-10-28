@@ -54,11 +54,10 @@
 }
 
 .github-link:hover {
-  background: linear-gradient(135deg, #d1d9e0 0%, #c0c7cf 100%);
-  color: #1f2328;
+  background: linear-gradient(135deg, #2d333b 0%, #1c2128 100%);
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  border-color: rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .github-link svg {
