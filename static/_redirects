@@ -1,0 +1,2 @@
+# Redirect all .html URLs to clean URLs (301 permanent redirect)
+/*.html /:splat 301

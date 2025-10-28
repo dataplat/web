@@ -29,3 +29,17 @@ wrapStandAloneImageWithinParagraph = true
 [markup.goldmark.parser.attribute]
 block = false
 title = true
+
+[mediaTypes]
+[mediaTypes."text/netlify"]
+delimiter = ""
+
+[outputFormats]
+[outputFormats.REDIRECTS]
+mediaType = "text/netlify"
+baseName = "_redirects"
+isPlainText = true
+notAlternative = true
+
+[outputs]
+home = ["HTML", "RSS", "REDIRECTS"]

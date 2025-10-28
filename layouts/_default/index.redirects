@@ -1,0 +1,3 @@
+{{- /* Generate _redirects file for Cloudflare Pages/Netlify */ -}}
+{{- /* Redirect all .html URLs to clean URLs */ -}}
+/*.html /:splat 301
