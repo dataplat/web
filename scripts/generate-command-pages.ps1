@@ -218,10 +218,8 @@ function New-CommandMarkdown {
             } else {
                 if ($inside -eq 1) {
                     $inside = 0
-                    # Close code block with data attribute containing clean code
-                    $cleanCodeStr = ($cleanCode -join "`n").Replace('"', '&quot;').Replace('<', '&lt;').Replace('>', '&gt;')
+                    # Close code block (JavaScript will handle copy functionality)
                     $null = $markdown.Add('```')
-                    $null = $markdown.Add("{: data-copyable=`"true`" data-clean-code=`"$cleanCodeStr`" }")
                     $null = $markdown.Add('')
                 }
                 $null = $markdown.Add("$($row.Replace("`n", "  `n"))<br>")
@@ -229,10 +227,8 @@ function New-CommandMarkdown {
         }
 
         if ($inside -eq 1) {
-            # Close final code block with data attribute
-            $cleanCodeStr = ($cleanCode -join "`n").Replace('"', '&quot;').Replace('<', '&lt;').Replace('>', '&gt;')
+            # Close final code block (JavaScript will handle copy functionality)
             $null = $markdown.Add('```')
-            $null = $markdown.Add("{: data-copyable=`"true`" data-clean-code=`"$cleanCodeStr`" }")
         }
     }
 

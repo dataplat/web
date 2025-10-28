@@ -639,40 +639,19 @@ function addCopyButtons() {
     const preElements = document.querySelectorAll('article pre');
 
     preElements.forEach((pre, index) => {
-        // Check if this is a copyable code block (has data-clean-code attribute)
-        const nextSibling = pre.nextElementSibling;
-        let cleanCode = null;
-
-        // Look for the data attribute pattern in the next element or in a comment
-        if (nextSibling && nextSibling.textContent) {
-            const match = nextSibling.textContent.match(/data-clean-code="([^"]*)"/);
-            if (match) {
-                cleanCode = match[1]
-                    .replace(/&quot;/g, '"')
-                    .replace(/&lt;/g, '<')
-                    .replace(/&gt;/g, '>')
-                    .replace(/&amp;/g, '&');
-            }
+        // Extract clean code from the code block
+        const codeElement = pre.querySelector('code');
+        if (!codeElement) {
+            return;
         }
 
-        // Also check if the pre has inline data attribute
-        if (!cleanCode && pre.hasAttribute('data-clean-code')) {
-            cleanCode = pre.getAttribute('data-clean-code')
-                .replace(/&quot;/g, '"')
-                .replace(/&lt;/g, '<')
-                .replace(/&gt;/g, '>')
-                .replace(/&amp;/g, '&');
-        }
-
-        // If no clean code found, extract it from the code block
-        if (!cleanCode) {
-            const codeElement = pre.querySelector('code');
-            if (codeElement && codeElement.textContent.includes('PS C:\\>')) {
-                cleanCode = extractCleanCode(codeElement.textContent);
-            } else {
-                // Skip non-PowerShell code blocks or those without prompts
-                return;
-            }
+        let cleanCode;
+        // Check if this is a PowerShell code block with prompts
+        if (codeElement.textContent.includes('PS C:\\>')) {
+            cleanCode = extractCleanCode(codeElement.textContent);
+        } else {
+            // For non-PowerShell code blocks, copy as-is
+            cleanCode = codeElement.textContent;
         }
 
         if (!cleanCode || cleanCode.trim() === '') {
