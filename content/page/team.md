@@ -175,51 +175,127 @@ draft: false
   margin: 1rem auto;
   border-radius: 2px;
 }
+
+.maintainers-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: nowrap;
+}
+
+.maintainer-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s;
+  border: 2px solid #e9ecef;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 140px;
+}
+
+.maintainer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(102, 126, 234, 0.3);
+  border-color: #667eea;
+}
+
+.maintainer-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.maintainer-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 0.75rem;
+  border: 3px solid #667eea;
+}
+
+.maintainer-name {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0.25rem 0;
+  color: #2d3748;
+}
+
+.maintainer-title {
+  font-size: 0.75rem;
+  color: #718096;
+  margin: 0;
+}
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const grid = document.querySelector('.maintainers-grid');
+  if (!grid) return;
+
+  const cards = Array.from(grid.children);
+  const firstCard = cards[0]; // Keep Chrissy first
+  const otherCards = cards.slice(1); // Get all other maintainers
+
+  // Shuffle the other maintainers
+  for (let i = otherCards.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [otherCards[i], otherCards[j]] = [otherCards[j], otherCards[i]];
+  }
+
+  // Clear and rebuild: Chrissy first, then randomized others
+  grid.innerHTML = '';
+  grid.appendChild(firstCard);
+  otherCards.forEach(card => grid.appendChild(card));
+});
+</script>
 
 <div class="team-intro">
   <h2>The dbatools Team</h2>
-  <p>The team is me. The team is you, too. We encourage <a href="https://dbatools.io/firstpull" style="color: white; text-decoration: underline;">pull requests</a> and <a href="https://dbatools.io/contributing" style="color: white; text-decoration: underline;">development participation</a>. There's also a <a href="https://dbatools.io/slack" style="color: white; text-decoration: underline;">#dbatools channel</a> on the SQL Server Community Slack if you'd like to discuss the module or just hang out.</p>
+  <p>We encourage <a href="https://dbatools.io/firstpull" style="color: white; text-decoration: underline;">pull requests</a> and <a href="https://dbatools.io/contributing" style="color: white; text-decoration: underline;">development participation</a>. There's also a <a href="https://dbatools.io/slack" style="color: white; text-decoration: underline;">#dbatools channel</a> on the SQL Server Community Slack if you'd like to discuss the module or just hang out.</p>
 </div>
 
 <h2 class="section-header">Core Maintainers</h2>
 
-<div class="contributors-grid">
-  <div class="contributor-card">
-    <img src="/images/lollerskate.jpg" alt="Chrissy LeMaire" class="contributor-avatar">
-    <h3 class="contributor-name">Chrissy LeMaire</h3>
-    <a href="https://github.com/potatoqualitee" class="contributor-username">@potatoqualitee</a>
-  </div>
+<div class="maintainers-grid">
+  <a href="https://github.com/potatoqualitee" class="maintainer-card">
+    <img src="/images/lollerskate.jpg" alt="Chrissy LeMaire" class="maintainer-avatar">
+    <h3 class="maintainer-name">Chrissy</h3>
+    <p class="maintainer-title">Creator</p>
+  </a>
 
-  <div class="contributor-card">
-    <img src="https://github.com/niphlod.png" alt="Simone Bizzotto" class="contributor-avatar">
-    <h3 class="contributor-name">Simone Bizzotto</h3>
-    <a href="https://github.com/niphlod" class="contributor-username">@niphlod</a>
-  </div>
+  <a href="https://github.com/jpomfret" class="maintainer-card">
+    <img src="https://github.com/jpomfret.png" alt="Jess Pomfret" class="maintainer-avatar">
+    <h3 class="maintainer-name">Jess</h3>
+    <p class="maintainer-title">Maintainer</p>
+  </a>
 
-  <div class="contributor-card">
-    <img src="https://github.com/SQLDBAWithABeard.png" alt="Rob Sewell" class="contributor-avatar">
-    <h3 class="contributor-name">Rob Sewell</h3>
-    <a href="https://github.com/SQLDBAWithABeard" class="contributor-username">@SQLDBAWithABeard</a>
-  </div>
+  <a href="https://github.com/andreasjordan" class="maintainer-card">
+    <img src="https://github.com/andreasjordan.png" alt="Andreas Jordan" class="maintainer-avatar">
+    <h3 class="maintainer-name">Andreas</h3>
+    <p class="maintainer-title">Maintainer</p>
+  </a>
 
-  <div class="contributor-card">
-    <img src="https://github.com/andreasjordan.png" alt="Andreas Jordan" class="contributor-avatar">
-    <h3 class="contributor-name">Andreas Jordan</h3>
-    <a href="https://github.com/andreasjordan" class="contributor-username">@andreasjordan</a>
-  </div>
+  <a href="https://github.com/niphlod" class="maintainer-card">
+    <img src="https://github.com/niphlod.png" alt="Simone Bizzotto" class="maintainer-avatar">
+    <h3 class="maintainer-name">Simone</h3>
+    <p class="maintainer-title">Maintainer</p>
+  </a>
 
-  <div class="contributor-card">
-    <img src="https://github.com/jpomfret.png" alt="Jess Pomfret" class="contributor-avatar">
-    <h3 class="contributor-name">Jess Pomfret</h3>
-    <a href="https://github.com/jpomfret" class="contributor-username">@jpomfret</a>
-  </div>
+  <a href="https://github.com/SQLDBAWithABeard" class="maintainer-card">
+    <img src="https://github.com/SQLDBAWithABeard.png" alt="Rob Sewell" class="maintainer-avatar">
+    <h3 class="maintainer-name">Rob</h3>
+    <p class="maintainer-title">Maintainer</p>
+  </a>
 
-  <div class="contributor-card">
-    <img src="https://github.com/wsmelton.png" alt="Shawn Melton" class="contributor-avatar">
-    <h3 class="contributor-name">Shawn Melton</h3>
-    <a href="https://github.com/wsmelton" class="contributor-username">@wsmelton</a>
-  </div>
+  <a href="https://github.com/wsmelton" class="maintainer-card">
+    <img src="https://github.com/wsmelton.png" alt="Shawn Melton" class="maintainer-avatar">
+    <h3 class="maintainer-name">Shawn</h3>
+    <p class="maintainer-title">Maintainer</p>
+  </a>
 </div>
 
 <h2 class="section-header">Top Contributors</h2>
@@ -490,13 +566,11 @@ draft: false
   And many more amazing contributors who make dbatools better every day! 💜
 </p>
 
-<h2 class="section-header">About the Creator</h2>
-
 <div class="creator-section">
   <img src="/images/lollerskate.jpg" alt="Chrissy LeMaire">
   <div class="creator-info">
     <h2>Chrissy LeMaire</h2>
-    <h3>Creator, SQL Server & PowerShell MVP</h3>
+    <h3>SQL Server & PowerShell MVP</h3>
     <div class="creator-links">
       <a href="https://github.com/potatoqualitee">GitHub</a>
       <a href="https://bsky.app/profile/funbucket.dev">Bluesky</a>
