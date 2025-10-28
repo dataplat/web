@@ -56,6 +56,19 @@ dbatools values backward compatibility. We still deliver for people running Powe
 
 Like SSMS, dbatools **is not** required on the server.
 
+### Network Requirements
+
+For remote SQL Server management, ensure these ports are accessible:
+
+| Protocol | Default Port | Used By | Required For | Firewall Note |
+|----------|-------------|---------|--------------|---------------|
+| SQL Database Engine | 1433 | `Get-DbaDatabase` | 62% of commands | Allow inbound on SQL Server |
+| WS-Management | 5985/5986 | `New-DbaClientAlias` | 25% of commands | Windows Remote Management |
+| SQL WMI | 135 | `Enable-DbaAgHadr` | 4% of commands | DCOM/RPC endpoint mapper |
+| SMB | 445 | `Backup-DbaDatabase` | 4% of commands | File sharing for backups |
+
+**Firewall Tip:** Use [`New-DbaFirewallRule`](/commands/New-DbaFirewallRule/) to automatically configure Windows Firewall rules for SQL Server.
+
 ## Offline Install
 
 Don't have Internet access on your DBA workstation? Check out our [offline install](/offline) guide.
