@@ -8,6 +8,10 @@ resources/
 # Generated CSS
 static/css/tailwind.css
 
+# Generated command documentation
+content/commands/*.md
+!content/commands/_index.md
+
 # Hugo build lock
 .hugo_build.lock
 
