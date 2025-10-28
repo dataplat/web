@@ -22,19 +22,14 @@
           </a>
         </h2>
 
-        <!-- Author and Date -->
-        <div class="flex items-center justify-between mb-4">
-          {{ if .Params.author }}
+        <!-- Author -->
+        {{ if .Params.author }}
+        <div class="mb-4">
           <p class="text-sm text-slate-600 font-medium">
             {{ .Params.author }}
           </p>
-          {{ end }}
-          {{ if .Date }}
-          <p class="text-sm text-slate-500">
-            {{ .Date.Format "Jan 2, 2006" }}
-          </p>
-          {{ end }}
         </div>
+        {{ end }}
 
         <!-- Summary/Excerpt -->
         {{ if .Summary }}
