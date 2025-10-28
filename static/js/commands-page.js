@@ -348,7 +348,11 @@ class CommandsBrowser {
       case 'popular':
         sorted.sort((a, b) => {
           // Sort by popularityRank (lower rank = more popular)
-          // All commands have a popularityRank, so sort by it directly
+          // Treat rank 0 as unranked and push to end
+          if (a.popularityRank === 0 && b.popularityRank === 0) return 0;
+          if (a.popularityRank === 0) return 1;
+          if (b.popularityRank === 0) return -1;
+          // Sort by rank (ascending - lower is more popular)
           return a.popularityRank - b.popularityRank;
         });
         break;
