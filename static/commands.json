@@ -1,7 +1,7 @@
 [
   {
     "name": "Attach-DbaDatabase",
-    "description": "Manages Database",
+    "description": "Attaches a database to a SQL Server instance using MDF and LDF files",
     "category": "Database Operations",
     "tags": [
       "attach",
@@ -14,7 +14,7 @@
   },
   {
     "name": "Copy-DbaSysDbUserObject",
-    "description": "Copies SysDbUserObject between SQL Server instances",
+    "description": "Copies user objects from system databases between instances",
     "category": "Migration",
     "tags": [
       "copy"
@@ -26,7 +26,7 @@
   },
   {
     "name": "Detach-DbaDatabase",
-    "description": "Manages Database",
+    "description": "Detaches a database from a SQL Server instance",
     "category": "Database Operations",
     "tags": [
       "detach",
@@ -39,7 +39,7 @@
   },
   {
     "name": "Export-DbaRepServerSetting",
-    "description": "Exports RepServerSetting to file or script",
+    "description": "Exports replication server settings to file",
     "category": "Migration",
     "tags": [
       "export",
@@ -52,7 +52,7 @@
   },
   {
     "name": "Get-DbaBuildReference",
-    "description": "Retrieves SQL Server build numbers and version information.",
+    "description": "Retrieves SQL Server build numbers and version information",
     "category": "Server Management",
     "tags": [
       "get"
@@ -64,7 +64,7 @@
   },
   {
     "name": "Get-DbaDbModule",
-    "description": "Retrieves information about DbModule",
+    "description": "Retrieves database programmable objects (stored procedures, functions, views)",
     "category": "Utilities",
     "tags": [
       "get"
@@ -76,7 +76,7 @@
   },
   {
     "name": "Get-DbaRegisteredServer",
-    "description": "Retrieves information about RegisteredServer",
+    "description": "Retrieves registered servers from Central Management Server",
     "category": "Utilities",
     "tags": [
       "get",
@@ -89,7 +89,7 @@
   },
   {
     "name": "Get-DbaRepDistributor",
-    "description": "Retrieves information about RepDistributor",
+    "description": "Retrieves replication distributor information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -101,7 +101,7 @@
   },
   {
     "name": "Get-DbaRepPublication",
-    "description": "Retrieves information about RepPublication",
+    "description": "Retrieves replication publication information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -113,7 +113,7 @@
   },
   {
     "name": "Get-DbaRepServer",
-    "description": "Retrieves information about RepServer",
+    "description": "Retrieves replication server configuration",
     "category": "Utilities",
     "tags": [
       "get",
@@ -126,7 +126,7 @@
   },
   {
     "name": "Start-SqlMigration",
-    "description": "Starts SqlMigration process or service",
+    "description": "Migrates databases and objects between SQL Server instances",
     "category": "Migration",
     "tags": [
       "start",
@@ -139,7 +139,7 @@
   },
   {
     "name": "Test-DbaRepLatency",
-    "description": "Validates RepLatency configuration or status",
+    "description": "Tests replication latency",
     "category": "Utilities",
     "tags": [
       "test"
@@ -151,7 +151,7 @@
   },
   {
     "name": "Write-DbaDataTable",
-    "description": "Writes data to DataTable",
+    "description": "Writes data to SQL Server tables from DataTable objects",
     "category": "Data Operations",
     "tags": [
       "write",
@@ -164,7 +164,7 @@
   },
   {
     "name": "Add-DbaAgDatabase",
-    "description": "Adds databases to SQL Server Always On Availability Groups.",
+    "description": "Adds databases to an Availability Group",
     "category": "Database Operations",
     "tags": [
       "add",
@@ -178,7 +178,7 @@
   },
   {
     "name": "Add-DbaAgListener",
-    "description": "Adds AgListener to configuration",
+    "description": "Adds a listener to an Always On Availability Group",
     "category": "Utilities",
     "tags": [
       "add",
@@ -191,7 +191,7 @@
   },
   {
     "name": "Add-DbaAgReplica",
-    "description": "Adds AgReplica to configuration",
+    "description": "Adds a replica to an Always On Availability Group",
     "category": "Advanced Features",
     "tags": [
       "add",
@@ -204,7 +204,7 @@
   },
   {
     "name": "Add-DbaComputerCertificate",
-    "description": "Adds ComputerCertificate to configuration",
+    "description": "Adds a certificate to the computer certificate store",
     "category": "Security",
     "tags": [
       "add",
@@ -217,7 +217,7 @@
   },
   {
     "name": "Add-DbaDbMirrorMonitor",
-    "description": "Adds DbMirrorMonitor to configuration",
+    "description": "Adds database mirroring monitor configuration",
     "category": "Utilities",
     "tags": [
       "add",
@@ -230,7 +230,7 @@
   },
   {
     "name": "Add-DbaDbRoleMember",
-    "description": "Adds users to database roles.",
+    "description": "Adds members to database roles",
     "category": "Security",
     "tags": [
       "add"
@@ -242,7 +242,7 @@
   },
   {
     "name": "Add-DbaExtendedProperty",
-    "description": "Adds ExtendedProperty to configuration",
+    "description": "Adds extended properties to database objects",
     "category": "Utilities",
     "tags": [
       "add"
@@ -254,7 +254,7 @@
   },
   {
     "name": "Add-DbaPfDataCollectorCounter",
-    "description": "Adds PfDataCollectorCounter to configuration",
+    "description": "Adds performance counter to data collector set",
     "category": "Utilities",
     "tags": [
       "add"
@@ -266,7 +266,7 @@
   },
   {
     "name": "Add-DbaRegServer",
-    "description": "Adds RegServer to configuration",
+    "description": "Adds a server to Central Management Server",
     "category": "Utilities",
     "tags": [
       "add",
@@ -279,7 +279,7 @@
   },
   {
     "name": "Add-DbaRegServerGroup",
-    "description": "Adds RegServerGroup to configuration",
+    "description": "Adds a server group to Central Management Server",
     "category": "Utilities",
     "tags": [
       "add",
@@ -292,7 +292,7 @@
   },
   {
     "name": "Add-DbaReplArticle",
-    "description": "Adds ReplArticle to configuration",
+    "description": "Adds an article to a replication publication",
     "category": "Advanced Features",
     "tags": [
       "add"
@@ -304,7 +304,7 @@
   },
   {
     "name": "Add-DbaServerRoleMember",
-    "description": "Adds ServerRoleMember to configuration",
+    "description": "Adds members to server roles",
     "category": "Security",
     "tags": [
       "add",
@@ -330,7 +330,7 @@
   },
   {
     "name": "Backup-DbaDatabase",
-    "description": "Creates full, differential, or transaction log backups of SQL Server databases.",
+    "description": "Creates full, differential, or transaction log backups of databases",
     "category": "Backup & Restore",
     "tags": [
       "backup",
@@ -343,7 +343,7 @@
   },
   {
     "name": "Backup-DbaDbCertificate",
-    "description": "Creates backups of database Certificate",
+    "description": "Backs up database certificates to file",
     "category": "Backup & Restore",
     "tags": [
       "backup",
@@ -356,7 +356,7 @@
   },
   {
     "name": "Backup-DbaDbMasterKey",
-    "description": "Creates backups of database MasterKey",
+    "description": "Backs up database master keys to file",
     "category": "Backup & Restore",
     "tags": [
       "backup"
@@ -380,7 +380,7 @@
   },
   {
     "name": "Clear-DbaConnectionPool",
-    "description": "Manages ConnectionPool",
+    "description": "Clears ADO.NET connection pools",
     "category": "Utilities",
     "tags": [
       "clear"
@@ -392,7 +392,7 @@
   },
   {
     "name": "Clear-DbaLatchStatistics",
-    "description": "Manages LatchStatistics",
+    "description": "Clears SQL Server latch statistics",
     "category": "Performance",
     "tags": [
       "clear"
@@ -404,7 +404,7 @@
   },
   {
     "name": "Clear-DbaPlanCache",
-    "description": "Manages PlanCache",
+    "description": "Clears SQL Server plan cache",
     "category": "Performance",
     "tags": [
       "clear"
@@ -416,7 +416,7 @@
   },
   {
     "name": "Clear-DbaWaitStatistics",
-    "description": "Manages WaitStatistics",
+    "description": "Clears SQL Server wait statistics",
     "category": "Performance",
     "tags": [
       "clear"
@@ -428,7 +428,7 @@
   },
   {
     "name": "Connect-DbaInstance",
-    "description": "Establishes a connection to a SQL Server instance and returns a SQL Server Management Object.",
+    "description": "Establishes a connection to a SQL Server instance",
     "category": "Server Management",
     "tags": [
       "connect",
@@ -441,7 +441,7 @@
   },
   {
     "name": "ConvertTo-DbaDataTable",
-    "description": "Manages DataTable",
+    "description": "Converts objects to DataTable format",
     "category": "Data Operations",
     "tags": [
       "table"
@@ -453,7 +453,7 @@
   },
   {
     "name": "ConvertTo-DbaTimeline",
-    "description": "Manages Timeline",
+    "description": "Converts events to timeline visualization",
     "category": "Utilities",
     "tags": [],
     "verb": "Other",
@@ -463,7 +463,7 @@
   },
   {
     "name": "ConvertTo-DbaXESession",
-    "description": "Manages XESession",
+    "description": "Converts trace to Extended Events session",
     "category": "Performance",
     "tags": [],
     "verb": "Other",
@@ -487,7 +487,7 @@
   },
   {
     "name": "Copy-DbaAgentJob",
-    "description": "Migrates SQL Server Agent jobs between instances, including schedules and job steps.",
+    "description": "Copies SQL Server Agent jobs between instances",
     "category": "Migration",
     "tags": [
       "copy",
@@ -587,7 +587,7 @@
   },
   {
     "name": "Copy-DbaCredential",
-    "description": "Migrates SQL Server credentials between instances.",
+    "description": "Copies SQL Server credentials between instances",
     "category": "Migration",
     "tags": [
       "copy"
@@ -599,7 +599,7 @@
   },
   {
     "name": "Copy-DbaCustomError",
-    "description": "Copies CustomError between SQL Server instances",
+    "description": "Copies custom error messages between instances",
     "category": "Migration",
     "tags": [
       "copy"
@@ -611,7 +611,7 @@
   },
   {
     "name": "Copy-DbaDatabase",
-    "description": "Copies or migrates databases between SQL Server instances using backup/restore or detach/attach methods.",
+    "description": "Copies databases between SQL Server instances using backup and restore",
     "category": "Migration",
     "tags": [
       "copy",
@@ -711,7 +711,7 @@
   },
   {
     "name": "Copy-DbaEndpoint",
-    "description": "Copies Endpoint between SQL Server instances",
+    "description": "Copies endpoints between instances",
     "category": "Migration",
     "tags": [
       "copy"
@@ -762,7 +762,7 @@
   },
   {
     "name": "Copy-DbaLinkedServer",
-    "description": "Migrates linked servers between SQL Server instances, including credentials.",
+    "description": "Copies linked server configurations between instances",
     "category": "Migration",
     "tags": [
       "copy",
@@ -775,7 +775,7 @@
   },
   {
     "name": "Copy-DbaLogin",
-    "description": "Migrates SQL Server logins between instances, including passwords, SIDs, server roles, and permissions.",
+    "description": "Copies SQL Server logins between instances",
     "category": "Migration",
     "tags": [
       "copy",
@@ -788,7 +788,7 @@
   },
   {
     "name": "Copy-DbaPolicyManagement",
-    "description": "Copies PolicyManagement between SQL Server instances",
+    "description": "Copies policy-based management configurations between instances",
     "category": "Migration",
     "tags": [
       "copy",
@@ -801,7 +801,7 @@
   },
   {
     "name": "Copy-DbaRegServer",
-    "description": "Copies RegServer between SQL Server instances",
+    "description": "Copies registered servers between CMS instances",
     "category": "Migration",
     "tags": [
       "copy",
@@ -814,7 +814,7 @@
   },
   {
     "name": "Copy-DbaResourceGovernor",
-    "description": "Copies ResourceGovernor between SQL Server instances",
+    "description": "Copies resource governor configuration between instances",
     "category": "Migration",
     "tags": [
       "copy"
@@ -826,7 +826,7 @@
   },
   {
     "name": "Copy-DbaSpConfigure",
-    "description": "Copies SpConfigure between SQL Server instances",
+    "description": "Copies sp_configure settings between instances",
     "category": "Migration",
     "tags": [
       "copy"
@@ -898,7 +898,7 @@
   },
   {
     "name": "Disable-DbaAgHadr",
-    "description": "Manages AgHadr",
+    "description": "Disables Always On High Availability feature",
     "category": "Utilities",
     "tags": [
       "disable",
@@ -911,7 +911,7 @@
   },
   {
     "name": "Disable-DbaDbEncryption",
-    "description": "Manages DbEncryption",
+    "description": "Disables Transparent Data Encryption on databases",
     "category": "Security",
     "tags": [
       "disable",
@@ -924,7 +924,7 @@
   },
   {
     "name": "Disable-DbaFilestream",
-    "description": "Manages Filestream",
+    "description": "Disables FILESTREAM feature",
     "category": "Utilities",
     "tags": [
       "disable"
@@ -936,7 +936,7 @@
   },
   {
     "name": "Disable-DbaForceNetworkEncryption",
-    "description": "Manages ForceNetworkEncryption",
+    "description": "Disables forced network encryption",
     "category": "Security",
     "tags": [
       "disable",
@@ -949,7 +949,7 @@
   },
   {
     "name": "Disable-DbaHideInstance",
-    "description": "Manages HideInstance",
+    "description": "Disables hide instance feature",
     "category": "Server Management",
     "tags": [
       "disable",
@@ -962,7 +962,7 @@
   },
   {
     "name": "Disable-DbaReplDistributor",
-    "description": "Manages ReplDistributor",
+    "description": "Disables replication distributor",
     "category": "Advanced Features",
     "tags": [
       "disable"
@@ -974,7 +974,7 @@
   },
   {
     "name": "Disable-DbaReplPublishing",
-    "description": "Manages ReplPublishing",
+    "description": "Disables replication publishing",
     "category": "Advanced Features",
     "tags": [
       "disable"
@@ -986,7 +986,7 @@
   },
   {
     "name": "Disable-DbaStartupProcedure",
-    "description": "Manages StartupProcedure",
+    "description": "Disables startup procedure",
     "category": "Utilities",
     "tags": [
       "disable"
@@ -998,7 +998,7 @@
   },
   {
     "name": "Disable-DbaTraceFlag",
-    "description": "Manages TraceFlag",
+    "description": "Disables trace flags",
     "category": "Performance",
     "tags": [
       "disable",
@@ -1011,7 +1011,7 @@
   },
   {
     "name": "Disconnect-DbaInstance",
-    "description": "Manages Instance",
+    "description": "Disconnects from a SQL Server instance",
     "category": "Server Management",
     "tags": [
       "disconnect",
@@ -1024,7 +1024,7 @@
   },
   {
     "name": "Dismount-DbaDatabase",
-    "description": "Manages Database",
+    "description": "Dismounts a database from a SQL Server instance",
     "category": "Database Operations",
     "tags": [
       "dismount",
@@ -1037,7 +1037,7 @@
   },
   {
     "name": "Enable-DbaAgHadr",
-    "description": "Manages AgHadr",
+    "description": "Enables Always On High Availability feature",
     "category": "Utilities",
     "tags": [
       "enable",
@@ -1050,7 +1050,7 @@
   },
   {
     "name": "Enable-DbaDbEncryption",
-    "description": "Manages DbEncryption",
+    "description": "Enables Transparent Data Encryption on databases",
     "category": "Security",
     "tags": [
       "enable",
@@ -1063,7 +1063,7 @@
   },
   {
     "name": "Enable-DbaFilestream",
-    "description": "Manages Filestream",
+    "description": "Enables FILESTREAM feature",
     "category": "Utilities",
     "tags": [
       "enable"
@@ -1075,7 +1075,7 @@
   },
   {
     "name": "Enable-DbaForceNetworkEncryption",
-    "description": "Manages ForceNetworkEncryption",
+    "description": "Enables forced network encryption",
     "category": "Security",
     "tags": [
       "enable",
@@ -1088,7 +1088,7 @@
   },
   {
     "name": "Enable-DbaHideInstance",
-    "description": "Manages HideInstance",
+    "description": "Enables hide instance feature",
     "category": "Server Management",
     "tags": [
       "enable",
@@ -1101,7 +1101,7 @@
   },
   {
     "name": "Enable-DbaReplDistributor",
-    "description": "Manages ReplDistributor",
+    "description": "Enables replication distributor",
     "category": "Advanced Features",
     "tags": [
       "enable"
@@ -1113,7 +1113,7 @@
   },
   {
     "name": "Enable-DbaReplPublishing",
-    "description": "Manages ReplPublishing",
+    "description": "Enables replication publishing",
     "category": "Advanced Features",
     "tags": [
       "enable"
@@ -1125,7 +1125,7 @@
   },
   {
     "name": "Enable-DbaStartupProcedure",
-    "description": "Manages StartupProcedure",
+    "description": "Enables startup procedure",
     "category": "Utilities",
     "tags": [
       "enable"
@@ -1137,7 +1137,7 @@
   },
   {
     "name": "Enable-DbaTraceFlag",
-    "description": "Manages TraceFlag",
+    "description": "Enables trace flags",
     "category": "Performance",
     "tags": [
       "enable",
@@ -1150,7 +1150,7 @@
   },
   {
     "name": "Expand-DbaDbLogFile",
-    "description": "Manages DbLogFile",
+    "description": "Manages db log file",
     "category": "Utilities",
     "tags": [
       "expand"
@@ -1186,7 +1186,7 @@
   },
   {
     "name": "Export-DbaDacPackage",
-    "description": "Exports DacPackage to file or script",
+    "description": "Exports a database to a DACPAC file",
     "category": "Migration",
     "tags": [
       "export",
@@ -1211,7 +1211,7 @@
   },
   {
     "name": "Export-DbaDbTableData",
-    "description": "Exports table data to various formats including CSV and JSON.",
+    "description": "Exports database table data to file",
     "category": "Migration",
     "tags": [
       "export",
@@ -1301,7 +1301,7 @@
   },
   {
     "name": "Export-DbaRegServer",
-    "description": "Exports RegServer to file or script",
+    "description": "Exports registered servers to file",
     "category": "Migration",
     "tags": [
       "export",
@@ -1412,7 +1412,7 @@
   },
   {
     "name": "Export-DbaXESessionTemplate",
-    "description": "Exports XESessionTemplate to file or script",
+    "description": "Exports Extended Events session templates",
     "category": "Migration",
     "tags": [
       "export"
@@ -1452,7 +1452,7 @@
   },
   {
     "name": "Find-DbaCommand",
-    "description": "Searches for Command",
+    "description": "Searches for dbatools commands",
     "category": "Utilities",
     "tags": [
       "find"
@@ -1464,7 +1464,7 @@
   },
   {
     "name": "Find-DbaDatabase",
-    "description": "Searches for Database",
+    "description": "Searches for databases across instances",
     "category": "Database Operations",
     "tags": [
       "find",
@@ -1525,7 +1525,7 @@
   },
   {
     "name": "Find-DbaInstance",
-    "description": "Discovers SQL Server instances on local networks or specified computers.",
+    "description": "Discovers SQL Server instances on the network",
     "category": "Server Management",
     "tags": [
       "find",
@@ -1551,7 +1551,7 @@
   },
   {
     "name": "Find-DbaOrphanedFile",
-    "description": "Searches for OrphanedFile",
+    "description": "Finds orphaned database files on disk",
     "category": "Utilities",
     "tags": [
       "find"
@@ -1576,7 +1576,7 @@
   },
   {
     "name": "Find-DbaStoredProcedure",
-    "description": "Searches for StoredProcedure",
+    "description": "Searches for stored procedures containing text",
     "category": "Utilities",
     "tags": [
       "find"
@@ -1588,7 +1588,7 @@
   },
   {
     "name": "Find-DbaTrigger",
-    "description": "Searches for Trigger",
+    "description": "Searches for triggers containing text",
     "category": "Utilities",
     "tags": [
       "find"
@@ -1600,7 +1600,7 @@
   },
   {
     "name": "Find-DbaUserObject",
-    "description": "Searches for UserObject",
+    "description": "Finds user objects in system databases",
     "category": "Security",
     "tags": [
       "find"
@@ -1612,7 +1612,7 @@
   },
   {
     "name": "Find-DbaView",
-    "description": "Searches for View",
+    "description": "Searches for views containing text",
     "category": "Utilities",
     "tags": [
       "find"
@@ -1624,7 +1624,7 @@
   },
   {
     "name": "Format-DbaBackupInformation",
-    "description": "Manages BackupInformation",
+    "description": "Formats and validates backup information for restore operations",
     "category": "Backup & Restore",
     "tags": [
       "format",
@@ -1637,7 +1637,7 @@
   },
   {
     "name": "Get-DbaAgBackupHistory",
-    "description": "Retrieves information about AgBackupHistory",
+    "description": "Retrieves backup history for Availability Group databases",
     "category": "Backup & Restore",
     "tags": [
       "get",
@@ -1651,7 +1651,7 @@
   },
   {
     "name": "Get-DbaAgDatabase",
-    "description": "Retrieves information about AgDatabase",
+    "description": "Retrieves Availability Group database information",
     "category": "Database Operations",
     "tags": [
       "get",
@@ -1665,7 +1665,7 @@
   },
   {
     "name": "Get-DbaAgentAlert",
-    "description": "Retrieves information about AgentAlert",
+    "description": "Retrieves SQL Server Agent alerts",
     "category": "Agent & Jobs",
     "tags": [
       "get",
@@ -1679,7 +1679,7 @@
   },
   {
     "name": "Get-DbaAgentAlertCategory",
-    "description": "Retrieves information about AgentAlertCategory",
+    "description": "Retrieves information about agent alert category",
     "category": "Agent & Jobs",
     "tags": [
       "get",
@@ -1693,7 +1693,7 @@
   },
   {
     "name": "Get-DbaAgentJob",
-    "description": "Retrieves SQL Server Agent job definitions and properties.",
+    "description": "Retrieves SQL Server Agent jobs and their properties",
     "category": "Agent & Jobs",
     "tags": [
       "get",
@@ -1708,7 +1708,7 @@
   },
   {
     "name": "Get-DbaAgentJobCategory",
-    "description": "Retrieves information about AgentJobCategory",
+    "description": "Retrieves information about agent job category",
     "category": "Agent & Jobs",
     "tags": [
       "get",
@@ -1723,7 +1723,7 @@
   },
   {
     "name": "Get-DbaAgentJobHistory",
-    "description": "Retrieves information about AgentJobHistory",
+    "description": "Retrieves execution history for SQL Server Agent jobs",
     "category": "Agent & Jobs",
     "tags": [
       "get",
@@ -1738,7 +1738,7 @@
   },
   {
     "name": "Get-DbaAgentJobOutputFile",
-    "description": "Retrieves information about AgentJobOutputFile",
+    "description": "Retrieves information about agent job output file",
     "category": "Agent & Jobs",
     "tags": [
       "get",
@@ -1753,7 +1753,7 @@
   },
   {
     "name": "Get-DbaAgentJobStep",
-    "description": "Retrieves information about AgentJobStep",
+    "description": "Retrieves SQL Server Agent job steps",
     "category": "Agent & Jobs",
     "tags": [
       "get",
@@ -1768,7 +1768,7 @@
   },
   {
     "name": "Get-DbaAgentLog",
-    "description": "Retrieves information about AgentLog",
+    "description": "Retrieves SQL Server Agent error log entries",
     "category": "Agent & Jobs",
     "tags": [
       "get",
@@ -1782,7 +1782,7 @@
   },
   {
     "name": "Get-DbaAgentOperator",
-    "description": "Retrieves information about AgentOperator",
+    "description": "Retrieves SQL Server Agent operators",
     "category": "Agent & Jobs",
     "tags": [
       "get",
@@ -1796,7 +1796,7 @@
   },
   {
     "name": "Get-DbaAgentProxy",
-    "description": "Retrieves information about AgentProxy",
+    "description": "Retrieves SQL Server Agent proxy accounts",
     "category": "Agent & Jobs",
     "tags": [
       "get",
@@ -1810,7 +1810,7 @@
   },
   {
     "name": "Get-DbaAgentSchedule",
-    "description": "Retrieves information about AgentSchedule",
+    "description": "Retrieves SQL Server Agent job schedules",
     "category": "Agent & Jobs",
     "tags": [
       "get",
@@ -1824,7 +1824,7 @@
   },
   {
     "name": "Get-DbaAgentServer",
-    "description": "Retrieves information about AgentServer",
+    "description": "Retrieves SQL Server Agent server configuration",
     "category": "Agent & Jobs",
     "tags": [
       "get",
@@ -1839,7 +1839,7 @@
   },
   {
     "name": "Get-DbaAgHadr",
-    "description": "Retrieves information about AgHadr",
+    "description": "Retrieves Always On High Availability configuration",
     "category": "Utilities",
     "tags": [
       "get",
@@ -1852,7 +1852,7 @@
   },
   {
     "name": "Get-DbaAgListener",
-    "description": "Retrieves information about AgListener",
+    "description": "Retrieves Availability Group listener information",
     "category": "Utilities",
     "tags": [
       "get",
@@ -1865,7 +1865,7 @@
   },
   {
     "name": "Get-DbaAgReplica",
-    "description": "Retrieves information about AgReplica",
+    "description": "Retrieves Availability Group replica information",
     "category": "Advanced Features",
     "tags": [
       "get",
@@ -1878,7 +1878,7 @@
   },
   {
     "name": "Get-DbaAvailabilityGroup",
-    "description": "Retrieves Always On Availability Group configurations and status.",
+    "description": "Retrieves Always On Availability Group information",
     "category": "Utilities",
     "tags": [
       "get",
@@ -1891,7 +1891,7 @@
   },
   {
     "name": "Get-DbaAvailableCollation",
-    "description": "Retrieves information about AvailableCollation",
+    "description": "Retrieves available collations for SQL Server",
     "category": "Utilities",
     "tags": [
       "get"
@@ -1903,7 +1903,7 @@
   },
   {
     "name": "Get-DbaBackupDevice",
-    "description": "Retrieves information about BackupDevice",
+    "description": "Retrieves configured backup devices",
     "category": "Backup & Restore",
     "tags": [
       "get",
@@ -1916,7 +1916,7 @@
   },
   {
     "name": "Get-DbaBackupInformation",
-    "description": "Retrieves information about BackupInformation",
+    "description": "Reads and parses backup file headers",
     "category": "Backup & Restore",
     "tags": [
       "get",
@@ -1929,7 +1929,7 @@
   },
   {
     "name": "Get-DbaBinaryFileTable",
-    "description": "Retrieves information about BinaryFileTable",
+    "description": "Retrieves information about binary file table",
     "category": "Utilities",
     "tags": [
       "get",
@@ -1954,7 +1954,7 @@
   },
   {
     "name": "Get-DbaClientAlias",
-    "description": "Retrieves information about ClientAlias",
+    "description": "Retrieves SQL Server client alias configuration",
     "category": "Utilities",
     "tags": [
       "get"
@@ -1966,7 +1966,7 @@
   },
   {
     "name": "Get-DbaClientProtocol",
-    "description": "Retrieves information about ClientProtocol",
+    "description": "Retrieves client protocol configuration",
     "category": "Utilities",
     "tags": [
       "get"
@@ -1978,7 +1978,7 @@
   },
   {
     "name": "Get-DbaCmConnection",
-    "description": "Retrieves information about CmConnection",
+    "description": "Retrieves Computer Management connection information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -1990,7 +1990,7 @@
   },
   {
     "name": "Get-DbaCmObject",
-    "description": "Retrieves information about CmObject",
+    "description": "Retrieves Computer Management objects",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2002,7 +2002,7 @@
   },
   {
     "name": "Get-DbaComputerCertificate",
-    "description": "Retrieves information about ComputerCertificate",
+    "description": "Retrieves certificates from computer certificate store",
     "category": "Security",
     "tags": [
       "get",
@@ -2015,7 +2015,7 @@
   },
   {
     "name": "Get-DbaComputerSystem",
-    "description": "Retrieves information about ComputerSystem",
+    "description": "Retrieves computer system information for SQL Server hosts",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2027,7 +2027,7 @@
   },
   {
     "name": "Get-DbaConnectedInstance",
-    "description": "Retrieves information about ConnectedInstance",
+    "description": "Retrieves currently connected SQL Server instances",
     "category": "Server Management",
     "tags": [
       "get",
@@ -2040,7 +2040,7 @@
   },
   {
     "name": "Get-DbaConnection",
-    "description": "Retrieves information about Connection",
+    "description": "Retrieves active dbatools connection information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2052,7 +2052,7 @@
   },
   {
     "name": "Get-DbaCpuRingBuffer",
-    "description": "Retrieves information about CpuRingBuffer",
+    "description": "Retrieves information about cpu ring buffer",
     "category": "Performance",
     "tags": [
       "get"
@@ -2064,7 +2064,7 @@
   },
   {
     "name": "Get-DbaCpuUsage",
-    "description": "Retrieves information about CpuUsage",
+    "description": "Retrieves CPU usage statistics",
     "category": "Performance",
     "tags": [
       "get",
@@ -2077,7 +2077,7 @@
   },
   {
     "name": "Get-DbaCredential",
-    "description": "Retrieves information about Credential",
+    "description": "Retrieves SQL Server credentials",
     "category": "Security",
     "tags": [
       "get"
@@ -2089,7 +2089,7 @@
   },
   {
     "name": "Get-DbaCustomError",
-    "description": "Retrieves information about CustomError",
+    "description": "Retrieves custom error messages",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2101,7 +2101,7 @@
   },
   {
     "name": "Get-DbaDatabase",
-    "description": "Retrieves database objects and properties from SQL Server instances.",
+    "description": "Retrieves database information and properties from SQL Server instances",
     "category": "Database Operations",
     "tags": [
       "get",
@@ -2114,7 +2114,7 @@
   },
   {
     "name": "Get-DbaDbAssembly",
-    "description": "Retrieves information about DbAssembly",
+    "description": "Retrieves CLR assemblies from databases",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2126,7 +2126,7 @@
   },
   {
     "name": "Get-DbaDbAsymmetricKey",
-    "description": "Retrieves information about DbAsymmetricKey",
+    "description": "Retrieves information about db asymmetric key",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2138,7 +2138,7 @@
   },
   {
     "name": "Get-DbaDbBackupHistory",
-    "description": "Retrieves backup history for databases from msdb.",
+    "description": "Retrieves backup history for specific databases",
     "category": "Backup & Restore",
     "tags": [
       "get",
@@ -2151,7 +2151,7 @@
   },
   {
     "name": "Get-DbaDbccHelp",
-    "description": "Retrieves information about DbccHelp",
+    "description": "Retrieves DBCC command help information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2163,7 +2163,7 @@
   },
   {
     "name": "Get-DbaDbccMemoryStatus",
-    "description": "Retrieves information about DbccMemoryStatus",
+    "description": "Retrieves DBCC MEMORYSTATUS information",
     "category": "Performance",
     "tags": [
       "get"
@@ -2175,7 +2175,7 @@
   },
   {
     "name": "Get-DbaDbccProcCache",
-    "description": "Retrieves information about DbccProcCache",
+    "description": "Retrieves DBCC PROCCACHE information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2187,7 +2187,7 @@
   },
   {
     "name": "Get-DbaDbccSessionBuffer",
-    "description": "Retrieves information about DbccSessionBuffer",
+    "description": "Retrieves information about dbcc session buffer",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2199,7 +2199,7 @@
   },
   {
     "name": "Get-DbaDbccStatistic",
-    "description": "Retrieves information about DbccStatistic",
+    "description": "Retrieves DBCC SHOW_STATISTICS information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2211,7 +2211,7 @@
   },
   {
     "name": "Get-DbaDbccUserOption",
-    "description": "Retrieves information about DbccUserOption",
+    "description": "Retrieves DBCC USEROPTIONS settings",
     "category": "Security",
     "tags": [
       "get"
@@ -2223,7 +2223,7 @@
   },
   {
     "name": "Get-DbaDbCertificate",
-    "description": "Retrieves information about DbCertificate",
+    "description": "Retrieves database certificates",
     "category": "Security",
     "tags": [
       "get",
@@ -2236,7 +2236,7 @@
   },
   {
     "name": "Get-DbaDbCheckConstraint",
-    "description": "Retrieves information about DbCheckConstraint",
+    "description": "Retrieves database check constraints",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2248,7 +2248,7 @@
   },
   {
     "name": "Get-DbaDbCompatibility",
-    "description": "Retrieves information about DbCompatibility",
+    "description": "Retrieves database compatibility level",
     "category": "Database Operations",
     "tags": [
       "get"
@@ -2260,7 +2260,7 @@
   },
   {
     "name": "Get-DbaDbCompression",
-    "description": "Retrieves information about DbCompression",
+    "description": "Retrieves database compression information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2272,7 +2272,7 @@
   },
   {
     "name": "Get-DbaDbDbccOpenTran",
-    "description": "Retrieves information about DbDbccOpenTran",
+    "description": "Retrieves information about db dbcc open tran",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2284,7 +2284,7 @@
   },
   {
     "name": "Get-DbaDbDetachedFileInfo",
-    "description": "Retrieves information about DbDetachedFileInfo",
+    "description": "Retrieves information about db detached file info",
     "category": "Database Operations",
     "tags": [
       "get"
@@ -2296,7 +2296,7 @@
   },
   {
     "name": "Get-DbaDbEncryption",
-    "description": "Retrieves information about DbEncryption",
+    "description": "Retrieves database encryption status",
     "category": "Security",
     "tags": [
       "get",
@@ -2309,7 +2309,7 @@
   },
   {
     "name": "Get-DbaDbEncryptionKey",
-    "description": "Retrieves information about DbEncryptionKey",
+    "description": "Retrieves information about db encryption key",
     "category": "Security",
     "tags": [
       "get",
@@ -2322,7 +2322,7 @@
   },
   {
     "name": "Get-DbaDbExtentDiff",
-    "description": "Retrieves information about DbExtentDiff",
+    "description": "Retrieves information about db extent diff",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2334,7 +2334,7 @@
   },
   {
     "name": "Get-DbaDbFeatureUsage",
-    "description": "Retrieves information about DbFeatureUsage",
+    "description": "Retrieves information about db feature usage",
     "category": "Utilities",
     "tags": [
       "get",
@@ -2347,7 +2347,7 @@
   },
   {
     "name": "Get-DbaDbFile",
-    "description": "Retrieves information about DbFile",
+    "description": "Retrieves database file information",
     "category": "Database Operations",
     "tags": [
       "get"
@@ -2359,7 +2359,7 @@
   },
   {
     "name": "Get-DbaDbFileGroup",
-    "description": "Retrieves information about DbFileGroup",
+    "description": "Retrieves database filegroup information",
     "category": "Database Operations",
     "tags": [
       "get"
@@ -2371,7 +2371,7 @@
   },
   {
     "name": "Get-DbaDbFileGrowth",
-    "description": "Retrieves information about DbFileGrowth",
+    "description": "Retrieves information about db file growth",
     "category": "Database Operations",
     "tags": [
       "get"
@@ -2383,7 +2383,7 @@
   },
   {
     "name": "Get-DbaDbFileMapping",
-    "description": "Retrieves information about DbFileMapping",
+    "description": "Retrieves information about db file mapping",
     "category": "Database Operations",
     "tags": [
       "get"
@@ -2395,7 +2395,7 @@
   },
   {
     "name": "Get-DbaDbForeignKey",
-    "description": "Retrieves information about DbForeignKey",
+    "description": "Retrieves information about db foreign key",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2407,7 +2407,7 @@
   },
   {
     "name": "Get-DbaDbIdentity",
-    "description": "Retrieves information about DbIdentity",
+    "description": "Retrieves identity column information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2419,7 +2419,7 @@
   },
   {
     "name": "Get-DbaDbLogShipError",
-    "description": "Retrieves information about DbLogShipError",
+    "description": "Retrieves log shipping error information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2431,7 +2431,7 @@
   },
   {
     "name": "Get-DbaDbLogSpace",
-    "description": "Retrieves information about DbLogSpace",
+    "description": "Retrieves information about db log space",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2443,7 +2443,7 @@
   },
   {
     "name": "Get-DbaDbMail",
-    "description": "Retrieves information about DbMail",
+    "description": "Retrieves database mail configuration",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2455,7 +2455,7 @@
   },
   {
     "name": "Get-DbaDbMailAccount",
-    "description": "Retrieves information about DbMailAccount",
+    "description": "Retrieves database mail accounts",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2467,7 +2467,7 @@
   },
   {
     "name": "Get-DbaDbMailConfig",
-    "description": "Retrieves information about DbMailConfig",
+    "description": "Retrieves database mail configuration settings",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2479,7 +2479,7 @@
   },
   {
     "name": "Get-DbaDbMailHistory",
-    "description": "Retrieves information about DbMailHistory",
+    "description": "Retrieves database mail send history",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2491,7 +2491,7 @@
   },
   {
     "name": "Get-DbaDbMailLog",
-    "description": "Retrieves information about DbMailLog",
+    "description": "Retrieves database mail log entries",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2503,7 +2503,7 @@
   },
   {
     "name": "Get-DbaDbMailProfile",
-    "description": "Retrieves information about DbMailProfile",
+    "description": "Retrieves database mail profiles",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2515,7 +2515,7 @@
   },
   {
     "name": "Get-DbaDbMailServer",
-    "description": "Retrieves information about DbMailServer",
+    "description": "Retrieves database mail SMTP servers",
     "category": "Utilities",
     "tags": [
       "get",
@@ -2528,7 +2528,7 @@
   },
   {
     "name": "Get-DbaDbMasterKey",
-    "description": "Retrieves information about DbMasterKey",
+    "description": "Retrieves database master keys",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2540,7 +2540,7 @@
   },
   {
     "name": "Get-DbaDbMemoryUsage",
-    "description": "Retrieves information about DbMemoryUsage",
+    "description": "Retrieves information about db memory usage",
     "category": "Performance",
     "tags": [
       "get",
@@ -2553,7 +2553,7 @@
   },
   {
     "name": "Get-DbaDbMirror",
-    "description": "Retrieves information about DbMirror",
+    "description": "Retrieves database mirroring status",
     "category": "Utilities",
     "tags": [
       "get",
@@ -2566,7 +2566,7 @@
   },
   {
     "name": "Get-DbaDbMirrorMonitor",
-    "description": "Retrieves information about DbMirrorMonitor",
+    "description": "Retrieves information about db mirror monitor",
     "category": "Utilities",
     "tags": [
       "get",
@@ -2579,7 +2579,7 @@
   },
   {
     "name": "Get-DbaDbObjectTrigger",
-    "description": "Retrieves information about DbObjectTrigger",
+    "description": "Retrieves information about db object trigger",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2591,7 +2591,7 @@
   },
   {
     "name": "Get-DbaDbOrphanUser",
-    "description": "Retrieves information about DbOrphanUser",
+    "description": "Retrieves information about db orphan user",
     "category": "Security",
     "tags": [
       "get"
@@ -2603,7 +2603,7 @@
   },
   {
     "name": "Get-DbaDbPageInfo",
-    "description": "Retrieves information about DbPageInfo",
+    "description": "Retrieves information about db page info",
     "category": "Utilities",
     "tags": [
       "get",
@@ -2616,7 +2616,7 @@
   },
   {
     "name": "Get-DbaDbPartitionFunction",
-    "description": "Retrieves information about DbPartitionFunction",
+    "description": "Retrieves information about db partition function",
     "category": "Advanced Features",
     "tags": [
       "get"
@@ -2628,7 +2628,7 @@
   },
   {
     "name": "Get-DbaDbPartitionScheme",
-    "description": "Retrieves information about DbPartitionScheme",
+    "description": "Retrieves information about db partition scheme",
     "category": "Advanced Features",
     "tags": [
       "get"
@@ -2640,7 +2640,7 @@
   },
   {
     "name": "Get-DbaDbQueryStoreOption",
-    "description": "Retrieves information about DbQueryStoreOption",
+    "description": "Retrieves Query Store configuration",
     "category": "Utilities",
     "tags": [
       "get",
@@ -2653,7 +2653,7 @@
   },
   {
     "name": "Get-DbaDbRecoveryModel",
-    "description": "Retrieves information about DbRecoveryModel",
+    "description": "Retrieves database recovery model",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2665,7 +2665,7 @@
   },
   {
     "name": "Get-DbaDbRestoreHistory",
-    "description": "Retrieves information about DbRestoreHistory",
+    "description": "Retrieves information about db restore history",
     "category": "Backup & Restore",
     "tags": [
       "get",
@@ -2678,7 +2678,7 @@
   },
   {
     "name": "Get-DbaDbRole",
-    "description": "Retrieves information about DbRole",
+    "description": "Retrieves database roles",
     "category": "Security",
     "tags": [
       "get"
@@ -2690,7 +2690,7 @@
   },
   {
     "name": "Get-DbaDbRoleMember",
-    "description": "Retrieves information about DbRoleMember",
+    "description": "Retrieves information about db role member",
     "category": "Security",
     "tags": [
       "get"
@@ -2702,7 +2702,7 @@
   },
   {
     "name": "Get-DbaDbSchema",
-    "description": "Retrieves information about DbSchema",
+    "description": "Retrieves database schema information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2714,7 +2714,7 @@
   },
   {
     "name": "Get-DbaDbSequence",
-    "description": "Retrieves information about DbSequence",
+    "description": "Retrieves sequence information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2726,7 +2726,7 @@
   },
   {
     "name": "Get-DbaDbServiceBrokerQueue",
-    "description": "Retrieves information about DbServiceBrokerQueue",
+    "description": "Retrieves information about db service broker queue",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2738,7 +2738,7 @@
   },
   {
     "name": "Get-DbaDbServiceBrokerService",
-    "description": "Retrieves information about DbServiceBrokerService",
+    "description": "Retrieves information about db service broker service",
     "category": "Server Management",
     "tags": [
       "get"
@@ -2750,7 +2750,7 @@
   },
   {
     "name": "Get-DbaDbSharePoint",
-    "description": "Retrieves information about DbSharePoint",
+    "description": "Retrieves information about db share point",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2762,7 +2762,7 @@
   },
   {
     "name": "Get-DbaDbSnapshot",
-    "description": "Retrieves information about DbSnapshot",
+    "description": "Retrieves database snapshot information",
     "category": "Backup & Restore",
     "tags": [
       "get"
@@ -2774,7 +2774,7 @@
   },
   {
     "name": "Get-DbaDbSpace",
-    "description": "Retrieves information about DbSpace",
+    "description": "Retrieves database space usage information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2786,7 +2786,7 @@
   },
   {
     "name": "Get-DbaDbState",
-    "description": "Retrieves information about DbState",
+    "description": "Retrieves database state information",
     "category": "Database Operations",
     "tags": [
       "get"
@@ -2798,7 +2798,7 @@
   },
   {
     "name": "Get-DbaDbStoredProcedure",
-    "description": "Retrieves information about DbStoredProcedure",
+    "description": "Retrieves stored procedure information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2810,7 +2810,7 @@
   },
   {
     "name": "Get-DbaDbSynonym",
-    "description": "Retrieves information about DbSynonym",
+    "description": "Retrieves synonym information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2822,7 +2822,7 @@
   },
   {
     "name": "Get-DbaDbTable",
-    "description": "Retrieves table objects and properties from SQL Server databases.",
+    "description": "Retrieves database table information",
     "category": "Utilities",
     "tags": [
       "get",
@@ -2835,7 +2835,7 @@
   },
   {
     "name": "Get-DbaDbTrigger",
-    "description": "Retrieves information about DbTrigger",
+    "description": "Retrieves trigger information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2847,7 +2847,7 @@
   },
   {
     "name": "Get-DbaDbUdf",
-    "description": "Retrieves information about DbUdf",
+    "description": "Retrieves user-defined function information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2859,7 +2859,7 @@
   },
   {
     "name": "Get-DbaDbUser",
-    "description": "Retrieves database user information including roles and permissions.",
+    "description": "Retrieves database users and their mappings",
     "category": "Security",
     "tags": [
       "get"
@@ -2871,7 +2871,7 @@
   },
   {
     "name": "Get-DbaDbUserDefinedTableType",
-    "description": "Retrieves information about DbUserDefinedTableType",
+    "description": "Retrieves information about db user defined table type",
     "category": "Security",
     "tags": [
       "get",
@@ -2884,7 +2884,7 @@
   },
   {
     "name": "Get-DbaDbView",
-    "description": "Retrieves information about DbView",
+    "description": "Retrieves database view information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2896,7 +2896,7 @@
   },
   {
     "name": "Get-DbaDbVirtualLogFile",
-    "description": "Retrieves information about DbVirtualLogFile",
+    "description": "Retrieves virtual log file information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2908,7 +2908,7 @@
   },
   {
     "name": "Get-DbaDefaultPath",
-    "description": "Retrieves information about DefaultPath",
+    "description": "Retrieves default data and log file paths",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2920,7 +2920,7 @@
   },
   {
     "name": "Get-DbaDependency",
-    "description": "Retrieves information about Dependency",
+    "description": "Retrieves object dependency information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2932,7 +2932,7 @@
   },
   {
     "name": "Get-DbaDeprecatedFeature",
-    "description": "Retrieves information about DeprecatedFeature",
+    "description": "Retrieves deprecated feature usage statistics",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2944,7 +2944,7 @@
   },
   {
     "name": "Get-DbaDiskSpace",
-    "description": "Retrieves disk space information for SQL Server data and log files.",
+    "description": "Retrieves disk space information for SQL Server hosts",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2956,7 +2956,7 @@
   },
   {
     "name": "Get-DbaDump",
-    "description": "Retrieves information about Dump",
+    "description": "Retrieves SQL Server memory dump information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2968,7 +2968,7 @@
   },
   {
     "name": "Get-DbaEndpoint",
-    "description": "Retrieves information about Endpoint",
+    "description": "Retrieves endpoint configurations",
     "category": "Advanced Features",
     "tags": [
       "get"
@@ -2980,7 +2980,7 @@
   },
   {
     "name": "Get-DbaErrorLog",
-    "description": "Retrieves information about ErrorLog",
+    "description": "Retrieves SQL Server error log entries",
     "category": "Utilities",
     "tags": [
       "get"
@@ -2992,7 +2992,7 @@
   },
   {
     "name": "Get-DbaErrorLogConfig",
-    "description": "Retrieves information about ErrorLogConfig",
+    "description": "Retrieves error log configuration",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3004,7 +3004,7 @@
   },
   {
     "name": "Get-DbaEstimatedCompletionTime",
-    "description": "Retrieves information about EstimatedCompletionTime",
+    "description": "Retrieves information about estimated completion time",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3016,7 +3016,7 @@
   },
   {
     "name": "Get-DbaExecutionPlan",
-    "description": "Retrieves information about ExecutionPlan",
+    "description": "Retrieves query execution plans",
     "category": "Performance",
     "tags": [
       "get"
@@ -3028,7 +3028,7 @@
   },
   {
     "name": "Get-DbaExtendedProperty",
-    "description": "Retrieves information about ExtendedProperty",
+    "description": "Retrieves extended properties from database objects",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3040,7 +3040,7 @@
   },
   {
     "name": "Get-DbaExtendedProtection",
-    "description": "Retrieves information about ExtendedProtection",
+    "description": "Retrieves extended protection for authentication settings",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3052,7 +3052,7 @@
   },
   {
     "name": "Get-DbaExternalProcess",
-    "description": "Retrieves information about ExternalProcess",
+    "description": "Retrieves external processes running under SQL Server",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3064,7 +3064,7 @@
   },
   {
     "name": "Get-DbaFeature",
-    "description": "Retrieves information about Feature",
+    "description": "Retrieves installed SQL Server features",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3076,7 +3076,7 @@
   },
   {
     "name": "Get-DbaFile",
-    "description": "Retrieves information about File",
+    "description": "Retrieves file information from SQL Server hosts",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3088,7 +3088,7 @@
   },
   {
     "name": "Get-DbaFilestream",
-    "description": "Retrieves information about Filestream",
+    "description": "Retrieves FILESTREAM configuration",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3100,7 +3100,7 @@
   },
   {
     "name": "Get-DbaFirewallRule",
-    "description": "Retrieves information about FirewallRule",
+    "description": "Retrieves Windows firewall rules for SQL Server",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3112,7 +3112,7 @@
   },
   {
     "name": "Get-DbaForceNetworkEncryption",
-    "description": "Retrieves information about ForceNetworkEncryption",
+    "description": "Retrieves forced network encryption setting",
     "category": "Security",
     "tags": [
       "get",
@@ -3125,7 +3125,7 @@
   },
   {
     "name": "Get-DbaHelpIndex",
-    "description": "Retrieves information about HelpIndex",
+    "description": "Retrieves detailed index information and statistics",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3137,7 +3137,7 @@
   },
   {
     "name": "Get-DbaHideInstance",
-    "description": "Retrieves information about HideInstance",
+    "description": "Retrieves hide instance configuration",
     "category": "Server Management",
     "tags": [
       "get",
@@ -3150,7 +3150,7 @@
   },
   {
     "name": "Get-DbaInstalledPatch",
-    "description": "Retrieves information about InstalledPatch",
+    "description": "Retrieves installed SQL Server patches and updates",
     "category": "Server Management",
     "tags": [
       "get"
@@ -3162,7 +3162,7 @@
   },
   {
     "name": "Get-DbaInstanceAudit",
-    "description": "Retrieves information about InstanceAudit",
+    "description": "Retrieves SQL Server instance audit configuration",
     "category": "Utilities",
     "tags": [
       "get",
@@ -3175,7 +3175,7 @@
   },
   {
     "name": "Get-DbaInstanceAuditSpecification",
-    "description": "Retrieves information about InstanceAuditSpecification",
+    "description": "Retrieves information about instance audit specification",
     "category": "Utilities",
     "tags": [
       "get",
@@ -3188,7 +3188,7 @@
   },
   {
     "name": "Get-DbaInstanceInstallDate",
-    "description": "Retrieves information about InstanceInstallDate",
+    "description": "Retrieves information about instance install date",
     "category": "Server Management",
     "tags": [
       "get",
@@ -3201,7 +3201,7 @@
   },
   {
     "name": "Get-DbaInstanceProperty",
-    "description": "Retrieves information about InstanceProperty",
+    "description": "Retrieves SQL Server instance properties and configuration",
     "category": "Server Management",
     "tags": [
       "get",
@@ -3214,7 +3214,7 @@
   },
   {
     "name": "Get-DbaInstanceProtocol",
-    "description": "Retrieves information about InstanceProtocol",
+    "description": "Retrieves SQL Server instance protocol configuration",
     "category": "Server Management",
     "tags": [
       "get",
@@ -3227,7 +3227,7 @@
   },
   {
     "name": "Get-DbaInstanceTrigger",
-    "description": "Retrieves information about InstanceTrigger",
+    "description": "Retrieves server-level triggers",
     "category": "Server Management",
     "tags": [
       "get",
@@ -3240,7 +3240,7 @@
   },
   {
     "name": "Get-DbaInstanceUserOption",
-    "description": "Retrieves information about InstanceUserOption",
+    "description": "Retrieves information about instance user option",
     "category": "Security",
     "tags": [
       "get",
@@ -3253,7 +3253,7 @@
   },
   {
     "name": "Get-DbaIoLatency",
-    "description": "Retrieves information about IoLatency",
+    "description": "Retrieves I/O latency statistics",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3265,7 +3265,7 @@
   },
   {
     "name": "Get-DbaKbUpdate",
-    "description": "Retrieves information about KbUpdate",
+    "description": "Retrieves KB update information for SQL Server",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3277,7 +3277,7 @@
   },
   {
     "name": "Get-DbaLastBackup",
-    "description": "Retrieves information about LastBackup",
+    "description": "Retrieves last backup date for databases",
     "category": "Backup & Restore",
     "tags": [
       "get",
@@ -3290,7 +3290,7 @@
   },
   {
     "name": "Get-DbaLastGoodCheckDb",
-    "description": "Retrieves information about LastGoodCheckDb",
+    "description": "Retrieves last successful DBCC CHECKDB date",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3302,7 +3302,7 @@
   },
   {
     "name": "Get-DbaLatchStatistic",
-    "description": "Retrieves information about LatchStatistic",
+    "description": "Retrieves latch statistics",
     "category": "Performance",
     "tags": [
       "get"
@@ -3314,7 +3314,7 @@
   },
   {
     "name": "Get-DbaLinkedServer",
-    "description": "Retrieves information about LinkedServer",
+    "description": "Retrieves linked server configurations",
     "category": "Utilities",
     "tags": [
       "get",
@@ -3327,7 +3327,7 @@
   },
   {
     "name": "Get-DbaLinkedServerLogin",
-    "description": "Retrieves information about LinkedServerLogin",
+    "description": "Retrieves linked server login mappings",
     "category": "Security",
     "tags": [
       "get",
@@ -3341,7 +3341,7 @@
   },
   {
     "name": "Get-DbaLocaleSetting",
-    "description": "Retrieves information about LocaleSetting",
+    "description": "Retrieves locale and language settings",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3353,7 +3353,7 @@
   },
   {
     "name": "Get-DbaLogin",
-    "description": "Retrieves SQL Server login information including authentication type and permissions.",
+    "description": "Retrieves SQL Server logins and their properties",
     "category": "Security",
     "tags": [
       "get",
@@ -3366,7 +3366,7 @@
   },
   {
     "name": "Get-DbaMaintenanceSolutionLog",
-    "description": "Retrieves information about MaintenanceSolutionLog",
+    "description": "Retrieves information about maintenance solution log",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3378,7 +3378,7 @@
   },
   {
     "name": "Get-DbaManagementObject",
-    "description": "Retrieves information about ManagementObject",
+    "description": "Retrieves SQL Server Management Objects version",
     "category": "Utilities",
     "tags": [
       "get",
@@ -3391,7 +3391,7 @@
   },
   {
     "name": "Get-DbaMaxMemory",
-    "description": "Retrieves information about MaxMemory",
+    "description": "Retrieves SQL Server maximum and minimum memory settings",
     "category": "Performance",
     "tags": [
       "get"
@@ -3403,7 +3403,7 @@
   },
   {
     "name": "Get-DbaMemoryCondition",
-    "description": "Retrieves information about MemoryCondition",
+    "description": "Retrieves memory pressure conditions",
     "category": "Performance",
     "tags": [
       "get"
@@ -3415,7 +3415,7 @@
   },
   {
     "name": "Get-DbaMemoryUsage",
-    "description": "Retrieves information about MemoryUsage",
+    "description": "Retrieves memory usage statistics",
     "category": "Performance",
     "tags": [
       "get",
@@ -3428,7 +3428,7 @@
   },
   {
     "name": "Get-DbaModule",
-    "description": "Retrieves information about Module",
+    "description": "Retrieves SQL Server module definitions",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3440,7 +3440,7 @@
   },
   {
     "name": "Get-DbaMsdtc",
-    "description": "Retrieves information about Msdtc",
+    "description": "Retrieves Microsoft Distributed Transaction Coordinator configuration",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3452,7 +3452,7 @@
   },
   {
     "name": "Get-DbaNetworkActivity",
-    "description": "Retrieves information about NetworkActivity",
+    "description": "Retrieves network activity for SQL Server connections",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3464,7 +3464,7 @@
   },
   {
     "name": "Get-DbaNetworkCertificate",
-    "description": "Retrieves information about NetworkCertificate",
+    "description": "Retrieves network encryption certificate",
     "category": "Security",
     "tags": [
       "get",
@@ -3477,7 +3477,7 @@
   },
   {
     "name": "Get-DbaNetworkConfiguration",
-    "description": "Retrieves information about NetworkConfiguration",
+    "description": "Retrieves SQL Server network protocol configuration",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3489,7 +3489,7 @@
   },
   {
     "name": "Get-DbaOleDbProvider",
-    "description": "Retrieves information about OleDbProvider",
+    "description": "Retrieves information about ole db provider",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3501,7 +3501,7 @@
   },
   {
     "name": "Get-DbaOpenTransaction",
-    "description": "Retrieves information about OpenTransaction",
+    "description": "Retrieves active open transactions",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3513,7 +3513,7 @@
   },
   {
     "name": "Get-DbaOperatingSystem",
-    "description": "Retrieves information about OperatingSystem",
+    "description": "Retrieves operating system information for SQL Server hosts",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3525,7 +3525,7 @@
   },
   {
     "name": "Get-DbaPageFileSetting",
-    "description": "Retrieves information about PageFileSetting",
+    "description": "Retrieves information about page file setting",
     "category": "Utilities",
     "tags": [
       "get",
@@ -3538,7 +3538,7 @@
   },
   {
     "name": "Get-DbaPbmCategory",
-    "description": "Retrieves information about PbmCategory",
+    "description": "Retrieves policy-based management categories",
     "category": "Advanced Features",
     "tags": [
       "get"
@@ -3550,7 +3550,7 @@
   },
   {
     "name": "Get-DbaPbmCategorySubscription",
-    "description": "Retrieves information about PbmCategorySubscription",
+    "description": "Retrieves information about pbm category subscription",
     "category": "Advanced Features",
     "tags": [
       "get"
@@ -3562,7 +3562,7 @@
   },
   {
     "name": "Get-DbaPbmCondition",
-    "description": "Retrieves information about PbmCondition",
+    "description": "Retrieves policy-based management conditions",
     "category": "Advanced Features",
     "tags": [
       "get"
@@ -3574,7 +3574,7 @@
   },
   {
     "name": "Get-DbaPbmObjectSet",
-    "description": "Retrieves information about PbmObjectSet",
+    "description": "Retrieves information about pbm object set",
     "category": "Advanced Features",
     "tags": [
       "get"
@@ -3586,7 +3586,7 @@
   },
   {
     "name": "Get-DbaPbmPolicy",
-    "description": "Retrieves information about PbmPolicy",
+    "description": "Retrieves policy-based management policies",
     "category": "Advanced Features",
     "tags": [
       "get"
@@ -3598,7 +3598,7 @@
   },
   {
     "name": "Get-DbaPbmStore",
-    "description": "Retrieves information about PbmStore",
+    "description": "Retrieves policy-based management store configuration",
     "category": "Advanced Features",
     "tags": [
       "get"
@@ -3610,7 +3610,7 @@
   },
   {
     "name": "Get-DbaPermission",
-    "description": "Retrieves comprehensive permission information across SQL Server instances.",
+    "description": "Retrieves permissions across SQL Server instances",
     "category": "Security",
     "tags": [
       "get",
@@ -3623,7 +3623,7 @@
   },
   {
     "name": "Get-DbaPfAvailableCounter",
-    "description": "Retrieves information about PfAvailableCounter",
+    "description": "Retrieves information about pf available counter",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3635,7 +3635,7 @@
   },
   {
     "name": "Get-DbaPfDataCollector",
-    "description": "Retrieves information about PfDataCollector",
+    "description": "Retrieves information about pf data collector",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3647,7 +3647,7 @@
   },
   {
     "name": "Get-DbaPfDataCollectorCounter",
-    "description": "Retrieves information about PfDataCollectorCounter",
+    "description": "Retrieves performance counter information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3659,7 +3659,7 @@
   },
   {
     "name": "Get-DbaPfDataCollectorCounterSample",
-    "description": "Retrieves information about PfDataCollectorCounterSample",
+    "description": "Retrieves information about pf data collector counter sample",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3671,7 +3671,7 @@
   },
   {
     "name": "Get-DbaPfDataCollectorSet",
-    "description": "Retrieves information about PfDataCollectorSet",
+    "description": "Retrieves performance monitor data collector sets",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3683,7 +3683,7 @@
   },
   {
     "name": "Get-DbaPfDataCollectorSetTemplate",
-    "description": "Retrieves information about PfDataCollectorSetTemplate",
+    "description": "Retrieves data collector set templates",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3695,7 +3695,7 @@
   },
   {
     "name": "Get-DbaPlanCache",
-    "description": "Retrieves information about PlanCache",
+    "description": "Retrieves plan cache contents and statistics",
     "category": "Performance",
     "tags": [
       "get"
@@ -3707,7 +3707,7 @@
   },
   {
     "name": "Get-DbaPowerPlan",
-    "description": "Retrieves information about PowerPlan",
+    "description": "Retrieves Windows power plan configuration",
     "category": "Performance",
     "tags": [
       "get"
@@ -3719,7 +3719,7 @@
   },
   {
     "name": "Get-DbaPrivilege",
-    "description": "Retrieves information about Privilege",
+    "description": "Retrieves SQL Server service account privileges",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3731,7 +3731,7 @@
   },
   {
     "name": "Get-DbaProcess",
-    "description": "Retrieves information about Process",
+    "description": "Retrieves active SQL Server processes and sessions",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3743,7 +3743,7 @@
   },
   {
     "name": "Get-DbaProductKey",
-    "description": "Retrieves SQL Server product keys from local or remote computers.",
+    "description": "Retrieves SQL Server product key",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3755,7 +3755,7 @@
   },
   {
     "name": "Get-DbaQueryExecutionTime",
-    "description": "Retrieves information about QueryExecutionTime",
+    "description": "Retrieves information about query execution time",
     "category": "Performance",
     "tags": [
       "get",
@@ -3768,7 +3768,7 @@
   },
   {
     "name": "Get-DbaRandomizedDataset",
-    "description": "Retrieves information about RandomizedDataset",
+    "description": "Retrieves randomized dataset definitions",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3780,7 +3780,7 @@
   },
   {
     "name": "Get-DbaRandomizedDatasetTemplate",
-    "description": "Retrieves information about RandomizedDatasetTemplate",
+    "description": "Retrieves dataset templates for data generation",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3792,7 +3792,7 @@
   },
   {
     "name": "Get-DbaRandomizedType",
-    "description": "Retrieves information about RandomizedType",
+    "description": "Retrieves randomized type definitions",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3804,7 +3804,7 @@
   },
   {
     "name": "Get-DbaRandomizedValue",
-    "description": "Retrieves information about RandomizedValue",
+    "description": "Retrieves randomized values for data generation",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3816,7 +3816,7 @@
   },
   {
     "name": "Get-DbaRegistryRoot",
-    "description": "Retrieves information about RegistryRoot",
+    "description": "Retrieves SQL Server registry root path",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3828,7 +3828,7 @@
   },
   {
     "name": "Get-DbaRegServer",
-    "description": "Retrieves information about RegServer",
+    "description": "Retrieves registered servers from Central Management Server",
     "category": "Utilities",
     "tags": [
       "get",
@@ -3841,7 +3841,7 @@
   },
   {
     "name": "Get-DbaRegServerGroup",
-    "description": "Retrieves information about RegServerGroup",
+    "description": "Retrieves registered server groups",
     "category": "Utilities",
     "tags": [
       "get",
@@ -3854,7 +3854,7 @@
   },
   {
     "name": "Get-DbaRegServerStore",
-    "description": "Retrieves information about RegServerStore",
+    "description": "Retrieves information about reg server store",
     "category": "Utilities",
     "tags": [
       "get",
@@ -3867,7 +3867,7 @@
   },
   {
     "name": "Get-DbaReplArticle",
-    "description": "Retrieves information about ReplArticle",
+    "description": "Retrieves replication article information",
     "category": "Advanced Features",
     "tags": [
       "get"
@@ -3879,7 +3879,7 @@
   },
   {
     "name": "Get-DbaReplArticleColumn",
-    "description": "Retrieves information about ReplArticleColumn",
+    "description": "Retrieves information about repl article column",
     "category": "Advanced Features",
     "tags": [
       "get"
@@ -3891,7 +3891,7 @@
   },
   {
     "name": "Get-DbaReplDistributor",
-    "description": "Retrieves information about ReplDistributor",
+    "description": "Retrieves replication distributor configuration",
     "category": "Advanced Features",
     "tags": [
       "get"
@@ -3903,7 +3903,7 @@
   },
   {
     "name": "Get-DbaReplPublication",
-    "description": "Retrieves information about ReplPublication",
+    "description": "Retrieves replication publication information",
     "category": "Advanced Features",
     "tags": [
       "get"
@@ -3915,7 +3915,7 @@
   },
   {
     "name": "Get-DbaReplPublisher",
-    "description": "Retrieves information about ReplPublisher",
+    "description": "Retrieves replication publisher configuration",
     "category": "Advanced Features",
     "tags": [
       "get"
@@ -3927,7 +3927,7 @@
   },
   {
     "name": "Get-DbaReplServer",
-    "description": "Retrieves information about ReplServer",
+    "description": "Retrieves replication server configuration",
     "category": "Advanced Features",
     "tags": [
       "get",
@@ -3940,7 +3940,7 @@
   },
   {
     "name": "Get-DbaReplSubscription",
-    "description": "Retrieves information about ReplSubscription",
+    "description": "Retrieves replication subscription information",
     "category": "Advanced Features",
     "tags": [
       "get"
@@ -3952,7 +3952,7 @@
   },
   {
     "name": "Get-DbaResourceGovernor",
-    "description": "Retrieves information about ResourceGovernor",
+    "description": "Retrieves resource governor configuration",
     "category": "Advanced Features",
     "tags": [
       "get"
@@ -3964,7 +3964,7 @@
   },
   {
     "name": "Get-DbaRgClassifierFunction",
-    "description": "Retrieves information about RgClassifierFunction",
+    "description": "Retrieves information about rg classifier function",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3976,7 +3976,7 @@
   },
   {
     "name": "Get-DbaRgResourcePool",
-    "description": "Retrieves information about RgResourcePool",
+    "description": "Retrieves information about rg resource pool",
     "category": "Utilities",
     "tags": [
       "get"
@@ -3988,7 +3988,7 @@
   },
   {
     "name": "Get-DbaRgWorkloadGroup",
-    "description": "Retrieves information about RgWorkloadGroup",
+    "description": "Retrieves information about rg workload group",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4000,7 +4000,7 @@
   },
   {
     "name": "Get-DbaRunningJob",
-    "description": "Retrieves information about RunningJob",
+    "description": "Retrieves currently executing SQL Server Agent jobs",
     "category": "Agent & Jobs",
     "tags": [
       "get",
@@ -4013,7 +4013,7 @@
   },
   {
     "name": "Get-DbaSchemaChangeHistory",
-    "description": "Retrieves information about SchemaChangeHistory",
+    "description": "Retrieves schema change history from default trace",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4025,7 +4025,7 @@
   },
   {
     "name": "Get-DbaServerRole",
-    "description": "Retrieves information about ServerRole",
+    "description": "Retrieves server roles",
     "category": "Security",
     "tags": [
       "get",
@@ -4038,7 +4038,7 @@
   },
   {
     "name": "Get-DbaServerRoleMember",
-    "description": "Retrieves information about ServerRoleMember",
+    "description": "Retrieves information about server role member",
     "category": "Security",
     "tags": [
       "get",
@@ -4051,7 +4051,7 @@
   },
   {
     "name": "Get-DbaService",
-    "description": "Retrieves SQL Server service information including status and startup accounts.",
+    "description": "Retrieves SQL Server service status and configuration",
     "category": "Server Management",
     "tags": [
       "get"
@@ -4063,7 +4063,7 @@
   },
   {
     "name": "Get-DbaSpConfigure",
-    "description": "Retrieves information about SpConfigure",
+    "description": "Retrieves sp_configure configuration values",
     "category": "Server Management",
     "tags": [
       "get"
@@ -4075,7 +4075,7 @@
   },
   {
     "name": "Get-DbaSpinLockStatistic",
-    "description": "Retrieves information about SpinLockStatistic",
+    "description": "Retrieves information about spin lock statistic",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4087,7 +4087,7 @@
   },
   {
     "name": "Get-DbaSpn",
-    "description": "Retrieves information about Spn",
+    "description": "Retrieves Service Principal Name (SPN) information",
     "category": "Security",
     "tags": [
       "get"
@@ -4099,7 +4099,7 @@
   },
   {
     "name": "Get-DbaSsisEnvironmentVariable",
-    "description": "Retrieves information about SsisEnvironmentVariable",
+    "description": "Retrieves information about ssis environment variable",
     "category": "Advanced Features",
     "tags": [
       "get"
@@ -4111,7 +4111,7 @@
   },
   {
     "name": "Get-DbaSsisExecutionHistory",
-    "description": "Retrieves information about SsisExecutionHistory",
+    "description": "Retrieves information about ssis execution history",
     "category": "Performance",
     "tags": [
       "get"
@@ -4123,7 +4123,7 @@
   },
   {
     "name": "Get-DbaStartupParameter",
-    "description": "Retrieves information about StartupParameter",
+    "description": "Retrieves SQL Server startup parameters",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4135,7 +4135,7 @@
   },
   {
     "name": "Get-DbaStartupProcedure",
-    "description": "Retrieves information about StartupProcedure",
+    "description": "Retrieves startup stored procedures",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4147,7 +4147,7 @@
   },
   {
     "name": "Get-DbaSuspectPage",
-    "description": "Retrieves information about SuspectPage",
+    "description": "Retrieves suspect page information from msdb",
     "category": "Utilities",
     "tags": [
       "get",
@@ -4160,7 +4160,7 @@
   },
   {
     "name": "Get-DbaTcpPort",
-    "description": "Retrieves information about TcpPort",
+    "description": "Retrieves SQL Server TCP port configuration and settings",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4172,7 +4172,7 @@
   },
   {
     "name": "Get-DbaTempdbUsage",
-    "description": "Retrieves information about TempdbUsage",
+    "description": "Retrieves tempdb space usage by session",
     "category": "Utilities",
     "tags": [
       "get",
@@ -4185,7 +4185,7 @@
   },
   {
     "name": "Get-DbatoolsChangeLog",
-    "description": "Retrieves information about toolsChangeLog",
+    "description": "Retrieves information about tools change log",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4197,7 +4197,7 @@
   },
   {
     "name": "Get-DbatoolsConfig",
-    "description": "Retrieves information about toolsConfig",
+    "description": "Retrieves dbatools configuration settings",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4209,7 +4209,7 @@
   },
   {
     "name": "Get-DbatoolsConfigValue",
-    "description": "Retrieves information about toolsConfigValue",
+    "description": "Retrieves information about tools config value",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4221,7 +4221,7 @@
   },
   {
     "name": "Get-DbatoolsError",
-    "description": "Retrieves information about toolsError",
+    "description": "Retrieves dbatools error log",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4233,7 +4233,7 @@
   },
   {
     "name": "Get-DbatoolsLog",
-    "description": "Retrieves information about toolsLog",
+    "description": "Retrieves dbatools message log",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4245,7 +4245,7 @@
   },
   {
     "name": "Get-DbatoolsPath",
-    "description": "Retrieves information about toolsPath",
+    "description": "Retrieves dbatools module paths",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4257,7 +4257,7 @@
   },
   {
     "name": "Get-DbaTopResourceUsage",
-    "description": "Retrieves information about TopResourceUsage",
+    "description": "Identifies top resource-consuming queries and procedures",
     "category": "Utilities",
     "tags": [
       "get",
@@ -4270,7 +4270,7 @@
   },
   {
     "name": "Get-DbaTrace",
-    "description": "Retrieves information about Trace",
+    "description": "Retrieves SQL Server trace information",
     "category": "Performance",
     "tags": [
       "get"
@@ -4282,7 +4282,7 @@
   },
   {
     "name": "Get-DbaTraceFlag",
-    "description": "Retrieves information about TraceFlag",
+    "description": "Retrieves active trace flags",
     "category": "Performance",
     "tags": [
       "get",
@@ -4295,7 +4295,7 @@
   },
   {
     "name": "Get-DbaUptime",
-    "description": "Retrieves information about Uptime",
+    "description": "Retrieves SQL Server instance uptime",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4307,7 +4307,7 @@
   },
   {
     "name": "Get-DbaUserPermission",
-    "description": "Retrieves effective permissions for SQL Server logins and users.",
+    "description": "Retrieves user permissions across databases",
     "category": "Security",
     "tags": [
       "get",
@@ -4320,7 +4320,7 @@
   },
   {
     "name": "Get-DbaWaitingTask",
-    "description": "Retrieves information about WaitingTask",
+    "description": "Retrieves currently waiting tasks",
     "category": "Performance",
     "tags": [
       "get"
@@ -4332,7 +4332,7 @@
   },
   {
     "name": "Get-DbaWaitResource",
-    "description": "Retrieves information about WaitResource",
+    "description": "Retrieves wait resource information",
     "category": "Performance",
     "tags": [
       "get"
@@ -4344,7 +4344,7 @@
   },
   {
     "name": "Get-DbaWaitStatistic",
-    "description": "Retrieves information about WaitStatistic",
+    "description": "Retrieves SQL Server wait statistics",
     "category": "Performance",
     "tags": [
       "get"
@@ -4356,7 +4356,7 @@
   },
   {
     "name": "Get-DbaWindowsLog",
-    "description": "Retrieves information about WindowsLog",
+    "description": "Retrieves Windows event log entries related to SQL Server",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4368,7 +4368,7 @@
   },
   {
     "name": "Get-DbaWsfcAvailableDisk",
-    "description": "Retrieves information about WsfcAvailableDisk",
+    "description": "Retrieves information about wsfc available disk",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4380,7 +4380,7 @@
   },
   {
     "name": "Get-DbaWsfcCluster",
-    "description": "Retrieves information about WsfcCluster",
+    "description": "Retrieves Windows Server Failover Cluster information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4392,7 +4392,7 @@
   },
   {
     "name": "Get-DbaWsfcDisk",
-    "description": "Retrieves information about WsfcDisk",
+    "description": "Retrieves cluster disk information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4404,7 +4404,7 @@
   },
   {
     "name": "Get-DbaWsfcNetwork",
-    "description": "Retrieves information about WsfcNetwork",
+    "description": "Retrieves cluster network information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4416,7 +4416,7 @@
   },
   {
     "name": "Get-DbaWsfcNetworkInterface",
-    "description": "Retrieves information about WsfcNetworkInterface",
+    "description": "Retrieves information about wsfc network interface",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4428,7 +4428,7 @@
   },
   {
     "name": "Get-DbaWsfcNode",
-    "description": "Retrieves information about WsfcNode",
+    "description": "Retrieves cluster node information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4440,7 +4440,7 @@
   },
   {
     "name": "Get-DbaWsfcResource",
-    "description": "Retrieves information about WsfcResource",
+    "description": "Retrieves cluster resource information",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4452,7 +4452,7 @@
   },
   {
     "name": "Get-DbaWsfcResourceGroup",
-    "description": "Retrieves information about WsfcResourceGroup",
+    "description": "Retrieves information about wsfc resource group",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4464,7 +4464,7 @@
   },
   {
     "name": "Get-DbaWsfcResourceType",
-    "description": "Retrieves information about WsfcResourceType",
+    "description": "Retrieves information about wsfc resource type",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4476,7 +4476,7 @@
   },
   {
     "name": "Get-DbaWsfcRole",
-    "description": "Retrieves information about WsfcRole",
+    "description": "Retrieves cluster role information",
     "category": "Security",
     "tags": [
       "get"
@@ -4488,7 +4488,7 @@
   },
   {
     "name": "Get-DbaWsfcSharedVolume",
-    "description": "Retrieves information about WsfcSharedVolume",
+    "description": "Retrieves information about wsfc shared volume",
     "category": "Utilities",
     "tags": [
       "get"
@@ -4500,7 +4500,7 @@
   },
   {
     "name": "Get-DbaXEObject",
-    "description": "Retrieves information about XEObject",
+    "description": "Retrieves information about x e object",
     "category": "Performance",
     "tags": [
       "get"
@@ -4512,7 +4512,7 @@
   },
   {
     "name": "Get-DbaXESession",
-    "description": "Retrieves information about XESession",
+    "description": "Retrieves Extended Events session information",
     "category": "Performance",
     "tags": [
       "get"
@@ -4524,7 +4524,7 @@
   },
   {
     "name": "Get-DbaXESessionTarget",
-    "description": "Retrieves information about XESessionTarget",
+    "description": "Retrieves Extended Events session targets",
     "category": "Performance",
     "tags": [
       "get"
@@ -4536,7 +4536,7 @@
   },
   {
     "name": "Get-DbaXESessionTargetFile",
-    "description": "Retrieves information about XESessionTargetFile",
+    "description": "Retrieves information about x e session target file",
     "category": "Performance",
     "tags": [
       "get"
@@ -4548,7 +4548,7 @@
   },
   {
     "name": "Get-DbaXESessionTemplate",
-    "description": "Retrieves information about XESessionTemplate",
+    "description": "Retrieves available Extended Events templates",
     "category": "Performance",
     "tags": [
       "get"
@@ -4560,7 +4560,7 @@
   },
   {
     "name": "Get-DbaXEStore",
-    "description": "Retrieves information about XEStore",
+    "description": "Retrieves information about x e store",
     "category": "Performance",
     "tags": [
       "get"
@@ -4572,7 +4572,7 @@
   },
   {
     "name": "Grant-DbaAgPermission",
-    "description": "Manages AgPermission",
+    "description": "Manages ag permission",
     "category": "Security",
     "tags": [
       "grant",
@@ -4622,7 +4622,7 @@
   },
   {
     "name": "Import-DbaRegServer",
-    "description": "Imports RegServer from file",
+    "description": "Imports registered servers from file",
     "category": "Migration",
     "tags": [
       "import",
@@ -4659,7 +4659,7 @@
   },
   {
     "name": "Import-DbaXESessionTemplate",
-    "description": "Imports XESessionTemplate from file",
+    "description": "Imports Extended Events session templates",
     "category": "Migration",
     "tags": [
       "import"
@@ -4671,7 +4671,7 @@
   },
   {
     "name": "Install-DbaAgentAdminAlert",
-    "description": "Installs AgentAdminAlert",
+    "description": "Installs agent admin alert",
     "category": "Agent & Jobs",
     "tags": [
       "install",
@@ -4685,7 +4685,7 @@
   },
   {
     "name": "Install-DbaDarlingData",
-    "description": "Installs DarlingData",
+    "description": "Installs Erik Darling Data performance scripts",
     "category": "Utilities",
     "tags": [
       "install"
@@ -4697,7 +4697,7 @@
   },
   {
     "name": "Install-DbaFirstResponderKit",
-    "description": "Installs FirstResponderKit",
+    "description": "Installs Brent Ozar First Responder Kit",
     "category": "Utilities",
     "tags": [
       "install"
@@ -4722,7 +4722,7 @@
   },
   {
     "name": "Install-DbaMaintenanceSolution",
-    "description": "Installs Ola Hallengren's SQL Server maintenance solution.",
+    "description": "Installs Ola Hallengren maintenance solution",
     "category": "Utilities",
     "tags": [
       "install"
@@ -4734,7 +4734,7 @@
   },
   {
     "name": "Install-DbaMultiTool",
-    "description": "Installs MultiTool",
+    "description": "Installs multi tool",
     "category": "Utilities",
     "tags": [
       "install"
@@ -4746,7 +4746,7 @@
   },
   {
     "name": "Install-DbaSqlPackage",
-    "description": "Installs SqlPackage",
+    "description": "Installs sql package",
     "category": "Utilities",
     "tags": [
       "install",
@@ -4771,7 +4771,7 @@
   },
   {
     "name": "Install-DbaWhoIsActive",
-    "description": "Installs WhoIsActive",
+    "description": "Installs Adam Machanic sp_WhoIsActive procedure",
     "category": "Utilities",
     "tags": [
       "install"
@@ -4820,7 +4820,7 @@
   },
   {
     "name": "Invoke-DbaAgFailover",
-    "description": "Executes AgFailover operation",
+    "description": "Performs a failover of an Availability Group",
     "category": "Utilities",
     "tags": [
       "invoke",
@@ -4857,7 +4857,7 @@
   },
   {
     "name": "Invoke-DbaDbccDropCleanBuffer",
-    "description": "Executes DbccDropCleanBuffer operation",
+    "description": "Executes DBCC DROPCLEANBUFFERS to clear buffer cache",
     "category": "Utilities",
     "tags": [
       "invoke"
@@ -4869,7 +4869,7 @@
   },
   {
     "name": "Invoke-DbaDbccFreeCache",
-    "description": "Executes DbccFreeCache operation",
+    "description": "Executes DBCC FREEPROCCACHE or DROPCLEANBUFFERS",
     "category": "Utilities",
     "tags": [
       "invoke"
@@ -4893,7 +4893,7 @@
   },
   {
     "name": "Invoke-DbaDbDataGenerator",
-    "description": "Executes DbDataGenerator operation",
+    "description": "Generates test data for databases",
     "category": "Data Operations",
     "tags": [
       "invoke",
@@ -4906,7 +4906,7 @@
   },
   {
     "name": "Invoke-DbaDbDataMasking",
-    "description": "Executes DbDataMasking operation",
+    "description": "Masks sensitive data in databases",
     "category": "Data Operations",
     "tags": [
       "invoke"
@@ -4968,7 +4968,7 @@
   },
   {
     "name": "Invoke-DbaDbLogShipping",
-    "description": "Executes DbLogShipping operation",
+    "description": "Configures log shipping",
     "category": "Utilities",
     "tags": [
       "invoke"
@@ -5005,7 +5005,7 @@
   },
   {
     "name": "Invoke-DbaDbMirroring",
-    "description": "Executes DbMirroring operation",
+    "description": "Configures or manages database mirroring",
     "category": "Utilities",
     "tags": [
       "invoke",
@@ -5030,7 +5030,7 @@
   },
   {
     "name": "Invoke-DbaDbShrink",
-    "description": "Executes DbShrink operation",
+    "description": "Shrinks database files to reduce size",
     "category": "Utilities",
     "tags": [
       "invoke"
@@ -5054,7 +5054,7 @@
   },
   {
     "name": "Invoke-DbaDbUpgrade",
-    "description": "Executes DbUpgrade operation",
+    "description": "Upgrades database compatibility level",
     "category": "Utilities",
     "tags": [
       "invoke"
@@ -5066,7 +5066,7 @@
   },
   {
     "name": "Invoke-DbaDiagnosticQuery",
-    "description": "Executes DiagnosticQuery operation",
+    "description": "Executes Glenn Berry diagnostic queries",
     "category": "Performance",
     "tags": [
       "invoke",
@@ -5092,7 +5092,7 @@
   },
   {
     "name": "Invoke-DbaQuery",
-    "description": "Executes SQL queries and returns results as PowerShell objects.",
+    "description": "Executes SQL queries against SQL Server instances",
     "category": "Utilities",
     "tags": [
       "invoke",
@@ -5129,7 +5129,7 @@
   },
   {
     "name": "Invoke-DbaWhoIsActive",
-    "description": "Executes WhoIsActive operation",
+    "description": "Executes sp_WhoIsActive to show active sessions",
     "category": "Utilities",
     "tags": [
       "invoke"
@@ -5153,7 +5153,7 @@
   },
   {
     "name": "Join-DbaAvailabilityGroup",
-    "description": "Manages AvailabilityGroup",
+    "description": "Manages availability group",
     "category": "Utilities",
     "tags": [
       "join",
@@ -5166,7 +5166,7 @@
   },
   {
     "name": "Join-DbaPath",
-    "description": "Manages Path",
+    "description": "Combines path segments into a single path",
     "category": "Utilities",
     "tags": [
       "join"
@@ -5178,7 +5178,7 @@
   },
   {
     "name": "Measure-DbaBackupThroughput",
-    "description": "Manages BackupThroughput",
+    "description": "Measures backup and restore throughput performance",
     "category": "Backup & Restore",
     "tags": [
       "measure",
@@ -5191,7 +5191,7 @@
   },
   {
     "name": "Measure-DbaDbVirtualLogFile",
-    "description": "Manages DbVirtualLogFile",
+    "description": "Measures and reports on VLF counts",
     "category": "Utilities",
     "tags": [
       "measure"
@@ -5203,7 +5203,7 @@
   },
   {
     "name": "Measure-DbaDiskSpaceRequirement",
-    "description": "Manages DiskSpaceRequirement",
+    "description": "Calculates disk space requirements for operations",
     "category": "Utilities",
     "tags": [
       "measure"
@@ -5215,7 +5215,7 @@
   },
   {
     "name": "Measure-DbatoolsImport",
-    "description": "Manages toolsImport",
+    "description": "Manages tools import",
     "category": "Utilities",
     "tags": [
       "measure"
@@ -5227,7 +5227,7 @@
   },
   {
     "name": "Mount-DbaDatabase",
-    "description": "Manages Database",
+    "description": "Mounts a database from snapshot or storage",
     "category": "Database Operations",
     "tags": [
       "mount",
@@ -5252,7 +5252,7 @@
   },
   {
     "name": "Move-DbaRegServer",
-    "description": "Moves RegServer to new location",
+    "description": "Moves registered servers between groups",
     "category": "Utilities",
     "tags": [
       "move",
@@ -5278,7 +5278,7 @@
   },
   {
     "name": "New-DbaAgentAlert",
-    "description": "Creates new AgentAlert",
+    "description": "Creates a new SQL Server Agent alert",
     "category": "Agent & Jobs",
     "tags": [
       "new",
@@ -5306,7 +5306,7 @@
   },
   {
     "name": "New-DbaAgentJob",
-    "description": "Creates new AgentJob",
+    "description": "Creates a new SQL Server Agent job",
     "category": "Agent & Jobs",
     "tags": [
       "new",
@@ -5336,7 +5336,7 @@
   },
   {
     "name": "New-DbaAgentJobStep",
-    "description": "Creates new AgentJobStep",
+    "description": "Creates a new SQL Server Agent job step",
     "category": "Agent & Jobs",
     "tags": [
       "new",
@@ -5351,7 +5351,7 @@
   },
   {
     "name": "New-DbaAgentOperator",
-    "description": "Creates new AgentOperator",
+    "description": "Creates a new SQL Server Agent operator",
     "category": "Agent & Jobs",
     "tags": [
       "new",
@@ -5365,7 +5365,7 @@
   },
   {
     "name": "New-DbaAgentProxy",
-    "description": "Creates new AgentProxy",
+    "description": "Creates a new SQL Server Agent proxy account",
     "category": "Agent & Jobs",
     "tags": [
       "new",
@@ -5379,7 +5379,7 @@
   },
   {
     "name": "New-DbaAgentSchedule",
-    "description": "Creates new AgentSchedule",
+    "description": "Creates a new SQL Server Agent job schedule",
     "category": "Agent & Jobs",
     "tags": [
       "new",
@@ -5393,7 +5393,7 @@
   },
   {
     "name": "New-DbaAvailabilityGroup",
-    "description": "Creates new AvailabilityGroup",
+    "description": "Creates a new Always On Availability Group",
     "category": "Utilities",
     "tags": [
       "new",
@@ -5504,7 +5504,7 @@
   },
   {
     "name": "New-DbaCustomError",
-    "description": "Creates new CustomError",
+    "description": "Creates a new custom error message",
     "category": "Utilities",
     "tags": [
       "new"
@@ -5540,7 +5540,7 @@
   },
   {
     "name": "New-DbaDatabase",
-    "description": "Creates new Database",
+    "description": "Creates a new database on a SQL Server instance",
     "category": "Database Operations",
     "tags": [
       "new",
@@ -5565,7 +5565,7 @@
   },
   {
     "name": "New-DbaDbCertificate",
-    "description": "Creates new DbCertificate",
+    "description": "Creates a new database certificate",
     "category": "Security",
     "tags": [
       "new",
@@ -5604,7 +5604,7 @@
   },
   {
     "name": "New-DbaDbFileGroup",
-    "description": "Creates new DbFileGroup",
+    "description": "Creates a new database filegroup",
     "category": "Database Operations",
     "tags": [
       "new"
@@ -5652,7 +5652,7 @@
   },
   {
     "name": "New-DbaDbMasterKey",
-    "description": "Creates new DbMasterKey",
+    "description": "Creates a new database master key",
     "category": "Utilities",
     "tags": [
       "new"
@@ -5664,7 +5664,7 @@
   },
   {
     "name": "New-DbaDbRole",
-    "description": "Creates new DbRole",
+    "description": "Creates a new database role",
     "category": "Security",
     "tags": [
       "new"
@@ -5676,7 +5676,7 @@
   },
   {
     "name": "New-DbaDbSchema",
-    "description": "Creates new DbSchema",
+    "description": "Creates a new database schema",
     "category": "Utilities",
     "tags": [
       "new"
@@ -5688,7 +5688,7 @@
   },
   {
     "name": "New-DbaDbSequence",
-    "description": "Creates new DbSequence",
+    "description": "Creates a new database sequence",
     "category": "Utilities",
     "tags": [
       "new"
@@ -5700,7 +5700,7 @@
   },
   {
     "name": "New-DbaDbSnapshot",
-    "description": "Creates new DbSnapshot",
+    "description": "Creates a new database snapshot",
     "category": "Backup & Restore",
     "tags": [
       "new"
@@ -5786,7 +5786,7 @@
   },
   {
     "name": "New-DbaEndpoint",
-    "description": "Creates new Endpoint",
+    "description": "Creates a new endpoint",
     "category": "Advanced Features",
     "tags": [
       "new"
@@ -5810,7 +5810,7 @@
   },
   {
     "name": "New-DbaLinkedServer",
-    "description": "Creates new LinkedServer",
+    "description": "Creates a new linked server",
     "category": "Utilities",
     "tags": [
       "new",
@@ -5837,7 +5837,7 @@
   },
   {
     "name": "New-DbaLogin",
-    "description": "Creates new SQL Server logins with specified authentication and permissions.",
+    "description": "Creates a new SQL Server login",
     "category": "Security",
     "tags": [
       "new",
@@ -5862,7 +5862,7 @@
   },
   {
     "name": "New-DbaReplPublication",
-    "description": "Creates new ReplPublication",
+    "description": "Creates a new replication publication",
     "category": "Advanced Features",
     "tags": [
       "new"
@@ -5874,7 +5874,7 @@
   },
   {
     "name": "New-DbaReplSubscription",
-    "description": "Creates new ReplSubscription",
+    "description": "Creates a new replication subscription",
     "category": "Advanced Features",
     "tags": [
       "new"
@@ -5922,7 +5922,7 @@
   },
   {
     "name": "New-DbaServerRole",
-    "description": "Creates new ServerRole",
+    "description": "Creates a new server role",
     "category": "Security",
     "tags": [
       "new",
@@ -5984,7 +5984,7 @@
   },
   {
     "name": "New-DbaXESession",
-    "description": "Creates new XESession",
+    "description": "Creates a new Extended Events session",
     "category": "Performance",
     "tags": [
       "new"
@@ -5996,7 +5996,7 @@
   },
   {
     "name": "Publish-DbaDacPackage",
-    "description": "Manages DacPackage",
+    "description": "Publishes a DACPAC to a database",
     "category": "Utilities",
     "tags": [
       "publish",
@@ -6021,7 +6021,7 @@
   },
   {
     "name": "Read-DbaBackupHeader",
-    "description": "Reads data from BackupHeader",
+    "description": "Reads backup file headers without restoring",
     "category": "Backup & Restore",
     "tags": [
       "read",
@@ -6034,7 +6034,7 @@
   },
   {
     "name": "Read-DbaTraceFile",
-    "description": "Reads data from TraceFile",
+    "description": "Reads SQL Server trace files",
     "category": "Performance",
     "tags": [
       "read"
@@ -6058,7 +6058,7 @@
   },
   {
     "name": "Read-DbaXEFile",
-    "description": "Reads data from XEFile",
+    "description": "Reads Extended Events files",
     "category": "Performance",
     "tags": [
       "read"
@@ -6070,7 +6070,7 @@
   },
   {
     "name": "Register-DbatoolsConfig",
-    "description": "Manages toolsConfig",
+    "description": "Registers tools config",
     "category": "Utilities",
     "tags": [
       "register"
@@ -6082,7 +6082,7 @@
   },
   {
     "name": "Remove-DbaAgDatabase",
-    "description": "Deletes AgDatabase",
+    "description": "Removes databases from an Availability Group",
     "category": "Database Operations",
     "tags": [
       "remove",
@@ -6096,7 +6096,7 @@
   },
   {
     "name": "Remove-DbaAgentAlert",
-    "description": "Deletes AgentAlert",
+    "description": "Removes SQL Server Agent alerts",
     "category": "Agent & Jobs",
     "tags": [
       "remove",
@@ -6110,7 +6110,7 @@
   },
   {
     "name": "Remove-DbaAgentAlertCategory",
-    "description": "Deletes AgentAlertCategory",
+    "description": "Removes agent alert category",
     "category": "Agent & Jobs",
     "tags": [
       "remove",
@@ -6124,7 +6124,7 @@
   },
   {
     "name": "Remove-DbaAgentJob",
-    "description": "Deletes AgentJob",
+    "description": "Removes SQL Server Agent jobs",
     "category": "Agent & Jobs",
     "tags": [
       "remove",
@@ -6139,7 +6139,7 @@
   },
   {
     "name": "Remove-DbaAgentJobCategory",
-    "description": "Deletes AgentJobCategory",
+    "description": "Removes agent job category",
     "category": "Agent & Jobs",
     "tags": [
       "remove",
@@ -6154,7 +6154,7 @@
   },
   {
     "name": "Remove-DbaAgentJobStep",
-    "description": "Deletes AgentJobStep",
+    "description": "Removes SQL Server Agent job steps",
     "category": "Agent & Jobs",
     "tags": [
       "remove",
@@ -6169,7 +6169,7 @@
   },
   {
     "name": "Remove-DbaAgentOperator",
-    "description": "Deletes AgentOperator",
+    "description": "Removes SQL Server Agent operators",
     "category": "Agent & Jobs",
     "tags": [
       "remove",
@@ -6183,7 +6183,7 @@
   },
   {
     "name": "Remove-DbaAgentProxy",
-    "description": "Deletes AgentProxy",
+    "description": "Removes SQL Server Agent proxy accounts",
     "category": "Agent & Jobs",
     "tags": [
       "remove",
@@ -6197,7 +6197,7 @@
   },
   {
     "name": "Remove-DbaAgentSchedule",
-    "description": "Deletes AgentSchedule",
+    "description": "Removes agent schedule",
     "category": "Agent & Jobs",
     "tags": [
       "remove",
@@ -6211,7 +6211,7 @@
   },
   {
     "name": "Remove-DbaAgListener",
-    "description": "Deletes AgListener",
+    "description": "Removes ag listener",
     "category": "Utilities",
     "tags": [
       "remove",
@@ -6224,7 +6224,7 @@
   },
   {
     "name": "Remove-DbaAgReplica",
-    "description": "Deletes AgReplica",
+    "description": "Removes ag replica",
     "category": "Advanced Features",
     "tags": [
       "remove",
@@ -6237,7 +6237,7 @@
   },
   {
     "name": "Remove-DbaAvailabilityGroup",
-    "description": "Deletes AvailabilityGroup",
+    "description": "Removes an Always On Availability Group",
     "category": "Utilities",
     "tags": [
       "remove",
@@ -6250,7 +6250,7 @@
   },
   {
     "name": "Remove-DbaBackup",
-    "description": "Deletes Backup",
+    "description": "Removes backup files from disk",
     "category": "Backup & Restore",
     "tags": [
       "remove",
@@ -6263,7 +6263,7 @@
   },
   {
     "name": "Remove-DbaClientAlias",
-    "description": "Deletes ClientAlias",
+    "description": "Removes client alias",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6275,7 +6275,7 @@
   },
   {
     "name": "Remove-DbaCmConnection",
-    "description": "Deletes CmConnection",
+    "description": "Removes cm connection",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6287,7 +6287,7 @@
   },
   {
     "name": "Remove-DbaComputerCertificate",
-    "description": "Deletes ComputerCertificate",
+    "description": "Removes computer certificate",
     "category": "Security",
     "tags": [
       "remove",
@@ -6300,7 +6300,7 @@
   },
   {
     "name": "Remove-DbaCredential",
-    "description": "Deletes Credential",
+    "description": "Removes SQL Server credentials",
     "category": "Security",
     "tags": [
       "remove"
@@ -6312,7 +6312,7 @@
   },
   {
     "name": "Remove-DbaCustomError",
-    "description": "Deletes CustomError",
+    "description": "Removes custom error messages",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6324,7 +6324,7 @@
   },
   {
     "name": "Remove-DbaDatabase",
-    "description": "Deletes Database",
+    "description": "Removes databases from SQL Server instances",
     "category": "Database Operations",
     "tags": [
       "remove",
@@ -6337,7 +6337,7 @@
   },
   {
     "name": "Remove-DbaDatabaseSafely",
-    "description": "Deletes DatabaseSafely",
+    "description": "Removes database safely",
     "category": "Database Operations",
     "tags": [
       "remove",
@@ -6350,7 +6350,7 @@
   },
   {
     "name": "Remove-DbaDbAsymmetricKey",
-    "description": "Deletes DbAsymmetricKey",
+    "description": "Removes db asymmetric key",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6362,7 +6362,7 @@
   },
   {
     "name": "Remove-DbaDbBackupRestoreHistory",
-    "description": "Deletes DbBackupRestoreHistory",
+    "description": "Removes db backup restore history",
     "category": "Backup & Restore",
     "tags": [
       "remove",
@@ -6376,7 +6376,7 @@
   },
   {
     "name": "Remove-DbaDbCertificate",
-    "description": "Deletes DbCertificate",
+    "description": "Removes database certificates",
     "category": "Security",
     "tags": [
       "remove",
@@ -6389,7 +6389,7 @@
   },
   {
     "name": "Remove-DbaDbCheckConstraint",
-    "description": "Deletes DbCheckConstraint",
+    "description": "Removes db check constraint",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6401,7 +6401,7 @@
   },
   {
     "name": "Remove-DbaDbData",
-    "description": "Deletes DbData",
+    "description": "Removes db data",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6413,7 +6413,7 @@
   },
   {
     "name": "Remove-DbaDbEncryptionKey",
-    "description": "Deletes DbEncryptionKey",
+    "description": "Removes db encryption key",
     "category": "Security",
     "tags": [
       "remove",
@@ -6426,7 +6426,7 @@
   },
   {
     "name": "Remove-DbaDbFileGroup",
-    "description": "Deletes DbFileGroup",
+    "description": "Removes database filegroups",
     "category": "Database Operations",
     "tags": [
       "remove"
@@ -6438,7 +6438,7 @@
   },
   {
     "name": "Remove-DbaDbLogShipping",
-    "description": "Deletes DbLogShipping",
+    "description": "Removes db log shipping",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6450,7 +6450,7 @@
   },
   {
     "name": "Remove-DbaDbMailAccount",
-    "description": "Deletes DbMailAccount",
+    "description": "Removes db mail account",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6462,7 +6462,7 @@
   },
   {
     "name": "Remove-DbaDbMailProfile",
-    "description": "Deletes DbMailProfile",
+    "description": "Removes db mail profile",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6474,7 +6474,7 @@
   },
   {
     "name": "Remove-DbaDbMasterKey",
-    "description": "Deletes DbMasterKey",
+    "description": "Removes database master keys",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6486,7 +6486,7 @@
   },
   {
     "name": "Remove-DbaDbMirror",
-    "description": "Deletes DbMirror",
+    "description": "Removes db mirror",
     "category": "Utilities",
     "tags": [
       "remove",
@@ -6499,7 +6499,7 @@
   },
   {
     "name": "Remove-DbaDbMirrorMonitor",
-    "description": "Deletes DbMirrorMonitor",
+    "description": "Removes db mirror monitor",
     "category": "Utilities",
     "tags": [
       "remove",
@@ -6512,7 +6512,7 @@
   },
   {
     "name": "Remove-DbaDbOrphanUser",
-    "description": "Deletes DbOrphanUser",
+    "description": "Removes db orphan user",
     "category": "Security",
     "tags": [
       "remove"
@@ -6524,7 +6524,7 @@
   },
   {
     "name": "Remove-DbaDbPartitionFunction",
-    "description": "Deletes DbPartitionFunction",
+    "description": "Removes db partition function",
     "category": "Advanced Features",
     "tags": [
       "remove"
@@ -6536,7 +6536,7 @@
   },
   {
     "name": "Remove-DbaDbPartitionScheme",
-    "description": "Deletes DbPartitionScheme",
+    "description": "Removes db partition scheme",
     "category": "Advanced Features",
     "tags": [
       "remove"
@@ -6548,7 +6548,7 @@
   },
   {
     "name": "Remove-DbaDbRole",
-    "description": "Deletes DbRole",
+    "description": "Removes database roles",
     "category": "Security",
     "tags": [
       "remove"
@@ -6560,7 +6560,7 @@
   },
   {
     "name": "Remove-DbaDbRoleMember",
-    "description": "Deletes DbRoleMember",
+    "description": "Removes members from database roles",
     "category": "Security",
     "tags": [
       "remove"
@@ -6572,7 +6572,7 @@
   },
   {
     "name": "Remove-DbaDbSchema",
-    "description": "Deletes DbSchema",
+    "description": "Removes database schemas",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6584,7 +6584,7 @@
   },
   {
     "name": "Remove-DbaDbSequence",
-    "description": "Deletes DbSequence",
+    "description": "Removes db sequence",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6596,7 +6596,7 @@
   },
   {
     "name": "Remove-DbaDbSnapshot",
-    "description": "Deletes DbSnapshot",
+    "description": "Removes database snapshots",
     "category": "Backup & Restore",
     "tags": [
       "remove"
@@ -6608,7 +6608,7 @@
   },
   {
     "name": "Remove-DbaDbSynonym",
-    "description": "Deletes DbSynonym",
+    "description": "Removes db synonym",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6620,7 +6620,7 @@
   },
   {
     "name": "Remove-DbaDbTable",
-    "description": "Deletes DbTable",
+    "description": "Removes db table",
     "category": "Utilities",
     "tags": [
       "remove",
@@ -6633,7 +6633,7 @@
   },
   {
     "name": "Remove-DbaDbTableData",
-    "description": "Deletes DbTableData",
+    "description": "Removes db table data",
     "category": "Data Operations",
     "tags": [
       "remove",
@@ -6646,7 +6646,7 @@
   },
   {
     "name": "Remove-DbaDbUdf",
-    "description": "Deletes DbUdf",
+    "description": "Removes db udf",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6658,7 +6658,7 @@
   },
   {
     "name": "Remove-DbaDbUser",
-    "description": "Deletes DbUser",
+    "description": "Removes database users from databases",
     "category": "Security",
     "tags": [
       "remove"
@@ -6670,7 +6670,7 @@
   },
   {
     "name": "Remove-DbaDbView",
-    "description": "Deletes DbView",
+    "description": "Removes db view",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6682,7 +6682,7 @@
   },
   {
     "name": "Remove-DbaEndpoint",
-    "description": "Deletes Endpoint",
+    "description": "Removes endpoints",
     "category": "Advanced Features",
     "tags": [
       "remove"
@@ -6694,7 +6694,7 @@
   },
   {
     "name": "Remove-DbaExtendedProperty",
-    "description": "Deletes ExtendedProperty",
+    "description": "Removes extended property",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6706,7 +6706,7 @@
   },
   {
     "name": "Remove-DbaFirewallRule",
-    "description": "Deletes FirewallRule",
+    "description": "Removes firewall rule",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6718,7 +6718,7 @@
   },
   {
     "name": "Remove-DbaLinkedServer",
-    "description": "Deletes LinkedServer",
+    "description": "Removes linked servers",
     "category": "Utilities",
     "tags": [
       "remove",
@@ -6731,7 +6731,7 @@
   },
   {
     "name": "Remove-DbaLinkedServerLogin",
-    "description": "Deletes LinkedServerLogin",
+    "description": "Removes linked server login",
     "category": "Security",
     "tags": [
       "remove",
@@ -6745,7 +6745,7 @@
   },
   {
     "name": "Remove-DbaLogin",
-    "description": "Deletes Login",
+    "description": "Removes SQL Server logins",
     "category": "Security",
     "tags": [
       "remove",
@@ -6758,7 +6758,7 @@
   },
   {
     "name": "Remove-DbaNetworkCertificate",
-    "description": "Deletes NetworkCertificate",
+    "description": "Removes network certificate",
     "category": "Security",
     "tags": [
       "remove",
@@ -6771,7 +6771,7 @@
   },
   {
     "name": "Remove-DbaPfDataCollectorCounter",
-    "description": "Deletes PfDataCollectorCounter",
+    "description": "Removes pf data collector counter",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6783,7 +6783,7 @@
   },
   {
     "name": "Remove-DbaPfDataCollectorSet",
-    "description": "Deletes PfDataCollectorSet",
+    "description": "Removes pf data collector set",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6795,7 +6795,7 @@
   },
   {
     "name": "Remove-DbaRegServer",
-    "description": "Deletes RegServer",
+    "description": "Removes registered servers from Central Management Server",
     "category": "Utilities",
     "tags": [
       "remove",
@@ -6808,7 +6808,7 @@
   },
   {
     "name": "Remove-DbaRegServerGroup",
-    "description": "Deletes RegServerGroup",
+    "description": "Removes reg server group",
     "category": "Utilities",
     "tags": [
       "remove",
@@ -6821,7 +6821,7 @@
   },
   {
     "name": "Remove-DbaReplArticle",
-    "description": "Deletes ReplArticle",
+    "description": "Removes repl article",
     "category": "Advanced Features",
     "tags": [
       "remove"
@@ -6833,7 +6833,7 @@
   },
   {
     "name": "Remove-DbaReplPublication",
-    "description": "Deletes ReplPublication",
+    "description": "Removes a replication publication",
     "category": "Advanced Features",
     "tags": [
       "remove"
@@ -6845,7 +6845,7 @@
   },
   {
     "name": "Remove-DbaReplSubscription",
-    "description": "Deletes ReplSubscription",
+    "description": "Removes a replication subscription",
     "category": "Advanced Features",
     "tags": [
       "remove"
@@ -6857,7 +6857,7 @@
   },
   {
     "name": "Remove-DbaRgResourcePool",
-    "description": "Deletes RgResourcePool",
+    "description": "Removes rg resource pool",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6869,7 +6869,7 @@
   },
   {
     "name": "Remove-DbaRgWorkloadGroup",
-    "description": "Deletes RgWorkloadGroup",
+    "description": "Removes rg workload group",
     "category": "Utilities",
     "tags": [
       "remove"
@@ -6881,7 +6881,7 @@
   },
   {
     "name": "Remove-DbaServerRole",
-    "description": "Deletes ServerRole",
+    "description": "Removes server roles",
     "category": "Security",
     "tags": [
       "remove",
@@ -6894,7 +6894,7 @@
   },
   {
     "name": "Remove-DbaServerRoleMember",
-    "description": "Deletes ServerRoleMember",
+    "description": "Removes members from server roles",
     "category": "Security",
     "tags": [
       "remove",
@@ -6907,7 +6907,7 @@
   },
   {
     "name": "Remove-DbaSpn",
-    "description": "Deletes Spn",
+    "description": "Removes Service Principal Names",
     "category": "Security",
     "tags": [
       "remove"
@@ -6919,7 +6919,7 @@
   },
   {
     "name": "Remove-DbaTrace",
-    "description": "Deletes Trace",
+    "description": "Removes SQL Server traces",
     "category": "Performance",
     "tags": [
       "remove"
@@ -6931,7 +6931,7 @@
   },
   {
     "name": "Remove-DbaXESession",
-    "description": "Deletes XESession",
+    "description": "Removes Extended Events sessions",
     "category": "Performance",
     "tags": [
       "remove"
@@ -6943,7 +6943,7 @@
   },
   {
     "name": "Rename-DbaDatabase",
-    "description": "Manages Database",
+    "description": "Renames a database on a SQL Server instance",
     "category": "Database Operations",
     "tags": [
       "rename",
@@ -6956,7 +6956,7 @@
   },
   {
     "name": "Rename-DbaLogin",
-    "description": "Manages Login",
+    "description": "Renames a SQL Server login",
     "category": "Security",
     "tags": [
       "rename",
@@ -6969,7 +6969,7 @@
   },
   {
     "name": "Repair-DbaDbMirror",
-    "description": "Manages DbMirror",
+    "description": "Repairs database mirroring configuration",
     "category": "Utilities",
     "tags": [
       "repair",
@@ -6994,7 +6994,7 @@
   },
   {
     "name": "Repair-DbaInstanceName",
-    "description": "Manages InstanceName",
+    "description": "Repairs instance name",
     "category": "Server Management",
     "tags": [
       "repair",
@@ -7019,7 +7019,7 @@
   },
   {
     "name": "Reset-DbatoolsConfig",
-    "description": "Manages toolsConfig",
+    "description": "Resets tools config to default state",
     "category": "Utilities",
     "tags": [
       "reset"
@@ -7031,7 +7031,7 @@
   },
   {
     "name": "Resolve-DbaNetworkName",
-    "description": "Manages NetworkName",
+    "description": "Manages network name",
     "category": "Utilities",
     "tags": [
       "resolve"
@@ -7043,7 +7043,7 @@
   },
   {
     "name": "Resolve-DbaPath",
-    "description": "Manages Path",
+    "description": "Resolves relative or network paths to absolute paths",
     "category": "Utilities",
     "tags": [
       "resolve"
@@ -7055,7 +7055,7 @@
   },
   {
     "name": "Restart-DbaService",
-    "description": "Manages Service",
+    "description": "Restarts SQL Server related services",
     "category": "Server Management",
     "tags": [
       "restart"
@@ -7067,7 +7067,7 @@
   },
   {
     "name": "Restore-DbaDatabase",
-    "description": "Restores SQL Server database backups with support for point-in-time recovery and filegroup restores.",
+    "description": "Restores databases from backup files",
     "category": "Backup & Restore",
     "tags": [
       "restore",
@@ -7093,7 +7093,7 @@
   },
   {
     "name": "Restore-DbaDbSnapshot",
-    "description": "Restores database Snapshot from backup",
+    "description": "Restores a database from snapshot",
     "category": "Backup & Restore",
     "tags": [
       "restore"
@@ -7105,7 +7105,7 @@
   },
   {
     "name": "Resume-DbaAgDbDataMovement",
-    "description": "Manages AgDbDataMovement",
+    "description": "Resumes data movement for Availability Group databases",
     "category": "Utilities",
     "tags": [
       "resume",
@@ -7118,7 +7118,7 @@
   },
   {
     "name": "Revoke-DbaAgPermission",
-    "description": "Manages AgPermission",
+    "description": "Revokes ag permission",
     "category": "Security",
     "tags": [
       "revoke",
@@ -7132,7 +7132,7 @@
   },
   {
     "name": "Save-DbaCommunitySoftware",
-    "description": "Manages CommunitySoftware",
+    "description": "Saves community software",
     "category": "Utilities",
     "tags": [
       "save"
@@ -7144,7 +7144,7 @@
   },
   {
     "name": "Save-DbaDiagnosticQueryScript",
-    "description": "Manages DiagnosticQueryScript",
+    "description": "Saves diagnostic query script",
     "category": "Performance",
     "tags": [
       "save",
@@ -7158,7 +7158,7 @@
   },
   {
     "name": "Save-DbaKbUpdate",
-    "description": "Manages KbUpdate",
+    "description": "Downloads and saves SQL Server KB updates",
     "category": "Utilities",
     "tags": [
       "save"
@@ -7170,7 +7170,7 @@
   },
   {
     "name": "Select-DbaBackupInformation",
-    "description": "Manages BackupInformation",
+    "description": "Filters and selects backup files for restore planning",
     "category": "Backup & Restore",
     "tags": [
       "select",
@@ -7183,7 +7183,7 @@
   },
   {
     "name": "Select-DbaDbSequenceNextValue",
-    "description": "Manages DbSequenceNextValue",
+    "description": "Manages db sequence next value",
     "category": "Utilities",
     "tags": [
       "select"
@@ -7195,7 +7195,7 @@
   },
   {
     "name": "Set-DbaAgentAlert",
-    "description": "Configures AgentAlert settings",
+    "description": "Modifies SQL Server Agent alert properties",
     "category": "Agent & Jobs",
     "tags": [
       "set",
@@ -7209,7 +7209,7 @@
   },
   {
     "name": "Set-DbaAgentJob",
-    "description": "Configures AgentJob settings",
+    "description": "Modifies SQL Server Agent job properties",
     "category": "Agent & Jobs",
     "tags": [
       "set",
@@ -7269,7 +7269,7 @@
   },
   {
     "name": "Set-DbaAgentJobStep",
-    "description": "Configures AgentJobStep settings",
+    "description": "Modifies SQL Server Agent job step properties",
     "category": "Agent & Jobs",
     "tags": [
       "set",
@@ -7284,7 +7284,7 @@
   },
   {
     "name": "Set-DbaAgentOperator",
-    "description": "Configures AgentOperator settings",
+    "description": "Modifies SQL Server Agent operator properties",
     "category": "Agent & Jobs",
     "tags": [
       "set",
@@ -7298,7 +7298,7 @@
   },
   {
     "name": "Set-DbaAgentSchedule",
-    "description": "Configures AgentSchedule settings",
+    "description": "Modifies SQL Server Agent schedule properties",
     "category": "Agent & Jobs",
     "tags": [
       "set",
@@ -7312,7 +7312,7 @@
   },
   {
     "name": "Set-DbaAgentServer",
-    "description": "Configures AgentServer settings",
+    "description": "Configures SQL Server Agent server properties",
     "category": "Agent & Jobs",
     "tags": [
       "set",
@@ -7327,7 +7327,7 @@
   },
   {
     "name": "Set-DbaAgListener",
-    "description": "Configures AgListener settings",
+    "description": "Modifies Availability Group listener properties",
     "category": "Utilities",
     "tags": [
       "set",
@@ -7353,7 +7353,7 @@
   },
   {
     "name": "Set-DbaAvailabilityGroup",
-    "description": "Configures AvailabilityGroup settings",
+    "description": "Modifies Availability Group properties",
     "category": "Utilities",
     "tags": [
       "set",
@@ -7390,7 +7390,7 @@
   },
   {
     "name": "Set-DbaDbCompression",
-    "description": "Configures DbCompression settings",
+    "description": "Configures database compression",
     "category": "Utilities",
     "tags": [
       "set"
@@ -7414,7 +7414,7 @@
   },
   {
     "name": "Set-DbaDbFileGrowth",
-    "description": "Configures DbFileGrowth settings",
+    "description": "Configures database file growth settings",
     "category": "Database Operations",
     "tags": [
       "set"
@@ -7451,7 +7451,7 @@
   },
   {
     "name": "Set-DbaDbOwner",
-    "description": "Configures DbOwner settings",
+    "description": "Sets database owner",
     "category": "Database Operations",
     "tags": [
       "set"
@@ -7463,7 +7463,7 @@
   },
   {
     "name": "Set-DbaDbQueryStoreOption",
-    "description": "Configures DbQueryStoreOption settings",
+    "description": "Configures Query Store settings",
     "category": "Utilities",
     "tags": [
       "set",
@@ -7476,7 +7476,7 @@
   },
   {
     "name": "Set-DbaDbRecoveryModel",
-    "description": "Configures DbRecoveryModel settings",
+    "description": "Sets database recovery model",
     "category": "Utilities",
     "tags": [
       "set"
@@ -7512,7 +7512,7 @@
   },
   {
     "name": "Set-DbaDbState",
-    "description": "Configures DbState settings",
+    "description": "Changes database state (online, offline, emergency)",
     "category": "Database Operations",
     "tags": [
       "set"
@@ -7536,7 +7536,7 @@
   },
   {
     "name": "Set-DbaEndpoint",
-    "description": "Configures Endpoint settings",
+    "description": "Modifies endpoint configuration",
     "category": "Advanced Features",
     "tags": [
       "set"
@@ -7548,7 +7548,7 @@
   },
   {
     "name": "Set-DbaErrorLogConfig",
-    "description": "Configures ErrorLogConfig settings",
+    "description": "Configures error log settings",
     "category": "Utilities",
     "tags": [
       "set"
@@ -7584,7 +7584,7 @@
   },
   {
     "name": "Set-DbaLogin",
-    "description": "Configures Login settings",
+    "description": "Modifies SQL Server login properties",
     "category": "Security",
     "tags": [
       "set",
@@ -7597,7 +7597,7 @@
   },
   {
     "name": "Set-DbaMaxDop",
-    "description": "Configures MaxDop settings",
+    "description": "Sets max degree of parallelism configuration",
     "category": "Server Management",
     "tags": [
       "set"
@@ -7609,7 +7609,7 @@
   },
   {
     "name": "Set-DbaMaxMemory",
-    "description": "Configures MaxMemory settings",
+    "description": "Sets SQL Server maximum memory configuration",
     "category": "Performance",
     "tags": [
       "set"
@@ -7634,7 +7634,7 @@
   },
   {
     "name": "Set-DbaNetworkConfiguration",
-    "description": "Configures NetworkConfiguration settings",
+    "description": "Configures SQL Server network settings",
     "category": "Utilities",
     "tags": [
       "set"
@@ -7646,7 +7646,7 @@
   },
   {
     "name": "Set-DbaPowerPlan",
-    "description": "Configures PowerPlan settings",
+    "description": "Sets Windows power plan to High Performance for SQL Server",
     "category": "Performance",
     "tags": [
       "set"
@@ -7658,7 +7658,7 @@
   },
   {
     "name": "Set-DbaPrivilege",
-    "description": "Configures Privilege settings",
+    "description": "Grants Windows privileges to SQL Server service accounts",
     "category": "Utilities",
     "tags": [
       "set"
@@ -7670,7 +7670,7 @@
   },
   {
     "name": "Set-DbaResourceGovernor",
-    "description": "Configures ResourceGovernor settings",
+    "description": "Configures resource governor settings",
     "category": "Advanced Features",
     "tags": [
       "set"
@@ -7706,7 +7706,7 @@
   },
   {
     "name": "Set-DbaSpConfigure",
-    "description": "Configures SpConfigure settings",
+    "description": "Configures SQL Server sp_configure settings",
     "category": "Server Management",
     "tags": [
       "set"
@@ -7718,7 +7718,7 @@
   },
   {
     "name": "Set-DbaSpn",
-    "description": "Configures Spn settings",
+    "description": "Configures Service Principal Names for SQL Server",
     "category": "Security",
     "tags": [
       "set"
@@ -7730,7 +7730,7 @@
   },
   {
     "name": "Set-DbaStartupParameter",
-    "description": "Configures StartupParameter settings",
+    "description": "Adds or modifies SQL Server startup parameters",
     "category": "Utilities",
     "tags": [
       "set"
@@ -7742,7 +7742,7 @@
   },
   {
     "name": "Set-DbaTcpPort",
-    "description": "Configures TcpPort settings",
+    "description": "Configures SQL Server TCP port settings",
     "category": "Utilities",
     "tags": [
       "set"
@@ -7790,7 +7790,7 @@
   },
   {
     "name": "Show-DbaDbList",
-    "description": "Manages DbList",
+    "description": "Manages db list",
     "category": "Utilities",
     "tags": [
       "show"
@@ -7802,7 +7802,7 @@
   },
   {
     "name": "Show-DbaInstanceFileSystem",
-    "description": "Manages InstanceFileSystem",
+    "description": "Manages instance file system",
     "category": "Server Management",
     "tags": [
       "show",
@@ -7815,7 +7815,7 @@
   },
   {
     "name": "Start-DbaAgentJob",
-    "description": "Starts AgentJob process or service",
+    "description": "Starts SQL Server Agent jobs",
     "category": "Agent & Jobs",
     "tags": [
       "start",
@@ -7843,7 +7843,7 @@
   },
   {
     "name": "Start-DbaEndpoint",
-    "description": "Starts Endpoint process or service",
+    "description": "Starts endpoints",
     "category": "Advanced Features",
     "tags": [
       "start"
@@ -7880,7 +7880,7 @@
   },
   {
     "name": "Start-DbaService",
-    "description": "Starts Service process or service",
+    "description": "Starts SQL Server related services",
     "category": "Server Management",
     "tags": [
       "start"
@@ -7904,7 +7904,7 @@
   },
   {
     "name": "Start-DbaXESession",
-    "description": "Starts XESession process or service",
+    "description": "Starts Extended Events sessions",
     "category": "Performance",
     "tags": [
       "start"
@@ -7916,7 +7916,7 @@
   },
   {
     "name": "Stop-DbaAgentJob",
-    "description": "Stops AgentJob process or service",
+    "description": "Stops running SQL Server Agent jobs",
     "category": "Agent & Jobs",
     "tags": [
       "stop",
@@ -7944,7 +7944,7 @@
   },
   {
     "name": "Stop-DbaEndpoint",
-    "description": "Stops Endpoint process or service",
+    "description": "Stops endpoints",
     "category": "Advanced Features",
     "tags": [
       "stop"
@@ -7980,7 +7980,7 @@
   },
   {
     "name": "Stop-DbaProcess",
-    "description": "Stops Process process or service",
+    "description": "Terminates SQL Server processes",
     "category": "Utilities",
     "tags": [
       "stop"
@@ -7992,7 +7992,7 @@
   },
   {
     "name": "Stop-DbaService",
-    "description": "Stops Service process or service",
+    "description": "Stops SQL Server related services",
     "category": "Server Management",
     "tags": [
       "stop"
@@ -8016,7 +8016,7 @@
   },
   {
     "name": "Stop-DbaXESession",
-    "description": "Stops XESession process or service",
+    "description": "Stops Extended Events sessions",
     "category": "Performance",
     "tags": [
       "stop"
@@ -8028,7 +8028,7 @@
   },
   {
     "name": "Suspend-DbaAgDbDataMovement",
-    "description": "Manages AgDbDataMovement",
+    "description": "Suspends data movement for Availability Group databases",
     "category": "Utilities",
     "tags": [
       "suspend",
@@ -8054,7 +8054,7 @@
   },
   {
     "name": "Sync-DbaLoginPermission",
-    "description": "Synchronizes login permissions across SQL Server instances.",
+    "description": "Synchronizes login permissions across instances",
     "category": "Security",
     "tags": [
       "sync",
@@ -8173,7 +8173,7 @@
   },
   {
     "name": "Test-DbaConnection",
-    "description": "Tests connectivity to SQL Server instances and validates authentication.",
+    "description": "Tests connectivity and authentication to SQL Server instances",
     "category": "Utilities",
     "tags": [
       "test"
@@ -8197,7 +8197,7 @@
   },
   {
     "name": "Test-DbaDbCollation",
-    "description": "Validates DbCollation configuration or status",
+    "description": "Tests database and column collation settings",
     "category": "Utilities",
     "tags": [
       "test"
@@ -8221,7 +8221,7 @@
   },
   {
     "name": "Test-DbaDbCompression",
-    "description": "Validates DbCompression configuration or status",
+    "description": "Analyzes and estimates potential compression savings",
     "category": "Utilities",
     "tags": [
       "test"
@@ -8270,7 +8270,7 @@
   },
   {
     "name": "Test-DbaDbOwner",
-    "description": "Validates DbOwner configuration or status",
+    "description": "Tests database ownership against best practices",
     "category": "Database Operations",
     "tags": [
       "test"
@@ -8355,7 +8355,7 @@
   },
   {
     "name": "Test-DbaIdentityUsage",
-    "description": "Validates IdentityUsage configuration or status",
+    "description": "Tests identity column usage percentage and capacity",
     "category": "Utilities",
     "tags": [
       "test",
@@ -8381,7 +8381,7 @@
   },
   {
     "name": "Test-DbaLastBackup",
-    "description": "Tests the integrity of database backups by performing test restores.",
+    "description": "Verifies the last backup by performing a test restore",
     "category": "Backup & Restore",
     "tags": [
       "test",
@@ -8394,7 +8394,7 @@
   },
   {
     "name": "Test-DbaLinkedServerConnection",
-    "description": "Validates LinkedServerConnection configuration or status",
+    "description": "Tests connectivity through linked servers",
     "category": "Utilities",
     "tags": [
       "test",
@@ -8407,7 +8407,7 @@
   },
   {
     "name": "Test-DbaLoginPassword",
-    "description": "Validates LoginPassword configuration or status",
+    "description": "Tests login passwords for common weak passwords",
     "category": "Security",
     "tags": [
       "test",
@@ -8420,7 +8420,7 @@
   },
   {
     "name": "Test-DbaManagementObject",
-    "description": "Validates ManagementObject configuration or status",
+    "description": "Tests and verifies SQL Server Management Objects installation",
     "category": "Utilities",
     "tags": [
       "test",
@@ -8433,7 +8433,7 @@
   },
   {
     "name": "Test-DbaMaxDop",
-    "description": "Validates MaxDop configuration or status",
+    "description": "Tests if max degree of parallelism is configured optimally",
     "category": "Server Management",
     "tags": [
       "test"
@@ -8445,7 +8445,7 @@
   },
   {
     "name": "Test-DbaMaxMemory",
-    "description": "Validates MaxMemory configuration or status",
+    "description": "Tests if SQL Server maximum memory is configured optimally",
     "category": "Performance",
     "tags": [
       "test"
@@ -8470,7 +8470,7 @@
   },
   {
     "name": "Test-DbaNetworkLatency",
-    "description": "Validates NetworkLatency configuration or status",
+    "description": "Measures network latency to SQL Server instances",
     "category": "Utilities",
     "tags": [
       "test"
@@ -8494,7 +8494,7 @@
   },
   {
     "name": "Test-DbaPath",
-    "description": "Validates Path configuration or status",
+    "description": "Tests if a path is accessible from remote SQL Server hosts",
     "category": "Utilities",
     "tags": [
       "test"
@@ -8506,7 +8506,7 @@
   },
   {
     "name": "Test-DbaPowerPlan",
-    "description": "Validates PowerPlan configuration or status",
+    "description": "Tests if Windows power plan is configured optimally for SQL Server",
     "category": "Performance",
     "tags": [
       "test"
@@ -8567,7 +8567,7 @@
   },
   {
     "name": "Uninstall-DbaSqlWatch",
-    "description": "Manages SqlWatch",
+    "description": "Uninstalls sql watch",
     "category": "Utilities",
     "tags": [
       "uninstall"
@@ -8579,7 +8579,7 @@
   },
   {
     "name": "Unregister-DbatoolsConfig",
-    "description": "Manages toolsConfig",
+    "description": "Unregisters tools config",
     "category": "Utilities",
     "tags": [
       "unregister"
@@ -8591,7 +8591,7 @@
   },
   {
     "name": "Update-DbaBuildReference",
-    "description": "Updates BuildReference",
+    "description": "Updates build reference",
     "category": "Server Management",
     "tags": [
       "update"
@@ -8616,7 +8616,7 @@
   },
   {
     "name": "Update-DbaMaintenanceSolution",
-    "description": "Updates MaintenanceSolution",
+    "description": "Updates maintenance solution",
     "category": "Utilities",
     "tags": [
       "update"
@@ -8628,7 +8628,7 @@
   },
   {
     "name": "Update-DbaServiceAccount",
-    "description": "Updates ServiceAccount",
+    "description": "Updates service account",
     "category": "Server Management",
     "tags": [
       "update"
@@ -8652,7 +8652,7 @@
   },
   {
     "name": "Watch-DbaDbLogin",
-    "description": "Manages DbLogin",
+    "description": "Monitors database login activity in real-time",
     "category": "Security",
     "tags": [
       "watch",
@@ -8665,7 +8665,7 @@
   },
   {
     "name": "Watch-DbaXESession",
-    "description": "Manages XESession",
+    "description": "Monitors Extended Events sessions in real-time",
     "category": "Performance",
     "tags": [
       "watch"
@@ -8677,7 +8677,7 @@
   },
   {
     "name": "Write-DbaDbTableData",
-    "description": "Efficiently writes data from PowerShell objects to SQL Server tables.",
+    "description": "Writes data to database tables",
     "category": "Data Operations",
     "tags": [
       "write",
@@ -8690,7 +8690,7 @@
   },
   {
     "name": "Select-DbaObject",
-    "description": "Manages Object",
+    "description": "Selects and filters dbatools objects",
     "category": "Utilities",
     "tags": [
       "select"
@@ -8702,7 +8702,7 @@
   },
   {
     "name": "Set-DbatoolsConfig",
-    "description": "Configures toolsConfig settings",
+    "description": "Configures dbatools settings",
     "category": "Utilities",
     "tags": [
       "set"
