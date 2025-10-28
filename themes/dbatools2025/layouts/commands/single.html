@@ -20,6 +20,10 @@
 <!-- Add Fuse.js for search -->
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
 
+<!-- Add Linkify.js for auto-linking URLs in author sections -->
+<script src="https://cdn.jsdelivr.net/npm/linkifyjs@4.1.3/dist/linkify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/linkifyjs@4.1.3/dist/linkify-html.min.js"></script>
+
 <div class="bg-white">
     <div class="commands-main-layout">
         <aside class="commands-sidebar" id="sidebar">
@@ -289,6 +293,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add copy buttons to code blocks
     addCopyButtons();
+
+    // Auto-link URLs in command header meta sections
+    linkifyAuthorSections();
 });
 
 function addCopyButtons() {
@@ -394,6 +401,48 @@ function extractCleanCode(text) {
     }
 
     return cleanLines.join('\n');
+}
+
+// Auto-link URLs in author sections and command documentation
+function linkifyAuthorSections() {
+    // Find all command meta sections that contain author information
+    const metaSections = document.querySelectorAll('.command-meta .meta-item span');
+
+    metaSections.forEach(span => {
+        // Use linkifyHtml to convert URLs and email addresses to clickable links
+        const linkifiedHTML = linkifyHtml(span.textContent, {
+            defaultProtocol: 'https',
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            className: 'text-primary hover:underline'
+        });
+
+        // Only update if linkification actually created links
+        if (linkifiedHTML !== span.textContent) {
+            span.innerHTML = linkifiedHTML;
+        }
+    });
+
+    // Also linkify URLs in the article content (descriptions, examples, etc.)
+    // Exclude code blocks and pre elements
+    const article = document.querySelector('article.prose');
+    if (article) {
+        const textElements = article.querySelectorAll('p, li, td, dd, blockquote');
+        textElements.forEach(element => {
+            // Skip if element contains code or is inside a code block
+            if (!element.closest('pre') && !element.querySelector('code')) {
+                const linkifiedHTML = linkifyHtml(element.innerHTML, {
+                    defaultProtocol: 'https',
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                    className: 'text-primary hover:underline'
+                });
+                if (linkifiedHTML !== element.innerHTML) {
+                    element.innerHTML = linkifiedHTML;
+                }
+            }
+        });
+    }
 }
 </script>
 

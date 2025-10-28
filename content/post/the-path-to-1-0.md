@@ -25,7 +25,7 @@ Most of the contributors are damn good SQL Server Pros, a few are damn good Powe
 We're looking for contributors to help us finally reach version 1.0. Currently, we are on par with Gmail's beta schedule: a whopping 4 years. But, we're almost there and need your help finalizing our changes. If you're interested in helping us bring 1.0 alive, we identified four areas with 5 primary contacts on the [SQL Server Community Slack](https://dbatools.io/slack):
 
 - Standardize param names (@wsmelton)
-- Create tests for existing functions (@cl and @niphlod)
+- Create tests for existing functions (Chrissy LeMaire and @niphlod)
 - Review existing function documentation (@alevyinroc or @gbargsley)
 - Prepare for 1.0 with "code style" (Bill of Health, more on that later)
 

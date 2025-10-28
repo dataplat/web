@@ -27,8 +27,8 @@ During our [PASS Summit pre-con](https://sqlps.io/precon), we're aiming to go in
 We're excited about our agenda, but would also like to know what you're looking to learn. Feel free to hit us up with requests or questions.
 
 **Chrissy**
-- [Twitter – @cl](https://twitter.com/cl)
-- [SQL Server Community Slack](https://dbatools.io/slack) (@cl)
+- [Blog](https://blog.netnerds.net)
+- [SQL Server Community Slack](https://dbatools.io/slack)
 
 **Constantine**
 - [Twitter – @mobileck](https://twitter.com/mobileck)

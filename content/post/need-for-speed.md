@@ -38,9 +38,9 @@ That's just two scenarios, I'm sure that you have encountered dozens more, or wi
 
 ## Why Should You Care?
 
-> $servers | Find-DbaStoredProcedure -Pattern lemaire 👉37,545 #SQLServer stored procedures on 9 servers evaluated in 8.67 seconds! https://t.co/uTBcP6bCHJ
+> $servers | Find-DbaStoredProcedure -Pattern lemaire 👉37,545 #SQLServer stored procedures on 9 servers evaluated in 8.67 seconds!
 >
-> — Chrissy LeMaire (@cl) [February 9, 2017](https://twitter.com/cl/status/829642196345294848)
+> — Chrissy LeMaire, [February 9, 2017](https://blog.netnerds.net)
 
 Chrissy tweeted her experience going through 9 servers and searching more than 37,000 objects in less than 9 seconds.
 
