@@ -29,19 +29,21 @@
       <!-- Title -->
       <h1 class="text-5xl font-bold mb-4">{{ .Title }}</h1>
 
-      <!-- Date/Meta (if available) -->
-      {{ if or .Date .Params.author }}
-      <div class="flex items-center gap-4 text-theme-text-secondary text-base mb-8">
-        {{ if .Params.author }}
-        <span class="font-medium">{{ .Params.author }}</span>
+      <!-- Date/Meta (only for posts) -->
+      {{ if eq .Section "post" }}
+        {{ if or .Date .Params.author }}
+        <div class="flex items-center gap-4 text-theme-text-secondary text-base mb-8">
+          {{ if .Params.author }}
+          <span class="font-medium">{{ .Params.author }}</span>
+          {{ end }}
+          {{ if and .Params.author .Date }}
+          <span class="text-theme-text-secondary/50">•</span>
+          {{ end }}
+          {{ if .Date }}
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+          {{ end }}
+        </div>
         {{ end }}
-        {{ if and .Params.author .Date }}
-        <span class="text-theme-text-secondary/50">•</span>
-        {{ end }}
-        {{ if .Date }}
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-        {{ end }}
-      </div>
       {{ end }}
 
       <!-- Content -->
