@@ -23,4 +23,44 @@
 
   </div>
 </div>
+
+<script>
+(function() {
+  const currentPath = window.location.pathname;
+
+  // Extract command name from path
+  let commandName = currentPath.replace(/^\//, '').replace(/\/$/, '');
+
+  // Handle legacy /commands/ URLs - redirect to new format
+  if (commandName.startsWith('commands/')) {
+    const newPath = '/' + commandName.replace('commands/', '');
+    window.location.replace(newPath);
+    return;
+  }
+
+  // If empty path or homepage, don't redirect
+  if (!commandName || commandName === 'index.html') {
+    return;
+  }
+
+  // Fetch commands.json to find case-insensitive match
+  fetch('/commands.json')
+    .then(response => response.json())
+    .then(commands => {
+      // Look for exact case-insensitive match
+      const match = commands.find(cmd =>
+        cmd.name.toLowerCase() === commandName.toLowerCase()
+      );
+
+      if (match && match.name !== commandName) {
+        // Found a match with different casing - redirect to correct casing
+        window.location.replace('/' + match.name);
+      }
+    })
+    .catch(err => {
+      // If fetch fails, just show the 404 page
+      console.error('Failed to fetch commands:', err);
+    });
+})();
+</script>
 {{ end }}

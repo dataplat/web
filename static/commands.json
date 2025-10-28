@@ -10,7 +10,7 @@
     ],
     "verb": "Add",
     "popular": true,
-    "url": "/commands/Add-DbaAgDatabase",
+    "url": "/Add-DbaAgDatabase",
     "popularityRank": 15
   },
   {
@@ -23,7 +23,7 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "/commands/Add-DbaAgListener",
+    "url": "/Add-DbaAgListener",
     "popularityRank": 72
   },
   {
@@ -36,7 +36,7 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "/commands/Add-DbaAgReplica",
+    "url": "/Add-DbaAgReplica",
     "popularityRank": 74
   },
   {
@@ -49,7 +49,7 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "/commands/Add-DbaComputerCertificate",
+    "url": "/Add-DbaComputerCertificate",
     "popularityRank": 86
   },
   {
@@ -62,7 +62,7 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "/commands/Add-DbaDbMirrorMonitor",
+    "url": "/Add-DbaDbMirrorMonitor",
     "popularityRank": 273
   },
   {
@@ -74,7 +74,7 @@
     ],
     "verb": "Add",
     "popular": true,
-    "url": "/commands/Add-DbaDbRoleMember",
+    "url": "/Add-DbaDbRoleMember",
     "popularityRank": 41
   },
   {
@@ -86,7 +86,7 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "/commands/Add-DbaExtendedProperty",
+    "url": "/Add-DbaExtendedProperty",
     "popularityRank": 257
   },
   {
@@ -98,7 +98,7 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "/commands/Add-DbaPfDataCollectorCounter",
+    "url": "/Add-DbaPfDataCollectorCounter",
     "popularityRank": 304
   },
   {
@@ -111,7 +111,7 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "/commands/Add-DbaRegServer",
+    "url": "/Add-DbaRegServer",
     "popularityRank": 81
   },
   {
@@ -124,7 +124,7 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "/commands/Add-DbaRegServerGroup",
+    "url": "/Add-DbaRegServerGroup",
     "popularityRank": 279
   },
   {
@@ -136,7 +136,7 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "/commands/Add-DbaReplArticle",
+    "url": "/Add-DbaReplArticle",
     "popularityRank": 400
   },
   {
@@ -149,7 +149,7 @@
     ],
     "verb": "Add",
     "popular": false,
-    "url": "/commands/Add-DbaServerRoleMember",
+    "url": "/Add-DbaServerRoleMember",
     "popularityRank": 99
   },
   {
@@ -162,7 +162,7 @@
     ],
     "verb": "Backup",
     "popular": false,
-    "url": "/commands/Backup-DbaComputerCertificate",
+    "url": "/Backup-DbaComputerCertificate",
     "popularityRank": 217
   },
   {
@@ -175,7 +175,7 @@
     ],
     "verb": "Backup",
     "popular": true,
-    "url": "/commands/Backup-DbaDatabase",
+    "url": "/Backup-DbaDatabase",
     "popularityRank": 5
   },
   {
@@ -188,7 +188,7 @@
     ],
     "verb": "Backup",
     "popular": false,
-    "url": "/commands/Backup-DbaDbCertificate",
+    "url": "/Backup-DbaDbCertificate",
     "popularityRank": 130
   },
   {
@@ -200,7 +200,7 @@
     ],
     "verb": "Backup",
     "popular": false,
-    "url": "/commands/Backup-DbaDbMasterKey",
+    "url": "/Backup-DbaDbMasterKey",
     "popularityRank": 179
   },
   {
@@ -212,7 +212,7 @@
     ],
     "verb": "Backup",
     "popular": false,
-    "url": "/commands/Backup-DbaServiceMasterKey",
+    "url": "/Backup-DbaServiceMasterKey",
     "popularityRank": 227
   },
   {
@@ -224,7 +224,7 @@
     ],
     "verb": "Clear",
     "popular": false,
-    "url": "/commands/Clear-DbaConnectionPool",
+    "url": "/Clear-DbaConnectionPool",
     "popularityRank": 172
   },
   {
@@ -236,7 +236,7 @@
     ],
     "verb": "Clear",
     "popular": false,
-    "url": "/commands/Clear-DbaLatchStatistics",
+    "url": "/Clear-DbaLatchStatistics",
     "popularityRank": 375
   },
   {
@@ -248,7 +248,7 @@
     ],
     "verb": "Clear",
     "popular": false,
-    "url": "/commands/Clear-DbaPlanCache",
+    "url": "/Clear-DbaPlanCache",
     "popularityRank": 333
   },
   {
@@ -260,7 +260,7 @@
     ],
     "verb": "Clear",
     "popular": false,
-    "url": "/commands/Clear-DbaWaitStatistics",
+    "url": "/Clear-DbaWaitStatistics",
     "popularityRank": 313
   },
   {
@@ -273,7 +273,7 @@
     ],
     "verb": "Connect",
     "popular": true,
-    "url": "/commands/Connect-DbaInstance",
+    "url": "/Connect-DbaInstance",
     "popularityRank": 8
   },
   {
@@ -285,7 +285,7 @@
     ],
     "verb": "Other",
     "popular": false,
-    "url": "/commands/ConvertTo-DbaDataTable",
+    "url": "/ConvertTo-DbaDataTable",
     "popularityRank": 62
   },
   {
@@ -295,7 +295,7 @@
     "tags": [],
     "verb": "Other",
     "popular": false,
-    "url": "/commands/ConvertTo-DbaTimeline",
+    "url": "/ConvertTo-DbaTimeline",
     "popularityRank": 146
   },
   {
@@ -305,7 +305,7 @@
     "tags": [],
     "verb": "Other",
     "popular": false,
-    "url": "/commands/ConvertTo-DbaXESession",
+    "url": "/ConvertTo-DbaXESession",
     "popularityRank": 404
   },
   {
@@ -319,7 +319,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaAgentAlert",
+    "url": "/Copy-DbaAgentAlert",
     "popularityRank": 56
   },
   {
@@ -334,7 +334,7 @@
     ],
     "verb": "Copy",
     "popular": true,
-    "url": "/commands/Copy-DbaAgentJob",
+    "url": "/Copy-DbaAgentJob",
     "popularityRank": 9
   },
   {
@@ -349,7 +349,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaAgentJobCategory",
+    "url": "/Copy-DbaAgentJobCategory",
     "popularityRank": 187
   },
   {
@@ -363,7 +363,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaAgentOperator",
+    "url": "/Copy-DbaAgentOperator",
     "popularityRank": 70
   },
   {
@@ -377,7 +377,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaAgentProxy",
+    "url": "/Copy-DbaAgentProxy",
     "popularityRank": 0
   },
   {
@@ -391,7 +391,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaAgentSchedule",
+    "url": "/Copy-DbaAgentSchedule",
     "popularityRank": 150
   },
   {
@@ -406,7 +406,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaAgentServer",
+    "url": "/Copy-DbaAgentServer",
     "popularityRank": 131
   },
   {
@@ -419,7 +419,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaBackupDevice",
+    "url": "/Copy-DbaBackupDevice",
     "popularityRank": 260
   },
   {
@@ -431,7 +431,7 @@
     ],
     "verb": "Copy",
     "popular": true,
-    "url": "/commands/Copy-DbaCredential",
+    "url": "/Copy-DbaCredential",
     "popularityRank": 30
   },
   {
@@ -443,7 +443,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaCustomError",
+    "url": "/Copy-DbaCustomError",
     "popularityRank": 406
   },
   {
@@ -456,7 +456,7 @@
     ],
     "verb": "Copy",
     "popular": true,
-    "url": "/commands/Copy-DbaDatabase",
+    "url": "/Copy-DbaDatabase",
     "popularityRank": 4
   },
   {
@@ -468,7 +468,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaDataCollector",
+    "url": "/Copy-DbaDataCollector",
     "popularityRank": 331
   },
   {
@@ -480,7 +480,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaDbAssembly",
+    "url": "/Copy-DbaDbAssembly",
     "popularityRank": 297
   },
   {
@@ -493,7 +493,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaDbCertificate",
+    "url": "/Copy-DbaDbCertificate",
     "popularityRank": 105
   },
   {
@@ -505,7 +505,7 @@
     ],
     "verb": "Copy",
     "popular": true,
-    "url": "/commands/Copy-DbaDbMail",
+    "url": "/Copy-DbaDbMail",
     "popularityRank": 35
   },
   {
@@ -518,7 +518,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaDbQueryStoreOption",
+    "url": "/Copy-DbaDbQueryStoreOption",
     "popularityRank": 424
   },
   {
@@ -531,7 +531,7 @@
     ],
     "verb": "Copy",
     "popular": true,
-    "url": "/commands/Copy-DbaDbTableData",
+    "url": "/Copy-DbaDbTableData",
     "popularityRank": 12
   },
   {
@@ -543,7 +543,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaDbViewData",
+    "url": "/Copy-DbaDbViewData",
     "popularityRank": 154
   },
   {
@@ -555,7 +555,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaEndpoint",
+    "url": "/Copy-DbaEndpoint",
     "popularityRank": 330
   },
   {
@@ -568,7 +568,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaInstanceAudit",
+    "url": "/Copy-DbaInstanceAudit",
     "popularityRank": 181
   },
   {
@@ -581,7 +581,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaInstanceAuditSpecification",
+    "url": "/Copy-DbaInstanceAuditSpecification",
     "popularityRank": 383
   },
   {
@@ -594,7 +594,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaInstanceTrigger",
+    "url": "/Copy-DbaInstanceTrigger",
     "popularityRank": 325
   },
   {
@@ -607,7 +607,7 @@
     ],
     "verb": "Copy",
     "popular": true,
-    "url": "/commands/Copy-DbaLinkedServer",
+    "url": "/Copy-DbaLinkedServer",
     "popularityRank": 23
   },
   {
@@ -620,7 +620,7 @@
     ],
     "verb": "Copy",
     "popular": true,
-    "url": "/commands/Copy-DbaLogin",
+    "url": "/Copy-DbaLogin",
     "popularityRank": 1
   },
   {
@@ -633,7 +633,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaPolicyManagement",
+    "url": "/Copy-DbaPolicyManagement",
     "popularityRank": 447
   },
   {
@@ -646,7 +646,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaRegServer",
+    "url": "/Copy-DbaRegServer",
     "popularityRank": 267
   },
   {
@@ -658,7 +658,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaResourceGovernor",
+    "url": "/Copy-DbaResourceGovernor",
     "popularityRank": 461
   },
   {
@@ -670,7 +670,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaSpConfigure",
+    "url": "/Copy-DbaSpConfigure",
     "popularityRank": 97
   },
   {
@@ -682,7 +682,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaSsisCatalog",
+    "url": "/Copy-DbaSsisCatalog",
     "popularityRank": 100
   },
   {
@@ -694,7 +694,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaStartupProcedure",
+    "url": "/Copy-DbaStartupProcedure",
     "popularityRank": 355
   },
   {
@@ -706,7 +706,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaSystemDbUserObject",
+    "url": "/Copy-DbaSystemDbUserObject",
     "popularityRank": 320
   },
   {
@@ -718,7 +718,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaXESession",
+    "url": "/Copy-DbaXESession",
     "popularityRank": 373
   },
   {
@@ -730,7 +730,7 @@
     ],
     "verb": "Copy",
     "popular": false,
-    "url": "/commands/Copy-DbaXESessionTemplate",
+    "url": "/Copy-DbaXESessionTemplate",
     "popularityRank": 549
   },
   {
@@ -743,7 +743,7 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "/commands/Disable-DbaAgHadr",
+    "url": "/Disable-DbaAgHadr",
     "popularityRank": 398
   },
   {
@@ -756,7 +756,7 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "/commands/Disable-DbaDbEncryption",
+    "url": "/Disable-DbaDbEncryption",
     "popularityRank": 315
   },
   {
@@ -768,7 +768,7 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "/commands/Disable-DbaFilestream",
+    "url": "/Disable-DbaFilestream",
     "popularityRank": 588
   },
   {
@@ -781,7 +781,7 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "/commands/Disable-DbaForceNetworkEncryption",
+    "url": "/Disable-DbaForceNetworkEncryption",
     "popularityRank": 162
   },
   {
@@ -794,7 +794,7 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "/commands/Disable-DbaHideInstance",
+    "url": "/Disable-DbaHideInstance",
     "popularityRank": 575
   },
   {
@@ -806,7 +806,7 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "/commands/Disable-DbaReplDistributor",
+    "url": "/Disable-DbaReplDistributor",
     "popularityRank": 618
   },
   {
@@ -818,7 +818,7 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "/commands/Disable-DbaReplPublishing",
+    "url": "/Disable-DbaReplPublishing",
     "popularityRank": 639
   },
   {
@@ -830,7 +830,7 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "/commands/Disable-DbaStartupProcedure",
+    "url": "/Disable-DbaStartupProcedure",
     "popularityRank": 623
   },
   {
@@ -843,7 +843,7 @@
     ],
     "verb": "Disable",
     "popular": false,
-    "url": "/commands/Disable-DbaTraceFlag",
+    "url": "/Disable-DbaTraceFlag",
     "popularityRank": 535
   },
   {
@@ -856,7 +856,7 @@
     ],
     "verb": "Disconnect",
     "popular": false,
-    "url": "/commands/Disconnect-DbaInstance",
+    "url": "/Disconnect-DbaInstance",
     "popularityRank": 121
   },
   {
@@ -869,7 +869,7 @@
     ],
     "verb": "Dismount",
     "popular": false,
-    "url": "/commands/Dismount-DbaDatabase",
+    "url": "/Dismount-DbaDatabase",
     "popularityRank": 188
   },
   {
@@ -882,7 +882,7 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "/commands/Enable-DbaAgHadr",
+    "url": "/Enable-DbaAgHadr",
     "popularityRank": 166
   },
   {
@@ -895,7 +895,7 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "/commands/Enable-DbaDbEncryption",
+    "url": "/Enable-DbaDbEncryption",
     "popularityRank": 203
   },
   {
@@ -907,7 +907,7 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "/commands/Enable-DbaFilestream",
+    "url": "/Enable-DbaFilestream",
     "popularityRank": 453
   },
   {
@@ -920,7 +920,7 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "/commands/Enable-DbaForceNetworkEncryption",
+    "url": "/Enable-DbaForceNetworkEncryption",
     "popularityRank": 226
   },
   {
@@ -933,7 +933,7 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "/commands/Enable-DbaHideInstance",
+    "url": "/Enable-DbaHideInstance",
     "popularityRank": 519
   },
   {
@@ -945,7 +945,7 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "/commands/Enable-DbaReplDistributor",
+    "url": "/Enable-DbaReplDistributor",
     "popularityRank": 581
   },
   {
@@ -957,7 +957,7 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "/commands/Enable-DbaReplPublishing",
+    "url": "/Enable-DbaReplPublishing",
     "popularityRank": 599
   },
   {
@@ -969,7 +969,7 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "/commands/Enable-DbaStartupProcedure",
+    "url": "/Enable-DbaStartupProcedure",
     "popularityRank": 550
   },
   {
@@ -982,7 +982,7 @@
     ],
     "verb": "Enable",
     "popular": false,
-    "url": "/commands/Enable-DbaTraceFlag",
+    "url": "/Enable-DbaTraceFlag",
     "popularityRank": 302
   },
   {
@@ -994,7 +994,7 @@
     ],
     "verb": "Expand",
     "popular": false,
-    "url": "/commands/Expand-DbaDbLogFile",
+    "url": "/Expand-DbaDbLogFile",
     "popularityRank": 195
   },
   {
@@ -1006,7 +1006,7 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "/commands/Export-DbaBinaryFile",
+    "url": "/Export-DbaBinaryFile",
     "popularityRank": 387
   },
   {
@@ -1018,7 +1018,7 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "/commands/Export-DbaCredential",
+    "url": "/Export-DbaCredential",
     "popularityRank": 107
   },
   {
@@ -1031,7 +1031,7 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "/commands/Export-DbaDacPackage",
+    "url": "/Export-DbaDacPackage",
     "popularityRank": 128
   },
   {
@@ -1043,7 +1043,7 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "/commands/Export-DbaDbRole",
+    "url": "/Export-DbaDbRole",
     "popularityRank": 122
   },
   {
@@ -1056,7 +1056,7 @@
     ],
     "verb": "Export",
     "popular": true,
-    "url": "/commands/Export-DbaDbTableData",
+    "url": "/Export-DbaDbTableData",
     "popularityRank": 40
   },
   {
@@ -1070,7 +1070,7 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "/commands/Export-DbaDiagnosticQuery",
+    "url": "/Export-DbaDiagnosticQuery",
     "popularityRank": 164
   },
   {
@@ -1082,7 +1082,7 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "/commands/Export-DbaExecutionPlan",
+    "url": "/Export-DbaExecutionPlan",
     "popularityRank": 385
   },
   {
@@ -1095,7 +1095,7 @@
     ],
     "verb": "Export",
     "popular": true,
-    "url": "/commands/Export-DbaInstance",
+    "url": "/Export-DbaInstance",
     "popularityRank": 42
   },
   {
@@ -1108,7 +1108,7 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "/commands/Export-DbaLinkedServer",
+    "url": "/Export-DbaLinkedServer",
     "popularityRank": 78
   },
   {
@@ -1121,7 +1121,7 @@
     ],
     "verb": "Export",
     "popular": true,
-    "url": "/commands/Export-DbaLogin",
+    "url": "/Export-DbaLogin",
     "popularityRank": 18
   },
   {
@@ -1133,7 +1133,7 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "/commands/Export-DbaPfDataCollectorSetTemplate",
+    "url": "/Export-DbaPfDataCollectorSetTemplate",
     "popularityRank": 611
   },
   {
@@ -1146,7 +1146,7 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "/commands/Export-DbaRegServer",
+    "url": "/Export-DbaRegServer",
     "popularityRank": 280
   },
   {
@@ -1159,7 +1159,7 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "/commands/Export-DbaReplServerSetting",
+    "url": "/Export-DbaReplServerSetting",
     "popularityRank": 516
   },
   {
@@ -1171,7 +1171,7 @@
     ],
     "verb": "Export",
     "popular": true,
-    "url": "/commands/Export-DbaScript",
+    "url": "/Export-DbaScript",
     "popularityRank": 10
   },
   {
@@ -1184,7 +1184,7 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "/commands/Export-DbaServerRole",
+    "url": "/Export-DbaServerRole",
     "popularityRank": 268
   },
   {
@@ -1196,7 +1196,7 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "/commands/Export-DbaSpConfigure",
+    "url": "/Export-DbaSpConfigure",
     "popularityRank": 156
   },
   {
@@ -1208,7 +1208,7 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "/commands/Export-DbaSysDbUserObject",
+    "url": "/Export-DbaSysDbUserObject",
     "popularityRank": 327
   },
   {
@@ -1220,7 +1220,7 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "/commands/Export-DbatoolsConfig",
+    "url": "/Export-DbatoolsConfig",
     "popularityRank": 350
   },
   {
@@ -1232,7 +1232,7 @@
     ],
     "verb": "Export",
     "popular": true,
-    "url": "/commands/Export-DbaUser",
+    "url": "/Export-DbaUser",
     "popularityRank": 28
   },
   {
@@ -1244,7 +1244,7 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "/commands/Export-DbaXESession",
+    "url": "/Export-DbaXESession",
     "popularityRank": 442
   },
   {
@@ -1256,7 +1256,7 @@
     ],
     "verb": "Export",
     "popular": false,
-    "url": "/commands/Export-DbaXESessionTemplate",
+    "url": "/Export-DbaXESessionTemplate",
     "popularityRank": 637
   },
   {
@@ -1271,7 +1271,7 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "/commands/Find-DbaAgentJob",
+    "url": "/Find-DbaAgentJob",
     "popularityRank": 191
   },
   {
@@ -1284,7 +1284,7 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "/commands/Find-DbaBackup",
+    "url": "/Find-DbaBackup",
     "popularityRank": 190
   },
   {
@@ -1296,7 +1296,7 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "/commands/Find-DbaCommand",
+    "url": "/Find-DbaCommand",
     "popularityRank": 253
   },
   {
@@ -1309,7 +1309,7 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "/commands/Find-DbaDatabase",
+    "url": "/Find-DbaDatabase",
     "popularityRank": 93
   },
   {
@@ -1321,7 +1321,7 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "/commands/Find-DbaDbDisabledIndex",
+    "url": "/Find-DbaDbDisabledIndex",
     "popularityRank": 505
   },
   {
@@ -1333,7 +1333,7 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "/commands/Find-DbaDbDuplicateIndex",
+    "url": "/Find-DbaDbDuplicateIndex",
     "popularityRank": 290
   },
   {
@@ -1345,7 +1345,7 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "/commands/Find-DbaDbGrowthEvent",
+    "url": "/Find-DbaDbGrowthEvent",
     "popularityRank": 308
   },
   {
@@ -1357,7 +1357,7 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "/commands/Find-DbaDbUnusedIndex",
+    "url": "/Find-DbaDbUnusedIndex",
     "popularityRank": 224
   },
   {
@@ -1370,7 +1370,7 @@
     ],
     "verb": "Find",
     "popular": true,
-    "url": "/commands/Find-DbaInstance",
+    "url": "/Find-DbaInstance",
     "popularityRank": 24
   },
   {
@@ -1383,7 +1383,7 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "/commands/Find-DbaLoginInGroup",
+    "url": "/Find-DbaLoginInGroup",
     "popularityRank": 223
   },
   {
@@ -1395,7 +1395,7 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "/commands/Find-DbaOrphanedFile",
+    "url": "/Find-DbaOrphanedFile",
     "popularityRank": 200
   },
   {
@@ -1408,7 +1408,7 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "/commands/Find-DbaSimilarTable",
+    "url": "/Find-DbaSimilarTable",
     "popularityRank": 392
   },
   {
@@ -1420,7 +1420,7 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "/commands/Find-DbaStoredProcedure",
+    "url": "/Find-DbaStoredProcedure",
     "popularityRank": 240
   },
   {
@@ -1432,7 +1432,7 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "/commands/Find-DbaTrigger",
+    "url": "/Find-DbaTrigger",
     "popularityRank": 503
   },
   {
@@ -1444,7 +1444,7 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "/commands/Find-DbaUserObject",
+    "url": "/Find-DbaUserObject",
     "popularityRank": 259
   },
   {
@@ -1456,7 +1456,7 @@
     ],
     "verb": "Find",
     "popular": false,
-    "url": "/commands/Find-DbaView",
+    "url": "/Find-DbaView",
     "popularityRank": 337
   },
   {
@@ -1469,7 +1469,7 @@
     ],
     "verb": "Format",
     "popular": false,
-    "url": "/commands/Format-DbaBackupInformation",
+    "url": "/Format-DbaBackupInformation",
     "popularityRank": 212
   },
   {
@@ -1483,7 +1483,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaAgBackupHistory",
+    "url": "/Get-DbaAgBackupHistory",
     "popularityRank": 134
   },
   {
@@ -1497,7 +1497,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaAgDatabase",
+    "url": "/Get-DbaAgDatabase",
     "popularityRank": 60
   },
   {
@@ -1511,7 +1511,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaAgentAlert",
+    "url": "/Get-DbaAgentAlert",
     "popularityRank": 202
   },
   {
@@ -1525,7 +1525,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaAgentAlertCategory",
+    "url": "/Get-DbaAgentAlertCategory",
     "popularityRank": 617
   },
   {
@@ -1540,7 +1540,7 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "/commands/Get-DbaAgentJob",
+    "url": "/Get-DbaAgentJob",
     "popularityRank": 20
   },
   {
@@ -1555,7 +1555,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaAgentJobCategory",
+    "url": "/Get-DbaAgentJobCategory",
     "popularityRank": 484
   },
   {
@@ -1570,7 +1570,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaAgentJobHistory",
+    "url": "/Get-DbaAgentJobHistory",
     "popularityRank": 84
   },
   {
@@ -1585,7 +1585,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaAgentJobOutputFile",
+    "url": "/Get-DbaAgentJobOutputFile",
     "popularityRank": 378
   },
   {
@@ -1600,7 +1600,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaAgentJobStep",
+    "url": "/Get-DbaAgentJobStep",
     "popularityRank": 139
   },
   {
@@ -1614,7 +1614,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaAgentLog",
+    "url": "/Get-DbaAgentLog",
     "popularityRank": 326
   },
   {
@@ -1628,7 +1628,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaAgentOperator",
+    "url": "/Get-DbaAgentOperator",
     "popularityRank": 286
   },
   {
@@ -1642,7 +1642,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaAgentProxy",
+    "url": "/Get-DbaAgentProxy",
     "popularityRank": 0
   },
   {
@@ -1656,7 +1656,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaAgentSchedule",
+    "url": "/Get-DbaAgentSchedule",
     "popularityRank": 153
   },
   {
@@ -1671,7 +1671,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaAgentServer",
+    "url": "/Get-DbaAgentServer",
     "popularityRank": 388
   },
   {
@@ -1684,7 +1684,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaAgHadr",
+    "url": "/Get-DbaAgHadr",
     "popularityRank": 95
   },
   {
@@ -1697,7 +1697,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaAgListener",
+    "url": "/Get-DbaAgListener",
     "popularityRank": 120
   },
   {
@@ -1710,7 +1710,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaAgReplica",
+    "url": "/Get-DbaAgReplica",
     "popularityRank": 51
   },
   {
@@ -1723,7 +1723,7 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "/commands/Get-DbaAvailabilityGroup",
+    "url": "/Get-DbaAvailabilityGroup",
     "popularityRank": 32
   },
   {
@@ -1735,7 +1735,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaAvailableCollation",
+    "url": "/Get-DbaAvailableCollation",
     "popularityRank": 423
   },
   {
@@ -1748,7 +1748,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaBackupDevice",
+    "url": "/Get-DbaBackupDevice",
     "popularityRank": 409
   },
   {
@@ -1761,7 +1761,7 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "/commands/Get-DbaBackupInformation",
+    "url": "/Get-DbaBackupInformation",
     "popularityRank": 52
   },
   {
@@ -1774,7 +1774,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaBinaryFileTable",
+    "url": "/Get-DbaBinaryFileTable",
     "popularityRank": 621
   },
   {
@@ -1786,7 +1786,7 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "/commands/Get-DbaBuild",
+    "url": "/Get-DbaBuild",
     "popularityRank": 46
   },
   {
@@ -1798,7 +1798,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaClientAlias",
+    "url": "/Get-DbaClientAlias",
     "popularityRank": 309
   },
   {
@@ -1810,7 +1810,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaClientProtocol",
+    "url": "/Get-DbaClientProtocol",
     "popularityRank": 487
   },
   {
@@ -1822,7 +1822,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaCmConnection",
+    "url": "/Get-DbaCmConnection",
     "popularityRank": 247
   },
   {
@@ -1834,7 +1834,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaCmObject",
+    "url": "/Get-DbaCmObject",
     "popularityRank": 389
   },
   {
@@ -1847,7 +1847,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaComputerCertificate",
+    "url": "/Get-DbaComputerCertificate",
     "popularityRank": 125
   },
   {
@@ -1859,7 +1859,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaComputerSystem",
+    "url": "/Get-DbaComputerSystem",
     "popularityRank": 129
   },
   {
@@ -1872,7 +1872,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaConnectedInstance",
+    "url": "/Get-DbaConnectedInstance",
     "popularityRank": 170
   },
   {
@@ -1884,7 +1884,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaConnection",
+    "url": "/Get-DbaConnection",
     "popularityRank": 85
   },
   {
@@ -1896,7 +1896,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaCpuRingBuffer",
+    "url": "/Get-DbaCpuRingBuffer",
     "popularityRank": 419
   },
   {
@@ -1909,7 +1909,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaCpuUsage",
+    "url": "/Get-DbaCpuUsage",
     "popularityRank": 112
   },
   {
@@ -1921,7 +1921,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaCredential",
+    "url": "/Get-DbaCredential",
     "popularityRank": 101
   },
   {
@@ -1933,7 +1933,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaCustomError",
+    "url": "/Get-DbaCustomError",
     "popularityRank": 555
   },
   {
@@ -1946,7 +1946,7 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "/commands/Get-DbaDatabase",
+    "url": "/Get-DbaDatabase",
     "popularityRank": 7
   },
   {
@@ -1958,7 +1958,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbAssembly",
+    "url": "/Get-DbaDbAssembly",
     "popularityRank": 405
   },
   {
@@ -1970,7 +1970,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbAsymmetricKey",
+    "url": "/Get-DbaDbAsymmetricKey",
     "popularityRank": 542
   },
   {
@@ -1983,7 +1983,7 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "/commands/Get-DbaDbBackupHistory",
+    "url": "/Get-DbaDbBackupHistory",
     "popularityRank": 37
   },
   {
@@ -1995,7 +1995,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbccHelp",
+    "url": "/Get-DbaDbccHelp",
     "popularityRank": 263
   },
   {
@@ -2007,7 +2007,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbccMemoryStatus",
+    "url": "/Get-DbaDbccMemoryStatus",
     "popularityRank": 311
   },
   {
@@ -2019,7 +2019,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbccProcCache",
+    "url": "/Get-DbaDbccProcCache",
     "popularityRank": 570
   },
   {
@@ -2031,7 +2031,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbccSessionBuffer",
+    "url": "/Get-DbaDbccSessionBuffer",
     "popularityRank": 612
   },
   {
@@ -2043,7 +2043,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbccStatistic",
+    "url": "/Get-DbaDbccStatistic",
     "popularityRank": 272
   },
   {
@@ -2055,7 +2055,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbccUserOption",
+    "url": "/Get-DbaDbccUserOption",
     "popularityRank": 548
   },
   {
@@ -2068,7 +2068,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbCertificate",
+    "url": "/Get-DbaDbCertificate",
     "popularityRank": 167
   },
   {
@@ -2080,7 +2080,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbCheckConstraint",
+    "url": "/Get-DbaDbCheckConstraint",
     "popularityRank": 408
   },
   {
@@ -2092,7 +2092,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbCompatibility",
+    "url": "/Get-DbaDbCompatibility",
     "popularityRank": 264
   },
   {
@@ -2104,7 +2104,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbCompression",
+    "url": "/Get-DbaDbCompression",
     "popularityRank": 411
   },
   {
@@ -2116,7 +2116,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbDbccOpenTran",
+    "url": "/Get-DbaDbDbccOpenTran",
     "popularityRank": 526
   },
   {
@@ -2128,7 +2128,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbDetachedFileInfo",
+    "url": "/Get-DbaDbDetachedFileInfo",
     "popularityRank": 414
   },
   {
@@ -2141,7 +2141,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbEncryption",
+    "url": "/Get-DbaDbEncryption",
     "popularityRank": 266
   },
   {
@@ -2154,7 +2154,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbEncryptionKey",
+    "url": "/Get-DbaDbEncryptionKey",
     "popularityRank": 255
   },
   {
@@ -2166,7 +2166,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbExtentDiff",
+    "url": "/Get-DbaDbExtentDiff",
     "popularityRank": 454
   },
   {
@@ -2179,7 +2179,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbFeatureUsage",
+    "url": "/Get-DbaDbFeatureUsage",
     "popularityRank": 321
   },
   {
@@ -2191,7 +2191,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbFile",
+    "url": "/Get-DbaDbFile",
     "popularityRank": 90
   },
   {
@@ -2203,7 +2203,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbFileGroup",
+    "url": "/Get-DbaDbFileGroup",
     "popularityRank": 460
   },
   {
@@ -2215,7 +2215,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbFileGrowth",
+    "url": "/Get-DbaDbFileGrowth",
     "popularityRank": 206
   },
   {
@@ -2227,7 +2227,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbFileMapping",
+    "url": "/Get-DbaDbFileMapping",
     "popularityRank": 276
   },
   {
@@ -2239,7 +2239,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbForeignKey",
+    "url": "/Get-DbaDbForeignKey",
     "popularityRank": 390
   },
   {
@@ -2251,7 +2251,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbIdentity",
+    "url": "/Get-DbaDbIdentity",
     "popularityRank": 395
   },
   {
@@ -2263,7 +2263,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbLogShipError",
+    "url": "/Get-DbaDbLogShipError",
     "popularityRank": 245
   },
   {
@@ -2275,7 +2275,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbLogSpace",
+    "url": "/Get-DbaDbLogSpace",
     "popularityRank": 274
   },
   {
@@ -2287,7 +2287,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbMail",
+    "url": "/Get-DbaDbMail",
     "popularityRank": 160
   },
   {
@@ -2299,7 +2299,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbMailAccount",
+    "url": "/Get-DbaDbMailAccount",
     "popularityRank": 349
   },
   {
@@ -2311,7 +2311,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbMailConfig",
+    "url": "/Get-DbaDbMailConfig",
     "popularityRank": 354
   },
   {
@@ -2323,7 +2323,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbMailHistory",
+    "url": "/Get-DbaDbMailHistory",
     "popularityRank": 604
   },
   {
@@ -2335,7 +2335,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbMailLog",
+    "url": "/Get-DbaDbMailLog",
     "popularityRank": 569
   },
   {
@@ -2347,7 +2347,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbMailProfile",
+    "url": "/Get-DbaDbMailProfile",
     "popularityRank": 351
   },
   {
@@ -2360,7 +2360,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbMailServer",
+    "url": "/Get-DbaDbMailServer",
     "popularityRank": 440
   },
   {
@@ -2372,7 +2372,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbMasterKey",
+    "url": "/Get-DbaDbMasterKey",
     "popularityRank": 384
   },
   {
@@ -2385,7 +2385,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbMemoryUsage",
+    "url": "/Get-DbaDbMemoryUsage",
     "popularityRank": 229
   },
   {
@@ -2398,7 +2398,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbMirror",
+    "url": "/Get-DbaDbMirror",
     "popularityRank": 379
   },
   {
@@ -2411,7 +2411,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbMirrorMonitor",
+    "url": "/Get-DbaDbMirrorMonitor",
     "popularityRank": 485
   },
   {
@@ -2423,7 +2423,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbObjectTrigger",
+    "url": "/Get-DbaDbObjectTrigger",
     "popularityRank": 458
   },
   {
@@ -2435,7 +2435,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbOrphanUser",
+    "url": "/Get-DbaDbOrphanUser",
     "popularityRank": 66
   },
   {
@@ -2448,7 +2448,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbPageInfo",
+    "url": "/Get-DbaDbPageInfo",
     "popularityRank": 441
   },
   {
@@ -2460,7 +2460,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbPartitionFunction",
+    "url": "/Get-DbaDbPartitionFunction",
     "popularityRank": 470
   },
   {
@@ -2472,7 +2472,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbPartitionScheme",
+    "url": "/Get-DbaDbPartitionScheme",
     "popularityRank": 541
   },
   {
@@ -2485,7 +2485,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbQueryStoreOption",
+    "url": "/Get-DbaDbQueryStoreOption",
     "popularityRank": 402
   },
   {
@@ -2497,7 +2497,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbRecoveryModel",
+    "url": "/Get-DbaDbRecoveryModel",
     "popularityRank": 239
   },
   {
@@ -2510,7 +2510,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbRestoreHistory",
+    "url": "/Get-DbaDbRestoreHistory",
     "popularityRank": 218
   },
   {
@@ -2522,7 +2522,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbRole",
+    "url": "/Get-DbaDbRole",
     "popularityRank": 119
   },
   {
@@ -2534,7 +2534,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbRoleMember",
+    "url": "/Get-DbaDbRoleMember",
     "popularityRank": 94
   },
   {
@@ -2546,7 +2546,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbSchema",
+    "url": "/Get-DbaDbSchema",
     "popularityRank": 117
   },
   {
@@ -2558,7 +2558,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbSequence",
+    "url": "/Get-DbaDbSequence",
     "popularityRank": 553
   },
   {
@@ -2570,7 +2570,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbServiceBrokerQueue",
+    "url": "/Get-DbaDbServiceBrokerQueue",
     "popularityRank": 647
   },
   {
@@ -2582,7 +2582,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbServiceBrokerService",
+    "url": "/Get-DbaDbServiceBrokerService",
     "popularityRank": 494
   },
   {
@@ -2594,7 +2594,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbSharePoint",
+    "url": "/Get-DbaDbSharePoint",
     "popularityRank": 481
   },
   {
@@ -2606,7 +2606,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbSnapshot",
+    "url": "/Get-DbaDbSnapshot",
     "popularityRank": 289
   },
   {
@@ -2618,7 +2618,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbSpace",
+    "url": "/Get-DbaDbSpace",
     "popularityRank": 67
   },
   {
@@ -2630,7 +2630,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbState",
+    "url": "/Get-DbaDbState",
     "popularityRank": 183
   },
   {
@@ -2642,7 +2642,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbStoredProcedure",
+    "url": "/Get-DbaDbStoredProcedure",
     "popularityRank": 92
   },
   {
@@ -2654,7 +2654,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbSynonym",
+    "url": "/Get-DbaDbSynonym",
     "popularityRank": 479
   },
   {
@@ -2667,7 +2667,7 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "/commands/Get-DbaDbTable",
+    "url": "/Get-DbaDbTable",
     "popularityRank": 31
   },
   {
@@ -2679,7 +2679,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbTrigger",
+    "url": "/Get-DbaDbTrigger",
     "popularityRank": 401
   },
   {
@@ -2691,7 +2691,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbUdf",
+    "url": "/Get-DbaDbUdf",
     "popularityRank": 356
   },
   {
@@ -2703,7 +2703,7 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "/commands/Get-DbaDbUser",
+    "url": "/Get-DbaDbUser",
     "popularityRank": 33
   },
   {
@@ -2716,7 +2716,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbUserDefinedTableType",
+    "url": "/Get-DbaDbUserDefinedTableType",
     "popularityRank": 482
   },
   {
@@ -2728,7 +2728,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbView",
+    "url": "/Get-DbaDbView",
     "popularityRank": 158
   },
   {
@@ -2740,7 +2740,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDbVirtualLogFile",
+    "url": "/Get-DbaDbVirtualLogFile",
     "popularityRank": 318
   },
   {
@@ -2752,7 +2752,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDefaultPath",
+    "url": "/Get-DbaDefaultPath",
     "popularityRank": 296
   },
   {
@@ -2764,7 +2764,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDependency",
+    "url": "/Get-DbaDependency",
     "popularityRank": 334
   },
   {
@@ -2776,7 +2776,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDeprecatedFeature",
+    "url": "/Get-DbaDeprecatedFeature",
     "popularityRank": 579
   },
   {
@@ -2788,7 +2788,7 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "/commands/Get-DbaDiskSpace",
+    "url": "/Get-DbaDiskSpace",
     "popularityRank": 47
   },
   {
@@ -2800,7 +2800,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaDump",
+    "url": "/Get-DbaDump",
     "popularityRank": 275
   },
   {
@@ -2812,7 +2812,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaEndpoint",
+    "url": "/Get-DbaEndpoint",
     "popularityRank": 303
   },
   {
@@ -2824,7 +2824,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaErrorLog",
+    "url": "/Get-DbaErrorLog",
     "popularityRank": 115
   },
   {
@@ -2836,7 +2836,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaErrorLogConfig",
+    "url": "/Get-DbaErrorLogConfig",
     "popularityRank": 464
   },
   {
@@ -2848,7 +2848,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaEstimatedCompletionTime",
+    "url": "/Get-DbaEstimatedCompletionTime",
     "popularityRank": 361
   },
   {
@@ -2860,7 +2860,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaExecutionPlan",
+    "url": "/Get-DbaExecutionPlan",
     "popularityRank": 341
   },
   {
@@ -2872,7 +2872,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaExtendedProperty",
+    "url": "/Get-DbaExtendedProperty",
     "popularityRank": 352
   },
   {
@@ -2884,7 +2884,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaExtendedProtection",
+    "url": "/Get-DbaExtendedProtection",
     "popularityRank": 598
   },
   {
@@ -2896,7 +2896,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaExternalProcess",
+    "url": "/Get-DbaExternalProcess",
     "popularityRank": 533
   },
   {
@@ -2908,7 +2908,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaFeature",
+    "url": "/Get-DbaFeature",
     "popularityRank": 220
   },
   {
@@ -2920,7 +2920,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaFile",
+    "url": "/Get-DbaFile",
     "popularityRank": 184
   },
   {
@@ -2932,7 +2932,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaFilestream",
+    "url": "/Get-DbaFilestream",
     "popularityRank": 616
   },
   {
@@ -2944,7 +2944,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaFirewallRule",
+    "url": "/Get-DbaFirewallRule",
     "popularityRank": 306
   },
   {
@@ -2957,7 +2957,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaForceNetworkEncryption",
+    "url": "/Get-DbaForceNetworkEncryption",
     "popularityRank": 443
   },
   {
@@ -2969,7 +2969,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaHelpIndex",
+    "url": "/Get-DbaHelpIndex",
     "popularityRank": 110
   },
   {
@@ -2982,7 +2982,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaHideInstance",
+    "url": "/Get-DbaHideInstance",
     "popularityRank": 582
   },
   {
@@ -2994,7 +2994,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaInstalledPatch",
+    "url": "/Get-DbaInstalledPatch",
     "popularityRank": 88
   },
   {
@@ -3007,7 +3007,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaInstanceAudit",
+    "url": "/Get-DbaInstanceAudit",
     "popularityRank": 169
   },
   {
@@ -3020,7 +3020,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaInstanceAuditSpecification",
+    "url": "/Get-DbaInstanceAuditSpecification",
     "popularityRank": 427
   },
   {
@@ -3033,7 +3033,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaInstanceInstallDate",
+    "url": "/Get-DbaInstanceInstallDate",
     "popularityRank": 357
   },
   {
@@ -3046,7 +3046,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaInstanceProperty",
+    "url": "/Get-DbaInstanceProperty",
     "popularityRank": 61
   },
   {
@@ -3059,7 +3059,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaInstanceProtocol",
+    "url": "/Get-DbaInstanceProtocol",
     "popularityRank": 391
   },
   {
@@ -3072,7 +3072,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaInstanceTrigger",
+    "url": "/Get-DbaInstanceTrigger",
     "popularityRank": 514
   },
   {
@@ -3085,7 +3085,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaInstanceUserOption",
+    "url": "/Get-DbaInstanceUserOption",
     "popularityRank": 508
   },
   {
@@ -3097,7 +3097,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaIoLatency",
+    "url": "/Get-DbaIoLatency",
     "popularityRank": 204
   },
   {
@@ -3109,7 +3109,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaKbUpdate",
+    "url": "/Get-DbaKbUpdate",
     "popularityRank": 108
   },
   {
@@ -3122,7 +3122,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaLastBackup",
+    "url": "/Get-DbaLastBackup",
     "popularityRank": 80
   },
   {
@@ -3134,7 +3134,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaLastGoodCheckDb",
+    "url": "/Get-DbaLastGoodCheckDb",
     "popularityRank": 246
   },
   {
@@ -3146,7 +3146,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaLatchStatistic",
+    "url": "/Get-DbaLatchStatistic",
     "popularityRank": 496
   },
   {
@@ -3159,7 +3159,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaLinkedServer",
+    "url": "/Get-DbaLinkedServer",
     "popularityRank": 98
   },
   {
@@ -3173,7 +3173,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaLinkedServerLogin",
+    "url": "/Get-DbaLinkedServerLogin",
     "popularityRank": 209
   },
   {
@@ -3185,7 +3185,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaLocaleSetting",
+    "url": "/Get-DbaLocaleSetting",
     "popularityRank": 500
   },
   {
@@ -3198,7 +3198,7 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "/commands/Get-DbaLogin",
+    "url": "/Get-DbaLogin",
     "popularityRank": 17
   },
   {
@@ -3210,7 +3210,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaMaintenanceSolutionLog",
+    "url": "/Get-DbaMaintenanceSolutionLog",
     "popularityRank": 232
   },
   {
@@ -3223,7 +3223,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaManagementObject",
+    "url": "/Get-DbaManagementObject",
     "popularityRank": 292
   },
   {
@@ -3235,7 +3235,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaMaxMemory",
+    "url": "/Get-DbaMaxMemory",
     "popularityRank": 114
   },
   {
@@ -3247,7 +3247,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaMemoryCondition",
+    "url": "/Get-DbaMemoryCondition",
     "popularityRank": 407
   },
   {
@@ -3260,7 +3260,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaMemoryUsage",
+    "url": "/Get-DbaMemoryUsage",
     "popularityRank": 221
   },
   {
@@ -3272,7 +3272,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaModule",
+    "url": "/Get-DbaModule",
     "popularityRank": 422
   },
   {
@@ -3284,7 +3284,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaMsdtc",
+    "url": "/Get-DbaMsdtc",
     "popularityRank": 488
   },
   {
@@ -3296,7 +3296,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaNetworkActivity",
+    "url": "/Get-DbaNetworkActivity",
     "popularityRank": 412
   },
   {
@@ -3309,7 +3309,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaNetworkCertificate",
+    "url": "/Get-DbaNetworkCertificate",
     "popularityRank": 133
   },
   {
@@ -3321,7 +3321,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaNetworkConfiguration",
+    "url": "/Get-DbaNetworkConfiguration",
     "popularityRank": 241
   },
   {
@@ -3333,7 +3333,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaOleDbProvider",
+    "url": "/Get-DbaOleDbProvider",
     "popularityRank": 573
   },
   {
@@ -3345,7 +3345,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaOpenTransaction",
+    "url": "/Get-DbaOpenTransaction",
     "popularityRank": 421
   },
   {
@@ -3357,7 +3357,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaOperatingSystem",
+    "url": "/Get-DbaOperatingSystem",
     "popularityRank": 210
   },
   {
@@ -3370,7 +3370,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaPageFileSetting",
+    "url": "/Get-DbaPageFileSetting",
     "popularityRank": 492
   },
   {
@@ -3382,7 +3382,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaPbmCategory",
+    "url": "/Get-DbaPbmCategory",
     "popularityRank": 648
   },
   {
@@ -3394,7 +3394,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaPbmCategorySubscription",
+    "url": "/Get-DbaPbmCategorySubscription",
     "popularityRank": 670
   },
   {
@@ -3406,7 +3406,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaPbmCondition",
+    "url": "/Get-DbaPbmCondition",
     "popularityRank": 682
   },
   {
@@ -3418,7 +3418,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaPbmObjectSet",
+    "url": "/Get-DbaPbmObjectSet",
     "popularityRank": 652
   },
   {
@@ -3430,7 +3430,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaPbmPolicy",
+    "url": "/Get-DbaPbmPolicy",
     "popularityRank": 574
   },
   {
@@ -3442,7 +3442,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaPbmStore",
+    "url": "/Get-DbaPbmStore",
     "popularityRank": 631
   },
   {
@@ -3455,7 +3455,7 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "/commands/Get-DbaPermission",
+    "url": "/Get-DbaPermission",
     "popularityRank": 50
   },
   {
@@ -3467,7 +3467,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaPfAvailableCounter",
+    "url": "/Get-DbaPfAvailableCounter",
     "popularityRank": 522
   },
   {
@@ -3479,7 +3479,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaPfDataCollector",
+    "url": "/Get-DbaPfDataCollector",
     "popularityRank": 525
   },
   {
@@ -3491,7 +3491,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaPfDataCollectorCounter",
+    "url": "/Get-DbaPfDataCollectorCounter",
     "popularityRank": 602
   },
   {
@@ -3503,7 +3503,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaPfDataCollectorCounterSample",
+    "url": "/Get-DbaPfDataCollectorCounterSample",
     "popularityRank": 632
   },
   {
@@ -3515,7 +3515,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaPfDataCollectorSet",
+    "url": "/Get-DbaPfDataCollectorSet",
     "popularityRank": 634
   },
   {
@@ -3527,7 +3527,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaPfDataCollectorSetTemplate",
+    "url": "/Get-DbaPfDataCollectorSetTemplate",
     "popularityRank": 665
   },
   {
@@ -3539,7 +3539,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaPlanCache",
+    "url": "/Get-DbaPlanCache",
     "popularityRank": 476
   },
   {
@@ -3551,7 +3551,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaPowerPlan",
+    "url": "/Get-DbaPowerPlan",
     "popularityRank": 345
   },
   {
@@ -3563,7 +3563,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaPrivilege",
+    "url": "/Get-DbaPrivilege",
     "popularityRank": 207
   },
   {
@@ -3575,7 +3575,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaProcess",
+    "url": "/Get-DbaProcess",
     "popularityRank": 208
   },
   {
@@ -3587,7 +3587,7 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "/commands/Get-DbaProductKey",
+    "url": "/Get-DbaProductKey",
     "popularityRank": 21
   },
   {
@@ -3600,7 +3600,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaQueryExecutionTime",
+    "url": "/Get-DbaQueryExecutionTime",
     "popularityRank": 335
   },
   {
@@ -3612,7 +3612,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaRandomizedDataset",
+    "url": "/Get-DbaRandomizedDataset",
     "popularityRank": 301
   },
   {
@@ -3624,7 +3624,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaRandomizedDatasetTemplate",
+    "url": "/Get-DbaRandomizedDatasetTemplate",
     "popularityRank": 527
   },
   {
@@ -3636,7 +3636,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaRandomizedType",
+    "url": "/Get-DbaRandomizedType",
     "popularityRank": 625
   },
   {
@@ -3648,7 +3648,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaRandomizedValue",
+    "url": "/Get-DbaRandomizedValue",
     "popularityRank": 564
   },
   {
@@ -3660,7 +3660,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaRegistryRoot",
+    "url": "/Get-DbaRegistryRoot",
     "popularityRank": 489
   },
   {
@@ -3673,7 +3673,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaRegServer",
+    "url": "/Get-DbaRegServer",
     "popularityRank": 64
   },
   {
@@ -3686,7 +3686,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaRegServerGroup",
+    "url": "/Get-DbaRegServerGroup",
     "popularityRank": 265
   },
   {
@@ -3699,7 +3699,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaRegServerStore",
+    "url": "/Get-DbaRegServerStore",
     "popularityRank": 430
   },
   {
@@ -3711,7 +3711,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaReplArticle",
+    "url": "/Get-DbaReplArticle",
     "popularityRank": 600
   },
   {
@@ -3723,7 +3723,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaReplArticleColumn",
+    "url": "/Get-DbaReplArticleColumn",
     "popularityRank": 671
   },
   {
@@ -3735,7 +3735,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaReplDistributor",
+    "url": "/Get-DbaReplDistributor",
     "popularityRank": 627
   },
   {
@@ -3747,7 +3747,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaReplPublication",
+    "url": "/Get-DbaReplPublication",
     "popularityRank": 601
   },
   {
@@ -3759,7 +3759,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaReplPublisher",
+    "url": "/Get-DbaReplPublisher",
     "popularityRank": 669
   },
   {
@@ -3772,7 +3772,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaReplServer",
+    "url": "/Get-DbaReplServer",
     "popularityRank": 586
   },
   {
@@ -3784,7 +3784,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaReplSubscription",
+    "url": "/Get-DbaReplSubscription",
     "popularityRank": 594
   },
   {
@@ -3796,7 +3796,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaResourceGovernor",
+    "url": "/Get-DbaResourceGovernor",
     "popularityRank": 562
   },
   {
@@ -3808,7 +3808,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaRgClassifierFunction",
+    "url": "/Get-DbaRgClassifierFunction",
     "popularityRank": 642
   },
   {
@@ -3820,7 +3820,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaRgResourcePool",
+    "url": "/Get-DbaRgResourcePool",
     "popularityRank": 673
   },
   {
@@ -3832,7 +3832,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaRgWorkloadGroup",
+    "url": "/Get-DbaRgWorkloadGroup",
     "popularityRank": 675
   },
   {
@@ -3845,7 +3845,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaRunningJob",
+    "url": "/Get-DbaRunningJob",
     "popularityRank": 281
   },
   {
@@ -3857,7 +3857,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaSchemaChangeHistory",
+    "url": "/Get-DbaSchemaChangeHistory",
     "popularityRank": 399
   },
   {
@@ -3870,7 +3870,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaServerRole",
+    "url": "/Get-DbaServerRole",
     "popularityRank": 189
   },
   {
@@ -3883,7 +3883,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaServerRoleMember",
+    "url": "/Get-DbaServerRoleMember",
     "popularityRank": 147
   },
   {
@@ -3895,7 +3895,7 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "/commands/Get-DbaService",
+    "url": "/Get-DbaService",
     "popularityRank": 34
   },
   {
@@ -3907,7 +3907,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaSpConfigure",
+    "url": "/Get-DbaSpConfigure",
     "popularityRank": 138
   },
   {
@@ -3919,7 +3919,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaSpinLockStatistic",
+    "url": "/Get-DbaSpinLockStatistic",
     "popularityRank": 501
   },
   {
@@ -3931,7 +3931,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaSpn",
+    "url": "/Get-DbaSpn",
     "popularityRank": 79
   },
   {
@@ -3943,7 +3943,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaSsisEnvironmentVariable",
+    "url": "/Get-DbaSsisEnvironmentVariable",
     "popularityRank": 462
   },
   {
@@ -3955,7 +3955,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaSsisExecutionHistory",
+    "url": "/Get-DbaSsisExecutionHistory",
     "popularityRank": 363
   },
   {
@@ -3967,7 +3967,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaStartupParameter",
+    "url": "/Get-DbaStartupParameter",
     "popularityRank": 339
   },
   {
@@ -3979,7 +3979,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaStartupProcedure",
+    "url": "/Get-DbaStartupProcedure",
     "popularityRank": 571
   },
   {
@@ -3992,7 +3992,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaSuspectPage",
+    "url": "/Get-DbaSuspectPage",
     "popularityRank": 563
   },
   {
@@ -4004,7 +4004,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaTcpPort",
+    "url": "/Get-DbaTcpPort",
     "popularityRank": 173
   },
   {
@@ -4017,7 +4017,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaTempdbUsage",
+    "url": "/Get-DbaTempdbUsage",
     "popularityRank": 137
   },
   {
@@ -4029,7 +4029,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbatoolsChangeLog",
+    "url": "/Get-DbatoolsChangeLog",
     "popularityRank": 531
   },
   {
@@ -4041,7 +4041,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbatoolsConfig",
+    "url": "/Get-DbatoolsConfig",
     "popularityRank": 185
   },
   {
@@ -4053,7 +4053,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbatoolsConfigValue",
+    "url": "/Get-DbatoolsConfigValue",
     "popularityRank": 417
   },
   {
@@ -4065,7 +4065,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbatoolsError",
+    "url": "/Get-DbatoolsError",
     "popularityRank": 480
   },
   {
@@ -4077,7 +4077,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbatoolsLog",
+    "url": "/Get-DbatoolsLog",
     "popularityRank": 258
   },
   {
@@ -4089,7 +4089,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbatoolsPath",
+    "url": "/Get-DbatoolsPath",
     "popularityRank": 451
   },
   {
@@ -4102,7 +4102,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaTopResourceUsage",
+    "url": "/Get-DbaTopResourceUsage",
     "popularityRank": 288
   },
   {
@@ -4114,7 +4114,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaTrace",
+    "url": "/Get-DbaTrace",
     "popularityRank": 370
   },
   {
@@ -4127,7 +4127,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaTraceFlag",
+    "url": "/Get-DbaTraceFlag",
     "popularityRank": 432
   },
   {
@@ -4139,7 +4139,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaUptime",
+    "url": "/Get-DbaUptime",
     "popularityRank": 192
   },
   {
@@ -4152,7 +4152,7 @@
     ],
     "verb": "Get",
     "popular": true,
-    "url": "/commands/Get-DbaUserPermission",
+    "url": "/Get-DbaUserPermission",
     "popularityRank": 39
   },
   {
@@ -4164,7 +4164,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaWaitingTask",
+    "url": "/Get-DbaWaitingTask",
     "popularityRank": 444
   },
   {
@@ -4176,7 +4176,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaWaitResource",
+    "url": "/Get-DbaWaitResource",
     "popularityRank": 459
   },
   {
@@ -4188,7 +4188,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaWaitStatistic",
+    "url": "/Get-DbaWaitStatistic",
     "popularityRank": 298
   },
   {
@@ -4200,7 +4200,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaWindowsLog",
+    "url": "/Get-DbaWindowsLog",
     "popularityRank": 473
   },
   {
@@ -4212,7 +4212,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaWsfcAvailableDisk",
+    "url": "/Get-DbaWsfcAvailableDisk",
     "popularityRank": 468
   },
   {
@@ -4224,7 +4224,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaWsfcCluster",
+    "url": "/Get-DbaWsfcCluster",
     "popularityRank": 118
   },
   {
@@ -4236,7 +4236,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaWsfcDisk",
+    "url": "/Get-DbaWsfcDisk",
     "popularityRank": 530
   },
   {
@@ -4248,7 +4248,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaWsfcNetwork",
+    "url": "/Get-DbaWsfcNetwork",
     "popularityRank": 509
   },
   {
@@ -4260,7 +4260,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaWsfcNetworkInterface",
+    "url": "/Get-DbaWsfcNetworkInterface",
     "popularityRank": 620
   },
   {
@@ -4272,7 +4272,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaWsfcNode",
+    "url": "/Get-DbaWsfcNode",
     "popularityRank": 251
   },
   {
@@ -4284,7 +4284,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaWsfcResource",
+    "url": "/Get-DbaWsfcResource",
     "popularityRank": 374
   },
   {
@@ -4296,7 +4296,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaWsfcResourceGroup",
+    "url": "/Get-DbaWsfcResourceGroup",
     "popularityRank": 678
   },
   {
@@ -4308,7 +4308,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaWsfcResourceType",
+    "url": "/Get-DbaWsfcResourceType",
     "popularityRank": 565
   },
   {
@@ -4320,7 +4320,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaWsfcRole",
+    "url": "/Get-DbaWsfcRole",
     "popularityRank": 322
   },
   {
@@ -4332,7 +4332,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaWsfcSharedVolume",
+    "url": "/Get-DbaWsfcSharedVolume",
     "popularityRank": 576
   },
   {
@@ -4344,7 +4344,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaXEObject",
+    "url": "/Get-DbaXEObject",
     "popularityRank": 554
   },
   {
@@ -4356,7 +4356,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaXESession",
+    "url": "/Get-DbaXESession",
     "popularityRank": 366
   },
   {
@@ -4368,7 +4368,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaXESessionTarget",
+    "url": "/Get-DbaXESessionTarget",
     "popularityRank": 606
   },
   {
@@ -4380,7 +4380,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaXESessionTargetFile",
+    "url": "/Get-DbaXESessionTargetFile",
     "popularityRank": 561
   },
   {
@@ -4392,7 +4392,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaXESessionTemplate",
+    "url": "/Get-DbaXESessionTemplate",
     "popularityRank": 619
   },
   {
@@ -4404,7 +4404,7 @@
     ],
     "verb": "Get",
     "popular": false,
-    "url": "/commands/Get-DbaXEStore",
+    "url": "/Get-DbaXEStore",
     "popularityRank": 608
   },
   {
@@ -4418,7 +4418,7 @@
     ],
     "verb": "Grant",
     "popular": false,
-    "url": "/commands/Grant-DbaAgPermission",
+    "url": "/Grant-DbaAgPermission",
     "popularityRank": 254
   },
   {
@@ -4430,7 +4430,7 @@
     ],
     "verb": "Import",
     "popular": false,
-    "url": "/commands/Import-DbaBinaryFile",
+    "url": "/Import-DbaBinaryFile",
     "popularityRank": 520
   },
   {
@@ -4442,7 +4442,7 @@
     ],
     "verb": "Import",
     "popular": true,
-    "url": "/commands/Import-DbaCsv",
+    "url": "/Import-DbaCsv",
     "popularityRank": 14
   },
   {
@@ -4454,7 +4454,7 @@
     ],
     "verb": "Import",
     "popular": false,
-    "url": "/commands/Import-DbaPfDataCollectorSetTemplate",
+    "url": "/Import-DbaPfDataCollectorSetTemplate",
     "popularityRank": 638
   },
   {
@@ -4467,7 +4467,7 @@
     ],
     "verb": "Import",
     "popular": false,
-    "url": "/commands/Import-DbaRegServer",
+    "url": "/Import-DbaRegServer",
     "popularityRank": 362
   },
   {
@@ -4479,7 +4479,7 @@
     ],
     "verb": "Import",
     "popular": false,
-    "url": "/commands/Import-DbaSpConfigure",
+    "url": "/Import-DbaSpConfigure",
     "popularityRank": 504
   },
   {
@@ -4491,7 +4491,7 @@
     ],
     "verb": "Import",
     "popular": false,
-    "url": "/commands/Import-DbatoolsConfig",
+    "url": "/Import-DbatoolsConfig",
     "popularityRank": 515
   },
   {
@@ -4503,7 +4503,7 @@
     ],
     "verb": "Import",
     "popular": false,
-    "url": "/commands/Import-DbaXESessionTemplate",
+    "url": "/Import-DbaXESessionTemplate",
     "popularityRank": 540
   },
   {
@@ -4517,7 +4517,7 @@
     ],
     "verb": "Install",
     "popular": false,
-    "url": "/commands/Install-DbaAgentAdminAlert",
+    "url": "/Install-DbaAgentAdminAlert",
     "popularityRank": 477
   },
   {
@@ -4529,7 +4529,7 @@
     ],
     "verb": "Install",
     "popular": false,
-    "url": "/commands/Install-DbaDarlingData",
+    "url": "/Install-DbaDarlingData",
     "popularityRank": 96
   },
   {
@@ -4541,7 +4541,7 @@
     ],
     "verb": "Install",
     "popular": false,
-    "url": "/commands/Install-DbaFirstResponderKit",
+    "url": "/Install-DbaFirstResponderKit",
     "popularityRank": 104
   },
   {
@@ -4554,7 +4554,7 @@
     ],
     "verb": "Install",
     "popular": true,
-    "url": "/commands/Install-DbaInstance",
+    "url": "/Install-DbaInstance",
     "popularityRank": 22
   },
   {
@@ -4566,7 +4566,7 @@
     ],
     "verb": "Install",
     "popular": true,
-    "url": "/commands/Install-DbaMaintenanceSolution",
+    "url": "/Install-DbaMaintenanceSolution",
     "popularityRank": 43
   },
   {
@@ -4578,7 +4578,7 @@
     ],
     "verb": "Install",
     "popular": false,
-    "url": "/commands/Install-DbaMultiTool",
+    "url": "/Install-DbaMultiTool",
     "popularityRank": 102
   },
   {
@@ -4591,7 +4591,7 @@
     ],
     "verb": "Install",
     "popular": false,
-    "url": "/commands/Install-DbaSqlPackage",
+    "url": "/Install-DbaSqlPackage",
     "popularityRank": 696
   },
   {
@@ -4603,7 +4603,7 @@
     ],
     "verb": "Install",
     "popular": true,
-    "url": "/commands/Install-DbaSqlWatch",
+    "url": "/Install-DbaSqlWatch",
     "popularityRank": 45
   },
   {
@@ -4615,7 +4615,7 @@
     ],
     "verb": "Install",
     "popular": false,
-    "url": "/commands/Install-DbaWhoIsActive",
+    "url": "/Install-DbaWhoIsActive",
     "popularityRank": 123
   },
   {
@@ -4627,7 +4627,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaAdvancedInstall",
+    "url": "/Invoke-DbaAdvancedInstall",
     "popularityRank": 168
   },
   {
@@ -4640,7 +4640,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaAdvancedRestore",
+    "url": "/Invoke-DbaAdvancedRestore",
     "popularityRank": 142
   },
   {
@@ -4652,7 +4652,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaAdvancedUpdate",
+    "url": "/Invoke-DbaAdvancedUpdate",
     "popularityRank": 222
   },
   {
@@ -4665,7 +4665,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaAgFailover",
+    "url": "/Invoke-DbaAgFailover",
     "popularityRank": 59
   },
   {
@@ -4677,7 +4677,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaBalanceDataFiles",
+    "url": "/Invoke-DbaBalanceDataFiles",
     "popularityRank": 353
   },
   {
@@ -4689,7 +4689,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaCycleErrorLog",
+    "url": "/Invoke-DbaCycleErrorLog",
     "popularityRank": 577
   },
   {
@@ -4701,7 +4701,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDbccDropCleanBuffer",
+    "url": "/Invoke-DbaDbccDropCleanBuffer",
     "popularityRank": 645
   },
   {
@@ -4713,7 +4713,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDbccFreeCache",
+    "url": "/Invoke-DbaDbccFreeCache",
     "popularityRank": 557
   },
   {
@@ -4725,7 +4725,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDbClone",
+    "url": "/Invoke-DbaDbClone",
     "popularityRank": 178
   },
   {
@@ -4738,7 +4738,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDbDataGenerator",
+    "url": "/Invoke-DbaDbDataGenerator",
     "popularityRank": 376
   },
   {
@@ -4750,7 +4750,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDbDataMasking",
+    "url": "/Invoke-DbaDbDataMasking",
     "popularityRank": 124
   },
   {
@@ -4762,7 +4762,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDbDbccCheckConstraint",
+    "url": "/Invoke-DbaDbDbccCheckConstraint",
     "popularityRank": 510
   },
   {
@@ -4775,7 +4775,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDbDbccCleanTable",
+    "url": "/Invoke-DbaDbDbccCleanTable",
     "popularityRank": 523
   },
   {
@@ -4788,7 +4788,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDbDbccUpdateUsage",
+    "url": "/Invoke-DbaDbDbccUpdateUsage",
     "popularityRank": 528
   },
   {
@@ -4800,7 +4800,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDbDecryptObject",
+    "url": "/Invoke-DbaDbDecryptObject",
     "popularityRank": 434
   },
   {
@@ -4812,7 +4812,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDbLogShipping",
+    "url": "/Invoke-DbaDbLogShipping",
     "popularityRank": 75
   },
   {
@@ -4824,7 +4824,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDbLogShipRecovery",
+    "url": "/Invoke-DbaDbLogShipRecovery",
     "popularityRank": 235
   },
   {
@@ -4837,7 +4837,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDbMirrorFailover",
+    "url": "/Invoke-DbaDbMirrorFailover",
     "popularityRank": 467
   },
   {
@@ -4850,7 +4850,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDbMirroring",
+    "url": "/Invoke-DbaDbMirroring",
     "popularityRank": 340
   },
   {
@@ -4862,7 +4862,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDbPiiScan",
+    "url": "/Invoke-DbaDbPiiScan",
     "popularityRank": 230
   },
   {
@@ -4874,7 +4874,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDbShrink",
+    "url": "/Invoke-DbaDbShrink",
     "popularityRank": 57
   },
   {
@@ -4886,7 +4886,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDbTransfer",
+    "url": "/Invoke-DbaDbTransfer",
     "popularityRank": 293
   },
   {
@@ -4898,7 +4898,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDbUpgrade",
+    "url": "/Invoke-DbaDbUpgrade",
     "popularityRank": 243
   },
   {
@@ -4912,7 +4912,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaDiagnosticQuery",
+    "url": "/Invoke-DbaDiagnosticQuery",
     "popularityRank": 73
   },
   {
@@ -4924,7 +4924,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaPfRelog",
+    "url": "/Invoke-DbaPfRelog",
     "popularityRank": 589
   },
   {
@@ -4937,7 +4937,7 @@
     ],
     "verb": "Invoke",
     "popular": true,
-    "url": "/commands/Invoke-DbaQuery",
+    "url": "/Invoke-DbaQuery",
     "popularityRank": 2
   },
   {
@@ -4949,7 +4949,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbatoolsFormatter",
+    "url": "/Invoke-DbatoolsFormatter",
     "popularityRank": 517
   },
   {
@@ -4961,7 +4961,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbatoolsRenameHelper",
+    "url": "/Invoke-DbatoolsRenameHelper",
     "popularityRank": 567
   },
   {
@@ -4973,7 +4973,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaWhoIsActive",
+    "url": "/Invoke-DbaWhoIsActive",
     "popularityRank": 403
   },
   {
@@ -4985,7 +4985,7 @@
     ],
     "verb": "Invoke",
     "popular": false,
-    "url": "/commands/Invoke-DbaXEReplay",
+    "url": "/Invoke-DbaXEReplay",
     "popularityRank": 691
   },
   {
@@ -4998,7 +4998,7 @@
     ],
     "verb": "Join",
     "popular": false,
-    "url": "/commands/Join-DbaAvailabilityGroup",
+    "url": "/Join-DbaAvailabilityGroup",
     "popularityRank": 177
   },
   {
@@ -5010,7 +5010,7 @@
     ],
     "verb": "Join",
     "popular": false,
-    "url": "/commands/Join-DbaPath",
+    "url": "/Join-DbaPath",
     "popularityRank": 524
   },
   {
@@ -5023,7 +5023,7 @@
     ],
     "verb": "Measure",
     "popular": false,
-    "url": "/commands/Measure-DbaBackupThroughput",
+    "url": "/Measure-DbaBackupThroughput",
     "popularityRank": 347
   },
   {
@@ -5035,7 +5035,7 @@
     ],
     "verb": "Measure",
     "popular": false,
-    "url": "/commands/Measure-DbaDbVirtualLogFile",
+    "url": "/Measure-DbaDbVirtualLogFile",
     "popularityRank": 365
   },
   {
@@ -5047,7 +5047,7 @@
     ],
     "verb": "Measure",
     "popular": false,
-    "url": "/commands/Measure-DbaDiskSpaceRequirement",
+    "url": "/Measure-DbaDiskSpaceRequirement",
     "popularityRank": 282
   },
   {
@@ -5059,7 +5059,7 @@
     ],
     "verb": "Measure",
     "popular": false,
-    "url": "/commands/Measure-DbatoolsImport",
+    "url": "/Measure-DbatoolsImport",
     "popularityRank": 583
   },
   {
@@ -5072,7 +5072,7 @@
     ],
     "verb": "Mount",
     "popular": false,
-    "url": "/commands/Mount-DbaDatabase",
+    "url": "/Mount-DbaDatabase",
     "popularityRank": 175
   },
   {
@@ -5084,7 +5084,7 @@
     ],
     "verb": "Move",
     "popular": false,
-    "url": "/commands/Move-DbaDbFile",
+    "url": "/Move-DbaDbFile",
     "popularityRank": 87
   },
   {
@@ -5097,7 +5097,7 @@
     ],
     "verb": "Move",
     "popular": false,
-    "url": "/commands/Move-DbaRegServer",
+    "url": "/Move-DbaRegServer",
     "popularityRank": 532
   },
   {
@@ -5110,7 +5110,7 @@
     ],
     "verb": "Move",
     "popular": false,
-    "url": "/commands/Move-DbaRegServerGroup",
+    "url": "/Move-DbaRegServerGroup",
     "popularityRank": 666
   },
   {
@@ -5124,7 +5124,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaAgentAlert",
+    "url": "/New-DbaAgentAlert",
     "popularityRank": 587
   },
   {
@@ -5138,7 +5138,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaAgentAlertCategory",
+    "url": "/New-DbaAgentAlertCategory",
     "popularityRank": 629
   },
   {
@@ -5153,7 +5153,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaAgentJob",
+    "url": "/New-DbaAgentJob",
     "popularityRank": 157
   },
   {
@@ -5168,7 +5168,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaAgentJobCategory",
+    "url": "/New-DbaAgentJobCategory",
     "popularityRank": 539
   },
   {
@@ -5183,7 +5183,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaAgentJobStep",
+    "url": "/New-DbaAgentJobStep",
     "popularityRank": 180
   },
   {
@@ -5197,7 +5197,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaAgentOperator",
+    "url": "/New-DbaAgentOperator",
     "popularityRank": 465
   },
   {
@@ -5211,7 +5211,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaAgentProxy",
+    "url": "/New-DbaAgentProxy",
     "popularityRank": 0
   },
   {
@@ -5225,7 +5225,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaAgentSchedule",
+    "url": "/New-DbaAgentSchedule",
     "popularityRank": 198
   },
   {
@@ -5238,7 +5238,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaAvailabilityGroup",
+    "url": "/New-DbaAvailabilityGroup",
     "popularityRank": 89
   },
   {
@@ -5250,7 +5250,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaAzAccessToken",
+    "url": "/New-DbaAzAccessToken",
     "popularityRank": 228
   },
   {
@@ -5262,7 +5262,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaClientAlias",
+    "url": "/New-DbaClientAlias",
     "popularityRank": 368
   },
   {
@@ -5274,7 +5274,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaCmConnection",
+    "url": "/New-DbaCmConnection",
     "popularityRank": 558
   },
   {
@@ -5287,7 +5287,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaComputerCertificate",
+    "url": "/New-DbaComputerCertificate",
     "popularityRank": 140
   },
   {
@@ -5300,7 +5300,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaComputerCertificateSigningRequest",
+    "url": "/New-DbaComputerCertificateSigningRequest",
     "popularityRank": 310
   },
   {
@@ -5312,7 +5312,7 @@
     ],
     "verb": "New",
     "popular": true,
-    "url": "/commands/New-DbaConnectionString",
+    "url": "/New-DbaConnectionString",
     "popularityRank": 25
   },
   {
@@ -5324,7 +5324,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaConnectionStringBuilder",
+    "url": "/New-DbaConnectionStringBuilder",
     "popularityRank": 367
   },
   {
@@ -5336,7 +5336,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaCredential",
+    "url": "/New-DbaCredential",
     "popularityRank": 201
   },
   {
@@ -5348,7 +5348,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaCustomError",
+    "url": "/New-DbaCustomError",
     "popularityRank": 674
   },
   {
@@ -5360,7 +5360,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDacOption",
+    "url": "/New-DbaDacOption",
     "popularityRank": 307
   },
   {
@@ -5372,7 +5372,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDacProfile",
+    "url": "/New-DbaDacProfile",
     "popularityRank": 511
   },
   {
@@ -5385,7 +5385,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDatabase",
+    "url": "/New-DbaDatabase",
     "popularityRank": 77
   },
   {
@@ -5397,7 +5397,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDbAsymmetricKey",
+    "url": "/New-DbaDbAsymmetricKey",
     "popularityRank": 635
   },
   {
@@ -5410,7 +5410,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDbCertificate",
+    "url": "/New-DbaDbCertificate",
     "popularityRank": 283
   },
   {
@@ -5423,7 +5423,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDbDataGeneratorConfig",
+    "url": "/New-DbaDbDataGeneratorConfig",
     "popularityRank": 435
   },
   {
@@ -5436,7 +5436,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDbEncryptionKey",
+    "url": "/New-DbaDbEncryptionKey",
     "popularityRank": 343
   },
   {
@@ -5448,7 +5448,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDbFileGroup",
+    "url": "/New-DbaDbFileGroup",
     "popularityRank": 566
   },
   {
@@ -5460,7 +5460,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDbMailAccount",
+    "url": "/New-DbaDbMailAccount",
     "popularityRank": 244
   },
   {
@@ -5472,7 +5472,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDbMailProfile",
+    "url": "/New-DbaDbMailProfile",
     "popularityRank": 278
   },
   {
@@ -5484,7 +5484,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDbMaskingConfig",
+    "url": "/New-DbaDbMaskingConfig",
     "popularityRank": 219
   },
   {
@@ -5496,7 +5496,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDbMasterKey",
+    "url": "/New-DbaDbMasterKey",
     "popularityRank": 433
   },
   {
@@ -5508,7 +5508,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDbRole",
+    "url": "/New-DbaDbRole",
     "popularityRank": 249
   },
   {
@@ -5520,7 +5520,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDbSchema",
+    "url": "/New-DbaDbSchema",
     "popularityRank": 483
   },
   {
@@ -5532,7 +5532,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDbSequence",
+    "url": "/New-DbaDbSequence",
     "popularityRank": 663
   },
   {
@@ -5544,7 +5544,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDbSnapshot",
+    "url": "/New-DbaDbSnapshot",
     "popularityRank": 269
   },
   {
@@ -5556,7 +5556,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDbSynonym",
+    "url": "/New-DbaDbSynonym",
     "popularityRank": 607
   },
   {
@@ -5569,7 +5569,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDbTable",
+    "url": "/New-DbaDbTable",
     "popularityRank": 182
   },
   {
@@ -5581,7 +5581,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDbTransfer",
+    "url": "/New-DbaDbTransfer",
     "popularityRank": 252
   },
   {
@@ -5593,7 +5593,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDbUser",
+    "url": "/New-DbaDbUser",
     "popularityRank": 53
   },
   {
@@ -5606,7 +5606,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDiagnosticAdsNotebook",
+    "url": "/New-DbaDiagnosticAdsNotebook",
     "popularityRank": 439
   },
   {
@@ -5618,7 +5618,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaDirectory",
+    "url": "/New-DbaDirectory",
     "popularityRank": 490
   },
   {
@@ -5630,7 +5630,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaEndpoint",
+    "url": "/New-DbaEndpoint",
     "popularityRank": 426
   },
   {
@@ -5642,7 +5642,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaFirewallRule",
+    "url": "/New-DbaFirewallRule",
     "popularityRank": 431
   },
   {
@@ -5655,7 +5655,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaLinkedServer",
+    "url": "/New-DbaLinkedServer",
     "popularityRank": 475
   },
   {
@@ -5669,7 +5669,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaLinkedServerLogin",
+    "url": "/New-DbaLinkedServerLogin",
     "popularityRank": 305
   },
   {
@@ -5682,7 +5682,7 @@
     ],
     "verb": "New",
     "popular": true,
-    "url": "/commands/New-DbaLogin",
+    "url": "/New-DbaLogin",
     "popularityRank": 36
   },
   {
@@ -5694,7 +5694,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaReplCreationScriptOptions",
+    "url": "/New-DbaReplCreationScriptOptions",
     "popularityRank": 578
   },
   {
@@ -5706,7 +5706,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaReplPublication",
+    "url": "/New-DbaReplPublication",
     "popularityRank": 584
   },
   {
@@ -5718,7 +5718,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaReplSubscription",
+    "url": "/New-DbaReplSubscription",
     "popularityRank": 630
   },
   {
@@ -5730,7 +5730,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaRgResourcePool",
+    "url": "/New-DbaRgResourcePool",
     "popularityRank": 683
   },
   {
@@ -5742,7 +5742,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaRgWorkloadGroup",
+    "url": "/New-DbaRgWorkloadGroup",
     "popularityRank": 681
   },
   {
@@ -5754,7 +5754,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaScriptingOption",
+    "url": "/New-DbaScriptingOption",
     "popularityRank": 136
   },
   {
@@ -5767,7 +5767,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaServerRole",
+    "url": "/New-DbaServerRole",
     "popularityRank": 450
   },
   {
@@ -5779,7 +5779,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaServiceMasterKey",
+    "url": "/New-DbaServiceMasterKey",
     "popularityRank": 543
   },
   {
@@ -5791,7 +5791,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaSqlParameter",
+    "url": "/New-DbaSqlParameter",
     "popularityRank": 348
   },
   {
@@ -5803,7 +5803,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaSsisCatalog",
+    "url": "/New-DbaSsisCatalog",
     "popularityRank": 493
   },
   {
@@ -5816,7 +5816,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbatoolsSupportPackage",
+    "url": "/New-DbatoolsSupportPackage",
     "popularityRank": 628
   },
   {
@@ -5828,7 +5828,7 @@
     ],
     "verb": "New",
     "popular": false,
-    "url": "/commands/New-DbaXESession",
+    "url": "/New-DbaXESession",
     "popularityRank": 486
   },
   {
@@ -5841,7 +5841,7 @@
     ],
     "verb": "Publish",
     "popular": false,
-    "url": "/commands/Publish-DbaDacPackage",
+    "url": "/Publish-DbaDacPackage",
     "popularityRank": 144
   },
   {
@@ -5853,7 +5853,7 @@
     ],
     "verb": "Read",
     "popular": false,
-    "url": "/commands/Read-DbaAuditFile",
+    "url": "/Read-DbaAuditFile",
     "popularityRank": 336
   },
   {
@@ -5866,7 +5866,7 @@
     ],
     "verb": "Read",
     "popular": false,
-    "url": "/commands/Read-DbaBackupHeader",
+    "url": "/Read-DbaBackupHeader",
     "popularityRank": 261
   },
   {
@@ -5878,7 +5878,7 @@
     ],
     "verb": "Read",
     "popular": false,
-    "url": "/commands/Read-DbaTraceFile",
+    "url": "/Read-DbaTraceFile",
     "popularityRank": 521
   },
   {
@@ -5890,7 +5890,7 @@
     ],
     "verb": "Read",
     "popular": false,
-    "url": "/commands/Read-DbaTransactionLog",
+    "url": "/Read-DbaTransactionLog",
     "popularityRank": 346
   },
   {
@@ -5902,7 +5902,7 @@
     ],
     "verb": "Read",
     "popular": false,
-    "url": "/commands/Read-DbaXEFile",
+    "url": "/Read-DbaXEFile",
     "popularityRank": 312
   },
   {
@@ -5914,7 +5914,7 @@
     ],
     "verb": "Register",
     "popular": false,
-    "url": "/commands/Register-DbatoolsConfig",
+    "url": "/Register-DbatoolsConfig",
     "popularityRank": 328
   },
   {
@@ -5928,7 +5928,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaAgDatabase",
+    "url": "/Remove-DbaAgDatabase",
     "popularityRank": 103
   },
   {
@@ -5942,7 +5942,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaAgentAlert",
+    "url": "/Remove-DbaAgentAlert",
     "popularityRank": 660
   },
   {
@@ -5956,7 +5956,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaAgentAlertCategory",
+    "url": "/Remove-DbaAgentAlertCategory",
     "popularityRank": 695
   },
   {
@@ -5971,7 +5971,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaAgentJob",
+    "url": "/Remove-DbaAgentJob",
     "popularityRank": 213
   },
   {
@@ -5986,7 +5986,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaAgentJobCategory",
+    "url": "/Remove-DbaAgentJobCategory",
     "popularityRank": 688
   },
   {
@@ -6001,7 +6001,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaAgentJobStep",
+    "url": "/Remove-DbaAgentJobStep",
     "popularityRank": 568
   },
   {
@@ -6015,7 +6015,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaAgentOperator",
+    "url": "/Remove-DbaAgentOperator",
     "popularityRank": 646
   },
   {
@@ -6029,7 +6029,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaAgentProxy",
+    "url": "/Remove-DbaAgentProxy",
     "popularityRank": 0
   },
   {
@@ -6043,7 +6043,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaAgentSchedule",
+    "url": "/Remove-DbaAgentSchedule",
     "popularityRank": 506
   },
   {
@@ -6056,7 +6056,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaAgListener",
+    "url": "/Remove-DbaAgListener",
     "popularityRank": 536
   },
   {
@@ -6069,7 +6069,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaAgReplica",
+    "url": "/Remove-DbaAgReplica",
     "popularityRank": 445
   },
   {
@@ -6082,7 +6082,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaAvailabilityGroup",
+    "url": "/Remove-DbaAvailabilityGroup",
     "popularityRank": 377
   },
   {
@@ -6095,7 +6095,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaBackup",
+    "url": "/Remove-DbaBackup",
     "popularityRank": 231
   },
   {
@@ -6107,7 +6107,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaClientAlias",
+    "url": "/Remove-DbaClientAlias",
     "popularityRank": 656
   },
   {
@@ -6119,7 +6119,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaCmConnection",
+    "url": "/Remove-DbaCmConnection",
     "popularityRank": 650
   },
   {
@@ -6132,7 +6132,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaComputerCertificate",
+    "url": "/Remove-DbaComputerCertificate",
     "popularityRank": 537
   },
   {
@@ -6144,7 +6144,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaCredential",
+    "url": "/Remove-DbaCredential",
     "popularityRank": 614
   },
   {
@@ -6156,7 +6156,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaCustomError",
+    "url": "/Remove-DbaCustomError",
     "popularityRank": 697
   },
   {
@@ -6169,7 +6169,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDatabase",
+    "url": "/Remove-DbaDatabase",
     "popularityRank": 63
   },
   {
@@ -6182,7 +6182,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDatabaseSafely",
+    "url": "/Remove-DbaDatabaseSafely",
     "popularityRank": 386
   },
   {
@@ -6194,7 +6194,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbAsymmetricKey",
+    "url": "/Remove-DbaDbAsymmetricKey",
     "popularityRank": 693
   },
   {
@@ -6208,7 +6208,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbBackupRestoreHistory",
+    "url": "/Remove-DbaDbBackupRestoreHistory",
     "popularityRank": 452
   },
   {
@@ -6221,7 +6221,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbCertificate",
+    "url": "/Remove-DbaDbCertificate",
     "popularityRank": 572
   },
   {
@@ -6233,7 +6233,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbCheckConstraint",
+    "url": "/Remove-DbaDbCheckConstraint",
     "popularityRank": 667
   },
   {
@@ -6245,7 +6245,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbData",
+    "url": "/Remove-DbaDbData",
     "popularityRank": 393
   },
   {
@@ -6258,7 +6258,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbEncryptionKey",
+    "url": "/Remove-DbaDbEncryptionKey",
     "popularityRank": 580
   },
   {
@@ -6270,7 +6270,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbFileGroup",
+    "url": "/Remove-DbaDbFileGroup",
     "popularityRank": 595
   },
   {
@@ -6282,7 +6282,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbLogShipping",
+    "url": "/Remove-DbaDbLogShipping",
     "popularityRank": 324
   },
   {
@@ -6294,7 +6294,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbMailAccount",
+    "url": "/Remove-DbaDbMailAccount",
     "popularityRank": 591
   },
   {
@@ -6306,7 +6306,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbMailProfile",
+    "url": "/Remove-DbaDbMailProfile",
     "popularityRank": 633
   },
   {
@@ -6318,7 +6318,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbMasterKey",
+    "url": "/Remove-DbaDbMasterKey",
     "popularityRank": 649
   },
   {
@@ -6331,7 +6331,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbMirror",
+    "url": "/Remove-DbaDbMirror",
     "popularityRank": 551
   },
   {
@@ -6344,7 +6344,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbMirrorMonitor",
+    "url": "/Remove-DbaDbMirrorMonitor",
     "popularityRank": 690
   },
   {
@@ -6356,7 +6356,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbOrphanUser",
+    "url": "/Remove-DbaDbOrphanUser",
     "popularityRank": 126
   },
   {
@@ -6368,7 +6368,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbPartitionFunction",
+    "url": "/Remove-DbaDbPartitionFunction",
     "popularityRank": 685
   },
   {
@@ -6380,7 +6380,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbPartitionScheme",
+    "url": "/Remove-DbaDbPartitionScheme",
     "popularityRank": 701
   },
   {
@@ -6392,7 +6392,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbRole",
+    "url": "/Remove-DbaDbRole",
     "popularityRank": 545
   },
   {
@@ -6404,7 +6404,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbRoleMember",
+    "url": "/Remove-DbaDbRoleMember",
     "popularityRank": 429
   },
   {
@@ -6416,7 +6416,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbSchema",
+    "url": "/Remove-DbaDbSchema",
     "popularityRank": 546
   },
   {
@@ -6428,7 +6428,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbSequence",
+    "url": "/Remove-DbaDbSequence",
     "popularityRank": 676
   },
   {
@@ -6440,7 +6440,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbSnapshot",
+    "url": "/Remove-DbaDbSnapshot",
     "popularityRank": 498
   },
   {
@@ -6452,7 +6452,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbSynonym",
+    "url": "/Remove-DbaDbSynonym",
     "popularityRank": 657
   },
   {
@@ -6465,7 +6465,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbTable",
+    "url": "/Remove-DbaDbTable",
     "popularityRank": 270
   },
   {
@@ -6478,7 +6478,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbTableData",
+    "url": "/Remove-DbaDbTableData",
     "popularityRank": 161
   },
   {
@@ -6490,7 +6490,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbUdf",
+    "url": "/Remove-DbaDbUdf",
     "popularityRank": 664
   },
   {
@@ -6502,7 +6502,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbUser",
+    "url": "/Remove-DbaDbUser",
     "popularityRank": 132
   },
   {
@@ -6514,7 +6514,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaDbView",
+    "url": "/Remove-DbaDbView",
     "popularityRank": 636
   },
   {
@@ -6526,7 +6526,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaEndpoint",
+    "url": "/Remove-DbaEndpoint",
     "popularityRank": 643
   },
   {
@@ -6538,7 +6538,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaExtendedProperty",
+    "url": "/Remove-DbaExtendedProperty",
     "popularityRank": 651
   },
   {
@@ -6550,7 +6550,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaFirewallRule",
+    "url": "/Remove-DbaFirewallRule",
     "popularityRank": 686
   },
   {
@@ -6563,7 +6563,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaLinkedServer",
+    "url": "/Remove-DbaLinkedServer",
     "popularityRank": 518
   },
   {
@@ -6577,7 +6577,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaLinkedServerLogin",
+    "url": "/Remove-DbaLinkedServerLogin",
     "popularityRank": 653
   },
   {
@@ -6590,7 +6590,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaLogin",
+    "url": "/Remove-DbaLogin",
     "popularityRank": 91
   },
   {
@@ -6603,7 +6603,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaNetworkCertificate",
+    "url": "/Remove-DbaNetworkCertificate",
     "popularityRank": 529
   },
   {
@@ -6615,7 +6615,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaPfDataCollectorCounter",
+    "url": "/Remove-DbaPfDataCollectorCounter",
     "popularityRank": 692
   },
   {
@@ -6627,7 +6627,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaPfDataCollectorSet",
+    "url": "/Remove-DbaPfDataCollectorSet",
     "popularityRank": 687
   },
   {
@@ -6640,7 +6640,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaRegServer",
+    "url": "/Remove-DbaRegServer",
     "popularityRank": 457
   },
   {
@@ -6653,7 +6653,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaRegServerGroup",
+    "url": "/Remove-DbaRegServerGroup",
     "popularityRank": 624
   },
   {
@@ -6665,7 +6665,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaReplArticle",
+    "url": "/Remove-DbaReplArticle",
     "popularityRank": 684
   },
   {
@@ -6677,7 +6677,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaReplPublication",
+    "url": "/Remove-DbaReplPublication",
     "popularityRank": 644
   },
   {
@@ -6689,7 +6689,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaReplSubscription",
+    "url": "/Remove-DbaReplSubscription",
     "popularityRank": 626
   },
   {
@@ -6701,7 +6701,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaRgResourcePool",
+    "url": "/Remove-DbaRgResourcePool",
     "popularityRank": 700
   },
   {
@@ -6713,7 +6713,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaRgWorkloadGroup",
+    "url": "/Remove-DbaRgWorkloadGroup",
     "popularityRank": 698
   },
   {
@@ -6726,7 +6726,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaServerRole",
+    "url": "/Remove-DbaServerRole",
     "popularityRank": 613
   },
   {
@@ -6739,7 +6739,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaServerRoleMember",
+    "url": "/Remove-DbaServerRoleMember",
     "popularityRank": 512
   },
   {
@@ -6751,7 +6751,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaSpn",
+    "url": "/Remove-DbaSpn",
     "popularityRank": 413
   },
   {
@@ -6763,7 +6763,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaTrace",
+    "url": "/Remove-DbaTrace",
     "popularityRank": 677
   },
   {
@@ -6775,7 +6775,7 @@
     ],
     "verb": "Remove",
     "popular": false,
-    "url": "/commands/Remove-DbaXESession",
+    "url": "/Remove-DbaXESession",
     "popularityRank": 661
   },
   {
@@ -6788,7 +6788,7 @@
     ],
     "verb": "Rename",
     "popular": false,
-    "url": "/commands/Rename-DbaDatabase",
+    "url": "/Rename-DbaDatabase",
     "popularityRank": 141
   },
   {
@@ -6801,7 +6801,7 @@
     ],
     "verb": "Rename",
     "popular": false,
-    "url": "/commands/Rename-DbaLogin",
+    "url": "/Rename-DbaLogin",
     "popularityRank": 396
   },
   {
@@ -6814,7 +6814,7 @@
     ],
     "verb": "Repair",
     "popular": false,
-    "url": "/commands/Repair-DbaDbMirror",
+    "url": "/Repair-DbaDbMirror",
     "popularityRank": 609
   },
   {
@@ -6826,7 +6826,7 @@
     ],
     "verb": "Repair",
     "popular": true,
-    "url": "/commands/Repair-DbaDbOrphanUser",
+    "url": "/Repair-DbaDbOrphanUser",
     "popularityRank": 49
   },
   {
@@ -6839,7 +6839,7 @@
     ],
     "verb": "Repair",
     "popular": false,
-    "url": "/commands/Repair-DbaInstanceName",
+    "url": "/Repair-DbaInstanceName",
     "popularityRank": 380
   },
   {
@@ -6851,7 +6851,7 @@
     ],
     "verb": "Reset",
     "popular": true,
-    "url": "/commands/Reset-DbaAdmin",
+    "url": "/Reset-DbaAdmin",
     "popularityRank": 19
   },
   {
@@ -6863,7 +6863,7 @@
     ],
     "verb": "Reset",
     "popular": false,
-    "url": "/commands/Reset-DbatoolsConfig",
+    "url": "/Reset-DbatoolsConfig",
     "popularityRank": 497
   },
   {
@@ -6875,7 +6875,7 @@
     ],
     "verb": "Resolve",
     "popular": false,
-    "url": "/commands/Resolve-DbaNetworkName",
+    "url": "/Resolve-DbaNetworkName",
     "popularityRank": 299
   },
   {
@@ -6887,7 +6887,7 @@
     ],
     "verb": "Resolve",
     "popular": false,
-    "url": "/commands/Resolve-DbaPath",
+    "url": "/Resolve-DbaPath",
     "popularityRank": 534
   },
   {
@@ -6899,7 +6899,7 @@
     ],
     "verb": "Restart",
     "popular": false,
-    "url": "/commands/Restart-DbaService",
+    "url": "/Restart-DbaService",
     "popularityRank": 135
   },
   {
@@ -6912,7 +6912,7 @@
     ],
     "verb": "Restore",
     "popular": true,
-    "url": "/commands/Restore-DbaDatabase",
+    "url": "/Restore-DbaDatabase",
     "popularityRank": 3
   },
   {
@@ -6925,7 +6925,7 @@
     ],
     "verb": "Restore",
     "popular": false,
-    "url": "/commands/Restore-DbaDbCertificate",
+    "url": "/Restore-DbaDbCertificate",
     "popularityRank": 225
   },
   {
@@ -6937,7 +6937,7 @@
     ],
     "verb": "Restore",
     "popular": false,
-    "url": "/commands/Restore-DbaDbSnapshot",
+    "url": "/Restore-DbaDbSnapshot",
     "popularityRank": 371
   },
   {
@@ -6950,7 +6950,7 @@
     ],
     "verb": "Resume",
     "popular": false,
-    "url": "/commands/Resume-DbaAgDbDataMovement",
+    "url": "/Resume-DbaAgDbDataMovement",
     "popularityRank": 316
   },
   {
@@ -6964,7 +6964,7 @@
     ],
     "verb": "Revoke",
     "popular": false,
-    "url": "/commands/Revoke-DbaAgPermission",
+    "url": "/Revoke-DbaAgPermission",
     "popularityRank": 596
   },
   {
@@ -6976,7 +6976,7 @@
     ],
     "verb": "Save",
     "popular": false,
-    "url": "/commands/Save-DbaCommunitySoftware",
+    "url": "/Save-DbaCommunitySoftware",
     "popularityRank": 338
   },
   {
@@ -6990,7 +6990,7 @@
     ],
     "verb": "Save",
     "popular": false,
-    "url": "/commands/Save-DbaDiagnosticQueryScript",
+    "url": "/Save-DbaDiagnosticQueryScript",
     "popularityRank": 471
   },
   {
@@ -7002,7 +7002,7 @@
     ],
     "verb": "Save",
     "popular": false,
-    "url": "/commands/Save-DbaKbUpdate",
+    "url": "/Save-DbaKbUpdate",
     "popularityRank": 214
   },
   {
@@ -7015,7 +7015,7 @@
     ],
     "verb": "Select",
     "popular": false,
-    "url": "/commands/Select-DbaBackupInformation",
+    "url": "/Select-DbaBackupInformation",
     "popularityRank": 176
   },
   {
@@ -7027,7 +7027,7 @@
     ],
     "verb": "Select",
     "popular": false,
-    "url": "/commands/Select-DbaDbSequenceNextValue",
+    "url": "/Select-DbaDbSequenceNextValue",
     "popularityRank": 658
   },
   {
@@ -7041,7 +7041,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaAgentAlert",
+    "url": "/Set-DbaAgentAlert",
     "popularityRank": 369
   },
   {
@@ -7056,7 +7056,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaAgentJob",
+    "url": "/Set-DbaAgentJob",
     "popularityRank": 82
   },
   {
@@ -7071,7 +7071,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaAgentJobCategory",
+    "url": "/Set-DbaAgentJobCategory",
     "popularityRank": 605
   },
   {
@@ -7086,7 +7086,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaAgentJobOutputFile",
+    "url": "/Set-DbaAgentJobOutputFile",
     "popularityRank": 560
   },
   {
@@ -7101,7 +7101,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaAgentJobOwner",
+    "url": "/Set-DbaAgentJobOwner",
     "popularityRank": 372
   },
   {
@@ -7116,7 +7116,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaAgentJobStep",
+    "url": "/Set-DbaAgentJobStep",
     "popularityRank": 215
   },
   {
@@ -7130,7 +7130,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaAgentOperator",
+    "url": "/Set-DbaAgentOperator",
     "popularityRank": 469
   },
   {
@@ -7144,7 +7144,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaAgentSchedule",
+    "url": "/Set-DbaAgentSchedule",
     "popularityRank": 233
   },
   {
@@ -7159,7 +7159,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaAgentServer",
+    "url": "/Set-DbaAgentServer",
     "popularityRank": 436
   },
   {
@@ -7172,7 +7172,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaAgListener",
+    "url": "/Set-DbaAgListener",
     "popularityRank": 382
   },
   {
@@ -7185,7 +7185,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaAgReplica",
+    "url": "/Set-DbaAgReplica",
     "popularityRank": 163
   },
   {
@@ -7198,7 +7198,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaAvailabilityGroup",
+    "url": "/Set-DbaAvailabilityGroup",
     "popularityRank": 197
   },
   {
@@ -7210,7 +7210,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaCmConnection",
+    "url": "/Set-DbaCmConnection",
     "popularityRank": 538
   },
   {
@@ -7222,7 +7222,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaDbCompatibility",
+    "url": "/Set-DbaDbCompatibility",
     "popularityRank": 152
   },
   {
@@ -7234,7 +7234,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaDbCompression",
+    "url": "/Set-DbaDbCompression",
     "popularityRank": 344
   },
   {
@@ -7246,7 +7246,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaDbFileGroup",
+    "url": "/Set-DbaDbFileGroup",
     "popularityRank": 437
   },
   {
@@ -7258,7 +7258,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaDbFileGrowth",
+    "url": "/Set-DbaDbFileGrowth",
     "popularityRank": 300
   },
   {
@@ -7270,7 +7270,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaDbIdentity",
+    "url": "/Set-DbaDbIdentity",
     "popularityRank": 552
   },
   {
@@ -7283,7 +7283,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaDbMirror",
+    "url": "/Set-DbaDbMirror",
     "popularityRank": 415
   },
   {
@@ -7295,7 +7295,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaDbOwner",
+    "url": "/Set-DbaDbOwner",
     "popularityRank": 68
   },
   {
@@ -7308,7 +7308,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaDbQueryStoreOption",
+    "url": "/Set-DbaDbQueryStoreOption",
     "popularityRank": 342
   },
   {
@@ -7320,7 +7320,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaDbRecoveryModel",
+    "url": "/Set-DbaDbRecoveryModel",
     "popularityRank": 127
   },
   {
@@ -7332,7 +7332,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaDbSchema",
+    "url": "/Set-DbaDbSchema",
     "popularityRank": 410
   },
   {
@@ -7344,7 +7344,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaDbSequence",
+    "url": "/Set-DbaDbSequence",
     "popularityRank": 654
   },
   {
@@ -7356,7 +7356,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaDbState",
+    "url": "/Set-DbaDbState",
     "popularityRank": 71
   },
   {
@@ -7368,7 +7368,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaDefaultPath",
+    "url": "/Set-DbaDefaultPath",
     "popularityRank": 418
   },
   {
@@ -7380,7 +7380,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaEndpoint",
+    "url": "/Set-DbaEndpoint",
     "popularityRank": 507
   },
   {
@@ -7392,7 +7392,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaErrorLogConfig",
+    "url": "/Set-DbaErrorLogConfig",
     "popularityRank": 448
   },
   {
@@ -7404,7 +7404,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaExtendedProperty",
+    "url": "/Set-DbaExtendedProperty",
     "popularityRank": 491
   },
   {
@@ -7416,7 +7416,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaExtendedProtection",
+    "url": "/Set-DbaExtendedProtection",
     "popularityRank": 622
   },
   {
@@ -7429,7 +7429,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaLogin",
+    "url": "/Set-DbaLogin",
     "popularityRank": 55
   },
   {
@@ -7441,7 +7441,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaMaxDop",
+    "url": "/Set-DbaMaxDop",
     "popularityRank": 319
   },
   {
@@ -7453,7 +7453,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaMaxMemory",
+    "url": "/Set-DbaMaxMemory",
     "popularityRank": 145
   },
   {
@@ -7466,7 +7466,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaNetworkCertificate",
+    "url": "/Set-DbaNetworkCertificate",
     "popularityRank": 58
   },
   {
@@ -7478,7 +7478,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaNetworkConfiguration",
+    "url": "/Set-DbaNetworkConfiguration",
     "popularityRank": 294
   },
   {
@@ -7490,7 +7490,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaPowerPlan",
+    "url": "/Set-DbaPowerPlan",
     "popularityRank": 463
   },
   {
@@ -7502,7 +7502,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaPrivilege",
+    "url": "/Set-DbaPrivilege",
     "popularityRank": 199
   },
   {
@@ -7514,7 +7514,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaResourceGovernor",
+    "url": "/Set-DbaResourceGovernor",
     "popularityRank": 640
   },
   {
@@ -7526,7 +7526,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaRgResourcePool",
+    "url": "/Set-DbaRgResourcePool",
     "popularityRank": 679
   },
   {
@@ -7538,7 +7538,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaRgWorkloadGroup",
+    "url": "/Set-DbaRgWorkloadGroup",
     "popularityRank": 680
   },
   {
@@ -7550,7 +7550,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaSpConfigure",
+    "url": "/Set-DbaSpConfigure",
     "popularityRank": 155
   },
   {
@@ -7562,7 +7562,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaSpn",
+    "url": "/Set-DbaSpn",
     "popularityRank": 106
   },
   {
@@ -7574,7 +7574,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaStartupParameter",
+    "url": "/Set-DbaStartupParameter",
     "popularityRank": 165
   },
   {
@@ -7586,7 +7586,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaTcpPort",
+    "url": "/Set-DbaTcpPort",
     "popularityRank": 291
   },
   {
@@ -7598,7 +7598,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbaTempDbConfig",
+    "url": "/Set-DbaTempDbConfig",
     "popularityRank": 143
   },
   {
@@ -7610,7 +7610,7 @@
     ],
     "verb": "Set",
     "popular": true,
-    "url": "/commands/Set-DbatoolsInsecureConnection",
+    "url": "/Set-DbatoolsInsecureConnection",
     "popularityRank": 11
   },
   {
@@ -7622,7 +7622,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbatoolsPath",
+    "url": "/Set-DbatoolsPath",
     "popularityRank": 585
   },
   {
@@ -7634,7 +7634,7 @@
     ],
     "verb": "Show",
     "popular": false,
-    "url": "/commands/Show-DbaDbList",
+    "url": "/Show-DbaDbList",
     "popularityRank": 284
   },
   {
@@ -7647,7 +7647,7 @@
     ],
     "verb": "Show",
     "popular": false,
-    "url": "/commands/Show-DbaInstanceFileSystem",
+    "url": "/Show-DbaInstanceFileSystem",
     "popularityRank": 329
   },
   {
@@ -7662,7 +7662,7 @@
     ],
     "verb": "Start",
     "popular": false,
-    "url": "/commands/Start-DbaAgentJob",
+    "url": "/Start-DbaAgentJob",
     "popularityRank": 116
   },
   {
@@ -7675,7 +7675,7 @@
     ],
     "verb": "Start",
     "popular": false,
-    "url": "/commands/Start-DbaDbEncryption",
+    "url": "/Start-DbaDbEncryption",
     "popularityRank": 317
   },
   {
@@ -7687,7 +7687,7 @@
     ],
     "verb": "Start",
     "popular": false,
-    "url": "/commands/Start-DbaEndpoint",
+    "url": "/Start-DbaEndpoint",
     "popularityRank": 597
   },
   {
@@ -7700,7 +7700,7 @@
     ],
     "verb": "Start",
     "popular": true,
-    "url": "/commands/Start-DbaMigration",
+    "url": "/Start-DbaMigration",
     "popularityRank": 6
   },
   {
@@ -7712,7 +7712,7 @@
     ],
     "verb": "Start",
     "popular": false,
-    "url": "/commands/Start-DbaPfDataCollectorSet",
+    "url": "/Start-DbaPfDataCollectorSet",
     "popularityRank": 603
   },
   {
@@ -7724,7 +7724,7 @@
     ],
     "verb": "Start",
     "popular": false,
-    "url": "/commands/Start-DbaService",
+    "url": "/Start-DbaService",
     "popularityRank": 205
   },
   {
@@ -7736,7 +7736,7 @@
     ],
     "verb": "Start",
     "popular": false,
-    "url": "/commands/Start-DbaTrace",
+    "url": "/Start-DbaTrace",
     "popularityRank": 360
   },
   {
@@ -7748,7 +7748,7 @@
     ],
     "verb": "Start",
     "popular": false,
-    "url": "/commands/Start-DbaXESession",
+    "url": "/Start-DbaXESession",
     "popularityRank": 547
   },
   {
@@ -7763,7 +7763,7 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "/commands/Stop-DbaAgentJob",
+    "url": "/Stop-DbaAgentJob",
     "popularityRank": 358
   },
   {
@@ -7776,7 +7776,7 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "/commands/Stop-DbaDbEncryption",
+    "url": "/Stop-DbaDbEncryption",
     "popularityRank": 593
   },
   {
@@ -7788,7 +7788,7 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "/commands/Stop-DbaEndpoint",
+    "url": "/Stop-DbaEndpoint",
     "popularityRank": 668
   },
   {
@@ -7800,7 +7800,7 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "/commands/Stop-DbaExternalProcess",
+    "url": "/Stop-DbaExternalProcess",
     "popularityRank": 655
   },
   {
@@ -7812,7 +7812,7 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "/commands/Stop-DbaPfDataCollectorSet",
+    "url": "/Stop-DbaPfDataCollectorSet",
     "popularityRank": 694
   },
   {
@@ -7824,7 +7824,7 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "/commands/Stop-DbaProcess",
+    "url": "/Stop-DbaProcess",
     "popularityRank": 248
   },
   {
@@ -7836,7 +7836,7 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "/commands/Stop-DbaService",
+    "url": "/Stop-DbaService",
     "popularityRank": 236
   },
   {
@@ -7848,7 +7848,7 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "/commands/Stop-DbaTrace",
+    "url": "/Stop-DbaTrace",
     "popularityRank": 672
   },
   {
@@ -7860,7 +7860,7 @@
     ],
     "verb": "Stop",
     "popular": false,
-    "url": "/commands/Stop-DbaXESession",
+    "url": "/Stop-DbaXESession",
     "popularityRank": 659
   },
   {
@@ -7873,7 +7873,7 @@
     ],
     "verb": "Suspend",
     "popular": false,
-    "url": "/commands/Suspend-DbaAgDbDataMovement",
+    "url": "/Suspend-DbaAgDbDataMovement",
     "popularityRank": 394
   },
   {
@@ -7886,7 +7886,7 @@
     ],
     "verb": "Sync",
     "popular": true,
-    "url": "/commands/Sync-DbaAvailabilityGroup",
+    "url": "/Sync-DbaAvailabilityGroup",
     "popularityRank": 26
   },
   {
@@ -7900,7 +7900,7 @@
     ],
     "verb": "Sync",
     "popular": true,
-    "url": "/commands/Sync-DbaLoginPermission",
+    "url": "/Sync-DbaLoginPermission",
     "popularityRank": 38
   },
   {
@@ -7915,7 +7915,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaAgentJobOwner",
+    "url": "/Test-DbaAgentJobOwner",
     "popularityRank": 428
   },
   {
@@ -7928,7 +7928,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaAgSpn",
+    "url": "/Test-DbaAgSpn",
     "popularityRank": 466
   },
   {
@@ -7941,7 +7941,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaAvailabilityGroup",
+    "url": "/Test-DbaAvailabilityGroup",
     "popularityRank": 76
   },
   {
@@ -7955,7 +7955,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaBackupEncrypted",
+    "url": "/Test-DbaBackupEncrypted",
     "popularityRank": 456
   },
   {
@@ -7968,7 +7968,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaBackupInformation",
+    "url": "/Test-DbaBackupInformation",
     "popularityRank": 194
   },
   {
@@ -7980,7 +7980,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaBuild",
+    "url": "/Test-DbaBuild",
     "popularityRank": 83
   },
   {
@@ -7992,7 +7992,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaCmConnection",
+    "url": "/Test-DbaCmConnection",
     "popularityRank": 314
   },
   {
@@ -8005,7 +8005,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaComputerCertificateExpiration",
+    "url": "/Test-DbaComputerCertificateExpiration",
     "popularityRank": 271
   },
   {
@@ -8017,7 +8017,7 @@
     ],
     "verb": "Test",
     "popular": true,
-    "url": "/commands/Test-DbaConnection",
+    "url": "/Test-DbaConnection",
     "popularityRank": 29
   },
   {
@@ -8029,7 +8029,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaConnectionAuthScheme",
+    "url": "/Test-DbaConnectionAuthScheme",
     "popularityRank": 397
   },
   {
@@ -8041,7 +8041,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaDbCollation",
+    "url": "/Test-DbaDbCollation",
     "popularityRank": 416
   },
   {
@@ -8053,7 +8053,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaDbCompatibility",
+    "url": "/Test-DbaDbCompatibility",
     "popularityRank": 420
   },
   {
@@ -8065,7 +8065,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaDbCompression",
+    "url": "/Test-DbaDbCompression",
     "popularityRank": 323
   },
   {
@@ -8078,7 +8078,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaDbDataGeneratorConfig",
+    "url": "/Test-DbaDbDataGeneratorConfig",
     "popularityRank": 590
   },
   {
@@ -8090,7 +8090,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaDbDataMaskingConfig",
+    "url": "/Test-DbaDbDataMaskingConfig",
     "popularityRank": 472
   },
   {
@@ -8102,7 +8102,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaDbLogShipStatus",
+    "url": "/Test-DbaDbLogShipStatus",
     "popularityRank": 234
   },
   {
@@ -8114,7 +8114,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaDbOwner",
+    "url": "/Test-DbaDbOwner",
     "popularityRank": 250
   },
   {
@@ -8127,7 +8127,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaDbQueryStore",
+    "url": "/Test-DbaDbQueryStore",
     "popularityRank": 359
   },
   {
@@ -8139,7 +8139,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaDbRecoveryModel",
+    "url": "/Test-DbaDbRecoveryModel",
     "popularityRank": 438
   },
   {
@@ -8151,7 +8151,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaDiskAlignment",
+    "url": "/Test-DbaDiskAlignment",
     "popularityRank": 287
   },
   {
@@ -8163,7 +8163,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaDiskAllocation",
+    "url": "/Test-DbaDiskAllocation",
     "popularityRank": 237
   },
   {
@@ -8175,7 +8175,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaDiskSpeed",
+    "url": "/Test-DbaDiskSpeed",
     "popularityRank": 151
   },
   {
@@ -8187,7 +8187,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaEndpoint",
+    "url": "/Test-DbaEndpoint",
     "popularityRank": 502
   },
   {
@@ -8200,7 +8200,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaIdentityUsage",
+    "url": "/Test-DbaIdentityUsage",
     "popularityRank": 478
   },
   {
@@ -8213,7 +8213,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaInstanceName",
+    "url": "/Test-DbaInstanceName",
     "popularityRank": 256
   },
   {
@@ -8226,7 +8226,7 @@
     ],
     "verb": "Test",
     "popular": true,
-    "url": "/commands/Test-DbaLastBackup",
+    "url": "/Test-DbaLastBackup",
     "popularityRank": 48
   },
   {
@@ -8239,7 +8239,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaLinkedServerConnection",
+    "url": "/Test-DbaLinkedServerConnection",
     "popularityRank": 242
   },
   {
@@ -8252,7 +8252,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaLoginPassword",
+    "url": "/Test-DbaLoginPassword",
     "popularityRank": 193
   },
   {
@@ -8265,7 +8265,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaManagementObject",
+    "url": "/Test-DbaManagementObject",
     "popularityRank": 556
   },
   {
@@ -8277,7 +8277,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaMaxDop",
+    "url": "/Test-DbaMaxDop",
     "popularityRank": 159
   },
   {
@@ -8289,7 +8289,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaMaxMemory",
+    "url": "/Test-DbaMaxMemory",
     "popularityRank": 109
   },
   {
@@ -8302,7 +8302,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaMigrationConstraint",
+    "url": "/Test-DbaMigrationConstraint",
     "popularityRank": 148
   },
   {
@@ -8314,7 +8314,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaNetworkLatency",
+    "url": "/Test-DbaNetworkLatency",
     "popularityRank": 216
   },
   {
@@ -8326,7 +8326,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaOptimizeForAdHoc",
+    "url": "/Test-DbaOptimizeForAdHoc",
     "popularityRank": 446
   },
   {
@@ -8338,7 +8338,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaPath",
+    "url": "/Test-DbaPath",
     "popularityRank": 285
   },
   {
@@ -8350,7 +8350,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaPowerPlan",
+    "url": "/Test-DbaPowerPlan",
     "popularityRank": 425
   },
   {
@@ -8362,7 +8362,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaReplLatency",
+    "url": "/Test-DbaReplLatency",
     "popularityRank": 559
   },
   {
@@ -8374,7 +8374,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaSpn",
+    "url": "/Test-DbaSpn",
     "popularityRank": 54
   },
   {
@@ -8386,7 +8386,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaTempDbConfig",
+    "url": "/Test-DbaTempDbConfig",
     "popularityRank": 174
   },
   {
@@ -8399,7 +8399,7 @@
     ],
     "verb": "Test",
     "popular": false,
-    "url": "/commands/Test-DbaWindowsLogin",
+    "url": "/Test-DbaWindowsLogin",
     "popularityRank": 196
   },
   {
@@ -8411,7 +8411,7 @@
     ],
     "verb": "Uninstall",
     "popular": false,
-    "url": "/commands/Uninstall-DbaSqlWatch",
+    "url": "/Uninstall-DbaSqlWatch",
     "popularityRank": 449
   },
   {
@@ -8423,7 +8423,7 @@
     ],
     "verb": "Unregister",
     "popular": false,
-    "url": "/commands/Unregister-DbatoolsConfig",
+    "url": "/Unregister-DbatoolsConfig",
     "popularityRank": 641
   },
   {
@@ -8435,7 +8435,7 @@
     ],
     "verb": "Update",
     "popular": false,
-    "url": "/commands/Update-DbaBuildReference",
+    "url": "/Update-DbaBuildReference",
     "popularityRank": 111
   },
   {
@@ -8448,7 +8448,7 @@
     ],
     "verb": "Update",
     "popular": true,
-    "url": "/commands/Update-DbaInstance",
+    "url": "/Update-DbaInstance",
     "popularityRank": 16
   },
   {
@@ -8460,7 +8460,7 @@
     ],
     "verb": "Update",
     "popular": false,
-    "url": "/commands/Update-DbaMaintenanceSolution",
+    "url": "/Update-DbaMaintenanceSolution",
     "popularityRank": 238
   },
   {
@@ -8472,7 +8472,7 @@
     ],
     "verb": "Update",
     "popular": false,
-    "url": "/commands/Update-DbaServiceAccount",
+    "url": "/Update-DbaServiceAccount",
     "popularityRank": 69
   },
   {
@@ -8484,7 +8484,7 @@
     ],
     "verb": "Update",
     "popular": true,
-    "url": "/commands/Update-Dbatools",
+    "url": "/Update-Dbatools",
     "popularityRank": 27
   },
   {
@@ -8497,7 +8497,7 @@
     ],
     "verb": "Watch",
     "popular": false,
-    "url": "/commands/Watch-DbaDbLogin",
+    "url": "/Watch-DbaDbLogin",
     "popularityRank": 113
   },
   {
@@ -8509,7 +8509,7 @@
     ],
     "verb": "Watch",
     "popular": false,
-    "url": "/commands/Watch-DbaXESession",
+    "url": "/Watch-DbaXESession",
     "popularityRank": 455
   },
   {
@@ -8522,7 +8522,7 @@
     ],
     "verb": "Write",
     "popular": true,
-    "url": "/commands/Write-DbaDbTableData",
+    "url": "/Write-DbaDbTableData",
     "popularityRank": 13
   },
   {
@@ -8534,7 +8534,7 @@
     ],
     "verb": "Select",
     "popular": false,
-    "url": "/commands/Select-DbaObject",
+    "url": "/Select-DbaObject",
     "popularityRank": 262
   },
   {
@@ -8546,7 +8546,7 @@
     ],
     "verb": "Set",
     "popular": false,
-    "url": "/commands/Set-DbatoolsConfig",
+    "url": "/Set-DbatoolsConfig",
     "popularityRank": 65
   }
 ]
