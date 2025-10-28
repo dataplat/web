@@ -182,20 +182,43 @@ draft: false
   <p>The team is me. The team is you, too. We encourage <a href="https://dbatools.io/firstpull" style="color: white; text-decoration: underline;">pull requests</a> and <a href="https://dbatools.io/contributing" style="color: white; text-decoration: underline;">development participation</a>. There's also a <a href="https://dbatools.io/slack" style="color: white; text-decoration: underline;">#dbatools channel</a> on the SQL Server Community Slack if you'd like to discuss the module or just hang out.</p>
 </div>
 
-<div class="creator-section">
-  <img src="/images/lollerskate.jpg" alt="Chrissy LeMaire">
-  <div class="creator-info">
-    <h2>Chrissy LeMaire</h2>
-    <h3>Creator, SQL Server & PowerShell MVP</h3>
-    <div class="creator-links">
-      <a href="https://github.com/potatoqualitee">GitHub</a>
-      <a href="https://bsky.app/profile/funbucket.dev">Bluesky</a>
-      <a href="https://blog.netnerds.net">Blog</a>
-      <a href="http://www.linkedin.com/in/chrissylemaire">LinkedIn</a>
-      <a href="https://www.reddit.com/user/thebeersgoodnbelgium/">Reddit</a>
-    </div>
-    <p>Hey, I'm Chrissy, the original creator and current maintainer of dbatools. I'm a <a href="http://www.realcajunrecipes.com">Cajun</a> living in Europe and a SQL Server DBA with over 20 years of experience.</p>
-    <p>I've been a fan of Linux and Open Source since I was first introduced back in the 90's, right around the time I moved to California to work in tech. I've loved SQL Server for nearly as long. And of course, PowerShell, which I've worked with since 2005.</p>
+<h2 class="section-header">Core Maintainers</h2>
+
+<div class="contributors-grid">
+  <div class="contributor-card">
+    <img src="/images/lollerskate.jpg" alt="Chrissy LeMaire" class="contributor-avatar">
+    <h3 class="contributor-name">Chrissy LeMaire</h3>
+    <a href="https://github.com/potatoqualitee" class="contributor-username">@potatoqualitee</a>
+  </div>
+
+  <div class="contributor-card">
+    <img src="https://github.com/niphlod.png" alt="Simone Bizzotto" class="contributor-avatar">
+    <h3 class="contributor-name">Simone Bizzotto</h3>
+    <a href="https://github.com/niphlod" class="contributor-username">@niphlod</a>
+  </div>
+
+  <div class="contributor-card">
+    <img src="https://github.com/SQLDBAWithABeard.png" alt="Rob Sewell" class="contributor-avatar">
+    <h3 class="contributor-name">Rob Sewell</h3>
+    <a href="https://github.com/SQLDBAWithABeard" class="contributor-username">@SQLDBAWithABeard</a>
+  </div>
+
+  <div class="contributor-card">
+    <img src="https://github.com/andreasjordan.png" alt="Andreas Jordan" class="contributor-avatar">
+    <h3 class="contributor-name">Andreas Jordan</h3>
+    <a href="https://github.com/andreasjordan" class="contributor-username">@andreasjordan</a>
+  </div>
+
+  <div class="contributor-card">
+    <img src="https://github.com/jpomfret.png" alt="Jess Pomfret" class="contributor-avatar">
+    <h3 class="contributor-name">Jess Pomfret</h3>
+    <a href="https://github.com/jpomfret" class="contributor-username">@jpomfret</a>
+  </div>
+
+  <div class="contributor-card">
+    <img src="https://github.com/wsmelton.png" alt="Shawn Melton" class="contributor-avatar">
+    <h3 class="contributor-name">Shawn Melton</h3>
+    <a href="https://github.com/wsmelton" class="contributor-username">@wsmelton</a>
   </div>
 </div>
 
@@ -466,3 +489,22 @@ draft: false
 <p style="text-align: center; margin: 3rem 0; color: #718096; font-size: 1.1rem;">
   And many more amazing contributors who make dbatools better every day! 💜
 </p>
+
+<h2 class="section-header">About the Creator</h2>
+
+<div class="creator-section">
+  <img src="/images/lollerskate.jpg" alt="Chrissy LeMaire">
+  <div class="creator-info">
+    <h2>Chrissy LeMaire</h2>
+    <h3>Creator, SQL Server & PowerShell MVP</h3>
+    <div class="creator-links">
+      <a href="https://github.com/potatoqualitee">GitHub</a>
+      <a href="https://bsky.app/profile/funbucket.dev">Bluesky</a>
+      <a href="https://blog.netnerds.net">Blog</a>
+      <a href="http://www.linkedin.com/in/chrissylemaire">LinkedIn</a>
+      <a href="https://www.reddit.com/user/thebeersgoodnbelgium/">Reddit</a>
+    </div>
+    <p>Hey, I'm Chrissy, the original creator and current maintainer of dbatools. I'm a <a href="http://www.realcajunrecipes.com">Cajun</a> living in Europe and a SQL Server DBA with over 20 years of experience.</p>
+    <p>I've been a fan of Linux and Open Source since I was first introduced back in the 90's, right around the time I moved to California to work in tech. I've loved SQL Server for nearly as long. And of course, PowerShell, which I've worked with since 2005.</p>
+  </div>
+</div>
