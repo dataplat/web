@@ -50,7 +50,7 @@ This script:
 
 And here is the simple T-SQL script I use in the above example. It is now so nice to be able to see version, max memory, PLE, logical CPU count, tempdb files, CPU signal wait, listener name, IP Address, failover mode, synchronization health etc. for all of the availability groups from one table which gets updated frequently values.
 
-```tsql
+```sql
 SELECT (SELECT @@SERVERNAME) instance_name,
        (SELECT @@VERSION) sql_version,
        (SELECT value_in_use FROM sys.configurations WHERE name = 'max server memory (MB)') max_server_memory,
@@ -108,7 +108,7 @@ Then I have a job that runs soon after the above check. This job is also PowerSh
 
 The procedure is just very basic and simple check from the table that is created in the above check.
 
-```tsql
+```sql
 CREATE PROCEDURE [dbo].[SqlAgentJobsSummary]
 AS
      IF

@@ -168,7 +168,7 @@ Restore-DbaDatabase -SqlServer localhost\sqlexpress2016 -Path C:\dbatools\backup
 
 produces the following T-SQL scripts:
 
-```tsql
+```sql
 RESTORE DATABASE [RestoreDemo] FROM DISK = N'C:\dbatools\backups\RestoreDemo_Full1.bak' WITH MOVE N'RestoreDemo' TO N'C:\dbatools\DestinationDirectory\\RestoreDemo.mdf', MOVE N'RestoreDemo_log' TO N'C:\dbatools\DestinationDirectory\\RestoreDemo.ldf', NORECOVERY, NOUNLOAD, REPLACE, STATS = 1, STOPAT = N'02/09/2017 11:10:00'
 RESTORE DATABASE [RestoreDemo] FROM DISK = N'C:\dbatools\backups\RestoreDemo_Diff4.bak' WITH MOVE N'RestoreDemo' TO N'C:\dbatools\DestinationDirectory\\RestoreDemo.mdf', MOVE N'RestoreDemo_log' TO N'C:\dbatools\DestinationDirectory\\RestoreDemo.ldf', NORECOVERY, NOUNLOAD, REPLACE, STATS = 1, STOPAT = N'02/09/2017 11:10:00'
 RESTORE LOG [RestoreDemo] FROM DISK = N'C:\dbatools\backups\RestoreDemo_Log6.trn' WITH MOVE N'RestoreDemo' TO N'C:\dbatools\DestinationDirectory\\RestoreDemo.mdf', MOVE N'RestoreDemo_log' TO N'C:\dbatools\DestinationDirectory\\RestoreDemo.ldf', NOUNLOAD, STATS = 1, STOPAT = N'02/09/2017 11:10:00'

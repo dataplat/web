@@ -125,7 +125,7 @@ Now, dbatools offers a whole new command, written specifically for the DR presen
 
 The databases export is an export of all the restore commands from the last log backup. So full, diff and logs.
 
-```tsql
+```sql
 RESTORE DATABASE [anotherdb] FROM  DISK = N'\\localhost\backups\WORKSTATION$SQL2016\anotherdb\FULL\WORKSTATION$SQL2016_anotherdb_FULL_20180914_002533.bak' WITH  FILE = 1,  MOVE N'anotherdb' TO N'M:\DATA\anotherdb.mdf',  MOVE N'anotherdb_log' TO N'M:\DATA\anotherdb_log.ldf',  NORECOVERY,  NOUNLOAD,  REPLACE,  STATS = 10
 RESTORE DATABASE [anotherdb] FROM  DISK = N'\\localhost\backups\WORKSTATION$SQL2016\anotherdb\DIFF\WORKSTATION$SQL2016_anotherdb_DIFF_20180914_002539.bak' WITH  FILE = 1,  MOVE N'anotherdb' TO N'M:\DATA\anotherdb.mdf',  MOVE N'anotherdb_log' TO N'M:\DATA\anotherdb_log.ldf',  NORECOVERY,  NOUNLOAD,  REPLACE,  STATS = 10
 RESTORE LOG [anotherdb] FROM  DISK = N'\\localhost\backups\WORKSTATION$SQL2016\anotherdb\LOG\WORKSTATION$SQL2016_anotherdb_LOG_20180914_002545.trn' WITH  FILE = 1,  MOVE N'anotherdb' TO N'M:\DATA\anotherdb.mdf',  MOVE N'anotherdb_log' TO N'M:\DATA\anotherdb_log.ldf',  NORECOVERY,  NOUNLOAD,  STATS = 10

@@ -260,7 +260,7 @@ article pre code {
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #1f2328;
+  /* Removed hardcoded color to allow Highlight.js syntax highlighting to work properly */
 }
 
 /* Inline code */
