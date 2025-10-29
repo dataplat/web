@@ -1,6 +1,7 @@
 ---
 title: "PASS Summit PowerShell Precon Agenda Now Available"
 date: 2017-10-08
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "precon"
 aliases:
@@ -15,19 +16,15 @@ We've been working on our precon and we're super excited to share the agenda wit
 
 ## In Case You Missed It
 
-dbatools teammates [Constantine Kokkinos](https://constantinekokkinos.com/), [Rob Sewell](https://sqldbawithabeard.com/) and I will be presenting [a full-day session at PASS Summit](https://sqlps.io/precon) in Seattle, WA, USA on Tuesday, October 31, 2017! Our precon will have a lab and we're nearly at capacity — you'll need to [sign up now](https://sqlps.io/precon) to ensure a spot.
+dbatools teammates [Constantine Kokkinos](https://constantinekokkinos.com/), [Rob Sewell](https://blog.robsewell.com/) and I will be presenting [a full-day session at PASS Summit](https://sqlps.io/precon) in Seattle, WA, USA on Tuesday, October 31, 2017! Our precon will have a lab and we're nearly at capacity — you'll need to [sign up now](https://sqlps.io/precon) to ensure a spot.
 
-Major Contributors [Shawn Melton](http://blog.wsmelton.info/), [Sander Stad](https://www.sqlstad.nl) and [Brandon Abshire](https://netnerds.net/) will help proctor the docker-based SQL Server lab.
-
-<!-- Team member photos would go here -->
+Major Contributors [Shawn Melton](https://blog.pythian.com/author/melton/), [Sander Stad](https://www.sqlstad.nl) and [Brandon Abshire](https://netnerds.net/) will help proctor the docker-based SQL Server lab.
 
 You may notice that Aaron Nelson is no longer a part of the precon 😌 He had a scheduling conflict and will be presenting with his coworker Paul Turley at the BI Precon, which is also the same day.
 
 ## Agenda
 
 Here is our carefully crafted agenda. It is intended to provide a solid overview of SQL Server PowerShell and leave you feeling pumped about getting ready to code in PowerShell, whether you are a SQL DBA, Developer or BI Dev.
-
-<!-- Agenda image would go here: /images/img_59d8a9914d411.png -->
 
 ### Morning
 
@@ -40,8 +37,6 @@ Finally, Rob will no doubt explode onto the stage, sharing how **Pester** is a g
 ### Afternoon
 
 After lunch we will jump into dbatools where CK will lead you through a docker-based **lab**. The lab will include audience participation where we will perform a migration and demonstrate some of our most useful (and fun) commands in an isolated, contained environment.
-
-<!-- Lab image would go here: /images/img_59d8b05c46bdc.png -->
 
 Next up, Rob will share best practices about **scheduling PowerShell tasks** in SQL Server Agent. Then I'll discuss **SQL PowerShell development** within dbatools and perform some live coding.
 

@@ -1,6 +1,7 @@
 ---
 title: "New Release – Pieceoftoast"
 date: 2017-02-27
+lastmod: 2025-10-29
 slug: "pieceoftoast"
 aliases:
   - /pieceoftoast/
@@ -18,14 +19,14 @@ We released the follow two commands in [snowball](https://dbatools.io/snowball) 
 - **[Restore-DbaDatabase](https://dbatools.io/Restore-DbaDatabase)**
   The restore command is now especially impressive – imagine being able to restore a whole instance of [Maintenance Solution](https://ola.hallengren.com/) backups with a single pipe like `Get-ChildItem \\nas\sql\sql2016 | Restore-DbaDatabase -SqlInstance localhost`. It's now totally possible!
 
-  Want to be even more blown away? How about `Get-DbaDatabase -SqlInstance sql2005 -ExcludeSystemLoginsDb | Backup-DbaDatabase -BackupDirectory \\dc\sql\test | Restore-DbaDatabase -SqlServer sql2016\vnext`
+  Want to be even more blown away? How about `Get-DbaDatabase -SqlInstance sql2005 -ExcludeSystem | Backup-DbaDatabase -BackupDirectory \\dc\sql\test | Restore-DbaDatabase -SqlInstance sql2016\vnext`
 
   This makes it way easier to copy to an interim fileshare if needed ❤️
 
 - **[Backup-DbaDatabase](https://dbatools.io/Backup-DbaDatabase)**
   In case you missed it, we released a really nice Backup-DbaDatabase command.
 
-  And check out this demo video (includes blooper reel) and accompanying [demo code](https://gist.github.com/ctrlbold/23a65d21aa4e18ba7e386b9bb6450018).
+  Check out this demo video (includes blooper reel):
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VnHQSJAkwqQ" frameborder="0" allowfullscreen></iframe>
 
@@ -108,7 +109,7 @@ It's also our mascot, Tron's, debut in the toolkit. You'll be seeing more of him
 
 ### Internal Configurations
 
-We're gettin Enterprise up in here! Thanks to our newest Major Contributor [Friedrich Weinmann](http://allthingspowershell.blogspot.de/), we've now got a really cool configuration system. This will be helpful for our developers. We'll have more information in a blog post during the 1.0 redo, but here's a quick lil overview.
+We're gettin Enterprise up in here! Thanks to our newest Major Contributor [Friedrich Weinmann](http://allthingspowershell.blogspot.com/), we've now got a really cool configuration system. This will be helpful for our developers. We'll have more information in a blog post during the 1.0 redo, but here's a quick lil overview.
 
 - **[Get-dbatoolsConfig](https://dbatools.io/Get-dbatoolsConfig)**
   Retrieves configuration elements by name. Can be used to search the existing configuration list.
@@ -147,7 +148,7 @@ We plan to resolve all bug issues first and will continue releasing on a regular
 
 ## New to dbatools?
 
-Visit the [downloads page](https://dbatools.io/download) for information about how to download and install dbatools (it's 1 command).
+Visit the [install page](https://dbatools.io/install) for information about how to download and install dbatools (it's 1 command).
 
 ## Join Us!
 

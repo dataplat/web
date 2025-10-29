@@ -30,11 +30,16 @@
             {{ .Params.author }}
           </p>
           {{ end }}
-          {{ if .Date }}
-          <p class="text-sm text-slate-500">
-            {{ .Date.Format "Jan 2, 2006" }}
-          </p>
-          {{ end }}
+          <div class="text-sm text-slate-500">
+            {{ if .Date }}
+            <p>{{ .Date.Format "Jan 2, 2006" }}</p>
+            {{ end }}
+            {{ if .Lastmod }}
+              {{ if ne (.Date.Format "2006-01-02") (.Lastmod.Format "2006-01-02") }}
+              <p class="text-xs text-slate-400 mt-1">Updated: {{ .Lastmod.Format "Jan 2, 2006" }}</p>
+              {{ end }}
+            {{ end }}
+          </div>
         </div>
 
         <!-- Summary/Excerpt -->

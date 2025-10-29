@@ -1,6 +1,7 @@
 ---
 title: "A New Command to Find All of Your SQL Instances"
 date: 2018-03-27
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "find-sql-instances"
 aliases:
@@ -11,7 +12,7 @@ tags: [party]
 draft: false
 ---
 
-Nearly every time I inherit a SQL Server environment, I'm only given a partial list of SQL Servers that exist on the network. It's my usual routine to get permission to sniff the network then run about [five different programs](https://blog.netnerds.net/2012/05/sql-server-discovery-tools-and-scripts/) including Idera's [SQL Discovery](https://www.idera.com/help/sqlat/1-5/Content/Help/SQL%20Discovery.htm) and Microsoft's [SQL Server Assessment and Planning Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826).
+Nearly every time I inherit a SQL Server environment, I'm only given a partial list of SQL Servers that exist on the network. It's my usual routine to get permission to sniff the network then run about [five different programs](https://blog.netnerds.net/2012/05/sql-server-discovery-tools-and-scripts/) including Idera's SQL Discovery and Microsoft's [Assessment and Planning Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826).
 
 I always thought it'd be cool to have one comprehensive PowerShell command that could do the work of all the above and was ecstatic to see [NetSPI's](https://www.netspi.com/) [Scott Sutherland](https://blog.netspi.com/author/scott-sutherland/) had written a few commands to do just that in his awesome PowerShell module [PowerUpSQL](https://github.com/NetSPI/PowerUpSQL).
 
@@ -23,7 +24,7 @@ When I saw Scott's multi-pronged approach (including some UDP magic 🎸), I ask
 
 ![banana dance](/images/bananadance.gif)
 
-I asked our architect [Fred Weinmann](http://psframework.org/) to perform a code review and he was so taken by the command, he refactored it with some C# magic including strong types. This command, which is available in 0.9.314, is a beauty!
+I asked our architect [Fred Weinmann](https://github.com/PowershellFrameworkCollective/psframework) to perform a code review and he was so taken by the command, he refactored it with some C# magic including strong types. This command, which is available in 0.9.314, is a beauty!
 
 ## The Basics
 
@@ -131,7 +132,14 @@ Performs a network search for SQL Instances by:
 
 ### Servers From File
 
-`Get-Content .\servers.txt | Find-DbaInstance -ScanType Browser, SqlConnect -Credential (Get-Credential ad\winadmin) -SqlCredential ad\sqladmin`
+```powershell
+$params = @{
+    ScanType      = 'Browser', 'SqlConnect'
+    Credential    = Get-Credential ad\winadmin
+    SqlCredential = 'ad\sqladmin'
+}
+Get-Content .\servers.txt | Find-DbaInstance @params
+```
 
 - Reads all servers from the servers.txt file (one server per line)
 - Scans each of them for instances using the browser service using the ad\winadmin account

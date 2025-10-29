@@ -1,6 +1,7 @@
 ---
 title: "Migrating Super Old App Databases"
-date: 2019-08-26
+date: 2019-05-26
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "oldapp"
 aliases:
@@ -38,7 +39,7 @@ Interesting requirements, no doubt!
 
 # Prep
 
-Fortunately, my colleague kept a [login inventory](/track-logins/), and we used this to determine that there would be 5 servers with connection strings that'd have to be updated with the new server name. Generally, I try to see if creating [SQL client aliases](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) is a suitable solution and this was no exception. Creating SQL aliases satisfies my curiosity and can let us know early on if the migration was a success.
+Fortunately, my colleague kept a [login inventory](/track-logins/), and we used this to determine that there would be 5 servers with connection strings that'd have to be updated with the new server name. Generally, I try to see if creating [SQL client aliases](https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) is a suitable solution and this was no exception. Creating SQL aliases satisfies my curiosity and can let us know early on if the migration was a success.
 
 > This blog post refers to options added in 1.0.34. If you'd like to follow along, please ensure you've updated to the latest version of dbatools.
 
@@ -123,7 +124,7 @@ Get-DbaAgentJob -SqlInstance APPSQL1 | Where LastRunOutcome -ne "Succeeded" | Wh
 
 Nooo, all the failed jobs ran successfully on the APPSQL1! Now we'd have to dig into the code to see what code is failing and how it can be fixed. I imagined the failures were due to collation issues and I was right. Good ol' **Cannot resolve the collation conflict between…**.
 
-Maybe we can update the collation in the databases? I recall years ago someone asked for this functionality in dbatools but thoroughly changing the collation of an existing database is so complicated as it [requires changing the collation of so many objects](https://docs.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-database-collation?view=sql-server-2017) including tables and indexes.
+Maybe we can update the collation in the databases? I recall years ago someone asked for this functionality in dbatools but thoroughly changing the collation of an existing database is so complicated as it [requires changing the collation of so many objects](https://learn.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-database-collation?view=sql-server-2017) including tables and indexes.
 
 Let's try changing the database collation anyway, just to see if it's possible and if it helps. This was mostly to satisfy my curiosity.
 

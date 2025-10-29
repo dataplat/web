@@ -2,6 +2,7 @@
 title: "Managing Data Compression with dbatools"
 date: 2019-01-02
 author: "Jess Pomfret"
+lastmod: 2025-10-29
 slug: "compression"
 aliases:
   - /compression/
@@ -24,7 +25,79 @@ Get-DbaDbCompression -SqlInstance Server1 -Database AdventureWorks2017 |
 Select-Object Database, Schema, TableName, IndexName, IndexType, Partition, DataCompression
 ```
 
-![Get-DbaDbCompression output](/images/Get-DbaDbCompression.jpg)
+{{< powershell-console >}}
+Database            : AdventureWorks2017
+Schema              : dbo
+TableName           : AWBuildVersion
+IndexName           : PK_AWBuildVersion_SystemInformationID
+IndexType           : ClusteredIndex
+Partition           : 1
+DataCompression     : None
+
+Database            : AdventureWorks2017
+Schema              : dbo
+TableName           : DatabaseLog
+IndexName           :
+IndexType           : Heap
+Partition           : 1
+DataCompression     : Page
+
+Database            : AdventureWorks2017
+Schema              : dbo
+TableName           : DatabaseLog
+IndexName           : PK_DatabaseLog_DatabaseLogID
+IndexType           : NonClusteredIndex
+Partition           : 1
+DataCompression     : None
+
+Database            : AdventureWorks2017
+Schema              : dbo
+TableName           : ErrorLog
+IndexName           : PK_ErrorLog_ErrorLogID
+IndexType           : ClusteredIndex
+Partition           : 1
+DataCompression     : None
+
+Database            : AdventureWorks2017
+Schema              : HumanResources
+TableName           : Department
+IndexName           : AK_Department_Name
+IndexType           : NonClusteredIndex
+Partition           : 1
+DataCompression     : None
+
+Database            : AdventureWorks2017
+Schema              : HumanResources
+TableName           : Department
+IndexName           : PK_Department_DepartmentID
+IndexType           : ClusteredIndex
+Partition           : 1
+DataCompression     : Page
+
+Database            : AdventureWorks2017
+Schema              : HumanResources
+TableName           : Employee
+IndexName           : AK_Employee_LoginID
+IndexType           : NonClusteredIndex
+Partition           : 1
+DataCompression     : Page
+
+Database            : AdventureWorks2017
+Schema              : HumanResources
+TableName           : Employee
+IndexName           : AK_Employee_NationalIDNumber
+IndexType           : NonClusteredIndex
+Partition           : 1
+DataCompression     : None
+
+Database            : AdventureWorks2017
+Schema              : HumanResources
+TableName           : Employee
+IndexName           : IX_Employee_OrganizationLevel_OrganizationNode
+IndexType           : NonClusteredIndex
+Partition           : 1
+DataCompression     : None
+{{< /powershell-console >}}
 
 ## Test-DbaDbCompression
 
@@ -50,7 +123,13 @@ $results | Where-Object TableName -eq 'SalesOrderDetail' |
 Select-Object TableName, IndexName, IndexId, PercentScan, PercentUpdate, RowEstimatePercentOriginal, PageEstimatePercentOriginal, CompressionTypeRecommendation, SizeCurrent, SizeRequested, PercentCompression | Format-Table
 ```
 
-![Test-DbaDbCompression output](/images/Test-DbaDbCompression.jpg)
+{{< powershell-console >}}
+TableName          IndexName                              IndexId PercentScan PercentUpdate RowEstimatePercentOriginal PageEstimatePercentOriginal CompressionTypeRecommendation
+---------          ---------                              ------- ----------- ------------- -------------------------- ----------------------------- ----------------------------
+SalesOrderDetail   PK_SalesOrderDetail_SalesOrderDetailID       1         100             0                         70                          48 PAGE
+SalesOrderDetail   AK_SalesOrderDetail_rowguid                  2           0             0                        109                         109 NO_GAIN
+SalesOrderDetail   IX_SalesOrderDetail_ProductID                3           0             0                         77                          68 PAGE
+{{< /powershell-console >}}
 
 This database is actually running in a container on my laptop so there isn't much activity, but when you use this command the PercentScan and PercentUpdate will be determined by your workload so the longer your instance has been up the more accurate these will be.
 

@@ -1,6 +1,7 @@
 ---
 title: "Can You Help Us Test This Beta?"
 date: 2017-07-04
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "bagofbobbish-beta"
 aliases:
@@ -11,7 +12,7 @@ tags: []
 draft: false
 ---
 
-Well, first we'd like to give a big ol' shoutout to our teammate and new PowerShell MVP [Rob Sewell](https://twitter.com/sqldbawithbeard)!
+Well, first we'd like to give a big ol' shoutout to our teammate and new PowerShell MVP Rob Sewell!
 
 ![](/images/img_595a59e042de1.png)
 
@@ -38,7 +39,7 @@ It's been two months since our last major release and we've made leaps and bound
 - Added a caching system for tab-completion
 - Switched to pre-compiling the library into a DLL file. This allows us to improve the module import speed and make the development logistics better.
 
-Speaking of compiling, C# dev [Justin Dearing](https://twitter.com/zippy1981) recently joined the team! Now we'll have someone to provide [Fred](https://twitter.com/FredWeinmann), our in-house magician, some relief. So far, Justin's added some efficiency cleanup, code style and tests – thanks, man!
+Speaking of compiling, C# dev Justin Dearing recently joined the team! Now we'll have someone to provide Fred, our in-house magician, some relief. So far, Justin's added some efficiency cleanup, code style and tests – thanks, man!
 
 ## 63 New Commands
 
@@ -110,7 +111,7 @@ Why don't we just use what's out of the box with PowerShell? Well, in order to s
 
 ### Log Shipping
 
-[Sander Stad](https://twitter.com/sqlstad) created some really cool Log Shipping wrappers! We'd love some testers to give feedback.
+Sander Stad created some really cool Log Shipping wrappers! We'd love some testers to give feedback.
 
 - **Invoke-DbaDbLogShipping**
 - **Invoke-DbaDbLogShipRecovery**

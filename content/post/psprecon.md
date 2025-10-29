@@ -11,7 +11,7 @@ tags: [dbachecks, party]
 draft: false
 ---
 
-Congrats to our teammate [Rob Sewell](http://sqldbawithabeard.com)! Rob was invited by PASS to [present about PowerShell](https://sqlps.io/precon) at [PASS Summit 2018](http://www.pass.org/summit/2018/Home.aspx) on Tuesday, November 6 2018.
+Congrats to our teammate [Rob Sewell](https://blog.robsewell.com)! Rob was invited by PASS to [present about PowerShell](https://sqlps.io/precon) at [PASS Summit 2018](http://www.pass.org/summit/2018/Home.aspx) on Tuesday, November 6 2018.
 
 In his day-long session, Rob will talk about a variety of super interesting subjects including: dbachecks, PowerShell module-making, GitHub, VSTS, and dbatools. Rob is a vibrant, knowledgeable speaker and I can't recommend this precon enough! I learn a ton every time that Rob and I present together.
 

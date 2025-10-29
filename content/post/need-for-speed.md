@@ -1,6 +1,7 @@
 ---
 title: "Need for Speed – Find-DbaStoredProcedure"
 date: 2017-03-08
+lastmod: 2025-10-29
 author: "Claudio Silva"
 slug: "need-for-speed"
 aliases:
@@ -13,7 +14,7 @@ draft: false
 
 This time it's not Chrissy, not Drew, not Stuart, not even Shawn…today it's Claudio writing to you! 😊
 
-With our recent release, "[twentyfiveschmeckles (v0.8.694)](https://dbatools.io/twentyfiveschmeckles)", we introduced the command [Find-DbaStoredProcedure](https://docs.dbatools.io/Find-DbaStoredProcedure/).
+With our recent release, "[twentyfiveschmeckles (v0.8.694)](https://dbatools.io/twentyfiveschmeckles)", we introduced the command [Find-DbaStoredProcedure](https://dbatools.io/Find-DbaStoredProcedure).
 
 This command allows us to find which stored procedures have a specific string or regular expression. While that may not be groundbreaking, what is new are the features we provide and the speed at which we return them.
 
@@ -38,11 +39,7 @@ That's just two scenarios, I'm sure that you have encountered dozens more, or wi
 
 ## Why Should You Care?
 
-> $servers | Find-DbaStoredProcedure -Pattern lemaire 👉37,545 #SQLServer stored procedures on 9 servers evaluated in 8.67 seconds! https://t.co/uTBcP6bCHJ
->
-> — Chrissy LeMaire (@cl) [February 9, 2017](https://twitter.com/cl/status/829642196345294848)
-
-Chrissy tweeted her experience going through 9 servers and searching more than 37,000 objects in less than 9 seconds.
+Chrissy once shared her experience going through 9 servers and searching more than 37,000 stored procedures in less than 9 seconds.
 
 My first thought was "WOW! that's fast." but given the results I honestly wondered how and if it could actually be that fast (Chrissy did, too, actually.)
 
@@ -99,7 +96,7 @@ Find-DbaStoredProcedure -SqlInstance sql2016 -Pattern JobTitle
 
 ### 3rd Test:
 
-T-SQL code (Note: sqlcmd mode must be enabled on SSMS to run this script – [please read this article to learn more](http://redglue.eu/it-is-possible-to-run-scripts-inside-ssms-on-multiple-instances-without-using-cms-yes-it-is/)):
+T-SQL code (Note: sqlcmd mode must be enabled on SSMS to run this script):
 
 ```sql
 :connect sql2016
@@ -198,7 +195,7 @@ We can even output this to a grid and filter:
 
 Well, for some of us PowerShell console is a nice GUI 😊
 
-If you want to do this type of search, you can download and use the free [SQL Search from Redgate](http://www.red-gate.com/products/sql-development/sql-search/). This is a great tool that allows us to search not only on Stored Procedures but also on other object definitions such as Tables, Views, Constraints, Triggers, Functions and even Agent Jobs.
+If you want to do this type of search, you can download and use the free [SQL Search from Redgate](https://www.red-gate.com/products/sql-search/). This is a great tool that allows us to search not only on Stored Procedures but also on other object definitions such as Tables, Views, Constraints, Triggers, Functions and even Agent Jobs.
 
 ![Redgate SQL Search](/images/img_58b808142629c.png)
 

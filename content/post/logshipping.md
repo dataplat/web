@@ -2,6 +2,7 @@
 title: "Minimal-Downtime Migrations Using Invoke-DbaLogShipping"
 date: 2018-04-04
 author: "Garry Bargsley"
+lastmod: 2025-10-29
 slug: "logshipping"
 aliases:
   - /logshipping/
@@ -31,7 +32,7 @@ The goal this time around was to enhance the process with more automation. With 
 
 The reason I decided to go with Log Shipping is the ease of setup, made even easier by the dbatools commands. Also, the **ability to minimize downtime** which I pointed out earlier, even for large databases.
 
-Log shipping also supports **mixed versions** as far back as 2005 to current versions and **mixed editions** like Standard, Workgroup or Enterprise which other migration options lack. See this great article on using [Log Shipping](https://blogs.msdn.microsoft.com/sqlgardner/2011/09/16/minimizing-db-migration-downtime-using-log-shipping/) to minimize downtime for more detail.
+Log shipping also supports **mixed versions** as far back as 2005 to current versions and **mixed editions** like Standard, Workgroup or Enterprise which other migration options lack. See this great article on using [Log Shipping](https://learn.microsoft.com/en-us/archive/blogs/sqlgardner/minimizing-db-migration-downtime-using-log-shipping) to minimize downtime for more detail.
 
 ## Migration Steps
 
@@ -177,12 +178,7 @@ Get-Help Invoke-DbaDbLogShipRecovery -Detailed
 
 ## Additional Information
 
-Check out the multi part series on the Log Shipping commands by the author of most of these awesome commands Sander Stad ([b](https://www.sqlstad.nl/)|[t](https://twitter.com/SQLStad)).
-
-- [Log Shipping with dbatools – Part 1](https://www.sqlstad.nl/powershell/log-shipping-with-dbatools-part-1-setup-log-shipping/)
-- [Log Shipping with dbatools – Part 2](https://www.sqlstad.nl/powershell/log-shipping-with-dbatools-part-2-test-log-shipping-status/)
-- [Log Shipping with dbatools – Part 3](https://www.sqlstad.nl/powershell/log-shipping-dbatools-part-3-get-log-shipping-errors/)
-- [Log Shipping with dbatools – Part 4](https://www.sqlstad.nl/powershell/log-shipping-with-dbatools-part-4-recover-a-log-shipped-database/)
+Check out Sander Stad's blog at [sqlstad.nl](https://sqlstad.nl/) for more information about log shipping with dbatools. Sander ([blog](https://sqlstad.nl/)) is the author of most of these awesome log shipping commands.
 
 Thanks for reading,
-Garry ([@gbargsley](https://twitter.com/gbargsley))
+Garry ([GitHub](https://github.com/gbargsley))

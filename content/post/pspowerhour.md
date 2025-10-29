@@ -1,6 +1,7 @@
 ---
 title: "PSPowerHour YouTube Livestream"
 date: 2018-08-22
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "pspowerhour"
 aliases:
@@ -17,7 +18,7 @@ Last night was the premiere of #PSPowerHour! It featured great speakers and a lo
 
 ## What is PSPowerHour?
 
-Created by [Michael T Lombardi](https://twitter.com/barbariankb) and [Warren F](psCookieMonster), PSPowerHour is "like a virtual User Group, with a lightning-demo format, and room for non-PowerShell-specific content. Eight community members will give a demo each PowerHour."
+Created by [Michael T Lombardi](https://github.com/michaeltlombardi) and [Warren F](https://ramblingcookiemonster.github.io), PSPowerHour is "like a virtual User Group, with a lightning-demo format, and room for non-PowerShell-specific content. Eight community members will give a demo each PowerHour."
 
 Sessions are proposed and [organized on GitHub](https://github.com/PSPowerHour/PSPowerHour/), which is really cool. Both new and seasoned speakers are invited to propose topics 🙌
 

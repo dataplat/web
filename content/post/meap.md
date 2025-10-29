@@ -1,6 +1,7 @@
 ---
 title: "Learn dbatools in a Month of Lunches"
 date: 2019-09-04
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "meap"
 aliases:
@@ -41,6 +42,6 @@ Occasionally, Manning will decide not to publish a book that's become available 
 
 For those 300+ of you who have already purchased our book, Rob and I very much appreciate your support and hope that you find the book super useful 🚀
 
-Also, shoutout to Mike Shepard ([b](https://powershellstation.com/) | [t](https://twitter.com/MikeShepard70)) and Cláudio Silva ([b](https://claudioessilva.eu/) | [t](https://twitter.com/claudioessilva)) for the technical edits and to the anonymous community editors who took the time to review our book before it went to MEAP!
+Also, shoutout to Mike Shepard and [Cláudio Silva](https://claudioessilva.eu/) for the technical edits and to the anonymous community editors who took the time to review our book before it went to MEAP!
 
 \- Chrissy

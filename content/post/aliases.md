@@ -1,6 +1,7 @@
 ---
 title: "Working with SQL Client Aliases"
 date: 2020-01-10
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "aliases"
 aliases:
@@ -11,7 +12,7 @@ tags: []
 draft: false
 ---
 
-[SQL Client Aliases](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) allow you to connect to a SQL Server instance using another name. This is especially useful during migrations. Want your servers to connect to the new SQL Server without modifying connection strings within your application? Or what if you could use easy-to-remember names for your docker containers? SQL Client Aliases can help.
+[SQL Client Aliases](https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) allow you to connect to a SQL Server instance using another name. This is especially useful during migrations. Want your servers to connect to the new SQL Server without modifying connection strings within your application? Or what if you could use easy-to-remember names for your docker containers? SQL Client Aliases can help.
 
 ![image](https://user-images.githubusercontent.com/8278033/72145420-c9181400-339a-11ea-9229-a460158c0d0f.png)
 
@@ -27,7 +28,7 @@ While you can manage SQL Client Aliases using the GUI, I prefer using dbatools w
 
 # Using dbatools
 
-I find SQL Client Aliases most useful for facilitating easy migrations and using them is even recommended as a best practice in the [SharePoint world](https://veronicageek.com/sharepoint/sharepoint-2013/configure-sql-aliases-for-sharepoint-server/2018/04/).
+I find SQL Client Aliases most useful for facilitating easy migrations and using them is even recommended as a best practice in the SharePoint world.
 
 First, I check all of my servers to see which aliases are currently setup.
 

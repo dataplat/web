@@ -1,6 +1,7 @@
 ---
 title: "SQL Server Migration Enhancements"
 date: 2018-09-24
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "migration-enhancements"
 aliases:
@@ -19,7 +20,7 @@ Now, you can migrate from one server to many. This applies to both `Start-DbaMig
 
 ![migration](/images/migration.gif)
 
-As you may be able to see in the title bar of this [Out-GridView](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/out-gridview?view=powershell-5.1), I am migrating from **workstation**, which is a SQL Server 2008 instance, to **localhost\sql2016** and **localhost\sql2017**. My entire command is as follows:
+As you may be able to see in the title bar of this [Out-GridView](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/out-gridview?view=powershell-5.1), I am migrating from **workstation**, which is a SQL Server 2008 instance, to **localhost\sql2016** and **localhost\sql2017**. My entire command is as follows:
 
 ```powershell
 Start-DbaMigration -Source workstation -Destination localhost\sql2016, localhost\sql2017 -BackupRestore -UseLastBackup | Out-GridView

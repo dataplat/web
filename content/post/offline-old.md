@@ -1,6 +1,7 @@
 ---
 title: "Offline Installs of dbatools"
 date: 2017-07-26
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "offline-old"
 aliases:
@@ -35,7 +36,7 @@ This will download the package, unzip it and place it into C:\temp\dbatools. Sav
 
 #### Method 2
 
-If your system is older and you do not have PowerShellGet or you haven't upgraded to [PowerShell 5.1](https://msdn.microsoft.com/en-us/powershell/wmf/5.1/install-configure) (which comes with PowerShellGet), then you can just download the zip directly from the [Gallery's API](https://powershellgallery.com/api/v2/package/dbatools).
+If your system is older and you do not have PowerShellGet or you haven't upgraded to [PowerShell 5.1](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/wmf/setup/install-configure) (which comes with PowerShellGet), then you can just download the zip directly from the [Gallery's API](https://powershellgallery.com/api/v2/package/dbatools).
 
 Note that **this will download a file ending in .nupkg**. Simply rename the file to .zip, extract and you're set. You can also use PowerShell to download the module and rename it, all in one shot.
 
@@ -61,7 +62,7 @@ Our .psm1 takes care of Unblocking DLLs, but if you use the download and unzip m
 
 ## $env:PSMODULEPATH
 
-Just a quick note about `$env:PSMODULEPATH`. If you're not familiar with PSMODULEPATH, you may remember PATH from the DOS days and PSMODULEPATH is similar. Any module placed within your $env:PSMODULEPATH will automatically load once you execute a command from that module. Here, you can see the contents of my path and that I [manually added](https://msdn.microsoft.com/en-us/library/dd878326(v=vs.85).aspx) my git repo.
+Just a quick note about `$env:PSMODULEPATH`. If you're not familiar with PSMODULEPATH, you may remember PATH from the DOS days and PSMODULEPATH is similar. Any module placed within your $env:PSMODULEPATH will automatically load once you execute a command from that module. Here, you can see the contents of my path and that I [manually added](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_psmodulepath) my git repo.
 
 ![](/images/img_59786e92eb630.png)
 

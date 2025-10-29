@@ -1,6 +1,7 @@
 ---
 title: "Building an Inventory View of SQL Servers with dbatools"
 date: 2019-04-25
+lastmod: 2025-10-29
 author: "Andreas Schubert"
 slug: "building-an-inventory"
 aliases:
@@ -100,7 +101,7 @@ $rawData = $ProductionServers | Connect-DbaInstance | Sort-Object Computername |
     @{Name= "Role (s)";Expression={$_ | Select -ExpandProperty AvailabilityGroups | Select -ExpandProperty LocalReplicaRole}}, ClusterName | Sort ComputerName
 ```
 
-While this code may look complex, from a PowerShell point of view it's really pretty simple. First, we take the list of our `Productionservers` and pipe it to [Connect-DbaInstance](https://docs.dbatools.io/#Connect-DbaInstance) cmdlet. Connect-DbaInstance is the result of dbatools calling the SMO functionality, returning a complete SMO object of the SQL Server connected to.
+While this code may look complex, from a PowerShell point of view it's really pretty simple. First, we take the list of our `Productionservers` and pipe it to [Connect-DbaInstance](https://dbatools.io/commands) cmdlet. Connect-DbaInstance is the result of dbatools calling the SMO functionality, returning a complete SMO object of the SQL Server connected to.
 
 Technically, the part with `$rawData = $ProductionServers | Connect-DbaInstance` already gives us all the information we need for our report. But since we don't want to return all the possible SMO properties and objects (that would result in a very long operation), we pipe the results of this directly to a Sort, followed by returning the actual information we are interested in:
 

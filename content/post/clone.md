@@ -1,6 +1,7 @@
 ---
 title: "Using DacPac Functions to Clone SQL Server Databases"
 date: 2018-08-29
+lastmod: 2025-10-29
 author: "Kirill Kravtsov"
 slug: "clone"
 aliases:
@@ -60,9 +61,13 @@ Export properties here are defined to control the extract process:
 
 [Export-DbaDacPackage](https://docs.dbatools.io/Export-DbaDacPackage/) function will take care of the extraction process and will return all details about the extraction, including the **Path** property that would direct us to the extracted file:
 
-![output from Export-DbaDacPackage](/images/2018-08-24_15-01-10.jpg)
+{{< powershell-console >}}
+Database Elapsed Path
+-------- ------- ----
+DBAdmin  23.25 s C:\temp\DBAdmin.dacpac
+{{< /powershell-console >}}
 
-You can check all other available properties (which are basically command line parameters) in a corresponding article: https://msdn.microsoft.com/en-us/library/hh550080.aspx
+You can check all other available properties (which are basically command line parameters) in a corresponding article: https://learn.microsoft.com/sql/tools/sqlpackage/sqlpackage-publish
 
 ## Deploying DacPac Package
 
@@ -70,7 +75,7 @@ There is one important note about dacpac deployment: it requires a so called Pub
 
 - Run [New-DbaDacProfile](https://docs.dbatools.io/New-DbaDacProfile/), specifying the connection parameters. The resulting file will enable you to run the deployment, but it is highly recommended that you modify it according to your needs
 - From Visual Studio SSDT project, select **Build** -> **Publish**. It would open a dialog, that allows you to load, save and modify the Publish profile. Make sure to take a look at the **Advanced** **Publish** **Settings** dialog, as it provides access to dozens of configuration items that you might want to review
-- Manually, using documentation from **Publish parameters** section of the same [article](https://msdn.microsoft.com/en-us/library/hh550080.aspx)
+- Manually, using documentation from **Publish parameters** section of the same [article](https://learn.microsoft.com/sql/tools/sqlpackage/sqlpackage-publish)
 
 The parameters that we're going to use during deployment are as follows:
 
@@ -110,7 +115,41 @@ Once we have a Publish profile ready we can start the deployment by using [Publi
 - **Path** – path to the dacpac package
 - **PublishXml** – path to the publish profile
 
-![Publish-DbaDacPackage in action](/images/2018-08-24_15-44-08.jpg)
+{{< powershell-console >}}
+PS C:\> Publish-DbaDacPackage -SqlInstance MSSQLSERVER -Database DBAdmin_copy -Path 'C:\temp\DBAdmin.dacpac' -PublishXml (Get-Item .\etc\publish.xml)
+
+ComputerName          : MSSQLSERVER
+InstanceName          : MSSQLSERVER
+SqlInstance           : MSSQLSERVER
+Database              : DBAdmin_copy
+Dacpac                : C:\temp\DBAdmin.dacpac
+PublishXml            : .\etc\publish.xml
+Result                : Initializing deployment (Start)
+                        Initializing deployment (Complete)
+                        Analyzing deployment plan (Start)
+                        Analyzing deployment plan (Complete)
+                        Reporting and scripting deployment plan (Start)
+                        Updating database (Complete)
+                        Creating DBAdmin_copy...
+                        Creating [SECONDARY]...
+                        Creating [dbo].[BackupVerificationHistory]...
+                        Creating [dbo].[CommandLog]...
+                        Creating [dbo].[CommandLogID]...
+                        Creating [dbo].[CommandLogSummary]...
+                        Creating [dbo].[DatabaseSelect]...
+                        Creating [dbo].[BackupVerification]...
+                        Creating [dbo].[CommandExecute]...
+                        Creating [dbo].[CommandExecuteID]...
+                        Creating [dbo].[DatabaseIntegrityCheck]...
+                        Creating [dbo].[IndexOptimize]...
+                        Creating [dbo].[InsertCommandLogSummary]...
+                        Creating [dbo].[Isp_WhoIsActive]...
+                        Creating [dbo].[OutputFile]...
+                        Altering [dbo].[Connection]...
+                        Altering [dbo].[PublicRead]...
+DeployOptions         : @{AdditionalDeploymentContributorArguments=; AllowDropBlockingAssemblies=False;...}
+SqlCmdVariableValues : {}
+{{< /powershell-console >}}
 
 Other parameters of [Publish-DbaDacPackage](https://docs.dbatools.io/Publish-DbaDacPackage/) that you might find useful:
 
@@ -174,5 +213,4 @@ It is also a perfect workaround for database copying, when a source server has a
 It also work pretty well as an alternative for a snapshot replication, being much less restrictive in its approach.
 
 \- Kirill
-Twitter: [@nvarscar](https://twitter.com/nvarscar)
 Blog: [nvarscar.wordpress.com](https://nvarscar.wordpress.com/)

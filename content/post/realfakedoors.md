@@ -1,6 +1,7 @@
 ---
 title: "New Release – realfakedoors"
 date: 2017-03-16
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "realfakedoors"
 aliases:
@@ -17,7 +18,7 @@ In [the latest release](https://github.com/dataplat/dbatools/releases/latest), w
 
 On March 1, 2017, we initiated a new command freeze. This means that we will no longer be accepting commands that are not within the scope of version 1.0, which we hope to debut on June 1. You may notice that this release still contains a lot of new commands — that's because there was a mad dash to get a bunch of commands in before March 1 😉 We actually still have a few more left to vet.
 
-A new command freeze is necessary because we invest time vetting each PR and in order to reach 1.0 in a timely manner, we need to focus on bug and style resolutions. We're asking anyone who can code to help fix the 35 [bugs](https://github.com/dataplat/dbatools/issues?q=is%3Aissue+is%3Aopen+label%3Abug) currently filed at GitHub and address the [style changes](https://dbatools.io/tstyle) that the community decided upon.
+A new command freeze is necessary because we invest time vetting each PR and in order to reach 1.0 in a timely manner, we need to focus on bug and style resolutions. We're asking anyone who can code to help fix the 35 [bugs](https://github.com/dataplat/dbatools/issues?q=is%3Aissue+is%3Aopen+label%3Abug) currently filed at GitHub and address the [style changes](https://github.com/dataplat/dbatools/wiki/Style-Guide) that the community decided upon.
 
 If you're available to help, we'd love it! Even if you don't know PowerShell, we'll need help updating the website with screenshots and examples with the updated parameters and command names, and other tasks of that nature. We will be working on the following:
 
@@ -61,7 +62,7 @@ Of the 22 new commands in this release, one command, [Get-DbaBuildReference](htt
   Tests the connection to a linked server. If the test is unsuccessful the command returns the reason of the failure.
 
 - **[Read-DbaTransactionLog](https://dbatools.io/Read-DbaTransactionLog)**
-  Reads the live Transaction log from specied SQL Server Database
+  Reads the live Transaction log from specified SQL Server Database
 
 ### General Commands
 
@@ -102,10 +103,6 @@ Based on the popularity of [Get-DbaDatabase](https://dbatools.io/Get-DbaDatabase
 
 - **[Set-DbaSpConfigure](https://dbatools.io/Set-DbaSpConfigure)**
   This function changes the configured value for sp_configure settings. If the setting is dynamic this setting will be used, otherwise the user will be warned that a restart of SQL is required.
-
-## Now on Tour
-
-We recently added a [new Presentations page](https://dbatools.io/presentations) to keep track of all of the presentations around the 🌍🌎🌏 that speak all or in part about dbatools.
 
 ## New to dbatools?
 

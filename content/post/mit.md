@@ -1,6 +1,7 @@
 ---
 title: "dbatools is Now MIT Licensed!"
 date: 2018-03-05
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "mit"
 aliases:
@@ -11,11 +12,11 @@ tags: [mit, party]
 draft: false
 ---
 
-Nearly two years ago, I wrote that as a open source [GPL-licensed project](https://choosealicense.com/licenses/gpl-3.0/), dbatools was [free as in speech](https://dbatools.io/dbatools-is-free-as-in-speech/) and [free as in beer](https://dbatools.io/dbatools-is-free-as-in-beer/).
+Nearly two years ago, I wrote that as a open source [GPL-licensed project](https://choosealicense.com/licenses/gpl-3.0/), dbatools was free as in speech and free as in beer.
 
-I chose the GNU GPL for nostalgic reasons and I also wanted companies who used dbatools to contribute back to the project. What I didn't realize was that licensing dbatools as GPL would hurt integration which ultimately [impacts adoption](https://www.reddit.com/r/SQLServer/comments/5iec4i/dbatools_an_open_source_project_now_with_over_100/dbdjndp/). Permissive licenses like the [MIT](https://choosealicense.com/licenses/mit/) do not subject users to such restrictions.
+I chose the GNU GPL for nostalgic reasons and I also wanted companies who used dbatools to contribute back to the project. What I didn't realize was that licensing dbatools as GPL would hurt integration which ultimately impacts adoption. Permissive licenses like the [MIT](https://choosealicense.com/licenses/mit/) do not subject users to such restrictions.
 
-Many of the tools we use on a daily basis, like [VS Code](https://code.visualstudio.com/license) and even [.NET](https://github.com/Microsoft/dotnet) are MIT licensed, and MIT is [the most popular license on GitHub](https://blog.github.com/2015-03-09-open-source-license-usage-on-github-com/).
+Many of the tools we use on a daily basis, like VS Code and even [.NET](https://github.com/Microsoft/dotnet) are MIT licensed, and MIT is [the most popular license on GitHub](https://github.blog/open-source/git/open-source-license-usage-on-github-com/).
 
 ![](/images/img_5a9af637b5a66.png)
 

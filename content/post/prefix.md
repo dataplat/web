@@ -1,6 +1,7 @@
 ---
 title: "New Prefix for Many dbatools Commands"
 date: 2016-08-02
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "prefix"
 aliases:
@@ -35,7 +36,7 @@ I was curious and put it up for a Twitter vote.
 
 ![finalpoll](/images/finalpoll.png)
 
-When it became obvious yesterday that the winner was going to be DBA, I submitted the first two commands (Test-DBAPowerPlan and Set-DBAPowerPlan) the DBA prefix in [this commit](https://github.com/ctrlbold/dbatools/commit/0138a6ead65c292dab1b1a9cffe926e36e6429c9).
+When it became obvious yesterday that the winner was going to be DBA, I submitted the first two commands (Test-DBAPowerPlan and Set-DBAPowerPlan) the DBA prefix in [this commit](https://github.com/dataplat/dbatools/commit/0138a6ead65c292dab1b1a9cffe926e36e6429c9).
 
 ## Announcing the Winner
 

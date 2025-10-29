@@ -13,7 +13,7 @@ draft: false
 
 How cool is this? dbatools Major Contributor [Constantine Kokkinos](https://constantinekokkinos.com/) and I will be presenting [a full-day session at PASS Summit](https://sqlps.io/precon) in Seattle, WA, USA on Tuesday, October 31, 2017! Our precon will have a lab so seats are limited — you'll need to [sign up now](https://sqlps.io/precon) to ensure a spot.
 
-[Rob Sewell](https://sqldbawithabeard.com/) will also be joining us as a guest presenter and it looks like teammates [Sander Stad](https://www.sqlstad.nl) and [Shawn Melton](http://blog.wsmelton.info/) will help proctor the lab 😊
+[Rob Sewell](https://blog.robsewell.com/) will also be joining us as a guest presenter and it looks like teammates [Sander Stad](https://sqlstad.nl/) and Shawn Melton will help proctor the lab 😊
 
 **Presenters:**
 

@@ -1,6 +1,7 @@
 ---
 title: "The New dbatools Website: From Notepad++ to Cursor, Powered by AI"
 date: 2025-10-26
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "new-dbatools-website-2025"
 categories: [announcements]
@@ -45,7 +46,7 @@ The new site highlights commands that address actual business problems:
 - **Copy-DbaDatabase** - migrations
 - **Backup-DbaDatabase** / **Restore-DbaDatabase** - disaster recovery
 - **Test-DbaLastBackup** - test your backups
-- **Set-DbaDbEncryption** - compliance with encryption
+- **Enable-DbaDbEncryption** - compliance with encryption
 - **Invoke-DbaDbLogShipping** - high availability (not a big fan of availability groups, but I do love some log shipping)
 - **Update-DbaInstance** - easily patch all of your servers
 

@@ -2,6 +2,7 @@
 title: "Multithreading Commands"
 date: 2019-01-04
 author: "Kin Shah"
+lastmod: 2025-10-29
 slug: "multithread"
 aliases:
   - /multithread/
@@ -11,9 +12,9 @@ tags: []
 draft: false
 ---
 
-In this age of many companies adopting the ideas of either DevOps or [SRE](https://landing.google.com/sre/) (Site Reliability Engineer) roles, there is constant need for automation. Mundane tasks like collecting metrics, alerts, server and database asset info into a central database on which you can do reporting is now a common task that many DBAs or system admins are performing.
+In this age of many companies adopting the ideas of either DevOps or [SRE](https://sre.google/) (Site Reliability Engineer) roles, there is constant need for automation. Mundane tasks like collecting metrics, alerts, server and database asset info into a central database on which you can do reporting is now a common task that many DBAs or system admins are performing.
 
-In SQL Server world, we are fortunate to have a vibrant community of [PowerShell enthusiasts](https://dbatools.io/team) that have open sourced [dbatools](https://dbatools.io/download) – a community driven PowerShell module to automate database development and administration.
+In SQL Server world, we are fortunate to have a vibrant community of [PowerShell enthusiasts](https://dbatools.io/team) that have open sourced [dbatools](https://dbatools.io/install) – a community driven PowerShell module to automate database development and administration.
 
 This begs a question..
 
@@ -43,7 +44,7 @@ PowerShell provides many ways to allow multi-threading in your scripts. Let's ex
 
 - **Background jobs:** A powerful way of allowing commands to run in the background and then retrieve the results later thereby freeing up the terminal and allowing the users to continue their work without interruption. Whenever a new job is started using `Start-Job`, it ends up spawning a new `powershell.exe` process which you can easily see using windows task manager or just running `Get-Process` command. This means that the more background jobs you run, the more `powershell.exe` processes are created which is a resource hog! Also, there is no ability to throttle the jobs (i.e. all jobs are started and executed at the same time). There is limited ability to manage multiple threads and have them share variables as well.
 
-- **PowerShell Runspaces:** A powerful and flexible way of leveraging .NET's [`system.management.automation.runspaces`](https://docs.microsoft.com/en-us/dotnet/api/system.management.automation.runspaces?redirectedfrom=MSDN&view=powershellsdk-1.1.0) namespace that exposes variety of classes designed to create, manipulate and orchestrate a pool of PowerShell processes. In simple terms, think of Runspaces as containers where everything is contained or stored and ran in an asynchronous fashion.
+- **PowerShell Runspaces:** A powerful and flexible way of leveraging .NET's [`system.management.automation.runspaces`](https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.runspaces) namespace that exposes variety of classes designed to create, manipulate and orchestrate a pool of PowerShell processes. In simple terms, think of Runspaces as containers where everything is contained or stored and ran in an asynchronous fashion.
 
 #### How to Efficiently Leverage PowerShell Runspaces With High Performance and Less Overhead?
 
@@ -140,11 +141,11 @@ Below test shows the performance difference between Sequential Execution vs Mult
 
 References:
 
-- [Background jobs](https://docs.microsoft.com/en-us/powershell/developer/command/background-jobs)
+- [Background jobs](https://learn.microsoft.com/en-us/powershell/developer/command/background-jobs)
 - [Multi Threaded PowerShell Cookbook](https://www.codeproject.com/Tips/895840/Multi-Threaded-PowerShell-Cookbook)
 - [PoshRSJob](https://github.com/proxb/PoshRSJob)
 
 Thanks for reading !
 ~ **Kin Shah**
 
-Get in touch [@TheRockStarDBA](https://twitter.com/TheRockstarDBA) or at [dba.se](https://dba.stackexchange.com/users/8783/kin?tab=profile)
+Get in touch at [therockstardba.github.io](https://therockstardba.github.io/kin-dbsre/) or [dba.se](https://dba.stackexchange.com/users/8783/kin)

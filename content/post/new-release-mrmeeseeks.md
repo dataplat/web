@@ -1,6 +1,7 @@
 ---
 title: "New Release – Mr. Meeseeks"
 date: 2016-11-02
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "new-release-mrmeeseeks"
 aliases:
@@ -57,11 +58,11 @@ We fixed 15 bugs and added 9 new commands including one that migrates SQL Server
 
 - **[Test-DbaDbRecoveryModel](https://dbatools.io/Test-DbaDbRecoveryModel)**
 
-  When you switch a database into FULL recovery model, it will behave like a SIMPLE recovery model until a full backup is taken in order to begin a log backup chain. This command, inspired by [Paul Randal's post](http://www.sqlskills.com/blogs/paul/new-script-is-that-database-really-in-the-full-recovery-mode/), will let you easily see if a database is in the 'pseudo-Simple' recovery model.
+  When you switch a database into FULL recovery model, it will behave like a SIMPLE recovery model until a full backup is taken in order to begin a log backup chain. This command, inspired by [Paul Randal's post](https://www.sqlskills.com/blogs/paul/new-script-is-that-database-really-in-the-full-recovery-mode/), will let you easily see if a database is in the 'pseudo-Simple' recovery model.
 
 - **[Test-DbaMaxDop](https://dbatools.io/Test-DbaMaxDop)**
 
-  Inspired by Sakthivel Chidambaram's post about [SQL Server MAXDOP Calculator](https://blogs.msdn.microsoft.com/sqlsakthi/p/maxdop-calculator-sqlserver/), this command displays a SQL Server's current configuration and calculated recommendation.
+  Inspired by Sakthivel Chidambaram's post about [SQL Server MAXDOP Calculator](https://learn.microsoft.com/en-us/archive/blogs/sqlsakthi/wow-we-have-maxdop-calculator-for-sql-server-it-makes-my-job-easier), this command displays a SQL Server's current configuration and calculated recommendation.
 
   These are just general recommendations for SQL Server and are a good starting point for setting the "max degree of parallelism" option.
 

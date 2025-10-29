@@ -1,6 +1,7 @@
 ---
 title: "dbatools 1.0 Progress!"
 date: 2018-11-14
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "dbatools-1-0-progress"
 aliases:
@@ -40,6 +41,6 @@ Sometime in the next month, I'll also be updating [Start-DbaMigration](https://d
 
 So the functionality won't necessarily change, but if you have scheduled tasks or scripts that perform migrations, you will need to update your parameters once you update dbatools once these changes are made.
 
-I'll be sending regular updates via email, but no more than once per day. You can [follow us](https://dbatools.io/twitter) on Twitter for more frequent updates.
+I'll be sending regular updates via email, but no more than once per day. For more frequent updates, you can follow the dbatools project on [GitHub](https://github.com/dataplat/dbatools) or visit [dbatools.io](https://dbatools.io).
 
 \- Chrissy

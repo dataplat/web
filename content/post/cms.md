@@ -1,6 +1,7 @@
 ---
 title: "Managing Central Management Server"
 date: 2018-07-11
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "cms"
 aliases:
@@ -17,7 +18,7 @@ SQL Server's [Central Management Server](https://www.red-gate.com/simple-talk/sq
 
 It's a super useful feature that not all DBAs know about. Since CMS data is stored in msdb and accessible via SMO, you can access it from SQL Server Management Studio or PowerShell modules like dbatools.
 
-Central Management Server's [essential functionality](https://docs.microsoft.com/en-us/sql/ssms/register-servers/create-a-central-management-server-and-server-group) includes:
+Central Management Server's [essential functionality](https://learn.microsoft.com/en-us/sql/ssms/register-servers/create-a-central-management-server-and-server-group) includes:
 
 > Actions that are taken by using a central management server group act on all servers in the server group. This includes connecting to servers by using Object Explorer and executing Transact-SQL statements and Policy-Based Management policies on multiple servers at the same time.
 
@@ -25,7 +26,7 @@ I mostly use it as a visual repository of my SQL Servers. Prior to using dbatool
 
 ## Server Grouping
 
-The screenshot above is a sample representation of how SQL Servers can be divided into groups. I generally organize by department, but as [Cláudio Silva](https://twitter.com/ClaudioESSilva) pointed out, it's useful to organize by version when performing migrations. I've done that as well.
+The screenshot above is a sample representation of how SQL Servers can be divided into groups. I generally organize by department, but organizing by version is also useful when performing migrations. I've done that as well.
 
 And because a SQL Server can be listed multiple times within different groups, my buddy Brandon created an automated system that divided by both Application and assigned DBA. Too cool! In this example from [sqlmatters.com](https://www.sqlmatters.com/Articles/RegisteredServersvsCentralManagementServers.aspx), their servers are divided up by environment.
 

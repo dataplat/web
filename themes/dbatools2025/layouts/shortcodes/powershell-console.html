@@ -1,0 +1,10 @@
+{{- $code := .Inner -}}
+{{- $title := .Get "title" | default "PowerShell" -}}
+{{- $animate := .Get "animate" | default "false" -}}
+
+{{ partial "powershell-terminal.html" (dict
+  "code" $code
+  "title" $title
+  "animate" (eq $animate "true")
+  "hasAnimation" false
+) }}

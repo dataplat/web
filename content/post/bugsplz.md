@@ -1,6 +1,7 @@
 ---
 title: "Beginning the Journey to 1.0 and a Call for Bug Reports"
 date: 2017-03-03
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "bugsplz"
 aliases:
@@ -47,7 +48,7 @@ First, from all of us, THANK YOU 🙏 Second..
 - We'll guide you through how to participate and shower you with emoji gifts
 - You'll be paired up, hopefully with someone in your timezone, so that your pull requests can be vetted, tested and merged in a timely manner. You'll also be vetting, testing and merging your buddy's pull requests.
 
-And the big ol' bonus? Fixing a bunch of bugs will totally get you on the [team page](https://dbatools.io/team) which also means you can add dbatools.io to your experience on LinkedIn [like many Major Contributors do](https://dbatools.io/company). Whaaat!
+And the big ol' bonus? Fixing a bunch of bugs will totally get you on the [team page](https://dbatools.io/team) which also means you can add dbatools.io to your experience on LinkedIn [like many Major Contributors do](https://www.linkedin.com/company/dbatools.io). Whaaat!
 
 Thanks for reading. We'll be back in touch next week.
 

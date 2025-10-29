@@ -1,6 +1,7 @@
 ---
 title: "Using Set-DbaCmConnection to Reset Credentials and Cached Connection Status"
 date: 2019-06-25
+lastmod: 2025-10-29
 author: "Gareth N"
 slug: "reset-credentials-cached-connection"
 aliases:
@@ -34,7 +35,7 @@ For anyone new to dbatools, let's briefly talk about what this is doing for us b
 - Prompt the user to install patches for any instances that were found and need updating
 - Finally, it will restart the computer after patching
 
-Works like a charm! For more details and examples, you can check out the [Update-DbaInstance help page](https://docs.dbatools.io/#Update-DbaInstance).
+Works like a charm! For more details and examples, you can check out the [Update-DbaInstance help page](https://dbatools.io/Update-DbaInstance).
 
 #### Back on Topic
 
@@ -48,6 +49,6 @@ Set-DbaCmConnection -ComputerName devbox1.domain.local -ResetCredential -ResetCo
 
 This will give us a fresh start with this server and cause dbatools to try and authenticate again, resulting in a good connection object. Also using the -DisableBadCredentialCache flag we can stop it from caching bad credentials while we debug our access issues.
 
-Check out the [Set-DbaCmConnection help page](https://docs.dbatools.io/#Set-DbaCmConnection) for further information.
+Check out the [Set-DbaCmConnection help page](https://dbatools.io/Set-DbaCmConnection) for further information.
 
 \- Gareth 🇬🇧

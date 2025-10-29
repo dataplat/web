@@ -1,6 +1,7 @@
 ---
 title: "New Release – Reverse Giraffe"
 date: 2017-05-04
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "reversegiraffe"
 aliases:
@@ -22,7 +23,7 @@ In [the latest release](https://github.com/dataplat/dbatools/releases/latest), w
 - **[New-DbaScriptingOption](https://dbatools.io/New-DbaScriptingOption)**
   Creates a new Microsoft.SqlServer.Management.Smo.ScriptingOptions object. Basically saves you the time from remembering the SMO assembly name 😉 Works well in conjunction with Export-DbaScript.
 
-  See [Microsoft's page](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.management.smo.scriptingoptions.aspx) for more information.
+  See [Microsoft's page](https://learn.microsoft.com/en-us/dotnet/api/microsoft.sqlserver.management.smo.scriptingoptions) for more information.
 
 ### General Commands
 
@@ -43,7 +44,7 @@ Based on the popularity of [Get-DbaDatabase](https://dbatools.io/Get-DbaDatabase
   Gets execution and estimated completion time information for queries
 
 - **[Invoke-DbaDbShrink](https://dbatools.io/Invoke-DbaDbShrink)**
-  Shrinks all files in a database. Databases should be shrunk only when completely necessary. Many awesome SQL people have written about why you should not shrink your data files – [Paul Randal](http://www.sqlskills.com/blogs/paul/why-you-should-not-shrink-your-data-files) and [Kalen Delaney](http://sqlmag.com/sql-server/shrinking-data-files) included. Sometimes, though, you gotta shrink your database. This command simplifies the process and also warns you of potential downsides (like excessively fragmented indexes.)
+  Shrinks all files in a database. Databases should be shrunk only when completely necessary. Many awesome SQL people have written about why you should not shrink your data files – [Paul Randal](http://www.sqlskills.com/blogs/paul/why-you-should-not-shrink-your-data-files) and [Kalen Delaney](https://www.itprotoday.com/sql-server/shrinking-data-files) included. Sometimes, though, you gotta shrink your database. This command simplifies the process and also warns you of potential downsides (like excessively fragmented indexes.)
 
 - **[Get-DbaDbFile](https://dbatools.io/Get-DbaDbFile)**
   This command is intended to avoid the enumeration issues that SMO causes when getting information about files and filegroups.
@@ -82,9 +83,9 @@ One day I woke up and decided that we really must digitally sign the dbatools mo
 
 Figuring out code signing is a bit of a journey and I'll be writing about it more in-depth on [my personal blog](https://netnerds.net). Something interesting about Code Signing certs – they're expensive. Unlike the $0-$5 email verified SSL certs, a code signing cert requires verification of identity.
 
-I was disappointed to see that the cheapest code signing certs went for around $200 year. I put out a plea on Twitter and the community response was [SO AMAZING](https://twitter.com/cl/status/856214891161694208). I was so moved, I teared up.
+I was disappointed to see that the cheapest code signing certs went for around $200 year. I put out a plea on social media and the community response was SO AMAZING. I was so moved, I teared up.
 
-Almost immediately after I Tweeted, I got a DM from [William Dirkin](http://www.williamdurkin.com/) and [André Kamman](http://andrekamman.com/) of [clouddba.io](http://clouddba.io), offering to fund our cert for the foreseeable future :O Ultimately, however, it turns out that MVPs get free code signing certs from [digicert](https://digitcert.com) so William and André will be hooking us up with a paid [Appveyor](https://www.appveyor.com) subscription instead. Amazing!
+Almost immediately after I Tweeted, I got a DM from [William Durkin](https://www.linkedin.com/in/wdurkin/) and [André Kamman](http://andrekamman.com/) of [clouddba.io](http://clouddba.io), offering to fund our cert for the foreseeable future :O Ultimately, however, it turns out that MVPs get free code signing certs from [digicert](https://digitcert.com) so William and André will be hooking us up with a paid [Appveyor](https://www.appveyor.com) subscription instead. Amazing!
 
 Thank you so much to everyone that offered any amount. I'm still so floored. Our first fully signed script will come in about 2 weeks after I work out the details.
 

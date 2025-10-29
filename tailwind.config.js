@@ -73,6 +73,21 @@ module.exports = {
           yellow: '#b88700',
           gray: '#808fa3',
         },
+        // PowerShell terminal colors (VS Code inspired)
+        ps: {
+          bg: '#070825',
+          prompt: '#569cd6',
+          path: '#929292',
+          command: '#fcee54',
+          comment: '#608b4e',
+          property: '#9cdcfe',
+          value: '#ce9178',
+          output: '#b5becf',
+          success: '#4ec9b0',
+          error: '#f48771',
+          warning: '#dcdcaa',
+          header: '#b5becf',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],

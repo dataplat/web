@@ -1,6 +1,7 @@
 ---
 title: "T-SQL Tuesday and New Module Teaser"
 date: 2018-01-09
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "new-module-coming-soon"
 aliases:
@@ -11,25 +12,25 @@ tags: [dbachecks, party, pester]
 draft: false
 ---
 
-[![TSQL2SDAY-150x150](https://blog.netnerds.net/wp-content/uploads/2016/06/TSQL2SDAY-150x150.png?resize=150%2C150&ssl=1)](https://blobeater.blog/2018/01/02/t-sql-tuesday-98-your-technical-challenges-conquered/)
+[![TSQL2SDAY-150x150](/images/tsql2sday.png)](https://blobeater.blog/2018/01/02/t-sql-tuesday-98-your-technical-challenges-conquered/)
 
 Today's blog post is part of [T-SQL Tuesday](https://blobeater.blog/2018/01/02/t-sql-tuesday-98-your-technical-challenges-conquered/). T-SQL Tuesday is the brainchild of Adam Machanic. It is a blog party on the second Tuesday of each month. Everyone is welcomed to participate.
 
-This month's T-SQL Tuesday, hosted by Arun Sirpal ([blog](https://blobeater.blog)|[twitter](https://twitter.com/blobeater1)), is all about overcoming technical challenges.
+This month's T-SQL Tuesday, hosted by Arun Sirpal ([blog](https://blobeater.blog)), is all about overcoming technical challenges.
 
 ## The Challenge
 
 I always try to solve my technical issues with natively available (aka Microsoft) solutions. It's one of the many reasons I love PowerShell.
 
-When it comes to monitoring, I know there are some really wonderful solutions out there. [SentryOne](https://www.sentryone.com/sql-server/database-monitoring-tools) and [SolarWinds](https://www.solarwinds.com/database-performance-monitoring-software) come to mind but I don't always need deep query level monitoring or I may not be able to pay licencing costs for all of my SQL Instances. But I do need to easily know if they are all set up correctly.
+When it comes to monitoring, I know there are some really wonderful solutions out there. [SolarWinds SQL Sentry](https://www.solarwinds.com/sql-sentry) (formerly SentryOne) and [SolarWinds Database Performance Monitor](https://www.solarwinds.com/database-performance-monitor) come to mind but I don't always need deep query level monitoring or I may not be able to pay licencing costs for all of my SQL Instances. But I do need to easily know if they are all set up correctly.
 
-Ever since I was a baby DBA, I've wanted to create a centralized solution that I could roll in with and get going with after finding all of my servers. Over the years, I've tried to put together some ASP/VBScript solutions, then when I learned PowerShell, tried PowerShell and SQL Agent, but I just wasn't feeling it. I could never figure out how to make the checks modular and universal. That is, until I learned about [Pester](https://sqldbawithabeard.com/2017/11/16/write-your-first-pester-test-today/) in-depth from [Rob Sewell](https://sqldbawithabeard.com/).
+Ever since I was a baby DBA, I've wanted to create a centralized solution that I could roll in with and get going with after finding all of my servers. Over the years, I've tried to put together some ASP/VBScript solutions, then when I learned PowerShell, tried PowerShell and SQL Agent, but I just wasn't feeling it. I could never figure out how to make the checks modular and universal. That is, until I learned about [Pester](https://sqldbawithabeard.com/2017/11/16/write-your-first-pester-test-today/) in-depth from [Rob Sewell](https://blog.robsewell.com/).
 
 ## The Solution
 
 The solution I've been looking for turns out to be a mix of dbatools and Pester. Pester is the first Open Source community project formally included in a Windows release! Windows 10 and Windows Server 2016 include Pester by default.
 
-[![Pester Logo](/images/pester-med-logo.png)](https://github.com/Pester/Pester/wiki/)
+[![Pester Logo](/images/pester-med-logo.png)](https://pester.dev/)
 
 Pester makes it easy to standardize tests or "checks" because it can output its results in a number of standardized formats, including NunitXml and JSON. It's all PowerShell, after all.
 
@@ -47,7 +48,7 @@ Index of checks. You can run them all, run by group or only run the specific tes
 
 ## Power BI Universal Dashboard
 
-Courtesy of [Cláudio Silva](https://twitter.com/claudioessilva). Just hit refresh and you're all set!
+Courtesy of [Cláudio Silva](https://claudioessilva.eu/). Just hit refresh and you're all set!
 
 [![Power BI Dashboard](/images/dash.png)](/images/dash.png)
 

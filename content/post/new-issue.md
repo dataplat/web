@@ -1,6 +1,7 @@
 ---
 title: "Submitting an Issue"
 date: 2018-03-14
+lastmod: 2025-10-29
 author: "Shawn Melton"
 slug: "new-issue"
 aliases:
@@ -27,7 +28,7 @@ This is purely based on what type of an issue you need to submit, but all of the
 
 1. Open your favorite browser, go to our GitHub issues shortlink [dbatools.io/issues](https://dbatools.io/issues)
 2. Click on the "Issues" tab of the repository
-3. Take a minute or two and search the current issues (helps us to keep duplicate count low; if you find a match [give it a thumbs up](https://github.blog/2119-add-reactions-to-pull-requests-issues-and-comments).)
+3. Take a minute or two and search the current issues (helps us to keep duplicate count low; if you find a match [give it a thumbs up](https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments).)
 4. If you do not find anything in the current issues, click on "new issue" button and fill out a new one.
 
 The remainder of this post is going to do a review of filling out a new issue. The more information you can provide helps our unpaid developers in getting a fix!
@@ -62,7 +63,7 @@ You would be surprised how often this can happen, so we have to ask. With the nu
 
 #### Can Duplicate in New/Clean PowerShell Session?
 
-Not all modules play nice with each other. We have found in particular that the [sqlserver module](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-ps-module) can cause issues with our module loading properly. So if you happen to import modules prior to or after importing dbatools, it helps to identify that none of those modules are adversely affecting dbatools execution.
+Not all modules play nice with each other. We have found in particular that the [sqlserver module](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-ps-module) can cause issues with our module loading properly. So if you happen to import modules prior to or after importing dbatools, it helps to identify that none of those modules are adversely affecting dbatools execution.
 
 #### Version and Edition Information
 
@@ -78,11 +79,11 @@ In order to reproduce the problem, we will need you to provide the command you a
 
 We have added two commands to the module that can help us more quickly determine the issue if you are able to provide them.
 
-##### Get-dbatoolsLog
+##### Get-DbatoolsLog
 
 This command simply outputs the messaging that has been generated since you imported the module into your session. This is one reason why duplicating your issue in a new/fresh console can help. Reissue the command and let the error or bug occur again, then run this command and you will see all the output generated from the command. This output includes an internal command that may have been executed as well.
 
-##### New-dbatoolsSupportPackage
+##### New-DbatoolsSupportPackage
 
 This command will generate a compressed file of collected information from the client machine, one you are using dbatools on. Think of this like you submit a support ticket to Microsoft support, they will have your run a few utilities on the offending machine to let it collect various logs and in-memory information. We do not capture as much as Microsoft, but information pertinent to the PowerShell session you have in use. I encourage you to run this and review the contents of that compressed file before attaching to an issue; ensure you are not violating any security policies.
 

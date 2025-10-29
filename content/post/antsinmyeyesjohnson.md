@@ -1,6 +1,7 @@
 ---
 title: "New Release – Ants in My Eyes Johnson"
 date: 2016-11-22
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "antsinmyeyesjohnson"
 aliases:
@@ -11,7 +12,7 @@ tags: []
 draft: false
 ---
 
-In [this release](https://github.com/dataplat/dbatools/releases/tag/v0.8.65) (two in one month, woo!), we gained 3 new contributors to the [dbatools master repository](https://github.com/dataplat/dbatools) for a grand total of of 29! We also added a [shortcuts reference page](https://dbatools.io/shortcuts) for those of you who often visit portions of our site or GitHub and would like the shortlinks.
+In [this release](https://github.com/dataplat/dbatools/releases/tag/v0.8.65) (two in one month, woo!), we gained 3 new contributors to the [dbatools master repository](https://github.com/dataplat/dbatools) for a grand total of of 29!
 
 ## Commands
 
@@ -36,7 +37,7 @@ We fixed about 10 bugs, made two commands more efficient and added 5 new command
 
   This command will make it easier to clean up old, archived (and unarchived) backups.
 
-Want to see more or work on a command yourself? We have approved command ideas on [the dbatools Trello board](https://dbatools.io/trello). This board shows you what we're working on and what we're talking about.
+Want to see more or work on a command yourself? Check out the [dbatools GitHub repository](https://github.com/dataplat/dbatools) to see what we're working on and to contribute your own improvements.
 
 ## Notable Bug Fixes
 

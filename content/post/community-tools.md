@@ -1,6 +1,7 @@
 ---
 title: "A Few Other Community Tools"
 date: 2018-08-31
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "community-tools"
 aliases:
@@ -37,7 +38,7 @@ It is based on [DbUp](https://github.com/DbUp/DbUp), which is DbUp is an open so
 
 ![sqlwatch](/images/sqlwatch.png)
 
-The project is [open-source](https://github.com/marcingminski/sqlwatch) and the developers are available on [Twitter](https://twitter.com/sqlwatch) and in #sqlwatch in the [SQL Server Community Slack](https://dbatools.io/slack).
+The project is [open-source](https://github.com/marcingminski/sqlwatch) and the developers are active in the #sqlwatch channel of the [SQL Server Community Slack](https://dbatools.io/slack).
 
 ### PowerUpSQL
 
@@ -49,7 +50,7 @@ The project is [open-source](https://github.com/NetSPI/PowerUpSQL) and was [rece
 
 ### dbachecks
 
-If you're new to dbatools and not familiar with our other projects, [dbachecks](https://dbachecks.io) was created by the [dbatools team](https://dbatools.io/team) and is now primarily maintained by [Rob Sewell](http://sqldbawithabeard.com).
+If you're new to dbatools and not familiar with our other projects, [dbachecks](https://dbachecks.io) was created by the [dbatools team](https://dbatools.io/team) and is now primarily maintained by [Rob Sewell](https://blog.robsewell.com).
 
 > dbachecks is a framework created by and for SQL Server pros who need to validate their environments using crowd-sourced checklists.
 

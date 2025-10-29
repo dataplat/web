@@ -1,6 +1,7 @@
 ---
 title: "Scheduling PowerShell Tasks with SQL Agent"
 date: 2017-09-26
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "agent"
 aliases:
@@ -33,7 +34,7 @@ With regards to credentials, you can add a task under another credential but it'
 
 Scheduling PowerShell tasks in Task Scheduler
 
-Now, as [Fred Weinmann](http://allthingspowershell.blogspot.be/) pointed out, you can also use PowerShell itself to manage credentials in a [number](https://gallery.technet.microsoft.com/Encrypt-Credential-71c46d07) [of](https://www.powershellgallery.com/packages/CredentialManager/) [ways](https://github.com/Jaykul/BetterCredentials). But I prefer built-in management.
+Now, as [Fred Weinmann](http://allthingspowershell.blogspot.be/) pointed out, you can also use PowerShell itself to manage credentials in a number [of](https://www.powershellgallery.com/packages/CredentialManager/) [ways](https://github.com/Jaykul/BetterCredentials). But I prefer built-in management.
 
 #### The Dreaded Popup Window
 
@@ -63,11 +64,11 @@ Like email, logging in Task Scheduler leaves a lot to be desired. Unless you gen
 
 Agent is awesome and the solution to all of my issues so far. Well, Agent with a CmdExec Job Step is the solution to all of my issues so far. I really wanted to use the PowerShell Job Step but I've lost faith in it. I encountered all kinds of issues, including the inability to access UNC shares without prepending the variable with `Microsoft.PowerShell.Core\FileSystem::`
 
-In [Shawn's fantastic post about Agent and dbatools](https://www.pythian.com/blog/dbatools-sql-agent/), he outlines other problems including the fact that many (all?) external modules can't load in the SQLPS host, which the PowerShell step still uses, even in SQL Server 2016. Note that the SQLPS host on the server-side [is different](https://blogs.technet.microsoft.com/dataplatforminsider/2016/06/30/sql-powershell-july-2016-update/) from the updated [SqlServer](https://www.powershellgallery.com/packages/SqlServer) module, which is now available in the PowerShell Gallery.
+In [Shawn's fantastic post about Agent and dbatools](https://www.pythian.com/blog/dbatools-sql-agent/), he outlines other problems including the fact that many (all?) external modules can't load in the SQLPS host, which the PowerShell step still uses, even in SQL Server 2016. Note that the SQLPS host on the server-side [is different](https://www.microsoft.com/en-us/sql-server/blog/2016/06/30/sql-powershell-july-2016-update) from the updated [SqlServer](https://www.powershellgallery.com/packages/SqlServer) module, which is now available in the PowerShell Gallery.
 
 #### CmdExec Job Step vs PowerShell Job Step
 
-[Derik Hammer also had a great post](https://www.sqlhammer.com/running-powershell-in-a-sql-agent-job/) back in 2015 that detailed the differences between the two most popular ways to invoke PowerShell in an Agent job.
+Derik Hammer also had a great post back in 2015 that detailed the differences between the two most popular ways to invoke PowerShell in an Agent job.
 
 Here's a (slightly updated) version of Derik's chart.
 
@@ -82,11 +83,11 @@ So it basically boils down to this:
 | Doesn't always (rarely?) work as expected | Often (always?) works as expected |
 | | |
 
-And now that we're all convinced to use the [CmdExec Job Step](https://docs.microsoft.com/en-us/sql/ssms/agent/create-a-cmdexec-job-step), let's set one up.
+And now that we're all convinced to use the [CmdExec Job Step](https://learn.microsoft.com/en-us/sql/ssms/agent/create-a-cmdexec-job-step), let's set one up.
 
 ## Scheduling Tasks using Agent's CmdExec {#tutorial}
 
-By default, [only members of the sysadmin role](https://docs.microsoft.com/en-us/sql/ssms/agent/create-a-cmdexec-job-step) are allowed to create jobs with the CmdExec Job Step, but adding non-sysadmins as principals to [the CmdExec proxy](https://technet.microsoft.com/en-us/library/ms187901(v=sql.105).aspx) works as well.
+By default, [only members of the sysadmin role](https://learn.microsoft.com/en-us/sql/ssms/agent/create-a-cmdexec-job-step) are allowed to create jobs with the CmdExec Job Step, but adding non-sysadmins as principals to [the CmdExec proxy](https://learn.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms187901(v=sql.105)) works as well.
 
 So here are the steps that I use to schedule my tasks:
 
@@ -99,7 +100,7 @@ So here are the steps that I use to schedule my tasks:
 
 #### Create a Windows-Based Login in SQL Server
 
-This is out of scope for this post, but check out [Microsoft's page on logins](https://msdn.microsoft.com/en-us/library/aa337562%28v=sql.105%29.aspx) if you need.
+This is out of scope for this post, but check out [Microsoft's page on logins](https://learn.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/aa337562(v=sql.105)) if you need.
 
 Note that you can easily manage remote SQL Servers from a centralized SQL Server Agent. In order to do this, you will need to provide the login with appropriate permissions on the remote SQL and Windows servers.
 
@@ -139,7 +140,7 @@ Since we'll be calling PowerShell from the command line, it's easiest to create 
 
 I usually have a management SQL Server that runs all the jobs, so I save the file locally, but if I didn't, I'd likely have a repository of scripts on a file share.
 
-It's also possible to [setup an internal PowerShell Gallery](https://kevinmarquette.github.io/2017-05-30-Powershell-your-first-PSScript-repository/) as a central repository for scripts and modules that Agent Job Scripts can import. This could make it simpler from a management, version control and updatability point of view.
+It's also possible to [setup an internal PowerShell Gallery](https://powershellexplained.com/2017-05-30-Powershell-your-first-PSScript-repository/) as a central repository for scripts and modules that Agent Job Scripts can import. This could make it simpler from a management, version control and updatability point of view.
 
 #### Create the Job and Job Step
 
@@ -151,11 +152,11 @@ In the **Command:** area, enter *powershell.exe -File \\location\to\file.ps1*
 
 Need to *Run As Administrator*? Use -Verb runAs
 
-In place of a -File path\filename, you could actually [pass a base64 string into the -EncodedCommand parameter](https://blogs.technet.microsoft.com/heyscriptingguy/2015/10/27/powertip-encode-string-and-execute-with-powershell/), but I'd rather have the ability to easily modify the script without having to reencode it.
+In place of a -File path\filename, you could actually [pass a base64 string into the -EncodedCommand parameter](https://devblogs.microsoft.com/scripting/powertip-encode-string-and-execute-with-powershell), but I'd rather have the ability to easily modify the script without having to reencode it.
 
 #### Now You're Set!
 
-Now you're all set and can [schedule this job](https://logicalread.com/scheduling-sql-server-jobs-with-sql-agent-mo01/) just like you would any other. You can even have it [email an operator on failure](https://docs.microsoft.com/en-us/sql/ssms/agent/notify-an-operator-of-job-status) after [enabling Agent to use Database Mail](https://docs.microsoft.com/en-us/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
+Now you're all set and can schedule this job just like you would any other. You can even have it [email an operator on failure](https://learn.microsoft.com/en-us/sql/ssms/agent/notify-an-operator-of-job-status) after [enabling Agent to use Database Mail](https://learn.microsoft.com/en-us/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
 
 To see PowerShell and SQL Agent in practice, check out Björn Peters's post [Daily Database Copy using Powershell](http://www.sql-aus-hamburg.de/tsql2sday-94-daily-database-copy-using-powershell-dbatools/).
 

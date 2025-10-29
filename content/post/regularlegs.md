@@ -1,6 +1,7 @@
 ---
 title: "New Release with Significant but Non-Breaking Changes"
 date: 2018-09-07
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "regularlegs"
 aliases:
@@ -11,7 +12,7 @@ tags: []
 draft: false
 ---
 
-Marching onward to dbatools 1.0, a ton of commands have been renamed to align with our now mature naming scheme. These changes were made in today's release, version 0.9.410 aka [regularlegs](https://dbatools.io/releases), now available on GitHub and the [PowerShell Gallery](https://dbatools.io/gallery).
+Marching onward to dbatools 1.0, a ton of commands have been renamed to align with our now mature naming scheme. These changes were made in today's release, version 0.9.410 aka [regularlegs](https://github.com/dataplat/dbatools/releases), now available on GitHub and the [PowerShell Gallery](https://www.powershellgallery.com/packages/dbatools/).
 
 Here's the general idea:
 
@@ -27,19 +28,19 @@ If you use the old name, it'll still work but will show a warning that the comma
 
 ## Renaming
 
-If you'd like help renaming dbatools scripts within your command, use the newly created function **Invoke-dbatoolsRenameHelper**, available in [regularlegs](https://dbatools.io/releases). The screenshot below shows is what it looked like when I ran the this:
+If you'd like help renaming dbatools scripts within your command, use the newly created function **Invoke-dbatoolsRenameHelper**, available in [regularlegs](https://github.com/dataplat/dbatools/releases). The screenshot below shows is what it looked like when I ran the this:
 
 ```ps
 Get-ChildItem -Recurse C:\temp\community-presentations\*.ps1 | Invoke-dbatoolsRenameHelper | Out-GridView
 ```
 
-![image](https://user-images.githubusercontent.com/8278033/45200604-ed795300-b271-11e8-8d17-73b8fafbe902.png?w=800&ssl=1)
+![Invoke-DbatoolsRenameHelper output showing renamed commands](/images/regularlegs-rename-helper.png)
 
 Thanks, PowerShell! 😊
 
 ## Other Updates
 
-There are other cool updates with this release. In preparation for my [doomsday prepping with dbatools](https://sqlgla.co.uk/schedule/) presentation at SQLGLA, I created a new command, Export-DbaInstance, which I'll write more about in a future post.
+There are other cool updates with this release. In preparation for my doomsday prepping with dbatools presentation at SQLGLA, I created a new command, Export-DbaInstance, which I'll write more about in a future post.
 
 In order for Export-DbaInstance to work well, I had to create a number of underlying commands, some of which may be of interest to you.
 

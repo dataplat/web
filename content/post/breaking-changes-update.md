@@ -1,6 +1,7 @@
 ---
 title: "Breaking Changes Update"
 date: 2018-11-16
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "breaking-changes-update"
 aliases:
@@ -42,9 +43,7 @@ We also have other new commands including
 
 `New-DbaDatabase` allows you to create databases easily. It even allows you to create multiple databases on multiple servers at once!
 
-![image](/images/new-db.png)
-
-Also, a teammate suggested we highlight that `Install-DbaSqlWatch`, which installs [sqlwatch](https://sqlwatch.io) is different from [Install-DbaWatchUpdate](https://dbatools.io/Install-DbaWatchUpdate) which watches for updates to dbatools.
+Also, a teammate suggested we highlight that `Install-DbaSqlWatch`, which installs [sqlwatch](https://sqlwatch.io) is different from `Install-DbatoolsWatchUpdate` (which watches for updates to dbatools - note: this command was renamed from `Install-DbaWatchUpdate` in dbatools 1.0).
 
 ## Other Updates
 

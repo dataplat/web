@@ -1,6 +1,7 @@
 ---
 title: "New Release – Schleem"
 date: 2016-12-14
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "schleem"
 aliases:
@@ -11,7 +12,7 @@ tags: []
 draft: false
 ---
 
-In [this release](https://github.com/dataplat/dbatools/releases/tag/v0.8.69), we gained 4 new [contributors](https://github.com/dataplat/dbatools/graphs/contributors) to the [dbatools master repository](https://github.com/dataplat/dbatools) for a grand total of of 33! We even added 4 new [Major Contributors](https://dbatools.io/team) to the team. Thanks to all who have joined in to make the awesomest toolset for SQL Server DBAs — we're now offering the community over 100 quality commands 😀
+In this release, we gained 4 new [contributors](https://github.com/dataplat/dbatools/graphs/contributors) to the [dbatools master repository](https://github.com/dataplat/dbatools) for a grand total of of 33! We even added 4 new [Major Contributors](https://dbatools.io/team) to the team. Thanks to all who have joined in to make the awesomest toolset for SQL Server DBAs — we're now offering the community over 100 quality commands
 
 ## Just a Quick Highlight
 
@@ -80,7 +81,7 @@ We fixed about 16 bugs, made a couple commands more efficient and added 10 new c
 
 ## AppVeyor, Pester and Testing
 
-Rob Sewell of [dbareports.io](https://dbareports.io) fame spent a few days adding Pester testing and enforced testing for each commit using [AppVeyor](http://appveyor.com). This will ultimately help us release more often and with higher quality.
+Rob Sewell of dbareports.io fame spent a few days adding Pester testing and enforced testing for each commit using [AppVeyor](https://appveyor.com). This will ultimately help us release more often and with higher quality.
 
 Want to help create tests? We're in desperate need of testers and Pester fans. Or, if you want to learn Pester, this is a great opportunity. Both dbatools and dbareports are in need.
 

@@ -1,6 +1,7 @@
-﻿---
+---
 title: "Building a Dedicated Backup Test Server"
 date: 2017-04-11
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "dedicated-server"
 aliases:
@@ -17,7 +18,7 @@ So, there's a [World Backup Day](http://www.worldbackupday.com/en/), but what ab
 
 ## Using dbatools to Automate Tests
 
-dbatools makes it crazy easy to automate your backup testing, as demonstrated by [Sander Stad](http://www.sqlstad.nl/powershell/testing-your-backups-with-dbatools/), [Rob Sewell](https://sqldbawithabeard.com/2017/03/20/testing-your-sql-server-backups-the-easy-way-with-powershell-dbatools/) and [Anthony Nocentino](http://www.centiExcludeSystemLoginss.com/blog/sql/using-dbatools-for-automated-restore-and-checkdb/). It even [works on Linux](https://sqldbawithabeard.com/2017/03/27/test-your-sqlserver-backups-on-linux-with-powershell-and-dbatools/)!
+dbatools makes it crazy easy to automate your backup testing, as demonstrated by [Sander Stad](http://www.sqlstad.nl/powershell/testing-your-backups-with-dbatools/), [Rob Sewell](https://sqldbawithabeard.com/2017/03/20/testing-your-sql-server-backups-the-easy-way-with-powershell-dbatools/) and [Anthony Nocentino](https://www.nocentino.com/blog/sql/using-dbatools-for-automated-restore-and-checkdb/). It even [works on Linux](https://sqldbawithabeard.com/2017/03/27/test-your-sqlserver-backups-on-linux-with-powershell-and-dbatools/)!
 
 In my environment, I have a server dedicated for testing SQL Server backups and use [Test-DbaLastBackup](https://dbatools.io/Test-DbaLastBackup). Here's how you can, too.
 
@@ -43,11 +44,11 @@ The edition (Enterprise, Standard, Express, etc) should match the highest of edi
 
 - Ultimately, licensing this type of server is a "[murky gray](https://www.littlekendra.com/2016/07/12/is-user-acceptance-testing-covered-under-developer-edition/#comment-1065806)" area and you should consult with your organization's licensing rep.
 
-If you end up needing a higher edition of SQL Server, are properly licensed and the [configuration is supported](https://docs.microsoft.com/en-us/sql/database-engine/install-windows/supported-version-and-edition-upgrades), you can always [change your edition](https://blog.brankovucinec.com/2014/07/23/upgrade-from-sql-server-2014-express-to-standard-edition/).
+If you end up needing a higher edition of SQL Server, are properly licensed and the [configuration is supported](https://learn.microsoft.com/en-us/sql/database-engine/install-windows/supported-version-and-edition-upgrades), you can always [change your edition](https://blog.brankovucinec.com/2014/07/23/upgrade-from-sql-server-2014-express-to-standard-edition/).
 
 #### Features
 
-Remember if you've got a database with FIELSTREAM enabled, you must have FILESTREAM enabled on your test sever. Same goes for FULLTEXT indexes and other things I can't recall right now.
+Remember if you've got a database with FILESTREAM enabled, you must have FILESTREAM enabled on your test server. Same goes for FULLTEXT indexes and other things I can't recall right now.
 
 #### Service Account
 
@@ -61,11 +62,11 @@ This was a lot of fun! I used Get-DbaDatabase to search all of my servers to eas
 $servers | Get-DbaDatabase | Select SqlInstance, Name, Size, Owner | Out-GridView
 ```
 
-([Out-GridView](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.utility/out-gridview?f=255&MSPPError=-2147217396), or OGV, is a powerful PowerShell cmdlet that allows for easy sorting, searching and filtering.)
+([Out-GridView](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/out-gridview), or OGV, is a powerful PowerShell cmdlet that allows for easy sorting, searching and filtering.)
 
 Searching 15 SQL Servers and 315 databases took less than 4 seconds! The size is in MB, and in this example screenshot, the largest database is BDTlog at 16GB. This includes both data and log files. In reality, my largest database was 500GB, so I created a 700GB expandable restore disk.
 
-![sizes](https://pbs.twimg.com/media/C8e2CMKXYAA1W7R.jpg)
+![sizes](/images/sizes.jpg)
 
 In my environment, I setup just one additional disk and placed both the data and logs on that disk. Test-DbaLastBackup allows you to specify different destination data and log drives, however, so you can create two additional drives instead of one if you prefer.
 
@@ -85,7 +86,7 @@ Next, it's time to create the script that can
 
 1. Collect all of your SQL Server database names
 2. Test your entire SQL Server estate
-3. Convert your results to a [.NET DataTable](https://msdn.microsoft.com/en-us/library/system.data.datatable)
+3. Convert your results to a [.NET DataTable](https://learn.microsoft.com/en-us/dotnet/api/system.data.datatable)
 4. Write the results to a database
 
 For my lab, I just keep a manual list of SQL Servers and all of them work with Windows authentication, so it greatly simplifies the process. Here's how I test every backup and log it to the database, all in one fell swoop.
@@ -115,7 +116,7 @@ Ultimately, it takes about 8 hours to test my entire SQL Server estate. I can ch
 
 Test restores, like entire instance migrations, can be scheduled. Check out the post [scheduling a migration](https://dbatools.io/scheduling-a-migration/) for detailed instructions on scheduling PowerShell tasks.
 
-You can even email yourself the results using [Send-MailMessage](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.utility/send-mailmessage). If you do go this route, ensure you assign the output of Test-DbaLastBackup to a variable so that you can use it to both write to SQL Server and email yourself ([ConvertTo-Html](https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.utility/convertto-html) will probably be helpful here).
+You can even email yourself the results using [Send-MailMessage](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/send-mailmessage). If you do go this route, ensure you assign the output of Test-DbaLastBackup to a variable so that you can use it to both write to SQL Server and email yourself ([ConvertTo-Html](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/convertto-html) will probably be helpful here).
 
 ## Caveats
 
@@ -128,7 +129,7 @@ $credential = (Get-Credential sqladmin)
 $localcredential = (Get-Credential ad\myadminacct)
 
 foreach ($server in $servers) {
-    Connect-DbaSqlServer -SqlInstance $server -SqlCredential $credential |
+    Connect-DbaInstance -SqlInstance $server -SqlCredential $credential |
     Test-DbaLastBackup -Destination localhost -DataDirectory R:\ -LogDirectory R:\ -DestinationCredential $localcredential |
     ConvertTo-DbaDataTable |
     Write-DbaDataTable -SqlInstance sql2016 -Table tempdb.dbo.lastbackuptests -AutoCreateTable

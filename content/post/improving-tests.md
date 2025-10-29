@@ -1,6 +1,7 @@
 ---
 title: "Improving Tests: Code Coverage Use Case"
 date: 2017-11-17
+lastmod: 2025-10-29
 author: "Simone"
 slug: "improving-tests"
 aliases:
@@ -11,7 +12,7 @@ tags: [party]
 draft: false
 ---
 
-A recent addition to the release pipeline is the "code coverage" report. Although you can find several posts about the intricacies of code coverage for PowerShell (my favourite is [this post by June Blender](https://www.sapien.com/blog/2016/06/24/testing-pester-code-coverage/)), you may be asking yourself what is code coverage in simple terms.
+A recent addition to the release pipeline is the "code coverage" report. Although you can find several posts about the intricacies of code coverage for PowerShell, you may be asking yourself what is code coverage in simple terms.
 
 ## Defining Code Coverage
 
@@ -30,17 +31,17 @@ We run a suite of tests at each commit via [appveyor](https://appveyor.com). The
 
 ## dbatools Coverage
 
-For public consumption, [our development branch](https://codecov.io/gh/sqlcollaborative/dbatools/branch/development) shows the most current coverage report for the whole project.
+For public consumption, [our development branch](https://app.codecov.io/gh/sqlcollaborative/dbatools/branch/development) shows the most current coverage report for the whole project.
 
 Now that the project is open about coverage metrics, you can contribute to the project writing more complete tests for all functions which are not 100% covered.
 
 Let's see a practical example.
 
-A few days ago, on 2017-11-13, the development branch showed Get-DbaDbRecoveryModel.ps1 with a [90% coverage](https://codecov.io/gh/sqlcollaborative/dbatools/tree/6870dccda543988eb952f574de9f758134ee85d5/functions). Codecov's urls are prettier but for the sake of this blogpost, which must point to specific commits, they'll be lengthy and ugly.
+A few days ago, on 2017-11-13, the development branch showed Get-DbaDbRecoveryModel.ps1 with a [90% coverage](https://app.codecov.io/gh/sqlcollaborative/dbatools/tree/6870dccda543988eb952f574de9f758134ee85d5/functions). Codecov's urls are prettier but for the sake of this blogpost, which must point to specific commits, they'll be lengthy and ugly.
 
 ![original coverage](/images/blogpost_improving_tests_1.png)
 
-Clicking on the [function itself](https://codecov.io/gh/sqlcollaborative/dbatools/src/6870dccda543988eb952f574de9f758134ee85d5/functions/Set-DbaDbRecoveryModel.ps1), you can see that only one line is specifically not covered
+Clicking on the [function itself](https://app.codecov.io/gh/sqlcollaborative/dbatools/src/6870dccda543988eb952f574de9f758134ee85d5/functions/Set-DbaDbRecoveryModel.ps1), you can see that only one line is specifically not covered
 
 ![original coverage – source details](/images/blogpost_improving_tests_2.png)
 
@@ -52,7 +53,7 @@ If you run **Get-Help Get-DbaDbRecoveryModel** you'll see this parameter
 -RecoveryModel <String[]>
        Filters the output based on Recovery Model. Valid options are Simple, Full and BulkLogged
        Details about the recovery models can be found here:
-       https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server
+       https://learn.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server
 ```
 
 If you inspect the [relevant test](https://github.com/dataplat/dbatools/blob/6870dcc/tests/Get-DbaDbRecoveryModel.Tests.ps1) you'll see there is nothing relative to that specific parameter.
@@ -141,17 +142,17 @@ change the base branch to development
 
 Once you filled out the details, you'll have written something like [this PR](https://github.com/dataplat/dbatools/pull/2646)
 
-Now, we just wait for the build to complete (impatient ones, watch [appveyor's dbatools "homepage"](https://dbatools.io/ci) to monitor the status in real-time)
+Now, we just wait for the build to complete (impatient ones, watch [appveyor's dbatools "homepage"](https://ci.appveyor.com/project/dataplat/dbatools/history) to monitor the status in real-time)
 
 ## Inspecting the Results
 
-Once the build has done, the list of recent opened PRs on codecov is at [dbatools.io/coverage](https://codecov.io/gh/sqlcollaborative/dbatools/pulls)
+Once the build has done, the list of recent opened PRs on codecov is at [dbatools.io/coverage](https://app.codecov.io/gh/sqlcollaborative/dbatools/pulls)
 
-If you inspect the one I created with this blogpost, which is [#2646](https://codecov.io/gh/sqlcollaborative/dbatools/pull/2646) , when you browse to the [functions folder](https://codecov.io/gh/sqlcollaborative/dbatools/pull/2646/tree/functions) to see what happened with the coverage of Get-DbaRecoveryModel.ps1 … voilà
+If you inspect the one I created with this blogpost, which is [#2646](https://app.codecov.io/gh/sqlcollaborative/dbatools/pull/2646) , when you browse to the [functions folder](https://app.codecov.io/gh/sqlcollaborative/dbatools/pull/2646/tree/functions) to see what happened with the coverage of Get-DbaRecoveryModel.ps1 … voilà
 
 ![coverage increase](/images/blogpost_improving_tests_6.png)
 
-You can click further to see the [details](https://codecov.io/gh/sqlcollaborative/dbatools/src/be3a3d976f1393a688bd2a437e452ab9c7d399f5/functions/Get-DbaDbRecoveryModel.ps1): you can see that the line which wasn't covered is now green.
+You can click further to see the [details](https://app.codecov.io/gh/sqlcollaborative/dbatools/src/be3a3d976f1393a688bd2a437e452ab9c7d399f5/functions/Get-DbaDbRecoveryModel.ps1): you can see that the line which wasn't covered is now green.
 
 ![coverage increase line by line](/images/blogpost_improving_tests_7.png)
 

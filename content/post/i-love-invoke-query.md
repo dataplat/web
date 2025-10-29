@@ -1,6 +1,7 @@
 ---
 title: "I ❤ Invoke-DbaQuery"
 date: 2018-01-08
+lastmod: 2025-10-29
 author: "Pétur Grétarsson"
 slug: "i-love-invoke-query"
 aliases:
@@ -77,7 +78,7 @@ FROM sys.availability_groups_cluster AS AGC
      AND ars.is_local = 1;
 ```
 
-We have thousands of databases in these Availability Groups so it is important to ensure that they are healthy. We have monitoring systems for the most important ones but you can imagine the cost. Therefore, it is nice to be able to build some basic checks like these. Running customized scripts and using the [Get-DbaRegisteredServer](https://dbatools.io/Get-DbaRegisteredServer) is just fantastic 😊.
+We have thousands of databases in these Availability Groups so it is important to ensure that they are healthy. We have monitoring systems for the most important ones but you can imagine the cost. Therefore, it is nice to be able to build some basic checks like these. Running customized scripts and using the [Get-DbaRegisteredServer](https://docs.dbatools.io/Get-DbaRegServer) is just fantastic 😊.
 
 ## Additional Uses for dbatools
 
@@ -88,7 +89,7 @@ I scheduled the script below to run via Visual Studio Team Services online (or t
 ```powershell
 # Get SQL Agent Job information
 # Fetch from DOMAIN1
-$result = DbaRegisteredServer -SqlServer [INSTANCENAME] -Group SqlAlwaysOnReplicaNodes | Get-DbaAgentJob | SELECT ComputerName, InstanceName, SqlInstance, Name, Category, OwnerLoginName, CurrentRunStatus, CurrentRunRetryAttempt, Enabled, LastRunDate, LastRunOutcome, DateCreated, HasSchedule, OperatorToEmail, CreateDate | ConvertTo-DbaDataTable
+$result = Get-DbaRegisteredServer -SqlServer [INSTANCENAME] -Group SqlAlwaysOnReplicaNodes | Get-DbaAgentJob | SELECT ComputerName, InstanceName, SqlInstance, Name, Category, OwnerLoginName, CurrentRunStatus, CurrentRunRetryAttempt, Enabled, LastRunDate, LastRunOutcome, DateCreated, HasSchedule, OperatorToEmail, CreateDate | ConvertTo-DbaDataTable
 Write-DbaDataTable -InputObject $result -SqlServer [INSTANCENAME] -Table SqlManagementRepository.dbo.SqlAgentJobs -Truncate -Confirm:$false
 $result = Get-DbaRegisteredServer -SqlServer [INSTANCENAME] -Group SqlStandalone | Get-DbaAgentJob | SELECT ComputerName, InstanceName, SqlInstance, Name, Category, OwnerLoginName, CurrentRunStatus, CurrentRunRetryAttempt, Enabled, LastRunDate, LastRunOutcome, DateCreated, HasSchedule, OperatorToEmail, CreateDate | ConvertTo-DbaDataTable
 Write-DbaDataTable -InputObject $result -SqlServer [INSTANCENAME] -Table SqlManagementRepository.dbo.SqlAgentJobs -Confirm:$false
@@ -132,7 +133,7 @@ AS
 GO
 ```
 
-Alternatively, I could use some dbatools commands and [Send-MailMessage](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/send-mailmessage) but I appreciated the fact that I could so easily integrate with my existing SQL solutions.
+Alternatively, I could use some dbatools commands and [Send-MailMessage](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/send-mailmessage) but I appreciated the fact that I could so easily integrate with my existing SQL solutions.
 
 I also use the command for many of our functions which run against all our +300 instances and +12.000 databases and store the result in central management database. Other validations I use dbatools for: file allocation unit size is incorrect, proper power plan is being used, SPN is configured, transaction log VLF count does not exceed threshold, SQL orphaned files do not exist, invalid SQL logins do not exist and much more. All those checks are done with dbatools and visible in one central database repository.
 

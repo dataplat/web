@@ -1,6 +1,7 @@
 ---
 title: "Default Parameter Values"
 date: 2018-08-15
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "defaults"
 aliases:
@@ -23,7 +24,7 @@ The great news is that this repetition is not required, as it can be handled ins
 $PSDefaultParameterValues['Get-DbaDatabase:Verbose'] = $true
 ```
 
-According to [Microsoft](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_parameters_default_values?view=powershell-6), **$PSDefaultParameterValues**:
+According to [Microsoft](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_parameters_default_values?view=powershell-6), **$PSDefaultParameterValues**:
 
 - Let you specify custom default values for any command
 - Commands use the custom default value unless you specify another value
@@ -101,7 +102,7 @@ $PSDefaultParameterValues.Remove('Disabled')
 
 ## Persistence
 
-Setting **$PSDefaultParameterValues** at the command-line only lasts during that session, meaning if you close your console, it will be reset. So, if you want it the default values to persist, you'll have to [add it to your profile](https://www.red-gate.com/simple-talk/sysadmin/powershell/persistent-powershell-the-powershell-profile/) (basically: **notepad $profile**, paste, save).
+Setting **$PSDefaultParameterValues** at the command-line only lasts during that session, meaning if you close your console, it will be reset. So, if you want the default values to persist, you'll have to [add it to your profile](https://www.red-gate.com/simple-talk/sysadmin/powershell/persistent-powershell-the-powershell-profile/) (basically: **notepad $profile**, paste, save).
 
 ## Scopes Are Dope
 
@@ -115,10 +116,9 @@ What's interesting is that setting the value within the module does not impact t
 
 There are some great resources that go more in-depth about Parameters Default Values. Here are just a few:
 
-- [Microsoft: About Parameters Default Values](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_parameters_default_values?view=powershell-6)
-- [Scripting Guys: Use PowerShell Default Parameter Values to Simplify Scripts](https://blogs.technet.microsoft.com/heyscriptingguy/2012/12/03/use-powershell-default-parameter-values-to-simplify-scripts/)
+- [Microsoft: About Parameters Default Values](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_parameters_default_values?view=powershell-6)
+- [Scripting Guys: Use PowerShell Default Parameter Values to Simplify Scripts](https://devblogs.microsoft.com/scripting/use-powershell-default-parameter-values-to-simplify-scripts)
 - [Boe Prox: Using PSDefaultParameterValues in PowerShell](https://learn-powershell.net/2013/12/11/using-psdefaultparametervalues-in-powershell/)
 - [Michael Sorens: PowerShell Time Saver: Automatic Defaults](https://www.red-gate.com/simple-talk/sysadmin/powershell/powershell-time-saver-automatic-defaults/)
 
 \- Chrissy
-

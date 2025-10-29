@@ -1,6 +1,7 @@
 ---
 title: "dbachecks Commands"
 date: 2018-02-22
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "dbachecks-commands"
 aliases:
@@ -55,7 +56,44 @@ We also made it convenient to run groups of checks. So **LastBackup** will run L
 
 This command lists all checks, check groups along with their required server type, either SqlInstance or ComputerName.
 
-![](/images/img_5a8a9d30ee2bb.png)
+{{< powershell-console >}}
+PS C:\github\dbatools> Get-DbcCheck
+
+Type                Description                                              AllTags
+----                -----------                                              -------
+SqlInstance         Ad Agent Account                                         Agent,agent-account
+SqlInstance         Ad Agent Account                                         Agent,agent-account
+SqlInstance         Backup Compression Check                                 Backup,BackupCompression
+SqlInstance         Backup Destination                                       Backup,BackupDestination
+SqlInstance         Backup Encryption                                        Backup,BackupEncryption
+SqlInstance         Backup Network                                           Backup,BackupNetwork
+SqlInstance         Backup Redundancy                                        Backup,BackupRedundancy
+SqlInstance         Backup Test                                              Backup,BackupTest
+SqlInstance         Backup Times                                             Backup,BackupTimes
+SqlInstance         Certificate Expiration                                   CertificateExpiration
+SqlInstance         Cluster Node Paused                                      ClusterNodePaused
+SqlInstance         Command Log Volume                                       CommandLogVolume
+SqlInstance         Database Growth Event                                    DatabaseGrowthEvent
+SqlInstance         Dump Files                                               DumpFiles
+SqlInstance         Error Log Count                                          ErrorLogCount
+SqlInstance         Error Log Size Check                                     ErrorLogSizeCheck
+SqlInstance         File Growth Type Check                                   FileGrowthTypeCheck
+SqlInstance         Last Backup Times                                        LastBackup,LastFullBackup,LastDiffBackup,LastLogBackup
+SqlInstance         Log Shipping Disabled                                    LogShippingDisabled
+SqlInstance         Orphaned User                                            OrphanedUser
+SqlInstance         Recovery Model                                           RecoveryModel
+SqlInstance         Replication Latency                                      ReplicationLatency
+SqlInstance         SQL Server Database Mail                                 DatabaseMail
+SqlInstance         SSL/TLS Certificate Expiration                           SSLCertificateExpiration
+SqlInstance         Suspended Service Broker Queue                           SuspendedServiceBrokerQueue
+SqlInstance         Temp DB Configuration                                    TempDbConfiguration
+SqlInstance         Test Last Backup Latency                                 LastBackupLatency
+SqlInstance         Traceflag Recommended Global Traceflag Check             GlobalTraceFlag
+SqlInstance         Windows Event Log                                        WindowsEventLog
+SqlInstance         Failed Logins Cluster Members                            FailedLogins,ClusterMembers
+ComputerName        Ping Computer                                            PingComputer
+ComputerName        Windows Update Status                                    WindowsUpdate
+{{< /powershell-console >}}
 
 #### Set-DbcConfig
 
@@ -65,17 +103,62 @@ What are reasonable defaults? Well for instance, out of the box, dbachecks tests
 
 `Set-DbcConfig -Name policy.backup.logmaxminutes -Value 60`
 
-![](/images/img_5a8de6b8a700a.png)
+{{< powershell-console >}}
+PS C:\github\dbatools> Set-DbcConfig -Name policy.backup.logmaxminutes -Value 60
+
+Name                                                  Value Description
+----                                                  ----- -----------
+policy.backup.logmaxminutes                             60 Maximum number of minutes before Log Backups are considered outdated
+{{< /powershell-console >}}
 
 #### Get-DbcConfig
 
 Retrieves dbachecks configuration elements. You can run this command with or without a search pattern.
 
-![](/images/img_5a8de7bac0d18.png)
+{{< powershell-console >}}
+PS C:\github\dbatools> Get-DbcConfig "backup"
 
-![](/images/img_5a8de7fb62bbb.png)
+Name                                                  Value Description
+----                                                  ----- -----------
+policy.backup.datapath                            [empty]   Destination server data directory, should be enabled true or disabled
+policy.backup.enforcedefaultpath                   True      Default backup compression check should be enabled true or disabled
+policy.backup.fullmaxdays                             7       Maximum number of days before Full Backups are considered outdated
+policy.backup.diffmaxhours                           24       Maximum number of hours before Diff Backups are considered outdated
+policy.backup.logmaxminutes                          15       Maximum number of minutes before Log Backups are considered outdated
+policy.backup.newdbgraceperiod                        1       The number of hours a newly created database is allowed to not have had a backup for
+policy.backup.lastrestorationdate                 [empty]     The minimum amount of time a database should have been restored for a table
+policy.backup.recognizablerecoveryblocksizedir   True       Enable DBA Checks: The checks that should be flagged to ensure that CYE is not disabled
+policy.backup.backupuncpath                       [empty]     Backup UNC Path
+{{< /powershell-console >}}
 
 Piping `Get-DbcConfig` to `Out-GridView` will help make the results even more searchable.
+
+{{< powershell-console title="Get-DbcConfig piped to Out-GridView" >}}
+PS C:\github\dbatools> Get-DbcConfig | Out-GridView
+
+[Grid View Window showing configuration options]
+
+agent.databasemailprofile                         Name of the Database Mail Profile in SQL Agent
+agent.dbaoperatorname                             Email address of the DBA Operator in SQL Agent
+agent.dbaoperatorname                             Name of the DBA Operator in SQL Agent
+app.checkrepos                                    C:\github\dbatools\checks
+app.localdbachecks                                List of Windows Servers that Windows tests will run against
+app.maildirectory                                 Persisted files live here
+app.maildirectory                                 For mail size store here
+app.sqlcredential                                 The universal SQL credential if Trusted/Windows Authentication is not used
+app.sqlinstance                                   Invoke-DbcCheck: The checks that should be configured per instance
+command-includedpath                              [0]
+domain-domaincontroller                           The domain controller to process your requests
+domain-organizationalunit                         The OU that your server is part of
+domain.domaincontroller                           The Active Directory domain that your server is part of
+mail.failurethreshold                             [0]
+mail.faildirectorythreshold                       Number of errors that must be present in an email report
+mail.fromsender                                   Email address the email reports should come from
+mail.smtpender                                    Store the name of the smtp server to send mail records
+mail.subject                                      dbachecks results
+mail.to                                           Destination server directory
+policy-backup-datapath                            [hidden]
+{{< /powershell-console >}}
 
 #### Export-DbcConfig
 
@@ -89,7 +172,7 @@ Imports dbachecks configs from a json file. The basic idea is that you set your 
 
 #### Send-DbcMailMessage
 
-Converts Pester results and emails results formatted using [ReportUnit](https://github.com/reportunit/reportunit). Basically wraps the [Send-MailMessage](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/send-mailmessage?view=powershell-5.1) cmdlet which sends an e-mail message from within Windows PowerShell.
+Converts Pester results and emails results formatted using [ReportUnit](https://github.com/reportunit/reportunit). Basically wraps the [Send-MailMessage](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/send-mailmessage?view=powershell-5.1) cmdlet which sends an e-mail message from within Windows PowerShell.
 
 #### Update-DbcPowerBiDataSource
 

@@ -1,6 +1,7 @@
 ---
 title: "dbatools Advanced Configuration"
 date: 2019-08-20
+lastmod: 2025-10-29
 author: "Claudio Silva"
 slug: "configuration"
 aliases:
@@ -99,7 +100,7 @@ Also if we don't want to get a *null* result we can specify the `-NotNull` param
 
 ### Set a New Configuration Value
 
-To update a value you need to use the `Set-dbatoolsConfig` command. Unfortunately, you will not find documentation for this command on our [docs page](http://docs.dbatools.io). This is a known issue and it happens because that command is a cmdlet so the help is in the dbatools library itself.
+To update a value you need to use the `Set-dbatoolsConfig` command. Unfortunately, you will not find documentation for this command on our [docs page](https://dbatools.io/commands). This is a known issue and it happens because that command is a cmdlet so the help is in the dbatools library itself.
 
 For this particular case, you can and should rely on the `Get-Help` command.
 
@@ -177,8 +178,7 @@ Get-dbatoolsConfig | Reset-dbatoolsConfig
 ```
 
 ### What's New?
-
-Since last dbatools version 1.0.32, new PowerShell Remoting configurations are available. You can read more about it on my recent blog post [More PowerShell Remoting coverage in dbatools](http://claudioessilva.eu/2019/08/20/more-powershell-remoting-coverage-in-dbatools/) to learn more.
+Since last dbatools version 1.0.32, new PowerShell Remoting configurations are available. You can read more about it on Claudio Silva's blog to learn more.
 
 ### Just Remember…
 

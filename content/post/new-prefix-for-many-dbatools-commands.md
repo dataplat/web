@@ -31,11 +31,11 @@ All Sql commands have been renamed to Dba. Old Sql commands within dbatools will
 
 So now for the part I'm terrible at — naming things. dbatools, the module, is spelled in all lower case, probably because of the Linux influence and I wanted this to be an open source product. But Test-dbaDiskAllocation was ugly. I noticed that some people were spelling the module's name DBAtools and dbatools, which is understandable but kind of made my eyes bleed.
 
-I was curious and put it up for a Twitter vote.
+I was curious and put it up for a vote.
 
 ![finalpoll](/images/finalpoll.png)
 
-When it became obvious yesterday that the winner was going to be DBA, I submitted the first two commands (Test-DBAPowerPlan and Set-DBAPowerPlan) the DBA prefix in [this commit](https://github.com/ctrlbold/dbatools/commit/0138a6ead65c292dab1b1a9cffe926e36e6429c9).
+When it became obvious yesterday that the winner was going to be DBA, I submitted the first two commands (Test-DBAPowerPlan and Set-DBAPowerPlan) the DBA prefix in [this commit](https://github.com/dataplat/dbatools/commit/0138a6ead65c292dab1b1a9cffe926e36e6429c9).
 
 ## Announcing the Winner
 

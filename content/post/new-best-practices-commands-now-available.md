@@ -1,6 +1,7 @@
 ---
 title: "New Best Practices Commands Now Available"
 date: 2016-07-20
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "new-best-practices-commands-now-available"
 aliases:
@@ -20,13 +21,13 @@ dbatools is not only intended to be a great migration tool, but also a toolset t
 Ever read a really great article about how to do something properly but then kinda forgot and you have to revisit each time? Well, we've codified some those practices for you, making them easy to both follow and remember.
 
 - **[Expand-DbaDbLogFile](https://dbatools.io/Expand-DbaDbLogFile)**
-  This command, created by [Cláudio Silva](https://twitter.com/ClaudioESSilva) helps DBAs automate Virtual Log File (VLF) management. Claudio covers this command in depth in a [guest post on my blog](https://blog.netnerds.net/2016/07/guest-blogger-claudio-silva-why-Expand-DbaDbLogFile/).
+  This command, created by [Cláudio Silva](https://claudioessilva.eu) helps DBAs automate Virtual Log File (VLF) management.
 
 - **[Find-DbaDbDuplicateIndex](https://dbatools.io/Find-DbaDbDuplicateIndex)**
-  This command, also created by [Cláudio Silva](https://dbatools.io/) helps DBAs find duplicate indexes which may be slowing your queries down and taking up unnecessary disk space.
+  This command, also created by [Cláudio Silva](https://claudioessilva.eu) helps DBAs find duplicate indexes which may be slowing your queries down and taking up unnecessary disk space.
 
 - **[Remove-DbaDatabaseSafely](https://dbatools.io/Remove-DbaDatabaseSafely)**
-  This command, created by [Rob Sewell](https://sqldbawithabeard.com/), safely removes a SQL Database and creates an Agent Job to restore it. By default it:
+  This command, created by [Rob Sewell](https://blog.robsewell.com/), safely removes a SQL Database and creates an Agent Job to restore it. By default it:
 
   1. Performs a DBCC CHECKDB
   2. Backs up the database WITH CHECKSUM
@@ -36,7 +37,7 @@ Ever read a really great article about how to do something properly but then kin
   6. The Agent Job restores the database
   7. Performs a DBCC CHECKDB and drops the database for a final time
 
-  Simply amazing! You can read more about [Remove-DbaDatabaseSafely](http://sqldbawithabeard.com/2016/07/20/Remove-DbaDatabaseSafely-my-first-contribution-to-dbatools/) on Rob's blog.
+  Simply amazing!
 
 - **[Set-DbaTempdbConfig](https://dbatools.io/Set-DbaTempdbConfig)**
   These commands, created by [Mike Fal](http://www.mikefal.net), sets tempdb data and log files according to best practice calcluations. Mike writes more about this function [on his blog](http://www.mikefal.net).

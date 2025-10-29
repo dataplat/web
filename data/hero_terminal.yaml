@@ -1,0 +1,69 @@
+# Hero Terminal Animation Configuration
+# This file controls the animated PowerShell terminal on the home page
+
+# The command shown in the terminal
+command:
+  path: "C:\\Projects\\Migration"
+  text: "Start-DbaMigration @params"
+
+# Progress box configuration
+progress:
+  message:
+    - "Performing instance migration"
+    - "Migrating databases"
+
+# Items that appear one by one during animation
+items:
+  - type: "Database Certificate"
+    name: "AGCertificate2021_2121"
+  - type: "Custom error"
+    name: "60000:'us_english'"
+  - type: "Mail Configuration"
+    name: "Server Configuration"
+  - type: "Mail Account"
+    name: "The DBA Team"
+  - type: "Mail Profile"
+    name: "The DBA Team"
+  - type: "Mail Server"
+    name: "smtp.ad.local"
+  - type: "CMS Group"
+    name: "Production"
+  - type: "CMS Instance"
+    name: "SQL Server 2005 Ent"
+  - type: "CMS Instance"
+    name: "SQL Server 2005"
+  - type: "CMS Instance"
+    name: "SQL Server 2008 R2 Instance"
+  - type: "CMS Instance"
+    name: "SQL Server 2008"
+  - type: "CMS Instance"
+    name: "SQL Server 2012"
+  - type: "CMS Group"
+    name: "Test"
+  - type: "CMS Instance"
+    name: "SQL Server 2000 Dev"
+  - type: "CMS Instance"
+    name: "SQL Server 2005 Express Instance"
+  - type: "CMS Instance"
+    name: "The 2008 Clustered Instance"
+  - type: "Server Trigger"
+    name: "tr_MScdc_db_ddl_event"
+
+# Animated items (subset that appears during progress animation)
+animated_items:
+  - type: "Database"
+    name: "Northwind"
+  - type: "Database"
+    name: "pubs"
+
+# Animation timing (milliseconds)
+timing:
+  item_delay: 5000      # Delay between each animated item
+  start_delay: 2000     # Initial delay before animation starts
+  reset_delay: 5000     # Delay before restarting the loop
+
+# Progress bar settings
+progress_bar:
+  initial_fill: "oooooooooooooooo"
+  fill_per_item: "oooo"
+  total_width: 65

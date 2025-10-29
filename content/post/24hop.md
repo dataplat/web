@@ -1,6 +1,7 @@
 ---
 title: "24 Hours of PASS Presentation – Now Online"
 date: 2017-08-03
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "24hop"
 aliases:
@@ -27,13 +28,9 @@ During our [PASS Summit pre-con](https://sqlps.io/precon), we're aiming to go in
 We're excited about our agenda, but would also like to know what you're looking to learn. Feel free to hit us up with requests or questions.
 
 **Chrissy**
-- [Twitter – @cl](https://twitter.com/cl)
-- [SQL Server Community Slack](https://dbatools.io/slack) (@cl)
+- [SQL Server Community Slack](https://sqlps.io/slack) (@cl)
 
 **Constantine**
-- [Twitter – @mobileck](https://twitter.com/mobileck)
-- [SQL Server Community Slack](https://dbatools.io/slack) (@ck)
-
-If you're not on Slack or Twitter, you can also email me at [clemaire@gmail.com](mailto:clemaire@gmail.com)
+- [SQL Server Community Slack](https://sqlps.io/slack) (@ck)
 
 \- Chrissy

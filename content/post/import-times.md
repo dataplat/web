@@ -1,6 +1,7 @@
 ---
 title: "Decreasing Module Import Times"
 date: 2018-04-11
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "import-times"
 aliases:
@@ -11,9 +12,9 @@ tags: [party]
 draft: false
 ---
 
-[SQL Server Operations Studio](https://github.com/Microsoft/sqlopsstudio) by Microsoft is like SSMS for ops, all open source and published on GitHub! They recently updated [their wiki's](https://github.com/Microsoft/sqlopsstudio/wiki) Performance page, addressing why [SQL Operations Studio starts up slowly](https://github.com/Microsoft/sqlopsstudio/wiki/Performance-Issues). Their startup stats are pretty cool!
+[Azure Data Studio](https://github.com/Microsoft/azuredatastudio) (formerly SQL Server Operations Studio) by Microsoft is like SSMS for ops, all open source and published on GitHub! They updated [their wiki's](https://github.com/Microsoft/azuredatastudio/wiki) Performance page, addressing why SQL Operations Studio starts up slowly. Their startup stats are pretty cool!
 
-![](https://user-images.githubusercontent.com/172399/32089769-3df19924-baec-11e7-9654-e199e1ab8c92.png)
+![](/images/ops-studio-startup.png)
 
 This screenshot reminded me that I should write about our own import time stats.
 
@@ -49,11 +50,11 @@ To address this concern, Fred added multi-threading via [runspaces](https://blog
 
 ### Allcommands.ps1
 
-The other thing we did to significantly decrease import times was we combined all of the individual .ps1 files in [functions*.ps1](https://github.com/dataplat/dbatools/tree/development/functions) to a single .ps1 file. So now, before every release, I combine all the newly updated commands, sign it using our code signing certificate, then publish it to the [PowerShell Gallery](https://dbatools.io/gallery).
+The other thing we did to significantly decrease import times was we combined all of the individual .ps1 files in [public](https://github.com/dataplat/dbatools/tree/development/public) to a single .ps1 file. So now, before every release, I combine all the newly updated commands, sign it using our code signing certificate, then publish it to the [PowerShell Gallery](https://dbatools.io/gallery).
 
 ![](/images/allcommands.png)
 
-It also means that we had to modify our import process to accommodate our developers because nobody, including me, wants to work on a 90,000 line file. We handled this by detecting if a .git folder exists in the dbatools path, and if it does, then it'll skip allcommands.ps1 and import the individual .ps1 files in the [functions directory](https://github.com/dataplat/dbatools/tree/development/functions).
+It also means that we had to modify our import process to accommodate our developers because nobody, including me, wants to work on a 90,000 line file. We handled this by detecting if a .git folder exists in the dbatools path, and if it does, then it'll skip allcommands.ps1 and import the individual .ps1 files in the [public directory](https://github.com/dataplat/dbatools/tree/development/public).
 
 The .git folder only exists when the git repository is cloned. This means it won't exist in our module in the PowerShell Gallery or in a zip downloaded from GitHub.
 
@@ -67,6 +68,6 @@ I've heard that PowerShell Core (PSv6) is insanely fast. Unfortunately, SMO is n
 
 On my Windows 7 test box, dbatools loads in 2.3 seconds. On a more locked down Windows 2012 server, the import takes about 4-6 seconds.
 
-Note that you should never experience import times over 20 seconds. If you do, check your [Execution Policy](http://www.powertheshell.com/understanding-execution-policy/), which could be impacting load times. dbatools is fancy and signed by a code-signing certificate; this is awesome for code integrity, but it's also known to slow down imports when mixed with certain Execution Policies.
+Note that you should never experience import times over 20 seconds. If you do, check your [Execution Policy](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies), which could be impacting load times. dbatools is fancy and signed by a code-signing certificate; this is awesome for code integrity, but it's also known to slow down imports when mixed with certain Execution Policies.
 
 \- Chrissy 🍰

@@ -3,41 +3,60 @@
   const progressBar = document.getElementById('progress-bar');
   const progressEmpty = document.getElementById('progress-empty');
   const migrationItems = document.getElementById('migration-items');
+  const progressBox = document.getElementById('progress-box');
 
   if (!progressBar || !progressEmpty || !migrationItems) return;
 
-  const databases = [
-    { type: 'Database', name: 'Northwind' },
-    { type: 'Database', name: 'pubs' }
-  ];
+  // Use config from Hugo (set in hero.html) or fallback to defaults
+  const config = window.heroTerminalConfig || {
+    animatedItems: [
+      { type: 'Database', name: 'Northwind' },
+      { type: 'Database', name: 'pubs' }
+    ],
+    timing: {
+      item_delay: 5000,
+      start_delay: 2000,
+      reset_delay: 5000
+    },
+    progressBar: {
+      initial_fill: 'oooooooooooooooo',
+      fill_per_item: 'oooo',
+      total_width: 65
+    }
+  };
 
-  let currentDB = 0;
-  const itemDelay = 5000; // 5 seconds between items
-  const startDelay = 2000; // 2 seconds before starting
-  const initialProgress = 'oooooooooooooooo';
-  const initialSpaces = '                                                 ';
+  const items = config.animatedItems;
+  const itemDelay = config.timing.item_delay;
+  const startDelay = config.timing.start_delay;
+  const resetDelay = config.timing.reset_delay;
+  const initialProgress = config.progressBar.initial_fill;
+  const fillPerItem = config.progressBar.fill_per_item;
+  const totalWidth = config.progressBar.total_width;
+  const initialSpaces = ' '.repeat(totalWidth - initialProgress.length);
 
-  function showNextDatabase() {
-    const db = databases[currentDB];
+  let currentIndex = 0;
 
-    // Add the database to the list
+  function showNextItem() {
+    const item = items[currentIndex];
+
+    // Add the item to the list
     const itemLine = document.createElement('span');
     itemLine.className = 'text-[#46BDFF]';
-    itemLine.textContent = `${db.type.padEnd(34)}${db.name}\n`;
+    itemLine.textContent = `${item.type.padEnd(34)}${item.name}\n`;
     migrationItems.appendChild(itemLine);
 
-    // Add 'oooo' to progress bar
-    progressBar.textContent += 'oooo';
+    // Add progress to progress bar
+    progressBar.textContent += fillPerItem;
     const currentSpaces = progressEmpty.textContent;
-    if (currentSpaces.length >= 4) {
-      progressEmpty.textContent = currentSpaces.slice(4);
+    if (currentSpaces.length >= fillPerItem.length) {
+      progressEmpty.textContent = currentSpaces.slice(fillPerItem.length);
     }
 
-    // Move to next database
-    currentDB++;
+    // Move to next item
+    currentIndex++;
 
-    // If we've shown both databases, reset after a delay
-    if (currentDB >= databases.length) {
+    // If we've shown all items, reset after a delay
+    if (currentIndex >= items.length) {
       setTimeout(function() {
         // Clear the items
         migrationItems.innerHTML = '';
@@ -45,18 +64,18 @@
         progressBar.textContent = initialProgress;
         progressEmpty.textContent = initialSpaces;
         // Reset counter
-        currentDB = 0;
+        currentIndex = 0;
         // Start again
-        setTimeout(showNextDatabase, itemDelay);
-      }, itemDelay);
+        setTimeout(showNextItem, itemDelay);
+      }, resetDelay);
     } else {
-      // Continue with next database
-      setTimeout(showNextDatabase, itemDelay);
+      // Continue with next item
+      setTimeout(showNextItem, itemDelay);
     }
   }
 
   // Start animation after delay
-  setTimeout(showNextDatabase, startDelay);
+  setTimeout(showNextItem, startDelay);
 })();
 
 // Copy install command functionality

@@ -1,6 +1,7 @@
 ---
 title: "dbatools – A DevOps Success Story"
 date: 2017-06-13
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "devops"
 aliases:
@@ -15,11 +16,11 @@ draft: false
 
 Today's article is part of [T-SQL Tuesday](http://www.scarydba.com/2017/06/06/t-sql-tuesday-091-databases-devops/). T-SQL Tuesday is the brainchild of Adam Machanic. It is a blog party on the second Tuesday of each month. Everyone is welcome to participate.
 
-This month's T-SQL Tuesday, hosted by Grant Fritchey ([b](http://www.scarydba.com)|[t](https://twitter.com/GFritchey)), is all about Databases and DevOps.
+This month's T-SQL Tuesday, hosted by Grant Fritchey ([b](http://www.scarydba.com)), is all about Databases and DevOps.
 
 ## What Is DevOps?
 
-Recently, I took an Intro to DevOps Engineering class in my Masters program at [Regis.edu](http://www.regis.edu/CCIS/Academics/Degrees-Programs/Graduate-Programs/MS-Enterprise-Systems-Engineering.aspx). I actually found one of our first assignments to be one of the most challenging: define DevOps.
+Recently, I took an Intro to DevOps Engineering class in my Masters program at Regis University. I actually found one of our first assignments to be one of the most challenging: define DevOps.
 
 ### One Definition
 
@@ -42,7 +43,7 @@ By employing the above, it's easier to [achieve DevOps goals](https://en.wikiped
 
 ### Another Definition
 
-Another definition was recently shared with me by former PowerShell MVP (and now DevOps advocate at Microsoft) [Steve Murawski](https://twitter.com/StevenMurawski). This definition is an acronym, CAMS, which comes from the [DevOps Dictionary](http://devopsdictionary.com/wiki/CAMS). CAMS describes the core values of the DevOps Movement: Culture, Automation, Measurement, and Sharing.
+Another definition was recently shared with me by former PowerShell MVP (and now DevOps advocate at Microsoft) [Steve Murawski](https://stevenmurawski.com). This definition is an acronym, CAMS, which describes the core values of the DevOps Movement: Culture, Automation, Measurement, and Sharing.
 
 ## DevOps and dbatools
 
@@ -92,18 +93,17 @@ In continuing with the DevOps theme, we also adopted a pretty fast release cycle
 
 Currently, our non-publicized releases occur with far greater frequency than our formal, publicized releases. If a major bug is reported, it can be tested and released to [PowerShell Gallery](https://dbatools.io/gallery) and [master](https://dbatools.io/git) in less than 4 hours. As you may be aware, we're working towards 1.0 right now. Each formal release takes about 8-16 hours of work for documentation and manual testing, so considering this, our formal release cycle is lagging. However, we've made AMAZING strides towards 1.0.
 
-> Looks like next release will arrive around next Wednesday. Renames galore – fully signed module – dynamic parameter caching – more tests 😄👍
-> — dbatools (@psdbatools) [June 6, 2017](https://twitter.com/psdbatools/status/872181622002638848)
+The dbatools team announced in early June 2017 that the next release would arrive around the following Wednesday, featuring renames galore, a fully signed module, dynamic parameter caching, and more tests.
 
-We're super pumped (and I'm hoping we can pull off that Wednesday deadline – it'll be a challenge but I'd love for the newest release to be ready for our presentations at [SQL Saturday Dublin](http://www.sqlsaturday.com/620/eventhome.aspx)).
+We're super pumped (and I'm hoping we can pull off that Wednesday deadline – it'll be a challenge but I'd love for the newest release to be ready for our presentations at [SQL Saturday Dublin](https://sqlsaturday.com/2017-06-17-SQLSat-0620/)).
 
 ## Speaking of Releases
 
-Our dev branch is a bit unstable right now, but it's filled with some really amazing things. As the tweet mentioned, every command now has the [Dba PowerShell prefix](https://dbatools.io/new-prefix-for-many-dbatools-commands/), our auto-populated parameters actually work well and now use caching, and the dev branch contains 232 commands as of today. Many of the newer ones revolve around encryption and certificates. We can't wait to share more soon!
+Our dev branch is a bit unstable right now, but it's filled with some really amazing things. As mentioned above, every command now has the [Dba PowerShell prefix](https://dbatools.io/new-prefix-for-many-dbatools-commands/), our auto-populated parameters actually work well and now use caching, and the dev branch contains 232 commands as of today. Many of the newer ones revolve around encryption and certificates. We can't wait to share more soon!
 
 ## Join Us
 
-Want to help the community *and* add some DevOps to your resume? We can offer you experience with git, GitHub, Slack, regular releases, being awesome and more. Join us on [Slack](https://dbatools.io/slack), [GitHub](https://dbatools.io/git), [YouTube](https://dbatools.io/youtube), [Twitter](https://dbatools.io/twitter) or [LinkedIn](https://dbatools.io/company).
+Want to help the community *and* add some DevOps to your resume? We can offer you experience with git, GitHub, Slack, regular releases, being awesome and more. Join us on [Slack](https://dbatools.io/slack), [GitHub](https://dbatools.io/git), [BlueSky](https://bsky.app/profile/dbatools.io), [YouTube](https://dbatools.io/youtube), [LinkedIn](https://dbatools.io/company).
 
 \- Chrissy
 

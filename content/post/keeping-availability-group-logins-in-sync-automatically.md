@@ -1,6 +1,7 @@
 ---
 title: "Keeping Availability Group Logins in Sync Automatically"
 date: 2019-05-20
+lastmod: 2025-10-29
 author: "Andreas Schubert"
 slug: "keeping-availability-group-logins-in-sync-automatically"
 aliases:
@@ -38,7 +39,7 @@ In the template code, no changes are actually written due to the -WhatIf switch,
 ```powershell
 <#
     Script : SyncLoginsToReplica.ps1
-    Author : Andreas Schubert (http://www.linkedin.com/in/schubertandreas)
+    Author : Andreas Schubert (https://www.linkedin.com/in/schubertandreas)
     Purpose: Sync logins between all replicas in an Availability Group automatically.
     --------------------------------------------------------------------------------------------
     The script will connect to the listener name of the Availability Group
@@ -57,26 +58,27 @@ In the template code, no changes are actually written due to the -WhatIf switch,
 #>
 
 # define the AG name
-    $AvailabilityGroupName = 'AGListenerName'
+$AvailabilityGroupName = 'AGListenerName'
 
 # internal variables
-    $ClientName = 'AG Login Sync helper'
-    $primaryInstance = $null
-    $secondaryInstances = @{}
-
+$ClientName = 'AG Login Sync helper'
+$primaryInstance = $null
+$secondaryInstances = @{}
 
 try {
     # connect to the AG listener, get the name of the primary and all secondaries
-        $replicas = Get-DbaAgReplica -SqlInstance $AvailabilityGroupName
-        $primaryInstance = $replicas | Where Role -eq Primary | select -ExpandProperty name
-        $secondaryInstances = $replicas | Where Role -ne Primary | select -ExpandProperty name
+    $replicas = Get-DbaAgReplica -SqlInstance $AvailabilityGroupName
+    $primaryInstance = $replicas | Where-Object Role -eq Primary | Select-Object -ExpandProperty name
+    $secondaryInstances = $replicas | Where-Object Role -ne Primary | Select-Object -ExpandProperty name
+
     # create a connection object to the primary
-        $primaryInstanceConnection = Connect-DbaInstance $primaryInstance -ClientName $ClientName
+    $primaryInstanceConnection = Connect-DbaInstance $primaryInstance -ClientName $ClientName
+
     # loop through each secondary replica and sync the logins
-        $secondaryInstances | ForEach-Object {
-            $secondaryInstanceConnection = Connect-DbaInstance $_ -ClientName $ClientName
-            Copy-DbaLogin -Source $primaryInstanceConnection -Destination $secondaryInstanceConnection -ExcludeSystemLogins -WhatIf
-        }
+    $secondaryInstances | ForEach-Object {
+        $secondaryInstanceConnection = Connect-DbaInstance $_ -ClientName $ClientName
+        Copy-DbaLogin -Source $primaryInstanceConnection -Destination $secondaryInstanceConnection -ExcludeSystemLogins -WhatIf
+    }
 }
 catch {
     $msg = $_.Exception.Message
@@ -92,4 +94,4 @@ SyncLoginsToReplica.ps1 -AvailabilityGroupName YourAGListenerName -ClientName "C
 
 For simplicity, I created this as a standalone script though.
 
-I hope you find this post useful. For questions and remarks please feel free to [message me](http://www.linkedin.com/in/schubertandreas)!
+I hope you find this post useful. For questions and remarks please feel free to [message me](https://www.linkedin.com/in/schubertandreas)!

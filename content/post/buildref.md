@@ -2,6 +2,7 @@
 title: "Introducing the Community-Driven Build Reference"
 date: 2017-10-16
 author: "Simone Bizzotto"
+lastmod: 2025-10-29
 slug: "buildref"
 aliases:
   - /buildref/
@@ -30,9 +31,9 @@ If you're subscribed to sqlservercentral (and you haven't missed the post), you 
 
 If you follow Brent Ozar, you'll know about [sqlserverupdates.com](https://sqlserverupdates.com/)
 
-If you're a technet addict, you'll end up on [technet.microsoft.com/library/ff803383](https://technet.microsoft.com/library/ff803383)
+If you're a technet addict, you'll end up on [Learn Microsoft: Latest Updates for SQL Server](https://learn.microsoft.com/sql/database-engine/install-windows/latest-updates-for-microsoft-sql-server)
 
-If someone comes up with "*are you still on an officially supported version?*" question, you'll go on to search [support.microsoft.com/en-us/lifecycle/search?alpha=sql+server](https://support.microsoft.com/en-us/lifecycle/search?alpha=sql%20server).
+If someone comes up with "*are you still on an officially supported version?*" question, you'll go on to search [Microsoft Product Lifecycle Information](https://learn.microsoft.com/lifecycle/products).
 
 And I'm totally sure I'm missing a few.
 
@@ -82,7 +83,7 @@ Are you a spreadsheet fan? Presto! Press on "Copy" or "Excel" and lookup (or VLO
 
 The website, the command and the json are all publicly available and editable. The website is hosted on gh-pages, and dbatools is on GitHub.
 
-Moreover, dbatools welcome any type of contributors, even casual ones (there's more than 900 people in Slack). This means that anyone, even drive-by contributors, can help keep the build reference updated. If you know of a missing build, you can hit us up on [Slack](https://dbatools.io/slack), [Twitter](https://dbatools.io/twitter), open a GitHub [issue](https://dbatools.io/issues), send a mail, send pigeons… The index will be updated, and everyone will benefit.
+Moreover, dbatools welcome any type of contributors, even casual ones (there's more than 900 people in Slack). This means that anyone, even drive-by contributors, can help keep the build reference updated. If you know of a missing build, you can hit us up on [Slack](https://dbatools.io/slack), open a GitHub [issue](https://dbatools.io/issues), send a mail, send pigeons… The index will be updated, and everyone will benefit.
 
 Join us, help every other person tracking builds effectively!
 

@@ -1,6 +1,7 @@
 ---
 title: "Simplifying Disaster Recovery With dbatools"
 date: 2018-09-20
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "dr"
 aliases: ["/dr/", "/dr/index.html"]
@@ -8,7 +9,7 @@ categories: ["announcements"]
 draft: false
 ---
 
-Over the weekend, I presented a session in Glasgow called [doomsday prepping with dbatools](https://sqlgla.co.uk/schedule/) at SQLGLA, a community event hosted by [Craig Porteous](https://twitter.com/CPorteous), [sql_bob](https://twitter.com/sql_bob) and [Louise Paterson](https://twitter.com/patersonlouise).
+Over the weekend, I presented a session in Glasgow called doomsday prepping with dbatools at SQLGLA, a community event hosted by [Craig Porteous](https://uk.linkedin.com/in/craigporteous), sql_bob and [Louise Paterson](https://www.linkedin.com/in/louise-paterson/).
 
 It was a lot of fun, even though the audience put no effort into winning the MRE give away
 
@@ -31,7 +32,7 @@ When we talk about Disaster Recovery or *DR*, it's often coupled with the term H
 - Focuses on manual processes and procedures to restore systems back to their original state
 - Characterized by a phased approach to restoring the primary site
 
-In the context of [SQL Server, HA](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server) would be Availability Groups (AG), Failover Clustering (FCI), Log Shipping and more. I won't be addressing High Availability in this post, however.
+In the context of [SQL Server, HA](https://learn.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server) would be Availability Groups (AG), Failover Clustering (FCI), Log Shipping and more. I won't be addressing High Availability in this post, however.
 
 ## Disaster Recovery
 
@@ -51,7 +52,7 @@ That's insane! And a very solid reason to have a well-tested DR plan.
 
 ### Who
 
-You ever read [that story on reddit](https://www.reddit.com/r/cscareerquestions/comments/6ez8ag/accidentally_destroyed_production_database_on/) about the kid who accidentally dropped the production database on his first day on the job? The CTO fired him and threatened legal action. As if.
+There was once a story on Reddit about someone who accidentally dropped the production database on their first day on the job and was fired by the CTO.
 
 Companies like [Amazon](https://aws.amazon.com/message/680587/) correctly recognize that such disasters are a team effort and disaster recovery is the responsibility of the entire organization.
 
@@ -59,7 +60,7 @@ Here's how you can do your part.
 
 ## SQL Server Disaster Recovery
 
-[Tracy Boggiano](http://databasesuperhero.com/) has an awesome, in-depth presentation about DR titled [Disaster Recovery: Where to Begin](http://sqlps.io/hadr) that I recommend checking out. It was the primary source for my own research.
+[Tracy Boggiano](https://tracyboggiano.com/) has an awesome, in-depth presentation about DR titled Disaster Recovery: Where to Begin that I recommend checking out. It was the primary source for my own research.
 
 ### Databases
 
@@ -82,7 +83,7 @@ Need a quick DR solution? Use [Ola Hallengren's](https://ola.hallengren.com) fre
 
 You can reliability recover your data this way but it won't be immediate.
 
-If you need to recover your data far faster, you can use [Distributed Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/distributed-availability-groups). This method is faster but far more costly, because you'd potentially need:
+If you need to recover your data far faster, you can use [Distributed Availability Groups](https://learn.microsoft.com/en-us/sql/database-engine/availability-groups/windows/distributed-availability-groups). This method is faster but far more costly, because you'd potentially need:
 
 - Another data center
 - More SQL Server licenses
@@ -117,9 +118,9 @@ How do you DR these? You can backup the required databases for some things – l
 
 dbatools can help ease your DR, all in one convenient command. No, not good ol' [Export-DbaScript](https://dbatools.io/happy-belated-world-backup-day/) which is essentially the command line equivalent of the screenshot above.
 
-Now, dbatools offers a whole new command, written specifically for the DR presentation: **[Export-DbaInstance](https://docs.dbatools.io/#Export-DbaInstance)**
+Now, dbatools offers a whole new command, written specifically for the DR presentation: **[Export-DbaInstance](https://docs.dbatools.io/Export-DbaInstance.html)**
 
-**Export-DbaInstance** is a wrapper for over 50 export commands. This is similar to [Start-DbaMigration](https://docs.dbatools.io/#Start-DbaMigration) which is a wrapper for a bunch of copy commands.
+**Export-DbaInstance** is a wrapper for over 50 export commands. This is similar to [Start-DbaMigration](https://docs.dbatools.io/Start-DbaMigration.html) which is a wrapper for a bunch of copy commands.
 
 ![image](https://user-images.githubusercontent.com/8278033/45688102-c7489280-bb50-11e8-9fc5-4da29a32f312.png?w=800&ssl=1)
 
@@ -297,13 +298,13 @@ Excellent! How gorgeous is that Pester test? Well, the output is hard to read, s
 
 ## And a YouTube Link!
 
-I also had a blast [presenting this session virtually](https://www.youtube.com/watch?v=MqawTb9crEA) for the [Portland PowerShell User Group](https://twitter.com/PDXPoShPUG) if you'd like to see a recorded demo.
+I also had a blast [presenting this session virtually](https://www.youtube.com/watch?v=MqawTb9crEA) for the Portland PowerShell User Group if you'd like to see a recorded demo.
 
 {{< youtube MqawTb9crEA >}}
 
 So check out Export-DbaInstance, let me know what you think
 
-If you'd like to see the output of these scripts, you can peruse this [repo](https://github.com/potatoqualitee/dr). I'm not a pro at everything I exported (like replication), so if you've got some suggestions, [let me know](https://dbatools.io/issues) or [create a pull request on GitHub](https://dbatools.io/pr) with your enhancements.
+If you've got some suggestions, [let me know](https://dbatools.io/issues) or [create a pull request on GitHub](https://dbatools.io/pr) with your enhancements.
 
 Thanks for reading,
 - Chrissy

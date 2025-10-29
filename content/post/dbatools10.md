@@ -1,6 +1,7 @@
 ---
 title: "dbatools 1.0 Has Arrived"
 date: 2019-06-18
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "dbatools10"
 aliases:
@@ -59,7 +60,7 @@ Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database dbato
 Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -SqlCredential username@acme.onmicrosoft.com -Database dbatools
 
 # Managed Identity in Azure VM w/ older versions of .NET
-Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database abc -SqCredential appid -Tenant tenantguidorname
+Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database abc -SqlCredential appid -Tenant tenantguidorname
 
 # Managed Identity in Azure VM w/ newer versions of .NET (way faster!)
 Connect-DbaInstance -SqlInstance psdbatools.database.windows.net -Database abc -AuthenticationType 'AD Universal with MFA Support'
@@ -152,7 +153,7 @@ Help will continue to be published to [docs.dbatools.io](https://docs.dbatools.i
 
 We've got a number of breaking changes included in 1.0.
 
-Before diving into this section, I want to emphasize that we have a command to handle a large majority of the renames! **[Invoke-dbatoolsRenameHelper](https://dbatools.io/Invoke-dbatoolsRenameHelper)** will parse your scripts and replace script names and some parameters for you.
+Before diving into this section, I want to emphasize that we have a command to handle a large majority of the renames! **Invoke-DbatoolsRenameHelper** will parse your scripts and replace script names and some parameters for you.
 
 ![Rename Helper GIF](/images/renamehelper.gif)
 
@@ -201,7 +202,7 @@ For a full list of breaking changes, you can browse our gorgeous [changelog](htt
 
 ## Book Party!
 
-In case you did not hear the news, [Rob Sewell](https://sqldbawithabeard.com/) and I, are currently in the process of writing **dbatools in a Months of Lunches**! We've really excited and hope to have a [MEAP (Manning Early Access Program)](https://www.manning.com/meap-program) available sometime in July. We will keep everyone updated here and on Twitter.
+In case you did not hear the news, [Rob Sewell](https://sqldbawithabeard.com/) and I, are currently in the process of writing **dbatools in a Months of Lunches**! We've really excited and hope to have a [MEAP (Manning Early Access Program)](https://www.manning.com/meap-program) available sometime in July. We will keep everyone updated here and on our blogs.
 
 ![Book Editor GIF](/images/book2.gif)
 

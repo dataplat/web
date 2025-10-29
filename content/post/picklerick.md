@@ -1,6 +1,7 @@
 ---
 title: "New Release – PickleRick"
 date: 2017-11-17
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "picklerick"
 aliases:
@@ -19,7 +20,7 @@ I actually thought we already were, but it appears that creating the connection 
 
 ![picks](/images/picks.jpg)
 
-So if you found dbatools hanging out for too long, please do update to [0.9.105](/git) or above.
+So if you found dbatools hanging out for too long, please do update to [0.9.105](https://github.com/dataplat/dbatools/releases) or above.
 
 Also, [this GitHub/Power BI/dbatools post](https://marcosfreccia.wordpress.com/2017/11/17/looking-at-dbatools-github-with-power-bi/) from Marcos Freccia is super cool and you should check it out!
 

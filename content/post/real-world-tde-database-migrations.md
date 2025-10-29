@@ -1,6 +1,7 @@
 ---
 title: "Real-World TDE Database Migrations"
 date: 2018-02-07
+lastmod: 2025-10-29
 slug: "real-world-tde-database-migrations"
 aliases:
   - /real-world-tde-database-migrations/
@@ -37,7 +38,7 @@ To accomplish this:
 
 > Be aware that each database can have its own certificate! You must be sure which database is protected by which certificate. Failing to have this sorted out will leave you with some files you cannot attach or restore anywhere. Basically, you'd lose the data 😢
 
-Need help figuring all of this out? Check out Microsoft's article [Move a TDE Protected Database to Another SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). As I mentioned before make sure you test this process ahead of time!
+Need help figuring all of this out? Check out Microsoft's article [Move a TDE Protected Database to Another SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). As I mentioned before make sure you test this process ahead of time!
 
 ## Preparation
 
@@ -80,10 +81,10 @@ Next, we created our DBA toolkit database where we keep all the handy stuff:
 ```powershell
 foreach ($server in $serverList) {
     # Create DBA database
-    Invoke-DbaQuery -SqlInstance $SqlInstance -Query $SQL
+    Invoke-DbaQuery -SqlInstance $server -Query $SQL
 
     # Install sp_WhoIsActive
-    Install-DbaWhoIsActive -SqlInstance $SqlInstance -Database DBA
+    Install-DbaWhoIsActive -SqlInstance $server -Database DBA
 }
 ```
 
@@ -96,7 +97,7 @@ Next, we created our backup jobs:
 ```powershell
 foreach ($server in $serverList) {
     # Install Ola Hallengren's solution
-    Install-DbaMaintenanceSolution -SqlInstance $SqlInstance -Database DBA -ReplaceExisting -CleanupTime 72 -LogToTable -Solution "All" -BackupLocation "X:\SQLBackup" -OutputFileDirectory "X:\SQLMaintenanceLogs" -InstallJobs
+    Install-DbaMaintenanceSolution -SqlInstance $server -Database DBA -ReplaceExisting -CleanupTime 72 -LogToTable -Solution "All" -BackupLocation "X:\SQLBackup" -OutputFileDirectory "X:\SQLMaintenanceLogs" -InstallJobs
 }
 ```
 
