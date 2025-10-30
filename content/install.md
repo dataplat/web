@@ -8,18 +8,16 @@ draft: false
 
 ## Where Should You Install dbatools?
 
-**Install dbatools on your workstation or jump box - NOT on your SQL Servers.**
+**Install dbatools on your workstation, just like SSMS.**
 
-Like SSMS, dbatools is a management tool you install on your local machine and use to connect remotely to SQL Server instances. You don't need to install anything on your SQL Servers themselves.
+dbatools is a management tool that runs on your local machine and connects remotely to SQL Server instances. You don't need to install anything on your SQL Servers themselves - it manages them over the network.
 
-**Good places to install:**
+**Where people typically install it:**
 - Your Windows workstation (where you run SSMS)
 - A dedicated management/jump server
 - Your laptop for demos and dev work
 
-**Don't install on:**
-- Production SQL Servers (usually unnecessary and adds risk)
-- Every SQL Server in your estate (wasteful)
+**No need to install on SQL Servers** - it's designed to manage them remotely, keeping your servers clean and your deployment simple.
 
 ---
 
