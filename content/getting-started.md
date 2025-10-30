@@ -8,7 +8,6 @@ draft: false
 
 dbatools is a **free** PowerShell module with nearly **700 commands** that replace manual SQL Server administration with powerful and fun automation.
 
----
 
 ## Why dbatools?
 
