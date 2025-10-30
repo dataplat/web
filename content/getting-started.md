@@ -36,26 +36,42 @@ $PSVersionTable.PSVersion
 Install-Module dbatools -Scope CurrentUser
 
 # 2. See all databases on your local SQL Server
-# Replace 'localhost' with your SQL Server name if needed
-Get-DbaDatabase -SqlInstance localhost
+# Replace 'sql01' with your SQL Server name if needed
+Get-DbaDatabase -SqlInstance sql01
 
 # 3. Check when your databases were last backed up
-Get-DbaLastBackup -SqlInstance localhost | Format-Table
+Get-DbaLastBackup -SqlInstance sql01 | Format-Table
 
-# 4. Get detailed information about a specific database
-Get-DbaDatabase -SqlInstance localhost -Database master
+# 4. Run any T-SQL query you want
+Invoke-DbaQuery -SqlInstance sql01, sql02, sql03 -Query "SELECT @@VERSION"
 ```
 
 **What just happened?**
 - `Get-DbaDatabase` shows all your databases - no clicking through SSMS
 - `Get-DbaLastBackup` checks backup history - instantly spot backup problems
+- `Invoke-DbaQuery` runs any T-SQL you want - your most versatile command
 - These commands are **read-only** - they won't change anything on your server
 
-**Note:** Replace `localhost` with your SQL Server instance name (like `sql01`, `server\instance`, or `server,port`).
+**Note:** Replace `sql01` with your SQL Server instance name (like `sql01`, `server\instance`, or `server,port`).
 
 ---
 
 ## Installation
+
+### Where Should You Install dbatools?
+
+**Install dbatools on your workstation or jump box - NOT on your SQL Servers.**
+
+Think of it like SSMS: you install it on your local machine and connect remotely to SQL Server instances. dbatools is a PowerShell module that runs on your computer and manages SQL Servers over the network.
+
+**Good places to install:**
+- Your Windows workstation (where you run SSMS)
+- A dedicated management/jump server
+- Your laptop for demos and dev work
+
+**Don't install on:**
+- Production SQL Servers (unnecessary and adds risk)
+- Every SQL Server in your estate (wasteful)
 
 ### Quick Install (Recommended)
 ```powershell
@@ -66,7 +82,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Install-Module dbatools -Scope CurrentUser
 ```
 
-That's it! dbatools is now installed and ready to use.
+That's it! dbatools is now installed on your workstation and ready to manage remote SQL Servers.
 
 ### First Time Using PowerShell Gallery?
 If you get a prompt about trusting PSGallery, type `Y` for Yes. You only need to do this once:
@@ -148,7 +164,7 @@ Now that you've seen the basics, here are some powerful real-world examples.
 Invoke-DbaQuery -SqlInstance sql01, sql02, sql03 -Query "SELECT @@VERSION"
 
 # Export query results to CSV
-Invoke-DbaQuery -SqlInstance localhost -Database master -Query "SELECT * FROM sys.databases" |
+Invoke-DbaQuery -SqlInstance sql01 -Database master -Query "SELECT * FROM sys.databases" |
     Export-Csv -Path C:\temp\databases.csv -NoTypeInformation
 
 # Run a script file against all your servers
@@ -158,10 +174,10 @@ Get-Content C:\Scripts\CheckStatus.sql | Invoke-DbaQuery -SqlInstance (Get-Conte
 ### Backups & Restores
 ```powershell
 # Backup all user databases with compression
-Backup-DbaDatabase -SqlInstance localhost -ExcludeSystem -Compress
+Backup-DbaDatabase -SqlInstance sql01 -ExcludeSystem -Compress
 
 # Simple restore
-Restore-DbaDatabase -SqlInstance localhost -Path "C:\temp\mydb.bak"
+Restore-DbaDatabase -SqlInstance sql01 -Path "C:\temp\mydb.bak"
 
 # Test ALL your backups on a different server
 # This actually restores them, verifies integrity, then drops them
@@ -174,7 +190,7 @@ Test-DbaLastBackup -SqlInstance sql01 -Destination sql02 | Out-GridView
 Find-DbaDatabase -SqlInstance sql01, sql02, sql03 -Pattern "Production"
 
 # Find stored procedures containing specific text
-Find-DbaStoredProcedure -SqlInstance localhost -Pattern "INSERT INTO Audit"
+Find-DbaStoredProcedure -SqlInstance sql01 -Pattern "INSERT INTO Audit"
 
 # Discover SQL instances on your network
 Find-DbaInstance -ComputerName server01, server02
@@ -186,34 +202,34 @@ Find-DbaInstance -ComputerName server01, server02
 Get-DbaDiskSpace -ComputerName sql01, sql02 | Out-GridView
 
 # Find databases without recent backups
-Get-DbaLastBackup -SqlInstance localhost |
+Get-DbaLastBackup -SqlInstance sql01 |
     Where-Object LastFullBackup -lt (Get-Date).AddDays(-7)
 
 # Check for corruption
-Get-DbaLastGoodCheckDb -SqlInstance localhost | Out-GridView
+Get-DbaLastGoodCheckDb -SqlInstance sql01 | Out-GridView
 
 # Find failed jobs across all servers
 Find-DbaAgentJob -SqlInstance sql01, sql02 -Failed | Get-DbaAgentJobHistory
 
 # See who's running what and blocking whom
-Get-DbaProcess -SqlInstance localhost | Out-GridView
+Get-DbaProcess -SqlInstance sql01 | Out-GridView
 
 # Monitor currently running queries with sp_WhoIsActive
-Install-DbaWhoIsActive -SqlInstance localhost -Database master
-Invoke-DbaWhoIsActive -SqlInstance localhost
+Install-DbaWhoIsActive -SqlInstance sql01 -Database master
+Invoke-DbaWhoIsActive -SqlInstance sql01
 ```
 
 ### Data Import & Export
 ```powershell
 # Import CSV files into SQL Server (auto-creates tables!)
-Import-DbaCsv -Path C:\data\sales.csv -SqlInstance localhost -Database tempdb -AutoCreateTable
+Import-DbaCsv -Path C:\data\sales.csv -SqlInstance sql01 -Database tempdb -AutoCreateTable
 
 # Copy data between tables, even across servers
 Copy-DbaDbTableData -SqlInstance sql01 -Database source -Table Customers `
     -DestinationSqlInstance sql02 -DestinationDatabase target -DestinationTable Customers
 
 # Write PowerShell objects directly to SQL Server
-Get-Process | Write-DbaDbTableData -SqlInstance localhost -Database tempdb -Table ProcessList -AutoCreateTable
+Get-Process | Write-DbaDbTableData -SqlInstance sql01 -Database tempdb -Table ProcessList -AutoCreateTable
 ```
 
 ### Migrations & DR
@@ -281,7 +297,7 @@ By default, dbatools uses Windows Authentication (your current login). To use SQ
 #### SQL Authentication
 ```powershell
 $cred = Get-Credential sqladmin
-Get-DbaDatabase -SqlInstance localhost -SqlCredential $cred
+Get-DbaDatabase -SqlInstance sql01 -SqlCredential $cred
 ```
 
 #### Alternative Windows Credentials
@@ -300,7 +316,7 @@ Get-Credential | Export-CliXml -Path "$HOME\sql-credentials.xml"
 
 # Reuse saved credentials in scripts
 $cred = Import-CliXml -Path "$HOME\sql-credentials.xml"
-Get-DbaDatabase -SqlInstance localhost -SqlCredential $cred
+Get-DbaDatabase -SqlInstance sql01 -SqlCredential $cred
 ```
 
 For more advanced credential management approaches including the Secrets Management module, see [Rob Sewell's guide](https://blog.robsewell.com/blog/good-bye-import-clixml-use-the-secrets-management-module-for-your-labs-and-demos/).
@@ -321,7 +337,7 @@ PowerShell treats commas as array separators, so you must use quotes.
 # Import module before starting transcript (PS 5.1 requirement)
 Import-Module dbatools
 Start-Transcript
-Get-DbaDatabase -SqlInstance localhost
+Get-DbaDatabase -SqlInstance sql01
 Stop-Transcript
 ```
 
@@ -334,16 +350,16 @@ Stop-Transcript
 **Issue: "Could not connect to SqlInstance"**
 ```powershell
 # Test connectivity
-Test-DbaConnection -SqlInstance localhost
+Test-DbaConnection -SqlInstance sql01
 
 # Check if SQL Browser service is running (for named instances)
-Get-DbaService -ComputerName localhost -Type Browser
+Get-DbaService -ComputerName sql01 -Type Browser
 ```
 
 **Issue: "Access denied" errors**
 ```powershell
 # Ensure you have proper SQL permissions
-Get-DbaLogin -SqlInstance localhost -Login $env:USERNAME
+Get-DbaLogin -SqlInstance sql01 -Login $env:USERNAME
 
 # For Windows authentication issues, verify domain connectivity
 Test-ComputerSecureChannel
