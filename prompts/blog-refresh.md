@@ -82,6 +82,35 @@ CHECK AND FIX:
    - ONLY convert actual screenshot images to this shortcode format
    - Preserve the exact text from the screenshot including prompts, commands, and output
 
+   TABLE ALIGNMENT IN POWERSHELL OUTPUT (CRITICAL):
+   - PowerShell tables within {{< powershell-console >}} blocks MUST have properly aligned columns
+   - Use monospace spacing - treat it like a grid where every character position matters
+   - Process:
+     * Identify all column headers (e.g., SqlInstance, JobName, LastRunDate, etc.)
+     * Determine the width needed for each column based on the longest value
+     * Add consistent spacing (typically 2 spaces minimum) between columns
+     * Ensure header separator lines (----) match the column header width
+     * Align all data rows to match the column positions
+
+   Example of PROPER alignment:
+   ```
+   SqlInstance  JobName                                    LastRunDate               LastRunOutcome  IsEnabled
+   -----------  -------                                    -----------               --------------  ---------
+   MSSQLSERVER  DatabaseIntegrityCheck - USER_DATABASES    2017/04/13 12:00:00 AM    Failed          True
+   MSSQLSERVER  DatabaseBackup - USER_DATABASES - FULL     2017/03/27 12:00:00 AM    Failed          True
+   ```
+
+   Example of IMPROPER alignment (DO NOT DO THIS):
+   ```
+   SqlInstance JobName              LastRunDate      LastRunOutcome IsEnabled
+   ----------- -------              -----------      -------------- ---------
+   MSSQLSERVER MSSQLSERVER 2017/04/13 12:00:00 AM Failed         True
+   ```
+
+   - The smaller font size (text-xs) and tighter spacing make proper alignment critical
+   - Misaligned columns will look cramped and unprofessional
+   - Take time to ensure each column vertically aligns under its header
+
 6. TECHNICAL ACCURACY:
    - TIMELESS TOPICS (SQL Server features, agent jobs, backups, migrations, etc.):
      * Update "coming soon" or "beta" references if those features have now shipped
