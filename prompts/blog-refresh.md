@@ -110,6 +110,7 @@ CHECK AND FIX:
    - The smaller font size (text-xs) and tighter spacing make proper alignment critical
    - Misaligned columns will look cramped and unprofessional
    - Take time to ensure each column vertically aligns under its header
+   - HOW TO CHECK: After fixing, visually scan down each column - you should be able to draw a straight vertical line through each column from header to the last data row
 
 6. TECHNICAL ACCURACY:
    - TIMELESS TOPICS (SQL Server features, agent jobs, backups, migrations, etc.):

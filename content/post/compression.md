@@ -124,11 +124,11 @@ Select-Object TableName, IndexName, IndexId, PercentScan, PercentUpdate, RowEsti
 ```
 
 {{< powershell-console >}}
-TableName          IndexName                              IndexId PercentScan PercentUpdate RowEstimatePercentOriginal PageEstimatePercentOriginal CompressionTypeRecommendation
----------          ---------                              ------- ----------- ------------- -------------------------- ----------------------------- ----------------------------
-SalesOrderDetail   PK_SalesOrderDetail_SalesOrderDetailID       1         100             0                         70                          48 PAGE
-SalesOrderDetail   AK_SalesOrderDetail_rowguid                  2           0             0                        109                         109 NO_GAIN
-SalesOrderDetail   IX_SalesOrderDetail_ProductID                3           0             0                         77                          68 PAGE
+TableName         IndexName                               IndexId  PercentScan  PercentUpdate  RowEstimatePercentOriginal  PageEstimatePercentOriginal  CompressionTypeRecommendation
+---------         ---------                               -------  -----------  -------------  --------------------------  ---------------------------  -----------------------------
+SalesOrderDetail  PK_SalesOrderDetail_SalesOrderDetailID  1        100          0              70                          48                           PAGE
+SalesOrderDetail  AK_SalesOrderDetail_rowguid             2        0            0              109                         109                          NO_GAIN
+SalesOrderDetail  IX_SalesOrderDetail_ProductID           3        0            0              77                          68                           PAGE
 {{< /powershell-console >}}
 
 This database is actually running in a container on my laptop so there isn't much activity, but when you use this command the PercentScan and PercentUpdate will be determined by your workload so the longer your instance has been up the more accurate these will be.
