@@ -41,5 +41,11 @@ baseName = "_redirects"
 isPlainText = true
 notAlternative = true
 
+[outputFormats.SearchIndex]
+mediaType = "application/json"
+baseName = "search"
+isPlainText = true
+notAlternative = true
+
 [outputs]
-home = ["HTML", "RSS", "REDIRECTS"]
+home = ["HTML", "RSS", "REDIRECTS", "SearchIndex"]

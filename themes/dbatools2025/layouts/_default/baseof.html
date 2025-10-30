@@ -54,7 +54,33 @@
 
   {{ partial "footer.html" . }}
 
+  {{ partial "search-modal.html" . }}
+
+  <!-- Fuse.js for search -->
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
+
+  <!-- Site search script -->
+  <script src="{{ "js/site-search.js" | relURL }}"></script>
+
   <!-- Typewriter animation script -->
   <script src="{{ "js/typewriter.js" | relURL }}"></script>
+
+  <!-- Mobile search button handler -->
+  <script>
+    document.getElementById('mobile-search-button')?.addEventListener('click', function() {
+      const searchModal = document.getElementById('search-modal');
+      if (searchModal) {
+        searchModal.classList.remove('hidden');
+        searchModal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+          document.getElementById('site-search-input')?.focus();
+        }, 100);
+      }
+      // Close mobile menu
+      const menu = document.getElementById('mobile-menu');
+      menu?.classList.add('hidden');
+    });
+  </script>
 </body>
 </html>

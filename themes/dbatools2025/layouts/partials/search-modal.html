@@ -1,0 +1,123 @@
+<!-- Search Modal -->
+<div id="search-modal" class="hidden fixed inset-0 z-[100] items-center justify-center p-4">
+  <!-- Overlay -->
+  <div id="search-overlay" class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+
+  <!-- Modal Content -->
+  <div class="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl overflow-hidden animate-fade-in">
+    <!-- Search Header -->
+    <div class="border-b border-gray-200 p-4">
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+          <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+        <input
+          type="text"
+          id="site-search-input"
+          class="block w-full pl-12 pr-12 py-3 text-lg border-0 focus:ring-0 focus:outline-none placeholder-gray-400"
+          placeholder="Search posts, pages, and commands..."
+          autocomplete="off"
+        />
+        <div class="absolute inset-y-0 right-0 pr-4 flex items-center gap-2">
+          <span id="results-count" class="text-sm text-gray-500"></span>
+          <button id="search-close" class="p-1 hover:bg-gray-100 rounded transition-colors" aria-label="Close search">
+            <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Results -->
+    <div id="search-results" class="overflow-y-auto max-h-[60vh] divide-y divide-gray-200">
+      <!-- Results will be dynamically inserted here -->
+      <div class="text-center py-12 text-gray-500">
+        <svg class="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        <p class="text-lg font-medium">Start typing to search</p>
+        <p class="text-sm mt-2">Search across posts, pages, and commands</p>
+      </div>
+    </div>
+
+    <!-- Search Footer -->
+    <div class="border-t border-gray-200 px-4 py-3 bg-gray-50">
+      <div class="flex items-center justify-between text-xs text-gray-500">
+        <div class="flex items-center gap-4">
+          <div class="flex items-center gap-1">
+            <kbd class="px-2 py-1 bg-white border border-gray-300 rounded shadow-sm font-mono">↑</kbd>
+            <kbd class="px-2 py-1 bg-white border border-gray-300 rounded shadow-sm font-mono">↓</kbd>
+            <span>to navigate</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <kbd class="px-2 py-1 bg-white border border-gray-300 rounded shadow-sm font-mono">↵</kbd>
+            <span>to select</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <kbd class="px-2 py-1 bg-white border border-gray-300 rounded shadow-sm font-mono">esc</kbd>
+            <span>to close</span>
+          </div>
+        </div>
+        <div class="text-gray-400">
+          Powered by Fuse.js
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Search modal animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+/* Search result highlighting */
+#search-results mark {
+  background-color: #fef08a;
+  font-weight: 500;
+  padding: 0;
+  border-radius: 2px;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Smooth scrolling for results */
+#search-results {
+  scroll-behavior: smooth;
+}
+
+/* Search result hover effect */
+.search-result-item {
+  cursor: pointer;
+}
+
+.search-result-item:hover {
+  background-color: #f9fafb;
+}
+
+/* Keyboard shortcut styling */
+kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+</style>

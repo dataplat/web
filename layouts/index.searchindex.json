@@ -1,0 +1,11 @@
+{{- $.Scratch.Add "searchindex" slice -}}
+{{- range where .Site.RegularPages "Type" "in" (slice "post" "page" "commands") -}}
+  {{- if not .Params.draft -}}
+    {{- $date := "" -}}
+    {{- if not .Date.IsZero -}}
+      {{- $date = .Date.Format "January 2, 2006" -}}
+    {{- end -}}
+    {{- $.Scratch.Add "searchindex" (dict "title" .Title "permalink" .Permalink "summary" (.Summary | plainify) "content" (.Plain | truncate 500) "date" $date "type" .Type "tags" .Params.tags "categories" .Params.categories) -}}
+  {{- end -}}
+{{- end -}}
+{{- $.Scratch.Get "searchindex" | jsonify -}}
