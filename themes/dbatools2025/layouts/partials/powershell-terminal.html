@@ -87,12 +87,14 @@
     });
 
     pre.innerHTML = html;
-    pre.style.color = '#569cd6';
-    pre.style.lineHeight = '1.6';
-    pre.style.whiteSpace = 'pre-wrap';
-    pre.style.background = 'transparent';
-    pre.style.margin = '0';
-    pre.style.padding = '0';
+    pre.style.setProperty('color', '#569cd6', 'important');
+    pre.style.setProperty('line-height', '1.6', 'important');
+    pre.style.setProperty('white-space', 'pre-wrap', 'important');
+    pre.style.setProperty('background', 'transparent', 'important');
+    pre.style.setProperty('background-color', 'transparent', 'important');
+    pre.style.setProperty('border', 'none', 'important');
+    pre.style.setProperty('margin', '0', 'important');
+    pre.style.setProperty('padding', '0', 'important');
   });
 })();
 </script>
