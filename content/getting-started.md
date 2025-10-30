@@ -103,10 +103,6 @@ Install-Module dbatools -Force -SkipPublisherCheck
 
 💡 **Note:** Commands requiring SQL WMI or `-ComputerName` parameter typically don't work on Linux/macOS.
 
-**Still running legacy systems?** Check out this video showing dbatools in action across different environments:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8P6ScCjEnLk" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-
 ### Network Requirements
 For remote SQL Server management, ensure these ports are accessible:
 
