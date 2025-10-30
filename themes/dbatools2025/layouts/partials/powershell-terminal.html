@@ -21,7 +21,7 @@
     </div>
 
     <!-- Terminal content -->
-    <div class="p-6 font-mono text-sm bg-[#070825]">
+    <div class="p-4 font-mono text-xs bg-[#070825] overflow-x-auto">
       {{- if $hasAnimation -}}
         <!-- Animated terminal content (for hero) -->
         {{ $code | safeHTML }}
@@ -92,8 +92,8 @@
 
     pre.innerHTML = html;
     pre.style.setProperty('color', '#569cd6', 'important');
-    pre.style.setProperty('line-height', '1.6', 'important');
-    pre.style.setProperty('white-space', 'pre-wrap', 'important');
+    pre.style.setProperty('line-height', '1.4', 'important');
+    pre.style.setProperty('white-space', 'pre', 'important');
     pre.style.setProperty('background', 'transparent', 'important');
     pre.style.setProperty('background-color', 'transparent', 'important');
     pre.style.setProperty('border', 'none', 'important');
