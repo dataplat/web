@@ -115,17 +115,26 @@ choco install dbatools
 
 dbatools has over [700 commands](/commands) - don't let that overwhelm you! Think of it like learning SQL Server: start with the basics, then expand your knowledge over time.
 
-### Start with These 5 Commands
+### Most Popular Commands
 
-You can accomplish 80% of common tasks with just these five commands:
+Here are the commands people use most - the ones that solve real problems:
 
-1. **`Get-DbaDatabase`** - See all databases across servers
-2. **`Get-DbaLastBackup`** - Check backup status
-3. **`Test-DbaLastBackup`** - Actually verify your backups work (!)
-4. **`Copy-DbaDatabase`** - Copy databases between servers
-5. **`Find-DbaDatabase`** - Search for databases by name/pattern
+1. **`Invoke-DbaQuery`** - Run T-SQL against any instance. Your Swiss Army knife.
+2. **`Copy-DbaLogin`** - Copy logins between servers (with passwords and permissions!)
+3. **`Test-DbaLastBackup`** - Actually restores your backups, verifies they work, then cleans up
+4. **`Start-DbaMigration`** / **`Export-DbaInstance`** - Migrate entire instances or export everything for DR
+5. **`Backup-DbaDatabase`** & **`Restore-DbaDatabase`** - Do the fundamental stuff at scale
 
-Once you're comfortable, branch out to jobs, logins, migrations, or whatever you work with most.
+### Essential Discovery & Troubleshooting
+
+Before you can automate, you need to explore:
+- **`Find-DbaInstance`** - Discover SQL instances on your network
+- **`Test-DbaConnection`** - Verify connectivity and permissions
+- **`Get-DbaDiskSpace`** - Check disk space before things go wrong
+- **`Find-DbaAgentJob`** - Find failed jobs across all servers
+- **`Find-DbaStoredProcedure`** - Search for code patterns across databases
+
+Once you're comfortable with these, branch out to whatever you work with most: migrations, security, monitoring, or configuration management.
 
 ---
 
@@ -133,10 +142,23 @@ Once you're comfortable, branch out to jobs, logins, migrations, or whatever you
 
 Now that you've seen the basics, here are some powerful real-world examples.
 
+### Running Queries at Scale
+```powershell
+# Run a query against multiple servers at once
+Invoke-DbaQuery -SqlInstance sql01, sql02, sql03 -Query "SELECT @@VERSION"
+
+# Export query results to CSV
+Invoke-DbaQuery -SqlInstance localhost -Database master -Query "SELECT * FROM sys.databases" |
+    Export-Csv -Path C:\temp\databases.csv -NoTypeInformation
+
+# Run a script file against all your servers
+Get-Content C:\Scripts\CheckStatus.sql | Invoke-DbaQuery -SqlInstance (Get-Content C:\servers.txt)
+```
+
 ### Backups & Restores
 ```powershell
-# Backup all user databases
-Get-DbaDatabase -SqlInstance localhost -ExcludeSystem | Backup-DbaDatabase
+# Backup all user databases with compression
+Backup-DbaDatabase -SqlInstance localhost -ExcludeSystem -Compress
 
 # Simple restore
 Restore-DbaDatabase -SqlInstance localhost -Path "C:\temp\mydb.bak"
@@ -160,6 +182,9 @@ Find-DbaInstance -ComputerName server01, server02
 
 ### Monitoring & Health
 ```powershell
+# Check disk space before problems happen
+Get-DbaDiskSpace -ComputerName sql01, sql02 | Out-GridView
+
 # Find databases without recent backups
 Get-DbaLastBackup -SqlInstance localhost |
     Where-Object LastFullBackup -lt (Get-Date).AddDays(-7)
@@ -167,12 +192,31 @@ Get-DbaLastBackup -SqlInstance localhost |
 # Check for corruption
 Get-DbaLastGoodCheckDb -SqlInstance localhost | Out-GridView
 
-# Monitor currently running queries
+# Find failed jobs across all servers
+Find-DbaAgentJob -SqlInstance sql01, sql02 -Failed | Get-DbaAgentJobHistory
+
+# See who's running what and blocking whom
+Get-DbaProcess -SqlInstance localhost | Out-GridView
+
+# Monitor currently running queries with sp_WhoIsActive
 Install-DbaWhoIsActive -SqlInstance localhost -Database master
 Invoke-DbaWhoIsActive -SqlInstance localhost
 ```
 
-### Migrations
+### Data Import & Export
+```powershell
+# Import CSV files into SQL Server (auto-creates tables!)
+Import-DbaCsv -Path C:\data\sales.csv -SqlInstance localhost -Database tempdb -AutoCreateTable
+
+# Copy data between tables, even across servers
+Copy-DbaDbTableData -SqlInstance sql01 -Database source -Table Customers `
+    -DestinationSqlInstance sql02 -DestinationDatabase target -DestinationTable Customers
+
+# Write PowerShell objects directly to SQL Server
+Get-Process | Write-DbaDbTableData -SqlInstance localhost -Database tempdb -Table ProcessList -AutoCreateTable
+```
+
+### Migrations & DR
 ```powershell
 # Migrate entire SQL instance with one command
 $params = @{
@@ -183,8 +227,16 @@ $params = @{
 }
 Start-DbaMigration @params
 
+# Export everything for disaster recovery
+# Creates scripts for logins, jobs, databases, configs, everything
+Export-DbaInstance -SqlInstance sql01 -Path C:\temp\dr
+
 # Copy just the jobs between servers
 Copy-DbaAgentJob -Source sql01 -Destination sql02
+
+# Migrate a database with logins
+Copy-DbaDatabase -Source sql01 -Destination sql02 -Database MyApp -BackupRestore -SharedPath \\nas\migration
+Copy-DbaLogin -Source sql01 -Destination sql02 -Login ad\appuser
 ```
 
 ### Quick Wins
