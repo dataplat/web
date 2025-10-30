@@ -53,7 +53,11 @@
         if (parts) {
           html += '<span style="color: #569cd6">PS</span>';
           html += ' <span style="color: #929292">' + parts[2] + '</span>';
-          html += ' <span style="color: #fcee54">' + parts[3] + '</span>\n';
+          var command = parts[3].trim();
+          if (command) {
+            html += ' <span style="color: #fcee54">' + command + '</span>';
+          }
+          html += '\n';
         } else {
           html += '<span style="color: #b5becf">' + line + '</span>\n';
         }
