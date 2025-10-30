@@ -49,8 +49,8 @@ Invoke-DbaQuery -SqlInstance sql01, sql02, sql03 -Query "SELECT @@VERSION"
 - `Invoke-DbaQuery` runs any T-SQL you want - your most versatile command
 - These commands are **read-only** - they won't change anything on your server
 
-**Note:** Replace `sql01` with your SQL Server instance name (like `sql01`, `server\instance`, or `server,port`).
-
+**Note:** Replace `sql01` with your SQL Server instance name (like `sql01`, `server\instance`, or `server:port`).
+"
 ---
 
 ## Installation
