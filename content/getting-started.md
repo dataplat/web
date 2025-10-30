@@ -8,7 +8,6 @@ draft: false
 
 dbatools is a **free** PowerShell module with nearly **700 commands** that replace manual SQL Server administration with powerful and fun automation.
 
-
 ## Why dbatools?
 
 | Traditional Methods | dbatools |
@@ -50,7 +49,7 @@ Invoke-DbaQuery -SqlInstance sql01, sql02, sql03 -Query "SELECT @@VERSION"
 - These commands are **read-only** - they won't change anything on your server
 
 **Note:** Replace `sql01` with your SQL Server instance name (like `sql01`, `server\instance`, or `server:port`).
-"
+
 ---
 
 ## Installation
