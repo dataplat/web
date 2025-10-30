@@ -62,9 +62,9 @@ Export properties here are defined to control the extract process:
 [Export-DbaDacPackage](https://docs.dbatools.io/Export-DbaDacPackage/) function will take care of the extraction process and will return all details about the extraction, including the **Path** property that would direct us to the extracted file:
 
 {{< powershell-console >}}
-Database Elapsed Path
--------- ------- ----
-DBAdmin  23.25 s C:\temp\DBAdmin.dacpac
+Database  Elapsed  Path
+--------  -------  ----
+DBAdmin   23.25 s  C:\temp\DBAdmin.dacpac
 {{< /powershell-console >}}
 
 You can check all other available properties (which are basically command line parameters) in a corresponding article: https://learn.microsoft.com/sql/tools/sqlpackage/sqlpackage-publish

@@ -32,99 +32,99 @@ We currently provide over 80 checks, as can be easily seen using `Get-DbcCheck`:
 
 {{< powershell-console >}}
 PS C:\github\dbachecks> Get-DbcCheck
-Group            Type         Description                              UniqueTag                                 AllTags
------            ----         -----------                              ---------                                 -------
-Agent            SqlInstance  SQL Agent Account                        AgentServiceAccount                       AgentServiceAccount, ServiceAccount, Agent
-Agent            SqlInstance  DBA Operators                            DbaOperatorName                           DbaOperatorName, Operator, Agent
-Agent            SqlInstance  Failed Jobs                              FailedJob                                 FailedJob, Agent
-Agent            SqlInstance  Valid Job Owner                          ValidJobOwner                             ValidJobOwner, Agent
-Agent            SqlInstance  Agent Alerts                             AgentAlert                                AgentAlert, Agent
-Agent            SqlInstance  Long Running Jobs                        LongRunningJob                            LongRunningJob, Agent
-Agent            SqlInstance  Last Job Run Time                        LastJobRunTime                            LastJobRunTime, Agent
-Backup           Database     Last Diff Backup Times                   LastDiffBackup                            LastDiffBackup, Backup, DISA, Database
-Backup           Database     Last Full Backup Times                   LastFullBackup                            LastFullBackup, Backup, DISA, Database
-Backup           Database     Last Log Backup Times                    LastLogBackup                             LastLogBackup, Backup, DISA, Database
-Backup           Database     Valid Backup Path                        ValidBackupPath                           ValidBackupPath, Backup, Database
-Backup           Database     Backup Compression                       BackupCompression                         BackupCompression, Backup, Database
-Backup           Database     Test Last Backup                         TestLastBackup                            TestLastBackup, Backup, Database
-Backup           Database     Recovery Model                           RecoveryModel                             RecoveryModel, Backup, DISA, Database
-Compliance       Database     Database Growth Event                    DatabaseGrowthEvent                       DatabaseGrowthEvent, Database
-Compliance       Database     Page Verify                              PageVerify                                PageVerify, Database
-Compliance       SqlInstance  Compatibility Level                      CompatibilityLevel                        CompatibilityLevel, Database
-Compliance       SqlInstance  Guest User has Connect Permission        GuestUserConnect                          GuestUserConnect, Database
-Compliance       SqlInstance  Contained DB Orphaned Users              ContainedDBOrphanedUser                   ContainedDBOrphanedUser, Database
-Compliance       SqlInstance  Auto Close                               AutoClose                                 AutoClose, Database
-Compliance       SqlInstance  Auto Shrink                              AutoShrink                                AutoShrink, Database
-Compliance       SqlInstance  Last Good CheckDB                        LastGoodCheckDB                           LastGoodCheckDB, DISA, Database
-Compliance       Database     Audit Statistics Asynchrony              AutoUpdateStatisticsAsynchronously        AutoUpdateStatisticsAsynchronously, Database
-Compliance       Database     Audit Statistics                         AutoUpdateStatistics                      AutoUpdateStatistics, Database
-Compliance       Database     Database Collation                       DatabaseCollation                         DatabaseCollation, Database
-Compliance       SqlInstance  Suspect Pages                            SuspectPage                               SuspectPage, Corruption, Integrity, Database
-Compliance       Database     Pseudo Simple Recovery Model             PseudoSimple                              PseudoSimple, Database
-Compliance       SqlInstance  Max DOP                                  MaxDOP                                    MaxDOP, Database
-Compliance       SqlInstance  Orphaned File                            OrphanedFile                              OrphanedFile, Database
-Compliance       SqlInstance  Failed Jobs                              FailedJob                                 FailedJob, Agent
-Compliance       SqlInstance  Duplicate Index                          DuplicateIndex                            DuplicateIndex, Database
-Compliance       SqlInstance  Unused Index                             UnusedIndex                               UnusedIndex, Database
-Compliance       SqlInstance  Disabled Index                           DisabledIndex                             DisabledIndex, Database
-ComputerName     ComputerName Server Health                            ServerHealth                              ServerHealth, DISA, Instance
-ComputerName     ComputerName Server Power Plan                        ServerPowerPlan                           ServerPowerPlan, DISA, Instance
-ComputerName     ComputerName Server Disk Configuration                ServerDiskConfiguration                   ServerDiskConfiguration, DISA, Instance
-Compression      Database     Compressible Tables                      CompressibleTables                        CompressibleTables, Database
-Database         SqlInstance  Database Growth Event                    DatabaseGrowthEvent                       DatabaseGrowthEvent, Database
-Database         SqlInstance  Database Collation                       DatabaseCollation                         DatabaseCollation, Database
-Database         SqlInstance  Suspect Pages                            SuspectPage                               SuspectPage, Corruption, Integrity, Database
-Database         SqlInstance  Last Good CheckDB                        LastGoodCheckDB                           LastGoodCheckDB, DISA, Database
-Database         SqlInstance  Valid Database Owner                     ValidDatabaseOwner                        ValidDatabaseOwner, Database
-Database         SqlInstance  Invalid Database Owner                   InvalidDatabaseOwner                      InvalidDatabaseOwner, Database
-Database         Database     Auto Close                               AutoClose                                 AutoClose, Database
-Database         Database     Auto Shrink                              AutoShrink                                AutoShrink, Database
-Database         Database     Last Full Backup Times                   LastFullBackup                            LastFullBackup, Backup, DISA, Database
-Database         Database     Last Diff Backup Times                   LastDiffBackup                            LastDiffBackup, Backup, DISA, Database
-Database         Database     Last Log Backup Times                    LastLogBackup                             LastLogBackup, Backup, DISA, Database
-Database         Database     Virtual Log Files                        VirtualLogFile                            VirtualLogFile, Database
-Database         Database     Log File Count                           LogFileCount                              LogFileCount, Database
-Database         Database     Log File Size                            LogFileSize                               LogFileSize, Database
-Database         Database     Duplicate Index                          DuplicateIndex                            DuplicateIndex, Database
-Database         Database     Unused Index                             UnusedIndex                               UnusedIndex, Database
-Database         Database     Disabled Index                           DisabledIndex                             DisabledIndex, Database
-Database         Database     Database Compatibility Level             CompatibilityLevel                        CompatibilityLevel, Database
-Database         Database     Foreign Keys and Check Constraints       FKCKTrusted                               FKCKTrusted, Database
-Database         Database     Maximum VLF                              MaximumVLF                                MaximumVLF, Database
-Domain           ComputerName Domain Name                              DomainName                                DomainName, Domain
-Domain           ComputerName Organization Unit                        OrganizationUnit                          OrganizationUnit, Domain
-Instance         SqlInstance  SQL Memory Max                           MaxMemory                                 MaxMemory, DISA, Instance
-Instance         SqlInstance  SQL Memory Min                           MinMemory                                 MinMemory, Instance
-Instance         SqlInstance  SQL Windows Admin Members                SqlWindowsAdminMembers                    SqlWindowsAdminMembers, Instance
-Instance         SqlInstance  TempDB Size                              TempDBSize                                TempDBSize, DISA, Instance
-Instance         SqlInstance  SQL AdHocWorkload                        AdHocWorkload                             AdHocWorkload, Instance
-LogShipping      Database     Log Shipping Primary                     LogShippingPrimary                        LogShippingPrimary, LogShipping, Database, DISA
-LogShipping      Database     Log Shipping Secondary                   LogShippingSecondary                      LogShippingSecondary, LogShipping, Database, DISA
-MaintenanceSolution Database  Ola Installed                            OlaInstalled                              OlaInstalled, Database
-MaintenanceSolution Database  Ola System Full Backup                   SystemFullBackup                          SystemFullBackup, Backup, Database
-MaintenanceSolution Database  Ola User Full Backup                     UserFullBackup                            UserFullBackup, Backup, Database
-MaintenanceSolution Database  Ola User Diff Backup                     UserDiffBackup                            UserDiffBackup, Backup, Database
-MaintenanceSolution Database  Ola User Log Backup                      UserLogBackup                             UserLogBackup, Backup, Database
-MaintenanceSolution Database  Ola CommandLog Cleanup                   CommandLogCleanup                         CommandLogCleanup, Database
-MaintenanceSolution Database  Ola System Integrity Check               SystemIntegrityCheck                      SystemIntegrityCheck, DBCC, Corruption, Integrity, Database
-MaintenanceSolution Database  Ola User Integrity Check                 UserIntegrityCheck                        UserIntegrityCheck, DBCC, Corruption, Integrity, Database
-MaintenanceSolution Database  Ola User Index Optimize                  UserIndexOptimize                         UserIndexOptimize, Database
-MaintenanceSolution Database  Ola Output File Cleanup                  OutputFileCleanup                         OutputFileCleanup, Database
-MaintenanceSolution Database  Ola Delete Backup History                DeleteBackupHistory                       DeleteBackupHistory, Database
-MaintenanceSolution Database  Ola Purge Job History                    PurgeJobHistory                           PurgeJobHistory, Database
-Network          SqlInstance  Network Latency                          NetworkLatency                            NetworkLatency, Connectivity, Instance
-Network          SqlInstance  Linked Server Connection                 LinkedServerConnection                    LinkedServerConnection, Connectivity, Instance
-Server           ComputerName Ping Computer                            PingComputer                              PingComputer, ComputerName
-Server           ComputerName CPU Priority                             CPUPriority                               CPUPriority, ComputerName
-Server           ComputerName Disk Capacity                            DiskCapacity                              DiskCapacity, DISA, ComputerName
-Server           SqlInstance  Disk Allocation Unit                     DiskAllocationUnit                        DiskAllocationUnit, ComputerName
-Server           SqlInstance  Power Plan                               PowerPlan                                 PowerPlan, ComputerName
-Server           SqlInstance  SPN                                      SPN                                       SPN, Instance
-Server           SqlInstance  Disk Max Transfer                        DiskMaxTransfer                           DiskMaxTransfer, ComputerName
-Server           SqlInstance  Server Hardware                          ServerHardware                            ServerHardware, ComputerName
-Server           SqlInstance  Server Memory                            ServerMemory                              ServerMemory, ComputerName
-Server           SqlInstance  Dedicated Admin Connection               DedicatedAdminConnection                  DedicatedAdminConnection, Instance
-Server           SqlInstance  SQL + Windows names match                ServerNameMatch                           ServerNameMatch, Instance
+Group      Type         Description                              UniqueTag                     AllTags
+-----      ----         -----------                              ---------                     -------
+Agent      SqlInstance  SQL Agent Account                        AgentServiceAccount           AgentServiceAccount, ServiceAccount, Agent
+Agent      SqlInstance  DBA Operators                            DbaOperatorName               DbaOperatorName, Operator, Agent
+Agent      SqlInstance  Failed Jobs                              FailedJob                     FailedJob, Agent
+Agent      SqlInstance  Valid Job Owner                          ValidJobOwner                 ValidJobOwner, Agent
+Agent      SqlInstance  Agent Alerts                             AgentAlert                    AgentAlert, Agent
+Agent      SqlInstance  Long Running Jobs                        LongRunningJob                LongRunningJob, Agent
+Agent      SqlInstance  Last Job Run Time                        LastJobRunTime                LastJobRunTime, Agent
+Backup     Database     Last Diff Backup Times                   LastDiffBackup                LastDiffBackup, Backup, DISA, Database
+Backup     Database     Last Full Backup Times                   LastFullBackup                LastFullBackup, Backup, DISA, Database
+Backup     Database     Last Log Backup Times                    LastLogBackup                 LastLogBackup, Backup, DISA, Database
+Backup     Database     Valid Backup Path                        ValidBackupPath               ValidBackupPath, Backup, Database
+Backup     Database     Backup Compression                       BackupCompression             BackupCompression, Backup, Database
+Backup     Database     Test Last Backup                         TestLastBackup                TestLastBackup, Backup, Database
+Backup     Database     Recovery Model                           RecoveryModel                 RecoveryModel, Backup, DISA, Database
+Compliance             Database     Database Growth Event                    DatabaseGrowthEvent                         DatabaseGrowthEvent, Database
+Compliance             Database     Page Verify                              PageVerify                                  PageVerify, Database
+Compliance             SqlInstance  Compatibility Level                      CompatibilityLevel                          CompatibilityLevel, Database
+Compliance             SqlInstance  Guest User has Connect Permission        GuestUserConnect                            GuestUserConnect, Database
+Compliance             SqlInstance  Contained DB Orphaned Users              ContainedDBOrphanedUser                     ContainedDBOrphanedUser, Database
+Compliance             SqlInstance  Auto Close                               AutoClose                                   AutoClose, Database
+Compliance             SqlInstance  Auto Shrink                              AutoShrink                                  AutoShrink, Database
+Compliance             SqlInstance  Last Good CheckDB                        LastGoodCheckDB                             LastGoodCheckDB, DISA, Database
+Compliance             Database     Audit Statistics Asynchrony              AutoUpdateStatisticsAsynchronously          AutoUpdateStatisticsAsynchronously, Database
+Compliance             Database     Audit Statistics                         AutoUpdateStatistics                        AutoUpdateStatistics, Database
+Compliance             Database     Database Collation                       DatabaseCollation                           DatabaseCollation, Database
+Compliance             SqlInstance  Suspect Pages                            SuspectPage                                 SuspectPage, Corruption, Integrity, Database
+Compliance             Database     Pseudo Simple Recovery Model             PseudoSimple                                PseudoSimple, Database
+Compliance             SqlInstance  Max DOP                                  MaxDOP                                      MaxDOP, Database
+Compliance             SqlInstance  Orphaned File                            OrphanedFile                                OrphanedFile, Database
+Compliance             SqlInstance  Failed Jobs                              FailedJob                                   FailedJob, Agent
+Compliance             SqlInstance  Duplicate Index                          DuplicateIndex                              DuplicateIndex, Database
+Compliance             SqlInstance  Unused Index                             UnusedIndex                                 UnusedIndex, Database
+Compliance             SqlInstance  Disabled Index                           DisabledIndex                               DisabledIndex, Database
+ComputerName           ComputerName Server Health                            ServerHealth                                ServerHealth, DISA, Instance
+ComputerName           ComputerName Server Power Plan                        ServerPowerPlan                             ServerPowerPlan, DISA, Instance
+ComputerName           ComputerName Server Disk Configuration                ServerDiskConfiguration                     ServerDiskConfiguration, DISA, Instance
+Compression            Database     Compressible Tables                      CompressibleTables                          CompressibleTables, Database
+Database               SqlInstance  Database Growth Event                    DatabaseGrowthEvent                         DatabaseGrowthEvent, Database
+Database               SqlInstance  Database Collation                       DatabaseCollation                           DatabaseCollation, Database
+Database               SqlInstance  Suspect Pages                            SuspectPage                                 SuspectPage, Corruption, Integrity, Database
+Database               SqlInstance  Last Good CheckDB                        LastGoodCheckDB                             LastGoodCheckDB, DISA, Database
+Database               SqlInstance  Valid Database Owner                     ValidDatabaseOwner                          ValidDatabaseOwner, Database
+Database               SqlInstance  Invalid Database Owner                   InvalidDatabaseOwner                        InvalidDatabaseOwner, Database
+Database               Database     Auto Close                               AutoClose                                   AutoClose, Database
+Database               Database     Auto Shrink                              AutoShrink                                  AutoShrink, Database
+Database               Database     Last Full Backup Times                   LastFullBackup                              LastFullBackup, Backup, DISA, Database
+Database               Database     Last Diff Backup Times                   LastDiffBackup                              LastDiffBackup, Backup, DISA, Database
+Database               Database     Last Log Backup Times                    LastLogBackup                               LastLogBackup, Backup, DISA, Database
+Database               Database     Virtual Log Files                        VirtualLogFile                              VirtualLogFile, Database
+Database               Database     Log File Count                           LogFileCount                                LogFileCount, Database
+Database               Database     Log File Size                            LogFileSize                                 LogFileSize, Database
+Database               Database     Duplicate Index                          DuplicateIndex                              DuplicateIndex, Database
+Database               Database     Unused Index                             UnusedIndex                                 UnusedIndex, Database
+Database               Database     Disabled Index                           DisabledIndex                               DisabledIndex, Database
+Database               Database     Database Compatibility Level             CompatibilityLevel                          CompatibilityLevel, Database
+Database               Database     Foreign Keys and Check Constraints       FKCKTrusted                                 FKCKTrusted, Database
+Database               Database     Maximum VLF                              MaximumVLF                                  MaximumVLF, Database
+Domain                 ComputerName Domain Name                              DomainName                                  DomainName, Domain
+Domain                 ComputerName Organization Unit                        OrganizationUnit                            OrganizationUnit, Domain
+Instance               SqlInstance  SQL Memory Max                           MaxMemory                                   MaxMemory, DISA, Instance
+Instance               SqlInstance  SQL Memory Min                           MinMemory                                   MinMemory, Instance
+Instance               SqlInstance  SQL Windows Admin Members                SqlWindowsAdminMembers                      SqlWindowsAdminMembers, Instance
+Instance               SqlInstance  TempDB Size                              TempDBSize                                  TempDBSize, DISA, Instance
+Instance               SqlInstance  SQL AdHocWorkload                        AdHocWorkload                               AdHocWorkload, Instance
+LogShipping            Database     Log Shipping Primary                     LogShippingPrimary                          LogShippingPrimary, LogShipping, Database, DISA
+LogShipping            Database     Log Shipping Secondary                   LogShippingSecondary                        LogShippingSecondary, LogShipping, Database, DISA
+MaintenanceSolution    Database     Ola Installed                            OlaInstalled                                OlaInstalled, Database
+MaintenanceSolution    Database     Ola System Full Backup                   SystemFullBackup                            SystemFullBackup, Backup, Database
+MaintenanceSolution    Database     Ola User Full Backup                     UserFullBackup                              UserFullBackup, Backup, Database
+MaintenanceSolution    Database     Ola User Diff Backup                     UserDiffBackup                              UserDiffBackup, Backup, Database
+MaintenanceSolution    Database     Ola User Log Backup                      UserLogBackup                               UserLogBackup, Backup, Database
+MaintenanceSolution    Database     Ola CommandLog Cleanup                   CommandLogCleanup                           CommandLogCleanup, Database
+MaintenanceSolution    Database     Ola System Integrity Check               SystemIntegrityCheck                        SystemIntegrityCheck, DBCC, Corruption, Integrity, Database
+MaintenanceSolution    Database     Ola User Integrity Check                 UserIntegrityCheck                          UserIntegrityCheck, DBCC, Corruption, Integrity, Database
+MaintenanceSolution    Database     Ola User Index Optimize                  UserIndexOptimize                           UserIndexOptimize, Database
+MaintenanceSolution    Database     Ola Output File Cleanup                  OutputFileCleanup                           OutputFileCleanup, Database
+MaintenanceSolution    Database     Ola Delete Backup History                DeleteBackupHistory                         DeleteBackupHistory, Database
+MaintenanceSolution    Database     Ola Purge Job History                    PurgeJobHistory                             PurgeJobHistory, Database
+Network                SqlInstance  Network Latency                          NetworkLatency                              NetworkLatency, Connectivity, Instance
+Network                SqlInstance  Linked Server Connection                 LinkedServerConnection                      LinkedServerConnection, Connectivity, Instance
+Server                 ComputerName Ping Computer                            PingComputer                                PingComputer, ComputerName
+Server                 ComputerName CPU Priority                             CPUPriority                                 CPUPriority, ComputerName
+Server                 ComputerName Disk Capacity                            DiskCapacity                                DiskCapacity, DISA, ComputerName
+Server                 SqlInstance  Disk Allocation Unit                     DiskAllocationUnit                          DiskAllocationUnit, ComputerName
+Server                 SqlInstance  Power Plan                               PowerPlan                                   PowerPlan, ComputerName
+Server                 SqlInstance  SPN                                      SPN                                         SPN, Instance
+Server                 SqlInstance  Disk Max Transfer                        DiskMaxTransfer                             DiskMaxTransfer, ComputerName
+Server                 SqlInstance  Server Hardware                          ServerHardware                              ServerHardware, ComputerName
+Server                 SqlInstance  Server Memory                            ServerMemory                                ServerMemory, ComputerName
+Server                 SqlInstance  Dedicated Admin Connection               DedicatedAdminConnection                    DedicatedAdminConnection, Instance
+Server                 SqlInstance  SQL + Windows names match                ServerNameMatch                             ServerNameMatch, Instance
 {{< /powershell-console >}}
 
 ## How to Use

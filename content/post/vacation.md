@@ -83,17 +83,17 @@ $allservers | Find-DbaAgentJob -Failed -Since 1/5/2017
 {{< powershell-console >}}
 PS C:\github\dbatools> $allservers | Find-DbaAgentJob -Failed -Since 1/1/2017 | Format-Table -Wrap
 
-SqlInstance JobName              LastRunDate      LastRunOutcome IsEnabled Category               Description
------------                      -----------      -------------- --------- --------               -----------
-MSSQLSERVER MSSQLSERVER 2017/04/13 12:00:00 AM Failed         True      Database Maintenance
-MSSQLSERVER MSSQLSERVER 2017/03/27 12:00:00 AM Failed         True      Database Maintenance
-MSSQLSERVER MSSQLSERVER 2017/04/06 12:00:00 AM Failed         True      Database Maintenance
-MSSQLSERVER MSSQLSERVER 2017/03/30 12:00:00 AM Failed         True      Database Maintenance
-MSSQLSERVER MSSQLSERVER 2017/04/06 12:00:00 AM Failed         True      [Uncategorized (Local)]
-MSSQLSERVER MSSQLSERVER 2017/04/11 12:00:00 AM Failed         True      [Uncategorized (Local)]
-MSSQLSERVER MSSQLSERVER 2017/03/23 12:00:00 AM Failed         True      Log Shipping
-MSSQLSERVER MSSQLSERVER 2017/03/23 12:00:00 AM Failed         True      Log Shipping            LS Backup Job
-MSSQLSERVER MSSQLSERVER 2017/04/13 12:00:00 AM Failed         True      Data Collector
+SqlInstance  JobName                                    LastRunDate               LastRunOutcome  IsEnabled  Category                   Description
+-----------  -------                                    -----------               --------------  ---------  --------                   -----------
+MSSQLSERVER  DatabaseIntegrityCheck - USER_DATABASES    2017/04/13 12:00:00 AM    Failed          True       Database Maintenance
+MSSQLSERVER  DatabaseBackup - USER_DATABASES - FULL     2017/03/27 12:00:00 AM    Failed          True       Database Maintenance
+MSSQLSERVER  DatabaseBackup - USER_DATABASES - DIFF     2017/04/06 12:00:00 AM    Failed          True       Database Maintenance
+MSSQLSERVER  DatabaseBackup - USER_DATABASES - LOG      2017/03/30 12:00:00 AM    Failed          True       Database Maintenance
+MSSQLSERVER  IndexOptimize - USER_DATABASES             2017/04/06 12:00:00 AM    Failed          True       [Uncategorized (Local)]
+MSSQLSERVER  sp_delete_backuphistory                    2017/04/11 12:00:00 AM    Failed          True       [Uncategorized (Local)]
+MSSQLSERVER  LSBackup_ServerA-DB1                       2017/03/23 12:00:00 AM    Failed          True       Log Shipping
+MSSQLSERVER  LSRestore_ServerA-DB1                      2017/03/23 12:00:00 AM    Failed          True       Log Shipping               LS Backup Job
+MSSQLSERVER  collection_set_1_noncached_collect_and_up  2017/04/13 12:00:00 AM    Failed          True       Data Collector
 
 PS C:\github\dbatools>
 {{< /powershell-console >}}

@@ -53,40 +53,40 @@ Returns a list of any service principal names (SPNs) set for a given server or a
 {{< powershell-console >}}
 PS C:\github\dbatools> Get-DbaSpn -ComputerName sql2016 | Format-Table
 
-Input    AccountName       ServiceClass Port SPN
------    -----------       ------------ ---- ---
-sql2016  base\sqlserver    MSSQLSvc          MSSQLSvc/SQL2016.base.local
-sql2016  base\sqlserver    MSSQLSvc          MSSQLSvc/SQL2016.base.local:SQLEXPRESS
-sql2016  base\sqlserver    MSSQLSvc          MSSQLSvc/SQL2016.base.local:VWEXT
-sql2016  base\sqlserver    MSSQLSvc     1433 MSSQLSvc/SQL2016.base.local:1433
-sql2016  base\sqlserver    MSSQLSvc     49903 MSSQLSvc/SQL2016.base.local:49903
-sql2016  base\sqlserver    MSSQLSvc     49837 MSSQLSvc/SQL2016.base.local:49837
+Input     AccountName      ServiceClass  Port   SPN
+-----     -----------      ------------  ----   ---
+sql2016   base\sqlserver   MSSQLSvc             MSSQLSvc/SQL2016.base.local
+sql2016   base\sqlserver   MSSQLSvc             MSSQLSvc/SQL2016.base.local:SQLEXPRESS
+sql2016   base\sqlserver   MSSQLSvc             MSSQLSvc/SQL2016.base.local:VWEXT
+sql2016   base\sqlserver   MSSQLSvc      1433   MSSQLSvc/SQL2016.base.local:1433
+sql2016   base\sqlserver   MSSQLSvc      49903  MSSQLSvc/SQL2016.base.local:49903
+sql2016   base\sqlserver   MSSQLSvc      49837  MSSQLSvc/SQL2016.base.local:49837
 
 PS C:\github\dbatools> $servers | Get-DbaSpn | Format-Table -AutoSize
 
-Input       AccountName       ServiceClass Port  SPN
------       -----------       ------------ ----  ---
-sql2008     base\sqlserver    MSSQLSvc           MSSQLSvc/sql2008.base.local
-sql2008     base\sqlserver    MSSQLSvc           MSSQLSvc/sql2008.base.local:SQL2K8
-sql2008     base\sqlserver    MSSQLSvc     1433  MSSQLSvc/sql2008.base.local:1433
-sql2008     base\sqlserver    MSSQLSvc     49271 MSSQLSvc/sql2008.base.local:49271
-sql2012     base\sqlserver    MSSQLSvc           MSSQLSvc/sql2012.base.local
-sql2012     base\sqlserver    MSSQLSvc     1433  MSSQLSvc/sql2012.base.local:1433
-sql2014     base\sqlserver    MSSQLSvc           MSSQLSvc/sql2014.base.local
-sql2016     base\sqlserver    MSSQLSvc           MSSQLSvc/SQL2016.base.local
-sql2016     base\sqlserver    MSSQLSvc           MSSQLSvc/SQL2016.base.local:SQLEXPRESS
-sql2016     base\sqlserver    MSSQLSvc           MSSQLSvc/SQL2016.base.local:VWEXT
-sql2016     base\sqlserver    MSSQLSvc     1433  MSSQLSvc/SQL2016.base.local:1433
-sql2016     base\sqlserver    MSSQLSvc     49903 MSSQLSvc/SQL2016.base.local:49903
-sql2016     base\sqlserver    MSSQLSvc     49837 MSSQLSvc/SQL2016.base.local:49837
-sql2016a    base\sqlserver    MSSQLSvc           MSSQLSvc/sql2016a.base.local
-sql2016a    base\sqlserver    MSSQLSvc     1433  MSSQLSvc/sql2016a.base.local:1433
-sql2016b    base\sqlserver    MSSQLSvc           MSSQLSvc/sql2016b.base.local
-sql2016b    base\sqlserver    MSSQLSvc     1433  MSSQLSvc/sql2016b.base.local:1433
-sql2016c    base\sqlserver    MSSQLSvc           MSSQLSvc/sql2016c.base.local
-sql2016c    base\sqlserver    MSSQLSvc     1433  MSSQLSvc/sql2016c.base.local:1433
-sqlcluster  base\sqlserver    MSSQLSvc           MSSQLSvc/sqlcluster.base.local
-sqlcluster  base\sqlserver    MSSQLSvc     1433  MSSQLSvc/sqlcluster.base.local:1433
+Input       AccountName      ServiceClass  Port   SPN
+-----       -----------      ------------  ----   ---
+sql2008     base\sqlserver   MSSQLSvc             MSSQLSvc/sql2008.base.local
+sql2008     base\sqlserver   MSSQLSvc             MSSQLSvc/sql2008.base.local:SQL2K8
+sql2008     base\sqlserver   MSSQLSvc      1433   MSSQLSvc/sql2008.base.local:1433
+sql2008     base\sqlserver   MSSQLSvc      49271  MSSQLSvc/sql2008.base.local:49271
+sql2012     base\sqlserver   MSSQLSvc             MSSQLSvc/sql2012.base.local
+sql2012     base\sqlserver   MSSQLSvc      1433   MSSQLSvc/sql2012.base.local:1433
+sql2014     base\sqlserver   MSSQLSvc             MSSQLSvc/sql2014.base.local
+sql2016     base\sqlserver   MSSQLSvc             MSSQLSvc/SQL2016.base.local
+sql2016     base\sqlserver   MSSQLSvc             MSSQLSvc/SQL2016.base.local:SQLEXPRESS
+sql2016     base\sqlserver   MSSQLSvc             MSSQLSvc/SQL2016.base.local:VWEXT
+sql2016     base\sqlserver   MSSQLSvc      1433   MSSQLSvc/SQL2016.base.local:1433
+sql2016     base\sqlserver   MSSQLSvc      49903  MSSQLSvc/SQL2016.base.local:49903
+sql2016     base\sqlserver   MSSQLSvc      49837  MSSQLSvc/SQL2016.base.local:49837
+sql2016a    base\sqlserver   MSSQLSvc             MSSQLSvc/sql2016a.base.local
+sql2016a    base\sqlserver   MSSQLSvc      1433   MSSQLSvc/sql2016a.base.local:1433
+sql2016b    base\sqlserver   MSSQLSvc             MSSQLSvc/sql2016b.base.local
+sql2016b    base\sqlserver   MSSQLSvc      1433   MSSQLSvc/sql2016b.base.local:1433
+sql2016c    base\sqlserver   MSSQLSvc             MSSQLSvc/sql2016c.base.local
+sql2016c    base\sqlserver   MSSQLSvc      1433   MSSQLSvc/sql2016c.base.local:1433
+sqlcluster  base\sqlserver   MSSQLSvc             MSSQLSvc/sqlcluster.base.local
+sqlcluster  base\sqlserver   MSSQLSvc      1433   MSSQLSvc/sqlcluster.base.local:1433
 
 PS C:\github\dbatools> _
 {{< /powershell-console >}}
