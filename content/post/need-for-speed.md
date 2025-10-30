@@ -1,5 +1,5 @@
 ---
-title: "Need for Speed – Find-DbaStoredProcedure"
+title: "Need for Speed - Find-DbaStoredProcedure"
 date: 2017-03-08
 lastmod: 2025-10-29
 author: "Claudio Silva"
@@ -191,7 +191,7 @@ We can even output this to a grid and filter:
 
 ![Grid output](/images/img_58bffd3d34b84.png)
 
-## But I Want Nice GUI! – Redgate SQL Search for the Rescue
+## But I Want Nice GUI! - Redgate SQL Search for the Rescue
 
 Well, for some of us PowerShell console is a nice GUI 😊
 

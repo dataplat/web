@@ -79,13 +79,13 @@ There is one important note about dacpac deployment: it requires a so called Pub
 
 The parameters that we're going to use during deployment are as follows:
 
-- **AllowIncompatiblePlatform** – would enable me to deploy to an earlier version of SQL Server.
-- **CreateNewDatabase** – will re-create the database every time
-- **ExcludeObjectTypes** – semicolon-separated list of objects that will be excluded from the deployment.
-- **ExcludeLogins** and **ExcludeUsers** – somehow, these two ended up being independent parameters, not included in the previously mentioned **ExcludeObjectTypes**. Excludes logins and/or users from the deployment.
-- **IgnorePermissions** – ignores object permissions during the deployment.
-- **DropObjectsNotInSource** – boolean value, which is True by default, that controls whether existing objects in the database are going to be **dropped** if they are not present in the package. This is a very important parameter if you are planning to deploy dacpac to a non-empty database.
-- **IgnoreRoleMembership** – ignores role membership
+- **AllowIncompatiblePlatform** - would enable me to deploy to an earlier version of SQL Server.
+- **CreateNewDatabase** - will re-create the database every time
+- **ExcludeObjectTypes** - semicolon-separated list of objects that will be excluded from the deployment.
+- **ExcludeLogins** and **ExcludeUsers** - somehow, these two ended up being independent parameters, not included in the previously mentioned **ExcludeObjectTypes**. Excludes logins and/or users from the deployment.
+- **IgnorePermissions** - ignores object permissions during the deployment.
+- **DropObjectsNotInSource** - boolean value, which is True by default, that controls whether existing objects in the database are going to be **dropped** if they are not present in the package. This is a very important parameter if you are planning to deploy dacpac to a non-empty database.
+- **IgnoreRoleMembership** - ignores role membership
 
 This is an example of the Publish profile file that we're going to use in this exercise:
 
@@ -110,10 +110,10 @@ This is an example of the Publish profile file that we're going to use in this e
 
 Once we have a Publish profile ready we can start the deployment by using [Publish-DbaDacPackage](https://docs.dbatools.io/Publish-DbaDacPackage/) function, specifying:
 
-- **SqlInstance** – target server
-- **Database** – target database
-- **Path** – path to the dacpac package
-- **PublishXml** – path to the publish profile
+- **SqlInstance** - target server
+- **Database** - target database
+- **Path** - path to the dacpac package
+- **PublishXml** - path to the publish profile
 
 {{< powershell-console >}}
 PS C:\> Publish-DbaDacPackage -SqlInstance MSSQLSERVER -Database DBAdmin_copy -Path 'C:\temp\DBAdmin.dacpac' -PublishXml (Get-Item .\etc\publish.xml)
@@ -153,8 +153,8 @@ SqlCmdVariableValues : {}
 
 Other parameters of [Publish-DbaDacPackage](https://docs.dbatools.io/Publish-DbaDacPackage/) that you might find useful:
 
-- **GenerateDeploymentScript** – will generate a deployment script prior to deployment
-- **ScriptOnly** – will not perform the deployment, generating a deployment script instead
+- **GenerateDeploymentScript** - will generate a deployment script prior to deployment
+- **ScriptOnly** - will not perform the deployment, generating a deployment script instead
 
 ## Full Script
 
@@ -200,7 +200,7 @@ if (Test-Path $exportFile.Path) {
 
 ## Creating a Jenkins Job
 
-In order to create an interface and a scheduler at the same time, I would definitely recommend to make this scenario available on your Jenkins instance, similar to how it is described in a SQL Server Jenkins Lab series: [Refresh database & keep permissions – SQL Server Jenkins labs (Part 2)](https://nvarscar.wordpress.com/2018/08/08/jenkins-labs-part-2/).
+In order to create an interface and a scheduler at the same time, I would definitely recommend to make this scenario available on your Jenkins instance, similar to how it is described in a SQL Server Jenkins Lab series: [Refresh database & keep permissions - SQL Server Jenkins labs (Part 2)](https://nvarscar.wordpress.com/2018/08/08/jenkins-labs-part-2/).
 
 ![sample Jenkins job](/images/2018-08-24_15-55-30.jpg)
 

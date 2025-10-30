@@ -20,7 +20,7 @@ Note: I've only used splatting with hashtables, as they allow me to be explicit 
 
 In the example below, sql2008 will be migrated to sql2017 using the backup restore method.
 
-```ps
+```powershell
 # Ultimately, this (which scrolls offscreen):
 Start-DbaMigration -Source sql2008 -Destination sql2017 -BackupRestore -SharedPath \\nas\sql\migration -Force | Select * | Out-GridView
 
@@ -44,7 +44,7 @@ Also, the use of quotes is slightly different. While quotes are sometimes option
 
 The first example was a short intro and the next ones are a bit longer. Imagine the following splat used with one of our larger commands, [Invoke-DbaDbLogShipping](https://dbatools.io/Invoke-DbaDbLogShipping).
 
-```ps
+```powershell
 $params = @{
     Source = "localhost\sql2016"
     Destination = "localhost\sql2017"
@@ -70,7 +70,7 @@ You can see above that switches such as `-Force` or `-CompressBackup` when used 
 
 Here's another example we use in our [Extended Events presentation](https://dbatools.io/xevents).
 
-```ps
+```powershell
 $params = @{
     SmtpServer = "localhost"
     To = "sqldba@ad.local"
@@ -90,7 +90,7 @@ Start-DbaXESmartTarget -SqlInstance sever01\sql2017 -Session "Deadlock Graphs" -
 
 And finally, an example that will be included in the High Availability blog post when it finally comes out.
 
-```ps
+```powershell
 $cred = Get-Credential sqladmin
 $params = @{
     Primary = "sql1"
@@ -111,14 +111,14 @@ New-DbaAvailabilityGroup @params
 
 In his blog post [Easily Splatting PowerShell with VS Code](https://blog.robsewell.com/blog/easily-splatting-powershell-with-vs-code/), Rob Sewell shows how VS Code can easily create splats, as explained in his instructions and video below. First, run:
 
-```ps
+```powershell
 Import-Module -Name EditorServicesCommandSuite
 Import-EditorCommand -Module EditorServicesCommandSuite
 ```
 
 then:
 
-> Write the command, leave the cursor on a parameter, hit F1 – Choose PowerShell : Show Additional Commands (or use a keyboard shortcut) type splat press enter. Done 😊
+> Write the command, leave the cursor on a parameter, hit F1 - Choose PowerShell : Show Additional Commands (or use a keyboard shortcut) type splat press enter. Done 😊
 
 Rob also noted to be careful where your cursor is. He usually puts it in the command, as sometimes it goes screwy if the cursor is at the end of the line.
 

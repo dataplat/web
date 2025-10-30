@@ -1,5 +1,5 @@
 ---
-title: "Hacktoberfest – dbatools Edition"
+title: "Hacktoberfest - dbatools Edition"
 date: 2018-10-09
 lastmod: 2025-10-29
 author: "Patrick Flynn"
@@ -14,7 +14,7 @@ draft: false
 
 During the month of October 2018 DigitalOcean is again running [Hacktoberfest](https://hacktoberfest.com/) to support open source projects. They are offering a limited edition T-Shirt for any person making five pull requests to any public repo on GitHub.
 
-> To get a shirt, you must make five pull requests (PRs) between October 1–31 in any timezone. PRs can be to any public repo on GitHub, not just the ones highlighted. The PR must contain commits you made yourself. This year, the first 50,000 of you can earn a T-shirt (compared with 30,000 in 2017).
+> To get a shirt, you must make five pull requests (PRs) between October 1-31 in any timezone. PRs can be to any public repo on GitHub, not just the ones highlighted. The PR must contain commits you made yourself. This year, the first 50,000 of you can earn a T-shirt (compared with 30,000 in 2017).
 
 Full details can be found [here](https://hacktoberfest.com/details).
 

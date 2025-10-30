@@ -1,5 +1,5 @@
 ---
-title: "New Release – Ants in My Eyes Johnson"
+title: "New Release - Ants in My Eyes Johnson"
 date: 2016-11-22
 lastmod: 2025-10-29
 author: "Chrissy LeMaire"

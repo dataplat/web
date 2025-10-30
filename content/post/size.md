@@ -24,7 +24,7 @@ This size type is cool because it looks beautiful, showing KB, MB, GB, TB and PB
 
 ![usedspace](/images/usedspace.png)
 
-This means that you don't have to parse the results to get the bits and bytes – it's all there in the background. Here's the code used in the above screenshot:
+This means that you don't have to parse the results to get the bits and bytes - it's all there in the background. Here's the code used in the above screenshot:
 
 ```powershell
 # Evaluate UsedSpace details

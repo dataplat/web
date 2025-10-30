@@ -1,5 +1,5 @@
 ---
-title: "New Release – Pieceoftoast"
+title: "New Release - Pieceoftoast"
 date: 2017-02-27
 lastmod: 2025-10-29
 slug: "pieceoftoast"
@@ -17,7 +17,7 @@ In [this release](https://github.com/dataplat/dbatools/releases/tag/v0.8.930), w
 We released the follow two commands in [snowball](https://dbatools.io/snowball) but wanted you to download the latest version of dbatools which includes some really awesome improvements to backup and restore.
 
 - **[Restore-DbaDatabase](https://dbatools.io/Restore-DbaDatabase)**
-  The restore command is now especially impressive – imagine being able to restore a whole instance of [Maintenance Solution](https://ola.hallengren.com/) backups with a single pipe like `Get-ChildItem \\nas\sql\sql2016 | Restore-DbaDatabase -SqlInstance localhost`. It's now totally possible!
+  The restore command is now especially impressive - imagine being able to restore a whole instance of [Maintenance Solution](https://ola.hallengren.com/) backups with a single pipe like `Get-ChildItem \\nas\sql\sql2016 | Restore-DbaDatabase -SqlInstance localhost`. It's now totally possible!
 
   Want to be even more blown away? How about `Get-DbaDatabase -SqlInstance sql2005 -ExcludeSystem | Backup-DbaDatabase -BackupDirectory \\dc\sql\test | Restore-DbaDatabase -SqlInstance sql2016\vnext`
 
@@ -37,7 +37,7 @@ In this release we have **22 new commands**, several bugs fixes and a bunch of i
 ### Execution Plans
 
 - **[Get-DbaExecutionPlan](https://dbatools.io/Get-DbaExecutionPlan)**
-  Gets execution plans and metadata – useful for piping to Export-DbaExecutionPlan.
+  Gets execution plans and metadata - useful for piping to Export-DbaExecutionPlan.
 
 - **[Export-DbaExecutionPlan](https://dbatools.io/Export-DbaExecutionPlan)**
   Exports execution plans to disk. Can pipe from Get-DbaExecutionPlan.
@@ -79,7 +79,7 @@ We actually release to the gallery a little more often than we blog about. If yo
 It's also our mascot, Tron's, debut in the toolkit. You'll be seeing more of him around, including in an upcoming blog post.
 
 - **[Watch-DbaUpdate](https://dbatools.io/Watch-DbaUpdate)**
-  Just for fun – checks the PowerShell Gallery for updates to dbatools.
+  Just for fun - checks the PowerShell Gallery for updates to dbatools.
 
 - **[Install-dbatoolsWatchUpdate](https://dbatools.io/Install-dbatoolsWatchUpdate)**
   Sets up a scheduled task that checks the PowerShell Gallery every 3 hours for updates to dbatools. Notifies once max per release.

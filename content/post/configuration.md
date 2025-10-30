@@ -51,7 +51,7 @@ You can then filter out the results in a easier manner.
 
 If you run the following command, you will find all the distinct modules we have:
 
-```ps
+```powershell
 Get-dbatoolsConfig | Select-Object -Property Module -Unique
 ```
 
@@ -63,26 +63,26 @@ As you can see there are a good amount of different modules.
 
 You may have noticed two similarly named commands: `Get-dbatoolsConfig` and `Get-dbatoolsConfigValue`. Let's take a look at the differences.
 
-### Get-dbatoolsConfig – A Rich Object
+### Get-dbatoolsConfig - A Rich Object
 
 This command returns not only the value for a setting but also the module where it belongs and a useful description about it.
 You can specify the `-FullName` (preferable because it is unique) or only the `-Name` (same as `-FullName` but without the prefix which is the module name).
 
 `-FullName` example:
 
-```ps
+```powershell
 Get-dbatoolsConfig -FullName sql.connection.timeout
 ```
 
 `-Name` example:
 
-```ps
+```powershell
 Get-dbatoolsConfig -Name connection.timeout
 ```
 
 We also provide a validation script to a configuration. If you want to know how we validate it, you can see the `Validation` property, as example if you run:
 
-```ps
+```powershell
 Get-dbatoolsConfig -FullName formatting.size.digits | Select-Object *
 ```
 
@@ -90,7 +90,7 @@ You will get:
 
 ![Get-dbatoolsConfig Full Output](/images/Get-DbatoolsConfig_FullOutput.png)
 
-### Get-dbatoolsConfigValue – Is What You Are Thinking but We Have Interesting Options
+### Get-dbatoolsConfigValue - Is What You Are Thinking but We Have Interesting Options
 
 If you just want to get the configured value as a string, you should use the `Get-dbatoolsConfigValue` command. This command is widely used internally within the dbatools module.
 
@@ -104,13 +104,13 @@ To update a value you need to use the `Set-dbatoolsConfig` command. Unfortunatel
 
 For this particular case, you can and should rely on the `Get-Help` command.
 
-```ps
+```powershell
 Get-Help -Name Set-dbatoolsConfig -Full
 ```
 
 The easier way to update a value is provide the `-FullName` and `-Value` parameters. Example:
 
-```ps
+```powershell
 Set-dbatoolsConfig -FullName formatting.size.digits -Value 3
 ```
 
@@ -120,7 +120,7 @@ Note that changes made by `Set-dbatoolsConfig` only persists for the current ses
 
 Want to clean the logs more frequently? Or keep them longer than the default of 7 days? Let's change to 8 days by setting the `Logging.MaxLogFileAge` configuration.
 
-```ps
+```powershell
 Set-dbatoolsConfig -FullName Logging.MaxLogFileAge -Value (New-TimeSpan -Days 8)
 ```
 
@@ -130,7 +130,7 @@ Take a look at the formatting section and find a couple of configurations to set
 
 If you want to change from `dd MMM yyyy` format to `yyyy MM dd` you can run the following command:
 
-```ps
+```powershell
 Set-dbatoolsConfig -FullName formatting.date -Value 'yyyy MM dd'
 ```
 
@@ -138,7 +138,7 @@ Set-dbatoolsConfig -FullName formatting.date -Value 'yyyy MM dd'
 
 15 seconds (the default) is not enough? Change it using the `sql.connection.timeout` configuration.
 
-```ps
+```powershell
 Set-dbatoolsConfig -FullName Logging.MaxLogFileAge -Value 30
 ```
 
@@ -146,7 +146,7 @@ Set-dbatoolsConfig -FullName Logging.MaxLogFileAge -Value 30
 
 There are a couple of configs that you can set in the Azure section. Take a look at them:
 
-```ps
+```powershell
 Get-dbatoolsConfig -Module azure
 ```
 
@@ -156,7 +156,7 @@ Note that only a few of our commands have been tested to work with Azure. Better
 
 As mentioned previously, when you use the `Set` command, it is set only for your current session. To make the change permanent, use `Register-dbatoolsConfig`.
 
-```ps
+```powershell
 Get-dbatoolsConfig | Register-dbatoolsConfig
 ```
 
@@ -167,13 +167,13 @@ Like all of our config commands, this works on Windows, Linux and macOS.
 
 To reset all of your configured values to dbatools default, run the following:
 
-```ps
+```powershell
 Reset-dbatoolsConfig -FullName sql.connection.timeout
 ```
 
 This will set the configuration value back to 15. To reset all of your dbatools options to default, run the following:
 
-```ps
+```powershell
 Get-dbatoolsConfig | Reset-dbatoolsConfig
 ```
 

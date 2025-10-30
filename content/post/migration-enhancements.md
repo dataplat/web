@@ -26,7 +26,7 @@ As you may be able to see in the title bar of this [Out-GridView](https://learn.
 Start-DbaMigration -Source workstation -Destination localhost\sql2016, localhost\sql2017 -BackupRestore -UseLastBackup | Out-GridView
 ```
 
-If you examine the results, you'll see it migrated sp_configure, then moved on to credentials – first for **localhost\sql2016** then **localhost\sql2017**. And continued on from there, migrating [central management server](https://dbatools.io/cms), database mail, server triggers and databases.
+If you examine the results, you'll see it migrated sp_configure, then moved on to credentials - first for **localhost\sql2016** then **localhost\sql2017**. And continued on from there, migrating [central management server](https://dbatools.io/cms), database mail, server triggers and databases.
 
 It migrates a bunch of other things too, of course. Haven't seen or performed a migration before? Check out this [50-second video](https://www.youtube.com/watch?v=hg8tovMRX2k) of a migration.
 

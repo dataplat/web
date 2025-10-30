@@ -1,5 +1,5 @@
 ---
-title: "dbatools – A DevOps Success Story"
+title: "dbatools - A DevOps Success Story"
 date: 2017-06-13
 lastmod: 2025-10-29
 author: "Chrissy LeMaire"
@@ -32,7 +32,7 @@ That's a little generic, and the [entire post](https://theagileadmin.com/what-is
 
 - DevOps Values: "People over Process over Tools"
 - DevOps Principles: "Infrastructure as code" which means writing code to manage configurations and automate provisioning of infrastructure in addition to deployments
-- DevOps Tools – Tools you'd use in the commission of these principles. Pester, Appveyor, Slack, virtualization, containerization, etc.
+- DevOps Tools - Tools you'd use in the commission of these principles. Pester, Appveyor, Slack, virtualization, containerization, etc.
 
 By employing the above, it's easier to [achieve DevOps goals](https://en.wikipedia.org/wiki/DevOps#Goals):
 
@@ -95,7 +95,7 @@ Currently, our non-publicized releases occur with far greater frequency than our
 
 The dbatools team announced in early June 2017 that the next release would arrive around the following Wednesday, featuring renames galore, a fully signed module, dynamic parameter caching, and more tests.
 
-We're super pumped (and I'm hoping we can pull off that Wednesday deadline – it'll be a challenge but I'd love for the newest release to be ready for our presentations at [SQL Saturday Dublin](https://sqlsaturday.com/2017-06-17-SQLSat-0620/)).
+We're super pumped (and I'm hoping we can pull off that Wednesday deadline - it'll be a challenge but I'd love for the newest release to be ready for our presentations at [SQL Saturday Dublin](https://sqlsaturday.com/2017-06-17-SQLSat-0620/)).
 
 ## Speaking of Releases
 

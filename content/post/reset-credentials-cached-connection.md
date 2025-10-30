@@ -12,7 +12,7 @@ tags: [authentication, caching, connections, set-dbacmconnection]
 draft: false
 ---
 
-Hi, I am Gareth N – a SQL Server DBA in the UK. I have started to blog over at [ifexists.blog](https://ifexists.blog) – today I want to share some information around how dbatools can cache connection information, and how to reset it.
+Hi, I am Gareth N - a SQL Server DBA in the UK. I have started to blog over at [ifexists.blog](https://ifexists.blog) - today I want to share some information around how dbatools can cache connection information, and how to reset it.
 
 dbatools is smart. It can do things in the background when you're using the commands, like cache connections and also cache the results of those connections. This can help speed things up as it will re-use the existing object.
 

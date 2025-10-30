@@ -1,5 +1,5 @@
 ---
-title: "24 Hours of PASS Presentation – Now Online"
+title: "24 Hours of PASS Presentation - Now Online"
 date: 2017-08-03
 lastmod: 2025-10-29
 author: "Chrissy LeMaire"

@@ -1,5 +1,5 @@
 ---
-title: "New Release – Snowball – All About the Restore"
+title: "New Release - Snowball - All About the Restore"
 date: 2017-02-23
 lastmod: 2025-10-29
 author: "Stuart"
@@ -22,10 +22,10 @@ So we've got terabytes of SQL backups stashed away on disk. Brilliant, we're bom
 
 Part of a good backup strategy is proactively testing your backups by restoring. There are many benefits to doing this:
 
-- **Practice** – You don't want to be restoring a complex production database for the first time when the excrement is hitting the fan. Your restore procedures should be as simple as possible, and you should be able to do them correctly without thinking.
-- **Performance** – Just how long does it take to restore your production system? You can bet your boss would like to know
-- **Trust** – You need to know you can trust your backups. Just because they've been written to disk doesn't mean everything's OK. Corruption still happens unfortunately. Did you spot it before it became a problem?
-- **Confidence** – You need to know you've got all the backups you think you do. Sure someone's not removing transaction log backups before you're finished with them? A prod outage isn't the time to find out you need something from tape and the guy with the safe keys is tucked up in bed.
+- **Practice** - You don't want to be restoring a complex production database for the first time when the excrement is hitting the fan. Your restore procedures should be as simple as possible, and you should be able to do them correctly without thinking.
+- **Performance** - Just how long does it take to restore your production system? You can bet your boss would like to know
+- **Trust** - You need to know you can trust your backups. Just because they've been written to disk doesn't mean everything's OK. Corruption still happens unfortunately. Did you spot it before it became a problem?
+- **Confidence** - You need to know you've got all the backups you think you do. Sure someone's not removing transaction log backups before you're finished with them? A prod outage isn't the time to find out you need something from tape and the guy with the safe keys is tucked up in bed.
 
 ##### Then
 
@@ -41,7 +41,7 @@ PowerShell started making that a lot easier. By combining it's power in scanning
 
 We're proud to announce that dbatools is making it as simple as we can to do restores.
 
-## New Command – Restore-DbaDatabase
+## New Command - Restore-DbaDatabase
 
 Restore-DbaDatabase ties together a lot of new features and is probably going to be your main interface with the new restore functions.
 

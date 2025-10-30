@@ -1,5 +1,5 @@
 ---
-title: "Introducing dbachecks – A New Module From the dbatools Team!"
+title: "Introducing dbachecks - A New Module From the dbatools Team!"
 date: 2018-02-22
 lastmod: 2025-10-29
 author: "Chrissy LeMaire"
@@ -190,13 +190,13 @@ dbachecks is [MIT licensed](https://choosealicense.com/licenses/mit/)
 
 This post just touched on an overview of the new dbachecks module. To learn more about dbachecks, *check* out these posts
 
-- [Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell](https://blog.robsewell.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/)
+- [Announcing dbachecks - Configurable PowerShell Validation For Your SQL Instances by Rob Sewell](https://blog.robsewell.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/)
 - [install dbachecks by Chrissy LeMaire](https://dbachecks.io/install)
 - [dbachecks commands by Chrissy LeMaire](https://dbachecks.io/commands)
 - [My wrapper for dbachecks by Tony Wilhelm](https://v-roddba.blogspot.com/2018/02/wrapper-for-dbachecks.html)
 - [Checking backups with dbachecks by Jess Pomfret](http://jesspomfret.com/checking-backups-with-dbachecks/)
 - [dbachecks please! by Garry Bargsley](http://blog.garrybargsley.com/dbachecks-please)
-- [dbachecks – Configuration Deep Dive by Rob Sewell](https://blog.robsewell.com/2018/02/22/dbachecks-configuration-deep-dive/)
+- [dbachecks - Configuration Deep Dive by Rob Sewell](https://blog.robsewell.com/2018/02/22/dbachecks-configuration-deep-dive/)
 - [Test Log Shipping with dbachecks by Sander Stad](https://www.sqlstad.nl/powershell/test-log-shipping-with-dbachecks/)
 - [Checking your backup strategy with dbachecks by Joshua Corrick](https://blog.corrick.io/checking-your-backup-strategy-with-dbachecks)
 - [Enterprise-level reporting with dbachecks by Jason Squires](http://www.sqlnotnull.com/2018/02/22/enterprise-level-reporting-with-dbachecks-from-the-makers-of-dbatools/)

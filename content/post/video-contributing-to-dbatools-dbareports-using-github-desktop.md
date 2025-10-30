@@ -11,9 +11,9 @@ tags: [party]
 draft: false
 ---
 
-Recently, I presented to the [Philadelphia PowerShell User Group](http://phillyposh.org/) about Contributing to Open Source PowerShell projects using GitHub Desktop. I chose this topic because a number of people have asked for step-by-step instructions on how to work with GitHub.
+Recently, I presented to the Philadelphia PowerShell User Group about Contributing to Open Source PowerShell projects using GitHub Desktop. I chose this topic because a number of people have asked for step-by-step instructions on how to work with GitHub.
 
-I love the command line, but with Git? I think it's important to get the concepts down first and the [Desktop version](https://desktop.github.com/) makes that a lot easier to contribute to projets like dbatools, [dbareports](https://dbareports.io) and even [PowerShell](https://github.com/PowerShell/PowerShell) itself.
+I love the command line, but with Git? I think it's important to get the concepts down first and the [Desktop version](https://desktop.github.com/) makes that a lot easier to contribute to projects like dbatools, dbareports and even [PowerShell](https://github.com/PowerShell/PowerShell) itself.
 
 {{< youtube -OJdRhfV4Xg >}}
 

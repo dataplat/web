@@ -14,7 +14,7 @@ draft: false
 
 Happy Belated World Backup Day! I wish it was Backup and Restore Day, Test Your Backups Day, or World Recoverability Day, but alas.
 
-I'm currently working on my portion of the effort to get dbatools to 1.0 – integration tests for our commands. And while I wait for [AppVeyor](https://appveyor.com) to [run all of our tests](https://ci.appveyor.com/project/dataplat/dbatools/history), I've got a few minutes to post.
+I'm currently working on my portion of the effort to get dbatools to 1.0 - integration tests for our commands. And while I wait for [AppVeyor](https://appveyor.com) to [run all of our tests](https://ci.appveyor.com/project/dataplat/dbatools/history), I've got a few minutes to post.
 
 Initially, I wanted to highlight our Backup/Restore commands but there are sooo many, it'd take a few days to write about them. So today, I'm going to focus on `Export-DbaScript` or I'll never get this out the door 😊.
 

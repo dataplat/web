@@ -1,6 +1,7 @@
 ---
-title: "New Release – Twentyfiveschmeckles"
+title: "New Release - Twentyfiveschmeckles"
 date: 2017-02-01
+lastmod: 2025-10-30
 author: "Chrissy LeMaire"
 slug: "twentyfiveschmeckles"
 aliases:
@@ -11,17 +12,17 @@ tags: []
 draft: false
 ---
 
-In [this release](https://github.com/dataplat/dbatools/releases/tag/v0.8.694), we gained 4 new [contributors](https://github.com/dataplat/dbatools/graphs/contributors) to the [dbatools master repository](https://github.com/dataplat/dbatools) for a grand total of of 39! We even added 4 new [Major Contributors](https://dbatools.io/team) to the team. Thanks to all who have joined in to make the awesomest toolset for SQL Server DBAs — we're now offering the community 126 quality commands.
+In this release, we gained 4 new [contributors](https://github.com/dataplat/dbatools/graphs/contributors) to the [dbatools master repository](https://github.com/dataplat/dbatools) for a grand total of of 39! We even added 4 new [Major Contributors](https://dbatools.io/team) to the team. Thanks to all who have joined in to make the awesomest toolset for SQL Server DBAs — we're now offering the community 126 quality commands.
 
 ## Sorry for the Delay, We've Been Really Busy!
 
-Our last release came out around mid-December. Ideally, we aim for releasing more often, but [Rob](https://sqldbawithabeard.com/) and I were out presenting about dbatools and [dbareports](https://dbareports.io) at a few conferences and ran out of time. We did merge a mini-release (v0.8.693) to master in early January, though. So that kinda counts 😉
+Our last release came out around mid-December. Ideally, we aim for releasing more often, but [Rob](https://blog.robsewell.com/) and I were out presenting about dbatools and [dbareports](https://dbareports.io) at a few conferences and ran out of time. We did merge a mini-release (v0.8.693) to master in early January, though. So that kinda counts 😉
 
 The rest of the team has been super busy, too, as you can see by all of the new commands, enhancements and fixes. Now we've had time to compile the documentation and screenshots, so here is the release in all of its amazing glory.
 
 ## New Commands
 
-In this release we have **22 new commands**, several bugs fixes and a bunch of improvements on the existing commands. There are so many exciting commands in this release, it's hard to even highlight the top 22 best(har har). [Tweet us](https://dbatools.io/twitter) and let us know your favorites! We're really curious.
+In this release we have **22 new commands**, several bugs fixes and a bunch of improvements on the existing commands. There are so many exciting commands in this release, it's hard to even highlight the top 22 best(har har). Let us know your favorites at [bsky.app/profile/dbatools.io](https://bsky.app/profile/dbatools.io)! We're really curious.
 
 - **[Export-DbaUser](https://dbatools.io/Export-DbaUser)**
   Exports SQL Server Database Users creation script with all database permissions (database and object level) to a T-SQL file. This is a function that is not available in SQL Server Management Studio.
@@ -51,7 +52,7 @@ In this release we have **22 new commands**, several bugs fixes and a bunch of i
   Get amount of memory in use by all SQL Server components and instances. SSAS and SSIS are included.
 
 - **[Get-DbaMsdtc](https://dbatools.io/Get-DbaMsdtc)**
-  Displays information about the Distributed Transactioon Coordinator (MSDTC) on a server.
+  Displays information about the Distributed Transaction Coordinator (MSDTC) on a server.
 
 - **[Get-DbaPageFileSetting](https://dbatools.io/Get-DbaPageFileSetting)**
   Returns detailed information about the Windows page file.
@@ -119,7 +120,7 @@ In this release we have **22 new commands**, several bugs fixes and a bunch of i
 
 ## How's 1.0 Coming Along?
 
-Very well! We're working through the [style guide](https://dbatools.io/tstyle) right now and have been decisive and moving forward quickly. The feature code freeze is still planned for the end of February then we'll begin working on:
+Very well! We're working through the style guide right now and have been decisive and moving forward quickly. The feature code freeze is still planned for the end of February then we'll begin working on:
 
 - Bug fixes
 - Standardized documentation
@@ -137,7 +138,7 @@ Want to help create tests? We're in desperate need of testers and Pester fans. O
 
 ## New to dbatools?
 
-Visit the [downloads page](https://dbatools.io/download) for information about how to download and install dbatools (it's 1 command).
+Visit the [installation page](https://dbatools.io/install) for information about how to download and install dbatools (it's 1 command).
 
 ## Join Us!
 

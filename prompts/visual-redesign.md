@@ -384,10 +384,10 @@ Think of it as **Apple design meets CLI elegance**.
 
 | Type                     | Font          | Usage                 | Size & Weight             |
 | ------------------------ | ------------- | --------------------- | ------------------------- |
-| **Display / Hero**       | Inter         | `h1, h2`              | 48–64px, `font-extrabold` |
-| **Body / Paragraphs**    | Inter         | `p, li`               | 16–18px, `font-normal`    |
-| **Code / Commands**      | IBM Plex Mono | inline CLI or `<pre>` | 14–16px, `font-medium`    |
-| **Navigation / Buttons** | Inter         | links, CTAs           | 14–15px, `font-semibold`  |
+| **Display / Hero**       | Inter         | `h1, h2`              | 48-64px, `font-extrabold` |
+| **Body / Paragraphs**    | Inter         | `p, li`               | 16-18px, `font-normal`    |
+| **Code / Commands**      | IBM Plex Mono | inline CLI or `<pre>` | 14-16px, `font-medium`    |
+| **Navigation / Buttons** | Inter         | links, CTAs           | 14-15px, `font-semibold`  |
 
 Additional tone rules:
 
@@ -430,7 +430,7 @@ Animations should be **subtle and purposeful**, never distracting.
 
 | Element               | Motion Type                                         | Description                                                          |
 | --------------------- | --------------------------------------------------- | -------------------------------------------------------------------- |
-| **Hero command demo** | *Typewriter effect*                                 | Text appears as if typed line-by-line, 2–3s total.                   |
+| **Hero command demo** | *Typewriter effect*                                 | Text appears as if typed line-by-line, 2-3s total.                   |
 | **Buttons**           | *Scale on hover*                                    | `transform: scale(1.05)` over 150ms.                                 |
 | **Feature cards**     | *Hover lift*                                        | Slight scale + shadow intensification.                               |
 | **Section reveals**   | *Fade/slide up*                                     | Use intersection observer or Framer Motion, delay 0.15s per element. |

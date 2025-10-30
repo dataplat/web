@@ -1,6 +1,7 @@
 ---
 title: "The Path to 1.0"
 date: 2018-01-16
+lastmod: 2025-10-30
 author: "Simone"
 slug: "the-path-to-1-0"
 aliases:
@@ -33,7 +34,7 @@ As you can see, a few of us are the main reference (on GitHub and Slack, mostly)
 
 ## Bill of Health
 
-As dbatools is full of sooo many features, it's hard to tackle everything in one sweep. That's why we made the [Bill of Health](https://sqlcollaborative.github.io/boh) available. That's for you, and us, to track progress towards 1.0. It includes every single activity that will bring us closer to 1.0.
+As dbatools is full of sooo many features, it's hard to tackle everything in one sweep. That's why we made the [Bill of Health](https://dataplat.github.io/boh) available. That's for you, and us, to track progress towards 1.0. It includes every single activity that will bring us closer to 1.0.
 
 Data will be refreshed once or twice a week (you can see the trend on top with the details), giving everybody a good understanding on what's the pace of development. For details on each column, click on the Legend details, you'll be able to see what they mean.
 

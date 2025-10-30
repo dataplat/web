@@ -16,7 +16,7 @@ Well, first we'd like to give a big ol' shoutout to our teammate and new PowerSh
 
 ![](/images/img_595a59e042de1.png)
 
-Rob is one of the most visible members of the SQL PowerShell community, an officer in the [PASS PowerShell Virtual Group](https://sqlps.io) and an outstanding evangelist & Pester test maker for dbatools. We're all so excited about Rob's well-deserved recognition – love you, buddy! ❤️
+Rob is one of the most visible members of the SQL PowerShell community, an officer in the [PASS PowerShell Virtual Group](https://sqlps.io) and an outstanding evangelist & Pester test maker for dbatools. We're all so excited about Rob's well-deserved recognition - love you, buddy! ❤️
 
 ## Bagofbobbish Beta Testing
 
@@ -39,7 +39,7 @@ It's been two months since our last major release and we've made leaps and bound
 - Added a caching system for tab-completion
 - Switched to pre-compiling the library into a DLL file. This allows us to improve the module import speed and make the development logistics better.
 
-Speaking of compiling, C# dev Justin Dearing recently joined the team! Now we'll have someone to provide Fred, our in-house magician, some relief. So far, Justin's added some efficiency cleanup, code style and tests – thanks, man!
+Speaking of compiling, C# dev Justin Dearing recently joined the team! Now we'll have someone to provide Fred, our in-house magician, some relief. So far, Justin's added some efficiency cleanup, code style and tests - thanks, man!
 
 ## 63 New Commands
 
@@ -160,7 +160,7 @@ And here are a bunch of super fun commands! Check them out in your lab, let us k
 
 For those of you interested in testing, thank you! Again, you can get this release by [downloading the zip](https://dbatools.io/bobzip) manually [from GitHub](https://github.com/dataplat/dbatools/releases). From there, you can manually import it using **Import-Module C:\pathto\dbatools\dbatools.psd1 -Force**. Note that this beta release is not digitally signed but the final release will be.
 
-If you find any bugs – even anything obvious like the command can't run at all, or didn't get aliased and therefore no longer exists, please file a bug report at [dbatools.io/issues](https://dbatools.io/issues).
+If you find any bugs - even anything obvious like the command can't run at all, or didn't get aliased and therefore no longer exists, please file a bug report at [dbatools.io/issues](https://dbatools.io/issues).
 
 If you like any of these commands, pop in and let us know on our [Slack](https://dbatools.io/slack) channel. We now have nearly 800 members!
 

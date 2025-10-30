@@ -110,7 +110,7 @@ Microsoft rightly places a lot of emphasis on database DR, but what about everyt
 - Replication
 - Availability Groups
 
-How do you DR these? You can backup the required databases for some things – like msdb restores everything in Agent. Or, if it's available, you can right-click hundreds of objects, one-by-one, and export them.
+How do you DR these? You can backup the required databases for some things - like msdb restores everything in Agent. Or, if it's available, you can right-click hundreds of objects, one-by-one, and export them.
 
 ![](/images/right-click.png)
 

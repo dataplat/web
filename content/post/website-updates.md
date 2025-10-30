@@ -21,7 +21,7 @@ Finally! The [Getting Started](https://dbatools.io/getting-started) page has acc
 
 ## Commands Page and Command Index
 
-[Garry Bargsley](http://blog.garrybargsley.com/) updated like 100 command pages which required us to reorganize our [commands page](https://dbatools.io/commands). Now it's all pretty, but more importantly, it's organized by topic area which makes it a lot easier to find what you're looking for.
+[Garry Bargsley](https://garrybargsley.com/) updated like 100 command pages which required us to reorganize our [commands page](https://dbatools.io/commands). Now it's all pretty, but more importantly, it's organized by topic area which makes it a lot easier to find what you're looking for.
 
 [![](/images/img_5a218b33072a7-full.png)](https://dbatools.io/commands)
 

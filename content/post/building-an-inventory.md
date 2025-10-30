@@ -40,7 +40,7 @@ Before I dive into specific SQL Servers for in-depth analysis, I want to see som
 - Is the SQL part of an Availability Group? If yes, what's the name of the AG, what role does the SQL have right now and what's the underlying cluster object name?
 - On top of that, I find that SQL Instances usually get a "pet name" alias. This means, when people within the company are talking about the SQL Server, they don't call it by it's machine name, but rather something like "the production database" or "the cluster". Technically not correct, but that's how it is happening. Due to that, my overview should also contain that alias to make it easier for me until I remember all the mappings.
 
-Whoever has built an inventory script in the past knows that collecting the above information requires quite a few scripts. On top of that, the underlying DMVs have been changed between SQL versions, so you need to account for that. Microsoft has made that much easier with providing SMO (SQL Server Management Objects), a set of libraries that abstract away the complexity of collecting that information. Thankfully, Microsoft also enabled the dbatools team to include SMO in their framework. My example solution relies solely on dbatools (which works – not only but also – with SMO).
+Whoever has built an inventory script in the past knows that collecting the above information requires quite a few scripts. On top of that, the underlying DMVs have been changed between SQL versions, so you need to account for that. Microsoft has made that much easier with providing SMO (SQL Server Management Objects), a set of libraries that abstract away the complexity of collecting that information. Thankfully, Microsoft also enabled the dbatools team to include SMO in their framework. My example solution relies solely on dbatools (which works - not only but also - with SMO).
 
 OK, enough talk, let's jump straight into the code.
 
@@ -48,9 +48,9 @@ OK, enough talk, let's jump straight into the code.
 
 Right at the beginning of any of my scripts, I am defining the root of the script itself. I do this because I re-use a lot of functions.
 
-Since we want to collect the information for more than one SQL Server instance, we will first build a list of SQL Servers. We could query the list of instances from a central management server, but for the purpose of this post – and portability- we will keep it simple. We will also assume the account executing this script will have sufficient permissions on each SQL Server instance and that it can connect via Windows Authentication. I generally prefer Windows Authentication over SQL Server authentication due to security concerns, but that is a completely separate topic.
+Since we want to collect the information for more than one SQL Server instance, we will first build a list of SQL Servers. We could query the list of instances from a central management server, but for the purpose of this post - and portability- we will keep it simple. We will also assume the account executing this script will have sufficient permissions on each SQL Server instance and that it can connect via Windows Authentication. I generally prefer Windows Authentication over SQL Server authentication due to security concerns, but that is a completely separate topic.
 
-The names of the Servers will be coming from a simple text file in our example. Just do me a favour and do NOT put your server list into an unsecured network location – again, we need to keep security in mind.
+The names of the Servers will be coming from a simple text file in our example. Just do me a favour and do NOT put your server list into an unsecured network location - again, we need to keep security in mind.
 
 ![Picture 1: our server list](/images/SQLInventory_servers.png)
 
@@ -120,7 +120,7 @@ elseif ($_.VersionMajor -lt "11") {"SQL 2008R2 or older"} else {"unknown"}}},
 
 Right on, we extract the product level (e.g. RTM, SP1, …) and the Edition of the SQL Server (Standard, Enterprise…), followed by the available machine memory. Since this is returned in MB, we format and round it so that we get a nice number in GB (e.g. 12, 48 or 128).
 
-Then we include the number of logical processors and the name of the instance – in case we have a named instance.
+Then we include the number of logical processors and the name of the instance - in case we have a named instance.
 
 The number and size of user databases is a bit more complex. We need to query the "Databases" collection of the SMO Server object, filter out the system databases, get the size property of each object in the collection and measure it (count for the number and SUM for the combined size of the databases). Of course, we want those numbers to be nicely formatted and rounded to the full GB, so we add the formatting as well:
 

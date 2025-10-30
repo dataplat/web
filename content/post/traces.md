@@ -1,6 +1,7 @@
 ---
 title: "Stuck on Older Versions of SQL Server? Check Out Our Trace Commands."
 date: 2018-05-31
+lastmod: 2025-10-30
 author: "Chrissy LeMaire"
 slug: "traces"
 aliases:
@@ -15,7 +16,7 @@ If you're still using super old versions of SQL Server and don't have access to 
 
 ## Before I Begin
 
-Just a quick note, if you use newer versions of SQL Server and haven't seen the [XEvents Profiler](https://docs.microsoft.com/en-us/sql/relational-databases/extended-events/use-the-ssms-xe-profiler?view=sql-server-2017) in SSMS 17, it's awesome! In my experience, it's much faster than using Profiler and just as useful.
+Just a quick note, if you use newer versions of SQL Server and haven't seen the [XEvents Profiler](https://learn.microsoft.com/en-us/sql/relational-databases/extended-events/use-the-ssms-xe-profiler) in SSMS 17, it's awesome! In my experience, it's much faster than using Profiler and just as useful.
 
 Sadly, however, it's only available for SQL Server version 2012 and up.
 
@@ -46,7 +47,55 @@ Get-DbaTrace -SqlInstance sql2016 -Default
 Get-DbaTrace -SqlInstance sql2016, sql2017 -Id 2
 ```
 
-![](/images/detailedtrace.png)
+{{< powershell-console >}}
+PS C:\github\dbatools> Get-DbaTrace -SqlInstance sql2017
+
+ComputerName      : SQL2017
+InstanceName      : MSSQLSERVER
+SqlInstance       : SQL2017
+Id                : 1
+Status            : 1
+IsRunning         : True
+Path              : C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\Log\log_24.trc
+MaxSize           : 20
+StopTime          :
+MaxFiles          : 5
+IsRowset          : False
+IsRollover        : True
+IsShutdown        : False
+IsDefault         : True
+BufferCount       : 10
+BufferSize        : 1024
+FilePosition      : 10485760
+ReaderSpid        :
+StartTime         : 4/8/2018 8:35:21 PM
+LastEventTime     : 5/31/2018 11:38:14 AM
+EventCount        : 20353
+DroppedEventCount :
+
+ComputerName      : SQL2017
+InstanceName      : MSSQLSERVER
+SqlInstance       : SQL2017
+Id                : 2
+Status            : 0
+IsRunning         : False
+Path              : C:\temp\LongRunningQueries.trc
+MaxSize           : 5
+StopTime          :
+MaxFiles          : 2
+IsRowset          : False
+IsRollover        : True
+IsShutdown        : False
+IsDefault         : False
+BufferCount       : 2
+BufferSize        : 1024
+FilePosition      : 10485760
+ReaderSpid        :
+StartTime         :
+LastEventTime     :
+EventCount        : 0
+DroppedEventCount :
+{{< /powershell-console >}}
 
 ### Read-DbaTraceFile
 
@@ -66,7 +115,79 @@ Read-DbaTraceFile -SqlInstance sql2016 -Database master, tempdb -Path C:\traces\
 Read-DbaTraceFile -SqlInstance sql2016 -Path C:\traces\big.trc -Where "LinkedServerName = 'myls' and StartTime > '5/30/2017 4:27:52 PM'"
 ```
 
-![](/images/tracefile.png)
+{{< powershell-console >}}
+PS C:\github\dbatools> Get-DbaTrace -SqlInstance sql2017 -Id 1 | Read-DbaTraceFile
+
+ComputerName      : SQL2017
+InstanceName      : MSSQLSERVER
+SqlInstance       : SQL2017
+TextData          : BACKUP DATABASE [db] TO DISK = N'\\dc\sql_db_Final_Before_Drop_20180409_105536.bak' WITH DESCRIPTION = N'Final Full Backup of db Prior to Dropping', NOFORMAT, NOINIT, NOSKIP, REWIND, NOUNLOAD, STATS = 10, CHECKSUM
+BinaryData        :
+DatabaseID        : 14
+TransactionID     :
+LoginSid          : 1
+NTUserName        : ctrlb
+NTDomainName      : BASE
+HostName          : BASE-STATIONX
+ClientProcessID   : 68176
+ApplicationName   : dbatools PowerShell module - dbatools.io
+LoginName         : BASE\ctrlb
+SPID              : 55
+Duration          :
+StartTime         : 4/9/2018 10:55:36 AM
+EndTime           :
+Reads             :
+Writes            :
+CPU               :
+Permissions       :
+Severity          :
+EventSequence     : 1
+EventClass        : 1
+ObjectID          : 1
+Success           : 1
+IntegerData       :
+ServerName        : SQL2017
+EventClass        : 115
+ObjectType        : 16964
+NestLevel         : 0
+State             :
+Error             :
+Mode              :
+Handle            :
+ObjectName        : db
+DatabaseName      : db
+FileName          : dbo
+OwnerName         :
+RoleName          :
+TargetUserName    :
+DBUserName        : dbo
+LoginSid          : {1, 5, 0, 0...}
+TargetLoginName   :
+TargetLoginSid    :
+ColumnPermissions :
+LinkedServerName  :
+ProviderName      :
+MethodName        :
+RowCounts         :
+RequestID         : 0
+XactSequence      : 0
+EventSequence     : 8299
+BigintData1       :
+BigintData2       :
+GUID              :
+IntegerData2      :
+ObjectID2         :
+Type              :
+OwnerID           :
+ParentName        :
+IsSystem          :
+Offset            :
+SourceDatabaseID  :
+SqlHandle         :
+SessionLoginName  : BASE\ctrlb
+PlanHandle        :
+GroupID           :
+{{< /powershell-console >}}
 
 ### Remove-DbaTrace
 
@@ -83,7 +204,15 @@ Remove-DbaTrace -SqlInstance sql2008 -Id 2
 Get-DbaTrace -SqlInstance sql2008 | Out-GridView -PassThru | Remove-DbaTrace
 ```
 
-![](/images/remove.png)
+{{< powershell-console >}}
+PS C:\github\dbatools> Remove-DbaTrace -SqlInstance sql2017 -Id 2
+
+ComputerName : SQL2017
+InstanceName : MSSQLSERVER
+SqlInstance  : SQL2017
+Id           : 2
+Status       : Stopped, closed and deleted
+{{< /powershell-console >}}
 
 ### Start-DbaTrace
 
@@ -100,7 +229,32 @@ Start-DbaTrace -SqlInstance sql2008 -Id 2
 Get-DbaTrace -SqlInstance sql2008 | Out-GridView -PassThru | Start-DbaTrace
 ```
 
-![](/images/start.png)
+{{< powershell-console >}}
+PS C:\github\dbatools> Start-DbaTrace -SqlInstance sql2017 -Id 1
+
+ComputerName      : SQL2017
+InstanceName      : MSSQLSERVER
+SqlInstance       : SQL2017
+Id                : 1
+Status            : 1
+IsRunning         : True
+Path              : C:\temp\LongRunningQueries_1.trc
+MaxSize           : 5
+StopTime          :
+MaxFiles          : 2
+IsRowset          : False
+IsRollover        : True
+IsShutdown        : False
+IsDefault         : False
+BufferCount       : 2
+BufferSize        : 1024
+FilePosition      : 10485760
+ReaderSpid        :
+StartTime         : 5/31/2018 3:15:22 PM
+LastEventTime     :
+EventCount        : 0
+DroppedEventCount :
+{{< /powershell-console >}}
 
 ### Stop-DbaTrace
 
@@ -117,7 +271,32 @@ Stop-DbaTrace -SqlInstance sql2008 -Id 2
 Get-DbaTrace -SqlInstance $serverlist | Out-GridView -PassThru | Stop-DbaTrace
 ```
 
-![](/images/stop.png)
+{{< powershell-console >}}
+PS C:\github\dbatools> Stop-DbaTrace -SqlInstance sql2017 -Id 1
+
+ComputerName      : SQL2017
+InstanceName      : MSSQLSERVER
+SqlInstance       : SQL2017
+Id                : 1
+Status            : 0
+IsRunning         : False
+Path              : C:\temp\LongRunningQueries_1.trc
+MaxSize           : 5
+StopTime          :
+MaxFiles          : 2
+IsRowset          : False
+IsRollover        : True
+IsShutdown        : False
+IsDefault         : False
+BufferCount       : 2
+BufferSize        : 1024
+FilePosition      : 10485760
+ReaderSpid        :
+StartTime         : 5/31/2018 3:15:22 PM
+LastEventTime     :
+EventCount        : 0
+DroppedEventCount :
+{{< /powershell-console >}}
 
 ## PowerShell Is Awesome
 

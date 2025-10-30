@@ -43,13 +43,13 @@ A few days ago, on 2017-11-13, the development branch showed Get-DbaDbRecoveryMo
 
 Clicking on the [function itself](https://app.codecov.io/gh/sqlcollaborative/dbatools/src/6870dccda543988eb952f574de9f758134ee85d5/functions/Set-DbaDbRecoveryModel.ps1), you can see that only one line is specifically not covered
 
-![original coverage – source details](/images/blogpost_improving_tests_2.png)
+![original coverage - source details](/images/blogpost_improving_tests_2.png)
 
 Line 87 basically is about the possibility to specify a specific recovery model as a filter to retrieve only matching databases.
 
 If you run **Get-Help Get-DbaDbRecoveryModel** you'll see this parameter
 
-```ps
+```powershell
 -RecoveryModel <String[]>
        Filters the output based on Recovery Model. Valid options are Simple, Full and BulkLogged
        Details about the recovery models can be found here:
@@ -66,7 +66,7 @@ First, we need to create a database to test against the new case. Remembering th
 
 Cannibalizing a recurrent pattern seen in most tests, let's add a new Context with a BeforeAll and an AfterAll stanzas to keep everything clean
 
-```ps
+```powershell
 Context "RecoveryModel parameter works" {
     BeforeAll {
         $server = Connect-DbaInstance -SqlInstance $script:instance2
@@ -84,7 +84,7 @@ Summing up, *BeforeAll* runs before ANY test within the upper-level stanza (in o
 
 You'll see the *BeforeAll* checks and removes any preexisting *dbatoolsci_getrecoverymodel* database, it then proceeds to create a new one with BULK_LOGGED. The *AfterAll* instead just removes the database we created. Then, we create the real test case:
 
-```ps
+```powershell
 It "gets the newly created database with the correct recovery model" {
     $results = Get-DbaDbRecoveryModel -SqlInstance $script:instance2 -Database $dbname
     $results.RecoveryModel -eq 'BulkLogged' | Should Be $true
@@ -97,7 +97,7 @@ It "honors the RecoveryModel parameter filter" {
 
 Now, let's run the test locally, before submitting our changes. Create a **C:\Temp\constants.ps1** or a **.\tests\local.constants.ps1** that points to a live instance (in my case, the simplest of them all, *localhost*, results in this)
 
-```ps
+```powershell
 PS C:\dbatools-dev\tests> get-content .\constants.local.ps1
 $script:instance1 = "localhost"
 $script:instance2 = "localhost"
@@ -109,7 +109,7 @@ $ssisserver = "localhost"
 
 Then, let's launch the test
 
-```ps
+```powershell
 .\manual.pester.ps1 -path .\Get-DbaDbRecoveryModel.Tests.ps1 -TestIntegration
 ```
 
@@ -121,14 +121,14 @@ Now that we've confirmed that everything checks out, let's create the pull reque
 
 First, we open a proper feature branch spawned from development
 
-```ps
+```powershell
 git checkout development
 git checkout -b tests/Get-DbaRecoveryModel
 ```
 
 add the relevant commits, then push the new branch
 
-```ps
+```powershell
 git push origin tests/Get-DbaRecoveryModel
 ```
 

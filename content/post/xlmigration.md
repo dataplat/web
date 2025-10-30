@@ -1,6 +1,7 @@
 ---
 title: "A Monumental Migration to SQL Server 2016"
 date: 2019-01-17
+lastmod: 2025-10-30
 author: "Andy Levy"
 slug: "xlmigration"
 aliases:
@@ -13,7 +14,7 @@ draft: false
 
 *This post originally appeared in two parts on my personal blog at [flxsql.com](https://flxsql.com) and has been reposted here by request.*
 
-A bit over a year ago, I blogged about [my experience migrating a test SQL Server instance](https://flxsql.com/my-first-migration-with-dbatools/) from a VM to a physical machine with a little help from my [friends](https://dbatools.io). That migration went well and the instance has been running trouble-free ever since. But it's small potatoes. A modest instance, it's only about 5% the size of production. With [SQL Server 2008R2's EOL looming](https://blogs.msdn.microsoft.com/sqlreleaseservices/end-of-mainstream-support-for-sql-server-2008-and-sql-server-2008-r2/), it was time to migrate production to SQL Server 2016. It's a pretty beefy setup:
+A bit over a year ago, I blogged about my experience migrating a test SQL Server instance from a VM to a physical machine with a little help from my [friends](https://dbatools.io). That migration went well and the instance has been running trouble-free ever since. But it's small potatoes. A modest instance, it's only about 5% the size of production. With [SQL Server 2008R2's EOL looming](https://learn.microsoft.com/archive/blogs/sqlreleaseservices/end-of-mainstream-support-for-sql-server-2008-and-sql-server-2008-r2), it was time to migrate production to SQL Server 2016. It's a pretty beefy setup:
 
 - 2-node Failover Clustered Instance
 - 16 cores
@@ -27,10 +28,10 @@ How do you move *eight thousand* databases in a reasonable amount of time?
 
 I spent about an hour and a half one morning hashing ideas out w/ folks in the [dbatools Slack channel](https://dbatools.io/slack/), plus several conversations in the office and with our hosting provider.
 
-- [`Start-DbaMigration`](https://docs.dbatools.io/#Start-DbaMigration)? I love that function but it's single-threaded and we just don't have time to backup & restore that many databases that way.
+- [`Start-DbaMigration`](https://dbatools.io/Start-DbaMigration)? I love that function but it's single-threaded and we just don't have time to backup & restore that many databases that way.
 - Backup & restore? Multi-threaded, our daily full backups take over 3 hours to run. Double that to do a backup & restore.
 - Detach & reattach? We'll need either double the storage and eat the time copying the data, or risk the time required to restore from backup if we have to revert.
-- [Log shipping](https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/about-log-shipping-sql-server?view=sql-server-2017), [mirroring](https://docs.microsoft.com/en-us/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017), [replication](https://docs.microsoft.com/en-us/sql/relational-databases/replication/sql-server-replication?view=sql-server-2017)? Again, double the storage, and we have *so many* databases that it's just not feasible.
+- [Log shipping](https://learn.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server), [mirroring](https://learn.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server), [replication](https://learn.microsoft.com/sql/relational-databases/replication/sql-server-replication)? Again, double the storage, and we have *so many* databases that it's just not feasible.
 - In-place upgrade? Not supported by our hosting provider, and there's not much of a safety net.
 
 Ultimately the team settled on a variation of the detach & reattach.
@@ -41,36 +42,36 @@ Ultimately the team settled on a variation of the detach & reattach.
 4. Move the LUN to the new server
 5. Attach the databases
 
-This is the fastest way for us to move the data, and the snapshot provides a way back if we have to revert. We have backups as well, but those are the reserve parachute – the snapshot is the primary. This process is easiest if the paths for the data and log files remain the same. But that didn't happen here. On the old instance, both data and logs were dumped in the same directory. The new instance has separate data and log directories. And it's a new drive letter to boot.
+This is the fastest way for us to move the data, and the snapshot provides a way back if we have to revert. We have backups as well, but those are the reserve parachute - the snapshot is the primary. This process is easiest if the paths for the data and log files remain the same. But that didn't happen here. On the old instance, both data and logs were dumped in the same directory. The new instance has separate data and log directories. And it's a new drive letter to boot.
 
 OK, so how do you *attach* eight thousand databases and relocate their files in a reasonable amount of time?
 
-It's dbatools to the rescue, with [`Mount-DbaDatabase`](https://docs.dbatools.io/#Mount-DbaDatabase) being the star of the show. Not only does it attach databases for you, you can use it to relocate and rename the files as well. But that's really one of the last steps. We have setup to do first.
+It's dbatools to the rescue, with [`Mount-DbaDatabase`](https://dbatools.io/Mount-DbaDatabase) being the star of the show. Not only does it attach databases for you, you can use it to relocate and rename the files as well. But that's really one of the last steps. We have setup to do first.
 
 ## Preparation
 
 ### Basics
 
-Once the servers were turned over to us, the DBA basics had to get set up. I configured a few [trace flags](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql?view=sql-server-2017) for the instance with `Set-DbaStartupParameter -Traceflags 3226,4199,7412,460`.
+Once the servers were turned over to us, the DBA basics had to get set up. I configured a few [trace flags](https://learn.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) for the instance with `Set-DbaStartupParameter -Traceflags 3226,4199,7412,460`.
 
 | Trace Flag | Purpose |
 |---|---|
-| 460 | [Enable detailed `String or Binary Data would be truncated` error message](https://support.microsoft.com/en-us/help/4468101/optional-replacement-for-string-or-binary-data-would-be-truncated) in a [future Cumulative Update](https://sqlserverupdates.com/news/announcing-sql-server-2017-cu12-omg-they-finally-fixed-string-or-binary-data-would-be-truncated/) |
+| 460 | [Enable detailed `String or Binary Data would be truncated` error message](https://support.microsoft.com/topic/kb4468101-improvement-optional-replacement-for-string-or-binary-data-would-be-truncated-message-with-extended-information-in-sql-server-2016-and-2017-a4279ad6-1d3b-3960-77ef-c82a909f4b89) in a [future Cumulative Update](https://sqlserverupdates.com/news/announcing-sql-server-2017-cu12-omg-they-finally-fixed-string-or-binary-data-would-be-truncated/) |
 | 3226 | Suppress successful backup messages in the error log |
 | 4199 | [Enable query optimizer fixes in CUs and hotfixes](https://support.microsoft.com/en-us/help/974006/sql-server-query-optimizer-hotfix-trace-flag-4199-servicing-model) |
 | 7412 | [Enable lightweight execution statistics profiling](https://support.microsoft.com/en-us/help/3170113/update-to-expose-per-operator-query-execution-statistics-in-showplan-x) |
 
-Since publishing the original post, I've received a couple questions about the use of TF4199. With the [database-scoped option](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?view=sql-server-2017) `QUERY_OPTIMIZER_HOTFIXES` this isn't absolutely necessary to get post-RTM hotfixes for the optimizer. Pedro Lopes ([blog](https://blogs.msdn.microsoft.com/blogdoezequiel/)|[twitter](https://twitter.com/SQLPedro)) recommended in his Summit 2018 to enable it globally, and he confirmed that in an email exchange with Andy Galbraith ([blog](http://nebraskasql.blogspot.com/)|[twitter](https://twitter.com/dba_andy)) that Andy [wrote up on his blog](http://nebraskasql.blogspot.com/2018/11/things-i-learned-at-summit-v20-trace.html). Pam Lahoud ([twitter](https://twitter.com/SQLGoddess)) wrote about the topic in [a recent post](https://blogs.msdn.microsoft.com/sql_server_team/lets-talk-about-trace-flags/) as well.
+Since publishing the original post, I've received a couple questions about the use of TF4199. With the [database-scoped option](https://learn.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) `QUERY_OPTIMIZER_HOTFIXES` this isn't absolutely necessary to get post-RTM hotfixes for the optimizer. Pedro Lopes ([blog](https://learn.microsoft.com/archive/blogs/blogdoezequiel)) recommended in his Summit 2018 to enable it globally, and he confirmed that in an email exchange with Andy Galbraith ([blog](http://nebraskasql.blogspot.com/)) that Andy [wrote up on his blog](http://nebraskasql.blogspot.com/2018/11/things-i-learned-at-summit-v20-trace.html). Pam Lahoud wrote about the topic in [a recent post](https://learn.microsoft.com/archive/blogs/sql_server_team/lets-talk-about-trace-flags) as well.
 
 I did use `Start-DbaMigration` but excluded `Databases, Logins, AgentServer, ExtendedEvents` (the last because we don't use XE on the old instance anyway; this avoided any warnings or errors related to it). Excluding databases makes sense given what I wrote above, but why logins and Agent jobs?
 
-The source instance is several years old and has built up a lot of cruft; this migration was a good chance to clear that out. All disabled logins and jobs were scripted out and saved, and only the active items migrated. But that also meant I couldn't use `Copy-DbaAgentServer` because it doesn't filter jobs out; a few extra steps were necessary. For reasons I don't understand, `Start-DbaMigration` copied our database mail and Linked Server setups faithfully, with one exception – the passwords.
+The source instance is several years old and has built up a lot of cruft; this migration was a good chance to clear that out. All disabled logins and jobs were scripted out and saved, and only the active items migrated. But that also meant I couldn't use `Copy-DbaAgentServer` because it doesn't filter jobs out; a few extra steps were necessary. For reasons I don't understand, `Start-DbaMigration` copied our database mail and Linked Server setups faithfully, with one exception - the passwords.
 
 We were able to fix that up easily enough but I found it strange that of all things, the passwords weren't copied properly. Especially since I've done this successfully with dbatools in the past.
 
 ### Moving Logins
 
-Although I only wanted to migrate the currently-active logins, I wanted the ability to re-create any disabled logins just in case, so I needed to extract the create scripts for them. I achieved this via [`Get-DbaLogin`](https://docs.dbatools.io/#Get-DbaLogin), [`Export-DbaLogin`](https://docs.dbatools.io/#Export-DbaLogin), and [`Copy-DbaLogin`](https://docs.dbatools.io/#Copy-DbaLogin):
+Although I only wanted to migrate the currently-active logins, I wanted the ability to re-create any disabled logins just in case, so I needed to extract the create scripts for them. I achieved this via [`Get-DbaLogin`](https://dbatools.io/Get-DbaLogin), [`Export-DbaLogin`](https://dbatools.io/Export-DbaLogin), and [`Copy-DbaLogin`](https://dbatools.io/Copy-DbaLogin):
 
 <script src="https://gist.github.com/alevyinroc/bdc52ca2334b5f5da4778745b5172317.js"></script>
 
@@ -84,9 +85,9 @@ I had the same need for Agent jobs, and achieved it similarly. However, because 
 
 When that was complete, we updated the community tools that are installed in system databases
 
-- [Brent Ozar's First Responder Kit](https://github.com/BrentOzarULTD/SQL-Server-First-Responder-Kit/tree/master) – [`Install-DbaFirstResponderKit`](https://docs.dbatools.io/#Install-DbaFirstResponderKit)`-database master -force`
-- [Adam Machanic's `sp_whoisactive`](http://whoisactive.com) – [`Install-DbaWhoIsActive`](https://docs.dbatools.io/#Install-DbaWhoIsActive)`-database master`
-- [Ola Hallengren's Maintenance Solution](https://ola.hallengren.com/) – [`Install-DbaMaintenanceSolution`](https://docs.dbatools.io/#Install-DbaMaintenanceSolution)`-database master`
+- [Brent Ozar's First Responder Kit](https://github.com/BrentOzarULTD/SQL-Server-First-Responder-Kit/tree/master) - [`Install-DbaFirstResponderKit`](https://dbatools.io/Install-DbaFirstResponderKit)`-database master -force`
+- [Adam Machanic's `sp_whoisactive`](http://whoisactive.com) - [`Install-DbaWhoIsActive`](https://dbatools.io/Install-DbaWhoIsActive)`-database master`
+- [Ola Hallengren's Maintenance Solution](https://ola.hallengren.com/) - [`Install-DbaMaintenanceSolution`](https://dbatools.io/Install-DbaMaintenanceSolution)`-database master`
 By default, this function doesn't install Agent jobs, which is fine here. I already copied the Agent jobs over, but I wanted the latest & greatest versions of the backup and index maintenance stored procedures that they call.
 
 We use MinionWare's Minion CheckDB but didn't need do a separate installation or migration. With the exception of the Agent jobs, everything is self-contained in a single database. The Agent jobs were copied above, and the database came over with all the others.
@@ -124,9 +125,9 @@ With all of our pre-migration work complete, we shut down the SQL Server 2008R2 
 
 ### Attaching the Databases
 
-Before reading this section, I suggest you read two other recent posts, [PowerShell Multithreading with PoshRSJob](https://flxsql.com/powershell-multithreading-with-poshrsjob/) and [Thread-safe PowerShell Logging with PSFramework](https://flxsql.com/thread-safe-powershell-logging-with-psframework/), as they'll provide the background for how some of this was done.
+Before reading this section, the author referenced posts on PowerShell multithreading with PoshRSJob and thread-safe logging with PSFramework, which provide background for how the database attachment process was done.
 
-I created my own function as a wrapper for [`Mount-DbaDatabase`](https://docs.dbatools.io/#Mount-DbaDatabase) from dbatools, adding the extra features I needed (or thought I needed):
+I created my own function as a wrapper for [`Mount-DbaDatabase`](https://dbatools.io/Mount-DbaDatabase) from dbatools, adding the extra features I needed (or thought I needed):
 
 - Logging
 - Multi-threading
@@ -163,7 +164,7 @@ I re-ran my earlier PowerShell to fetch the databases and their files from `sys.
 
 We missed the estimated time for our go/no-go decision by *five minutes*. With the number of moving parts, databases in play, unexpected delays, and amount of testing we had to do, that's pretty good! My colleague and I had some additional work we needed to take care of after the team declared the migration a success. Agent jobs needed to be enabled, overnight job startups monitored, things like that. We called it a day after about 14 hours in the office.
 
-The next day, we had some more tasks to complete. Per a blog post by Erin Stellato ([blog](https://www.sqlskills.com/blogs/erin/)|[twitter](https://twitter.com/erinstellato)) back in May, because we upgraded from 2008R2 to 2016, [an index rebuild](https://www.sqlskills.com/blogs/erin/do-you-need-to-update-statistics-after-an-upgrade/) was advisable for all our nonclustered indexes. I did this via [Red Gate](https://www.red-gate.com/) [Multi Script](https://www.red-gate.com/products/dba/sql-multi-script/) and some dynamic SQL instead of PowerShell this time, looping through all the NC indexes in each database and running `ALTER INDEX REBUILD`.
+The next day, we had some more tasks to complete. Per a blog post by Erin Stellato ([blog](https://www.sqlskills.com/blogs/erin/)) back in May, because we upgraded from 2008R2 to 2016, [an index rebuild](https://www.sqlskills.com/blogs/erin/do-you-need-to-update-statistics-after-an-upgrade/) was advisable for all our nonclustered indexes. I did this via [Red Gate](https://www.red-gate.com/) [Multi Script](https://www.red-gate.com/products/dba/sql-multi-script/) and some dynamic SQL instead of PowerShell this time, looping through all the NC indexes in each database and running `ALTER INDEX REBUILD`.
 
 ## Aftermath
 

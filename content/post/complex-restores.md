@@ -47,8 +47,8 @@ Perhaps you want to spread the load even more? The run the scans across multiple
 
 Perhaps you want to restore a number of databases, and you want seperate Data and Log folders for each database, eg:
 
-**db1 – c:\folder\data\db1 and c:\folder\log\db1**
-**db2 – c:\folder\data\db2 and c:\folder\log\db2**
+**db1 - c:\folder\data\db1 and c:\folder\log\db1**
+**db2 - c:\folder\data\db2 and c:\folder\log\db2**
 
 By dipping into the restore pipleine we can loop through the databases contained within the backup information and apply custom formatting to each database:
 

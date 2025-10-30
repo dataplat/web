@@ -1,6 +1,7 @@
 ---
 title: "VS Code and Task"
 date: 2017-06-09
+lastmod: 2025-10-30
 author: "Shawn Melton"
 slug: "vscode-task"
 aliases:
@@ -19,10 +20,10 @@ One of the big initiatives we are working fearlessly on for the module is gettin
 
 Pester is a special syntax that lets you code in almost plain English. It is one of those that once it clicks you are like "where have you been all my life!". If you are interested in learning more on Pester I've included a short list of some excellent resources to help:
 
-- [Adam Bertram – The Pester Book](https://leanpub.com/pesterbook) (*Could be the last book you buy on it.*)
-- [Microsoft Virtual Academy – Testing PowerShell with Pester](https://mva.microsoft.com/en-us/training-courses/testing-powershell-with-pester-17650) (Ashley McGlone and Adam Bertram)
+- [Adam Bertram - The Pester Book](https://leanpub.com/pesterbook) (*Could be the last book you buy on it.*)
+- [Microsoft Learn - Testing PowerShell with Pester](https://learn.microsoft.com/shows/testing-powershell-with-pester) (Ashley McGlone and Adam Bertram)
 - [Test-Driven Development with Pester, June Blender (YouTube)](https://www.youtube.com/watch?v=gssAtCeMOoo)
-- [Green is Good Red is Bad – Turning your Checklists into Pester Test, Rob Sewell (YouTube)](https://www.youtube.com/watch?v=Qy-uvT57pt8)
+- [Green is Good Red is Bad - Turning your Checklists into Pester Test, Rob Sewell (YouTube)](https://www.youtube.com/watch?v=Qy-uvT57pt8)
 - [Testing PowerShell with Pester (Pluralsight)](https://www.pluralsight.com/courses/powershell-testing-pester)
 
 ## Task in VS Code
@@ -43,7 +44,7 @@ To generate the initial "task.json" file for your workspace just select the *Tas
 
 ## Tasking
 
-I will let you [go through the documentation on task](https://go.microsoft.com/fwlink/?LinkId=733558) to get down to the nitty-gritty on the options you have in the syntax. I can tell you reading through that documentation will make the remainder of this post much more clear.
+I will let you [go through the documentation on task](https://code.visualstudio.com/docs/editor/tasks) to get down to the nitty-gritty on the options you have in the syntax. I can tell you reading through that documentation will make the remainder of this post much more clear.
 
 I generated the configuration for these task by using Plaster in VS Code. The PowerShell extension includes [Plaster](https://github.com/powershell/plaster), which is a project around template-based project or module generation. When you build a module using Plaster for the first time it will ask you if you want to use Pester, and then proceeds to generate the *task.json* file for you. I simply took that file and expanded it. The repository for Plaster contains the [initial file](https://github.com/PowerShell/Plaster/blob/master/examples/NewModule/editor/VSCode/tasks_pester.json) which only contains one task.
 
@@ -90,7 +91,7 @@ I had errors always showing in the terminal using the default path, about the Po
 ]
 ```
 
-I will go over each part in the above example, but you can find more on each property in the documentation on [schema for tasks.json](https://code.visualstudio.com/docs/editor/tasks-appendix). That document goes over each option and value.
+I will go over each part in the above example, but you can find more on each property in the documentation on [schema for tasks.json](https://code.visualstudio.com/docs/reference/tasks-appendix). That document goes over each option and value.
 
 1. When you run the task command in the command palette, the *taskName* is displayed when you select to run a task.
 2. Setting *isTestCommand* to true will simply map the specific task to the command *Task: Run Test Task* in the command palette. You can also set that task command to a key binding if you want to save more time.
@@ -153,7 +154,7 @@ One additional thing you can do in both panels is click on the failed test and V
 // ${fileExtname}: the current opened file's extension
 // ${cwd}: the current working directory of the spawned process
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // See https://code.visualstudio.com/docs/editor/tasks
     // for the documentation about the tasks.json format
     "version": "0.1.0",
     "_runner": "terminal",

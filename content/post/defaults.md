@@ -20,7 +20,7 @@ The great news is that this repetition is not required, as it can be handled ins
 
 **$PSDefaultParameterValues** is a hashtable available in PowerShell that can set defaults for any command that you run. In it's simplest form, setting a default parameter value can look like this:
 
-```ps
+```powershell
 $PSDefaultParameterValues['Get-DbaDatabase:Verbose'] = $true
 ```
 
@@ -60,7 +60,7 @@ Oh, and it's no big deal if a command does not support the parameter, the parame
 
 [Michael Sorens awesome article on simple-talk](https://www.red-gate.com/simple-talk/sysadmin/powershell/powershell-time-saver-automatic-defaults/) goes in-depth about syntax, but here are some basics.
 
-```ps
+```powershell
 # EnableException for all dbatools commands using wildcards, overwrite previous $PSDefaultParameterValues
 $PSDefaultParameterValues = @{ '*-Dba*:EnableException' = $true }
 
@@ -90,13 +90,13 @@ In the real-world, I primarily use Default Parameter Values when running Schedul
 
 Your default parameter values can be temporarily disabled by adding the following key:
 
-```ps
+```powershell
 $PSDefaultParameterValues["Disabled"] = $true
 ```
 
 And you can reenable it by setting Disabled to $false or by removing the Disabled key.
 
-```ps
+```powershell
 $PSDefaultParameterValues.Remove('Disabled')
 ```
 

@@ -22,7 +22,7 @@ When I'd remember and if it was available, I'd also manage SQL Client Aliases us
 
 [![cliconfg](/images/cliconfg.png)](/images/cliconfg.png)
 
-SQL Native Client provides cliconfg.exe but I think it's also built into Windows. I've yet to find an OS that doesn't have cliconfg on it – and I tried all the way back to Windows 2003! So if SQL Client Aliases seem useful to you, you're in luck.
+SQL Native Client provides cliconfg.exe but I think it's also built into Windows. I've yet to find an OS that doesn't have cliconfg on it - and I tried all the way back to Windows 2003! So if SQL Client Aliases seem useful to you, you're in luck.
 
 While you can manage SQL Client Aliases using the GUI, I prefer using dbatools which helps me avoid logging into multiple servers at once, and creates both the 32-bit and 64-bit aliases at once.
 
@@ -64,7 +64,7 @@ Now that I've created all of my required aliases, let's take a look at them usin
 
 # Try It Out
 
-Test this out yourself – create a new alias, then use dbatools, Azure Data Studio or SSMS to connect to the new server using the old name. In the example below, I've migrated sql2014 to sql2016 then will use the sql2014 alias to connect.
+Test this out yourself - create a new alias, then use dbatools, Azure Data Studio or SSMS to connect to the new server using the old name. In the example below, I've migrated sql2014 to sql2016 then will use the sql2014 alias to connect.
 
 ![image](https://user-images.githubusercontent.com/8278033/72148600-8574d880-33a1-11ea-8fca-762be02db2de.png)
 

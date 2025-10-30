@@ -105,7 +105,7 @@ Now this is where the magic happens. This function takes the leg work out of dec
 
 ### Inefficient Data Types and Repeated Data
 
-When you start to analyze your database to make this decision you first need to look at your table structures. Do you have a lot of fixed length datatypes that aren't being fully utilized? Think bigint storing the number 1 or char(1000) storing 'Jess' – then row compression could be a good fit. Do you have a lot of repeating data, like State or Gender columns? Then page compression could do wonders for you.
+When you start to analyze your database to make this decision you first need to look at your table structures. Do you have a lot of fixed length datatypes that aren't being fully utilized? Think bigint storing the number 1 or char(1000) storing 'Jess' - then row compression could be a good fit. Do you have a lot of repeating data, like State or Gender columns? Then page compression could do wonders for you.
 
 ### Workload and I/O
 

@@ -24,7 +24,7 @@ But there's always room for improvement. Just *having* up-to-date documentation 
 
 ## How I Got Involved
 
-What started for me as a simple attempt to correct spelling errors in dbatools has become a much larger mission – to review all of the comment-based help (CBH) and clean up examples, grammar, style and more. It's turned out to be a larger undertaking than expected, but it's come along far enough now that we're able bring more people into the process to distribute the work.
+What started for me as a simple attempt to correct spelling errors in dbatools has become a much larger mission - to review all of the comment-based help (CBH) and clean up examples, grammar, style and more. It's turned out to be a larger undertaking than expected, but it's come along far enough now that we're able bring more people into the process to distribute the work.
 
 ## How You Can Get Involved
 

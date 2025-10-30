@@ -22,13 +22,13 @@ Before we get started with what's new, let's take a look at some history.
 
 dbatools began in July of 2014 when I was tasked with migrating a SQL Server instance that supported SharePoint. No way did I want to do that by hand! Since then, the module has grown into a full-fledged data platform solution.
 
-- 07/2014 – Started
-- 07/2014 – Published to GitHub & ScriptCenter
-- 06/2016 – First major contributors
-- 01/2017 – Road to 1.0 began
-- 03/2018 – Switch from GPL to MIT
-- 05/2019 – Added MFA Support
-- 06/2019 – Over 160 contributors and 550 commands
+- 07/2014 - Started
+- 07/2014 - Published to GitHub & ScriptCenter
+- 06/2016 - First major contributors
+- 01/2017 - Road to 1.0 began
+- 03/2018 - Switch from GPL to MIT
+- 05/2019 - Added MFA Support
+- 06/2019 - Over 160 contributors and 550 commands
 
 Thanks so much to every single person who has volunteered any time to dbatools. You've helped change the SQL Server landscape.
 
@@ -175,7 +175,7 @@ All but 5 command aliases have been removed. Here are the ones that are still ar
 
 Get-DbaRegisteredServer -> Get-DbaRegServer
 Attach-DbaDatabase -> Mount-DbaDatabsae
-Detach-DbaDatabase – Dismount-DbaDatabase
+Detach-DbaDatabase - Dismount-DbaDatabase
 Start-SqlMigration -> Start-DbaMigration
 Write-DbaDataTable -> Write-DbaDbTableData
 
@@ -206,7 +206,7 @@ In case you did not hear the news, [Rob Sewell](https://sqldbawithabeard.com/) a
 
 ![Book Editor GIF](/images/book2.gif)
 
-The above is what the editor looks like – a lot like markdown!
+The above is what the editor looks like - a lot like markdown!
 
 If you'd like to see what the writing process is like, I did a [livestream a couple of months back](https://www.youtube.com/watch?v=EeXHlAPa_Mo) while writing Chapter 6, which is about [Find-DbaInstance](https://dbatools.io/Find-DbaInstance). Sorry about the music being a bit loud, that has been fixed in future streams which can be found at [youtube.com/dbatools](https://youtube.com/dbatools).
 
@@ -234,19 +234,19 @@ Without you all, 1.0 would be delayed for another 5 years.
 
 Want to know more about dbatools? Check out some of these posts ☺
 
-[dbatools 1.0 – the tools to break down the barriers – Shane O'Neill](https://nocolumnname.blog/?p=9452)
+[dbatools 1.0 - the tools to break down the barriers - Shane O'Neill](https://nocolumnname.blog/?p=9452)
 
-[dbatools 1.0 is here and why you should care – Ben Miller](https://dbaduck.com/2019/06/18/dbatools-1-0-is-here-and-why-you-should-care/)
+[dbatools 1.0 is here and why you should care - Ben Miller](https://dbaduck.com/2019/06/18/dbatools-1-0-is-here-and-why-you-should-care/)
 
-[dbatools 1.0 and beyond – Joshua Corrick](https://corrick.io/blog/dbatools-to-v1-0-and-beyond)
+[dbatools 1.0 and beyond - Joshua Corrick](https://corrick.io/blog/dbatools-to-v1-0-and-beyond)
 
-[dbatools 1.0 – Dusty R](https://nakedpowershell.blogspot.com/2019/06/dbatools-10.html)
+[dbatools 1.0 - Dusty R](https://nakedpowershell.blogspot.com/2019/06/dbatools-10.html)
 
-[Your DBA Toolbox Just Got a Refresh – dbatools v1.0 is Officially Available!!! – Garry Bargsley](https://garrybargsley.com/2019/06/20/your-dba-toolbox-just-got-a-refresh-dbatools-v1-0-is-officially-available/)
+[Your DBA Toolbox Just Got a Refresh - dbatools v1.0 is Officially Available!!! - Garry Bargsley](https://garrybargsley.com/2019/06/20/your-dba-toolbox-just-got-a-refresh-dbatools-v1-0-is-officially-available/)
 
-[dbatools v1.0? It's available – Check it out!](https://claudioessilva.eu/2019/06/19/dbatools-v1-0-its-available-check-it-out)
+[dbatools v1.0? It's available - Check it out!](https://claudioessilva.eu/2019/06/19/dbatools-v1-0-its-available-check-it-out)
 
-[updating sql server instances using dbatools 1.0 – Gareth N](https://ifexists.blog/updating-sql-server-instances-using-powershell/)
+[updating sql server instances using dbatools 1.0 - Gareth N](https://ifexists.blog/updating-sql-server-instances-using-powershell/)
 
 ## Livestreaming
 

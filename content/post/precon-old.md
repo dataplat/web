@@ -34,7 +34,7 @@ Want to know more? Here's our abstract.
 >
 > In development and need a nightly refresh? Architecting and need to find duplicate indexes fast and easy? Putting on your BI hat and need quick importing and exporting of data? Join us and we'll supply a hands-on lab for your laptop where you can experience PowerShell's realized potential, crafted by both Microsoft and the SQL community.
 >
-> Whether you need a prepackaged solution or the building blocks to roll your own fix, you will leave with awesome tools to manage your most annoying problems. And maybe – hopefully – you'll even be confident enough to contribute your own solutions to share with the community.
+> Whether you need a prepackaged solution or the building blocks to roll your own fix, you will leave with awesome tools to manage your most annoying problems. And maybe - hopefully - you'll even be confident enough to contribute your own solutions to share with the community.
 
 So come hang out with us at PASS Summit! You'll get access to a super fun lab and learn more about PowerShell through both dbatools and awesome Microsoft projects at our pre-con: [sqlps.io/precon](https://sqlps.io/precon).
 

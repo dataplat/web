@@ -1,5 +1,5 @@
 ---
-title: "New Release – realfakedoors"
+title: "New Release - realfakedoors"
 date: 2017-03-16
 lastmod: 2025-10-29
 author: "Chrissy LeMaire"

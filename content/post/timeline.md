@@ -17,7 +17,7 @@ Hey all, my name is Marcin and this is my first post and my first contribution t
 
 Part of a successful administration and management of any database is to know what happens over a period of time, when scheduled jobs and backups run and whether they are successful or not.
 
-The common difficulty is getting this information out of SQL Server and then – the most difficult part – understanding what it means. In case of scheduled jobs, we want to make sure that there are no clashing and those heavy workloads such as ETL, backups, integrity checks and index maintenance run in isolation as much as possible.
+The common difficulty is getting this information out of SQL Server and then - the most difficult part - understanding what it means. In case of scheduled jobs, we want to make sure that there are no clashing and those heavy workloads such as ETL, backups, integrity checks and index maintenance run in isolation as much as possible.
 
 Before dbatools, getting the information out of SQL Server was often a tedious task that often involved relatively complex T-SQL script, spreadsheet and some copying and pasting. Thanks to all the hard work of the dbatools team this is a history. A simple command can retrieve all the information we want and now with the new `ConvertTo-DbaTimeline`, it can be easily plotted on a graphical timeline!
 
@@ -25,7 +25,7 @@ Before dbatools, getting the information out of SQL Server was often a tedious t
 
 The concept of a timeline is very simple and based on a Gantt chart used in project management and time schedule:
 
-> A Gantt chart is a type of bar chart that illustrates a project schedule, named after its inventor, Henry Gantt (1861–1919), who designed such a chart around the years 1910–1915
+> A Gantt chart is a type of bar chart that illustrates a project schedule, named after its inventor, Henry Gantt (1861-1919), who designed such a chart around the years 1910-1915
 > https://en.wikipedia.org/wiki/Gantt_chart
 
 The idea is to show a graphical representation of an item or items of interest (task, job, meeting duration) with the start and end dates on a common timeline:
@@ -46,12 +46,12 @@ You will run the above commands as you would normally do but pipe the output to 
 
 #### Get-DbaAgentJobHistory
 
-```ps
+```powershell
 #To generate the timeline for agent job history and save as html file:
 Get-DbaAgentJobHistory -SqlInstance sql-1 -StartDate '2018-08-18 00:00' -EndDate '2018-08-19 23:59' -ExcludeJobSteps | ConvertTo-DbaTimeline | Out-File C:\temp\DbaAgentJobHistory.html -Encoding ASCII
 ```
 
-Note the `-Encoding ASCII` – this is required for correct JavaScript and HTML formatting.
+Note the `-Encoding ASCII` - this is required for correct JavaScript and HTML formatting.
 
 ![Get-DbaAgentJobHistory Timeline](/images/Get-DbaAgentJobHistory-html.jpg)
 
@@ -65,24 +65,22 @@ Colours are applied automatically based on the job status:
 
 #### Get-DbaDbBackupHistory
 
-```ps
+```powershell
 #Backup history timeline:
 Get-DbaDbBackupHistory -SqlInstance sql-1 -Since '2018-08-18 00:00' | ConvertTo-DbaTimeline | Out-File C:\temp\Get-DbaDbBackupHistory.html -Encoding ascii
 ```
 
-![Get-DbaDbBackupHistory Timeline](/images/Get-DbaDbBackupHistory-html-1024x566.jpg)
-
-And again, each backup type has its own colour. This time, however, they are not pre-configured but are set automatically by the Google's framework so could be random.
+Each backup type has its own colour. This time, however, they are not pre-configured but are set automatically by the Google's framework so could be random.
 
 We can also run it for multiple servers at once AND THIS IS GREAT as it allows to produce a comprehensive overview of the entire estate which can help to assess the impact on the network, storage or virtual cluster. And without passing the `Out-File` command it will simply output an HTML as a string:
 
-```ps
+```powershell
 Get-DbaDbBackupHistory -SqlInstance sql2017, sql2016 -Since '2018-08-13 00:00' | ConvertTo-DbaTimeline
 ```
 
 Which can be assigned to a variable or used to compose an email as in the example below:
 
-```ps
+```powershell
 $messageParameters = @{
     Subject = "Backup history for sql2017 and sql2016"
     Body = Get-DbaDbBackupHistory -SqlInstance sql2017, sql2016 -Since '2018-08-13 00:00' | ConvertTo-DbaTimeline

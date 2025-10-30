@@ -12,7 +12,7 @@ tags: [party]
 draft: false
 ---
 
-So, we've made the first step to 1.0 – we've stopped accepting Pull Requests that add new commands. It breaks my heart the most, but every moment that we spend vetting a new command is a moment we can't spend bug fixing and we really need to focus on standardization and bug fixes.
+So, we've made the first step to 1.0 - we've stopped accepting Pull Requests that add new commands. It breaks my heart the most, but every moment that we spend vetting a new command is a moment we can't spend bug fixing and we really need to focus on standardization and bug fixes.
 
 Our [pull request queue](https://dbatools.io/pr) is currently filled with new commands that we still need to review, along with a couple bug fixes. Early next week, we'll release an update with all these newer commands.
 

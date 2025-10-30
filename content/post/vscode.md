@@ -1,6 +1,7 @@
 ---
 title: "Contributing with Code"
 date: 2017-03-02
+lastmod: 2025-10-30
 author: "Shawn Melton"
 slug: "vscode"
 aliases:
@@ -19,7 +20,7 @@ VSCode is a cross-platform tool that works on Windows, Linux and Mac. You can do
 
 ![Editions](/images/Code_Editions.png)
 
-You will also need to [download and install Git](http://git-scm.com/download). If you already have GitHub Desktop installed, you will still need to install Git.
+You will also need to [download and install Git](https://git-scm.com/download). If you already have GitHub Desktop installed, you will still need to install Git.
 
 ## Where To Start
 
@@ -31,7 +32,7 @@ Getting started with VSCode can be a bit challenging at first if you normally us
 - [Integrated Terminal](https://code.visualstudio.com/docs/editor/integrated-terminal)
 - [Accessibility](https://code.visualstudio.com/docs/editor/accessibility)
 
-One additional resource that I think should be required reading, is the [Tips and Tricks](https://github.com/Microsoft/vscode-tips-and-tricks) content that Microsoft published on GitHub.
+One additional resource that I think should be required reading, is the [Tips and Tricks](https://code.visualstudio.com/docs/getstarted/tips-and-tricks) documentation on the VS Code site.
 
 ## Command Palette
 
@@ -201,11 +202,11 @@ It is often said "commit often" when you are using Git. It can help to make smal
 
 You can also right-click on any file listed in this sidebar to clean (remove any changes) and stage (make commits of only certain files at a time). If you open the file from the sidebar it will show you a comparison from your change and the original version of the file.
 
-## An Extra – Running PowerShell Code
+## An Extra - Running PowerShell Code
 
 If you are coming from the PowerShell ISE you may have gotten used to clicking the buttons on the toolbar to run either the whole script, or just the current line (or selected). In VSCode there are a few shortcomings in this area because there are no buttons. There are however key bindings/mappings that can be used.
 
-### Extensions – Keymaps
+### Extensions - Keymaps
 
 If you work with Atom or Sublime you can search the marketplace for "keymaps" and find a few extensions offered that will give you similar keybindings…note there is also [one for Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vs-keybindings).
 
@@ -213,8 +214,8 @@ If you work with Atom or Sublime you can search the marketplace for "keymaps" an
 
 By default the following keys are bound to the noted actions:
 
-- F5 – Starts debugging the current file (has to be saved with the ps1 extension)
-- F8 – Runs the currently focus (line or selected code).
+- F5 - Starts debugging the current file (has to be saved with the ps1 extension)
+- F8 - Runs the currently focus (line or selected code).
 
 There are a few caveats to the above keyboard bindings. The F8 keybinding runs the current line or selected code but outputs it to the Output pane and not the Integrated Terminal. If you go to your keyboard shortcuts, CTRL+K, CTRL+S and just paste the following to have it execute to the terminal:
 
@@ -235,7 +236,7 @@ So a short example, open a new file add one or two PowerShell commands. You will
 
 Now with F5 and debugging, it is up to you whether you want to change those around so they match up to what PowerShell ISE did. You would just need to find the command from the keyboard settings and add that to your keyboard settings.
 
-## An Extra-Extra – PSScriptAnalyzer
+## An Extra-Extra - PSScriptAnalyzer
 
 The PowerShell extension packages the [PSScriptAnalyzer module](https://www.powershellgallery.com/packages/PSScriptAnalyzer) which allows VSCode to check an open PS1 files against the PSSA rules. As the extension is released they bundle the latest version of the PSSA module. You can find what version is included by checking the following path on a Windows machine:
 

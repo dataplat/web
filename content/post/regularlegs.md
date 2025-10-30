@@ -30,7 +30,7 @@ If you use the old name, it'll still work but will show a warning that the comma
 
 If you'd like help renaming dbatools scripts within your command, use the newly created function **Invoke-dbatoolsRenameHelper**, available in [regularlegs](https://github.com/dataplat/dbatools/releases). The screenshot below shows is what it looked like when I ran the this:
 
-```ps
+```powershell
 Get-ChildItem -Recurse C:\temp\community-presentations\*.ps1 | Invoke-dbatoolsRenameHelper | Out-GridView
 ```
 

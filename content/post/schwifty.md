@@ -1,5 +1,5 @@
 ---
-title: "New Release – Schwifty – All About SPNs"
+title: "New Release - Schwifty - All About SPNs"
 date: 2017-02-06
 lastmod: 2025-10-29
 slug: "schwifty"
@@ -32,7 +32,7 @@ Before these functions were added to dbatools, you had a couple options when it 
 
 ## Now
 
-Now we have four new commands to help manage SPNs – [Get-DbaSpn](https://dbatools.io/Get-DbaSpn), [Test-DbaSpn](https://dbatools.io/Test-DbaSpn), [Set-DbaSpn](https://dbatools.io/Set-DbaSpn), and [Remove-DbaSpn](https://dbatools.io/Remove-DbaSpn). Our goal with the new SPN commands was to make them fast, and make them at least as useful as the GUI tool provided by Microsoft, but to allow multi-server administration and automation of setting correct SPNs and enabling constrained delegation. And we've done it! These commands are based on [guidance from MSDN about setting SQL Server Service Principal names which you can read more about here](https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/register-a-service-principal-name-for-kerberos-connections).
+Now we have four new commands to help manage SPNs - [Get-DbaSpn](https://dbatools.io/Get-DbaSpn), [Test-DbaSpn](https://dbatools.io/Test-DbaSpn), [Set-DbaSpn](https://dbatools.io/Set-DbaSpn), and [Remove-DbaSpn](https://dbatools.io/Remove-DbaSpn). Our goal with the new SPN commands was to make them fast, and make them at least as useful as the GUI tool provided by Microsoft, but to allow multi-server administration and automation of setting correct SPNs and enabling constrained delegation. And we've done it! These commands are based on [guidance from MSDN about setting SQL Server Service Principal names which you can read more about here](https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/register-a-service-principal-name-for-kerberos-connections).
 
 Oh and for the performance minded among you, we've built these functions to be super fast; faster than the traditional setspn.exe and Configuration Manager options by quite a bit. While the GUI tool took up to 51 seconds per server, our testing showed the ability to return required SPN info for **9 servers in 9 seconds**. That's 1 server per second, granted, we don't test for SSAS or SSRS at this time, but we do have it planned, and it'll still be quick.
 
@@ -46,7 +46,7 @@ A couple things to note when using these functions:
 
 ## New Commands
 
-### – [Get-DbaSpn](https://dbatools.io/Get-DbaSpn)
+### - [Get-DbaSpn](https://dbatools.io/Get-DbaSpn)
 
 Returns a list of any service principal names (SPNs) set for a given server or active directory account name
 
@@ -92,7 +92,7 @@ PS C:\github\dbatools> _
 {{< /powershell-console >}}
 
 
-### – [Test-DbaSpn](https://dbatools.io/Test-DbaSpn)
+### - [Test-DbaSpn](https://dbatools.io/Test-DbaSpn)
 
 Returns of listing of "required" SPNs for a given computer's instance of SQL Server. The cmdlet will discover all instances of SQL Server on a given computer name. For each instance found, the cmdlet will generate a list of required SPNs based on active TCP/IP ports. The cmdlet will also warn you if an instance is using dynamic ports. Each returned SPN object will also specify if the SPN is currently set or not.
 
@@ -157,7 +157,7 @@ PS C:\github\dbatools> _
 {{< /powershell-console >}}
 
 
-### – [Set-DbaSpn](https://dbatools.io/Set-DbaSpn)
+### - [Set-DbaSpn](https://dbatools.io/Set-DbaSpn)
 
 Connects to Active Directory and sets a given SPN to a given account. Will also set constrained delegation to the account to the recently added SPN.
 
@@ -184,7 +184,7 @@ What If: Performing the operation 'Adding constrained delegation to service acco
 {{< /powershell-console >}}
 
 
-### – [Remove-DbaSpn](https://dbatools.io/Remove-DbaSpn)
+### - [Remove-DbaSpn](https://dbatools.io/Remove-DbaSpn)
 
 Connects to Active Directory and removes a given SPN to a given account. Will also remove the associated constrained delegation.
 

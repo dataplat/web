@@ -23,7 +23,7 @@ Even the accidental DBA has to manage those pesky SQL Server Updates. Be it a bu
 - Put a developer in the mix: *do we have that bug fixed, or that shiny new feature ?*
 - Put every DBA in the mix: we manage a fleet of SQL Servers and we want them to be updated regularly, with all of the versions on par of what it has been carefully tested on a non-production instance.
 
-A quick search on google sends you – probably – to the most famous "build list" : [sqlserverbuilds.blogspot.com](https://sqlserverbuilds.blogspot.com/)
+A quick search on google sends you - probably - to the most famous "build list" : [sqlserverbuilds.blogspot.com](https://sqlserverbuilds.blogspot.com/)
 
 If you're managing other MS product, you'd have this bookmarked already : [buildnumbers.wordpress.com](https://buildnumbers.wordpress.com/)
 
@@ -48,14 +48,14 @@ Enter the JSON-based dbatools commmand, [Get-DbaBuildReference](https://docs.dba
 ![Get-DbaBuildReference command output](/images/img_59e2103a5fd37.png)
 
 You get back on a jiffy:
-– the Build
-– the Major Release
-– the Service Pack
-– the Cumulative Update
-– the KB related to that version
-– when the support for that version ends
-– if all of the above are matching a verified build
-– if a warning is shown, you passed a bad build or the JSON must be updated
+- the Build
+- the Major Release
+- the Service Pack
+- the Cumulative Update
+- the KB related to that version
+- when the support for that version ends
+- if all of the above are matching a verified build
+- if a warning is shown, you passed a bad build or the JSON must be updated
 
 How can **it** do **that**? We needed to compose yet another source of information, coming from all of the information we could get our hands on.
 

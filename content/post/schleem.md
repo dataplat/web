@@ -1,5 +1,5 @@
 ---
-title: "New Release – Schleem"
+title: "New Release - Schleem"
 date: 2016-12-14
 lastmod: 2025-10-29
 author: "Chrissy LeMaire"

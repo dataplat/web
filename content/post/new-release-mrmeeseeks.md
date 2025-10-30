@@ -1,5 +1,5 @@
 ---
-title: "New Release – Mr. Meeseeks"
+title: "New Release - Mr. Meeseeks"
 date: 2016-11-02
 lastmod: 2025-10-29
 author: "Chrissy LeMaire"

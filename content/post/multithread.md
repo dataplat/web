@@ -14,7 +14,7 @@ draft: false
 
 In this age of many companies adopting the ideas of either DevOps or [SRE](https://sre.google/) (Site Reliability Engineer) roles, there is constant need for automation. Mundane tasks like collecting metrics, alerts, server and database asset info into a central database on which you can do reporting is now a common task that many DBAs or system admins are performing.
 
-In SQL Server world, we are fortunate to have a vibrant community of [PowerShell enthusiasts](https://dbatools.io/team) that have open sourced [dbatools](https://dbatools.io/install) – a community driven PowerShell module to automate database development and administration.
+In SQL Server world, we are fortunate to have a vibrant community of [PowerShell enthusiasts](https://dbatools.io/team) that have open sourced [dbatools](https://dbatools.io/install) - a community driven PowerShell module to automate database development and administration.
 
 This begs a question..
 
@@ -110,7 +110,7 @@ Get-RSJob | Where-Object {$_.State -like "Completed" -and $_.HasMoreData -like "
 
 `-InputObject $servers`
 
-Here we are passing the collection item – `$servers` as an input object that will take that object and use it as the first parameter in the script block as long as you add a Param() block in it.
+Here we are passing the collection item - `$servers` as an input object that will take that object and use it as the first parameter in the script block as long as you add a Param() block in it.
 
 `Param($server)`
 

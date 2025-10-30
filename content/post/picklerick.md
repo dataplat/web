@@ -1,5 +1,5 @@
 ---
-title: "New Release – PickleRick"
+title: "New Release - PickleRick"
 date: 2017-11-17
 lastmod: 2025-10-29
 author: "Chrissy LeMaire"

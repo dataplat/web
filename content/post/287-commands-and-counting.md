@@ -72,7 +72,7 @@ The original goals for 1.0 were:
 - Pipe support
 - Tests
 
-Andy is helping like mad with standardizing the docs, and Shawn is doing a fabulous job leading a team to update the code base to the 1.0 standard – 231 out of 287 commands complete! Pipe support is still lacking and may just becoming a focus for 1.1 instead of 1.0.
+Andy is helping like mad with standardizing the docs, and Shawn is doing a fabulous job leading a team to update the code base to the 1.0 standard - 231 out of 287 commands complete! Pipe support is still lacking and may just becoming a focus for 1.1 instead of 1.0.
 
 That leaves us with tests, which Simone has been acing. He fixed our Appveyor setup and really pushed for us to create non-destructive tests, which I appreciate. Before, I was building tests as though the Appveyor environment was the ONLY environment the tests would be run on so it'd drop everything and start fresh.
 

@@ -166,7 +166,7 @@ To ensure your failed jobs show a failure in SQL Agent, you must throw a **termi
 
 ![](/images/img_5a1d665d70540.png)
 
-To throw a terminating exception in dbatools, use –EnableException. In most PowerShell commands, use try/catch with [–ErrorAction Stop](https://superwidgets.wordpress.com/2014/12/22/powershell-erroraction/).
+To throw a terminating exception in dbatools, use -EnableException. In most PowerShell commands, use try/catch with [-ErrorAction Stop](https://superwidgets.wordpress.com/2014/12/22/powershell-erroraction/).
 
 If you're having issues and just can't get it to fail, throw in a `[System.Environment]::Exit(1)` and that should certainly work.
 
