@@ -1,29 +1,58 @@
 ---
 title: "Install"
 date: 2016-05-06
+lastmod: 2025-10-30
 slug: "install"
 draft: false
 ---
 
-dbatools is digitally signed with Azure Trusted Signing, ensuring code integrity and security. [Learn more about our signing process](https://blog.netnerds.net/2025/08/dbatools-azure-trusted-signing/).
+## Where Should You Install dbatools?
+
+**Install dbatools on your workstation or jump box - NOT on your SQL Servers.**
+
+Like SSMS, dbatools is a management tool you install on your local machine and use to connect remotely to SQL Server instances. You don't need to install anything on your SQL Servers themselves.
+
+**Good places to install:**
+- Your Windows workstation (where you run SSMS)
+- A dedicated management/jump server
+- Your laptop for demos and dev work
+
+**Don't install on:**
+- Production SQL Servers (usually unnecessary and adds risk)
+- Every SQL Server in your estate (wasteful)
+
+---
 
 ## Install from the PowerShell Gallery
 
-```powershell
-Install-Module dbatools
-```
-
-The PowerShell Gallery and the command `Install-Module` are available in Windows 10+, Windows Server 2016+, and PowerShell 7.
-
-Install-Module requires Run As Administrator and installs dbatools globally. Don't have admin access or want to install dbatools only for yourself?
+**Security Note:** dbatools is digitally signed with Azure Trusted Signing, ensuring code integrity and security. [Learn more about our signing process →](https://blog.netnerds.net/2025/08/dbatools-azure-trusted-signing/)
 
 ```powershell
 Install-Module dbatools -Scope CurrentUser
 ```
 
+This is the recommended method - no admin rights needed, installs just for you.
+
+Need to install for all users? Use admin PowerShell:
+
+```powershell
+Install-Module dbatools
+```
+
 **Note:** dbatools has dependent libraries that will be installed automatically.
 
+The PowerShell Gallery and `Install-Module` are available in Windows 10+, Windows Server 2016+, and PowerShell 7.
+
 For Windows 7, 8, Server 2012, first install WMF5 from [https://aka.ms/wmf5download](https://aka.ms/wmf5download) then reboot.
+
+### First Time Using PowerShell Gallery?
+
+If you get a prompt about trusting PSGallery, type `Y` for Yes. You only need to do this once:
+```powershell
+Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+```
+
+---
 
 ## Install-PSResource (PowerShell 7.4+)
 
@@ -39,22 +68,50 @@ To install for all users (requires Run As Administrator):
 Install-PSResource dbatools -Scope AllUsers
 ```
 
-## Minimum Requirements
+---
+
+## Upgrading from Older Versions (v2.5.4 or earlier)
+
+Starting with v2.5.5, we switched to Azure Trusted Signing. If you're upgrading from an older version, you may need:
+
+```powershell
+Install-Module dbatools -Force -SkipPublisherCheck
+```
+
+This is a one-time requirement due to the certificate change.
+
+---
+
+## Other Installation Methods
+
+### Chocolatey
+
+```powershell
+choco install dbatools
+```
+
+More info at [chocolatey.org/packages/dbatools](https://chocolatey.org/packages/dbatools)
+
+### Offline Install
+
+Don't have Internet access on your DBA workstation? Check out our [offline install guide](/offline).
+
+---
+
+## System Requirements
 
 dbatools values backward compatibility. We still deliver for people running PowerShell v3 and SQL Server 2000.
 
-##### Server
+### SQL Server Support
+- SQL Server 2000 through SQL Server 2025
+- Azure SQL Database (40% of commands)
+- Azure SQL Managed Instance (60% of commands)
+- No PowerShell needed on the SQL Server host for database commands
 
-- SQL Server 2000 - SQL Server 2025
-- No PowerShell needed on the host for SQL Server-only commands
-- [PowerShell remoting](/secure) enabled on the host for remote Windows commands
-
-##### Workstation
-
-- Windows 7 with PowerShell 3
-- Linux or macOS with PowerShell 7
-
-Like SSMS, dbatools **is not** required on the server.
+### Workstation Requirements
+- **Windows:** Windows 7+ with PowerShell 3+
+- **Linux/macOS:** PowerShell 7+
+- **Remote Windows Commands:** [PowerShell remoting](/secure) enabled on target servers
 
 ### Network Requirements
 
@@ -69,31 +126,26 @@ For remote SQL Server management, ensure these ports are accessible:
 
 **Firewall Tip:** Use [`New-DbaFirewallRule`](/commands/New-DbaFirewallRule/) to automatically configure Windows Firewall rules for SQL Server.
 
-## Offline Install
-
-Don't have Internet access on your DBA workstation? Check out our [offline install](/offline) guide.
-
-## Chocolatey
-
-You can also install dbatools using [chocolatey](https://chocolatey.org/packages/dbatools)
-
-```powershell
-choco install dbatools
-```
+---
 
 ## New to PowerShell?
 
-If you're new to PowerShell and would like in-depth walk-thrus and more, please visit:
+If you're new to PowerShell and would like in-depth walk-thrus and more:
 
-- [walk-thru: installing modules from the powershell gallery](/soup2nutz).
-- [getting started with powershell](/start)
-- [offline installs of dbatools](/offline)
-- [talking to your security team about powershell and dbatools](/secure/)
+- [Walk-thru: Installing modules from the PowerShell Gallery](/soup2nutz)
+- [Getting started with PowerShell](/start)
+- [Offline installs of dbatools](/offline)
+- [Talking to your security team about PowerShell and dbatools](/secure/)
 
-### Using dbatools
+---
 
-Installing the module will make hundreds of commands available to you.
+## What's Next?
 
-Unsure what to do next? Visit the [Getting Started](/getting-started/) for more information and code samples, or check out our [popular commands](https://dbatools.io/commands/?popular=1).
+Installing the module makes hundreds of commands available to you.
+
+**Ready to start?**
+- [Getting Started Guide](/getting-started/) - Learn the basics with code samples
+- [Popular Commands](https://dbatools.io/commands/?popular=1) - See what everyone uses most
+- [Our Book](/book) - Learn dbatools in a Month of Lunches
 
 Like what you see? [Give us a star on GitHub](/git)!
