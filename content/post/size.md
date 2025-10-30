@@ -1,6 +1,7 @@
 ---
 title: "Working with File Sizes in dbatools"
 date: 2019-09-12
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "size"
 aliases:
@@ -15,7 +16,7 @@ Within dbatools, you may notice file sizes are pretty and human-readable.
 
 ![disksize](/images/disksize.png)
 
-That was some C# based magic created by Microsoft PFE and creator of [PSFramework](http://psframework.org/), [Fred Weinmann](https://twitter.com/FredWeinmann). In the background, SQL Server often gives us different types of numbers to represent file sizes. Sometimes it's bytes, sometimes it's megabytes. We wanted to standardize the sizing in dbatools, and thus the `dbasize` type was born.
+That was some C# based magic created by Microsoft PFE and creator of [PSFramework](http://psframework.org/), [Fred Weinmann](https://bsky.app/profile/psfred.bsky.social). In the background, SQL Server often gives us different types of numbers to represent file sizes. Sometimes it's bytes, sometimes it's megabytes. We wanted to standardize the sizing in dbatools, and thus the `dbasize` type was born.
 
 ## Usage
 
@@ -115,7 +116,7 @@ Here are all the options available:
 - Terabyte
 - TB
 
-If you're wondering how I got that, I researched how to show an enum in PowerShell, found [this TechNet article](https://social.technet.microsoft.com/wiki/contents/articles/26436.how-to-create-and-use-enums-in-powershell.aspx) then executed:
+If you're wondering how I got that, I researched how to show an enum in PowerShell, found [this article on Microsoft Learn](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_enum) then executed:
 
 ```powershell
 # Use .NET to enumerate the available values of SizeStyle

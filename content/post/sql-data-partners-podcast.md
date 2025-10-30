@@ -1,6 +1,7 @@
 ---
 title: "dbatools Teammates Join Carlos and Steve for an Episode of the SQL Data Partners Podcast"
 date: 2017-04-12
+lastmod: 2025-10-29
 slug: "sql-data-partners-podcast"
 aliases:
   - /sql-data-partners-podcast/
@@ -10,9 +11,9 @@ tags: [party]
 draft: false
 ---
 
-Recently, [Constantine](http://constantinekokkinos.com), [Rob](http://sqldbawithabeard.com), [Aaron](http://sqlvariant.com), and I got together to [record a podcast](http://sqldatapartners.com/dbatools) for SQL Data Partners with [Steve Stedman](http://stevestedman.com/) and [Carlos L Chacon](http://sqldatapartners.com/author/carlosjr/). We talked mostly dbatools, the community, open source projects and then I answered some SQL Family questions.
+Recently, [Constantine](http://constantinekokkinos.com), [Rob](https://blog.robsewell.com), [Aaron](https://sqlvariant.com), and I got together to [record a podcast](https://marathonus.com/about/podcast/dba-tools/) for SQL Data Partners with [Steve Stedman](https://stevestedman.com/) and [Carlos L Chacon](https://www.linkedin.com/in/carloslchacon/). We talked mostly dbatools, the community, open source projects and then I answered some SQL Family questions.
 
-Today, the SQL Data Partners team released the [podcast](http://sqldatapartners.com/dbatools), along with a corresponding transcript.
+Today, the SQL Data Partners team released the [podcast](https://marathonus.com/about/podcast/dba-tools/), along with a corresponding transcript.
 
 <!-- Embedded podcast player: https://html5-player.libsyn.com/embed/episode/id/5259083/ -->
 

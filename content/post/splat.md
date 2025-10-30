@@ -1,6 +1,7 @@
 ---
 title: "PowerShell Splatting"
 date: 2019-01-03
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "splat"
 aliases:
@@ -11,7 +12,7 @@ tags: []
 draft: false
 ---
 
-[Splatting](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_splatting) in PowerShell makes code easier to read. Instead of typing a bunch of parameters allllll across the screen, you can use an easy-to-read hashtable or array. Argument splatting was introduced in PowerShell v3 and works with all PowerShell commands, not just dbatools.
+[Splatting](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_splatting) in PowerShell makes code easier to read. Instead of typing a bunch of parameters allllll across the screen, you can use an easy-to-read hashtable or array. Argument splatting was introduced in PowerShell v3 and works with all PowerShell commands, not just dbatools.
 
 Note: I've only used splatting with hashtables, as they allow me to be explicit about which parameters I'm passing. It appears that arrays would employ [positional parameters](https://powershellstation.com/2017/10/04/specifying-powershell-parameter-position/), which is less wordy but leaves room for error.
 
@@ -108,7 +109,7 @@ New-DbaAvailabilityGroup @params
 
 ## VS Code
 
-In his blog post [Easily Splatting PowerShell with VS Code](https://sqldbawithabeard.com/2018/03/11/easily-splatting-powershell-with-vs-code/), Rob Sewell shows how VS Code can easily create splats, as explained in his instructions and video below. First, run:
+In his blog post [Easily Splatting PowerShell with VS Code](https://blog.robsewell.com/blog/easily-splatting-powershell-with-vs-code/), Rob Sewell shows how VS Code can easily create splats, as explained in his instructions and video below. First, run:
 
 ```ps
 Import-Module -Name EditorServicesCommandSuite
@@ -119,7 +120,7 @@ then:
 
 > Write the command, leave the cursor on a parameter, hit F1 – Choose PowerShell : Show Additional Commands (or use a keyboard shortcut) type splat press enter. Done 😊
 
-Rob also tweeted to "be careful where your cursor is. I usually put it in the command. Sometimes it goes screwy if the cursor is at the EoL."
+Rob also noted to be careful where your cursor is. He usually puts it in the command, as sometimes it goes screwy if the cursor is at the end of the line.
 
 ## Have Fun
 

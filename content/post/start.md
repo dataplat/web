@@ -1,6 +1,7 @@
 ---
 title: "Getting Started With PowerShell"
 date: 2018-10-01
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "start"
 aliases:
@@ -17,7 +18,7 @@ Now that you've [convinced your security team](/secure/) that PowerShell improve
 
 #### Learn PowerShell in a Month of Lunches
 
-Hands down, the one book most people recommend for learning PowerShell is **Learn Windows PowerShell in a Month of Lunches** by [Don Jones](https://donjones.com/powershell/) and [Jeffrey Hicks](http://jdhitsolutions.com/blog/). You can buy the 3rd edition from [Amazon](https://www.amazon.com/exec/obidos/redirect?tag=realcajunreci-20&path=ASIN/1617294160) or [directly from Manning](https://www.manning.com/books/learn-windows-powershell-in-a-month-of-lunches-third-edition).
+Hands down, the one book most people recommend for learning PowerShell is **Learn Windows PowerShell in a Month of Lunches** by Don Jones and [Jeffrey Hicks](http://jdhitsolutions.com/blog/). You can buy the 3rd edition from [Amazon](https://www.amazon.com/exec/obidos/redirect?tag=realcajunreci-20&path=ASIN/1617294160) or [directly from Manning](https://www.manning.com/books/learn-windows-powershell-in-a-month-of-lunches-third-edition).
 
 ![Learn PowerShell in a Month of Lunches cover](/images/monthoflunches.gif)
 
@@ -37,7 +38,7 @@ One reviewer said the following about our book 💓:
 
 ### Other books
 
-Once you're comfortable with PowerShell, check out the **[PowerShell Cookbook](https://www.amazon.com/exec/obidos/redirect?tag=realcajunreci-20&path=ASIN/1449320686)** by PowerShell Team member [Lee Holmes](https://www.leeholmes.com/blog/) and **[Windows PowerShell in Action](https://www.amazon.com/exec/obidos/redirect?tag=realcajunreci-20&path=ASIN/1633430294)** by PowerShell Team member [Bruce Payette](https://twitter.com/BrucePayette) and MVP [Richard Siddaway](https://richardspowershellblog.wordpress.com/).
+Once you're comfortable with PowerShell, check out the **[PowerShell Cookbook](https://www.amazon.com/exec/obidos/redirect?tag=realcajunreci-20&path=ASIN/1449320686)** by PowerShell Team member [Lee Holmes](https://www.leeholmes.com/blog/) and **[Windows PowerShell in Action](https://www.amazon.com/exec/obidos/redirect?tag=realcajunreci-20&path=ASIN/1633430294)** by PowerShell Team member Bruce Payette and MVP [Richard Siddaway](https://richardspowershellblog.wordpress.com/).
 
 The PowerShell Cookbook provides "recipes" of solutions, but I like that it's also useful for learning best practices. Lee's code is great to learn from! PowerShell in Action tells an amazing story and discusses the "Why" in-depth.
 
@@ -53,7 +54,7 @@ Just skip everything else and use [Microsoft VS Code](https://code.visualstudio.
 
 ![VS Code with PowerShell extensions](/images/vscode.png)
 
-The ISE is no longer being developed and [Microsoft officially says](https://blogs.msdn.microsoft.com/powershell/2017/05/10/announcing-powershell-for-visual-studio-code-1-0/):
+The ISE is no longer being developed and [Microsoft officially says](https://devblogs.microsoft.com/powershell/announcing-powershell-for-visual-studio-code-1-0):
 
 > The PowerShell ISE has been the official editor for PowerShell throughout most of the history of Windows PowerShell. Now with the advent of the cross-platform PowerShell Core, we need a new official editor that's available across all supported OS platforms and versions. Visual Studio Code is now that editor and the majority of our effort will be focused there.
 >
@@ -71,9 +72,9 @@ So for now, I'm using ISE *for demos*. I've heard the newer versions of Code are
 
 ## Videos
 
-### Microsoft Virtual Academy
+### Microsoft Learn
 
-[Microsoft Virtual Academy](https://mva.microsoft.com/training-topics/powershell#!lang=1033) has a few solid PowerShell videos, too, like [Getting Started with PowerShell 3.0: Don't fear the shell](https://channel9.msdn.com/Series/GetStartedPowerShell3/01) and [Advanced Tools & Scripting with PowerShell 3.0: Get Started](https://channel9.msdn.com/Series/advpowershell3/01).
+Microsoft Learn (formerly Microsoft Virtual Academy) has PowerShell training videos including [Getting Started with PowerShell 3.0: Don't fear the shell](https://learn.microsoft.com/shows/getstartedpowershell3/01) and [Advanced Tools & Scripting with PowerShell 3.0: Get Started](https://learn.microsoft.com/shows/advpowershell3/01).
 
 Note that this is for PowerShell 3 but it's still relevant as dbatools is designed to work with PowerShell 3 and above.
 
@@ -89,15 +90,15 @@ The goal of the [PowerShell koans](https://github.com/vexx32/PSKoans) is to teac
 
 And, of course, the regularly scheduled [PSPowerHour](https://www.youtube.com/channel/UCtHKcGei3EjxBNYQCFZ3WNQ) which is "like a virtual PowerShell User Group, with a lightning-demo format, and room for non-PowerShell-specific content." Eight community members give a demo each PowerHour.
 
-## [PWSHSchool](https://github.com/bateskevin/PWSHSchool/)
+## [PSAtlas](https://github.com/bateskevin/PSAtlas/)
 
-[PWSHSchool](https://github.com/bateskevin/PWSHSchool/blob/master/docs/Students.md) is all about gaining/sharing experiences. Join in to learn about PowerShell interactively, by using PowerShell!
+[PSAtlas](https://github.com/bateskevin/PSAtlas/blob/master/docs/Students.md) (formerly PWSHSchool) is all about gaining/sharing experiences. Join in to learn about PowerShell interactively, by using PowerShell!
 
-![PWSHSchool console](https://github.com/bateskevin/PWSHSchool/raw/master/Img/Console.PNG)
+![PSAtlas console](https://github.com/bateskevin/PSAtlas/raw/master/Img/Console.PNG)
 
 ## Docs
 
-[Microsoft Docs](https://docs.microsoft.com/en-us/powershell/) is updated regularly, easy-to-read, and useful.
+[Microsoft Docs](https://learn.microsoft.com/powershell/) is updated regularly, easy-to-read, and useful.
 
 ![Microsoft Docs](/images/docs.gif)
 
@@ -113,12 +114,7 @@ And, of course, the regularly scheduled [PSPowerHour](https://www.youtube.com/ch
 
 - [PowerShell.org Forums](https://powershell.org/forums/)
 - [Reddit](https://reddit.com/r/PowerShell/)
-- [Technet forums – Windows PowerShell](https://social.technet.microsoft.com/Forums/en-US/home?forum=winserverpowershell)
 - [Spiceworks PowerShell Forum](https://community.spiceworks.com/programming/powershell)
-
-## Meetup
-
-There are a ton of PowerShell User Groups across the world! Check out [PowerShell User Groups on Technet](https://social.technet.microsoft.com/wiki/contents/articles/19959.powershell-user-groups.aspx).
 
 ## dbatools
 

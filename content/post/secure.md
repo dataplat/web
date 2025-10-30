@@ -1,6 +1,7 @@
 ---
 title: "Talking to Your Security Team About PowerShell and dbatools"
 date: 2018-09-26
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "secure"
 aliases:
@@ -23,7 +24,7 @@ If you're questioned about PowerShell or dbatools, here are some handy facts to 
 
 # PowerShell
 
-So how is using PowerShell more secure than GUI administration? [This shocking video](https://youtu.be/BIwe571zcWY?t=1m22s) from a few years back can help explain. In it, Microsoft Security MVP [Marcus Murray](https://twitter.com/marcusswede) highlights just how easy it is to [steal a token](https://attack.mitre.org/wiki/Technique/T1134) and impersonate an admin who is logged in via the GUI.
+So how is using PowerShell more secure than GUI administration? [This shocking video](https://youtu.be/BIwe571zcWY?t=1m22s) from a few years back can help explain. In it, Microsoft Security MVP Marcus Murray highlights just how easy it is to [steal a token](https://attack.mitre.org/wiki/Technique/T1134) and impersonate an admin who is logged in via the GUI.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/BIwe571zcWY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
@@ -33,7 +34,7 @@ Remote PowerShell sessions do not create tokens, and consequently do not subject
 
 ## Remote PowerShell, You Say?
 
-I remember when I heard the term **PowerShell Remoting** and saw some book chapters on it, I was like "aw man, another thing I gotta learn?" but it's actually [pretty straight forward](https://docs.microsoft.com/en-us/powershell/scripting/core-powershell/running-remote-commands).
+I remember when I heard the term **PowerShell Remoting** and saw some book chapters on it, I was like "aw man, another thing I gotta learn?" but it's actually [pretty straight forward](https://learn.microsoft.com/en-us/powershell/scripting/learn/remoting/running-remote-commands).
 
 Windows PowerShell supports remote computing by using various technologies, including WMI, SQL WMI, RPC, SSH & WS-Management. Some commands require no remote configuration, including:
 
@@ -46,7 +47,7 @@ Windows PowerShell supports remote computing by using various technologies, incl
 
 ## Remoting
 
-**Remoting** refers to commands that use [WS-Management](https://docs.microsoft.com/en-us/powershell/scripting/setup/winrmsecurity). And it's **Microsoft's recommended method of managing Windows**. Why?
+**Remoting** refers to commands that use [WS-Management](https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/08-powershell-remoting). And it's **Microsoft's recommended method of managing Windows**. Why?
 
 - By default, it only allows connections from members of the Administrators group
 - It uses single port: 5985 or 5986
@@ -63,9 +64,9 @@ The PowerShell team is very serious about security and their lead security archi
 
 Yet we'll sometimes see things like this:
 
-[![](/images/clickbait.png)](https://www.symantec.com/connect/blogs/powershell-threats-surge-954-percent-analyzed-scripts-were-malicious)
+[![](/images/clickbait.png)](https://community.broadcom.com/symantecenterprise/communities/community-home/librarydocuments/viewdocument?DocumentKey=ce46d93e-6469-48b0-aa2a-9086ea9bf68c)
 
-Click to Tweet 🤐 So why do anti-virus (AV) companies highlight the obvious fact that suspicious files uploaded to a suspicious-file-checker will probably be suspicious?
+So why do anti-virus (AV) companies highlight the obvious fact that suspicious files uploaded to a suspicious-file-checker will probably be suspicious?
 
 Lee Holmes addresses this very issue in the keynote:
 
@@ -81,13 +82,7 @@ Looking for more? Check out [PowerShell, Remoting, and Security](https://github.
 
 ## Hackers Avoid PowerShell
 
-This tweet speaks volumes.
-
-> "I'm a red teamer so I try and stay as far away from PowerShell as I can" @h4wkst3r while discussing SharPersist tool release at #DerbyCon https://t.co/wY67IlrlFJ
->
-> This should make @Lee_Holmes proud
-
-— Christopher Glyer (@cglyer) [September 7, 2019](https://twitter.com/cglyer/status/1170429449852112898?ref_src=twsrc%5Etfw)
+Christopher Glyer once mentioned that a red teamer at DerbyCon said they try to stay as far away from PowerShell as they can while discussing the SharPersist tool release. This should make Lee Holmes proud, as it demonstrates that PowerShell's security features and logging capabilities make it less attractive to attackers.
 
 # dbatools
 
@@ -105,9 +100,9 @@ Thanks to a donation from dbatools contributors, [Data Masterminds](https://www.
 
 Code signing requires a code signing certificate. Obtaining a globally recognized code signing certificate isn't easy and took me about a month. A ton of paperwork & multiple proofs of identity were required, but I did it because I wanted dbatools to be as professional as possible.
 
-What are code signing certs? [DigiCert](https://www.digicert.com/code-signing/) says:
+**Update 2025:** dbatools has migrated to [Azure Trusted Signing](https://blog.netnerds.net/2025/08/dbatools-azure-trusted-signing/), Microsoft's modern code signing solution. This provides faster identity validation, immediate reputation with Windows SmartScreen and antivirus software, and helps reduce false positives that have occasionally affected dbatools. The transition began with version 2.5.5.
 
-> Code Signing Certificates are used by software developers to digitally sign apps, drivers, and software programs as a way for end-users to verify that the code they receive has not been altered or compromised by a third party. They include your signature, your company's name, and if desired, a timestamp.
+What are code signing certs? Code signing certificates are used by software developers to digitally sign apps, drivers, and software programs as a way for end-users to verify that the code they receive has not been altered or compromised by a third party. They include your signature, your company's name, and if desired, a timestamp.
 
 Our signatures do include a timestamp, and I personally sign every release that goes into the [PowerShell Gallery](https://dbatools.io/gallery) and [chocolately](https://dbatools.io/chocolatey). [Rob Sewell](http://sqldbawithabeard.com) and I are the only two people with access to the certificate. And while Rob can also potentially sign dbatools, he uses the certificate solely to sign our sister project, [dbachecks](https://dbachecks.io).
 
@@ -160,15 +155,15 @@ While it'd be foolish to make a guaranteed promise that our library is 💵, we 
 
 ## We're on Chocolatey
 
-Thanks to [Paul Broadwith](https://blog.pauby.com/), dbatools is now available in the chocolatey repository, and [chocolatey takes package integrity very seriously](https://chocolatey.org/security).
+Thanks to [Paul Broadwith](https://blog.pauby.com/), dbatools is now available in the chocolatey repository, and [chocolatey takes package integrity very seriously](https://docs.chocolatey.org/en-us/information/security).
 
 > Every version of every package submitted must pass through a rigorous moderation review process before they become publicly available (includes checks for quality, consistency, installation, and validations against VirusTotal).
 
-You can find out more about this review process at [chocolatey.org](https://chocolatey.org/security#rigorous-moderation-process-for-community-packages).
+You can find out more about this review process at [chocolatey.org](https://docs.chocolatey.org/en-us/information/security#rigorous-moderation-process-for-community-packages).
 
 ## We're in the Microsoft PowerShell Gallery
 
-You can also find us on the [PowerShell Gallery](https://dbatools.io/gallery) which performs an "[antivirus scan by using System Center Endpoint Protection](https://blogs.msdn.microsoft.com/powershell/2015/08/06/powershell-gallery-new-security-scan/)"
+You can also find us on the [PowerShell Gallery](https://dbatools.io/gallery) which performs antivirus scanning on all uploaded modules.
 
 According to Microsoft, all modules have to meet a minimum quality standard, which includes being free of malware and viruses.
 
@@ -176,13 +171,13 @@ According to Microsoft, all modules have to meet a minimum quality standard, whi
 
 Amazingly enough, Microsoft also uses dbatools (and 1999 me is totally tripping out). So while Microsoft does not officially endorse us, they appear to trust that we're a project with integrity.
 
-David Peter Hansen, SQL Server PFE, has [an awesome blog post](https://davidpeterhansen.com/2017/10/09/sql-server-performance-troubleshooting-free-scripts-and-tools-list/) where he details the tools he uses. dbatools is all up in the mix 😎 Another PFE and former Data Platform MVP, Ryan J. Adams, [actually suggests using dbatools](https://blogs.msdn.microsoft.com/sql_pfe_blog/2017/08/21/sync-sql-logins-and-jobs/) to sync logins for Availability Groups.
+David Peter Hansen, SQL Server PFE, has written about the tools he uses, and dbatools is all up in the mix 😎 Another PFE and former Data Platform MVP, Ryan J. Adams, has suggested using dbatools to sync logins for Availability Groups.
 
 And I just noticed he even [made a video](https://www.youtube.com/watch?v=hRpLco6ysBo) about dbatools!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hRpLco6ysBo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-Also, SQL PFE Patrick Keisler [wrote a post on blogs.msdn.microsoft.com](https://blogs.msdn.microsoft.com/samlester/2017/12/29/sql-server-dba-morning-health-checks/) which doesn't use dbatools directly, but does use some of the shared code base that I wrote.
+Also, SQL PFE Patrick Keisler has written about SQL Server DBA morning health checks which doesn't use dbatools directly, but does use some of the shared code base that I wrote.
 
 Word has it, we're also used in the banking industry, the airline industry, the super fancy speedcar industry, the insurance industry, the medical industry and more.
 
@@ -196,19 +191,19 @@ Microsoft itself has written extensively about PowerShell security.
 
 ## Who's Afraid of PowerShell Security?
 
-[Who's afraid of PowerShell security?](https://blogs.technet.microsoft.com/ashleymcglone/2016/06/29/whos-afraid-of-powershell-security/) by former Microsoft PFE Ashley McGlone was an instant classic because it was effective and succinct. This article made so many great points, including:
+[Who's afraid of PowerShell security?](https://techcommunity.microsoft.com/blog/itopstalkblog/whos-afraid-of-powershell-security/280799) by former Microsoft PFE Ashley McGlone was an instant classic because it was effective and succinct. This article made so many great points, including:
 
 > The improvements in WMF 5.0 (or WMF 4.0 with KB3000850) make PowerShell the worst tool of choice for a hacker when you enable script block logging and system-wide transcription. Hackers will leave fingerprints everywhere, unlike popular CMD utilities. For this reason, PowerShell should be the only tool you allow for remote administration. These features allow you to answer the classic questions who, what, when, where, and how for activities on your servers.
 
 ## PowerShell Security at Enterprise Customers
 
-[PowerShell Security at Enterprise Customers](https://blogs.msdn.microsoft.com/daviddasneves/2017/05/25/powershell-security-at-enterprise-customers/) by former Microsoft PFE David das Neves is another highly referenced article. I consider this the definitive, in-depth article about PowerShell security.
+[PowerShell Security at Enterprise Customers](https://techcommunity.microsoft.com/blog/itopstalkblog/powershell-security-at-enterprise-customers/255055) by former Microsoft PFE David das Neves is another highly referenced article. I consider this the definitive, in-depth article about PowerShell security.
 
 This post is practically a book, and even making an outline would be too long. If you need to know anything about PowerShell security, this post is a great reference. Bravo, David!
 
 ## A Comparison of Shell and Scripting Language Security
 
-[A Comparison of Shell and Scripting Language Security](https://blogs.msdn.microsoft.com/powershell/2017/04/10/a-comparison-of-shell-and-scripting-language-security/) by PowerShell's Security Architect Lee Holmes is another ace.
+[A Comparison of Shell and Scripting Language Security](https://devblogs.microsoft.com/powershell/a-comparison-of-shell-and-scripting-language-security/) by PowerShell's Security Architect Lee Holmes is another ace.
 
 My favorite part was this easy-to-understand visual bit that shows why PowerShell is mega-secure 💪
 

@@ -1,6 +1,7 @@
 ---
 title: "New Release – Schwifty – All About SPNs"
 date: 2017-02-06
+lastmod: 2025-10-29
 slug: "schwifty"
 aliases:
   - /schwifty/
@@ -13,11 +14,11 @@ author: "Drew Furgiuele"
 
 **These commands were updated Feb 8, 2017 (v0.8.709) to incorporate feedback ❤️**
 
-Right, so the first thing you need to know is: I'm not Chrissy. [My name's Drew](http://www.twitter.com/pittfurg), and I'm here tell you about an exciting new release of dbatools: schwifty!
+Right, so the first thing you need to know is: I'm not Chrissy. [My name's Drew](https://port1433.com/about-me/), and I'm here tell you about an exciting new release of dbatools: schwifty!
 
 In this release we've added three new commands to **help you manage SPNs for SQL Server Kerberos authentication**. If you have a lot of linked servers in your environment, then this is probably a welcome addition to the toolset for you.
 
-These commands leverage SQL Server instance info from commands that already existed in the dbatools code base and active directory PowerShell support to determine required SPNs for all instances on a given computer and whether they're set or not. If they aren't, we have commands to not only set the SPNs for you, but also enable [constrained delegation](https://technet.microsoft.com/en-us/library/cc995228.aspx) to accounts for the SPNs that were just added.
+These commands leverage SQL Server instance info from commands that already existed in the dbatools code base and active directory PowerShell support to determine required SPNs for all instances on a given computer and whether they're set or not. If they aren't, we have commands to not only set the SPNs for you, but also enable [constrained delegation](https://learn.microsoft.com/en-us/windows-server/security/kerberos/kerberos-constrained-delegation-overview) to accounts for the SPNs that were just added.
 
 [YouTube video: OVYFU3Ktqc0](https://www.youtube.com/embed/OVYFU3Ktqc0)
 
@@ -25,13 +26,13 @@ These commands leverage SQL Server instance info from commands that already exis
 
 Before these functions were added to dbatools, you had a couple options when it came to checking/adding SPNs:
 
-1. setspn.exe and ActiveDirectory Users and Computers. setspn.exe is a windows command that you could use to add an SPN to given Active Directory account. And it works great! You do need to know the SPN and account you want to set it for ahead of time; it doesn't really care about what kind of SPN you're setting, but it'll let you set it. You could also use it to check for dupes, list out what SPNs exist for an account… [it's a pretty well documented command](https://technet.microsoft.com/en-us/library/cc731241(v=ws.11).aspx). Setting the SPN is only part of what makes SQL Server Kerberos authentication work, though. You still need to set delegation on the account to the services in question. That normally requires you going into the Active Directory Users and Computers application and adding delegation outside of the setspn.exe command prompt. Yuck!
+1. setspn.exe and ActiveDirectory Users and Computers. setspn.exe is a windows command that you could use to add an SPN to given Active Directory account. And it works great! You do need to know the SPN and account you want to set it for ahead of time; it doesn't really care about what kind of SPN you're setting, but it'll let you set it. You could also use it to check for dupes, list out what SPNs exist for an account… [it's a pretty well documented command](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/setspn). Setting the SPN is only part of what makes SQL Server Kerberos authentication work, though. You still need to set delegation on the account to the services in question. That normally requires you going into the Active Directory Users and Computers application and adding delegation outside of the setspn.exe command prompt. Yuck!
 
 2. Microsoft Kerberos Configuration Manager for SQL Server. Microsoft does have a tool to help you manage your SPNs for SQL Server too. It's called [Kerberos Configuration Manager for SQL Server](https://www.microsoft.com/en-us/download/details.aspx?id=39046) and it's awesome because not only does it tell you what SPNs need set, but it checks to see if they are there. If they aren't, it'll try and fix them for you, or generate a .cmd file that you can run on your own. It's a neat tool that essentially generates SPNs based on best practice straight from Microsoft. While the auto fixing and script generation are neat, the program can be a little slow. Also: up until very recently (2017 Jan 31), it wasn't compatible with SQL Server 2016. It also doesn't set delegation for your accounts, either. Less yuck, but still: yuck!
 
 ## Now
 
-Now we have four new commands to help manage SPNs – [Get-DbaSpn](https://dbatools.io/Get-DbaSpn), [Test-DbaSpn](https://dbatools.io/Test-DbaSpn), [Set-DbaSpn](https://dbatools.io/Set-DbaSpn), and [Remove-DbaSpn](https://dbatools.io/Remove-DbaSpn). Our goal with the new SPN commands was to make them fast, and make them at least as useful as the GUI tool provided by Microsoft, but to allow multi-server administration and automation of setting correct SPNs and enabling constrained delegation. And we've done it! These commands are based on [guidance from MSDN about setting SQL Server Service Principal names which you can read more about here](https://msdn.microsoft.com/en-us/library/ms191153.aspx).
+Now we have four new commands to help manage SPNs – [Get-DbaSpn](https://dbatools.io/Get-DbaSpn), [Test-DbaSpn](https://dbatools.io/Test-DbaSpn), [Set-DbaSpn](https://dbatools.io/Set-DbaSpn), and [Remove-DbaSpn](https://dbatools.io/Remove-DbaSpn). Our goal with the new SPN commands was to make them fast, and make them at least as useful as the GUI tool provided by Microsoft, but to allow multi-server administration and automation of setting correct SPNs and enabling constrained delegation. And we've done it! These commands are based on [guidance from MSDN about setting SQL Server Service Principal names which you can read more about here](https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/register-a-service-principal-name-for-kerberos-connections).
 
 Oh and for the performance minded among you, we've built these functions to be super fast; faster than the traditional setspn.exe and Configuration Manager options by quite a bit. While the GUI tool took up to 51 seconds per server, our testing showed the ability to return required SPN info for **9 servers in 9 seconds**. That's 1 server per second, granted, we don't test for SSAS or SSRS at this time, but we do have it planned, and it'll still be quick.
 
@@ -49,13 +50,65 @@ A couple things to note when using these functions:
 
 Returns a list of any service principal names (SPNs) set for a given server or active directory account name
 
-![Get-DbaSpn output](/images/img_5899e6fa0bc11.png)
+{{< powershell-console >}}
+PS C:\github\dbatools> Get-DbaSpn -ComputerName sql2016 | Format-Table
+
+Input    AccountName       ServiceClass Port SPN
+-----    -----------       ------------ ---- ---
+sql2016  base\sqlserver    MSSQLSvc          MSSQLSvc/SQL2016.base.local
+sql2016  base\sqlserver    MSSQLSvc          MSSQLSvc/SQL2016.base.local:SQLEXPRESS
+sql2016  base\sqlserver    MSSQLSvc          MSSQLSvc/SQL2016.base.local:VWEXT
+sql2016  base\sqlserver    MSSQLSvc     1433 MSSQLSvc/SQL2016.base.local:1433
+sql2016  base\sqlserver    MSSQLSvc     49903 MSSQLSvc/SQL2016.base.local:49903
+sql2016  base\sqlserver    MSSQLSvc     49837 MSSQLSvc/SQL2016.base.local:49837
+
+PS C:\github\dbatools> $servers | Get-DbaSpn | Format-Table -AutoSize
+
+Input       AccountName       ServiceClass Port  SPN
+-----       -----------       ------------ ----  ---
+sql2008     base\sqlserver    MSSQLSvc           MSSQLSvc/sql2008.base.local
+sql2008     base\sqlserver    MSSQLSvc           MSSQLSvc/sql2008.base.local:SQL2K8
+sql2008     base\sqlserver    MSSQLSvc     1433  MSSQLSvc/sql2008.base.local:1433
+sql2008     base\sqlserver    MSSQLSvc     49271 MSSQLSvc/sql2008.base.local:49271
+sql2012     base\sqlserver    MSSQLSvc           MSSQLSvc/sql2012.base.local
+sql2012     base\sqlserver    MSSQLSvc     1433  MSSQLSvc/sql2012.base.local:1433
+sql2014     base\sqlserver    MSSQLSvc           MSSQLSvc/sql2014.base.local
+sql2016     base\sqlserver    MSSQLSvc           MSSQLSvc/SQL2016.base.local
+sql2016     base\sqlserver    MSSQLSvc           MSSQLSvc/SQL2016.base.local:SQLEXPRESS
+sql2016     base\sqlserver    MSSQLSvc           MSSQLSvc/SQL2016.base.local:VWEXT
+sql2016     base\sqlserver    MSSQLSvc     1433  MSSQLSvc/SQL2016.base.local:1433
+sql2016     base\sqlserver    MSSQLSvc     49903 MSSQLSvc/SQL2016.base.local:49903
+sql2016     base\sqlserver    MSSQLSvc     49837 MSSQLSvc/SQL2016.base.local:49837
+sql2016a    base\sqlserver    MSSQLSvc           MSSQLSvc/sql2016a.base.local
+sql2016a    base\sqlserver    MSSQLSvc     1433  MSSQLSvc/sql2016a.base.local:1433
+sql2016b    base\sqlserver    MSSQLSvc           MSSQLSvc/sql2016b.base.local
+sql2016b    base\sqlserver    MSSQLSvc     1433  MSSQLSvc/sql2016b.base.local:1433
+sql2016c    base\sqlserver    MSSQLSvc           MSSQLSvc/sql2016c.base.local
+sql2016c    base\sqlserver    MSSQLSvc     1433  MSSQLSvc/sql2016c.base.local:1433
+sqlcluster  base\sqlserver    MSSQLSvc           MSSQLSvc/sqlcluster.base.local
+sqlcluster  base\sqlserver    MSSQLSvc     1433  MSSQLSvc/sqlcluster.base.local:1433
+
+PS C:\github\dbatools> _
+{{< /powershell-console >}}
+
 
 ### – [Test-DbaSpn](https://dbatools.io/Test-DbaSpn)
 
 Returns of listing of "required" SPNs for a given computer's instance of SQL Server. The cmdlet will discover all instances of SQL Server on a given computer name. For each instance found, the cmdlet will generate a list of required SPNs based on active TCP/IP ports. The cmdlet will also warn you if an instance is using dynamic ports. Each returned SPN object will also specify if the SPN is currently set or not.
 
-![Test-DbaSpn output](/images/img_58984230e128a.png)
+{{< powershell-console >}}
+PS C:\github\dbatools> Test-DbaSpn -ComputerName sql2005 | Format-Table
+
+ComputerName           InstanceName           SqlProduct                           TcpEnabled DynamicPort  RequiredSPN                      IsSet  Cluster IsOnlineFail DomainPort Warning                    Error
+------------           ------------           ----------                           ---------- -----------  -----------                      -----  ------- ------------ ---------- -------                    -----
+sql2005.base.local     MSSQLSERVER            SQL Server 2005 Enterprise Edition       False   False    MSSQLSVC/sql2005.base.local           False  False  False             None
+sql2005.base.local     MSSQLSERVER            SQL Server 2005 Enterprise Edition       False   False    MSSQLSVC/sql2005.base.local:1433      False  False  False        1433  None
+sql2005.base.local     BASE\sqlserver                                                  False   False    MSSQLSVC/sql2005.base.local           False  False  False             None
+sql2005.base.local     BASE\sqlserver                                                  False   False    MSSQLSVC/sql2005.base.local:1433      False  False  False        1433  None
+sql2005.base.local     msdbs-AllowedDelegateto False   False    msdbs-AllowedDelegateto               False  False  False             None
+sql2005.base.local     msdbs-AllowedDelegateto False   False    msdbs-AllowedDelegateto               False  False  False             None
+{{< /powershell-console >}}
+
 
 You can even check your entire estate in just one line. Here, you can see us testing several instances in our lab.
 
@@ -63,17 +116,73 @@ You can even check your entire estate in just one line. Here, you can see us tes
 
 Or use Test to help easily Set all required SPNs
 
-![Test-DbaSpn with Set](/images/img_5899e4720ac5a.png)
+{{< powershell-console >}}
+PS C:\github\dbatools> Test-DbaSpn -ComputerName sql2005 | Where-object { !..IsSet -eq $false }
+
+ComputerName        : sql2005.base.local
+InstanceName        : MSSQLSERVER
+SqlProduct          : SQL Server 2005 Enterprise Edition (64-bit)
+TcpEnabled          : False
+RequiredSPN         : MSSQLSVC/sql2005.base.local
+IsSet               : False
+Cluster             : False
+TcpEnabled          : True
+DynamicPort         : False
+Warning             : None
+Error               : SPN missing
+
+ComputerName        : sql2005.base.local
+InstanceName        : MSSQLSERVER
+SqlProduct          : SQL Server 2005 Enterprise Edition (64-bit)
+InstanceServiceAccount : BASE\sqlserver
+RequiredSPN         : MSSQLSVC/sql2005.base.local:1433
+IsSet               : False
+Cluster             : False
+TcpEnabled          : True
+DynamicPort         : False
+Warning             : None
+Error               : SPN missing
+
+PS C:\github\dbatools> Test-DbaSpn -ComputerName sql2005 | Where-object { !..IsSet -eq $false } | Set-DbaSpn | Format-Table
+
+Name                              ServiceAccountProperty        IsSet Notes
+----                              ----------------------        ----- -----
+MSSQLSvc/sql2005.base.local       BASE\sqlserver servicePrincipalName  True  Successfully added SPN
+MSSQLSvc/sql2005.base.local:1433  BASE\sqlserver servicePrincipalName  True  Successfully added SPN
+MSSQLSvc/sql2005.base.local       BASE\sqlserver msdbs-AllowedToDelegateTo  True  Successfully added constrained delegation
+MSSQLSvc/sql2005.base.local:1433  BASE\sqlserver msdbs-AllowedToDelegateTo  True  Successfully added constrained delegation
+
+PS C:\github\dbatools> Test-DbaSpn -ComputerName sql2005 | Where-object { !..IsSet -eq $false }
+PS C:\github\dbatools> _
+{{< /powershell-console >}}
+
 
 ### – [Set-DbaSpn](https://dbatools.io/Set-DbaSpn)
 
 Connects to Active Directory and sets a given SPN to a given account. Will also set constrained delegation to the account to the recently added SPN.
 
-![Set-DbaSpn output](/images/img_5899e57f5a96d.png)
+{{< powershell-console >}}
+PS C:\github\dbatools> Set-DbaSpn -SPN MSSQLSvc/sql2005.base.local:1433 -ServiceAccount base\sqlserver | Format-Table
+
+Name                               ServiceAccount Property                        IsSet Notes
+----                               -------------- --------                        ----- -----
+MSSQLSvc/sql2005.base.local:1433   base\sqlserver servicePrincipalName           True  Successfully added SPN
+MSSQLSvc/sql2005.base.local:1433   base\sqlserver msdbs-AllowedToDelegateTo     True  Successfully added constrained delegation
+
+PS C:\github\dbatools> _
+{{< /powershell-console >}}
+
 
 Both Set and Remove fully support -WhatIf
 
-![Set-DbaSpn -WhatIf output](/images/img_5899e423e98e9.png)
+{{< powershell-console >}}
+PS C:\github\dbatools> Test-DbaSpn -ComputerName sql2005 | Where-object { !..IsSet -eq $false } | Set-DbaSpn -WhatIf
+What If: Performing the operation 'Adding SPN to service account' on target 'MSSQLSvc/sql2005.base.local'.
+What If: Performing the operation 'Adding constrained delegation to service account' on target 'MSSQLSvc/sql2005.base.local'.
+What If: Performing the operation 'Adding SPN to service account' on target 'MSSQLSvc/sql2005.base.local:1433'.
+What If: Performing the operation 'Adding constrained delegation to service account for SPN' on target 'MSSQLSvc/sql2005.base.local:1433'.
+{{< /powershell-console >}}
+
 
 ### – [Remove-DbaSpn](https://dbatools.io/Remove-DbaSpn)
 
@@ -81,7 +190,26 @@ Connects to Active Directory and removes a given SPN to a given account. Will al
 
 The following screenshot shows a way to easily remove SPNS of decommissioned servers.
 
-![Remove-DbaSpn output](/images/img_5899e3952455a.png)
+{{< powershell-console >}}
+PS C:\github\dbatools> Remove-DbaSpn -SPN MSSQLSvc/sql2014:1433 -ServiceAccount base\sqlserver | Format-Table
+
+Name                        ServiceAccount Property                       IsSet Notes
+----                        -------------- --------                       ----- -----
+MSSQLSvc/sql2014:1433       base\sqlserver servicePrincipalName          False Successfully removed SPN
+MSSQLSvc/sql2014:1433       base\sqlserver msdbs-AllowedToDelegateTo    False Successfully removed delegation
+
+PS C:\github\dbatools> Get-DbaSpn -ComputerName sql2005 | Remove-DbaSpn | Format-Table
+
+Name                        ServiceAccount Property                       IsSet Notes
+----                        -------------- --------                       ----- -----
+MSSQLSvc/sql2005.base.local base\sqlserver servicePrincipalName          False Successfully removed SPN
+MSSQLSvc/sql2005.base.local base\sqlserver msdbs-AllowedToDelegateTo    False Successfully removed delegation
+MSSQLSvc/sql2005.base.local:1433 base\sqlserver servicePrincipalName     False Successfully removed SPN
+MSSQLSvc/sql2005.base.local:1433 base\sqlserver msdbs-AllowedToDelegateTo False Successfully removed delegation
+
+PS C:\github\dbatools> _
+{{< /powershell-console >}}
+
 
 ## Related Commands
 

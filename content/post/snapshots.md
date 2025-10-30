@@ -1,6 +1,7 @@
 ---
 title: "Simplifying Snapshots"
 date: 2018-06-25
+lastmod: 2025-10-29
 author: "Chrissy LeMaire"
 slug: "snapshots"
 aliases:
@@ -11,7 +12,7 @@ tags: []
 draft: false
 ---
 
-I remember the first time I saw [database snapshots](https://www.red-gate.com/simple-talk/sql/database-administration/sql-server-2005-snapshots/), I was so excited. Then I right-clicked in SSMS and..
+I remember the first time I saw [database snapshots](https://www.sqlshack.com/sql-server-database-snapshots/), I was so excited. Then I right-clicked in SSMS and..
 
 ![](/images/rightclick.png)
 
@@ -25,7 +26,7 @@ AS SNAPSHOT OF db1
 
 ## Intro to Snapshots
 
-Basically, database snapshots are similar to VM snapshots but for databases. If you update an application and its database, you can take a snapshot and if the upgrade goes poorly, you can *super quickly* restore the snapshot and even a multi-TB database can be restored in no time. Here's a more technical [definition from Microsoft](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-snapshots-sql-server).
+Basically, database snapshots are similar to VM snapshots but for databases. If you update an application and its database, you can take a snapshot and if the upgrade goes poorly, you can *super quickly* restore the snapshot and even a multi-TB database can be restored in no time. Here's a more technical [definition from Microsoft](https://learn.microsoft.com/en-us/sql/relational-databases/databases/database-snapshots-sql-server).
 
 > A database snapshot is a read-only, static view of a SQL Server database (the source database). The database snapshot is transactionally consistent with the source database as of the moment of the snapshot's creation. A database snapshot always resides on the same server instance as its source database. As the source database is updated, the database snapshot is updated. Therefore, the longer a database snapshot exists, the more likely it is to use up its available disk space.
 
@@ -33,7 +34,7 @@ I've never done this but my BFF and DBA Brandon swears by it. He noted that up u
 
 ### Benefits
 
-Benefits, as listed on [Microsoft's Snapshot page on docs](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-snapshots-sql-server?view=sql-server-2017#Benefits) are listed as follows:
+Benefits, as listed on [Microsoft's Snapshot page on docs](https://learn.microsoft.com/en-us/sql/relational-databases/databases/database-snapshots-sql-server?view=sql-server-2017#Benefits) are listed as follows:
 
 - Snapshots can be used for reporting purposes
 - Maintaining historical data for report generation
@@ -71,8 +72,8 @@ $servers | Get-DbaDatabase | Out-GridView -PassThru | New-DbaDbSnapshot
 `<iframe width="560" height="315" src="https://www.youtube.com/embed/MEFFfEVsQPs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`
 
 ```powershell
-# To specify the name of the resulting snapshot, you can use the -Snapshot parameter
-New-DbaDbSnapshot -SqlInstance sql017 -Database HR -Snapshot MyCustomSnapNameforHRdb
+# To specify the name of the resulting snapshot, you can use the -Name parameter
+New-DbaDbSnapshot -SqlInstance sql017 -Database HR -Name MyCustomSnapNameforHRdb
 
 # If you'd like to create a snapshot for a few databases, but not use the default names,
 # you can use placeholders. As an example, the command below creates the following will
@@ -99,7 +100,41 @@ Get-DbaDbSnapshot -SqlInstance sql2017 -Snapshot HR_snap_20161201
 Get-DbaRegisteredServer -SqlInstance SQLCMS | Get-DbaDbSnapshot
 ```
 
-![](/images/snap.png)
+{{< powershell-console >}}
+[05:07:28][00:00:00] C:\github\dbatools> Get-DbaRegisteredServer -SqlInstance sql2008 | Get-DbaDbSnapshot
+
+ComputerName  : SQL2014
+InstanceName  : MSSQLSERVER
+SqlInstance   : SQL2014
+Name          : AdventureWorks2014_20180625_045302
+SnapshotOf    : AdventureWorks2014
+CreateDate    : 6/25/2018 4:53:04 PM
+DiskUsage     : 3.38 MB
+
+ComputerName  : SQL2014
+InstanceName  : MSSQLSERVER
+SqlInstance   : SQL2014
+Name          : db1_20180625_045302
+SnapshotOf    : db1
+CreateDate    : 6/25/2018 4:53:04 PM
+DiskUsage     : 384.00 KB
+
+ComputerName  : SQL2014
+InstanceName  : MSSQLSERVER
+SqlInstance   : SQL2014
+Name          : distribution_20180625_045302
+SnapshotOf    : distribution
+CreateDate    : 6/25/2018 4:53:05 PM
+DiskUsage     : 384.00 KB
+
+ComputerName  : SQL2014
+InstanceName  : MSSQLSERVER
+SqlInstance   : SQL2014
+Name          : msdb_20180625_045302
+SnapshotOf    : msdb
+CreateDate    : 6/25/2018 4:53:03 PM
+DiskUsage     : 1.69 MB
+{{< /powershell-console >}}
 
 ### Restore-DbaDbSnapshot
 
