@@ -51,16 +51,20 @@ class CommandsBrowser {
   setupFuse() {
     const fuseOptions = {
       keys: [
-        { name: 'name', weight: 3 },
-        { name: 'description', weight: 2 },
-        { name: 'tags', weight: 1.5 },
-        { name: 'verb', weight: 1 },
-        { name: 'category', weight: 1 }
+        { name: 'name', weight: 4 },
+        { name: 'description', weight: 3 },
+        { name: 'fullContent', weight: 1 },
+        { name: 'tags', weight: 2 },
+        { name: 'verb', weight: 1.5 },
+        { name: 'category', weight: 1.5 }
       ],
       threshold: 0.3,
       includeScore: true,
-      minMatchCharLength: 1,
-      shouldSort: true
+      minMatchCharLength: 2,
+      shouldSort: true,
+      ignoreLocation: true,
+      findAllMatches: true,
+      useExtendedSearch: true
     };
 
     this.fuse = new Fuse(this.allCommands, fuseOptions);
