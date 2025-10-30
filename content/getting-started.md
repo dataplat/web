@@ -1,6 +1,7 @@
 ---
 title: "Getting Started"
 date: 2016-05-06
+lastmod: 2025-10-30
 slug: "getting-started"
 draft: false
 ---
@@ -68,14 +69,13 @@ Import-Module dbatools
 
 #### Additional Install Methods
 - **Chocolatey:** `choco install dbatools`
-- **GitHub Clone:** `git clone https://github.com/dataplat/dbatools`
 
 ### Certificate Change Notice (v2.5.5+)
 Starting with v2.5.5, dbatools uses Microsoft Azure Trusted Signing. When upgrading from older versions:
 ```powershell
 Install-Module dbatools -Force -SkipPublisherCheck
 ```
-[Full migration guide →](https://blog.netnerds.net/2025/08/dbatools-azure-trusted-signing/)
+[Full migration guide →](/azure-trusted-signing/)
 
 ---
 
@@ -228,7 +228,7 @@ $cred = Get-Credential ad\winadmin
 Get-DbaDiskSpace -ComputerName sql01 -Credential $cred
 ```
 
-To store credentials to disk, read more at [Jaap Brasser's blog](https://www.jaapbrasser.com/quickly-and-securely-storing-your-credentials-powershell/).
+To store credentials securely, see [Microsoft's SecretManagement documentation](https://learn.microsoft.com/en-us/powershell/utility-modules/secretmanagement/overview).
 
 ### Custom Ports
 If you use non-default ports and SQL Browser is disabled, use a colon or comma:
