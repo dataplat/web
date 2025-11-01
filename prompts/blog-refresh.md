@@ -33,6 +33,8 @@ CHECK AND FIX:
 
 2. LINKS:
    - Test all external links, replace dead/broken ones
+   - If a blog post link no longer exists, check the Wayback Machine (web.archive.org) for an archived version
+   - If found on Wayback Machine, update the link to point to the archived version
    - Update Microsoft Docs URLs if they've been reorganized
    - Fix any broken internal links or image references
    - Update any links to GitHub code if paths have changed
