@@ -58,6 +58,20 @@
 
     </article>
 
+    <!-- Comments (only for blog posts) -->
+    {{ if eq .Section "post" }}
+    <div class="mt-16 pt-8 border-t border-theme-border">
+      <script src="https://utteranc.es/client.js"
+              repo="dataplat/web"
+              issue-term="pathname"
+              label="website-comments"
+              theme="preferred-color-scheme"
+              crossorigin="anonymous"
+              async>
+      </script>
+    </div>
+    {{ end }}
+
   </div>
 </div>
 
