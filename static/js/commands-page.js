@@ -134,10 +134,23 @@ class CommandsBrowser {
     });
   }
 
+  debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
   setupEventListeners() {
-    // Search input
+    // Search input with debouncing
     const searchInput = document.getElementById('search-input');
-    searchInput.addEventListener('input', (e) => this.handleSearch(e));
+    const debouncedSearch = this.debounce((e) => this.handleSearch(e), 150);
+    searchInput.addEventListener('input', debouncedSearch);
     searchInput.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         this.clearSearch();
@@ -322,7 +335,6 @@ class CommandsBrowser {
 
   createCommandCard(cmd) {
     const popular = cmd.popular ? '⭐' : '';
-    const tags = cmd.tags.map(tag => `<span class="tag">#${tag}</span>`).join('');
 
     return `
       <a
@@ -336,7 +348,6 @@ class CommandsBrowser {
           <span class="command-popular">${popular}</span>
         </div>
         <p class="command-description">${this.highlightMatch(cmd.description)}</p>
-        <div class="command-tags">${tags}</div>
         <div class="command-category">Category: ${cmd.category}</div>
       </a>
     `;
