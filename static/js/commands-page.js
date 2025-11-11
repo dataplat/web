@@ -134,9 +134,16 @@ class CommandsBrowser {
   }
 
   setupEventListeners() {
-    // Search input
+    // Search input with debouncing for better performance
     const searchInput = document.getElementById('search-input');
-    searchInput.addEventListener('input', (e) => this.handleSearch(e));
+
+    // Create debounced search handler
+    let searchTimeout;
+    searchInput.addEventListener('input', (e) => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => this.handleSearch(e), 150);
+    });
+
     searchInput.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         this.clearSearch();
@@ -313,7 +320,7 @@ class CommandsBrowser {
 
   createCommandCard(cmd) {
     const popular = cmd.popular ? '⭐' : '';
-    const tags = cmd.tags.map(tag => `<span class="tag">#${tag}</span>`).join('');
+    const tags = cmd.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
 
     return `
       <a
