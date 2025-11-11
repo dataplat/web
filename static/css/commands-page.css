@@ -383,6 +383,52 @@ body {
   font-weight: 600;
 }
 
+.commands-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: var(--bg-hover-light);
+}
+
+.view-toggle-btn {
+  padding: 8px 12px;
+  background-color: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--border-light);
+}
+
+.view-toggle-btn:last-child {
+  border-right: none;
+}
+
+.view-toggle-btn:hover {
+  background-color: rgba(175, 184, 193, 0.15);
+  color: var(--text-primary);
+}
+
+.view-toggle-btn.active {
+  background-color: var(--accent-blue);
+  color: white;
+}
+
+.view-toggle-btn svg {
+  display: block;
+}
+
 .sort-container {
   display: flex;
   align-items: center;
@@ -424,6 +470,48 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 16px;
   animation: fadeIn 0.3s ease;
+}
+
+/* List View */
+.commands-grid.list-view {
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.commands-grid.list-view .command-card {
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 16px;
+}
+
+.commands-grid.list-view .command-card-header {
+  flex: 0 0 280px;
+  min-width: 0;
+}
+
+.commands-grid.list-view .command-name {
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.commands-grid.list-view .command-description {
+  flex: 1;
+  -webkit-line-clamp: 1;
+  font-size: 13px;
+  min-width: 0;
+}
+
+.commands-grid.list-view .command-category {
+  flex: 0 0 auto;
+  font-size: 12px;
+  margin: 0;
+  padding: 4px 10px;
+  background-color: rgba(175, 184, 193, 0.15);
+  border-radius: 4px;
+  white-space: nowrap;
 }
 
 @keyframes fadeIn {

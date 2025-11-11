@@ -19,6 +19,7 @@ class CommandsBrowser {
     this.recentSearches = [];
     this.searchResultLimit = 50;
     this.totalSearchResults = 0;
+    this.viewMode = 'grid'; // 'grid' or 'list'
 
     this.init();
   }
@@ -174,6 +175,10 @@ class CommandsBrowser {
     // Show More button
     document.getElementById('show-more-btn').addEventListener('click', () => this.showMoreResults());
 
+    // View toggle buttons
+    document.getElementById('grid-view-btn').addEventListener('click', () => this.setViewMode('grid'));
+    document.getElementById('list-view-btn').addEventListener('click', () => this.setViewMode('list'));
+
     // Keyboard shortcut: / to focus search
     document.addEventListener('keydown', (e) => {
       if (e.key === '/' && document.activeElement !== searchInput) {
@@ -210,6 +215,25 @@ class CommandsBrowser {
   showMoreResults() {
     this.searchResultLimit += 50;
     this.applyAllFilters();
+  }
+
+  setViewMode(mode) {
+    this.viewMode = mode;
+
+    // Update button states
+    const gridBtn = document.getElementById('grid-view-btn');
+    const listBtn = document.getElementById('list-view-btn');
+    const grid = document.getElementById('commands-grid');
+
+    if (mode === 'grid') {
+      gridBtn.classList.add('active');
+      listBtn.classList.remove('active');
+      grid.classList.remove('list-view');
+    } else {
+      listBtn.classList.add('active');
+      gridBtn.classList.remove('active');
+      grid.classList.add('list-view');
+    }
   }
 
   selectCategory(category) {
