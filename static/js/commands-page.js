@@ -17,6 +17,8 @@ class CommandsBrowser {
     this.searchQuery = '';
     this.searchScores = new Map();
     this.recentSearches = [];
+    this.searchResultLimit = 50;
+    this.totalSearchResults = 0;
 
     this.init();
   }
@@ -59,7 +61,7 @@ class CommandsBrowser {
         { name: 'verb', weight: 1.5 },
         { name: 'category', weight: 1.5 }
       ],
-      threshold: 0.3,
+      threshold: 0.2,
       includeScore: true,
       minMatchCharLength: 1,
       shouldSort: true,
@@ -169,6 +171,9 @@ class CommandsBrowser {
     // Reset button
     document.getElementById('reset-filters').addEventListener('click', () => this.resetAllFilters());
 
+    // Show More button
+    document.getElementById('show-more-btn').addEventListener('click', () => this.showMoreResults());
+
     // Keyboard shortcut: / to focus search
     document.addEventListener('keydown', (e) => {
       if (e.key === '/' && document.activeElement !== searchInput) {
@@ -180,6 +185,7 @@ class CommandsBrowser {
 
   handleSearch(e) {
     this.searchQuery = e.target.value.trim();
+    this.searchResultLimit = 50; // Reset limit on new search
     this.updateSearchUI();
     this.applyAllFilters();
   }
@@ -188,6 +194,7 @@ class CommandsBrowser {
     this.searchQuery = '';
     document.getElementById('search-input').value = '';
     this.updateSearchUI();
+    this.searchResultLimit = 50; // Reset limit
     this.applyAllFilters();
   }
 
@@ -198,6 +205,11 @@ class CommandsBrowser {
     } else {
       clearBtn.classList.remove('visible');
     }
+  }
+
+  showMoreResults() {
+    this.searchResultLimit += 50;
+    this.applyAllFilters();
   }
 
   selectCategory(category) {
@@ -288,14 +300,20 @@ class CommandsBrowser {
     // Apply search
     if (this.searchQuery) {
       const searchResults = this.fuse.search(this.searchQuery);
-      const searchResultIds = new Set(searchResults.map(r => r.item.name));
+      this.totalSearchResults = searchResults.length;
+
+      // Limit search results to top N
+      const limitedSearchResults = searchResults.slice(0, this.searchResultLimit);
+      const searchResultIds = new Set(limitedSearchResults.map(r => r.item.name));
 
       // Store scores for relevance sorting
-      searchResults.forEach(result => {
+      limitedSearchResults.forEach(result => {
         searchScores.set(result.item.name, result.score);
       });
 
       results = results.filter(cmd => searchResultIds.has(cmd.name));
+    } else {
+      this.totalSearchResults = 0;
     }
 
     this.filteredCommands = results;
@@ -307,6 +325,8 @@ class CommandsBrowser {
     const grid = document.getElementById('commands-grid');
     const noResults = document.getElementById('no-results');
     const resultsCount = document.getElementById('results-count');
+    const showMoreContainer = document.getElementById('show-more-container');
+    const remainingCount = document.getElementById('remaining-count');
 
     // Sort commands
     const sorted = this.sortCommands([...this.filteredCommands]);
@@ -316,6 +336,7 @@ class CommandsBrowser {
     if (sorted.length === 0) {
       grid.style.display = 'none';
       noResults.classList.remove('hidden');
+      showMoreContainer.classList.add('hidden');
       return;
     }
 
@@ -323,6 +344,15 @@ class CommandsBrowser {
     noResults.classList.add('hidden');
 
     grid.innerHTML = sorted.map(cmd => this.createCommandCard(cmd)).join('');
+
+    // Show/hide "Show More" button
+    if (this.searchQuery && this.totalSearchResults > this.searchResultLimit) {
+      const remaining = this.totalSearchResults - this.searchResultLimit;
+      remainingCount.textContent = remaining;
+      showMoreContainer.classList.remove('hidden');
+    } else {
+      showMoreContainer.classList.add('hidden');
+    }
 
     // Add click handlers
     document.querySelectorAll('.command-card').forEach(card => {

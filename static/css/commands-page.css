@@ -577,6 +577,35 @@ body {
   background-color: var(--accent-blue-hover);
 }
 
+/* Show More Button */
+.show-more-container {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0;
+}
+
+.show-more-container.hidden {
+  display: none;
+}
+
+.show-more-button {
+  padding: 12px 32px;
+  background-color: var(--accent-blue);
+  color: white;
+  border: 1px solid var(--accent-blue);
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.15s ease;
+}
+
+.show-more-button:hover {
+  background-color: var(--accent-blue-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(9, 105, 218, 0.2);
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .commands-header {
