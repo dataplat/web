@@ -15,6 +15,7 @@ class CommandsBrowser {
     this.activeSort = 'alphabetical';
     this.showPopularOnly = false;
     this.searchQuery = '';
+    this.searchScores = new Map();
     this.recentSearches = [];
 
     this.init();
@@ -254,6 +255,7 @@ class CommandsBrowser {
 
   applyAllFilters() {
     let results = this.allCommands;
+    let searchScores = new Map(); // Store search relevance scores
 
     // Apply category filter
     if (this.activeCategory !== 'all') {
@@ -274,10 +276,17 @@ class CommandsBrowser {
     if (this.searchQuery) {
       const searchResults = this.fuse.search(this.searchQuery);
       const searchResultIds = new Set(searchResults.map(r => r.item.name));
+
+      // Store scores for relevance sorting
+      searchResults.forEach(result => {
+        searchScores.set(result.item.name, result.score);
+      });
+
       results = results.filter(cmd => searchResultIds.has(cmd.name));
     }
 
     this.filteredCommands = results;
+    this.searchScores = searchScores; // Store for use in sorting
     this.render();
   }
 
@@ -344,6 +353,43 @@ class CommandsBrowser {
   sortCommands(commands) {
     const sorted = [...commands];
 
+    // When searching, prioritize relevance over user-selected sort
+    if (this.searchQuery && this.searchScores.size > 0) {
+      sorted.sort((a, b) => {
+        const aScore = this.searchScores.get(a.name) || 1;
+        const bScore = this.searchScores.get(b.name) || 1;
+
+        // Check for exact matches (case-insensitive)
+        const query = this.searchQuery.toLowerCase();
+        const aName = a.name.toLowerCase();
+        const bName = b.name.toLowerCase();
+        const aExact = aName === query;
+        const bExact = bName === query;
+
+        // Exact matches always come first
+        if (aExact && !bExact) return -1;
+        if (!aExact && bExact) return 1;
+
+        // Check for starts-with matches
+        const aStarts = aName.startsWith(query);
+        const bStarts = bName.startsWith(query);
+
+        if (aStarts && !bStarts) return -1;
+        if (!aStarts && bStarts) return 1;
+
+        // Then sort by Fuse.js relevance score (lower score = better match)
+        if (aScore !== bScore) {
+          return aScore - bScore;
+        }
+
+        // Fall back to user-selected sort for equal relevance
+        return this.applySortOrder(a, b);
+      });
+
+      return sorted;
+    }
+
+    // No search query - use normal sorting
     switch (this.activeSort) {
       case 'alphabetical':
         sorted.sort((a, b) => a.name.localeCompare(b.name));
@@ -372,6 +418,29 @@ class CommandsBrowser {
     }
 
     return sorted;
+  }
+
+  applySortOrder(a, b) {
+    // Helper method to apply the current sort order
+    switch (this.activeSort) {
+      case 'alphabetical':
+        return a.name.localeCompare(b.name);
+
+      case 'popular':
+        if (a.popularityRank === 0 && b.popularityRank === 0) return 0;
+        if (a.popularityRank === 0) return 1;
+        if (b.popularityRank === 0) return -1;
+        return a.popularityRank - b.popularityRank;
+
+      case 'category':
+        if (a.category === b.category) {
+          return a.name.localeCompare(b.name);
+        }
+        return a.category.localeCompare(b.category);
+
+      default:
+        return a.name.localeCompare(b.name);
+    }
   }
 
   updateURLParams() {
