@@ -61,7 +61,7 @@ class CommandsBrowser {
       ],
       threshold: 0.3,
       includeScore: true,
-      minMatchCharLength: 2,
+      minMatchCharLength: 1,
       shouldSort: true,
       ignoreLocation: true,
       findAllMatches: true,
@@ -149,7 +149,7 @@ class CommandsBrowser {
   setupEventListeners() {
     // Search input with debouncing
     const searchInput = document.getElementById('search-input');
-    const debouncedSearch = this.debounce((e) => this.handleSearch(e), 150);
+    const debouncedSearch = this.debounce((e) => this.handleSearch(e), 50);
     searchInput.addEventListener('input', debouncedSearch);
     searchInput.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
