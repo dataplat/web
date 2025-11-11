@@ -15,7 +15,11 @@ class CommandsBrowser {
     this.activeSort = 'alphabetical';
     this.showPopularOnly = false;
     this.searchQuery = '';
+    this.searchScores = new Map();
     this.recentSearches = [];
+    this.searchResultLimit = 50;
+    this.totalSearchResults = 0;
+    this.viewMode = 'grid'; // 'grid' or 'list'
 
     this.init();
   }
@@ -58,9 +62,9 @@ class CommandsBrowser {
         { name: 'verb', weight: 1.5 },
         { name: 'category', weight: 1.5 }
       ],
-      threshold: 0.3,
+      threshold: 0.2,
       includeScore: true,
-      minMatchCharLength: 2,
+      minMatchCharLength: 1,
       shouldSort: true,
       ignoreLocation: true,
       findAllMatches: true,
@@ -133,10 +137,23 @@ class CommandsBrowser {
     });
   }
 
+  debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
   setupEventListeners() {
-    // Search input
+    // Search input with debouncing
     const searchInput = document.getElementById('search-input');
-    searchInput.addEventListener('input', (e) => this.handleSearch(e));
+    const debouncedSearch = this.debounce((e) => this.handleSearch(e), 50);
+    searchInput.addEventListener('input', debouncedSearch);
     searchInput.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         this.clearSearch();
@@ -155,6 +172,13 @@ class CommandsBrowser {
     // Reset button
     document.getElementById('reset-filters').addEventListener('click', () => this.resetAllFilters());
 
+    // Show More button
+    document.getElementById('show-more-btn').addEventListener('click', () => this.showMoreResults());
+
+    // View toggle buttons
+    document.getElementById('grid-view-btn').addEventListener('click', () => this.setViewMode('grid'));
+    document.getElementById('list-view-btn').addEventListener('click', () => this.setViewMode('list'));
+
     // Keyboard shortcut: / to focus search
     document.addEventListener('keydown', (e) => {
       if (e.key === '/' && document.activeElement !== searchInput) {
@@ -166,6 +190,7 @@ class CommandsBrowser {
 
   handleSearch(e) {
     this.searchQuery = e.target.value.trim();
+    this.searchResultLimit = 50; // Reset limit on new search
     this.updateSearchUI();
     this.applyAllFilters();
   }
@@ -174,6 +199,7 @@ class CommandsBrowser {
     this.searchQuery = '';
     document.getElementById('search-input').value = '';
     this.updateSearchUI();
+    this.searchResultLimit = 50; // Reset limit
     this.applyAllFilters();
   }
 
@@ -183,6 +209,30 @@ class CommandsBrowser {
       clearBtn.classList.add('visible');
     } else {
       clearBtn.classList.remove('visible');
+    }
+  }
+
+  showMoreResults() {
+    this.searchResultLimit += 50;
+    this.applyAllFilters();
+  }
+
+  setViewMode(mode) {
+    this.viewMode = mode;
+
+    // Update button states
+    const gridBtn = document.getElementById('grid-view-btn');
+    const listBtn = document.getElementById('list-view-btn');
+    const grid = document.getElementById('commands-grid');
+
+    if (mode === 'grid') {
+      gridBtn.classList.add('active');
+      listBtn.classList.remove('active');
+      grid.classList.remove('list-view');
+    } else {
+      listBtn.classList.add('active');
+      gridBtn.classList.remove('active');
+      grid.classList.add('list-view');
     }
   }
 
@@ -254,6 +304,7 @@ class CommandsBrowser {
 
   applyAllFilters() {
     let results = this.allCommands;
+    let searchScores = new Map(); // Store search relevance scores
 
     // Apply category filter
     if (this.activeCategory !== 'all') {
@@ -273,11 +324,24 @@ class CommandsBrowser {
     // Apply search
     if (this.searchQuery) {
       const searchResults = this.fuse.search(this.searchQuery);
-      const searchResultIds = new Set(searchResults.map(r => r.item.name));
+      this.totalSearchResults = searchResults.length;
+
+      // Limit search results to top N
+      const limitedSearchResults = searchResults.slice(0, this.searchResultLimit);
+      const searchResultIds = new Set(limitedSearchResults.map(r => r.item.name));
+
+      // Store scores for relevance sorting
+      limitedSearchResults.forEach(result => {
+        searchScores.set(result.item.name, result.score);
+      });
+
       results = results.filter(cmd => searchResultIds.has(cmd.name));
+    } else {
+      this.totalSearchResults = 0;
     }
 
     this.filteredCommands = results;
+    this.searchScores = searchScores; // Store for use in sorting
     this.render();
   }
 
@@ -285,6 +349,8 @@ class CommandsBrowser {
     const grid = document.getElementById('commands-grid');
     const noResults = document.getElementById('no-results');
     const resultsCount = document.getElementById('results-count');
+    const showMoreContainer = document.getElementById('show-more-container');
+    const remainingCount = document.getElementById('remaining-count');
 
     // Sort commands
     const sorted = this.sortCommands([...this.filteredCommands]);
@@ -294,6 +360,7 @@ class CommandsBrowser {
     if (sorted.length === 0) {
       grid.style.display = 'none';
       noResults.classList.remove('hidden');
+      showMoreContainer.classList.add('hidden');
       return;
     }
 
@@ -301,6 +368,15 @@ class CommandsBrowser {
     noResults.classList.add('hidden');
 
     grid.innerHTML = sorted.map(cmd => this.createCommandCard(cmd)).join('');
+
+    // Show/hide "Show More" button
+    if (this.searchQuery && this.totalSearchResults > this.searchResultLimit) {
+      const remaining = this.totalSearchResults - this.searchResultLimit;
+      remainingCount.textContent = remaining;
+      showMoreContainer.classList.remove('hidden');
+    } else {
+      showMoreContainer.classList.add('hidden');
+    }
 
     // Add click handlers
     document.querySelectorAll('.command-card').forEach(card => {
@@ -313,7 +389,6 @@ class CommandsBrowser {
 
   createCommandCard(cmd) {
     const popular = cmd.popular ? '⭐' : '';
-    const tags = cmd.tags.map(tag => `<span class="tag">#${tag}</span>`).join('');
 
     return `
       <a
@@ -327,7 +402,6 @@ class CommandsBrowser {
           <span class="command-popular">${popular}</span>
         </div>
         <p class="command-description">${this.highlightMatch(cmd.description)}</p>
-        <div class="command-tags">${tags}</div>
         <div class="command-category">Category: ${cmd.category}</div>
       </a>
     `;
@@ -344,6 +418,43 @@ class CommandsBrowser {
   sortCommands(commands) {
     const sorted = [...commands];
 
+    // When searching, prioritize relevance over user-selected sort
+    if (this.searchQuery && this.searchScores.size > 0) {
+      sorted.sort((a, b) => {
+        const aScore = this.searchScores.get(a.name) || 1;
+        const bScore = this.searchScores.get(b.name) || 1;
+
+        // Check for exact matches (case-insensitive)
+        const query = this.searchQuery.toLowerCase();
+        const aName = a.name.toLowerCase();
+        const bName = b.name.toLowerCase();
+        const aExact = aName === query;
+        const bExact = bName === query;
+
+        // Exact matches always come first
+        if (aExact && !bExact) return -1;
+        if (!aExact && bExact) return 1;
+
+        // Check for starts-with matches
+        const aStarts = aName.startsWith(query);
+        const bStarts = bName.startsWith(query);
+
+        if (aStarts && !bStarts) return -1;
+        if (!aStarts && bStarts) return 1;
+
+        // Then sort by Fuse.js relevance score (lower score = better match)
+        if (aScore !== bScore) {
+          return aScore - bScore;
+        }
+
+        // Fall back to user-selected sort for equal relevance
+        return this.applySortOrder(a, b);
+      });
+
+      return sorted;
+    }
+
+    // No search query - use normal sorting
     switch (this.activeSort) {
       case 'alphabetical':
         sorted.sort((a, b) => a.name.localeCompare(b.name));
@@ -372,6 +483,29 @@ class CommandsBrowser {
     }
 
     return sorted;
+  }
+
+  applySortOrder(a, b) {
+    // Helper method to apply the current sort order
+    switch (this.activeSort) {
+      case 'alphabetical':
+        return a.name.localeCompare(b.name);
+
+      case 'popular':
+        if (a.popularityRank === 0 && b.popularityRank === 0) return 0;
+        if (a.popularityRank === 0) return 1;
+        if (b.popularityRank === 0) return -1;
+        return a.popularityRank - b.popularityRank;
+
+      case 'category':
+        if (a.category === b.category) {
+          return a.name.localeCompare(b.name);
+        }
+        return a.category.localeCompare(b.category);
+
+      default:
+        return a.name.localeCompare(b.name);
+    }
   }
 
   updateURLParams() {
