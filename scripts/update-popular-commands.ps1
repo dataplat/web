@@ -98,8 +98,8 @@ foreach ($ranking in $rankings) {
         $cmd.popularityRank = $rank
         $rankedCount++
 
-        # Mark top 50 as popular
-        if ($rank -le 50) {
+        # Mark top 50 as popular (use 51 to account for missing #44 in rankings)
+        if ($rank -le 51) {
             $cmd.popular = $true
             $popularCount++
             Write-Host "  ✓ #$rank $cmdName (popular)" -ForegroundColor Green

@@ -2185,7 +2185,7 @@
       "ha"
     ],
     "verb": "Get",
-    "popular": false,
+    "popular": true,
     "url": "/Get-DbaAgReplica",
     "popularityRank": 51,
     "synopsis": "Retrieves availability group replica configuration and status information from SQL Server instances.",
