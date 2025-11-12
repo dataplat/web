@@ -9,7 +9,7 @@
     responsive: true,
     pageLength: 100,
     order: [[1, 'desc']], // Sort by Version descending
-    dom: 'Bfrtip',
+    dom: 'Brtip', // Removed 'f' (filter) - using custom search instead
     buttons: [
       'copy',
       'excel',
@@ -240,6 +240,24 @@
       console.error('Error loading build reference data:', error);
       $('#last-updated').text('Error loading data');
     }
+  });
+
+  // Wire up custom search input
+  $('#custom-search').on('keyup', function() {
+    table.search(this.value).draw();
+  });
+
+  // Wire up custom export buttons
+  $('#export-copy').on('click', function() {
+    table.button('.buttons-copy').trigger();
+  });
+
+  $('#export-excel').on('click', function() {
+    table.button('.buttons-excel').trigger();
+  });
+
+  $('#export-pdf').on('click', function() {
+    table.button('.buttons-pdf').trigger();
   });
 
 })();
