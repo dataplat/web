@@ -15,6 +15,7 @@
       'excel',
       'pdf'
     ],
+    fixedHeader: true, // Enable sticky header
     columnDefs: [
       {
         targets: 0, // ID column
