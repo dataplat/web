@@ -230,14 +230,14 @@ article pre {
 
 /* Dark mode copy button */
 .dark .copy-code-button {
-  background: linear-gradient(135deg, #0e2a57 0%, #0B234A 100%);
-  border-color: #273B59;
+  background: linear-gradient(135deg, #22272e 0%, #1c2128 100%);
+  border-color: #30363d;
   color: #9198a1;
 }
 
 .dark .copy-code-button:hover {
-  background: linear-gradient(135deg, #162f5a 0%, #0e2a57 100%);
-  border-color: #3a4d6b;
+  background: linear-gradient(135deg, #2d333b 0%, #22272e 100%);
+  border-color: #444c56;
   color: #e6edf3;
 }
 
