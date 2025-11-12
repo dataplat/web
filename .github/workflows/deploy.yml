@@ -54,12 +54,40 @@ jobs:
         run: |
           curl -o static/data/external.json https://raw.githubusercontent.com/dataplat/dbatools-docs/main/assets/external.json || echo "Warning: Could not sync version data"
 
+      - name: Transform dbatools index to commands.json
+        shell: pwsh
+        run: |
+          Write-Host "Transforming dbatools-index.json to commands.json..."
+          ./scripts/transform-dbatools-index.ps1
+          Write-Host "✓ Transformation complete"
+
       - name: Generate command documentation pages
         shell: pwsh
         run: |
           Write-Host "Generating command documentation markdown files..."
           ./scripts/generate-command-pages.ps1
-          Write-Host "Command pages generated successfully"
+          Write-Host "✓ Command pages generated successfully"
+
+      - name: Enrich commands.json with full content
+        shell: pwsh
+        run: |
+          Write-Host "Enriching commands.json with markdown content..."
+          ./scripts/enrich-commands-json.ps1
+          Write-Host "✓ Enrichment complete"
+
+      - name: Update popular commands with rankings
+        shell: pwsh
+        run: |
+          Write-Host "Updating popular commands from rankings..."
+          ./scripts/update-popular-commands.ps1
+          Write-Host "✓ Popular commands updated"
+
+      - name: Ensure commands URLs are correct
+        shell: pwsh
+        run: |
+          Write-Host "Verifying command URLs..."
+          ./scripts/update-commands-urls.ps1
+          Write-Host "✓ URLs verified"
 
       - name: Build Hugo site
         run: hugo --minify
