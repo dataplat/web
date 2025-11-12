@@ -58,6 +58,46 @@
   --color-data-gray: #808fa3;
 }
 
+/* Dark Theme Variables (ChatGPT-inspired) */
+.dark {
+  /* Foundational colors */
+  --color-bg: #1a1a1a;
+  --color-bg-secondary: #2d2d2d;
+  --color-bg-muted: #2d2d2d;
+  --color-bg-emphasis: #f0f0f0;
+
+  /* Text colors */
+  --color-text: #ececec;
+  --color-text-secondary: #b4b4b4;
+  --color-text-muted: #b4b4b4;
+
+  /* Border colors */
+  --color-border: #404040;
+  --color-border-emphasis: #606060;
+
+  /* Primary/Accent colors (keeping GitHub blue but slightly brighter for dark mode) */
+  --color-primary: #58a6ff;
+  --color-primary-hover: #79b8ff;
+  --color-primary-active: #388bfd;
+
+  /* Adjust other colors for dark mode */
+  --color-success: #3fb950;
+  --color-success-emphasis: #56d364;
+  --color-success-muted: #172f1a;
+
+  --color-danger: #f85149;
+  --color-danger-emphasis: #ff6b6b;
+
+  --color-attention: #d29922;
+  --color-attention-muted: #3d2e00;
+
+  --color-accent: #a371f7;
+  --color-accent-muted: #1e1c2d;
+
+  --color-severe: #ff8c42;
+  --color-sponsors: #db61a2;
+}
+
 /* Custom animations */
 @keyframes shimmer {
   0% { background-position: -1000px 0; }

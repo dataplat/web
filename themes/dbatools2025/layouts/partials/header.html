@@ -1,37 +1,48 @@
-<header class="fixed w-full top-0 bg-white/60 backdrop-blur-xl border-b border-theme-border/50 z-50">
+<header class="fixed w-full top-0 bg-white/60 dark:bg-[#1a1a1a]/90 backdrop-blur-xl border-b border-theme-border/50 dark:border-[#404040]/50 z-50">
   <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
 
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 text-xl font-semibold text-theme-text hover:opacity-70 transition-opacity">
+    <a href="/" class="flex items-center gap-2 text-xl font-semibold text-theme-text dark:text-[#ececec] hover:opacity-70 transition-opacity">
       <img src="/thor.png" alt="Thor Logo" style="width: 36px; height: 36px; margin-top: -2px;">
       dbatools
     </a>
 
     <!-- Desktop Navigation -->
     <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-      <a href="/getting-started" class="text-theme-text-secondary hover:text-theme-text transition-colors">Getting Started</a>
-      <a href="/commands" class="text-theme-text-secondary hover:text-theme-text transition-colors">Commands</a>
-      <a href="/blog" class="text-theme-text-secondary hover:text-theme-text transition-colors">Blog</a>
-      <a href="/book" class="text-theme-text-secondary hover:text-theme-text transition-colors">Book</a>
-      <a href="/team" class="text-theme-text-secondary hover:text-theme-text transition-colors">Team</a>
-      <a href="https://github.com/dataplat/dbatools" target="_blank" class="text-theme-text-secondary hover:text-theme-text transition-colors">GitHub</a>
-      <a href="/builds" class="text-theme-text-secondary hover:text-theme-text transition-colors">Builds</a>
+      <a href="/getting-started" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors">Getting Started</a>
+      <a href="/commands" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors">Commands</a>
+      <a href="/blog" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors">Blog</a>
+      <a href="/book" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors">Book</a>
+      <a href="/team" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors">Team</a>
+      <a href="https://github.com/dataplat/dbatools" target="_blank" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors">GitHub</a>
+      <a href="/builds" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors">Builds</a>
     </nav>
 
     <!-- Search & CTA Button -->
     <div class="hidden md:flex items-center gap-4">
-      <button id="site-search-button" class="p-2 text-theme-text-secondary hover:text-theme-text hover:bg-gray-50 rounded-lg transition-colors" aria-label="Search site">
+      <button id="site-search-button" class="p-2 text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] hover:bg-gray-50 dark:hover:bg-[#2d2d2d] rounded-lg transition-colors" aria-label="Search site">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
         </svg>
       </button>
-      <a href="/install/" class="inline-flex items-center gap-2 px-4 py-2 bg-theme-text text-white rounded-lg text-sm font-medium hover:scale-[1.02] transition-transform">
+      <!-- Theme Toggle Button -->
+      <button id="theme-toggle" class="p-2 text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] hover:bg-gray-50 dark:hover:bg-[#2d2d2d] rounded-lg transition-colors" aria-label="Toggle dark mode">
+        <!-- Sun icon (visible in dark mode) -->
+        <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </svg>
+        <!-- Moon icon (visible in light mode) -->
+        <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+      </button>
+      <a href="/install/" class="inline-flex items-center gap-2 px-4 py-2 bg-theme-text dark:bg-[#58a6ff] text-white dark:text-[#1a1a1a] rounded-lg text-sm font-medium hover:scale-[1.02] transition-transform">
         <span>Install</span>
       </a>
     </div>
 
     <!-- Mobile Menu Button -->
-    <button id="mobile-menu-btn" class="md:hidden text-theme-text p-2" aria-label="Toggle menu">
+    <button id="mobile-menu-btn" class="md:hidden text-theme-text dark:text-[#ececec] p-2" aria-label="Toggle menu">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
@@ -39,23 +50,23 @@
   </div>
 
   <!-- Mobile Navigation -->
-  <nav id="mobile-menu" class="hidden md:hidden bg-white border-t border-theme-border px-6 py-6">
+  <nav id="mobile-menu" class="hidden md:hidden bg-white dark:bg-[#1a1a1a] border-t border-theme-border dark:border-[#404040] px-6 py-6">
     <div class="flex flex-col gap-4">
-      <button id="mobile-search-button" class="flex items-center gap-2 text-theme-text-secondary hover:text-theme-text transition-colors py-2 text-left">
+      <button id="mobile-search-button" class="flex items-center gap-2 text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2 text-left">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
         </svg>
         Search
       </button>
-      <a href="/getting-started" class="text-theme-text-secondary hover:text-theme-text transition-colors py-2">Getting Started</a>
-      <a href="/commands" class="text-theme-text-secondary hover:text-theme-text transition-colors py-2">Commands</a>
-      <a href="/blog" class="text-theme-text-secondary hover:text-theme-text transition-colors py-2">Blog</a>
-      <a href="/book" class="text-theme-text-secondary hover:text-theme-text transition-colors py-2">Book</a>
-      <a href="/team" class="text-theme-text-secondary hover:text-theme-text transition-colors py-2">Team</a>
-      <a href="https://github.com/dataplat/dbatools" target="_blank" class="text-theme-text-secondary hover:text-theme-text transition-colors py-2">GitHub</a>
-      <a href="/builds" class="text-theme-text-secondary hover:text-theme-text transition-colors py-2">Builds</a>
+      <a href="/getting-started" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">Getting Started</a>
+      <a href="/commands" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">Commands</a>
+      <a href="/blog" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">Blog</a>
+      <a href="/book" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">Book</a>
+      <a href="/team" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">Team</a>
+      <a href="https://github.com/dataplat/dbatools" target="_blank" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">GitHub</a>
+      <a href="/builds" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">Builds</a>
 
-      <a href="/install" class="bg-theme-text text-white px-4 py-2 rounded-lg text-center font-medium mt-2">Install</a>
+      <a href="/install" class="bg-theme-text dark:bg-[#58a6ff] text-white dark:text-[#1a1a1a] px-4 py-2 rounded-lg text-center font-medium mt-2">Install</a>
     </div>
   </nav>
 </header>
@@ -66,4 +77,19 @@
     const menu = document.getElementById('mobile-menu');
     menu?.classList.toggle('hidden');
   });
+
+  // Theme toggle button handler
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      const html = document.documentElement;
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  }
 </script>
