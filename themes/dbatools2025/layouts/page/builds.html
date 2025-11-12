@@ -24,42 +24,43 @@
 
     <!-- Filter Controls -->
     <div class="bg-gray-50 dark:bg-[#2a2a2a] rounded-lg p-6 mb-6 border border-gray-200 dark:border-[#404040]">
-      <div class="space-y-4">
 
-        <!-- Version Filters -->
-        <div>
-          <h3 class="text-sm font-semibold text-theme-text dark:text-[#ececec] mb-3 uppercase tracking-wider">
-            Filter by Version
-          </h3>
-          <div class="flex flex-wrap gap-2">
-            <button class="filter-button version-filter active" data-filter="all">All Versions</button>
-            <button class="filter-button version-filter" data-filter="2022">SQL Server 2022</button>
-            <button class="filter-button version-filter" data-filter="2019">SQL Server 2019</button>
-            <button class="filter-button version-filter" data-filter="2017">SQL Server 2017</button>
-            <button class="filter-button version-filter" data-filter="2016">SQL Server 2016</button>
-            <button class="filter-button version-filter" data-filter="2014">SQL Server 2014</button>
-            <button class="filter-button version-filter" data-filter="2012">SQL Server 2012</button>
-            <button class="filter-button version-filter" data-filter="2008R2">SQL Server 2008 R2</button>
-            <button class="filter-button version-filter" data-filter="2008">SQL Server 2008</button>
-            <button class="filter-button version-filter" data-filter="2005">SQL Server 2005</button>
-            <button class="filter-button version-filter" data-filter="2000">SQL Server 2000</button>
-          </div>
+      <!-- Version Filters -->
+      <div class="mb-6">
+        <h3 class="text-sm font-semibold text-theme-text dark:text-[#ececec] mb-4 uppercase tracking-wider">
+          Filter by Version
+        </h3>
+        <div class="filter-grid">
+          <button class="filter-button version-filter active" data-filter="all">All Versions</button>
+          <button class="filter-button version-filter" data-filter="2022">SQL Server 2022</button>
+          <button class="filter-button version-filter" data-filter="2019">SQL Server 2019</button>
+          <button class="filter-button version-filter" data-filter="2017">SQL Server 2017</button>
+          <button class="filter-button version-filter" data-filter="2016">SQL Server 2016</button>
+          <button class="filter-button version-filter" data-filter="2014">SQL Server 2014</button>
+          <button class="filter-button version-filter" data-filter="2012">SQL Server 2012</button>
+          <button class="filter-button version-filter" data-filter="2008R2">SQL Server 2008 R2</button>
+          <button class="filter-button version-filter" data-filter="2008">SQL Server 2008</button>
+          <button class="filter-button version-filter" data-filter="2005">SQL Server 2005</button>
+          <button class="filter-button version-filter" data-filter="2000">SQL Server 2000</button>
         </div>
-
-        <!-- Attribute Filters -->
-        <div>
-          <h3 class="text-sm font-semibold text-theme-text dark:text-[#ececec] mb-3 uppercase tracking-wider">
-            Filter by Attributes
-          </h3>
-          <div class="flex flex-wrap gap-2">
-            <button class="filter-button attribute-filter" data-filter="service-packs">Service Packs Only</button>
-            <button class="filter-button attribute-filter" data-filter="cumulative-updates">Cumulative Updates Only</button>
-            <button class="filter-button attribute-filter" data-filter="latest-sp">Latest SP per Version</button>
-            <button class="filter-button attribute-filter" data-filter="latest-cu">Latest CU per Version</button>
-          </div>
-        </div>
-
       </div>
+
+      <!-- Divider -->
+      <div class="filter-divider"></div>
+
+      <!-- Attribute Filters -->
+      <div class="mt-6">
+        <h3 class="text-sm font-semibold text-theme-text dark:text-[#ececec] mb-4 uppercase tracking-wider">
+          Filter by Attributes
+        </h3>
+        <div class="filter-grid filter-grid-attributes">
+          <button class="filter-button attribute-filter" data-filter="service-packs">Service Packs Only</button>
+          <button class="filter-button attribute-filter" data-filter="cumulative-updates">Cumulative Updates Only</button>
+          <button class="filter-button attribute-filter" data-filter="latest-sp">Latest SP per Version</button>
+          <button class="filter-button attribute-filter" data-filter="latest-cu">Latest CU per Version</button>
+        </div>
+      </div>
+
     </div>
 
     <!-- DataTable Container -->
