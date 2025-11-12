@@ -77,7 +77,8 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Syntax highlighting
+    // Syntax highlighting - configure to ignore unescaped HTML warnings
+    hljs.configure({ ignoreUnescapedHTML: true });
     hljs.highlightAll();
 
     // Update highlight.js theme based on dark mode

@@ -270,6 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Syntax highlighting for command documentation
+    hljs.configure({ ignoreUnescapedHTML: true });
     hljs.highlightAll();
 
     // Update highlight.js theme based on dark mode
