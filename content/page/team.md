@@ -19,6 +19,16 @@ draft: false
   color: #24292f;
 }
 
+:root.dark .team-intro {
+  background: #2d2d2d;
+  border-color: #404040;
+  color: #ececec;
+}
+
+:root.dark .team-intro a {
+  color: #58a6ff;
+}
+
 .creator-section {
   background: #f8f9fa;
   border-radius: 12px;
@@ -28,6 +38,20 @@ draft: false
   gap: 2rem;
   align-items: center;
   flex-wrap: wrap;
+}
+
+:root.dark .creator-section {
+  background: #2d2d2d;
+}
+
+:root.dark .creator-section h2,
+:root.dark .creator-section h3,
+:root.dark .creator-section p {
+  color: #ececec;
+}
+
+:root.dark .creator-section a {
+  color: #58a6ff;
 }
 
 .creator-section img {
@@ -85,6 +109,11 @@ draft: false
   text-align: center;
 }
 
+:root.dark .contributor-card {
+  background: #2d2d2d;
+  border-color: #404040;
+}
+
 .contributor-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(9, 105, 218, 0.3);
@@ -104,6 +133,10 @@ draft: false
   font-weight: bold;
   margin: 0.5rem 0;
   color: #2d3748;
+}
+
+:root.dark .contributor-name {
+  color: #ececec;
 }
 
 .contributor-username {
@@ -145,6 +178,10 @@ draft: false
   text-transform: uppercase;
 }
 
+:root.dark .stat-label {
+  color: #b4b4b4;
+}
+
 .rank-badge {
   background: linear-gradient(135deg, #60a5fa 0%, #0969da 100%);
   color: white;
@@ -161,6 +198,10 @@ draft: false
   font-size: 2rem;
   color: #2d3748;
   position: relative;
+}
+
+:root.dark .section-header {
+  color: #ececec;
 }
 
 .section-header::after {
@@ -195,6 +236,11 @@ draft: false
   width: 140px;
 }
 
+:root.dark .maintainer-card {
+  background: #2d2d2d;
+  border-color: #404040;
+}
+
 .maintainer-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(9, 105, 218, 0.3);
@@ -221,10 +267,18 @@ draft: false
   color: #2d3748;
 }
 
+:root.dark .maintainer-name {
+  color: #ececec;
+}
+
 .maintainer-title {
   font-size: 0.75rem;
   color: #718096;
   margin: 0;
+}
+
+:root.dark .maintainer-title {
+  color: #b4b4b4;
 }
 </style>
 
