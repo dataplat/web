@@ -1,0 +1,161 @@
+{{ define "main" }}
+<!-- Page specific CSS and JS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.2.0/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/4.0.1/css/fixedHeader.dataTables.min.css">
+<link rel="stylesheet" href="{{ "css/builds.css" | relURL }}">
+
+<!-- Main Content Container -->
+<div class="min-h-screen bg-white dark:bg-[#1a1a1a] pt-24 pb-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Page Header -->
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold text-theme-text dark:text-[#ececec] mb-4">
+        SQL Server Build Reference
+      </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-2">
+        Comprehensive database of SQL Server versions, service packs, cumulative updates, and KB articles.
+      </p>
+      <p class="text-sm text-gray-500 dark:text-gray-500">
+        Last updated: <span id="last-updated" class="font-medium">Loading...</span>
+      </p>
+    </div>
+
+    <!-- Filter Controls -->
+    <div class="bg-gray-50 dark:bg-[#2a2a2a] rounded-lg p-6 mb-6 border border-gray-200 dark:border-[#404040]">
+
+      <!-- Version Filters -->
+      <div class="mb-6">
+        <h3 class="text-sm font-semibold text-theme-text dark:text-[#ececec] mb-4 uppercase tracking-wider">
+          Filter by Version
+        </h3>
+        <div class="filter-grid">
+          <button class="filter-button version-filter active" data-filter="all">All Versions</button>
+          <button class="filter-button version-filter" data-filter="2022">SQL Server 2022</button>
+          <button class="filter-button version-filter" data-filter="2019">SQL Server 2019</button>
+          <button class="filter-button version-filter" data-filter="2017">SQL Server 2017</button>
+          <button class="filter-button version-filter" data-filter="2016">SQL Server 2016</button>
+          <button class="filter-button version-filter" data-filter="2014">SQL Server 2014</button>
+          <button class="filter-button version-filter" data-filter="2012">SQL Server 2012</button>
+          <button class="filter-button version-filter" data-filter="2008R2">SQL Server 2008 R2</button>
+          <button class="filter-button version-filter" data-filter="2008">SQL Server 2008</button>
+          <button class="filter-button version-filter" data-filter="2005">SQL Server 2005</button>
+          <button class="filter-button version-filter" data-filter="2000">SQL Server 2000</button>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="filter-divider"></div>
+
+      <!-- Attribute Filters -->
+      <div class="mt-6">
+        <h3 class="text-sm font-semibold text-theme-text dark:text-[#ececec] mb-4 uppercase tracking-wider">
+          Filter by Attributes
+        </h3>
+        <div class="filter-grid filter-grid-attributes">
+          <button class="filter-button attribute-filter" data-filter="service-packs">Service Packs Only</button>
+          <button class="filter-button attribute-filter" data-filter="cumulative-updates">Cumulative Updates Only</button>
+          <button class="filter-button attribute-filter" data-filter="latest-sp">Latest SP per Version</button>
+          <button class="filter-button attribute-filter" data-filter="latest-cu">Latest CU per Version</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- DataTable Container -->
+    <div class="bg-white dark:bg-[#2a2a2a] rounded-lg shadow-sm border border-gray-200 dark:border-[#404040] overflow-hidden">
+
+      <!-- Table Header with Search and Export Actions -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-[#404040] gap-4">
+        <h2 class="text-base font-semibold text-theme-text dark:text-[#ececec]">Build Data</h2>
+
+        <div class="flex items-center gap-4">
+          <!-- Custom Search Input -->
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="w-4 h-4 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+            <input
+              type="text"
+              id="custom-search"
+              placeholder="Search builds..."
+              class="pl-9 pr-4 py-2 w-64 text-sm border-1.5 border-gray-200 dark:border-[#404040] rounded-lg bg-white dark:bg-[#1a1a1a] text-theme-text dark:text-[#ececec] placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-[#58a6ff] focus:border-transparent transition-all"
+            />
+          </div>
+
+          <!-- Export Buttons -->
+          <div class="flex items-center gap-3 pl-3 border-l border-gray-200 dark:border-[#404040]">
+            <span class="text-sm text-gray-500 dark:text-gray-500 mr-1">Export:</span>
+            <button id="export-copy" class="export-button" aria-label="Copy to clipboard" title="Copy to clipboard">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+              </svg>
+            </button>
+            <button id="export-excel" class="export-button" aria-label="Export to Excel" title="Export to Excel">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </button>
+            <button id="export-pdf" class="export-button" aria-label="Export to PDF" title="Export to PDF">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table id="builds-table" class="display nowrap" style="width:100%">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Version</th>
+              <th>Name</th>
+              <th>SP</th>
+              <th>CU</th>
+              <th>SP?</th>
+              <th>CU?</th>
+              <th>Latest SP?</th>
+              <th>Latest CU?</th>
+              <th>KB List</th>
+              <th>Support Until</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Data populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Info Footer -->
+    <div class="mt-6 text-sm text-gray-600 dark:text-gray-400">
+      <p>
+        This data is used by the <code class="px-2 py-1 bg-gray-100 dark:bg-[#333333] rounded text-powershell-blue dark:text-[#58a6ff]">Get-DbaBuild</code>
+        and related dbatools commands to provide accurate SQL Server version information.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/fixedheader/4.0.1/js/dataTables.fixedHeader.min.js"></script>
+
+<!-- Page JavaScript -->
+<script src="{{ "js/builds.js" | relURL }}"></script>
+
+{{ end }}

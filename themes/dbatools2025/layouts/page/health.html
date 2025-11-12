@@ -1,0 +1,140 @@
+{{ define "main" }}
+<!-- Page specific CSS and JS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.2.0/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="{{ "css/health.css" | relURL }}">
+
+<!-- Main Content Container -->
+<div class="min-h-screen bg-white dark:bg-[#1a1a1a] pt-24 pb-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Page Header -->
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold text-theme-text dark:text-[#ececec] mb-4">
+        Bill of Health
+      </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
+        Code quality metrics and test coverage for all dbatools PowerShell functions.
+      </p>
+
+      <!-- Statistics Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-gray-50 dark:bg-[#2a2a2a] rounded-lg p-4 border border-gray-200 dark:border-[#404040]">
+          <div class="text-sm text-gray-600 dark:text-gray-400 mb-1">Average Health Score</div>
+          <div id="avg-health" class="text-3xl font-bold">--</div>
+        </div>
+        <div class="bg-gray-50 dark:bg-[#2a2a2a] rounded-lg p-4 border border-gray-200 dark:border-[#404040]">
+          <div class="text-sm text-gray-600 dark:text-gray-400 mb-1">Tasks for Core Devs</div>
+          <div id="tasks-core" class="text-3xl font-bold text-orange-600 dark:text-orange-400">--</div>
+        </div>
+        <div class="bg-gray-50 dark:bg-[#2a2a2a] rounded-lg p-4 border border-gray-200 dark:border-[#404040]">
+          <div class="text-sm text-gray-600 dark:text-gray-400 mb-1">Tasks for Everyone</div>
+          <div id="tasks-everyone" class="text-3xl font-bold text-blue-600 dark:text-blue-400">--</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Health Trend Chart -->
+    <div class="bg-white dark:bg-[#2a2a2a] rounded-lg p-6 mb-6 border border-gray-200 dark:border-[#404040]">
+      <h2 class="text-xl font-semibold text-theme-text dark:text-[#ececec] mb-4">
+        Health Trend Over Time
+      </h2>
+      <div id="health-chart" class="w-full" style="height: 300px;">
+        <!-- Chart rendered here by D3.js -->
+      </div>
+      <div class="mt-4 text-sm text-gray-600 dark:text-gray-400">
+        <p>The 85% baseline represents the target health score for "1.0 Ready" status.</p>
+      </div>
+    </div>
+
+    <!-- Legend Toggle -->
+    <div class="mb-6">
+      <button id="toggle-legend" class="text-sm text-blue-600 dark:text-blue-400 hover:underline focus:outline-none">
+        Show Legend / Help
+      </button>
+      <div id="legend-content" class="hidden mt-4 bg-gray-50 dark:bg-[#2a2a2a] rounded-lg p-6 border border-gray-200 dark:border-[#404040]">
+        <h3 class="text-lg font-semibold text-theme-text dark:text-[#ececec] mb-4">Metric Explanations</h3>
+        <div class="space-y-3 text-sm text-gray-700 dark:text-gray-300">
+          <div><strong>Health:</strong> Overall health score (0-100) based on all metrics below</div>
+          <div><strong>Coverage:</strong> Percentage of code covered by Pester tests</div>
+          <div><strong>ScriptAnalyzer:</strong> Passes PSScriptAnalyzer checks (PowerShell best practices)</div>
+          <div><strong>Syntax:</strong> Valid PowerShell syntax with no parsing errors</div>
+          <div><strong>FunctionName:</strong> Follows naming convention (starts with "Dba")</div>
+          <div><strong>EnableException:</strong> Has -EnableException parameter for proper error handling</div>
+          <div><strong>BreakContinue:</strong> Avoids break/continue statements (core dev task)</div>
+          <div><strong>DeprecatedVerbosityCommands:</strong> Avoids deprecated verbosity commands</div>
+        </div>
+        <div class="mt-4 pt-4 border-t border-gray-200 dark:border-[#404040]">
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            To run tests locally: <code class="px-2 py-1 bg-gray-100 dark:bg-[#333333] rounded">Invoke-Pester</code>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Notice -->
+    <div id="filter-notice" class="hidden mb-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+      <div class="flex items-center justify-between">
+        <span class="text-sm text-blue-800 dark:text-blue-300">
+          Filtered to function: <strong id="filtered-function"></strong>
+        </span>
+        <button id="remove-filter" class="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+          Remove filter
+        </button>
+      </div>
+    </div>
+
+    <!-- DataTable Container -->
+    <div class="bg-white dark:bg-[#2a2a2a] rounded-lg shadow-sm border border-gray-200 dark:border-[#404040] overflow-hidden">
+      <div class="overflow-x-auto">
+        <table id="health-table" class="display nowrap" style="width:100%">
+          <thead>
+            <tr>
+              <th>Function</th>
+              <th>Health</th>
+              <th>Coverage</th>
+              <th>ScriptAnalyzer</th>
+              <th>Syntax</th>
+              <th>FunctionName</th>
+              <th>EnableException</th>
+              <th>BreakContinue</th>
+              <th>DeprecatedVerbosity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Data populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Info Footer -->
+    <div class="mt-6 text-sm text-gray-600 dark:text-gray-400 space-y-2">
+      <p>
+        This dashboard tracks code quality metrics for all dbatools functions. Green thumbs (👍) indicate passing metrics, red thumbs (👎) indicate areas for improvement.
+      </p>
+      <p>
+        Visit the <a href="https://github.com/dataplat/dbatools" class="text-blue-600 dark:text-blue-400 hover:underline">dbatools GitHub repository</a>
+        to contribute improvements.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+<!-- Page JavaScript -->
+<script src="{{ "js/health.js" | relURL }}"></script>
+
+{{ end }}

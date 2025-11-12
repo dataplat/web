@@ -1,0 +1,394 @@
+/* Bill of Health Page Styles */
+
+/* Health Score Badges */
+.health-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.health-red {
+  background-color: #d1242f;
+  color: #ffffff;
+}
+
+.dark .health-red {
+  background-color: #f85149;
+  color: #1a1a1a;
+}
+
+.health-orange {
+  background-color: #bc4c00;
+  color: #ffffff;
+}
+
+.dark .health-orange {
+  background-color: #ff8c42;
+  color: #1a1a1a;
+}
+
+.health-yellow {
+  background-color: #9a6700;
+  color: #ffffff;
+}
+
+.dark .health-yellow {
+  background-color: #d29922;
+  color: #1a1a1a;
+}
+
+.health-green {
+  background-color: #1a7f37;
+  color: #ffffff;
+}
+
+.dark .health-green {
+  background-color: #3fb950;
+  color: #1a1a1a;
+}
+
+/* Boolean Indicators */
+.bool-indicator {
+  font-size: 1.25rem;
+  display: inline-block;
+}
+
+.bool-true {
+  color: #1a7f37;
+}
+
+.dark .bool-true {
+  color: #3fb950;
+}
+
+.bool-false {
+  color: #d1242f;
+}
+
+.dark .bool-false {
+  color: #f85149;
+}
+
+/* Coverage Badge */
+.coverage-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  background-color: #f6f8fa;
+  border: 1px solid #d1d9e0;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: #1f2328;
+  transition: all 0.2s ease;
+}
+
+.dark .coverage-badge {
+  background-color: #2a2a2a;
+  border-color: #404040;
+  color: #ececec;
+}
+
+.coverage-badge:hover {
+  border-color: #0969da;
+  background-color: #ddf4ff;
+}
+
+.dark .coverage-badge:hover {
+  border-color: #58a6ff;
+  background-color: #1e1c2d;
+}
+
+/* Function Name Link */
+.function-link {
+  color: #0969da;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dark .function-link {
+  color: #58a6ff;
+}
+
+.function-link:hover {
+  text-decoration: underline;
+}
+
+/* DataTables Customization */
+.dataTables_wrapper {
+  color: #1f2328;
+}
+
+.dark .dataTables_wrapper {
+  color: #ececec;
+}
+
+#health-table thead th {
+  background-color: #f6f8fa;
+  color: #1f2328;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  padding: 1rem;
+  border-bottom: 2px solid #d1d9e0;
+}
+
+.dark #health-table thead th {
+  background-color: #2a2a2a;
+  color: #ececec;
+  border-bottom-color: #404040;
+}
+
+#health-table tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #d1d9e0;
+  font-size: 0.875rem;
+  vertical-align: middle;
+}
+
+.dark #health-table tbody td {
+  border-bottom-color: #404040;
+}
+
+#health-table tbody tr:hover {
+  background-color: #f6f8fa;
+}
+
+.dark #health-table tbody tr:hover {
+  background-color: #2a2a2a;
+}
+
+/* DataTables Controls */
+.dataTables_length select,
+.dataTables_filter input {
+  padding: 0.5rem;
+  border: 1px solid #d1d9e0;
+  border-radius: 0.375rem;
+  background-color: #ffffff;
+  color: #1f2328;
+  font-size: 0.875rem;
+}
+
+.dark .dataTables_length select,
+.dark .dataTables_filter input {
+  background-color: #2a2a2a;
+  color: #ececec;
+  border-color: #404040;
+}
+
+.dataTables_length label,
+.dataTables_filter label,
+.dataTables_info {
+  color: #59636e;
+  font-size: 0.875rem;
+}
+
+.dark .dataTables_length label,
+.dark .dataTables_filter label,
+.dark .dataTables_info {
+  color: #b4b4b4;
+}
+
+/* Pagination */
+.dataTables_paginate .paginate_button {
+  padding: 0.5rem 0.75rem;
+  margin: 0 0.125rem;
+  border: 1px solid #d1d9e0;
+  border-radius: 0.375rem;
+  background-color: #ffffff;
+  color: #1f2328 !important;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.dark .dataTables_paginate .paginate_button {
+  background-color: #2a2a2a;
+  color: #ececec !important;
+  border-color: #404040;
+}
+
+.dataTables_paginate .paginate_button:hover {
+  background-color: #f6f8fa;
+  border-color: #0969da;
+  color: #0969da !important;
+}
+
+.dark .dataTables_paginate .paginate_button:hover {
+  background-color: #333333;
+  border-color: #58a6ff;
+  color: #58a6ff !important;
+}
+
+.dataTables_paginate .paginate_button.current {
+  background-color: #0969da;
+  border-color: #0969da;
+  color: #ffffff !important;
+}
+
+.dark .dataTables_paginate .paginate_button.current {
+  background-color: #58a6ff;
+  border-color: #58a6ff;
+  color: #1a1a1a !important;
+}
+
+.dataTables_paginate .paginate_button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Export Buttons */
+.dt-buttons {
+  margin-bottom: 1rem;
+}
+
+.dt-button {
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  border: 1px solid #d1d9e0;
+  border-radius: 0.375rem;
+  background-color: #ffffff;
+  color: #1f2328;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dark .dt-button {
+  background-color: #2a2a2a;
+  color: #ececec;
+  border-color: #404040;
+}
+
+.dt-button:hover {
+  background-color: #0969da;
+  border-color: #0969da;
+  color: #ffffff;
+}
+
+.dark .dt-button:hover {
+  background-color: #58a6ff;
+  border-color: #58a6ff;
+  color: #1a1a1a;
+}
+
+/* Health Chart Styles */
+#health-chart {
+  position: relative;
+}
+
+#health-chart svg {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.chart-area {
+  fill: #0969da;
+  fill-opacity: 0.2;
+}
+
+.dark .chart-area {
+  fill: #58a6ff;
+  fill-opacity: 0.3;
+}
+
+.chart-line {
+  fill: none;
+  stroke: #0969da;
+  stroke-width: 2;
+}
+
+.dark .chart-line {
+  stroke: #58a6ff;
+}
+
+.chart-baseline {
+  stroke: #9a6700;
+  stroke-width: 2;
+  stroke-dasharray: 5,5;
+}
+
+.dark .chart-baseline {
+  stroke: #d29922;
+}
+
+.chart-axis {
+  stroke: #d1d9e0;
+  stroke-width: 1;
+}
+
+.dark .chart-axis {
+  stroke: #404040;
+}
+
+.chart-axis text {
+  fill: #59636e;
+  font-size: 12px;
+}
+
+.dark .chart-axis text {
+  fill: #b4b4b4;
+}
+
+.chart-tooltip {
+  position: absolute;
+  background-color: #25292e;
+  color: #ffffff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 1000;
+}
+
+.dark .chart-tooltip {
+  background-color: #f0f0f0;
+  color: #1a1a1a;
+}
+
+/* Code elements */
+code {
+  padding: 0.125rem 0.375rem;
+  background-color: #f6f8fa;
+  border-radius: 0.25rem;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.875em;
+  color: #0969da;
+}
+
+.dark code {
+  background-color: #333333;
+  color: #58a6ff;
+}
+
+/* Legend Toggle Button */
+#toggle-legend {
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #health-table thead th,
+  #health-table tbody td {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .health-badge {
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+  }
+
+  .bool-indicator {
+    font-size: 1rem;
+  }
+
+  #health-chart {
+    height: 200px !important;
+  }
+}
