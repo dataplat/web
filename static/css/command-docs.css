@@ -99,7 +99,7 @@
 
 /* Dark mode styles */
 .dark .command-header {
-  background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+  background: linear-gradient(135deg, #1c2128 0%, #22272e 100%);
   border-color: #30363d;
 }
 
@@ -443,13 +443,13 @@ article pre::-webkit-scrollbar-thumb:hover {
 
 /* Dark mode support */
 .dark article pre {
-  background-color: #0d1117 !important;
+  background-color: #1c2128 !important;
   border-color: #30363d !important;
 }
 
 .dark article pre:hover {
-  background-color: #161b22 !important;
-  border-color: #484f58 !important;
+  background-color: #22272e !important;
+  border-color: #444c56 !important;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
@@ -458,7 +458,7 @@ article pre::-webkit-scrollbar-thumb:hover {
 }
 
 .dark article code {
-  background-color: #161b22;
+  background-color: #22272e;
   border-color: #30363d;
   color: #22C55E;
 }
@@ -468,7 +468,7 @@ article pre::-webkit-scrollbar-thumb:hover {
 }
 
 .dark article table th {
-  background-color: #161b22;
+  background-color: #1c2128;
   border-color: #30363d;
   color: #e6edf3;
 }
@@ -479,7 +479,7 @@ article pre::-webkit-scrollbar-thumb:hover {
 }
 
 .dark article table tbody tr:hover {
-  background-color: #0d1117;
+  background-color: #22272e;
 }
 
 .dark article h1 {
