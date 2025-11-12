@@ -25,11 +25,16 @@
         targets: [6, 7, 8, 9], // SP?, CU?, Latest SP?, Latest CU?
         className: 'text-center',
         render: function(data, type, row, meta) {
+          // For filtering and sorting, return the raw data ('X' or '.')
+          // For display, return the checkmark
+          if (type === 'filter' || type === 'sort') {
+            return data;
+          }
           return data == 'X' ? '&#10003;' : '';
         }
       },
       {
-        targets: [3, 4, 5, 10], // SP, CU, Support columns
+        targets: [3, 4, 5], // SP, CU, Support columns
         render: function(data, type, row, meta) {
           return data == '.' ? '' : data;
         }
