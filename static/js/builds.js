@@ -9,7 +9,7 @@
     responsive: true,
     pageLength: 100,
     order: [[1, 'desc']], // Sort by Version descending
-    dom: 'Brtip', // Removed 'f' (filter) - using custom search instead
+    dom: '<"datatable-top"B>rt<"datatable-bottom"<"datatable-info"i><"datatable-pagination"p>>', // Custom layout with separate wrappers
     buttons: [
       'copy',
       'excel',
