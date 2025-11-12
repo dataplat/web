@@ -61,27 +61,6 @@ jobs:
           ./scripts/generate-command-pages.ps1
           Write-Host "Command pages generated successfully"
 
-      - name: Enrich commands.json with full content
-        shell: pwsh
-        run: |
-          Write-Host "Enriching commands.json..."
-          ./scripts/enrich-commands-json.ps1
-          Write-Host "Commands enriched successfully"
-
-      - name: Update popular commands
-        shell: pwsh
-        run: |
-          Write-Host "Updating popular commands..."
-          ./scripts/update-popular-commands.ps1
-          Write-Host "Popular commands updated successfully"
-
-      - name: Update command URLs
-        shell: pwsh
-        run: |
-          Write-Host "Updating command URLs..."
-          ./scripts/update-commands-urls.ps1
-          Write-Host "Command URLs updated successfully"
-
       - name: Build Hugo site
         run: hugo --minify
 

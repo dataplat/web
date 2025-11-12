@@ -77,12 +77,7 @@ $popularCommands = @(
 # Reset all commands to not popular
 Write-Host "Resetting all commands to not popular..." -ForegroundColor Yellow
 foreach ($cmd in $commands) {
-    # Add popular property if it doesn't exist
-    if (-not ($cmd.PSObject.Properties.Name -contains 'popular')) {
-        $cmd | Add-Member -MemberType NoteProperty -Name 'popular' -Value $false
-    } else {
-        $cmd.popular = $false
-    }
+    $cmd.popular = $false
     # Add popularityRank property if it doesn't exist, set to 0 (not ranked)
     if (-not ($cmd.PSObject.Properties.Name -contains 'popularityRank')) {
         $cmd | Add-Member -MemberType NoteProperty -Name 'popularityRank' -Value 0

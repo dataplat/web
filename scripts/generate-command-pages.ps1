@@ -347,16 +347,6 @@ if ($errors -gt 0) {
 Write-Host "✓ Output directory: $OutputFolder" -ForegroundColor Green
 Write-Host ""
 
-# Copy index to static/commands.json for the website
-$StaticCommandsJson = Join-Path $PSScriptRoot ".." "static" "commands.json"
-Write-Host "Copying index to static/commands.json..." -ForegroundColor Yellow
-try {
-    Copy-Item $IndexPath $StaticCommandsJson -Force
-    Write-Host "✓ Copied to static/commands.json" -ForegroundColor Green
-} catch {
-    Write-Warning "Failed to copy index to static/commands.json: $_"
-}
-
 # Cleanup
 if (Test-Path $IndexPath) {
     Remove-Item $IndexPath -Force
