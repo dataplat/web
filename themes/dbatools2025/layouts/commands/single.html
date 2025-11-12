@@ -20,7 +20,7 @@
 <!-- Add Fuse.js for search -->
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
 
-<div class="bg-white">
+<div class="bg-white dark:bg-[#1a1a1a]">
     <div class="commands-main-layout">
         <aside class="commands-sidebar" id="sidebar">
             <div class="search-section">
@@ -56,12 +56,12 @@
 
         <main class="commands-main-content">
             <!-- Breadcrumbs -->
-            <nav class="mb-8 text-sm text-theme-text-secondary">
-                <a href="/" class="hover:text-primary transition-colors">Home</a>
+            <nav class="mb-8 text-sm text-theme-text-secondary dark:text-[#b4b4b4]">
+                <a href="/" class="hover:text-primary dark:hover:text-[#58a6ff] transition-colors">Home</a>
                 <span class="mx-2">/</span>
-                <a href="/commands" class="hover:text-primary transition-colors">Commands</a>
+                <a href="/commands" class="hover:text-primary dark:hover:text-[#58a6ff] transition-colors">Commands</a>
                 <span class="mx-2">/</span>
-                <span class="text-theme-text">{{ .Title }}</span>
+                <span class="text-theme-text dark:text-[#ececec]">{{ .Title }}</span>
             </nav>
 
             <!-- Command Documentation -->
