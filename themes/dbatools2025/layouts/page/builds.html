@@ -1,0 +1,117 @@
+{{ define "main" }}
+<!-- Page specific CSS and JS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.2.0/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/4.0.1/css/fixedHeader.dataTables.min.css">
+<link rel="stylesheet" href="{{ "css/builds.css" | relURL }}">
+
+<!-- Main Content Container -->
+<div class="min-h-screen bg-white dark:bg-[#1a1a1a] pt-24 pb-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Page Header -->
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold text-theme-text dark:text-[#ececec] mb-4">
+        SQL Server Build Reference
+      </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-2">
+        Comprehensive database of SQL Server versions, service packs, cumulative updates, and KB articles.
+      </p>
+      <p class="text-sm text-gray-500 dark:text-gray-500">
+        Last updated: <span id="last-updated" class="font-medium">Loading...</span>
+      </p>
+    </div>
+
+    <!-- Filter Controls -->
+    <div class="bg-gray-50 dark:bg-[#2a2a2a] rounded-lg p-6 mb-6 border border-gray-200 dark:border-[#404040]">
+      <div class="space-y-4">
+
+        <!-- Version Filters -->
+        <div>
+          <h3 class="text-sm font-semibold text-theme-text dark:text-[#ececec] mb-3 uppercase tracking-wider">
+            Filter by Version
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <button class="filter-button version-filter active" data-filter="all">All Versions</button>
+            <button class="filter-button version-filter" data-filter="2022">SQL Server 2022</button>
+            <button class="filter-button version-filter" data-filter="2019">SQL Server 2019</button>
+            <button class="filter-button version-filter" data-filter="2017">SQL Server 2017</button>
+            <button class="filter-button version-filter" data-filter="2016">SQL Server 2016</button>
+            <button class="filter-button version-filter" data-filter="2014">SQL Server 2014</button>
+            <button class="filter-button version-filter" data-filter="2012">SQL Server 2012</button>
+            <button class="filter-button version-filter" data-filter="2008R2">SQL Server 2008 R2</button>
+            <button class="filter-button version-filter" data-filter="2008">SQL Server 2008</button>
+            <button class="filter-button version-filter" data-filter="2005">SQL Server 2005</button>
+            <button class="filter-button version-filter" data-filter="2000">SQL Server 2000</button>
+          </div>
+        </div>
+
+        <!-- Attribute Filters -->
+        <div>
+          <h3 class="text-sm font-semibold text-theme-text dark:text-[#ececec] mb-3 uppercase tracking-wider">
+            Filter by Attributes
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <button class="filter-button attribute-filter" data-filter="service-packs">Service Packs Only</button>
+            <button class="filter-button attribute-filter" data-filter="cumulative-updates">Cumulative Updates Only</button>
+            <button class="filter-button attribute-filter" data-filter="latest-sp">Latest SP per Version</button>
+            <button class="filter-button attribute-filter" data-filter="latest-cu">Latest CU per Version</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DataTable Container -->
+    <div class="bg-white dark:bg-[#2a2a2a] rounded-lg shadow-sm border border-gray-200 dark:border-[#404040] overflow-hidden">
+      <div class="overflow-x-auto">
+        <table id="builds-table" class="display nowrap" style="width:100%">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Version</th>
+              <th>Name</th>
+              <th>SP</th>
+              <th>CU</th>
+              <th>SP?</th>
+              <th>CU?</th>
+              <th>Latest SP?</th>
+              <th>Latest CU?</th>
+              <th>KB List</th>
+              <th>Support Until</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Data populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Info Footer -->
+    <div class="mt-6 text-sm text-gray-600 dark:text-gray-400">
+      <p>
+        This data is used by the <code class="px-2 py-1 bg-gray-100 dark:bg-[#333333] rounded text-powershell-blue dark:text-[#58a6ff]">Get-DbaBuild</code>
+        and related dbatools commands to provide accurate SQL Server version information.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/fixedheader/4.0.1/js/dataTables.fixedHeader.min.js"></script>
+
+<!-- Page JavaScript -->
+<script src="{{ "js/builds.js" | relURL }}"></script>
+
+{{ end }}
