@@ -204,7 +204,14 @@ html.dark body {
   overflow-y: auto;
   padding: 24px 20px;
   scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
   scrollbar-gutter: stable;
+}
+
+/* Dark mode scrollbar for Firefox */
+:root.dark .commands-sidebar,
+html.dark .commands-sidebar {
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
 /* Modern Scrollbar Styling - Sidebar */
@@ -228,6 +235,17 @@ html.dark body {
 
 .commands-sidebar::-webkit-scrollbar-thumb:hover {
   background-color: rgba(0, 0, 0, 0.25);
+}
+
+/* Dark mode scrollbar */
+:root.dark .commands-sidebar:hover::-webkit-scrollbar-thumb,
+html.dark .commands-sidebar:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+:root.dark .commands-sidebar::-webkit-scrollbar-thumb:hover,
+html.dark .commands-sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .commands-sidebar {
