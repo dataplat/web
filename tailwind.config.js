@@ -3,6 +3,7 @@ module.exports = {
     "./themes/dbatools2025/layouts/**/*.html",
     "./content/**/*.md"
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {

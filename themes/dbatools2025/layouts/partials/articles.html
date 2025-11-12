@@ -1,12 +1,12 @@
-<section class="py-16 bg-white">
+<section class="py-16 bg-white dark:bg-[#1a1a1a]">
   <div class="max-w-7xl mx-auto px-6">
 
     <!-- Section header -->
     <div class="text-center mb-16">
-      <h2 class="text-display font-bold mb-4 text-theme-text">
+      <h2 class="text-display font-bold mb-4 text-theme-text dark:text-[#ececec]">
         Latest Articles
       </h2>
-      <p class="text-lg text-theme-text-secondary max-w-2xl mx-auto">
+      <p class="text-lg text-theme-text-secondary dark:text-[#b4b4b4] max-w-2xl mx-auto">
         Tips, guides, and updates from the dbatools community
       </p>
     </div>
@@ -14,25 +14,25 @@
     <!-- Articles grid -->
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
       {{ range first 6 (where site.RegularPages "Type" "post") }}
-      <article class="bg-theme-card rounded-xl p-6 border border-theme-border hover:border-primary/50 transition-all">
+      <article class="bg-theme-card dark:bg-[#2d2d2d] rounded-xl p-6 border border-theme-border dark:border-[#404040] hover:border-primary/50 transition-all">
 
         <!-- Date -->
         {{ if .Date }}
-        <p class="text-sm text-theme-text-secondary mb-3">
+        <p class="text-sm text-theme-text-secondary dark:text-[#b4b4b4] mb-3">
           {{ .Date.Format "January 2, 2006" }}
         </p>
         {{ end }}
 
         <!-- Title -->
         <h3 class="text-lg font-semibold mb-3">
-          <a href="{{ .Permalink }}" class="text-theme-text hover:text-primary transition-colors">
+          <a href="{{ .Permalink }}" class="text-theme-text dark:text-[#ececec] hover:text-primary transition-colors">
             {{ .Title }}
           </a>
         </h3>
 
         <!-- Summary -->
         {{ if .Summary }}
-        <p class="text-sm leading-relaxed text-theme-text-secondary mb-4">
+        <p class="text-sm leading-relaxed text-theme-text-secondary dark:text-[#b4b4b4] mb-4">
           {{ .Summary }}
         </p>
         {{ end }}

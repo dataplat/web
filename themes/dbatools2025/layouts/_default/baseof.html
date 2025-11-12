@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +16,19 @@
 
   <!-- Tailwind CSS -->
   <link rel="stylesheet" href="{{ "css/tailwind.css" | relURL }}">
+
+  <!-- Theme initialization (must run before body renders to prevent flash) -->
+  <script>
+    (function() {
+      // Check for saved theme preference or default to light mode
+      const currentTheme = localStorage.getItem('theme') || 'light';
+
+      // Apply theme immediately on page load
+      if (currentTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
 
   <!-- Favicons -->
   <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any">
@@ -44,7 +57,7 @@
     gtag('config', 'G-WZ9LF10DRD');
   </script>
 </head>
-<body class="bg-white text-theme-text font-sans antialiased">
+<body class="bg-white dark:bg-[#1a1a1a] text-theme-text dark:text-[#ececec] font-sans antialiased overflow-x-hidden">
 
   {{ partial "header.html" . }}
 

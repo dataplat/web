@@ -99,8 +99,8 @@
 
 /* Dark mode styles */
 .dark .command-header {
-  background: linear-gradient(135deg, #0B234A 0%, #0e2a57 100%);
-  border-color: #273B59;
+  background: linear-gradient(135deg, #1c2128 0%, #22272e 100%);
+  border-color: #30363d;
 }
 
 .dark .command-header:hover {
@@ -125,7 +125,7 @@
 }
 
 .dark .command-meta {
-  border-top-color: #273B59;
+  border-top-color: #30363d;
 }
 
 .dark .meta-item {
@@ -230,14 +230,14 @@ article pre {
 
 /* Dark mode copy button */
 .dark .copy-code-button {
-  background: linear-gradient(135deg, #0e2a57 0%, #0B234A 100%);
-  border-color: #273B59;
+  background: linear-gradient(135deg, #22272e 0%, #1c2128 100%);
+  border-color: #30363d;
   color: #9198a1;
 }
 
 .dark .copy-code-button:hover {
-  background: linear-gradient(135deg, #162f5a 0%, #0e2a57 100%);
-  border-color: #3a4d6b;
+  background: linear-gradient(135deg, #2d333b 0%, #22272e 100%);
+  border-color: #444c56;
   color: #e6edf3;
 }
 
@@ -443,13 +443,13 @@ article pre::-webkit-scrollbar-thumb:hover {
 
 /* Dark mode support */
 .dark article pre {
-  background-color: #0B234A !important;
-  border-color: #273B59 !important;
+  background-color: #1c2128 !important;
+  border-color: #30363d !important;
 }
 
 .dark article pre:hover {
-  background-color: #0e2a57 !important;
-  border-color: #3a4d6b !important;
+  background-color: #22272e !important;
+  border-color: #444c56 !important;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
@@ -458,28 +458,28 @@ article pre::-webkit-scrollbar-thumb:hover {
 }
 
 .dark article code {
-  background-color: #0B234A;
-  border-color: #273B59;
+  background-color: #22272e;
+  border-color: #30363d;
   color: #22C55E;
 }
 
 .dark article table {
-  border-color: #273B59;
+  border-color: #30363d;
 }
 
 .dark article table th {
-  background-color: #0B234A;
-  border-color: #273B59;
+  background-color: #1c2128;
+  border-color: #30363d;
   color: #e6edf3;
 }
 
 .dark article table td {
-  border-color: #273B59;
+  border-color: #30363d;
   color: #9198a1;
 }
 
 .dark article table tbody tr:hover {
-  background-color: #0e2a57;
+  background-color: #22272e;
 }
 
 .dark article h1 {
@@ -490,7 +490,7 @@ article pre::-webkit-scrollbar-thumb:hover {
 .dark article h3,
 .dark article h4 {
   color: #e6edf3;
-  border-color: #273B59;
+  border-color: #30363d;
 }
 
 .dark article h5 {
@@ -520,7 +520,7 @@ article pre::-webkit-scrollbar-thumb:hover {
 }
 
 .dark article hr {
-  border-color: #273B59;
+  border-color: #30363d;
 }
 
 .dark article pre::-webkit-scrollbar-track {

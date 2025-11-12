@@ -1,10 +1,10 @@
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-[#1a1a1a]">
 
   <!-- Subtle gradient background -->
-  <div class="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-white to-white"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-white to-white dark:from-blue-950/20 dark:via-[#1a1a1a] dark:to-[#1a1a1a]"></div>
 
   <!-- Radial gradient accent -->
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-radial from-blue-100/40 via-transparent to-transparent blur-3xl"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-radial from-blue-100/40 via-transparent to-transparent dark:from-blue-900/20 blur-3xl"></div>
 
   <div class="relative z-10 w-full max-w-7xl mx-auto px-6 pt-32 pb-4">
 
@@ -12,21 +12,21 @@
     <div class="max-w-4xl mx-auto text-center mb-16 animate-slide-up">
 
       <!-- Hero headline -->
-      <h1 class="text-hero font-bold mb-6 text-theme-text">
+      <h1 class="text-hero font-bold mb-6 text-theme-text dark:text-[#ececec]">
         The PowerShell toolkit<br>
         <span class="bg-gradient-to-r from-primary via-accent-light to-primary bg-clip-text text-transparent whitespace-nowrap">for SQL Server professionals</span>
       </h1>
 
       <!-- Subheadline -->
-      <p class="text-xl leading-relaxed text-theme-text-secondary mb-10 max-w-2xl mx-auto">
+      <p class="text-xl leading-relaxed text-theme-text-secondary dark:text-[#b4b4b4] mb-10 max-w-2xl mx-auto">
         Automate administration, migrations, disaster recovery and compliance
 
       <!-- CTA buttons -->
       <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="/commands/" class="inline-flex items-center gap-2 px-6 py-3 bg-theme-card text-theme-text rounded-lg font-medium hover:bg-theme-border transition-colors border border-theme-border">
+        <a href="/commands/" class="inline-flex items-center gap-2 px-6 py-3 bg-theme-card dark:bg-[#2d2d2d] text-theme-text dark:text-[#ececec] rounded-lg font-medium hover:bg-theme-border dark:hover:bg-[#404040] transition-colors border border-theme-border dark:border-[#404040]">
           <span>Explore Commands</span>
         </a>
-        <a href="/install/" class="group inline-flex items-center gap-2 px-6 py-3 bg-theme-text text-white rounded-lg font-medium hover:scale-[1.02] transition-all shadow-sm hover:shadow-md">
+        <a href="/install/" class="group inline-flex items-center gap-2 px-6 py-3 bg-theme-text dark:bg-[#58a6ff] text-white dark:text-[#1a1a1a] rounded-lg font-medium hover:scale-[1.02] transition-all shadow-sm hover:shadow-md">
           <span>Get Started</span>
           <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>

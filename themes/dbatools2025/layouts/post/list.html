@@ -1,12 +1,12 @@
 {{ define "main" }}
-<div class="bg-white pt-24">
+<div class="bg-white dark:bg-[#1a1a1a] pt-24">
   <div class="max-w-8xl mx-auto px-12 py-16">
 
     <!-- Page Header -->
     <div class="mb-16">
-      <h1 class="text-5xl font-bold mb-4">{{ .Title }}</h1>
+      <h1 class="text-5xl font-bold mb-4 text-theme-text dark:text-[#ececec]">{{ .Title }}</h1>
       {{ if .Description }}
-      <p class="text-xl text-slate-600">{{ .Description }}</p>
+      <p class="text-xl text-slate-600 dark:text-[#b4b4b4]">{{ .Description }}</p>
       {{ end }}
     </div>
 
@@ -14,11 +14,11 @@
     {{ $paginator := .Paginate .Pages 20 }}
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {{ range $paginator.Pages }}
-      <article class="bg-slate-50 rounded-2xl p-8 shadow-soft hover:shadow-soft-lg hover:scale-[1.02] transition-all duration-300">
+      <article class="bg-slate-50 dark:bg-[#2d2d2d] rounded-2xl p-8 shadow-soft hover:shadow-soft-lg hover:scale-[1.02] transition-all duration-300 border border-transparent dark:border-[#404040]">
 
         <!-- Title -->
         <h2 class="text-2xl font-semibold mb-3">
-          <a href="{{ .Permalink }}" class="text-slate-900 hover:text-primary transition-colors">
+          <a href="{{ .Permalink }}" class="text-slate-900 dark:text-[#ececec] hover:text-primary dark:hover:text-[#58a6ff] transition-colors">
             {{ .Title }}
           </a>
         </h2>
@@ -26,17 +26,17 @@
         <!-- Author and Date -->
         <div class="flex items-center justify-between mb-4">
           {{ if .Params.author }}
-          <p class="text-sm text-slate-600 font-medium">
+          <p class="text-sm text-slate-600 dark:text-[#b4b4b4] font-medium">
             {{ .Params.author }}
           </p>
           {{ end }}
-          <div class="text-sm text-slate-500">
+          <div class="text-sm text-slate-500 dark:text-[#b4b4b4]">
             {{ if .Date }}
             <p>{{ .Date.Format "Jan 2, 2006" }}</p>
             {{ end }}
             {{ if .Lastmod }}
               {{ if ne (.Date.Format "2006-01-02") (.Lastmod.Format "2006-01-02") }}
-              <p class="text-xs text-slate-400 mt-1">Updated: {{ .Lastmod.Format "Jan 2, 2006" }}</p>
+              <p class="text-xs text-slate-400 dark:text-[#999] mt-1">Updated: {{ .Lastmod.Format "Jan 2, 2006" }}</p>
               {{ end }}
             {{ end }}
           </div>
@@ -44,13 +44,13 @@
 
         <!-- Summary/Excerpt -->
         {{ if .Summary }}
-        <p class="text-base text-slate-700 mb-4 leading-relaxed">
+        <p class="text-base text-slate-700 dark:text-[#b4b4b4] mb-4 leading-relaxed">
           {{ .Summary }}
         </p>
         {{ end }}
 
         <!-- Read More Link -->
-        <a href="{{ .Permalink }}" class="text-primary font-semibold hover:underline inline-flex items-center gap-2">
+        <a href="{{ .Permalink }}" class="text-primary dark:text-[#58a6ff] font-semibold hover:underline inline-flex items-center gap-2">
           Read more
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -67,11 +67,11 @@
     <div class="flex justify-center items-center gap-2 mt-16">
       <!-- Previous Button -->
       {{ if $paginator.HasPrev }}
-      <a href="{{ $paginator.Prev.URL }}" class="px-4 py-2 bg-slate-100 rounded-lg hover:bg-primary hover:text-white transition-all font-semibold text-sm">
+      <a href="{{ $paginator.Prev.URL }}" class="px-4 py-2 bg-slate-100 dark:bg-[#2d2d2d] rounded-lg hover:bg-primary hover:text-white transition-all font-semibold text-sm text-theme-text dark:text-[#ececec]">
         ← Previous
       </a>
       {{ else }}
-      <span class="px-4 py-2 bg-slate-100 rounded-lg text-slate-400 text-sm font-semibold cursor-not-allowed">
+      <span class="px-4 py-2 bg-slate-100 dark:bg-[#2d2d2d] rounded-lg text-slate-400 dark:text-[#666] text-sm font-semibold cursor-not-allowed">
         ← Previous
       </span>
       {{ end }}
@@ -82,25 +82,25 @@
           {{ if eq $num $paginator.PageNumber }}
           <span class="px-3 py-2 bg-primary text-white rounded-lg font-semibold text-sm">{{ $num }}</span>
           {{ else }}
-          <a href="{{ if eq $num 1 }}{{ $paginator.First.URL }}{{ else }}{{ printf "%s/page/%d/" $.RelPermalink $num | strings.TrimSuffix "/" }}/{{ end }}" class="px-3 py-2 bg-slate-100 rounded-lg hover:bg-primary hover:text-white transition-all font-semibold text-sm">{{ $num }}</a>
+          <a href="{{ if eq $num 1 }}{{ $paginator.First.URL }}{{ else }}{{ printf "%s/page/%d/" $.RelPermalink $num | strings.TrimSuffix "/" }}/{{ end }}" class="px-3 py-2 bg-slate-100 dark:bg-[#2d2d2d] rounded-lg hover:bg-primary hover:text-white transition-all font-semibold text-sm text-theme-text dark:text-[#ececec]">{{ $num }}</a>
           {{ end }}
         {{ end }}
       </div>
 
       <!-- Next Button -->
       {{ if $paginator.HasNext }}
-      <a href="{{ $paginator.Next.URL }}" class="px-4 py-2 bg-slate-100 rounded-lg hover:bg-primary hover:text-white transition-all font-semibold text-sm">
+      <a href="{{ $paginator.Next.URL }}" class="px-4 py-2 bg-slate-100 dark:bg-[#2d2d2d] rounded-lg hover:bg-primary hover:text-white transition-all font-semibold text-sm text-theme-text dark:text-[#ececec]">
         Next →
       </a>
       {{ else }}
-      <span class="px-4 py-2 bg-slate-100 rounded-lg text-slate-400 text-sm font-semibold cursor-not-allowed">
+      <span class="px-4 py-2 bg-slate-100 dark:bg-[#2d2d2d] rounded-lg text-slate-400 dark:text-[#666] text-sm font-semibold cursor-not-allowed">
         Next →
       </span>
       {{ end }}
     </div>
 
     <!-- Page Info -->
-    <div class="text-center mt-4 text-sm text-slate-500">
+    <div class="text-center mt-4 text-sm text-slate-500 dark:text-[#b4b4b4]">
       Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }} ({{ $paginator.TotalNumberOfElements }} total posts)
     </div>
     {{ end }}
