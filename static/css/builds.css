@@ -387,6 +387,18 @@ code {
 /* Fixed Header z-index fix for site header */
 .fixedHeader-floating {
   z-index: 30 !important;
+  top: 70px !important; /* Position below site navigation header (68px header + 2px border) */
+}
+
+/* Ensure fixed header has proper background */
+.fixedHeader-floating thead th {
+  background-color: #f6f8fa !important;
+  border-bottom: 2px solid #d1d9e0 !important;
+}
+
+.dark .fixedHeader-floating thead th {
+  background-color: #2a2a2a !important;
+  border-bottom: 2px solid #404040 !important;
 }
 
 /* Responsive adjustments */

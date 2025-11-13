@@ -8,7 +8,7 @@
   var table = $('#builds-table').DataTable({
     responsive: true,
     pageLength: 100,
-    order: [[1, 'desc']], // Sort by Version descending
+    order: [[0, 'desc']], // Sort by ID descending (newest first)
     dom: '<"datatable-top"B>rt<"datatable-bottom"<"datatable-info"i><"datatable-pagination"p>>', // Custom layout with separate wrappers
     buttons: [
       'copy',
