@@ -11,9 +11,24 @@
     order: [[0, 'desc']], // Sort by ID descending (newest first)
     dom: '<"datatable-top"B>rt<"datatable-bottom"<"datatable-info"i><"datatable-pagination"p>>', // Custom layout with separate wrappers
     buttons: [
-      'copy',
-      'excel',
-      'pdf'
+      {
+        extend: 'copy',
+        exportOptions: {
+          orthogonal: 'export'
+        }
+      },
+      {
+        extend: 'excel',
+        exportOptions: {
+          orthogonal: 'export'
+        }
+      },
+      {
+        extend: 'pdf',
+        exportOptions: {
+          orthogonal: 'export'
+        }
+      }
     ],
     fixedHeader: true, // Enable sticky header
     columnDefs: [
@@ -23,7 +38,17 @@
         searchable: false
       },
       {
-        targets: [6, 7, 8, 9], // SP?, CU?, Latest SP?, Latest CU?
+        targets: 1, // Version column - strip HTML for exports
+        render: function(data, type, row, meta) {
+          if (type === 'export') {
+            // Strip HTML tags for export
+            return data.replace(/<[^>]*>/g, '');
+          }
+          return data;
+        }
+      },
+      {
+        targets: [5, 6, 7, 8], // SP?, CU?, Latest SP?, Latest CU?
         className: 'text-center',
         render: function(data, type, row, meta) {
           // For filtering, sorting, and exports, return plain text
@@ -35,7 +60,17 @@
         }
       },
       {
-        targets: [3, 4, 5], // SP, CU, Support columns
+        targets: 9, // KB List column - strip HTML for exports
+        render: function(data, type, row, meta) {
+          if (type === 'export') {
+            // Strip HTML tags for export
+            return data.replace(/<[^>]*>/g, '');
+          }
+          return data;
+        }
+      },
+      {
+        targets: [3, 4, 10], // SP, CU, Support columns
         render: function(data, type, row, meta) {
           return data == '.' ? '' : data;
         }
