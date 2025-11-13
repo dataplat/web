@@ -26,11 +26,11 @@
         targets: [6, 7, 8, 9], // SP?, CU?, Latest SP?, Latest CU?
         className: 'text-center',
         render: function(data, type, row, meta) {
-          // For filtering and sorting, return the raw data ('X' or '.')
-          // For display, return the checkmark
-          if (type === 'filter' || type === 'sort') {
-            return data;
+          // For filtering, sorting, and exports, return plain text
+          if (type === 'filter' || type === 'sort' || type === 'export') {
+            return data == 'X' ? 'Yes' : '';
           }
+          // For display, return the checkmark
           return data == 'X' ? '&#10003;' : '';
         }
       },
