@@ -11,9 +11,24 @@
     order: [[0, 'desc']], // Sort by ID descending (newest first)
     dom: '<"datatable-top"B>rt<"datatable-bottom"<"datatable-info"i><"datatable-pagination"p>>', // Custom layout with separate wrappers
     buttons: [
-      'copy',
-      'excel',
-      'pdf'
+      {
+        extend: 'copy',
+        exportOptions: {
+          orthogonal: 'export'
+        }
+      },
+      {
+        extend: 'excel',
+        exportOptions: {
+          orthogonal: 'export'
+        }
+      },
+      {
+        extend: 'pdf',
+        exportOptions: {
+          orthogonal: 'export'
+        }
+      }
     ],
     fixedHeader: true, // Enable sticky header
     columnDefs: [
