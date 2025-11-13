@@ -42,8 +42,11 @@
         className: 'text-center',
         render: function(data, type, row, meta) {
           // For filtering, sorting, and exports, return plain text
-          if (type === 'filter' || type === 'sort' || type === 'export') {
+          if (type === 'export') {
             return data == 'X' ? 'Yes' : '';
+          }
+          if (type === 'filter') {
+            return data == 'X' ? 'X' : '.';
           }
           // For display, return the checkmark
           return data == 'X' ? '&#10003;' : '';
@@ -152,7 +155,7 @@
         }
 
         // Mark Service Packs
-        if (el.SP) {
+        if (el.SP && el.SP !== 'RC') {
           is_SP = 'X';
           var compareSP = el.SP;
           if (compareSP != prevSP) {
@@ -179,7 +182,7 @@
         }
 
         // Format KB List with links
-        var nKBList = '.';
+        var nKBList = '';
         if (el.KBList) {
           if (_.isArray(el.KBList)) {
             var KBArr = [];
