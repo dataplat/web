@@ -87,6 +87,9 @@ html.dark body {
   transition: background-color 0.3s ease, color 0.3s ease;
   background-color: var(--bg-primary);
   color: var(--text-primary);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Header Section */
@@ -476,6 +479,9 @@ html.dark body {
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 16px;
   animation: fadeIn 0.3s ease;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 /* List View */
@@ -737,12 +743,23 @@ html.dark body {
     gap: 12px;
   }
 
+  .commands-controls {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
   .sort-container {
     width: 100%;
+    flex: 1;
+    min-width: 0;
   }
 
   .sort-select {
     width: 100%;
+  }
+
+  .view-toggle {
+    flex-shrink: 0;
   }
 
   .commands-grid {
@@ -755,24 +772,50 @@ html.dark body {
     font-size: 24px;
   }
 
+  .commands-header {
+    padding: 40px 16px;
+  }
+
   .commands-layout {
     padding: 16px;
   }
 
   .commands-sidebar {
     grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .commands-main {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .commands-grid {
+    grid-template-columns: 1fr;
+    min-width: 0;
   }
 
   .command-card {
     padding: 16px;
+    min-width: 0;
+    width: 100%;
   }
 
   .command-name {
     font-size: 16px;
+    word-break: break-word;
   }
 
   .command-description {
     font-size: 13px;
+  }
+
+  .commands-controls {
+    gap: 12px;
+  }
+
+  .view-toggle-btn {
+    padding: 6px 10px;
   }
 }
 
