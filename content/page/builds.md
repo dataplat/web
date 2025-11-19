@@ -8,5 +8,5 @@ aliases:
   - /buildref/
   - /build-reference/
 draft: false
-description: "Comprehensive SQL Server build reference database with versions, service packs, cumulative updates, and KB articles from SQL Server 2000 through 2022."
+description: "Comprehensive SQL Server build reference database with versions, service packs, cumulative updates, and KB articles from SQL Server 2000 through 2025."
 ---
