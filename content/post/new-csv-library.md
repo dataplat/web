@@ -69,7 +69,13 @@ Being honest: if pure parsing speed is your only concern, [Sep](https://github.c
 - **Progress reporting** - Know how far along your 10 million row import is
 - **dbatools integration** - Works seamlessly with Import-DbaCsv
 
-If you're doing `file.csv.gz → SqlBulkCopy → SQL Server`, our complete workflow may actually be faster than combining Sep + manual decompression + manual IDataReader wrapping.
+### The speed tradeoff
+
+I asked Claude to explain why we can't match Sep/Sylvan, and it comes down to architecture. Sep uses `Span<T>` and only creates actual strings when you explicitly ask for them. But the `IDataReader` interface that SqlBulkCopy uses requires returning real objects from `GetValue()`. For string columns, that means allocating actual `string` instances—we can't just hand back a span.
+
+Could we create a Sep-like API? Sure. But then you'd need to write your own IDataReader wrapper to use SqlBulkCopy, handle decompression yourself, implement progress reporting... you get the idea. We optimized for the complete workflow, not the micro-benchmark.
+
+For `file.csv.gz → SqlBulkCopy → SQL Server` workflows, Dataplat's integrated pipeline is often comparable to combining Sep + manual decompression + manual IDataReader wrapping, while being simpler to use.
 
 ### Why is it so much faster?
 
