@@ -5,7 +5,7 @@ author: "Chrissy LeMaire"
 slug: "new-csv-library"
 categories: [announcements]
 tags: [csv, import, export, performance]
-draft: true
+draft: false
 images: ["https://dataplat.dbatools.io/csv-social.png"]
 ---
 
