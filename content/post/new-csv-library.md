@@ -1,5 +1,5 @@
 ---
-title: "A New CSV Library: 6x Faster, 40x Less Memory"
+title: "A New CSV Library: Built for SQL Server"
 date: 2025-11-30
 author: "Chrissy LeMaire"
 slug: "new-csv-library"
@@ -31,22 +31,45 @@ What came back was fast as heck and used several patterns (apparently `Span<T>`,
 
 ## The results
 
-Using Claude to figure out benchmarking, I ran some proper benchmarks and the new Dataplat.Dbatools.Csv library isn't just a little faster. It's in a completely different performance class.
+Using Claude to figure out benchmarking, I ran proper benchmarks comparing Dataplat.Dbatools.Csv against not just LumenWorks, but also the modern CSV libraries: Sep, Sylvan, and CsvHelper.
 
-| Scenario | Dataplat | LumenWorks | Speed Boost | Memory Savings |
-|----------|----------|------------|-------------|----------------|
-| **Small** (1K rows) | 0.83 ms | 3.26 ms | **3.9x faster** | **25x less** |
-| **Medium** (100K rows) | 65.3 ms | 364.5 ms | **5.6x faster** | **41x less** |
-| **Large** (1M rows) | 559 ms | 3,435 ms | **6.1x faster** | **40x less** |
-| **Wide** (100K×50 cols) | 277 ms | 493 ms | **1.8x faster** | **7.3x less** |
+**Benchmark: 100,000 rows × 10 columns (.NET 8, AVX-512)**
 
-Processing 1 million rows (96 MB CSV file):
-- **Dataplat**: 0.56 seconds using 420 MB RAM
-- **LumenWorks**: 3.4 seconds using 16.7 GB RAM
+Here's the interesting thing: performance varies dramatically depending on how you access the data.
 
-That's a **6.1x speed improvement** with **40x less memory allocation**. The memory difference is honestly the bigger deal here. LumenWorks creates so much garbage that large files can cause `OutOfMemoryException` on machines that should easily handle them and as a matter of fact, my benchmarking crashed my browser too.
+**Single column read (typical SqlBulkCopy/IDataReader pattern):**
 
-6.1x was the max of all the benchmarks that I ran, though 4.7x was the average.
+| Library | Time (ms) | vs Dataplat |
+|---------|-----------|-------------|
+| Sep | 19 ms | 3.8x faster |
+| Sylvan | 29 ms | 2.5x faster |
+| **Dataplat** | **74 ms** | **baseline** |
+| CsvHelper | 76 ms | ~same |
+| LumenWorks | 433 ms | **5.9x slower** |
+
+**All columns read (full row processing):**
+
+| Library | Time (ms) | vs Dataplat |
+|---------|-----------|-------------|
+| Sep | 35 ms | 2.1x faster |
+| Sylvan | 37 ms | 2.0x faster |
+| **Dataplat** | **73 ms** | **baseline** |
+| CsvHelper | 101 ms | 1.4x slower |
+| LumenWorks | 100 ms | 1.4x slower |
+
+For the single-column pattern (which is how SqlBulkCopy typically reads data), Dataplat is **~6x faster** than LumenWorks! For full row processing, we're still **~1.4x faster**.
+
+### Where we stand in 2025
+
+Being honest: if pure parsing speed is your only concern, [Sep](https://github.com/nietras/Sep/) is faster. Sep can hit 21 GB/s with AVX-512 SIMD. But our library isn't trying to be Sep. We're built for **database import workflows** where you need:
+
+- **IDataReader interface** - Stream directly to SqlBulkCopy without intermediate allocations
+- **Built-in compression** - Import `.csv.gz` files without extracting first
+- **Real-world data handling** - Lenient parsing for messy enterprise exports
+- **Progress reporting** - Know how far along your 10 million row import is
+- **dbatools integration** - Works seamlessly with Import-DbaCsv
+
+If you're doing `file.csv.gz → SqlBulkCopy → SQL Server`, our complete workflow may actually be faster than combining Sep + manual decompression + manual IDataReader wrapping.
 
 ### Why is it so much faster?
 
@@ -122,6 +145,32 @@ German CSV with comma as decimal separator? French dates? We got you:
 
 ```powershell
 Import-DbaCsv -Path german_data.csv -SqlInstance sql01 -Database tempdb -Culture "de-DE" -AutoCreateTable
+```
+
+### Progress reporting (v1.1.0)
+
+For those big imports where you want to know what's happening:
+
+```csharp
+var options = new CsvReaderOptions
+{
+    ProgressReportInterval = 10000,
+    ProgressCallback = progress =>
+    {
+        Console.WriteLine($"Processed {progress.RecordsRead:N0} records ({progress.RowsPerSecond:N0}/sec)");
+    }
+};
+```
+
+### Cancellation support (v1.1.0)
+
+Long-running import and need to stop it? CancellationToken support is built in:
+
+```csharp
+var options = new CsvReaderOptions
+{
+    CancellationToken = cancellationTokenSource.Token
+};
 ```
 
 ## A brand new command: Export-DbaCsv
