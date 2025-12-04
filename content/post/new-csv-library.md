@@ -6,6 +6,7 @@ slug: "new-csv-library"
 categories: [announcements]
 tags: [csv, import, export, performance]
 draft: true
+images: ["https://dataplat.dbatools.io/csv-social.png"]
 ---
 
 This post is about a pretty big update to the CSV import (and now export!) capabilities in dbatools. If you've used [Import-DbaCsv](https://dbatools.io/Import-DbaCsv), you've been using the LumenWorks CSV library under the hood for years. It's been rock solid and I've sung its praises many times. But LumenWorks was last updated [7-8 years ago](https://github.com/phatcher/CsvReader), and .NET has come a *long* way since then.
@@ -153,7 +154,7 @@ RowsPerSecond   : 58327.1
 
 ## Standalone NuGet package
 
-If you're a .NET developer and want to use this outside of PowerShell, the CSV library is available as a standalone NuGet package:
+If you're a .NET developer and want to use this outside of PowerShell, the CSV library is available as a standalone NuGet package. Check out the [landing page](https://dataplat.dbatools.io/csv) for a quick overview of features and benchmarks.
 
 ```bash
 dotnet add package Dataplat.Dbatools.Csv
