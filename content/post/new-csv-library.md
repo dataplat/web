@@ -239,7 +239,7 @@ foreach (var error in reader.ParseErrors)
 }
 ```
 
-Full documentation is in the [project README](https://github.com/dataplat/dbatools.library/blob/main/project/Dataplat.Dbatools.Csv/README.md), and if you're migrating from LumenWorks, there's a complete [migration guide](https://github.com/dataplat/dbatools.library/blob/main/project/Dataplat.Dbatools.Csv/MIGRATING-FROM-LUMENWORKS.md).
+Full documentation is in the [project README](https://github.com/dataplat/dbatools.library/tree/main/project/Dataplat.Dbatools.Csv), and if you're migrating from LumenWorks, there's a complete [migration guide](https://github.com/dataplat/dbatools.library/blob/main/project/Dataplat.Dbatools.Csv/MIGRATING-FROM-LUMENWORKS.md).
 
 
 ## Try it out
