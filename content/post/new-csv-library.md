@@ -9,7 +9,7 @@ draft: true
 images: ["https://dataplat.dbatools.io/csv-social.png"]
 ---
 
-This post is about a pretty big update to the CSV import (and now export!) capabilities in dbatools. If you've used [Import-DbaCsv](https://dbatools.io/Import-DbaCsv), you've been using the LumenWorks CSV library under the hood for years. It's been rock solid and I've sung its praises many times. But LumenWorks was last updated [7-8 years ago](https://github.com/phatcher/CsvReader), and .NET has come a *long* way since then.
+This post is about a huge update to the CSV import (and now export!) capabilities in dbatools. If you've used [Import-DbaCsv](https://dbatools.io/Import-DbaCsv), you've been using the LumenWorks CSV library under the hood for years. It's been rock solid and I've sung its praises many times. But LumenWorks was last updated [7-8 years ago](https://github.com/phatcher/CsvReader), and .NET has come a *long* way since then.
 
 I've been using [Claude Code](https://claude.ai/code) for various projects and had a Max 20x account when Anthropic announced they'd be pretty much giving away Opus 4.5 for a week. Opus is known for its exceptional quality when it comes to software architecture so this is a PERFECT time to use its ultra big brain to rewrite the CSV library!
 
@@ -27,7 +27,7 @@ I asked Claude to create a replacement for LumenWorks that takes advantage of mo
 
 > Create a replacement for LumenWorks.Framework.IO.dll PLUS the additional functionality requested in dbatools issues on GitHub. This library was written over a decade ago. Considering the advances in .NET and SqlClient, please add a CSV reader of better quality (more functionality often seen in paid systems, faster) using recent .NET and Microsoft Data best practices.
 
-What came back was fast as heck and used several patterns (apparently `Span<T>`, `ArrayPool`, along with proper async) that simply didn't exist when LumenWorks was written. I'm a PowerShell developer so that doesn't mean much to me other than I love the speed.
+What came back was fast as 🔥 and used several patterns (apparently `Span<T>`, `ArrayPool`, along with proper async) that simply didn't exist when LumenWorks was written. I'm a PowerShell developer so that doesn't mean much to me other than I love the speed.
 
 ## The results
 
@@ -41,27 +41,27 @@ Here's the interesting thing: performance varies dramatically depending on how y
 
 | Library | Time (ms) | vs Dataplat |
 |---------|-----------|-------------|
-| Sep | 19 ms | 3.8x faster |
-| Sylvan | 29 ms | 2.5x faster |
-| **Dataplat** | **74 ms** | **baseline** |
-| CsvHelper | 76 ms | ~same |
-| LumenWorks | 433 ms | **5.9x slower** |
+| Sep | 18 ms | 3.7x faster |
+| Sylvan | 27 ms | 2.5x faster |
+| **Dataplat** | **67 ms** | **baseline** |
+| CsvHelper | 76 ms | 1.1x slower |
+| LumenWorks | 395 ms | **5.9x slower** |
 
 **All columns read (full row processing):**
 
 | Library | Time (ms) | vs Dataplat |
 |---------|-----------|-------------|
-| Sep | 35 ms | 2.1x faster |
-| Sylvan | 37 ms | 2.0x faster |
-| **Dataplat** | **73 ms** | **baseline** |
-| CsvHelper | 101 ms | 1.4x slower |
-| LumenWorks | 100 ms | 1.4x slower |
+| Sep | 30 ms | 1.8x faster |
+| Sylvan | 35 ms | 1.6x faster |
+| **Dataplat** | **55 ms** | **baseline** |
+| CsvHelper | 97 ms | 1.8x slower |
+| LumenWorks | 102 ms | 1.9x slower |
 
-For the single-column pattern (which is how SqlBulkCopy typically reads data), Dataplat is **~6x faster** than LumenWorks! For full row processing, we're still **~1.4x faster**.
+For the single-column pattern (which is how SqlBulkCopy typically reads data), Dataplat is **~6x faster** than LumenWorks! For full row processing, we're **~1.9x faster**.
 
 ### Where we stand in 2025
 
-Being honest: if pure parsing speed is your only concern, [Sep](https://github.com/nietras/Sep/) is faster. Sep can hit 21 GB/s with AVX-512 SIMD. But our library isn't trying to be Sep. We're built for **database import workflows** where you need:
+Being honest, if pure parsing speed is your only concern, [Sep](https://github.com/nietras/Sep/) is faster. Sep can hit an insane 21 GB/s with AVX-512 SIMD. But our library isn't trying to be Sep. We're built for **database import workflows** where you need:
 
 - **IDataReader interface** - Stream directly to SqlBulkCopy without intermediate allocations
 - **Built-in compression** - Import `.csv.gz` files without extracting first
@@ -209,7 +209,7 @@ RowsPerSecond   : 58327.1
 
 ## Standalone NuGet package
 
-If you're a .NET developer and want to use this outside of PowerShell, the CSV library is available as a standalone NuGet package. Check out the [landing page](https://dataplat.dbatools.io/csv) for a quick overview of features and benchmarks.
+If you're a .NET developer and want to use this outside of PowerShell, the CSV library is available as a standalone NuGet package. Check out the gorrrrgeous [landing page](https://dataplat.dbatools.io/csv) for a quick overview of features and benchmarks.
 
 ```bash
 dotnet add package Dataplat.Dbatools.Csv
