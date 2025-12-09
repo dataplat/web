@@ -1,5 +1,5 @@
 // SQL Server Build Reference - JavaScript
-// Adapted from dataplat.github.io/builds.html
+// Adapted from dataplat.dbatools.io/builds.html
 
 (function() {
   'use strict';
@@ -123,7 +123,7 @@
   // Load and process data
   $.ajax({
     dataType: 'json',
-    url: 'https://dataplat.github.io/assets/dbatools-buildref-index.json',
+    url: 'https://dataplat.dbatools.io/assets/dbatools-buildref-index.json',
     success: function(data) {
       // Update last updated date
       if (data.LastUpdated) {

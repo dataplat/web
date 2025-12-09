@@ -86,7 +86,7 @@ function New-CommandMarkdown {
 
     # Links
     $null = $markdown.Add("sourceUrl: `"https://github.com/dataplat/dbatools/blob/master/public/$($command.CommandName).ps1`"")
-    $null = $markdown.Add("bohUrl: `"https://dataplat.github.io/boh#$($command.CommandName)`"")
+    $null = $markdown.Add("bohUrl: `"https://dataplat.dbatools.io/boh#$($command.CommandName)`"")
 
     # SEO
     $null = $markdown.Add("draft: false")

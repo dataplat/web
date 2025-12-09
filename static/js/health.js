@@ -1,5 +1,5 @@
 // Bill of Health - JavaScript
-// Adapted from dataplat.github.io/boh.html
+// Adapted from dataplat.dbatools.io/boh.html
 
 (function() {
   'use strict';
@@ -55,7 +55,7 @@
       }
     ],
     ajax: {
-      url: 'https://dataplat.github.io/assets/dbatools-boh.json',
+      url: 'https://dataplat.dbatools.io/assets/dbatools-boh.json',
       dataSrc: 'data'
     },
     columns: [
@@ -199,7 +199,7 @@
 
   // Load and render health trend chart with D3.js
   $.ajax({
-    url: 'https://dataplat.github.io/assets/dbatools-boh.json',
+    url: 'https://dataplat.dbatools.io/assets/dbatools-boh.json',
     dataType: 'json',
     success: function(data) {
       // Take last 30 data points

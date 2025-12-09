@@ -179,6 +179,33 @@ var options = new CsvReaderOptions
 };
 ```
 
+### Schema inference (v1.1.10)
+
+Automatically detect optimal SQL Server column types from your CSV data! No more `nvarchar(MAX)` for everything:
+
+```csharp
+using Dataplat.Dbatools.Csv.Reader;
+
+// Fast: Sample first 1000 rows (tiny risk if data changes after sample)
+var columns = CsvSchemaInference.InferSchemaFromSample("data.csv");
+
+// Safe: Scan entire file with progress (zero risk of type mismatches)
+var columns = CsvSchemaInference.InferSchema("data.csv", null, progress => {
+    Console.WriteLine($"Progress: {progress:P0}");
+});
+
+// Generate CREATE TABLE statement
+string sql = CsvSchemaInference.GenerateCreateTableStatement(columns, "MyTable");
+// CREATE TABLE [dbo].[MyTable] (
+//     [Id] int NOT NULL,
+//     [Name] nvarchar(100) NULL,
+//     [Price] decimal(10,2) NOT NULL,
+//     [Created] datetime2 NULL
+// );
+```
+
+Detected types include: `uniqueidentifier`, `bit`, `int`, `bigint`, `decimal(p,s)`, `datetime2`, `varchar(n)`, and `nvarchar(n)` (when Unicode is detected). The inference uses early-exit optimization—once a column fails a type check, it stops checking that type for remaining rows.
+
 ## A brand new command: Export-DbaCsv
 
 This one's been requested for years ([GitHub issue #8646](https://github.com/dataplat/dbatools/issues/8646)). We finally have a proper Export-DbaCsv with compression support:
