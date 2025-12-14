@@ -4,104 +4,14 @@
     INDIVIDUAL COMMAND PAGE TEMPLATE
     This file renders individual command pages (e.g., /Add-DbaAgDatabase)
     CSS Files Used:
-    - command-single.css: Layout, sidebar, filters (THIS FILE'S STYLES)
     - command-docs.css: Documentation content styling
 -->
-
-<!-- Command Single Page CSS (sidebar, layout, filters) -->
-<link rel="stylesheet" href="/css/command-single.css">
 
 <!-- Command Documentation CSS (article content styling) -->
 <link rel="stylesheet" href="/css/command-docs.css">
 
 <!-- Add JetBrains Mono font for code -->
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-<!-- Add Fuse.js for search -->
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
-
-<div class="bg-white dark:bg-[#1a1a1a]">
-    <div class="commands-main-layout">
-        <aside class="commands-sidebar" id="sidebar">
-            <div class="search-section">
-                <div class="search-wrapper">
-                    <input
-                        type="text"
-                        id="searchInput"
-                        class="search-input"
-                        placeholder="Find any command..."
-                        autocomplete="off"
-                    >
-                    <svg class="search-icon" id="searchIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="m21 21-4.35-4.35"></path>
-                    </svg>
-                    <button class="clear-search" id="clearSearch" aria-label="Clear search">&times;</button>
-                </div>
-            </div>
-
-            <h3 id="quickFiltersHeading">Quick Filters</h3>
-            <div class="popular-filter" id="popularFilter">
-                ⭐ Popular Commands
-            </div>
-
-            <h3 id="categoriesHeading">Categories</h3>
-            <div id="categoryFilters"></div>
-
-            <h3 id="actionsHeading">Actions</h3>
-            <div class="action-filters" id="actionFilters"></div>
-
-            <button class="reset-filters" id="resetFilters">Reset All Filters</button>
-        </aside>
-
-        <main class="commands-main-content">
-            <!-- Breadcrumbs -->
-            <nav class="mb-8 text-sm text-theme-text-secondary dark:text-[#b4b4b4]">
-                <a href="/" class="hover:text-primary dark:hover:text-[#58a6ff] transition-colors">Home</a>
-                <span class="mx-2">/</span>
-                <a href="/commands" class="hover:text-primary dark:hover:text-[#58a6ff] transition-colors">Commands</a>
-                <span class="mx-2">/</span>
-                <span class="text-theme-text dark:text-[#ececec]">{{ .Title }}</span>
-            </nav>
-
-            <!-- Command Documentation -->
-            <article class="prose prose-lg max-w-none
-                prose-headings:font-bold
-                prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
-                prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
-                prose-h4:text-xl prose-h4:mt-6 prose-h4:mb-2
-                prose-h5:text-lg prose-h5:mt-4 prose-h5:mb-2 prose-h5:text-primary
-                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-                prose-code:text-green-500 prose-code:bg-theme-card prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:font-mono prose-code:text-sm
-                prose-pre:bg-theme-card prose-pre:border prose-pre:border-theme-border/30 prose-pre:rounded-xl prose-pre:p-6 prose-pre:shadow-sm
-                prose-table:border prose-table:border-theme-border/30
-                prose-th:bg-theme-card prose-th:p-3
-                prose-td:border prose-td:border-theme-border/30 prose-td:p-3
-            ">
-                {{ .Content }}
-            </article>
-
-            <!-- Back to Commands Button -->
-            <div class="text-center mt-12 mb-8">
-                <a href="/commands" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-accent-light transition-colors shadow-md hover:shadow-lg">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-                    </svg>
-                    Back to All Commands
-                </a>
-            </div>
-        </main>
-    </div>
-
-    <button class="mobile-menu-toggle" id="mobileMenuToggle">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-    </button>
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
-</div>
 
 <!-- Syntax Highlighting -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" class="light-theme">
@@ -111,164 +21,50 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/powershell.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sql.min.js"></script>
 
+<div class="bg-white dark:bg-[#1a1a1a] pt-24">
+    <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
+
+        <!-- Breadcrumbs -->
+        <nav class="mb-8 text-sm text-theme-text-secondary dark:text-[#b4b4b4]">
+            <a href="/" class="hover:text-primary dark:hover:text-[#58a6ff] transition-colors">Home</a>
+            <span class="mx-2">/</span>
+            <a href="/commands" class="hover:text-primary dark:hover:text-[#58a6ff] transition-colors">Commands</a>
+            <span class="mx-2">/</span>
+            <span class="text-theme-text dark:text-[#ececec]">{{ .Title }}</span>
+        </nav>
+
+        <!-- Command Documentation -->
+        <article class="prose prose-lg max-w-none
+            prose-headings:font-bold
+            prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
+            prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
+            prose-h4:text-xl prose-h4:mt-6 prose-h4:mb-2
+            prose-h5:text-lg prose-h5:mt-4 prose-h5:mb-2 prose-h5:text-primary
+            prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+            prose-code:text-green-500 prose-code:bg-theme-card prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:font-mono prose-code:text-sm
+            prose-pre:bg-theme-card prose-pre:border prose-pre:border-theme-border/30 prose-pre:rounded-xl prose-pre:p-6 prose-pre:shadow-sm
+            prose-table:border prose-table:border-theme-border/30
+            prose-th:bg-theme-card prose-th:p-3
+            prose-td:border prose-td:border-theme-border/30 prose-td:p-3
+        ">
+            {{ .Content }}
+        </article>
+
+        <!-- Back to Commands Button -->
+        <div class="text-center mt-12 mb-8">
+            <a href="/commands" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-accent-light transition-colors shadow-md hover:shadow-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+                Back to All Commands
+            </a>
+        </div>
+
+    </div>
+</div>
+
 <script>
-// State management
-let allCommands = [];
-let categories = {};
-let actions = {};
-let fuse = null;
-
-// Current filters
-let currentSearch = '';
-let currentCategory = 'all';
-let currentAction = 'all';
-let showPopularOnly = false;
-
-// Load commands for sidebar
-async function loadCommands() {
-    try {
-        const response = await fetch('/commands.json');
-        allCommands = await response.json();
-
-        // Build categories and actions
-        allCommands.forEach(cmd => {
-            if (cmd.category) {
-                categories[cmd.category] = (categories[cmd.category] || 0) + 1;
-            }
-            if (cmd.verb) {
-                actions[cmd.verb] = (actions[cmd.verb] || 0) + 1;
-            }
-        });
-
-        // Initialize Fuse.js for fuzzy search
-        fuse = new Fuse(allCommands, {
-            keys: ['name', 'description', 'tags'],
-            threshold: 0.3,
-            includeScore: true,
-            ignoreLocation: true
-        });
-
-        // Build UI
-        buildCategoryFilters();
-        buildActionFilters();
-    } catch (error) {
-        console.error('Error loading commands:', error);
-    }
-}
-
-// Build category filters
-function buildCategoryFilters() {
-    const container = document.getElementById('categoryFilters');
-
-    const allItem = document.createElement('div');
-    allItem.className = 'filter-item active';
-    allItem.innerHTML = `
-        <span>All Commands</span>
-        <span class="filter-count">${allCommands.length}</span>
-    `;
-    allItem.onclick = () => window.location.href = '/commands?category=all';
-    container.appendChild(allItem);
-
-    Object.entries(categories)
-        .sort(([a], [b]) => a.localeCompare(b))
-        .forEach(([category, count]) => {
-            const item = document.createElement('div');
-            item.className = 'filter-item';
-            item.innerHTML = `
-                <span>${category}</span>
-                <span class="filter-count">${count}</span>
-            `;
-            item.onclick = () => window.location.href = `/commands?category=${encodeURIComponent(category)}`;
-            item.dataset.category = category;
-            container.appendChild(item);
-        });
-}
-
-// Build action filters
-function buildActionFilters() {
-    const container = document.getElementById('actionFilters');
-
-    const allItem = document.createElement('div');
-    allItem.className = 'action-item active';
-    allItem.innerHTML = `
-        <span>All Actions</span>
-        <span class="filter-count">${allCommands.length}</span>
-    `;
-    allItem.onclick = () => window.location.href = '/commands?action=all';
-    container.appendChild(allItem);
-
-    Object.entries(actions)
-        .sort(([,a], [,b]) => b - a)
-        .slice(0, 15)
-        .forEach(([action, count]) => {
-            const item = document.createElement('div');
-            item.className = 'action-item';
-            item.innerHTML = `
-                <span>${action}</span>
-                <span class="filter-count">${count}</span>
-            `;
-            item.onclick = () => window.location.href = `/commands?action=${encodeURIComponent(action)}`;
-            item.dataset.action = action;
-            container.appendChild(item);
-        });
-}
-
-// Search handling
-let searchTimeout;
-function handleSearch(e) {
-    const value = e.target.value;
-    const hasValue = value.length > 0;
-    document.getElementById('clearSearch').classList.toggle('visible', hasValue);
-    document.getElementById('searchIcon').classList.toggle('hidden', hasValue);
-
-    clearTimeout(searchTimeout);
-    searchTimeout = setTimeout(() => {
-        if (value) {
-            window.location.href = `/commands?search=${encodeURIComponent(value)}`;
-        }
-    }, 500);
-}
-
-// Mobile sidebar toggle
-function toggleMobileSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('sidebarOverlay');
-    sidebar.classList.toggle('open');
-    overlay.classList.toggle('visible');
-}
-
-// Event listeners
 document.addEventListener('DOMContentLoaded', () => {
-    loadCommands();
-
-    document.getElementById('searchInput').addEventListener('input', handleSearch);
-    document.getElementById('clearSearch').addEventListener('click', () => {
-        document.getElementById('searchInput').value = '';
-        document.getElementById('clearSearch').classList.remove('visible');
-        document.getElementById('searchIcon').classList.remove('hidden');
-    });
-    document.getElementById('popularFilter').addEventListener('click', () => {
-        window.location.href = '/commands?popular=1';
-    });
-    document.getElementById('resetFilters').addEventListener('click', () => {
-        window.location.href = '/commands';
-    });
-    document.getElementById('mobileMenuToggle').addEventListener('click', toggleMobileSidebar);
-    document.getElementById('sidebarOverlay').addEventListener('click', toggleMobileSidebar);
-
-    // Keyboard shortcuts
-    document.addEventListener('keydown', (e) => {
-        if (e.key === '/' && e.target.tagName !== 'INPUT') {
-            e.preventDefault();
-            document.getElementById('searchInput').focus();
-        }
-        if (e.key === 'Escape') {
-            if (document.getElementById('sidebar').classList.contains('open')) {
-                toggleMobileSidebar();
-            }
-        }
-    });
-
     // Syntax highlighting for command documentation
     hljs.configure({ ignoreUnescapedHTML: true });
     hljs.highlightAll();
@@ -294,22 +90,18 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function addCopyButtons() {
-    // Find all pre elements in the article
     const preElements = document.querySelectorAll('article pre');
 
     preElements.forEach((pre, index) => {
-        // Extract clean code from the code block
         const codeElement = pre.querySelector('code');
         if (!codeElement) {
             return;
         }
 
         let cleanCode;
-        // Check if this is a PowerShell code block with prompts
         if (codeElement.textContent.includes('PS C:\\>')) {
             cleanCode = extractCleanCode(codeElement.textContent);
         } else {
-            // For non-PowerShell code blocks, copy as-is
             cleanCode = codeElement.textContent;
         }
 
@@ -317,7 +109,6 @@ function addCopyButtons() {
             return;
         }
 
-        // Wrap pre in a div if not already wrapped
         if (!pre.parentElement.classList.contains('code-block-wrapper')) {
             const wrapper = document.createElement('div');
             wrapper.className = 'code-block-wrapper';
@@ -325,7 +116,6 @@ function addCopyButtons() {
             wrapper.appendChild(pre);
         }
 
-        // Create copy button
         const button = document.createElement('button');
         button.className = 'copy-code-button';
         button.setAttribute('aria-label', 'Copy code');
@@ -337,12 +127,9 @@ function addCopyButtons() {
             <span>Copy</span>
         `;
 
-        // Add click handler
         button.addEventListener('click', async () => {
             try {
                 await navigator.clipboard.writeText(cleanCode);
-
-                // Update button to show success
                 button.classList.add('copied');
                 button.innerHTML = `
                     <svg viewBox="0 0 16 16" fill="currentColor">
@@ -350,8 +137,6 @@ function addCopyButtons() {
                     </svg>
                     <span>Copied!</span>
                 `;
-
-                // Reset after 2 seconds
                 setTimeout(() => {
                     button.classList.remove('copied');
                     button.innerHTML = `
@@ -364,32 +149,20 @@ function addCopyButtons() {
                 }, 2000);
             } catch (err) {
                 console.error('Failed to copy code:', err);
-                button.innerHTML = `
-                    <svg viewBox="0 0 16 16" fill="currentColor">
-                        <path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z"></path>
-                    </svg>
-                    <span>Failed</span>
-                `;
             }
         });
 
-        // Add button to the wrapper
         pre.parentElement.appendChild(button);
     });
 }
 
-// Helper function to extract clean PowerShell code from text with prompts
 function extractCleanCode(text) {
     const lines = text.split('\n');
     const cleanLines = [];
 
     for (let line of lines) {
-        // Remove PS C:\> prompt
         line = line.replace(/^PS C:\\>\s*/, '');
-        // Remove >> continuation prompt
         line = line.replace(/^>>\s*/, '');
-
-        // Only add non-empty lines
         if (line.trim()) {
             cleanLines.push(line);
         }
@@ -400,21 +173,19 @@ function extractCleanCode(text) {
 </script>
 
 <style>
-/* Additional code block styling */
+/* Code block styling */
 pre code.hljs {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.95em;
     line-height: 1.6;
 }
 
-/* Custom styling for PowerShell prompts */
 article pre code {
     display: block;
     overflow-x: auto;
     scrollbar-width: thin;
 }
 
-/* Modern Scrollbar for Code Blocks */
 article pre code::-webkit-scrollbar {
     height: 8px;
 }
@@ -427,11 +198,6 @@ article pre code::-webkit-scrollbar-track {
 article pre code::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.15);
     border-radius: 10px;
-    transition: background-color 0.3s ease;
-}
-
-article pre code::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0, 0, 0, 0.25);
 }
 
 .dark article pre code::-webkit-scrollbar-track {
@@ -442,11 +208,6 @@ article pre code::-webkit-scrollbar-thumb:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.dark article pre code::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-/* Enhanced pre block styling */
 article pre {
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
