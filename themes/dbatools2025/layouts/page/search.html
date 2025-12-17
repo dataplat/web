@@ -1,0 +1,57 @@
+{{ define "main" }}
+
+<div class="bg-white dark:bg-[#1a1a1a] pt-24 min-h-screen">
+  <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
+
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 text-sm text-theme-text-secondary dark:text-[#b4b4b4]">
+      <a href="/" class="hover:text-primary transition-colors">Home</a>
+      <span class="mx-2">/</span>
+      <span class="text-theme-text dark:text-[#ececec]">Search</span>
+    </nav>
+
+    <!-- Title -->
+    <h1 class="text-5xl font-bold mb-8 text-theme-text dark:text-[#ececec]">Search</h1>
+
+    <!-- Search Input -->
+    <div class="mb-8">
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+          <svg class="h-5 w-5 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+        <input
+          type="text"
+          id="advanced-search-input"
+          class="block w-full pl-12 pr-4 py-4 text-lg border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder-gray-400 dark:placeholder-gray-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 transition-colors"
+          placeholder="Search posts, pages, and commands..."
+          autocomplete="off"
+        />
+        <div class="absolute inset-y-0 right-0 pr-4 flex items-center">
+          <span id="advanced-results-count" class="text-sm text-gray-500 dark:text-gray-400"></span>
+        </div>
+      </div>
+      <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+        Tip: Use <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded text-xs font-mono">Ctrl+K</kbd> to open quick search from any page
+      </p>
+    </div>
+
+    <!-- Search Results -->
+    <div id="advanced-search-results" class="space-y-4">
+      <!-- Initial state -->
+      <div id="search-initial-state" class="text-center py-12 text-gray-500 dark:text-gray-400">
+        <svg class="mx-auto h-16 w-16 text-gray-300 dark:text-gray-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        <p class="text-lg font-medium text-gray-700 dark:text-gray-300">Start typing to search</p>
+        <p class="text-sm mt-2">Search across all posts, pages, and commands</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="{{ "js/advanced-search.js" | relURL }}"></script>
+
+{{ end }}
