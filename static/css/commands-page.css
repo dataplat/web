@@ -189,13 +189,14 @@ html.dark body {
 /* Layout */
 .commands-layout {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 280px minmax(0, 1fr);
   gap: 40px;
   padding: 40px;
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
   flex: 1;
+  box-sizing: border-box;
 }
 
 /* Sidebar */
@@ -490,6 +491,8 @@ html.dark body {
 .commands-grid.list-view {
   grid-template-columns: 1fr;
   gap: 8px;
+  display: flex;
+  flex-direction: column;
 }
 
 .commands-grid.list-view .command-card {
@@ -497,14 +500,15 @@ html.dark body {
   align-items: center;
   padding: 10px 16px;
   gap: 16px;
-  max-width: 100%;
+  width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .commands-grid.list-view .command-card-header {
-  flex: 0 0 auto;
-  width: 240px;
+  flex: 0 0 220px;
   min-width: 0;
+  max-width: 220px;
 }
 
 .commands-grid.list-view .command-name {
@@ -512,11 +516,11 @@ html.dark body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: block;
 }
 
 .commands-grid.list-view .command-description {
-  flex: 1;
-  -webkit-line-clamp: 1;
+  flex: 1 1 0;
   font-size: 13px;
   min-width: 0;
   overflow: hidden;
