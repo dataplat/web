@@ -458,7 +458,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <div class="contributor-card">
     <div class="rank-badge">#9</div>
     <img src="https://github.com/alevyinroc.png" alt="alevyinroc" class="contributor-avatar">
-    <h3 class="contributor-name">Adam Levine-Roc</h3>
+    <h3 class="contributor-name">Andy Levy</h3>
     <a href="https://github.com/alevyinroc" class="contributor-username">@alevyinroc</a>
     <div class="contributor-stats">
       <div class="stat">
