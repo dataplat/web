@@ -122,19 +122,18 @@
 <script src="/js/commands-page.js"></script>
 
 <script>
-// Fetch dbatools version from PowerShell Gallery
+// Fetch dbatools version from GitHub releases API (CORS-friendly)
 async function fetchDbatoolsVersion() {
     try {
-        const response = await fetch('https://www.powershellgallery.com/api/v2/Packages?$filter=Id%20eq%20%27dbatools%27%20and%20IsLatestVersion&$select=Version,DownloadCount');
-        const text = await response.text();
+        const response = await fetch('https://api.github.com/repos/dataplat/dbatools/releases/latest');
+        const data = await response.json();
 
-        // Parse version from XML
-        const versionMatch = text.match(/<d:Version>([^<]+)<\/d:Version>/);
-        if (versionMatch) {
-            document.getElementById('version-text').textContent = `v${versionMatch[1]} on PowerShell Gallery`;
+        if (data.tag_name) {
+            const version = data.tag_name.replace(/^v/, '');
+            document.getElementById('version-text').textContent = `v${version} Released`;
         }
     } catch (error) {
-        document.getElementById('version-text').textContent = 'PowerShell Gallery';
+        document.getElementById('version-text').textContent = 'Latest Release';
     }
 }
 
