@@ -21,8 +21,12 @@
 <div class="commands-container">
     <div class="commands-header">
         <div class="commands-header-content">
+            <div class="version-badge" id="version-badge">
+                <span class="version-dot"></span>
+                <span id="version-text">Loading...</span>
+            </div>
             <h1 class="commands-title">dbatools Commands</h1>
-            <p class="commands-subtitle">Browse and search nearly 700 PowerShell commands for SQL Server</p>
+            <p class="commands-subtitle">Browse and search <span id="command-count-text">over 700</span> PowerShell commands for SQL Server</p>
             <div class="search-container">
                 <input
                     type="text"
@@ -116,5 +120,43 @@
 
 <!-- Commands Page JavaScript -->
 <script src="/js/commands-page.js"></script>
+
+<script>
+// Fetch dbatools version from PowerShell Gallery
+async function fetchDbatoolsVersion() {
+    try {
+        const response = await fetch('https://www.powershellgallery.com/api/v2/Packages?$filter=Id%20eq%20%27dbatools%27%20and%20IsLatestVersion&$select=Version,DownloadCount');
+        const text = await response.text();
+
+        // Parse version from XML
+        const versionMatch = text.match(/<d:Version>([^<]+)<\/d:Version>/);
+        if (versionMatch) {
+            document.getElementById('version-text').textContent = `v${versionMatch[1]} on PowerShell Gallery`;
+        }
+    } catch (error) {
+        document.getElementById('version-text').textContent = 'PowerShell Gallery';
+    }
+}
+
+// Update command count when commands are loaded
+function updateCommandCount() {
+    const checkCount = setInterval(() => {
+        const countEl = document.getElementById('results-count');
+        if (countEl && countEl.textContent !== '0') {
+            const count = parseInt(countEl.textContent);
+            if (count > 0) {
+                document.getElementById('command-count-text').textContent = count.toLocaleString();
+                clearInterval(checkCount);
+            }
+        }
+    }, 100);
+
+    // Stop checking after 5 seconds
+    setTimeout(() => clearInterval(checkCount), 5000);
+}
+
+fetchDbatoolsVersion();
+updateCommandCount();
+</script>
 
 {{ end }}
