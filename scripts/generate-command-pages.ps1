@@ -9,7 +9,7 @@
 
 # Configuration
 $OutputFolder = Join-Path $PSScriptRoot ".." "content" "commands"
-$IndexUrl = "https://raw.githubusercontent.com/dataplat/dbatools/master/bin/dbatools-index.json"
+$IndexUrl = "https://raw.githubusercontent.com/dataplat/dbatools/bb18c537e2ce32fe09c9b0d767e467aa723649fa/bin/dbatools-index.json"
 $IndexPath = Join-Path $PSScriptRoot "dbatools-index.json"
 
 Write-Host "dbatools Command Documentation Generator" -ForegroundColor Cyan
@@ -28,7 +28,7 @@ try {
 
 # Load the index
 Write-Host "Loading command index..." -ForegroundColor Yellow
-$commands = Get-Content $IndexPath | ConvertFrom-Json
+$commands = Get-Content $IndexPath -Raw | ConvertFrom-Json
 Write-Host "✓ Found $($commands.Count) commands" -ForegroundColor Green
 Write-Host ""
 
@@ -295,6 +295,45 @@ function New-CommandMarkdown {
                 $null = $markdown.Add('')
             }
         }
+    }
+
+    # Outputs
+    if ($command.Outputs) {
+        $null = $markdown.Add('## Outputs')
+        $null = $markdown.Add('')
+
+        $outputText = $command.Outputs.Replace("`r`n", "`n").Replace("`r", "`n")
+        $outputLines = $outputText.Split("`n")
+
+        $firstLine = $true
+        foreach ($line in $outputLines) {
+            $trimmedLine = $line.Trim()
+            if ([string]::IsNullOrEmpty($trimmedLine)) {
+                continue
+            }
+
+            # First non-empty line is typically the type name
+            if ($firstLine) {
+                $null = $markdown.Add("**$trimmedLine**")
+                $null = $markdown.Add('')
+                $firstLine = $false
+            }
+            # Lines starting with "- " are property descriptions
+            elseif ($trimmedLine -match '^-\s+(.+)$') {
+                $null = $markdown.Add("- $($Matches[1])")
+            }
+            # "Properties:" header
+            elseif ($trimmedLine -eq 'Properties:') {
+                $null = $markdown.Add('')
+                $null = $markdown.Add('**Properties:**')
+                $null = $markdown.Add('')
+            }
+            # Regular description text
+            else {
+                $null = $markdown.Add("$trimmedLine  ")
+            }
+        }
+        $null = $markdown.Add('')
     }
 
     $null = $markdown.Add('')
