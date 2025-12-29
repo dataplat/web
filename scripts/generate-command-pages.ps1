@@ -306,32 +306,62 @@ function New-CommandMarkdown {
         $outputLines = $outputText.Split("`n")
 
         $firstLine = $true
+        $inPropertyList = $false
+        $paragraphBuffer = @()
+
         foreach ($line in $outputLines) {
             $trimmedLine = $line.Trim()
-            if ([string]::IsNullOrEmpty($trimmedLine)) {
-                continue
-            }
 
             # First non-empty line is typically the type name
-            if ($firstLine) {
+            if ($firstLine -and -not [string]::IsNullOrEmpty($trimmedLine)) {
                 $null = $markdown.Add("**$trimmedLine**")
                 $null = $markdown.Add('')
                 $firstLine = $false
+                continue
             }
+
             # Lines starting with "- " are property descriptions
-            elseif ($trimmedLine -match '^-\s+(.+)$') {
+            if ($trimmedLine -match '^-\s+(.+)$') {
+                # Flush paragraph buffer before starting list
+                if ($paragraphBuffer.Count -gt 0) {
+                    $null = $markdown.Add(($paragraphBuffer -join ' '))
+                    $null = $markdown.Add('')
+                    $paragraphBuffer = @()
+                }
+                $inPropertyList = $true
                 $null = $markdown.Add("- $($Matches[1])")
             }
-            # "Properties:" header
-            elseif ($trimmedLine -eq 'Properties:') {
+            # "Properties:" or similar headers ending with colon
+            elseif ($trimmedLine -match '^[A-Z][^:]+:$') {
+                # Flush paragraph buffer
+                if ($paragraphBuffer.Count -gt 0) {
+                    $null = $markdown.Add(($paragraphBuffer -join ' '))
+                    $null = $markdown.Add('')
+                    $paragraphBuffer = @()
+                }
+                $inPropertyList = $false
                 $null = $markdown.Add('')
-                $null = $markdown.Add('**Properties:**')
+                $null = $markdown.Add("**$trimmedLine**")
                 $null = $markdown.Add('')
             }
-            # Regular description text
-            else {
-                $null = $markdown.Add("$trimmedLine  ")
+            # Empty line - paragraph break
+            elseif ([string]::IsNullOrEmpty($trimmedLine)) {
+                if ($paragraphBuffer.Count -gt 0) {
+                    $null = $markdown.Add(($paragraphBuffer -join ' '))
+                    $null = $markdown.Add('')
+                    $paragraphBuffer = @()
+                }
+                $inPropertyList = $false
             }
+            # Regular description text - accumulate into paragraph
+            elseif (-not $firstLine) {
+                $paragraphBuffer += $trimmedLine
+            }
+        }
+
+        # Flush any remaining paragraph buffer
+        if ($paragraphBuffer.Count -gt 0) {
+            $null = $markdown.Add(($paragraphBuffer -join ' '))
         }
         $null = $markdown.Add('')
     }
