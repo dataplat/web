@@ -330,6 +330,7 @@ article table tbody tr:hover {
   margin-bottom: 2rem;
   font-size: 1.2rem;
   color: #59636e;
+  text-align: center;
 }
 
 .command-toc .toc-label {
