@@ -58,6 +58,18 @@
         </svg>
         Search
       </button>
+      <button id="mobile-theme-toggle" class="flex items-center gap-2 text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2 text-left">
+        <!-- Sun icon (visible in dark mode) -->
+        <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </svg>
+        <!-- Moon icon (visible in light mode) -->
+        <svg class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+        <span class="dark:hidden">Dark Mode</span>
+        <span class="hidden dark:inline">Light Mode</span>
+      </button>
       <a href="/getting-started" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">Getting Started</a>
       <a href="/commands" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">Commands</a>
       <a href="/blog" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">Blog</a>
@@ -78,18 +90,27 @@
     menu?.classList.toggle('hidden');
   });
 
-  // Theme toggle button handler
+  // Theme toggle function (shared between desktop and mobile)
+  function toggleTheme() {
+    const html = document.documentElement;
+    if (html.classList.contains('dark')) {
+      html.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    } else {
+      html.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+
+  // Desktop theme toggle button handler
   const themeToggle = document.getElementById('theme-toggle');
   if (themeToggle) {
-    themeToggle.addEventListener('click', function() {
-      const html = document.documentElement;
-      if (html.classList.contains('dark')) {
-        html.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      } else {
-        html.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      }
-    });
+    themeToggle.addEventListener('click', toggleTheme);
+  }
+
+  // Mobile theme toggle button handler
+  const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+  if (mobileThemeToggle) {
+    mobileThemeToggle.addEventListener('click', toggleTheme);
   }
 </script>
