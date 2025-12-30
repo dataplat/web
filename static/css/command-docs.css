@@ -325,6 +325,75 @@ article table tbody tr:hover {
   background-color: #f6f8fa;
 }
 
+/* Table of Contents */
+.command-toc {
+  background: linear-gradient(135deg, #f6f8fa 0%, #ffffff 100%);
+  border: 1px solid #d1d9e0;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  display: inline-block;
+}
+
+.command-toc h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #59636e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.command-toc ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.command-toc li {
+  margin: 0;
+}
+
+.command-toc a {
+  color: #0969da;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.15s ease;
+}
+
+.command-toc a:hover {
+  color: #22C55E;
+  text-decoration: underline;
+}
+
+.dark .command-toc {
+  background: linear-gradient(135deg, #1c2128 0%, #22272e 100%);
+  border-color: #30363d;
+}
+
+.dark .command-toc h4 {
+  color: #9198a1;
+}
+
+.dark .command-toc a {
+  color: #60A5FA;
+}
+
+.dark .command-toc a:hover {
+  color: #22C55E;
+}
+
+/* Section anchor - positioned above heading so scroll lands at heading */
+.section-anchor {
+  display: block;
+  position: relative;
+  top: -80px;
+  visibility: hidden;
+}
+
 /* Anchor links */
 article h2,
 article h3 {
@@ -337,10 +406,14 @@ article h3 {
   top: 50%;
   transform: translateY(-50%);
   opacity: 0;
-  text-decoration: none;
+  text-decoration: none !important;
   transition: opacity 0.15s ease;
   display: flex;
   align-items: center;
+}
+
+.anchor-link:hover {
+  text-decoration: none !important;
 }
 
 .anchor-link::before {
@@ -358,6 +431,17 @@ article h3:hover .anchor-link {
 .anchor-link:hover::before {
   filter: grayscale(0%);
   opacity: 1;
+}
+
+/* Heading link - makes heading text itself clickable */
+.heading-link {
+  color: inherit;
+  text-decoration: none !important;
+}
+
+.heading-link:hover {
+  color: inherit;
+  text-decoration: none !important;
 }
 
 .dark .anchor-link::before {
