@@ -332,6 +332,11 @@ article table tbody tr:hover {
   color: #59636e;
 }
 
+.command-toc .toc-label {
+  font-weight: 600;
+  color: #1f2328;
+}
+
 .command-toc a {
   color: #0969da;
   text-decoration: none;
@@ -345,6 +350,10 @@ article table tbody tr:hover {
 
 .dark .command-toc {
   color: #9198a1;
+}
+
+.dark .command-toc .toc-label {
+  color: #e6edf3;
 }
 
 .dark .command-toc a {

@@ -134,12 +134,21 @@ function New-CommandMarkdown {
     }
     $tocItems += '<a href="#examples">Examples</a>'
     if ($command.Params) {
-        $tocItems += '<a href="#required-parameters">Parameters</a>'
+        # Link to whichever parameter section exists first
+        $hasRequired = $false
+        foreach ($p in $command.Params) {
+            if ($p[3] -eq $true) { $hasRequired = $true; break }
+        }
+        if ($hasRequired) {
+            $tocItems += '<a href="#required-parameters">Parameters</a>'
+        } else {
+            $tocItems += '<a href="#optional-parameters">Parameters</a>'
+        }
     }
     if ($command.Outputs) {
         $tocItems += '<a href="#outputs">Outputs</a>'
     }
-    $null = $markdown.Add('<nav class="command-toc">' + ($tocItems -join ' · ') + '</nav>')
+    $null = $markdown.Add('<nav class="command-toc"><span class="toc-label">On this page:</span> ' + ($tocItems -join ' · ') + '</nav>')
     $null = $markdown.Add('')
 
     # Synopsis
