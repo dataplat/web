@@ -12,8 +12,8 @@
   background: linear-gradient(135deg, #f6f8fa 0%, #ffffff 100%);
   border: 1px solid #d1d9e0;
   border-radius: 12px;
-  padding: 2rem 2.5rem;
-  margin-bottom: 3rem;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
   box-shadow: 0 2px 8px rgba(27, 31, 35, 0.04);
   transition: all 0.3s ease;
 }
@@ -27,21 +27,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
   flex-wrap: wrap;
 }
 
 .command-header h1 {
   font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
-  font-size: 2.5rem !important;
+  font-size: 1.75rem !important;
   font-weight: 700 !important;
   color: #22C55E !important;
   margin: 0 !important;
   padding: 0 !important;
   line-height: 1.2 !important;
   flex: 1;
-  min-width: 300px;
+  min-width: 200px;
 }
 
 .github-link {
@@ -77,22 +77,22 @@
 .command-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  padding-top: 1rem;
+  gap: 1rem;
+  padding-top: 0.5rem;
   border-top: 1px solid #d1d9e0;
 }
 
 .meta-item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.35rem;
   color: #59636e;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .meta-icon {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1rem;
+  height: 1rem;
   color: #0969da;
   flex-shrink: 0;
 }
