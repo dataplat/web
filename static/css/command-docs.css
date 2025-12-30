@@ -325,6 +325,34 @@ article table tbody tr:hover {
   background-color: #f6f8fa;
 }
 
+/* Anchor links */
+.anchor-link {
+  opacity: 0;
+  font-size: 0.8em;
+  margin-left: 0.5rem;
+  color: #59636e;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+article h2:hover .anchor-link,
+article h3:hover .anchor-link {
+  opacity: 1;
+}
+
+.anchor-link:hover {
+  color: #0969da;
+  text-decoration: none;
+}
+
+.dark .anchor-link {
+  color: #9198a1;
+}
+
+.dark .anchor-link:hover {
+  color: #60A5FA;
+}
+
 /* Headings */
 article h1 {
   color: #22C55E;
