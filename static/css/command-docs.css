@@ -348,9 +348,9 @@ article table tbody tr:hover {
   margin: 0;
   padding: 0;
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 0.5rem 2rem;
 }
 
 .command-toc li {
@@ -684,5 +684,9 @@ article pre::-webkit-scrollbar-thumb:hover {
   article pre {
     padding: 12px !important;
     font-size: 0.85rem;
+  }
+
+  .command-toc ul {
+    grid-template-columns: repeat(2, auto);
   }
 }
