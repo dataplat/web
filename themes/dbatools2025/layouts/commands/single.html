@@ -87,6 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add copy buttons to code blocks
     addCopyButtons();
+
+    // Initialize TOC active state tracking
+    initTocActiveState();
 });
 
 function addCopyButtons() {
@@ -169,6 +172,57 @@ function extractCleanCode(text) {
     }
 
     return cleanLines.join('\n');
+}
+
+function initTocActiveState() {
+    const toc = document.querySelector('.command-toc');
+    if (!toc) return;
+
+    const tocLinks = toc.querySelectorAll('a[href^="#"]');
+    if (tocLinks.length === 0) return;
+
+    // Get all section anchors
+    const sections = [];
+    tocLinks.forEach(link => {
+        const id = link.getAttribute('href').substring(1);
+        const anchor = document.getElementById(id);
+        if (anchor) {
+            sections.push({ id, anchor, link });
+        }
+    });
+
+    if (sections.length === 0) return;
+
+    // Throttled scroll handler
+    let ticking = false;
+    function updateActiveLink() {
+        const scrollPos = window.scrollY + 120; // Offset for fixed header
+
+        let activeSection = sections[0];
+        for (const section of sections) {
+            if (section.anchor.offsetTop <= scrollPos) {
+                activeSection = section;
+            }
+        }
+
+        tocLinks.forEach(link => link.classList.remove('active'));
+        if (activeSection) {
+            activeSection.link.classList.add('active');
+        }
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                updateActiveLink();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    // Set initial active state
+    updateActiveLink();
 }
 </script>
 
