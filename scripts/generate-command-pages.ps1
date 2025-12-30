@@ -125,35 +125,21 @@ function New-CommandMarkdown {
     $null = $markdown.Add('</div>')
     $null = $markdown.Add('')
 
-    # Table of Contents
-    $null = $markdown.Add('<nav class="command-toc">')
-    $null = $markdown.Add('  <h4>On this page</h4>')
-    $null = $markdown.Add('  <ul>')
-    $null = $markdown.Add('    <li><a href="#synopsis">Synopsis</a></li>')
-    $null = $markdown.Add('    <li><a href="#description">Description</a></li>')
+    # Table of Contents - single line
+    $tocItems = @()
+    $tocItems += '<a href="#synopsis">Synopsis</a>'
+    $tocItems += '<a href="#description">Description</a>'
     if ($command.Syntax) {
-        $null = $markdown.Add('    <li><a href="#syntax">Syntax</a></li>')
+        $tocItems += '<a href="#syntax">Syntax</a>'
     }
-    $null = $markdown.Add('    <li><a href="#examples">Examples</a></li>')
+    $tocItems += '<a href="#examples">Examples</a>'
     if ($command.Params) {
-        $hasRequired = $false
-        $hasOptional = $false
-        foreach ($p in $command.Params) {
-            if ($p[3] -eq $true) { $hasRequired = $true }
-            if ($p[3] -eq $false) { $hasOptional = $true }
-        }
-        if ($hasRequired) {
-            $null = $markdown.Add('    <li><a href="#required-parameters">Required Parameters</a></li>')
-        }
-        if ($hasOptional) {
-            $null = $markdown.Add('    <li><a href="#optional-parameters">Optional Parameters</a></li>')
-        }
+        $tocItems += '<a href="#required-parameters">Parameters</a>'
     }
     if ($command.Outputs) {
-        $null = $markdown.Add('    <li><a href="#outputs">Outputs</a></li>')
+        $tocItems += '<a href="#outputs">Outputs</a>'
     }
-    $null = $markdown.Add('  </ul>')
-    $null = $markdown.Add('</nav>')
+    $null = $markdown.Add('<nav class="command-toc">' + ($tocItems -join ' · ') + '</nav>')
     $null = $markdown.Add('')
 
     # Synopsis

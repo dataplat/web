@@ -327,40 +327,14 @@ article table tbody tr:hover {
 
 /* Table of Contents */
 .command-toc {
-  background: linear-gradient(135deg, #f6f8fa 0%, #ffffff 100%);
-  border: 1px solid #d1d9e0;
-  border-radius: 8px;
-  padding: 1rem 1.5rem;
   margin-bottom: 2rem;
-  display: inline-block;
-}
-
-.command-toc h4 {
-  margin: 0 0 0.75rem 0;
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 0.9rem;
   color: #59636e;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.command-toc ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  gap: 0.5rem 2rem;
-}
-
-.command-toc li {
-  margin: 0;
 }
 
 .command-toc a {
   color: #0969da;
   text-decoration: none;
-  font-size: 0.9rem;
   transition: color 0.15s ease;
 }
 
@@ -370,11 +344,6 @@ article table tbody tr:hover {
 }
 
 .dark .command-toc {
-  background: linear-gradient(135deg, #1c2128 0%, #22272e 100%);
-  border-color: #30363d;
-}
-
-.dark .command-toc h4 {
   color: #9198a1;
 }
 
@@ -684,9 +653,5 @@ article pre::-webkit-scrollbar-thumb:hover {
   article pre {
     padding: 12px !important;
     font-size: 0.85rem;
-  }
-
-  .command-toc ul {
-    grid-template-columns: repeat(2, auto);
   }
 }
