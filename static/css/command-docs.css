@@ -509,6 +509,10 @@ article pre::-webkit-scrollbar-thumb:hover {
   color: #e6edf3;
 }
 
+.dark article strong {
+  color: #e6edf3;
+}
+
 .dark article ul,
 .dark article ol {
   color: #e6edf3;
