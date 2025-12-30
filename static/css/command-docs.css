@@ -326,13 +326,28 @@ article table tbody tr:hover {
 }
 
 /* Anchor links */
+article h2,
+article h3 {
+  position: relative;
+}
+
 .anchor-link {
+  position: absolute;
+  left: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
   opacity: 0;
-  font-size: 0.8em;
-  margin-left: 0.5rem;
-  color: #59636e;
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.15s ease;
+  display: flex;
+  align-items: center;
+}
+
+.anchor-link::before {
+  content: "🔗";
+  font-size: 0.55em;
+  filter: grayscale(100%);
+  opacity: 0.5;
 }
 
 article h2:hover .anchor-link,
@@ -340,17 +355,18 @@ article h3:hover .anchor-link {
   opacity: 1;
 }
 
-.anchor-link:hover {
-  color: #0969da;
-  text-decoration: none;
+.anchor-link:hover::before {
+  filter: grayscale(0%);
+  opacity: 1;
 }
 
-.dark .anchor-link {
-  color: #9198a1;
+.dark .anchor-link::before {
+  filter: grayscale(100%) brightness(0.7);
 }
 
-.dark .anchor-link:hover {
-  color: #60A5FA;
+.dark .anchor-link:hover::before {
+  filter: grayscale(0%);
+  opacity: 1;
 }
 
 /* Headings */

@@ -126,7 +126,7 @@ function New-CommandMarkdown {
     $null = $markdown.Add('')
 
     # Synopsis
-    $null = $markdown.Add('<h2 id="synopsis">Synopsis <a class="anchor-link" href="#synopsis">#</a></h2>')
+    $null = $markdown.Add('<h2 id="synopsis"><a class="anchor-link" href="#synopsis"></a>Synopsis</h2>')
     $null = $markdown.Add('')
     if ($command.Synopsis) {
         $null = $markdown.Add($command.Synopsis.Replace("`n", "  `n"))
@@ -134,7 +134,7 @@ function New-CommandMarkdown {
     $null = $markdown.Add('')
 
     # Description
-    $null = $markdown.Add('<h2 id="description">Description <a class="anchor-link" href="#description">#</a></h2>')
+    $null = $markdown.Add('<h2 id="description"><a class="anchor-link" href="#description"></a>Description</h2>')
     $null = $markdown.Add('')
     if ($command.Description) {
         $null = $markdown.Add($command.Description.Replace("`n", "  `n"))
@@ -143,7 +143,7 @@ function New-CommandMarkdown {
 
     # Syntax
     if ($command.Syntax) {
-        $null = $markdown.Add('<h2 id="syntax">Syntax <a class="anchor-link" href="#syntax">#</a></h2>')
+        $null = $markdown.Add('<h2 id="syntax"><a class="anchor-link" href="#syntax"></a>Syntax</h2>')
         $null = $markdown.Add('')
         $null = $markdown.Add('```powershell')
 
@@ -183,7 +183,7 @@ function New-CommandMarkdown {
     }
 
     # Examples
-    $null = $markdown.Add('<h2 id="examples">Examples <a class="anchor-link" href="#examples">#</a></h2>')
+    $null = $markdown.Add('<h2 id="examples"><a class="anchor-link" href="#examples"></a>Examples</h2>')
     $null = $markdown.Add('')
     $null = $markdown.Add('&nbsp;')
     $null = $markdown.Add('')
@@ -245,7 +245,7 @@ function New-CommandMarkdown {
         }
 
         if ($filteredParams.Count -gt 0) {
-            $null = $markdown.Add('<h3 id="required-parameters">Required Parameters <a class="anchor-link" href="#required-parameters">#</a></h3>')
+            $null = $markdown.Add('<h3 id="required-parameters"><a class="anchor-link" href="#required-parameters"></a>Required Parameters</h3>')
             $null = $markdown.Add('')
 
             foreach ($el in $filteredParams) {
@@ -275,7 +275,7 @@ function New-CommandMarkdown {
         }
 
         if ($filteredParams.Count -gt 0) {
-            $null = $markdown.Add('<h3 id="optional-parameters">Optional Parameters <a class="anchor-link" href="#optional-parameters">#</a></h3>')
+            $null = $markdown.Add('<h3 id="optional-parameters"><a class="anchor-link" href="#optional-parameters"></a>Optional Parameters</h3>')
             $null = $markdown.Add('')
 
             foreach ($el in $filteredParams) {
@@ -299,7 +299,7 @@ function New-CommandMarkdown {
 
     # Outputs
     if ($command.Outputs) {
-        $null = $markdown.Add('<h2 id="outputs">Outputs <a class="anchor-link" href="#outputs">#</a></h2>')
+        $null = $markdown.Add('<h2 id="outputs"><a class="anchor-link" href="#outputs"></a>Outputs</h2>')
         $null = $markdown.Add('')
 
         $outputText = $command.Outputs.Replace("`r`n", "`n").Replace("`r", "`n")
