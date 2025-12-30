@@ -408,6 +408,71 @@ article table tbody tr:hover {
   background: rgba(34, 197, 94, 0.18);
 }
 
+/* Desktop: Floating side navigation */
+@media (min-width: 1280px) {
+  .command-toc {
+    position: fixed;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    width: auto;
+    max-width: 180px;
+    padding: 1rem;
+    margin: 0;
+    border-left: 2px solid #d1d9e0;
+    border-radius: 0;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    z-index: 30;
+  }
+
+  .command-toc .toc-label {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+    margin-right: 0;
+  }
+
+  .command-toc a {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .command-toc a.active {
+    border-left: 2px solid #22C55E;
+    margin-left: -1rem;
+    padding-left: calc(0.5rem + 1rem - 2px);
+    background: transparent;
+    color: #22C55E;
+    font-weight: 600;
+  }
+
+  .dark .command-toc {
+    border-left-color: #30363d;
+    background: transparent;
+  }
+
+  .dark .command-toc a.active {
+    border-left-color: #22C55E;
+    background: transparent;
+  }
+}
+
+/* Extra large screens: more spacing */
+@media (min-width: 1536px) {
+  .command-toc {
+    right: 4rem;
+  }
+}
+
 /* Mobile: compact horizontal scroll */
 @media (max-width: 640px) {
   .command-toc {
