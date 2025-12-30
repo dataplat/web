@@ -328,7 +328,7 @@ article table tbody tr:hover {
 /* Table of Contents */
 .command-toc {
   margin-bottom: 2rem;
-  font-size: 0.7rem;
+  font-size: 1.1rem;
   color: #59636e;
   text-align: center;
   display: block;
