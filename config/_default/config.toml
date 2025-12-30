@@ -7,9 +7,9 @@ enableRobotsTXT = true
 disablePathToLower = true
 
 [permalinks]
-post = "/:slug/"
-page = "/:slug/"
-commands = "/:slug/"
+post = "/:slug"
+page = "/:slug"
+commands = "/:slug"
 
 [params]
 description = "A free, open-source PowerShell module with 700+ commands that make SQL Server administration simple, powerful, and fun."
