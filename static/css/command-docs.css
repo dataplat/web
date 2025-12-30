@@ -331,6 +331,8 @@ article table tbody tr:hover {
   font-size: 1.2rem;
   color: #59636e;
   text-align: center;
+  display: block;
+  width: 100%;
 }
 
 .command-toc .toc-label {
