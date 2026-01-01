@@ -15,8 +15,11 @@
 .PARAMETER CommandName
     Generate card for specific command(s). Supports wildcards.
 
-.PARAMETER OutputPath
-    Directory to save generated HTML files. Defaults to .\static\social-cards.
+.PARAMETER HtmlOutputPath
+    Directory to save generated HTML files. Defaults to .\social.
+
+.PARAMETER PngOutputPath
+    Directory to save generated PNG files. Defaults to C:\github\web\static\images\social.
 
 .PARAMETER IndexPath
     Path to dbatools-index.json file.
@@ -38,7 +41,8 @@
 [CmdletBinding()]
 param(
     [string[]]$CommandName,
-    [string]$OutputPath = ".\static\images\social-cards",
+    [string]$HtmlOutputPath = "C:\github\web\social\card-html",
+    [string]$PngOutputPath = "C:\github\web\static\images\social",
     [string]$IndexPath = "C:\github\dbatools\bin\dbatools-index.json",
     [int]$First
 )
@@ -46,9 +50,12 @@ param(
 # Import aitools module
 Import-Module C:\github\aitools -Force
 
-# Ensure output directory exists
-if (-not (Test-Path $OutputPath)) {
-    $null = New-Item -Path $OutputPath -ItemType Directory -Force
+# Ensure output directories exist
+if (-not (Test-Path $HtmlOutputPath)) {
+    $null = New-Item -Path $HtmlOutputPath -ItemType Directory -Force
+}
+if (-not (Test-Path $PngOutputPath)) {
+    $null = New-Item -Path $PngOutputPath -ItemType Directory -Force
 }
 
 # Read and parse JSON (handle UTF-16 encoding)
@@ -84,8 +91,9 @@ foreach ($cmd in $commands) {
 
     Write-Progress -Activity "Generating social cards" -Status $cmdName -PercentComplete (($count / $commands.Count) * 100)
 
-    # Predictable output path: static/social-cards/{CommandName}.html
-    $outputFile = Join-Path $OutputPath "$cmdName.html"
+    # HTML goes to social/ directory, PNG goes to static/images/social-cards/
+    $htmlFile = Join-Path $HtmlOutputPath "$cmdName.html"
+    $pngFile = Join-Path $PngOutputPath "$cmdName.png"
 
     # Build the AI prompt with ALL command data and explicit file path
     $prompt = @"
@@ -101,7 +109,7 @@ Examples:
 $($cmd.Examples)
 
 === OUTPUT FILE PATH ===
-WRITE THE COMPLETE HTML TO: $outputFile
+WRITE THE COMPLETE HTML TO: $htmlFile
 
 === CRITICAL FORMATTING RULES ===
 
@@ -153,8 +161,8 @@ WRITE THE COMPLETE HTML TO: $outputFile
         .logo { width: 48px; height: 48px; object-fit: contain; }
         .brand-text { font-size: 20px; font-weight: 700; color: #8b949e; }
         .meta-right { display: flex; align-items: center; gap: 12px; }
-        .meta-box { display: flex; align-items: center; gap: 8px; background: rgba(139, 148, 158, 0.08); border: 1px solid rgba(139, 148, 158, 0.2); border-radius: 8px; padding: 8px 14px; color: #8b949e; font-size: 13px; font-weight: 500; }
-        .meta-box svg { width: 14px; height: 14px; fill: #8b949e; flex-shrink: 0; }
+        .meta-box { display: flex; align-items: center; gap: 8px; background: rgba(139, 148, 158, 0.12); border: 1px solid rgba(139, 148, 158, 0.3); border-radius: 8px; padding: 8px 14px; color: #c9d1d9; font-size: 13px; font-weight: 500; }
+        .meta-box svg { width: 14px; height: 14px; fill: #c9d1d9; flex-shrink: 0; }
         .command-section { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 1; min-height: 0; }
         .command-name { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #f0f6fc; margin-bottom: 16px; letter-spacing: -0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 58px; line-height: 1.1; }
         .command-name.size-small { font-size: 58px; }
@@ -225,7 +233,7 @@ WRITE THE COMPLETE HTML TO: $outputFile
 </body>
 </html>
 
-=== WRITE THE COMPLETE FILLED-IN HTML TO: $outputFile ===
+=== WRITE THE COMPLETE FILLED-IN HTML TO: $htmlFile ===
 "@
 
     # Call AI with prompt only
@@ -238,15 +246,14 @@ WRITE THE COMPLETE HTML TO: $outputFile
 
     try {
         Invoke-AITool @splatAI
-        Write-Verbose "Generated HTML: $outputFile"
+        Write-Verbose "Generated HTML: $htmlFile"
 
         # Convert HTML to PNG using Puppeteer
-        if (Test-Path $outputFile) {
-            $pngFile = $outputFile -replace '\.html$', '.png'
+        if (Test-Path $htmlFile) {
             $screenshotScript = Join-Path $PSScriptRoot "screenshot-card.js"
 
             if (Test-Path $screenshotScript) {
-                node $screenshotScript $outputFile $pngFile
+                node $screenshotScript $htmlFile $pngFile
                 if (Test-Path $pngFile) {
                     Write-Verbose "Generated PNG: $pngFile"
                 } else {
@@ -263,9 +270,9 @@ WRITE THE COMPLETE HTML TO: $outputFile
 
 Write-Progress -Activity "Generating social cards" -Completed
 Write-Host "`nGeneration complete!" -ForegroundColor Green
-Write-Host "Generated $count social card(s) in $OutputPath" -ForegroundColor Green
-Write-Host "`nFile structure for Hugo:" -ForegroundColor Cyan
-Write-Host "  HTML: static/images/social-cards/{CommandName}.html" -ForegroundColor Gray
-Write-Host "  PNG:  static/images/social-cards/{CommandName}.png" -ForegroundColor Gray
-Write-Host "  URL:  /images/social-cards/{CommandName}.png" -ForegroundColor Gray
-Write-Host "`nDefault card: static/images/social-cards/default.png" -ForegroundColor Gray
+Write-Host "Generated $count social card(s)" -ForegroundColor Green
+Write-Host "`nFile structure:" -ForegroundColor Cyan
+Write-Host "  HTML: social/{CommandName}.html" -ForegroundColor Gray
+Write-Host "  PNG:  static/images/social/{CommandName}.png" -ForegroundColor Gray
+Write-Host "  URL:  /images/social/{CommandName}.png" -ForegroundColor Gray
+Write-Host "`nDefault card: static/images/social/default.png" -ForegroundColor Gray

@@ -43,10 +43,10 @@
   <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ .Permalink }}">
-  {{- $defaultImage := "/images/social-cards/default.png" -}}
+  {{- $defaultImage := "/images/social/default.png" -}}
   {{- $socialImage := $defaultImage -}}
   {{- if .Section | eq "commands" -}}
-    {{- $cmdImage := printf "/images/social-cards/%s.png" .Title -}}
+    {{- $cmdImage := printf "/images/social/%s.png" .Title -}}
     {{- $socialImage = $cmdImage -}}
   {{- end -}}
   <meta property="og:image" content="{{ $socialImage | absURL }}">
