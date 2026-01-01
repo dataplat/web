@@ -238,7 +238,24 @@ WRITE THE COMPLETE HTML TO: $outputFile
 
     try {
         Invoke-AITool @splatAI
-        Write-Verbose "Generated: $outputFile"
+        Write-Verbose "Generated HTML: $outputFile"
+
+        # Convert HTML to PNG using Puppeteer
+        if (Test-Path $outputFile) {
+            $pngFile = $outputFile -replace '\.html$', '.png'
+            $screenshotScript = Join-Path $PSScriptRoot "screenshot-card.js"
+
+            if (Test-Path $screenshotScript) {
+                node $screenshotScript $outputFile $pngFile
+                if (Test-Path $pngFile) {
+                    Write-Verbose "Generated PNG: $pngFile"
+                } else {
+                    Write-Warning "Failed to generate PNG for $cmdName"
+                }
+            } else {
+                Write-Warning "screenshot-card.js not found - skipping PNG generation"
+            }
+        }
     } catch {
         Write-Warning "Failed to generate card for $cmdName : $_"
     }
@@ -249,7 +266,6 @@ Write-Host "`nGeneration complete!" -ForegroundColor Green
 Write-Host "Generated $count social card(s) in $OutputPath" -ForegroundColor Green
 Write-Host "`nFile structure for Hugo:" -ForegroundColor Cyan
 Write-Host "  HTML: static/images/social-cards/{CommandName}.html" -ForegroundColor Gray
-Write-Host "  PNG:  static/images/social-cards/{CommandName}.png (after screenshot)" -ForegroundColor Gray
+Write-Host "  PNG:  static/images/social-cards/{CommandName}.png" -ForegroundColor Gray
 Write-Host "  URL:  /images/social-cards/{CommandName}.png" -ForegroundColor Gray
 Write-Host "`nDefault card: static/images/social-cards/default.png" -ForegroundColor Gray
-Write-Host "`nDon't forget to copy thor.png to $OutputPath!" -ForegroundColor Yellow
