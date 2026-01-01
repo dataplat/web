@@ -44,7 +44,9 @@ param(
     [string]$HtmlOutputPath = "C:\github\web\social\card-html",
     [string]$PngOutputPath = "C:\github\web\static\images\social",
     [string]$IndexPath = "C:\github\dbatools\bin\dbatools-index.json",
-    [int]$First
+    [int]$First,
+    [string]$Tool = "Claude",
+    [string]$Model = "claude-haiku-4-5"
 )
 
 # Import aitools module
@@ -113,11 +115,77 @@ WRITE THE COMPLETE HTML TO: $htmlFile
 
 === CRITICAL FORMATTING RULES ===
 
-0. PIPE CHARACTERS - When an example uses a pipe (|) to chain commands, ALWAYS use the .pipe class:
-   <span class="pipe">|</span>
-   This ensures proper spacing. NEVER use .cmd class for pipe characters.
+0. EXAMPLE SELECTION - ALWAYS USE EXAMPLE 1:
+   - ALWAYS use EXAMPLE 1 from the examples data, unless it's multi-line splatting code
+   - NEVER pick Example 2 or 3 just because they look simpler
+   - Example 1 is specifically chosen to be the most representative
 
-1. TAG ABBREVIATION EXPANSION - ALWAYS expand these common abbreviations in tags:
+1. UNDERSTANDING PIPES vs LINE CONTINUATION:
+   A pipe (|) means OUTPUT flows to a DIFFERENT command. Both sides have their own command name:
+   CORRECT: Get-Something -Param value | Do-Something -OtherParam
+            ^^^^^^^^^^^^^^               ^^^^^^^^^^^^^
+            First command                Second command (different name!)
+
+   WRONG interpretation - this is NOT a pipe, it's line continuation:
+   Add-Something -Param1 value |
+   -Param2 othervalue
+   ^ This is WRONG! -Param2 is part of Add-Something, not a separate command
+
+   If you see a | but NO command name after it (just parameters), it's NOT a real pipe!
+
+2. EXAMPLE FORMAT DECISION TREE:
+
+   CRITICAL: Count the actual characters in the example BEFORE choosing a format!
+   The example box is only 620px wide. At 14px monospace, that's ~68 characters MAX.
+   Text longer than 68 chars WILL overflow and look broken.
+
+   STEP 1: Does the example contain a REAL pipe (| followed by a Verb-Noun command)?
+   - YES → Go to STEP 3 (pipe format)
+   - NO → Go to STEP 2 (single command)
+
+   STEP 2 (single command, no pipe):
+   - FIRST: Count the total characters in the example line (including command, params, values, spaces)
+   - If total ≤68 chars AND ≤3 params → FORMAT A (inline)
+   - If total >68 chars OR 4+ params → FORMAT B (splat) - NO EXCEPTIONS!
+
+   STEP 3 (piped commands):
+   - Measure the FIRST command (before the pipe) - if >50 chars → FORMAT D (splat + pipe)
+   - If first command ≤50 chars AND second command ≤68 chars → FORMAT C (two lines)
+   - If still too long → FORMAT D (splat the first command, then pipe)
+
+   OVERFLOW PREVENTION: If in doubt, use SPLAT format. It's better to have a clean splat
+   than an ugly overflow. Commands with 4+ parameters almost always need splat format.
+
+3. FORMAT A - INLINE (single command, ≤3 params, ≤68 chars MAXIMUM):
+   <code class="example-code"><span class="cmd">Command-Name</span> <span class="param">-Param1</span> <span class="value">value1</span> <span class="param">-Param2</span> <span class="value">value2</span></code>
+
+4. FORMAT B - SPLAT (4+ params OR >68 chars, NO pipe):
+   <code class="example-code"><span class="var">`$splat</span> <span class="eq">=</span> <span class="bracket">@{</span>
+       <span class="key">SqlInstance</span> <span class="eq">=</span> <span class="value">"sql2014"</span>
+       <span class="key">Database</span>    <span class="eq">=</span> <span class="value">"AdventureWorks"</span>
+   <span class="bracket">}</span>
+   <span class="cmd">Command-Name</span> <span class="splat">@splat</span></code>
+
+5. FORMAT C - SHORT PIPED (first command ≤50 chars, second ≤68 chars):
+   <code class="example-code"><span class="cmd">Get-Something</span> <span class="param">-Param</span> <span class="value">value</span> <span class="pipe">|</span>
+<span class="cmd">Do-SomethingElse</span> <span class="param">-OtherParam</span> <span class="value">val</span></code>
+
+6. FORMAT D - LONG PIPED (first command >50 chars) - Splat first, then pipe:
+   <code class="example-code"><span class="var">`$splat</span> <span class="eq">=</span> <span class="bracket">@{</span>
+       <span class="key">SqlInstance</span> <span class="eq">=</span> <span class="value">"sql2017a"</span>
+       <span class="key">AvailabilityGroup</span> <span class="eq">=</span> <span class="value">"SharePoint"</span>
+   <span class="bracket">}</span>
+   <span class="cmd">Get-DbaAvailabilityGroup</span> <span class="splat">@splat</span> <span class="pipe">|</span>
+<span class="cmd">Add-DbaAgReplica</span> <span class="param">-SqlInstance</span> <span class="value">sql2017b</span></code>
+
+   CRITICAL: Line after the splat has the command + @splat + pipe, then next line has the second command.
+
+7. ARRAY VALUES (comma-separated):
+   For values like "db1, db2", keep them together in ONE span:
+   <span class="value">db1, db2</span>
+   Do NOT split: <span class="value">db1</span>, <span class="value">db2</span>
+
+8. TAG ABBREVIATION EXPANSION - ALWAYS expand these common abbreviations in tags:
    - AG → Availability Groups
    - HA → High Availability
    - DR → Disaster Recovery
@@ -147,37 +215,22 @@ WRITE THE COMPLETE HTML TO: $htmlFile
    - bacpac → BACPAC
    Example: Tags "AG, HA, Migration" → display as "Availability Groups", "High Availability", "Migration"
 
-2. COMMAND NAME SIZING (based on character count):
+9. COMMAND NAME SIZING (based on character count):
    - size-small (58px): up to 18 chars
    - size-medium (50px): 19-26 chars
    - size-large (42px): 27-34 chars
    - size-xl (36px): 35+ chars
 
-3. AUTHOR NAME - CLEAN IT UP:
+10. AUTHOR NAME - CLEAN IT UP:
    - Remove ALL Twitter handles (@username)
    - Remove ALL URLs and email addresses
    - Use ONLY the first author if multiple
+   - If the author is "Garry Bargsley" (any variation), OMIT the author box entirely
    - Example: "Chrissy LeMaire (@cl), netnerds.net" becomes "Chrissy LeMaire"
 
-4. EXAMPLE FORMATTING - Choose ONE:
+11. TAGS - First tag is PRIMARY (orange), rest are gray. Show 3-4 max.
 
-   FORMAT A (3 or fewer params) - INLINE:
-   <code class="example-code"><span class="cmd">$cmdName</span> <span class="param">-SqlInstance</span> <span class="value">sql2014</span></code>
-
-   FORMAT B (4+ params) - SPLAT with aligned = signs:
-   <code class="example-code"><span class="var">`$splat</span> <span class="eq">=</span> <span class="bracket">@{</span>
-       <span class="key">SqlInstance</span> <span class="eq">=</span> <span class="value">"sql2014"</span>
-       <span class="key">Database</span>    <span class="eq">=</span> <span class="value">"AdventureWorks"</span>
-   <span class="bracket">}</span>
-   <span class="cmd">$cmdName</span> <span class="splat">@splat</span></code>
-
-   FORMAT C (piped commands) - Use .pipe class for the pipe character:
-   <code class="example-code"><span class="cmd">Get-Something</span> <span class="param">-Param</span> <span class="value">value</span> <span class="pipe">|</span>
-<span class="cmd">Do-Something</span></code>
-
-5. TAGS - First tag is PRIMARY (orange), rest are gray. Show 3-4 max.
-
-6. Parse examples: Look for "PS C:\>" pattern, clean \u003e to >, \u0027 to '
+12. Parse examples: Look for "PS C:\>" pattern, clean \u003e to >, \u0027 to '
 
 === COMPLETE HTML TEMPLATE ===
 
@@ -210,7 +263,7 @@ WRITE THE COMPLETE HTML TO: $htmlFile
         .command-name .verb { color: #4ade80; }
         .command-name .noun { color: #f0f6fc; }
         .synopsis { font-size: 22px; color: #c9d1d9; line-height: 1.4; margin-bottom: 36px; max-width: 900px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        .example { background: rgba(0, 0, 0, 0.4); border: 1px solid #30363d; border-radius: 12px; padding: 18px 24px; max-width: 680px; flex-shrink: 0; }
+        .example { background: rgba(0, 0, 0, 0.4); border: 1px solid #30363d; border-radius: 12px; padding: 18px 24px; max-width: 620px; flex-shrink: 0; overflow: hidden; }
         .example-label { font-size: 11px; color: #8b949e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; font-weight: 600; }
         .example-code { font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.5; white-space: pre; }
         .example-code .var { color: #ffa657; }
@@ -277,8 +330,8 @@ WRITE THE COMPLETE HTML TO: $htmlFile
 
     # Call AI with prompt only
     $splatAI = @{
-        Tool    = "Claude"
-        Model   = "claude-haiku-4-5"
+        Tool    = $Tool
+        Model   = $Model
         Prompt  = $prompt
         Verbose = $VerbosePreference -eq "Continue"
     }
