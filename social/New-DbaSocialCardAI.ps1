@@ -155,7 +155,7 @@ WRITE THE COMPLETE HTML TO: $outputFile
         .meta-right { display: flex; align-items: center; gap: 12px; }
         .meta-box { display: flex; align-items: center; gap: 8px; background: rgba(139, 148, 158, 0.08); border: 1px solid rgba(139, 148, 158, 0.2); border-radius: 8px; padding: 8px 14px; color: #8b949e; font-size: 13px; font-weight: 500; }
         .meta-box svg { width: 14px; height: 14px; fill: #8b949e; flex-shrink: 0; }
-        .command-section { flex: 1; display: flex; flex-direction: column; z-index: 1; min-height: 0; }
+        .command-section { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 1; min-height: 0; }
         .command-name { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #f0f6fc; margin-bottom: 16px; letter-spacing: -0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 58px; line-height: 1.1; }
         .command-name.size-small { font-size: 58px; }
         .command-name.size-medium { font-size: 50px; }
