@@ -113,7 +113,11 @@ WRITE THE COMPLETE HTML TO: $htmlFile
 
 === CRITICAL FORMATTING RULES ===
 
-0. TAG ABBREVIATION EXPANSION - ALWAYS expand these common abbreviations in tags:
+0. PIPE CHARACTERS - When an example uses a pipe (|) to chain commands, ALWAYS use the .pipe class:
+   <span class="pipe">|</span>
+   This ensures proper spacing. NEVER use .cmd class for pipe characters.
+
+1. TAG ABBREVIATION EXPANSION - ALWAYS expand these common abbreviations in tags:
    - AG → Availability Groups
    - HA → High Availability
    - DR → Disaster Recovery
@@ -122,7 +126,6 @@ WRITE THE COMPLETE HTML TO: $htmlFile
    - SPN → Service Principal Name
    - DAC → Dedicated Admin Connection
    - WSFC → Windows Server Failover Cluster
-   - RG → Resource Governor
    - TDE → Transparent Data Encryption
    - CMK → Column Master Key
    - CEK → Column Encryption Key
@@ -144,19 +147,19 @@ WRITE THE COMPLETE HTML TO: $htmlFile
    - bacpac → BACPAC
    Example: Tags "AG, HA, Migration" → display as "Availability Groups", "High Availability", "Migration"
 
-1. COMMAND NAME SIZING (based on character count):
+2. COMMAND NAME SIZING (based on character count):
    - size-small (58px): up to 18 chars
    - size-medium (50px): 19-26 chars
    - size-large (42px): 27-34 chars
    - size-xl (36px): 35+ chars
 
-2. AUTHOR NAME - CLEAN IT UP:
+3. AUTHOR NAME - CLEAN IT UP:
    - Remove ALL Twitter handles (@username)
    - Remove ALL URLs and email addresses
    - Use ONLY the first author if multiple
    - Example: "Chrissy LeMaire (@cl), netnerds.net" becomes "Chrissy LeMaire"
 
-3. EXAMPLE FORMATTING - Choose ONE:
+4. EXAMPLE FORMATTING - Choose ONE:
 
    FORMAT A (3 or fewer params) - INLINE:
    <code class="example-code"><span class="cmd">$cmdName</span> <span class="param">-SqlInstance</span> <span class="value">sql2014</span></code>
@@ -168,9 +171,13 @@ WRITE THE COMPLETE HTML TO: $htmlFile
    <span class="bracket">}</span>
    <span class="cmd">$cmdName</span> <span class="splat">@splat</span></code>
 
-4. TAGS - First tag is PRIMARY (orange), rest are gray. Show 3-4 max.
+   FORMAT C (piped commands) - Use .pipe class for the pipe character:
+   <code class="example-code"><span class="cmd">Get-Something</span> <span class="param">-Param</span> <span class="value">value</span> <span class="pipe">|</span>
+<span class="cmd">Do-Something</span></code>
 
-5. Parse examples: Look for "PS C:\>" pattern, clean \u003e to >, \u0027 to '
+5. TAGS - First tag is PRIMARY (orange), rest are gray. Show 3-4 max.
+
+6. Parse examples: Look for "PS C:\>" pattern, clean \u003e to >, \u0027 to '
 
 === COMPLETE HTML TEMPLATE ===
 
@@ -212,6 +219,7 @@ WRITE THE COMPLETE HTML TO: $htmlFile
         .example-code .key { color: #79c0ff; }
         .example-code .value { color: #a5d6ff; }
         .example-code .cmd { color: #7ee787; }
+        .example-code .pipe { color: #7ee787; padding-right: 0.5em; }
         .example-code .splat { color: #ffa657; }
         .example-code .param { color: #79c0ff; }
         .footer { display: flex; align-items: center; justify-content: space-between; z-index: 1; padding-top: 20px; margin-top: auto; border-top: 1px solid #30363d; }
