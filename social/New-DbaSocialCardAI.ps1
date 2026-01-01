@@ -196,7 +196,7 @@ WRITE THE COMPLETE HTML TO: $htmlFile
         <div class="ps-decorator">></div>
         <div class="header">
             <div class="brand">
-                <img src="thor.png" alt="dbatools" class="logo">
+                <img src="C:/github/web/static/thor.png" alt="dbatools" class="logo">
                 <span class="brand-text">dbatools</span>
             </div>
             <div class="meta-right">
