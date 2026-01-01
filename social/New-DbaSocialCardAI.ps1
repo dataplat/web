@@ -113,6 +113,37 @@ WRITE THE COMPLETE HTML TO: $htmlFile
 
 === CRITICAL FORMATTING RULES ===
 
+0. TAG ABBREVIATION EXPANSION - ALWAYS expand these common abbreviations in tags:
+   - AG → Availability Groups
+   - HA → High Availability
+   - DR → Disaster Recovery
+   - CDC → Change Data Capture
+   - HADR → High Availability Disaster Recovery
+   - SPN → Service Principal Name
+   - DAC → Dedicated Admin Connection
+   - WSFC → Windows Server Failover Cluster
+   - RG → Resource Governor
+   - TDE → Transparent Data Encryption
+   - CMK → Column Master Key
+   - CEK → Column Encryption Key
+   - XE → Extended Events
+   - XESession → Extended Events Session
+   - PBM → Policy Based Management
+   - CMS → Central Management Server
+   - DBA → Database Administration
+   - SSMS → SQL Server Management Studio
+   - SSRS → SQL Server Reporting Services
+   - SSIS → SQL Server Integration Services
+   - SSAS → SQL Server Analysis Services
+   - WSMan → Windows Remote Management
+   - SPNs → Service Principal Names
+   - Ola → Ola Hallengren (Maintenance Solution)
+   - tempdb → TempDB
+   - filegroup → Filegroup
+   - dacpac → DACPAC
+   - bacpac → BACPAC
+   Example: Tags "AG, HA, Migration" → display as "Availability Groups", "High Availability", "Migration"
+
 1. COMMAND NAME SIZING (based on character count):
    - size-small (58px): up to 18 chars
    - size-medium (50px): 19-26 chars
