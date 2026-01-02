@@ -1,5 +1,5 @@
 baseURL = "https://dbatools.io/"
-title = "dbatools | Command-line superpowers for SQL Server automation"
+title = "dbatools | SQL Server automation with PowerShell"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 theme = "dbatools2025"
