@@ -1,0 +1,236 @@
+Generate a complete HTML social card file for the dbatools PowerShell command.
+
+=== COMMAND DATA ===
+CommandName: {{CommandName}}
+Author: {{Author}}
+Synopsis: {{Synopsis}}
+Availability: {{Availability}}
+Tags: {{Tags}}
+Examples:
+{{Examples}}
+
+=== OUTPUT FILE PATH ===
+WRITE THE COMPLETE HTML TO: {{HtmlFile}}
+
+=== CRITICAL FORMATTING RULES ===
+
+0. EXAMPLE SELECTION - ALWAYS USE EXAMPLE 1:
+   - ALWAYS use EXAMPLE 1 from the examples data, unless it's multi-line splatting code
+   - NEVER pick Example 2 or 3 just because they look simpler
+   - Example 1 is specifically chosen to be the most representative
+
+1. UNDERSTANDING PIPES vs LINE CONTINUATION:
+   A pipe (|) means OUTPUT flows to a DIFFERENT command. Both sides have their own command name:
+   CORRECT: Get-Something -Param value | Do-Something -OtherParam
+            ^^^^^^^^^^^^^^               ^^^^^^^^^^^^^
+            First command                Second command (different name!)
+
+   WRONG interpretation - this is NOT a pipe, it's line continuation:
+   Add-Something -Param1 value |
+   -Param2 othervalue
+   ^ This is WRONG! -Param2 is part of Add-Something, not a separate command
+
+   If you see a | but NO command name after it (just parameters), it's NOT a real pipe!
+
+2. EXAMPLE FORMAT DECISION TREE:
+
+   CRITICAL: Count the actual characters in the example BEFORE choosing a format!
+   The example box is 820px wide. At 14px monospace, that's ~92 characters MAX.
+   Text longer than 92 chars WILL overflow and look broken.
+
+   STEP 0: Is the COMMAND NAME itself 27+ characters long?
+   - YES, but only 1 parameter → Continue to STEP 1 (inline is fine for single params)
+   - YES, with 2+ parameters → Use FORMAT B (splat) - long command names need splat to look clean
+   - NO → Continue to STEP 1
+
+   STEP 1: Does the example contain a REAL pipe (| followed by a Verb-Noun command)?
+   - YES → Go to STEP 3 (pipe format)
+   - NO → Go to STEP 2 (single command)
+
+   STEP 2 (single command, no pipe):
+   - FIRST: Count the total characters in the example line (including command, params, values, spaces)
+   - If total ≤92 chars AND ≤3 params → FORMAT A (inline)
+   - If total >92 chars OR 4+ params → FORMAT B (splat) - NO EXCEPTIONS!
+
+   STEP 3 (piped commands):
+   - Measure the FIRST command (before the pipe) - if >60 chars → FORMAT D (splat + pipe)
+   - If first command ≤60 chars AND second command ≤92 chars → FORMAT C (two lines)
+   - If still too long → FORMAT D (splat the first command, then pipe)
+
+   OVERFLOW PREVENTION: If in doubt, use SPLAT format. It's better to have a clean splat
+   than an ugly overflow. Commands with 4+ parameters almost always need splat format.
+
+   VISUAL CHECK: The example box is 820px wide with 24px padding on each side = 772px usable.
+   At 14px monospace (~8.4px per char), that's ~92 characters MAX before overflow/cutoff.
+   If your inline example exceeds 92 chars, it WILL get cut off visually - use splat instead!
+
+3. FORMAT A - INLINE (single command, ≤3 params, ≤92 chars MAXIMUM):
+   <code class="example-code"><span class="cmd">Command-Name</span> <span class="param">-Param1</span> <span class="value">value1</span> <span class="param">-Param2</span> <span class="value">value2</span></code>
+
+4. FORMAT B - SPLAT (4+ params OR >92 chars, NO pipe):
+   <code class="example-code"><span class="var">`$splat</span> <span class="eq">=</span> <span class="bracket">@{</span>
+       <span class="key">SqlInstance</span> <span class="eq">=</span> <span class="value">"sql2014"</span>
+       <span class="key">Database</span>    <span class="eq">=</span> <span class="value">"AdventureWorks"</span>
+   <span class="bracket">}</span>
+   <span class="cmd">Command-Name</span> <span class="splat">@splat</span></code>
+
+5. FORMAT C - SHORT PIPED (first command ≤50 chars, second ≤68 chars):
+   <code class="example-code"><span class="cmd">Get-Something</span> <span class="param">-Param</span> <span class="value">value</span> <span class="pipe">|</span>
+<span class="cmd">Do-SomethingElse</span> <span class="param">-OtherParam</span> <span class="value">val</span></code>
+
+6. FORMAT D - LONG PIPED (first command >50 chars) - Splat first, then pipe:
+   <code class="example-code"><span class="var">`$splat</span> <span class="eq">=</span> <span class="bracket">@{</span>
+       <span class="key">SqlInstance</span> <span class="eq">=</span> <span class="value">"sql2017a"</span>
+       <span class="key">AvailabilityGroup</span> <span class="eq">=</span> <span class="value">"SharePoint"</span>
+   <span class="bracket">}</span>
+   <span class="cmd">Get-DbaAvailabilityGroup</span> <span class="splat">@splat</span> <span class="pipe">|</span>
+<span class="cmd">Add-DbaAgReplica</span> <span class="param">-SqlInstance</span> <span class="value">sql2017b</span></code>
+
+   CRITICAL: Line after the splat has the command + @splat + pipe, then next line has the second command.
+
+7. ARRAY VALUES (comma-separated):
+   For values like "db1, db2", keep them together in ONE span:
+   <span class="value">db1, db2</span>
+   Do NOT split: <span class="value">db1</span>, <span class="value">db2</span>
+
+8. TAG ABBREVIATION EXPANSION - ALWAYS expand these common abbreviations in tags:
+   - AG → Availability Groups
+   - HA → High Availability
+   - DR → Disaster Recovery
+   - CDC → Change Data Capture
+   - HADR → High Availability Disaster Recovery
+   - SPN → Service Principal Name
+   - DAC → Dedicated Admin Connection
+   - WSFC → Windows Server Failover Cluster
+   - TDE → Transparent Data Encryption
+   - CMK → Column Master Key
+   - CEK → Column Encryption Key
+   - XE → Extended Events
+   - XESession → Extended Events Session
+   - PBM → Policy Based Management
+   - CMS → Central Management Server
+   - DBA → Database Administration
+   - SSMS → SQL Server Management Studio
+   - SSRS → SQL Server Reporting Services
+   - SSIS → SQL Server Integration Services
+   - SSAS → SQL Server Analysis Services
+   - WSMan → Windows Remote Management
+   - SPNs → Service Principal Names
+   - Ola → Ola Hallengren (Maintenance Solution)
+   - tempdb → TempDB
+   - filegroup → Filegroup
+   - dacpac → DACPAC
+   - bacpac → BACPAC
+   Example: Tags "AG, HA, Migration" → display as "Availability Groups", "High Availability", "Migration"
+
+9. COMMAND NAME SIZING (based on character count):
+   - size-small (58px): up to 18 chars
+   - size-medium (50px): 19-26 chars
+   - size-large (42px): 27-34 chars
+   - size-xl (36px): 35+ chars
+
+10. AUTHOR NAME - CLEAN IT UP:
+   - Remove ALL Twitter handles (@username)
+   - Remove ALL URLs and email addresses
+   - Use ONLY the first author if multiple
+   - If the author is "Garry Bargsley" (any variation), OMIT the author box entirely
+   - Example: "Chrissy LeMaire (@cl), netnerds.net" becomes "Chrissy LeMaire"
+
+11. TAGS - First tag is PRIMARY (orange), rest are gray. Show 3-4 max.
+
+12. Parse examples: Look for "PS C:\>" pattern, clean \u003e to >, \u0027 to '
+
+=== COMPLETE HTML TEMPLATE ===
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dbatools - COMMAND_NAME_HERE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px; }
+        .card { background: linear-gradient(135deg, #161b22 0%, #0d1117 100%); border: 1px solid #30363d; border-radius: 16px; width: 1200px; height: 628px; position: relative; overflow: hidden; display: flex; flex-direction: column; padding: 44px 56px; }
+        .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #f97316, #fb923c, #fdba74); }
+        .ps-decorator { position: absolute; right: 40px; top: 50%; transform: translateY(-50%); font-size: 300px; font-weight: 800; color: rgba(249, 115, 22, 0.04); font-family: 'JetBrains Mono', monospace; pointer-events: none; user-select: none; }
+        .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; z-index: 1; }
+        .brand { display: flex; align-items: center; gap: 16px; }
+        .logo { width: 48px; height: 48px; object-fit: contain; }
+        .brand-text { font-size: 20px; font-weight: 700; color: #8b949e; }
+        .meta-right { display: flex; align-items: center; gap: 12px; }
+        .meta-box { display: flex; align-items: center; gap: 8px; background: rgba(139, 148, 158, 0.12); border: 1px solid rgba(139, 148, 158, 0.3); border-radius: 8px; padding: 8px 14px; color: #c9d1d9; font-size: 13px; font-weight: 500; }
+        .meta-box svg { width: 14px; height: 14px; fill: #c9d1d9; flex-shrink: 0; }
+        .command-section { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 1; min-height: 0; }
+        .command-name { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #f0f6fc; margin-bottom: 16px; letter-spacing: -0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 58px; line-height: 1.1; }
+        .command-name.size-small { font-size: 58px; }
+        .command-name.size-medium { font-size: 50px; }
+        .command-name.size-large { font-size: 42px; }
+        .command-name.size-xl { font-size: 36px; }
+        .command-name .verb { color: #4ade80; }
+        .command-name .noun { color: #f0f6fc; }
+        .synopsis { font-size: 22px; color: #c9d1d9; line-height: 1.4; margin-bottom: 36px; max-width: 900px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .example { background: rgba(0, 0, 0, 0.4); border: 1px solid #30363d; border-radius: 12px; padding: 18px 24px; max-width: 820px; flex-shrink: 0; overflow: hidden; }
+        .example-label { font-size: 11px; color: #8b949e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; font-weight: 600; }
+        .example-code { font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.5; white-space: pre; }
+        .example-code .var { color: #ffa657; }
+        .example-code .eq { color: #8b949e; }
+        .example-code .bracket { color: #8b949e; }
+        .example-code .key { color: #79c0ff; }
+        .example-code .value { color: #a5d6ff; }
+        .example-code .cmd { color: #7ee787; }
+        .example-code .pipe { color: #7ee787; padding-right: 0.5em; }
+        .example-code .splat { color: #ffa657; }
+        .example-code .param { color: #79c0ff; }
+        .footer { display: flex; align-items: center; justify-content: space-between; z-index: 1; padding-top: 20px; margin-top: auto; border-top: 1px solid #30363d; }
+        .tags { display: flex; gap: 10px; flex-wrap: wrap; max-width: 70%; }
+        .tag { background: rgba(139, 148, 158, 0.1); color: #8b949e; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid rgba(139, 148, 158, 0.2); white-space: nowrap; }
+        .tag.primary { background: rgba(249, 115, 22, 0.15); color: #fb923c; border-color: rgba(249, 115, 22, 0.3); font-weight: 600; }
+        .url { font-size: 15px; color: #8b949e; font-weight: 500; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+        .github-icon { width: 22px; height: 22px; fill: #8b949e; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="ps-decorator">></div>
+        <div class="header">
+            <div class="brand">
+                <img src="C:/github/web/static/thor.png" alt="dbatools" class="logo">
+                <span class="brand-text">dbatools</span>
+            </div>
+            <div class="meta-right">
+                <div class="meta-box">
+                    <svg viewBox="0 0 16 16"><path d="M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></svg>
+                    AUTHOR_NAME_HERE
+                </div>
+                <div class="meta-box">
+                    <svg viewBox="0 0 16 16"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0 1 14.25 16H1.75A1.75 1.75 0 0 1 0 14.25ZM6.5 6.5v8h7.75a.25.25 0 0 0 .25-.25V6.5Zm8-1.5V1.75a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25V5Zm-8 10H1.75a.25.25 0 0 1-.25-.25V6.5H5v8.5Z"/></svg>
+                    AVAILABILITY_HERE
+                </div>
+            </div>
+        </div>
+        <div class="command-section">
+            <h1 class="command-name SIZE_CLASS_HERE">
+                <span class="verb">VERB_HERE</span>-<span class="noun">NOUN_HERE</span>
+            </h1>
+            <p class="synopsis">SYNOPSIS_HERE</p>
+            <div class="example">
+                <div class="example-label">Example</div>
+                EXAMPLE_HTML_HERE
+            </div>
+        </div>
+        <div class="footer">
+            <div class="tags">
+                TAGS_HTML_HERE
+            </div>
+            <div class="url">
+                <svg class="github-icon" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
+                dbatools.io
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+=== WRITE THE COMPLETE FILLED-IN HTML TO: {{HtmlFile}} ===

@@ -42,11 +42,20 @@
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
   <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Permalink }}">
+  {{- $defaultImage := "/images/social/default.png" -}}
+  {{- $socialImage := $defaultImage -}}
+  {{- if .Section | eq "commands" -}}
+    {{- $cmdImage := printf "/images/social/%s.png" .Title -}}
+    {{- $socialImage = $cmdImage -}}
+  {{- end -}}
+  <meta property="og:image" content="{{ $socialImage | absURL }}">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
   <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta name="twitter:image" content="{{ $socialImage | absURL }}">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WZ9LF10DRD"></script>
