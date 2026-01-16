@@ -145,7 +145,11 @@ function New-CommandMarkdown {
             $tocItems += '<a href="#optional-parameters">Parameters</a>'
         }
     }
-    if ($command.Outputs) {
+    # Only add Outputs to TOC if it has valid content (not malformed data)
+    $tocHasValidOutput = $command.Outputs -and
+                         $command.Outputs.Trim() -and
+                         $command.Outputs -notmatch '@\{type=\}'
+    if ($tocHasValidOutput) {
         $tocItems += '<a href="#outputs">Outputs</a>'
     }
     $null = $markdown.Add('<nav class="command-toc"><span class="toc-label">On this page:</span> ' + ($tocItems -join ' · ') + '</nav>')
@@ -228,17 +232,19 @@ function New-CommandMarkdown {
             if ($row -like '*----*') {
                 $null = $markdown.Add('')
                 $null = $markdown.Add('##### ' + ($row -replace '-{4,}([^-]*)-{4,}', '$1').Replace('EXAMPLE', 'Example: '))
-            } elseif (($row -like 'PS C:\>*') -or ($row -like '>>*')) {
+            } elseif (($row -like '*PS C:\>*') -or ($row -like '*C:\PS>*') -or ($row -like '>>*')) {
                 if ($inside -eq 0) {
                     $cleanCode.Clear()
                     $null = $markdown.Add('')
                     $null = $markdown.Add('```powershell')
                 }
-                # Add formatted line with prompt
-                $null = $markdown.Add(($row.Trim() -replace 'PS C:\\>\s*', 'PS C:\> '))
+                # Add formatted line with prompt (normalize C:\PS> to PS C:\>)
+                $formattedRow = $row.Trim() -replace 'C:\\PS>\s*', 'PS C:\> '
+                $formattedRow = $formattedRow -replace 'PS C:\\>\s*', 'PS C:\> '
+                $null = $markdown.Add($formattedRow)
 
                 # Collect clean code without prompts
-                $cleanLine = $row.Trim() -replace '^PS C:\\>\s*', '' -replace '^>>\s*', ''
+                $cleanLine = $row.Trim() -replace '^C:\\PS>\s*', '' -replace '^PS C:\\>\s*', '' -replace '^>>\s*', ''
                 if ($cleanLine) {
                     $null = $cleanCode.Add($cleanLine)
                 }
@@ -252,7 +258,7 @@ function New-CommandMarkdown {
                     $null = $markdown.Add('```')
                     $null = $markdown.Add('')
                 }
-                $null = $markdown.Add("$($row.Replace("`n", "  `n"))<br>")
+                $null = $markdown.Add("$($row.Trim().Replace("`n", "  `n"))<br>")
             }
         }
 
@@ -330,7 +336,12 @@ function New-CommandMarkdown {
     }
 
     # Outputs
-    if ($command.Outputs) {
+    # Skip malformed output data like "@{type=}" or "returnValue" with no actual content
+    $hasValidOutput = $command.Outputs -and
+                      $command.Outputs.Trim() -and
+                      $command.Outputs -notmatch '^\s*returnValue\s*-+\s*@\{type=\}\s*$' -and
+                      $command.Outputs -notmatch '@\{type=\}'
+    if ($hasValidOutput) {
         $null = $markdown.Add('<span id="outputs" class="section-anchor"></span>')
         $null = $markdown.Add('<h2><a class="anchor-link" href="#outputs"></a><a href="#outputs" class="heading-link">Outputs</a></h2>')
         $null = $markdown.Add('')
