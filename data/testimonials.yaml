@@ -1,0 +1,79 @@
+# Testimonials rendered by layouts/partials/testimonials.html
+# Each entry: name, title, quote (required); image (optional).
+# image = filename in static/images/testimonials/. Leave blank to render an
+# initials avatar instead of a photo.
+
+- name: "Jeffrey Snover"
+  title: "PowerShell Inventor, Technical Fellow"
+  image: "jeffrey-snover.jpg"
+  quote: "If you use SQL, someone on the team should be a dbatools pro."
+
+- name: "Steve Jones"
+  title: "MVP & SQLServerCentral.com"
+  image: "steve-jones.png"
+  quote: "If you haven't played with dbatools, I'd recommend you do so; it makes working with SQL and PowerShell much easier."
+
+- name: "Argenis Fernandez"
+  title: "Microsoft, MCM, vExpert"
+  image: "argenis-fernandez.png"
+  quote: "I can't stress enough how good dbatools is. Stop doing it the hard way."
+
+- name: "Anthony Nocentino"
+  title: "MVP, Author, Speaker"
+  image: "anthony-nocentino.jpg"
+  quote: "It's impossible to quantify the impact this project has had on our community and the tech that we work with. Everyone I introduce to dbatools is blown away by how much this enables productivity and allows DBAs to scale with their systems."
+
+- name: "Joey D'Antoni"
+  title: "MVP, vExpert, DCAC"
+  image: "joey-dantoni.png"
+  quote: "dbatools is an amazing project. Tasks like server migrations that used to take me hours can now be completed in seconds, and with total confidence."
+
+- name: "Kevin Kline"
+  title: "Author & SQL Server Expert"
+  image: "kevin-kline.jpg"
+  quote: "SQL Server and Azure SQL people, if you haven't downloaded this PowerShell pack, you need to now!"
+
+- name: "Gianluca Sartori"
+  title: "Data Platform MVP, Formula 1 DBA"
+  image: "gianluca-sartori.jpg"
+  quote: "dbatools is the best thing that happened to SQL Server in the last 5 years."
+
+- name: "Frank Gill"
+  title: "SQL Server DBA & Blogger"
+  image: "frank-gill.jpg"
+  quote: "If you are trying to do ANYTHING in PowerShell related to SQL Server, check dbatools first."
+
+- name: "Hamish Watson"
+  title: "Data Platform MVP"
+  image: "hamish-watson.jpg"
+  quote: "dbatools is career changing — even for DBAs with 19+ year careers."
+
+- name: "Mike Martin"
+  title: "Technical Evangelist, Microsoft"
+  image: "mike-martin.png"
+  quote: "If there was a thing such as MVP for MVP'S then dbatools would probably win it."
+
+- name: "André Kamman"
+  title: "MVP & Dutch PASS Chapter Leader"
+  image: "andre-kamman.png"
+  quote: "dbatools are the most important PowerShell scripts for SQL Server DBAs."
+
+- name: "Mohammad Darab"
+  title: "Data & AI Consultant, Microsoft"
+  image: "mohammad-darab.jpg"
+  quote: "Holy smokes. First time using the Add-DbaAgDatabase command. Like... OH. MY. GOD. LOVE IT!"
+
+- name: "Michael J Swart"
+  title: "Data Platform MVP"
+  image: "michael-swart.png"
+  quote: "This dev just used dbatools to install and migrate 50 db machines at once with little effort or errors. It's truly the easy button."
+
+- name: "Ned Otter"
+  title: "Author & In-Memory OLTP Expert"
+  image: ""
+  quote: "Have an impending server migration, and I must say that dbatools is the best thing since sliced bread."
+
+- name: "Carlos Chacon"
+  title: "Host, SQL Data Partners Podcast"
+  image: "carlos-chacon.jpg"
+  quote: "I am not sure how I survived before I had the tools at dbatools.io. Thanks, dbatools!"
