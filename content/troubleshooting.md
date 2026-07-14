@@ -32,10 +32,10 @@ Test-NetConnection sql01 -Port 1433
 Test-DbaConnection -SqlInstance sql01
 ```
 
-If a dbatools command fails, capture the complete error before closing the session:
+If a dbatools command fails, use `Get-DbatoolsError` to capture the complete error before closing the session:
 
 ```powershell
-$Error[0] | Format-List * -Force
+Get-DbatoolsError
 ```
 
 When asking for help, include the PowerShell version, dbatools version and path, SQL Server version, operating system, exact command, and redacted error. Never post passwords, tokens, full connection strings, or sensitive server names.
