@@ -99,7 +99,16 @@
         <span class="dark:hidden">Dark Mode</span>
         <span class="hidden dark:inline">Light Mode</span>
       </button>
-      <a href="/getting-started" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">Getting Started</a>
+
+      <!-- Support Section -->
+      <div class="border-t border-theme-border dark:border-[#404040] pt-4">
+        <div class="text-xs font-semibold text-theme-text-secondary dark:text-[#b4b4b4] mb-2">SUPPORT</div>
+        <a href="/getting-started" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2 block">Getting Started</a>
+        <a href="/troubleshooting" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2 block">Technical FAQ</a>
+        <a href="/slack" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2 block">Slack Community</a>
+        <a href="https://github.com/dataplat/dbatools/issues" target="_blank" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2 block">GitHub Issues</a>
+      </div>
+
       <a href="/commands" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">Commands</a>
       <a href="/blog" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">Blog</a>
       <a href="/book" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">Book</a>
@@ -153,5 +162,32 @@
   const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
   if (mobileThemeToggle) {
     mobileThemeToggle.addEventListener('click', toggleTheme);
+  }
+
+  // Support dropdown functionality for desktop
+  const supportDropdown = document.querySelector('.support-dropdown');
+  const supportButton = supportDropdown?.querySelector('button');
+  const supportMenu = supportDropdown?.querySelector('.support-menu');
+
+  if (supportButton && supportMenu) {
+    // Toggle dropdown on click
+    supportButton.addEventListener('click', function(e) {
+      e.stopPropagation();
+      supportMenu.classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!supportDropdown.contains(e.target)) {
+        supportMenu.classList.add('hidden');
+      }
+    });
+
+    // Close dropdown when clicking a link inside
+    supportMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function() {
+        supportMenu.classList.add('hidden');
+      });
+    });
   }
 </script>
