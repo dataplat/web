@@ -396,6 +396,16 @@ Start with one non-production target and a narrow object selection. Read the com
 
 For repeated work, create reusable connections with `Connect-DbaInstance` and pass the returned objects to later commands. This keeps authentication and connection choices explicit and avoids reconnecting for every operation.
 
+### How do I check the SQL Server error log?
+
+If a dbatools command returns an error, use `Get-DbatoolsError` to capture the detailed error information:
+
+```powershell
+Get-DbatoolsError
+```
+
+This shows the same information as `$Error[0] | Select *` but formatted for easier reading.
+
 ## Still stuck?
 
 Before asking for help, reduce the problem to the smallest reproducible command in a clean session. Include:
