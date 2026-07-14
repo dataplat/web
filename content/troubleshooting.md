@@ -3,6 +3,7 @@ title: "Technical FAQ & Troubleshooting"
 date: 2026-07-14
 lastmod: 2026-07-14
 slug: "troubleshooting"
+aliases: ["/faq"]
 description: "Practical answers for common dbatools installation, connection, TLS, authentication, backup, restore, and PowerShell issues."
 draft: false
 ---
