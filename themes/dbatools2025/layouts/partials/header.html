@@ -9,8 +9,21 @@
 
     <!-- Desktop Navigation -->
     <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-      <a href="/getting-started" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors">Getting Started</a>
-      <a href="/troubleshooting/" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors">FAQ</a>
+      <!-- Support Dropdown -->
+      <div class="relative support-dropdown">
+        <button class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors flex items-center gap-1" aria-label="Support menu">
+          Support
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="support-menu hidden absolute top-full left-0 mt-2 bg-white dark:bg-[#2d2d2d] border border-theme-border dark:border-[#404040] rounded-lg shadow-lg min-w-[200px] py-2 z-50">
+          <a href="/getting-started" class="block px-4 py-2 text-theme-text-secondary dark:text-[#b4b4b4] hover:bg-gray-50 dark:hover:bg-[#3d3d3d] hover:text-theme-text dark:hover:text-[#ececec] transition-colors">Getting Started</a>
+          <a href="/troubleshooting" class="block px-4 py-2 text-theme-text-secondary dark:text-[#b4b4b4] hover:bg-gray-50 dark:hover:bg-[#3d3d3d] hover:text-theme-text dark:hover:text-[#ececec] transition-colors">Technical FAQ</a>
+          <a href="/slack" class="block px-4 py-2 text-theme-text-secondary dark:text-[#b4b4b4] hover:bg-gray-50 dark:hover:bg-[#3d3d3d] hover:text-theme-text dark:hover:text-[#ececec] transition-colors">Slack Community</a>
+          <a href="https://github.com/dataplat/dbatools/issues" target="_blank" class="block px-4 py-2 text-theme-text-secondary dark:text-[#b4b4b4] hover:bg-gray-50 dark:hover:bg-[#3d3d3d] hover:text-theme-text dark:hover:text-[#ececec] transition-colors">GitHub Issues</a>
+        </div>
+      </div>
       <a href="/commands" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors">Commands</a>
       <a href="/blog" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors">Blog</a>
       <a href="/book" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors">Book</a>
@@ -87,7 +100,6 @@
         <span class="hidden dark:inline">Light Mode</span>
       </button>
       <a href="/getting-started" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">Getting Started</a>
-      <a href="/troubleshooting/" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">FAQ</a>
       <a href="/commands" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">Commands</a>
       <a href="/blog" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">Blog</a>
       <a href="/book" class="text-theme-text-secondary dark:text-[#b4b4b4] hover:text-theme-text dark:hover:text-[#ececec] transition-colors py-2">Book</a>
