@@ -38,7 +38,7 @@
         searchable: false
       },
       {
-        targets: [6, 7, 8, 9], // SP?, CU?, Latest SP?, Latest CU?
+        targets: [7, 8, 9, 10], // SP?, CU?, Latest SP?, Latest CU?
         className: 'text-center',
         render: function(data, type, row, meta) {
           // For filtering, sorting, and exports, return plain text
@@ -53,7 +53,7 @@
         }
       },
       {
-        targets: [3, 4, 5], // SP, CU, Support columns
+        targets: [3, 4, 5, 6], // SP, CU, Release Date, Support columns
         render: function(data, type, row, meta) {
           return data == '.' ? '' : data;
         }
@@ -80,10 +80,10 @@
 
   // Reset attribute filters
   function resetAttributeFilters() {
-    table.columns(6).search('')
-      .columns(7).search('')
+    table.columns(7).search('')
       .columns(8).search('')
       .columns(9).search('')
+      .columns(10).search('')
       .draw();
   }
 
@@ -106,16 +106,16 @@
     // Apply specific filter
     switch(filterType) {
       case 'service-packs':
-        table.columns(6).search('X').draw();
-        break;
-      case 'cumulative-updates':
         table.columns(7).search('X').draw();
         break;
-      case 'latest-sp':
+      case 'cumulative-updates':
         table.columns(8).search('X').draw();
         break;
-      case 'latest-cu':
+      case 'latest-sp':
         table.columns(9).search('X').draw();
+        break;
+      case 'latest-cu':
+        table.columns(10).search('X').draw();
         break;
     }
   });
@@ -205,8 +205,8 @@
         // Mark previous row as latest CU if appropriate
         if (is_LatestCU !== '.') {
           if (results.length > prevrow && prevrow !== null) {
-            if (results[prevrow][7] !== '.') {
-              results[prevrow][9] = 'X';
+            if (results[prevrow][8] !== '.') {
+              results[prevrow][10] = 'X';
             }
           }
         }
@@ -226,32 +226,35 @@
           prevName,             // 2: Name
           prevSP,               // 3: SP
           prevCU,               // 4: CU
-          prevSupportedUntil,   // 5: Support Until
-          is_SP,                // 6: SP?
-          is_CU,                // 7: CU?
-          '.',                  // 8: Latest SP? (filled below)
-          '.',                  // 9: Latest CU? (filled below)
-          nKBList               // 10: KB List
+          typeof el.ReleaseDate === 'string' && el.ReleaseDate.length >= 10
+            ? el.ReleaseDate.substring(0, 10)
+            : '.',              // 5: Release Date
+          prevSupportedUntil,   // 6: Support Until
+          is_SP,                // 7: SP?
+          is_CU,                // 8: CU?
+          '.',                  // 9: Latest SP? (filled below)
+          '.',                  // 10: Latest CU? (filled below)
+          nKBList               // 11: KB List
         ]);
       });
 
       // Mark latest SP per version
       var datareverse = _.reverse(results.slice());
-      var spdata = _.filter(datareverse, function(o) { return o[6] === 'X'; });
+      var spdata = _.filter(datareverse, function(o) { return o[7] === 'X'; });
       var lastrel = '';
       _.forEach(spdata, function(el, i) {
         if (el[2] != lastrel && el[1].indexOf('Retired') === -1) {
-          results[el[0]][8] = 'X';
+          results[el[0]][9] = 'X';
           lastrel = el[2];
         }
       });
 
       // Mark latest CU per version/SP combination
-      var cudata = _.filter(datareverse, function(o) { return o[7] === 'X'; });
+      var cudata = _.filter(datareverse, function(o) { return o[8] === 'X'; });
       lastrel = '';
       _.forEach(cudata, function(el, i) {
         if (el[2] + el[3] != lastrel && el[1].indexOf('Retired') === -1) {
-          results[el[0]][9] = 'X';
+          results[el[0]][10] = 'X';
           lastrel = el[2] + el[3];
         }
       });
