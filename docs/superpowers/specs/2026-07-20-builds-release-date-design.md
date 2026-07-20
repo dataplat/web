@@ -16,11 +16,9 @@ each `Data` entry into a DataTables row, and enables filtering and exports.
 ## Design
 
 - Add a visible `Release Date` table header between `CU` and `End Of Support`.
-- Add a small `formatDateOnly` helper to `static/js/builds.js`.
-- Format a populated `ReleaseDate` by returning its first ten characters.
-- Return the page's existing empty-cell marker when `ReleaseDate` is missing
-  or invalid, allowing the existing DataTables renderer to display a blank
-  cell.
+- Format `ReleaseDate` inline while assembling each DataTables row, returning
+  its first ten characters when populated and the page's existing empty-cell
+  marker when missing or invalid.
 - Insert the formatted release date into each row and update every affected
   DataTables column index.
 - Keep the column searchable, sortable, and included in copy, Excel, and PDF
@@ -30,8 +28,8 @@ each `Data` entry into a DataTables row, and enables filtering and exports.
 
 ## Testing
 
-- Add a focused Node test for populated and missing release dates.
-- Assert that the table template and client-side row mapping remain aligned.
+- Add a focused Node test that asserts the table template and client-side row
+  mapping include the inline date-only conversion and remain aligned.
 - Run the focused tests and the full Hugo production build.
 - Inspect the generated `/builds/` page to confirm the new header and script
   reference are present.
