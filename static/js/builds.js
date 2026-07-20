@@ -226,7 +226,11 @@
           prevName,             // 2: Name
           prevSP,               // 3: SP
           prevCU,               // 4: CU
-          typeof el.ReleaseDate === 'string' && el.ReleaseDate.length >= 10
+          typeof el.ReleaseDate === 'string' &&
+            /^\d{4}-\d{2}-\d{2}(?:T|$)/.test(el.ReleaseDate) &&
+            !Number.isNaN(Date.parse(el.ReleaseDate.substring(0, 10))) &&
+            new Date(el.ReleaseDate.substring(0, 10)).toISOString().substring(0, 10) ===
+              el.ReleaseDate.substring(0, 10)
             ? el.ReleaseDate.substring(0, 10)
             : '.',              // 5: Release Date
           prevSupportedUntil,   // 6: Support Until

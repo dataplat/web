@@ -89,7 +89,7 @@ test('maps ReleaseDate to the date-only row column', () => {
     {
       ...base,
       Version: '16.0.1000.4',
-      ReleaseDate: 'invalid'
+      ReleaseDate: '2026-99-99T00:00:00Z'
     }
   ]);
 
