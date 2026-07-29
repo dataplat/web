@@ -1,0 +1,20 @@
+{{- $.Scratch.Add "articles" slice -}}
+{{- range where .Site.RegularPages "Type" "in" (slice "post" "page") -}}
+  {{- if not .Params.draft -}}
+    {{- $date := "" -}}
+    {{- if not .Date.IsZero -}}
+      {{- $date = .Date.Format "2006-01-02" -}}
+    {{- end -}}
+    {{- $.Scratch.Add "articles" (dict
+      "title" .Title
+      "url" .Permalink
+      "summary" (.Summary | plainify)
+      "content" .Plain
+      "date" $date
+      "type" .Type
+      "tags" (default (slice) .Params.tags)
+      "categories" (default (slice) .Params.categories)
+    ) -}}
+  {{- end -}}
+{{- end -}}
+{{- $.Scratch.Get "articles" | jsonify -}}

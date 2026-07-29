@@ -47,5 +47,11 @@ baseName = "search"
 isPlainText = true
 notAlternative = true
 
+[outputFormats.Articles]
+mediaType = "application/json"
+baseName = "articles"
+isPlainText = true
+notAlternative = true
+
 [outputs]
-home = ["HTML", "RSS", "REDIRECTS", "SearchIndex"]
+home = ["HTML", "RSS", "REDIRECTS", "SearchIndex", "Articles"]
