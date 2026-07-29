@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node tests/builds-release-date.test.js",
+    "test": "node --test \"tests/*.test.js\"",
     "dev": "hugo server -D --baseURL http://localhost:1313/",
     "build:css": "tailwindcss -i ./themes/dbatools2025/assets/css/tailwind.css -o ./static/css/tailwind.css --minify",
     "build:hugo": "hugo --minify",
