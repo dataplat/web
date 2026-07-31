@@ -53,5 +53,25 @@ baseName = "articles"
 isPlainText = true
 notAlternative = true
 
+# Markdown mirror of every page, served at /<page>/index.md and advertised from
+# the HTML with <link rel="alternate" type="text/markdown">. OpenAI's and
+# Anthropic's crawlers do not execute JavaScript and parse HTML for text; a
+# clean markdown copy removes the guesswork, and it is what people get when
+# they paste a URL into an assistant. See layouts/commands/single.md.
+[outputFormats.MD]
+mediaType = "text/markdown"
+isPlainText = true
+isHTML = false
+
+# llms.txt — an index of the site in markdown, per the llmstxt.org proposal.
+# No answer engine documents using this file, so it is a cheap hedge rather
+# than a strategy. See research/optimizing-docs-sites-for-llms-2026-07-31.md.
+[outputFormats.LLMS]
+mediaType = "text/plain"
+baseName = "llms"
+isPlainText = true
+notAlternative = true
+
 [outputs]
-home = ["HTML", "RSS", "REDIRECTS", "SearchIndex", "Articles"]
+home = ["HTML", "RSS", "REDIRECTS", "SearchIndex", "Articles", "LLMS"]
+page = ["HTML", "MD"]

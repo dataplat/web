@@ -1,0 +1,35 @@
+{{- /*
+    COMMAND CARD PARTIAL
+
+    Renders a single command card for the /commands listing page at build time.
+
+    The markup here MUST stay in sync with createCommandCard() in
+    static/js/commands-page.js. Hugo renders the full list so that crawlers
+    which do not execute JavaScript (GPTBot, ClaudeBot, OAI-SearchBot,
+    PerplexityBot) see all 700+ commands and their links; the JS then takes
+    over the same grid for search, filtering and sorting.
+
+    Expects a map with: name, description, category, url, popular, windowsOnly
+
+    The description is collapsed and truncated here: .command-description is
+    clamped to two lines by CSS, so shipping the full multi-paragraph text for
+    all 700+ cards would add roughly 800 KB to the page for no visible gain.
+    The full text stays on each command's own page.
+*/ -}}
+{{- $description := .description | replaceRE `\s+` " " | truncate 200 -}}
+<a
+        href="{{ .url }}"
+        class="command-card"
+        data-url="{{ .url }}"
+        title="View {{ .name }} documentation"
+      >
+        <div class="command-card-header">
+          <h3 class="command-name">{{ .name }}</h3>
+          <span class="command-popular">{{ if .popular }}⭐{{ end }}</span>
+        </div>
+        <p class="command-description">{{ $description }}</p>
+        <div class="command-card-footer">
+          <span class="command-category">Category: {{ .category }}</span>
+          {{ if .windowsOnly }}<span class="command-platform windows-only" title="Requires Windows">Windows only</span>{{ end }}
+        </div>
+      </a>

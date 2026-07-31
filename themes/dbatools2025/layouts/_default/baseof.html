@@ -7,6 +7,26 @@
 
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
 
+  <!-- Canonical URL. The site has aliases, _redirects and a legacy
+       docs.dbatools.io that still surfaces in Search Console, so duplicate-URL
+       disambiguation is not theoretical here. -->
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  <!-- Markdown mirror of this page, for assistants and agents that would
+       rather not parse HTML. Declared per the same convention Vercel's agent
+       readability guidance uses. -->
+  {{- /* Pages like /search/, /builds/ and /health/ are driven entirely by JS or
+         data files and have no body, so their markdown mirror is an empty stub.
+         Pointing an agent at a blank file is worse than not pointing at all. */ -}}
+  {{- if gt (len .RawContent) 400 }}
+  {{- with .OutputFormats.Get "MD" }}
+  <link rel="alternate" type="text/markdown" href="{{ .Permalink }}" title="Markdown version">
+  {{- end }}
+  {{- end }}
+  {{- if .IsHome }}
+  <link rel="alternate" type="text/plain" href="{{ absURL "/llms.txt" }}" title="llms.txt">
+  {{- end }}
+
   <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,6 +76,9 @@
   <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
   <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <meta name="twitter:image" content="{{ $socialImage | absURL }}">
+
+  <!-- Structured data (JSON-LD) -->
+  {{ partial "structured-data.html" . }}
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WZ9LF10DRD"></script>

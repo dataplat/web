@@ -1,0 +1,134 @@
+{{- /*
+    STRUCTURED DATA (JSON-LD)
+
+    Emitted from baseof.html for every page.
+
+    Why: Microsoft states that AI assistants break pages into "smaller,
+    structured pieces" and that schema markup helps those systems understand
+    what a page is. Google does not require structured data for its generative
+    AI features but still uses it for rich results. Neither costs anything here
+    because the commands pipeline already has the data in front matter.
+
+    Types used:
+      - APIReference (Thing > CreativeWork > Article > TechArticle > APIReference)
+        for the 700+ command pages. targetPlatform carries the Windows-only vs
+        cross-platform distinction that scripts/lib-platform-lists.ps1 derives.
+      - TechArticle for blog posts and guides.
+      - SoftwareApplication + WebSite for the home page.
+      - BreadcrumbList wherever the page renders breadcrumbs.
+
+    Deliberately NOT used: HowTo and FAQPage. Google removed HowTo rich results
+    entirely and restricted FAQ rich results to authoritative government and
+    health sites in August 2023.
+*/ -}}
+
+{{- $site := .Site -}}
+{{- $publisher := dict
+      "@type" "Organization"
+      "name" "dbatools"
+      "url" $site.BaseURL
+      "logo" (dict "@type" "ImageObject" "url" (absURL "/images/social/default.png"))
+      "sameAs" (slice "https://github.com/dataplat/dbatools")
+-}}
+
+{{- if .IsHome -}}
+  {{- $website := dict
+        "@context" "https://schema.org"
+        "@type" "WebSite"
+        "name" $site.Title
+        "url" $site.BaseURL
+        "description" $site.Params.description
+        "inLanguage" "en"
+        "publisher" $publisher
+  -}}
+  {{- $app := dict
+        "@context" "https://schema.org"
+        "@type" "SoftwareApplication"
+        "name" "dbatools"
+        "alternateName" "dbatools PowerShell module"
+        "url" $site.BaseURL
+        "description" $site.Params.description
+        "applicationCategory" "DeveloperApplication"
+        "applicationSubCategory" "Database administration"
+        "operatingSystem" "Windows, Linux, macOS"
+        "programmingLanguage" "PowerShell"
+        "codeRepository" "https://github.com/dataplat/dbatools"
+        "downloadUrl" "https://www.powershellgallery.com/packages/dbatools"
+        "license" "https://opensource.org/licenses/MIT"
+        "isAccessibleForFree" true
+        "offers" (dict "@type" "Offer" "price" "0" "priceCurrency" "USD")
+        "publisher" $publisher
+  -}}
+  <script type="application/ld+json">{{ $website | jsonify | safeJS }}</script>
+  <script type="application/ld+json">{{ $app | jsonify | safeJS }}</script>
+
+{{- else if and .IsPage (eq .Section "commands") -}}
+  {{- /* "Chrissy LeMaire (@cl), netnerds.net" -> "Chrissy LeMaire" */ -}}
+  {{- $authors := slice -}}
+  {{- range (split (or .Params.author "") "|") -}}
+    {{- $name := . | replaceRE `\s*\([^)]*\)` "" -}}
+    {{- $name = index (split $name ",") 0 -}}
+    {{- $name = trim $name " " -}}
+    {{- with $name -}}
+      {{- $authors = $authors | append (dict "@type" "Person" "name" .) -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* "Windows, Linux, macOS" -> ["Windows", "Linux", "macOS"] */ -}}
+  {{- $platforms := slice -}}
+  {{- range (split (or .Params.availability "Windows") ",") -}}
+    {{- $platforms = $platforms | append (trim . " ") -}}
+  {{- end -}}
+
+  {{- $ref := dict
+        "@context" "https://schema.org"
+        "@type" "APIReference"
+        "name" .Title
+        "headline" (printf "%s — dbatools command reference" .Title)
+        "description" (or .Params.synopsis $site.Params.description)
+        "url" .Permalink
+        "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+        "inLanguage" "en"
+        "datePublished" (.Date.Format "2006-01-02")
+        "dateModified" (.Lastmod.Format "2006-01-02")
+        "programmingLanguage" "PowerShell"
+        "targetPlatform" $platforms
+        "proficiencyLevel" "Expert"
+        "isPartOf" (dict
+            "@type" "SoftwareApplication"
+            "name" "dbatools"
+            "url" $site.BaseURL
+            "applicationCategory" "DeveloperApplication"
+            "operatingSystem" "Windows, Linux, macOS")
+        "publisher" $publisher
+  -}}
+  {{- with $authors -}}
+    {{- $ref = merge $ref (dict "author" .) -}}
+  {{- end -}}
+  {{- with .Params.tags -}}
+    {{- $ref = merge $ref (dict "keywords" (delimit . ", ")) -}}
+  {{- end -}}
+  {{- with .Params.sourceUrl -}}
+    {{- $ref = merge $ref (dict "codeRepository" . "sameAs" (slice .)) -}}
+  {{- end -}}
+  <script type="application/ld+json">{{ $ref | jsonify | safeJS }}</script>
+  {{ partial "breadcrumb-jsonld.html" (dict "page" . "section" "Commands" "sectionURL" (absURL "/commands/")) }}
+
+{{- else if .IsPage -}}
+  {{- $article := dict
+        "@context" "https://schema.org"
+        "@type" "TechArticle"
+        "headline" .Title
+        "description" (or .Description .Params.synopsis $site.Params.description)
+        "url" .Permalink
+        "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+        "inLanguage" "en"
+        "datePublished" (.Date.Format "2006-01-02")
+        "dateModified" (.Lastmod.Format "2006-01-02")
+        "publisher" $publisher
+  -}}
+  {{- with .Params.tags -}}
+    {{- $article = merge $article (dict "keywords" (delimit . ", ")) -}}
+  {{- end -}}
+  <script type="application/ld+json">{{ $article | jsonify | safeJS }}</script>
+{{- end -}}

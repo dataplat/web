@@ -1,0 +1,54 @@
+{{- /*
+    /llms.txt — https://llmstxt.org/
+
+    Format: H1, then a blockquote summary, then optional prose, then
+    H2-delimited lists of markdown links with optional ": notes".
+
+    Honest expectations: no answer engine that operates a crawler documents
+    using this file, and Ahrefs found 97% of published llms.txt files got zero
+    requests in May 2026. It is here as a cheap hedge. The markdown mirrors it
+    points at are the part that actually earns its keep — those are what a
+    person gets when they paste a dbatools.io URL into an assistant.
+
+    See research/optimizing-docs-sites-for-llms-2026-07-31.md.
+*/ -}}
+{{- $commands := slice -}}
+{{- with (os.ReadFile "static/commands.json") -}}
+  {{- $commands = . | transform.Unmarshal -}}
+{{- end -}}
+{{- $popular := sort (where $commands "popular" true) "popularityRank" -}}
+{{- $all := sort $commands "name" -}}
+{{- $posts := where (where .Site.RegularPages "Section" "!=" "commands") "Params.draft" "!=" true -}}
+# dbatools
+
+> A free and open source PowerShell module with {{ len $commands }} commands for SQL Server administration — migration, backup and restore, availability groups, agent jobs, security, and instance configuration. Runs on Windows, and on Linux and macOS for the commands that do not depend on Windows-only APIs.
+
+Every command below has a reference page with its synopsis, full description, syntax, worked examples and a parameter table. Append `index.md` to any command URL for a plain markdown copy — for example `{{ absURL "/Restore-DbaDatabase/" }}index.md`.
+
+Availability is derived from the module source rather than the published index, because the `Availability` field in dbatools-index.json reports every command as cross-platform. Commands marked Windows-only depend on the registry, WMI, SMO on .NET Framework, or other Windows-only APIs.
+
+## Start here
+
+- [Install dbatools]({{ absURL "/install/" }}index.md): installation from the PowerShell Gallery, offline install, and prerequisites
+- [Getting started]({{ absURL "/getting-started/" }}index.md): first commands to run and how connections work
+- [Command index]({{ absURL "/commands/" }}): searchable list of all {{ len $commands }} commands
+- [Troubleshooting]({{ absURL "/troubleshooting/" }}index.md): common connection and permission errors
+- [dbatools MCP server]({{ absURL "/mcp/" }}index.md): read-only MCP endpoint at https://mcp.dbatools.io serving this same documentation to AI assistants
+- [Source]({{ "https://github.com/dataplat/dbatools" }}): the module itself on GitHub
+
+## Most used commands
+{{ range first 50 $popular }}
+- [{{ .name }}]({{ absURL .url }}/index.md): {{ .synopsis | replaceRE `\s+` " " }}{{ if .windowsOnly }} (Windows only){{ end }}
+{{- end }}
+
+## Articles and guides
+{{ range $posts }}{{ if and .Title (gt (len .RawContent) 400) }}
+- [{{ .Title }}]({{ .Permalink }}index.md){{ with or .Description .Params.synopsis }}: {{ . | replaceRE `\s+` " " }}{{ end }}
+{{- end }}{{ end }}
+
+## Optional
+
+All {{ len $commands }} commands, alphabetically. Skip this section if context is tight — the reference pages linked above cover what most questions need.
+{{ range $all }}
+- [{{ .name }}]({{ absURL .url }}/index.md): {{ .synopsis | replaceRE `\s+` " " }}{{ if .windowsOnly }} (Windows only){{ end }}
+{{- end }}

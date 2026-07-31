@@ -238,48 +238,125 @@ function New-CommandMarkdown {
     $null = $markdown.Add('')
 
     if ($command.Examples) {
+        # Examples arrive as a flat block of text: a "---- EXAMPLE n ----" banner,
+        # then prompt lines, then prose explaining what the example did.
+        #
+        # They are collected into whole examples first, rather than streamed
+        # straight out, so each one can be emitted under a heading that carries
+        # its own explanation. Microsoft's guidance for AI search is that
+        # assistants retrieve passages rather than pages, and that headings
+        # "act like chapter titles that define clear content slices" — an
+        # example titled "Example 1" tells a retrieval system nothing, while
+        # "Example 1: Restores the last full backup to a new instance" is
+        # self-contained enough to be quoted on its own.
         $examples = $command.Examples.Replace("`r`n", "`n") -replace '(\r\n){2,8}', "`n"
         $examples = $examples.Replace("`r", '').Split("`n")
-        $inside = 0
-        $cleanCode = New-Object System.Collections.ArrayList
+
+        $parsedExamples = New-Object System.Collections.ArrayList
+        $current = $null
 
         foreach ($row in $examples) {
             if ($row -like '*----*') {
-                $null = $markdown.Add('')
-                $null = $markdown.Add('##### ' + ($row -replace '-{4,}([^-]*)-{4,}', '$1').Replace('EXAMPLE', 'Example: '))
-            } elseif (($row -like '*PS C:\>*') -or ($row -like '*C:\PS>*') -or ($row -like '>>*')) {
-                if ($inside -eq 0) {
-                    $cleanCode.Clear()
-                    $null = $markdown.Add('')
-                    $null = $markdown.Add('```powershell')
+                if ($null -ne $current) {
+                    $null = $parsedExamples.Add($current)
                 }
-                # Add formatted line with prompt (normalize C:\PS> to PS C:\>)
+                $label = ($row -replace '-{4,}([^-]*)-{4,}', '$1').Replace('EXAMPLE', '').Trim()
+                $current = @{
+                    Label = $label
+                    Code  = New-Object System.Collections.ArrayList
+                    Prose = New-Object System.Collections.ArrayList
+                }
+            } elseif (($row -like '*PS C:\>*') -or ($row -like '*C:\PS>*') -or ($row -like '>>*')) {
+                if ($null -eq $current) {
+                    $current = @{
+                        Label = ''
+                        Code  = New-Object System.Collections.ArrayList
+                        Prose = New-Object System.Collections.ArrayList
+                    }
+                }
+                # Normalize the prompt to a single form (C:\PS> -> PS C:\>)
                 $formattedRow = $row.Trim() -replace 'C:\\PS>\s*', 'PS C:\> '
                 $formattedRow = $formattedRow -replace 'PS C:\\>\s*', 'PS C:\> '
-                $null = $markdown.Add($formattedRow)
-
-                # Collect clean code without prompts
-                $cleanLine = $row.Trim() -replace '^C:\\PS>\s*', '' -replace '^PS C:\\>\s*', '' -replace '^>>\s*', ''
-                if ($cleanLine) {
-                    $null = $cleanCode.Add($cleanLine)
-                }
-                $inside = 1
+                $null = $current.Code.Add($formattedRow)
             } elseif ($row.Trim() -eq '' -or $row.Trim() -eq 'Description') {
                 # Skip empty lines and Description headers
             } else {
-                if ($inside -eq 1) {
-                    $inside = 0
-                    # Close code block (JavaScript will handle copy functionality)
-                    $null = $markdown.Add('```')
-                    $null = $markdown.Add('')
+                if ($null -ne $current) {
+                    $null = $current.Prose.Add($row.Trim())
                 }
-                $null = $markdown.Add("$($row.Trim().Replace("`n", "  `n"))<br>")
             }
         }
 
-        if ($inside -eq 1) {
-            # Close final code block (JavaScript will handle copy functionality)
-            $null = $markdown.Add('```')
+        if ($null -ne $current) {
+            $null = $parsedExamples.Add($current)
+        }
+
+        $exampleNumber = 0
+        foreach ($example in $parsedExamples) {
+            $exampleNumber += 1
+
+            if ($example.Label) {
+                $heading = "Example $($example.Label)"
+            } else {
+                $heading = "Example $exampleNumber"
+            }
+
+            # Promote the first sentence of the explanation into the heading so
+            # the heading says what the example actually does. The prose is
+            # joined first because upstream help text hard-wraps mid-sentence,
+            # so the first line is often a fragment ending in a comma.
+            $joinedProse = ($example.Prose -join ' ').Trim() -replace '\s+', ' '
+            $summaryLimit = 110
+            $summary = ''
+            if ($joinedProse) {
+                $sentenceEnd = $joinedProse.IndexOf('. ')
+                if ($sentenceEnd -gt 0 -and $sentenceEnd -le $summaryLimit) {
+                    $summary = $joinedProse.Substring(0, $sentenceEnd).TrimEnd(' ', ',', ';', ':', '.')
+                } elseif ($joinedProse.Length -le $summaryLimit) {
+                    $summary = $joinedProse.TrimEnd(' ', ',', ';', ':', '.')
+                } else {
+                    # Cut at the last word boundary inside the limit. The
+                    # ellipsis is appended after trimming punctuation, or the
+                    # trim would eat it again.
+                    $cut = $joinedProse.Substring(0, $summaryLimit)
+                    $lastSpace = $cut.LastIndexOf(' ')
+                    if ($lastSpace -gt 40) { $cut = $cut.Substring(0, $lastSpace) }
+                    $summary = $cut.TrimEnd(' ', ',', ';', ':', '-', '.') + '...'
+                }
+            }
+            if ($summary) {
+                $heading = "$heading`: $summary"
+            }
+
+            $anchor = "example-$exampleNumber"
+            $null = $markdown.Add('')
+            $null = $markdown.Add("<span id=""$anchor"" class=""section-anchor""></span>")
+            # h3 rather than the h5 these used to be: an example is a sibling of
+            # "Required Parameters", not of a single parameter name. The
+            # example-heading class keeps the lighter visual weight the h5 had.
+            $null = $markdown.Add("<h3 class=""example-heading""><a class=""anchor-link"" href=""#$anchor""></a><a href=""#$anchor"" class=""heading-link"">$([System.Net.WebUtility]::HtmlEncode($heading))</a></h3>")
+            $null = $markdown.Add('')
+
+            if ($example.Code.Count -gt 0) {
+                $null = $markdown.Add('```powershell')
+                foreach ($line in $example.Code) {
+                    $null = $markdown.Add($line)
+                }
+                $null = $markdown.Add('```')
+                $null = $markdown.Add('')
+            }
+
+            # When the whole explanation already fits in the heading, repeating
+            # it verbatim underneath just pads the page.
+            if ($joinedProse -and $joinedProse.TrimEnd(' ', '.') -ne $summary) {
+                # Two trailing spaces is a markdown hard break, so this renders
+                # the same as the <br> it replaces but survives into the .md
+                # mirror as valid markdown.
+                foreach ($line in $example.Prose) {
+                    $null = $markdown.Add("$line  ")
+                }
+                $null = $markdown.Add('')
+            }
         }
     }
 

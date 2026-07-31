@@ -11,6 +11,9 @@ class AdvancedSearch {
     this.resultsCount = document.getElementById('advanced-results-count');
     this.initialState = document.getElementById('search-initial-state');
     this.debounceTimer = null;
+    this.reportTimer = null;
+    this.lastReported = '';
+    this.lastQuery = '';
     this.isLoading = false;
 
     this.init();
@@ -59,10 +62,21 @@ class AdvancedSearch {
           this.handleSearch(e.target.value);
           this.updateUrl(e.target.value);
         }, 150);
+        this.reportSearch(e.target.value);
       });
 
       // Focus input on page load
       this.searchInput.focus();
+    }
+
+    // Result clicks. displayResults() replaces the container's innerHTML on
+    // every keystroke, so listeners bound to the cards themselves would be
+    // thrown away with the markup that carried them. One listener on the
+    // container survives, and closest() recovers the card that was clicked.
+    if (this.searchResults) {
+      this.searchResults.addEventListener('click', (e) => this.handleResultClick(e));
+      // Middle-click opens a link in a new tab but fires auxclick, not click.
+      this.searchResults.addEventListener('auxclick', (e) => this.handleResultClick(e));
     }
 
     // Handle browser back/forward
@@ -78,6 +92,10 @@ class AdvancedSearch {
     if (query && this.searchInput) {
       this.searchInput.value = query;
       this.handleSearch(query);
+      // A search nobody typed here - a shared or bookmarked ?q= link, or the
+      // back button. It counts the same as one typed into the box, and
+      // nothing else reports it.
+      this.reportSearch(query);
     }
   }
 
@@ -89,6 +107,67 @@ class AdvancedSearch {
       url.searchParams.delete('q');
     }
     window.history.replaceState({}, '', url);
+  }
+
+  /**
+   * Report a search to GA4 once typing stops. Same reasoning as site-search.js:
+   * the 150ms debounce renders results, this one waits for a real pause so the
+   * search_term report holds questions rather than keystrokes.
+   */
+  reportSearch(query) {
+    clearTimeout(this.reportTimer);
+    const term = (query || '').trim().toLowerCase();
+    if (term.length < 3) return;
+
+    this.reportTimer = setTimeout(() => {
+      if (typeof gtag !== 'function') return;
+      if (term === this.lastReported) return;
+      if (this.lastReported.startsWith(term)) return;
+      this.lastReported = term;
+      gtag('event', 'search', { search_term: term });
+    }, 1200);
+  }
+
+  /**
+   * Turn a click anywhere inside the results list into a click on a result.
+   *
+   * The target is usually a heading or a badge rather than the anchor, so
+   * closest() walks up to the card that owns it. Anything else in the
+   * container - the initial state, the empty state - matches nothing.
+   */
+  handleResultClick(event) {
+    // auxclick covers every non-primary button; only the middle one opens the
+    // link. The right button raises a context menu and is not a click-through.
+    if (event.type === 'auxclick' && event.button !== 1) return;
+
+    const target = event.target;
+    if (!target || typeof target.closest !== 'function') return;
+
+    const link = target.closest('.search-result-card');
+    if (!link) return;
+
+    this.reportResultClick(link);
+  }
+
+  /**
+   * Report which result a search sent somebody to. Same reasoning as
+   * site-search.js: navigation is never intercepted, so a slow or blocked tag
+   * cannot hold the link up, and nothing is lost by letting it go - gtag.js
+   * transports hits with navigator.sendBeacon, which survives the unload, and
+   * flushes what is queued on pagehide. Middle-click and Cmd/Ctrl+click open a
+   * new tab without unloading this page at all.
+   */
+  reportResultClick(link) {
+    if (typeof gtag !== 'function') return;
+
+    const term = (this.lastQuery || '').trim().toLowerCase();
+    if (!term) return;
+
+    gtag('event', 'search_result_click', {
+      search_term: term,
+      link_url: link.getAttribute('href') || '',
+      result_position: Number(link.getAttribute('data-search-position')) || 0
+    });
   }
 
   handleSearch(query) {
@@ -129,6 +208,10 @@ class AdvancedSearch {
   }
 
   displayResults(results, query) {
+    // The query these results answer, kept for reportResultClick - by the time
+    // somebody clicks, the input may hold something else entirely.
+    this.lastQuery = query;
+
     // Hide initial state
     if (this.initialState) {
       this.initialState.style.display = 'none';
@@ -151,7 +234,7 @@ class AdvancedSearch {
     const totalResults = results.length;
     this.resultsCount.textContent = `${totalResults} result${totalResults !== 1 ? 's' : ''}`;
 
-    const resultsHtml = results.map((result) => {
+    const resultsHtml = results.map((result, index) => {
       const item = result.item;
 
       // Get content preview with highlighted matches
@@ -173,7 +256,7 @@ class AdvancedSearch {
       const typeColor = typeColors[item.type] || 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300';
 
       return `
-        <a href="${item.permalink}" class="search-result-card block p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:border-primary dark:hover:border-blue-500 hover:shadow-lg transition-all duration-200">
+        <a href="${item.permalink}" data-search-position="${index + 1}" class="search-result-card block p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:border-primary dark:hover:border-blue-500 hover:shadow-lg transition-all duration-200">
           <div class="flex items-start justify-between gap-4">
             <div class="flex-1 min-w-0">
               <div class="flex items-center gap-2 mb-2">

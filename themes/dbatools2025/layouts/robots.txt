@@ -1,0 +1,65 @@
+{{- /*
+    ROBOTS.TXT TEMPLATE
+
+    Rendered because config.toml sets enableRobotsTXT = true.
+
+    dbatools is an open source project. The point of this site is that people —
+    and the assistants they ask — get correct answers about dbatools commands.
+    So every AI crawler is allowed deliberately, not by default. A model that
+    cannot read this site will still be asked about dbatools; it will just
+    invent the answer.
+
+    Per RFC 9309, a crawler uses only the most specific user-agent group that
+    matches it and ignores the "*" group, so each bot named below needs its own
+    Allow line.
+
+    Sitemap is an extension to RFC 9309 rather than part of the standard, but it
+    is honoured universally and is the cheapest discovery signal available.
+*/ -}}
+User-agent: *
+Allow: /
+
+# OpenAI — https://developers.openai.com/api/docs/bots
+# OAI-SearchBot is the one that decides whether dbatools.io can be shown in
+# ChatGPT search answers. GPTBot is model training. ChatGPT-User is a person
+# asking ChatGPT to open a page.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+# Anthropic — https://support.claude.com/en/articles/8896518
+# Claude-SearchBot affects visibility and accuracy in Claude's search results.
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Google AI products outside Search. Search itself follows the "*" group.
+# https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence training
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Common Crawl, a frequent input to open model training sets
+User-agent: CCBot
+Allow: /
+
+Sitemap: {{ "sitemap.xml" | absURL }}

@@ -14,6 +14,9 @@ class SiteSearch {
     this.searchOverlay = document.getElementById('search-overlay');
     this.resultsCount = document.getElementById('results-count');
     this.debounceTimer = null;
+    this.reportTimer = null;
+    this.lastReported = '';
+    this.lastQuery = '';
     this.isLoading = false;
 
     this.setupEventListeners();
@@ -69,7 +72,18 @@ class SiteSearch {
       this.searchInput.addEventListener('input', (e) => {
         clearTimeout(this.debounceTimer);
         this.debounceTimer = setTimeout(() => this.handleSearch(e.target.value), 150);
+        this.reportSearch(e.target.value);
       });
+    }
+
+    // Result clicks. displayResults() replaces the container's innerHTML on
+    // every keystroke, so listeners bound to the anchors themselves would be
+    // thrown away with the markup that carried them. One listener on the
+    // container survives, and closest() recovers the result that was clicked.
+    if (this.searchResults) {
+      this.searchResults.addEventListener('click', (e) => this.handleResultClick(e));
+      // Middle-click opens a link in a new tab but fires auxclick, not click.
+      this.searchResults.addEventListener('auxclick', (e) => this.handleResultClick(e));
     }
 
     // Keyboard shortcuts
@@ -126,6 +140,78 @@ class SiteSearch {
     }
   }
 
+  /**
+   * Report a search to GA4 once typing stops.
+   *
+   * The 150ms debounce above is for rendering; reporting on that cadence would
+   * send "b", "ba", "bac" as three searches. This waits for a real pause, skips
+   * a repeat, and skips backspacing over a term already sent, so what lands in
+   * the search_term report is roughly what somebody meant to ask.
+   *
+   * gtag is absent whenever the tag is blocked, so it is checked rather than
+   * assumed - a missing analytics script must never break search.
+   */
+  reportSearch(query) {
+    clearTimeout(this.reportTimer);
+    const term = (query || '').trim().toLowerCase();
+    if (term.length < 3) return;
+
+    this.reportTimer = setTimeout(() => {
+      if (typeof gtag !== 'function') return;
+      if (term === this.lastReported) return;
+      if (this.lastReported.startsWith(term)) return;
+      this.lastReported = term;
+      gtag('event', 'search', { search_term: term });
+    }, 1200);
+  }
+
+  /**
+   * Turn a click anywhere inside the results list into a click on a result.
+   *
+   * The target is usually a heading or a badge rather than the anchor, so
+   * closest() walks up to the result that owns it. Anything else in the
+   * container - padding, the empty state - matches nothing and is ignored.
+   */
+  handleResultClick(event) {
+    // auxclick covers every non-primary button; only the middle one opens the
+    // link. The right button raises a context menu and is not a click-through.
+    if (event.type === 'auxclick' && event.button !== 1) return;
+
+    const target = event.target;
+    if (!target || typeof target.closest !== 'function') return;
+
+    const link = target.closest('.search-result-item');
+    if (!link) return;
+
+    this.reportResultClick(link);
+  }
+
+  /**
+   * Report which result a search sent somebody to, so search_term reporting
+   * shows more than what people asked - it shows whether they found it.
+   *
+   * Navigation is never intercepted, so a slow or blocked tag cannot hold the
+   * link up. Nothing is lost by letting it go: gtag.js transports hits with
+   * navigator.sendBeacon, which the browser keeps in flight across the unload,
+   * and it flushes anything queued on pagehide. Middle-click and Cmd/Ctrl+click
+   * open a new tab without unloading this one at all.
+   *
+   * gtag is checked rather than assumed, same as reportSearch - a missing
+   * analytics script must never take the link with it.
+   */
+  reportResultClick(link) {
+    if (typeof gtag !== 'function') return;
+
+    const term = (this.lastQuery || '').trim().toLowerCase();
+    if (!term) return;
+
+    gtag('event', 'search_result_click', {
+      search_term: term,
+      link_url: link.getAttribute('href') || '',
+      result_position: Number(link.getAttribute('data-search-position')) || 0
+    });
+  }
+
   handleSearch(query) {
     if (!this.fuse || !query || query.trim().length < 2) {
       this.searchResults.innerHTML = '';
@@ -139,6 +225,10 @@ class SiteSearch {
   }
 
   displayResults(results, query) {
+    // The query these results answer, kept for reportResultClick - by the time
+    // somebody clicks, the input may hold something else entirely.
+    this.lastQuery = query;
+
     if (results.length === 0) {
       this.resultsCount.textContent = 'No results found';
       this.searchResults.innerHTML = `
@@ -180,7 +270,7 @@ class SiteSearch {
       const typeColor = typeColors[item.type] || 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300';
 
       return `
-        <a href="${item.permalink}" class="search-result-item block p-4 border-b border-gray-200 dark:border-gray-700 transition-colors">
+        <a href="${item.permalink}" data-search-position="${index + 1}" class="search-result-item block p-4 border-b border-gray-200 dark:border-gray-700 transition-colors">
           <div class="flex items-start justify-between gap-3">
             <div class="flex-1 min-w-0">
               <div class="flex items-center gap-2 mb-1">

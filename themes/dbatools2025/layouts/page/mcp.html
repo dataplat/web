@@ -1,0 +1,27 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "css/mcp.css" | relURL }}">
+
+<div class="bg-white dark:bg-[#1a1a1a] pt-24">
+  <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
+
+    <nav class="mb-8 text-sm text-theme-text-secondary dark:text-[#b4b4b4]">
+      <a href="/" class="hover:text-primary transition-colors">Home</a>
+      <span class="mx-2">/</span>
+      <span class="text-theme-text dark:text-[#ececec]">{{ .Title }}</span>
+    </nav>
+
+    <article class="prose prose-lg prose-headings:font-bold prose-headings:text-theme-text prose-headings:dark:text-[#ececec] prose-p:text-theme-text-secondary prose-p:dark:text-[#b4b4b4] prose-a:text-primary prose-a:dark:text-[#58a6ff] prose-code:text-theme-text prose-code:dark:text-[#ececec] prose-pre:bg-slate-50 prose-pre:dark:bg-[#2d2d2d] prose-pre:border prose-pre:border-theme-border prose-pre:dark:border-[#404040] prose-strong:text-theme-text prose-strong:dark:text-[#ececec] prose-ul:text-theme-text-secondary prose-ul:dark:text-[#b4b4b4] prose-ol:text-theme-text-secondary prose-ol:dark:text-[#b4b4b4] prose-li:text-theme-text-secondary prose-li:dark:text-[#b4b4b4] prose-blockquote:text-theme-text-secondary prose-blockquote:dark:text-[#b4b4b4] prose-blockquote:border-theme-border prose-blockquote:dark:border-[#404040] max-w-none">
+
+      <h1 class="text-5xl font-bold mb-4 text-theme-text dark:text-[#ececec]">{{ .Title }}</h1>
+
+      {{ .Content }}
+
+    </article>
+
+  </div>
+</div>
+
+<script src="{{ "js/mcp.js" | relURL }}" defer></script>
+
+{{ end }}

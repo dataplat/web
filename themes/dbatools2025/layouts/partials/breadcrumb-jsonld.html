@@ -1,0 +1,21 @@
+{{- /*
+    BREADCRUMB JSON-LD
+
+    Mirrors the visible breadcrumb trail in layouts/commands/single.html.
+    Google's Breadcrumb rich result requires the markup to match what the user
+    actually sees on the page, so change both together.
+
+    Expects a dict: page, section (label), sectionURL
+*/ -}}
+{{- $page := .page -}}
+{{- $crumbs := slice
+      (dict "@type" "ListItem" "position" 1 "name" "Home" "item" $page.Site.BaseURL)
+      (dict "@type" "ListItem" "position" 2 "name" .section "item" .sectionURL)
+      (dict "@type" "ListItem" "position" 3 "name" $page.Title "item" $page.Permalink)
+-}}
+{{- $breadcrumbs := dict
+      "@context" "https://schema.org"
+      "@type" "BreadcrumbList"
+      "itemListElement" $crumbs
+-}}
+<script type="application/ld+json">{{ $breadcrumbs | jsonify | safeJS }}</script>

@@ -618,6 +618,19 @@ article h5 {
   margin-bottom: 0.5rem;
 }
 
+/* Example headings are h3 so that "Example 3: Restores from an Ola Hallengren
+   folder structure" is a real section an assistant can retrieve on its own,
+   rather than an h5 that looked identical to a parameter name. The styling
+   stays close to what they looked like before. */
+article h3.example-heading {
+  color: #0969da;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.45;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
 /* Links */
 article a {
   color: #0969da;
@@ -742,7 +755,8 @@ article pre::-webkit-scrollbar-thumb:hover {
   border-color: #30363d;
 }
 
-.dark article h5 {
+.dark article h5,
+.dark article h3.example-heading {
   color: #60A5FA;
 }
 

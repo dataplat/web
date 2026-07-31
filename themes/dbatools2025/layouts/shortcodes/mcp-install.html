@@ -1,0 +1,107 @@
+{{/*
+  Install instructions for the dbatools MCP server, one tab per client.
+
+  Every client wants the same two facts - a name and https://mcp.dbatools.io - in a
+  different shape, so the config lives here as data rather than as six hand-written
+  blocks of markup. Tab switching and the copy button are in /js/mcp.js.
+*/}}
+
+{{ $endpoint := "https://mcp.dbatools.io" }}
+
+{{ $clients := slice
+  (dict
+    "id" "claude-code"
+    "name" "Claude Code"
+    "lang" "bash"
+    "intro" "Run this anywhere, then restart your session:"
+    "code" "claude mcp add --transport http dbatools https://mcp.dbatools.io"
+    "note" "Add <code>--scope user</code> to make it available in every project rather than just this one. Check it registered with <code>/mcp</code>."
+  )
+  (dict
+    "id" "claude-desktop"
+    "name" "Claude Desktop"
+    "lang" ""
+    "intro" "Claude Desktop and claude.ai both take a remote server directly, no config file needed:"
+    "steps" (slice
+      "Open <strong>Settings &rarr; Connectors</strong>."
+      "Choose <strong>Add custom connector</strong>."
+      "Name it <strong>dbatools</strong> and paste <code>https://mcp.dbatools.io</code> as the URL."
+    )
+    "code" ""
+    "note" "Leave the OAuth fields empty. This server does not authenticate anyone."
+  )
+  (dict
+    "id" "vscode"
+    "name" "VS Code"
+    "lang" "json"
+    "intro" "Put this in <code>.vscode/mcp.json</code> for one workspace, or in your user <code>mcp.json</code> for all of them:"
+    "code" "{\n  \"servers\": {\n    \"dbatools\": {\n      \"type\": \"http\",\n      \"url\": \"https://mcp.dbatools.io\"\n    }\n  }\n}"
+    "note" "Copilot Chat picks it up on save. Open the tools picker in Agent mode to confirm the three <code>dbatools_</code> tools are listed."
+  )
+  (dict
+    "id" "cursor"
+    "name" "Cursor"
+    "lang" "json"
+    "intro" "Add it to <code>~/.cursor/mcp.json</code>, or <code>.cursor/mcp.json</code> inside a single project:"
+    "code" "{\n  \"mcpServers\": {\n    \"dbatools\": {\n      \"url\": \"https://mcp.dbatools.io\"\n    }\n  }\n}"
+    "note" "Windsurf uses the same shape, in <code>~/.codeium/windsurf/mcp_config.json</code>."
+  )
+  (dict
+    "id" "codex"
+    "name" "Codex"
+    "lang" "toml"
+    "intro" "Codex keeps its servers in <code>~/.codex/config.toml</code>:"
+    "code" "[mcp_servers.dbatools]\nurl = \"https://mcp.dbatools.io\""
+    "note" "Edit the file by hand. <code>codex mcp add</code> only understands servers it can launch as a local process, so there is no command-line form for a remote one."
+  )
+  (dict
+    "id" "other"
+    "name" "Anything else"
+    "lang" "bash"
+    "intro" "It is an ordinary streamable HTTP MCP server, so any compliant client will talk to it. To check it from a terminal:"
+    "code" "curl https://mcp.dbatools.io \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Accept: application/json, text/event-stream\" \\\n  -d '{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"tools/call\",\n    \"params\": {\n      \"name\": \"dbatools_docs_search\",\n      \"arguments\": { \"query\": \"restore to a point in time\" }\n    }\n  }'"
+    "note" "There is no session to establish and no header to send. Requests are rate limited per IP, generously enough that you will only notice in a loop."
+  )
+}}
+
+<div class="mcp-install" data-mcp-install>
+  <div class="mcp-tablist" role="tablist" aria-label="Choose your client">
+    {{ range $i, $c := $clients }}
+    <button type="button"
+            role="tab"
+            class="mcp-tab{{ if eq $i 0 }} is-active{{ end }}"
+            id="mcp-tab-{{ $c.id }}"
+            data-mcp-tab="{{ $c.id }}"
+            aria-controls="mcp-panel-{{ $c.id }}"
+            aria-selected="{{ if eq $i 0 }}true{{ else }}false{{ end }}"
+            tabindex="{{ if eq $i 0 }}0{{ else }}-1{{ end }}">{{ $c.name }}</button>
+    {{ end }}
+  </div>
+
+  {{ range $i, $c := $clients }}
+  <div role="tabpanel"
+       class="mcp-panel{{ if eq $i 0 }} is-active{{ end }}"
+       id="mcp-panel-{{ $c.id }}"
+       data-mcp-panel="{{ $c.id }}"
+       aria-labelledby="mcp-tab-{{ $c.id }}"
+       {{ if ne $i 0 }}hidden{{ end }}>
+
+    {{ with $c.intro }}<p class="mcp-intro">{{ . | safeHTML }}</p>{{ end }}
+
+    {{ with $c.steps }}
+    <ol class="mcp-steps">
+      {{ range . }}<li>{{ . | safeHTML }}</li>{{ end }}
+    </ol>
+    {{ end }}
+
+    {{ with $c.code }}
+    <div class="mcp-code">
+      <button type="button" class="mcp-copy" data-mcp-copy aria-label="Copy to clipboard">Copy</button>
+      <pre><code class="language-{{ $c.lang }}">{{ . }}</code></pre>
+    </div>
+    {{ end }}
+
+    {{ with $c.note }}<p class="mcp-note">{{ . | safeHTML }}</p>{{ end }}
+  </div>
+  {{ end }}
+</div>

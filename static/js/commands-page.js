@@ -26,7 +26,14 @@ class CommandsBrowser {
   }
 
   async init() {
-    await this.loadCommands();
+    const loaded = await this.loadCommands();
+
+    // The card grid and the sidebar filters are rendered at build time by
+    // layouts/page/commands.html. If commands.json cannot be fetched, leave
+    // that markup alone — a complete list of every command without live search
+    // beats an empty grid with an error in it.
+    if (!loaded) return;
+
     this.extractMetadata();
     this.setupFuse();
     this.renderFilters();
@@ -40,9 +47,10 @@ class CommandsBrowser {
       const response = await fetch('/commands.json');
       this.allCommands = await response.json();
       console.log(`Loaded ${this.allCommands.length} commands`);
+      return this.allCommands.length > 0;
     } catch (error) {
-      console.error('Error loading commands:', error);
-      this.showError('Failed to load commands. Please refresh the page.');
+      console.error('Error loading commands, keeping the statically rendered list:', error);
+      return false;
     }
   }
 
@@ -112,6 +120,9 @@ class CommandsBrowser {
     const actionsList = document.getElementById('actions-list');
     const sortedActions = Array.from(this.actions).sort();
 
+    // Clear the build-time rendered list first
+    actionsList.innerHTML = '';
+
     // Add "All Actions" first
     const allActionsDiv = document.createElement('div');
     allActionsDiv.className = 'action-item active';
@@ -140,6 +151,9 @@ class CommandsBrowser {
     // Render platforms
     const platformsList = document.getElementById('platforms-list');
     if (platformsList) {
+      // Clear the build-time rendered list first
+      platformsList.innerHTML = '';
+
       const platforms = [
         { key: 'all', label: 'Any Platform', count: this.allCommands.length },
         { key: 'crossplatform', label: 'Runs anywhere', count: this.allCommands.filter(cmd => !cmd.windowsOnly).length },
@@ -662,15 +676,6 @@ class CommandsBrowser {
     return text.replace(/\s+/g, '-').replace(/[&]/g, 'and');
   }
 
-  showError(message) {
-    const grid = document.getElementById('commands-grid');
-    grid.innerHTML = `
-      <div class="no-results" style="grid-column: 1 / -1;">
-        <p class="no-results-text">Error</p>
-        <p class="no-results-hint">${message}</p>
-      </div>
-    `;
-  }
 }
 
 // Initialize when DOM is ready

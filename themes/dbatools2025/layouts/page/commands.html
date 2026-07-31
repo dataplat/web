@@ -7,7 +7,34 @@
     - commands-page.css: ALL styles for this page
     JS Files Used:
     - commands-page.js: Filter logic, search, sorting
+
+    The card grid and the sidebar filters are rendered at BUILD TIME from
+    static/commands.json so the page is complete without JavaScript. AI
+    crawlers from OpenAI, Anthropic and Perplexity fetch JS files but do not
+    execute them, so a client-rendered list is invisible to them. commands-page.js
+    replaces this markup on load with the identical structure, then handles
+    search, filtering and sorting.
+
+    Keep partials/command-card.html in sync with createCommandCard() in
+    static/js/commands-page.js.
 -->
+
+{{- $commands := slice -}}
+{{- with (os.ReadFile "static/commands.json") -}}
+  {{- $commands = . | transform.Unmarshal -}}
+{{- end -}}
+{{- $sortedCommands := sort $commands "name" -}}
+{{- $total := len $commands -}}
+
+{{- $categoryNames := slice -}}
+{{- $verbNames := slice -}}
+{{- range $commands -}}
+  {{- $categoryNames = $categoryNames | append .category -}}
+  {{- $verbNames = $verbNames | append .verb -}}
+{{- end -}}
+{{- $categories := $categoryNames | uniq | sort -}}
+{{- $verbs := $verbNames | uniq | sort -}}
+{{- $windowsOnlyCount := len (where $commands "windowsOnly" true) -}}
 
 <!-- Commands Page CSS -->
 <link rel="stylesheet" href="/css/commands-page.css">
@@ -23,10 +50,10 @@
         <div class="commands-header-content">
             <div class="version-badge" id="version-badge">
                 <span class="version-dot"></span>
-                <span id="version-text">Loading...</span>
+                <span id="version-text">Latest Release</span>
             </div>
             <h1 class="commands-title">dbatools Commands</h1>
-            <p class="commands-subtitle">Browse and search <span id="command-count-text">over 700</span> PowerShell commands for SQL Server</p>
+            <p class="commands-subtitle">Browse and search <span id="command-count-text">{{ $total }}</span> PowerShell commands for SQL Server</p>
             <div class="search-container">
                 <input
                     type="text"
@@ -54,17 +81,52 @@
 
             <div class="filter-section">
                 <span class="filter-section-title">Categories</span>
-                <div class="filter-list" id="categories-list"></div>
+                <div class="filter-list" id="categories-list">
+                    <div class="category-item active" data-category="all">
+                        <span>All Commands</span>
+                        <span class="filter-count">{{ $total }}</span>
+                    </div>
+                    {{- range $categories }}
+                    <div class="category-item" data-category="{{ . }}">
+                        <span>{{ . }}</span>
+                        <span class="filter-count">{{ len (where $commands "category" .) }}</span>
+                    </div>
+                    {{- end }}
+                </div>
             </div>
 
             <div class="filter-section">
                 <span class="filter-section-title">Platform</span>
-                <div class="filter-list" id="platforms-list"></div>
+                <div class="filter-list" id="platforms-list">
+                    <div class="platform-item active" data-platform="all">
+                        <span>Any Platform</span>
+                        <span class="filter-count">{{ $total }}</span>
+                    </div>
+                    <div class="platform-item" data-platform="crossplatform">
+                        <span>Runs anywhere</span>
+                        <span class="filter-count">{{ sub $total $windowsOnlyCount }}</span>
+                    </div>
+                    <div class="platform-item" data-platform="windows">
+                        <span>Windows only</span>
+                        <span class="filter-count">{{ $windowsOnlyCount }}</span>
+                    </div>
+                </div>
             </div>
 
             <div class="filter-section">
                 <span class="filter-section-title">Actions</span>
-                <div class="filter-list" id="actions-list"></div>
+                <div class="filter-list" id="actions-list">
+                    <div class="action-item active" data-action="all">
+                        <span>All Actions</span>
+                        <span class="filter-count">{{ $total }}</span>
+                    </div>
+                    {{- range $verbs }}
+                    <div class="action-item" data-action="{{ . }}">
+                        <span>{{ . }}</span>
+                        <span class="filter-count">{{ len (where $commands "verb" .) }}</span>
+                    </div>
+                    {{- end }}
+                </div>
             </div>
 
             <button class="reset-button" id="reset-filters">Reset All Filters</button>
@@ -72,7 +134,7 @@
 
         <main class="commands-main">
             <div class="commands-header-bar">
-                <p class="commands-count"><span id="results-count">0</span> commands</p>
+                <p class="commands-count"><span id="results-count">{{ $total }}</span> commands</p>
                 <div class="commands-controls">
                     <div class="view-toggle">
                         <button class="view-toggle-btn active" id="grid-view-btn" title="Grid view" aria-label="Grid view">
@@ -102,7 +164,11 @@
                 </div>
             </div>
 
-            <div class="commands-grid" id="commands-grid"></div>
+            <div class="commands-grid" id="commands-grid">
+              {{- range $sortedCommands }}
+              {{ partial "command-card.html" . }}
+              {{- end }}
+            </div>
 
             <div class="show-more-container hidden" id="show-more-container">
                 <button class="show-more-button" id="show-more-btn">
