@@ -148,3 +148,73 @@ response headers, so `Accept: text/markdown` content negotiation and
 - The commands layout is `layouts/commands/single.html`, NOT
   `layouts/_default/single.html` — Hugo picks it up automatically because
   content is in `content/commands/`.
+
+## Search analytics (GA4)
+
+GA4 property `G-WZ9LF10DRD`, loaded in `_default/baseof.html`. Two search
+surfaces report to it, and both are hand-written — **GA4 Enhanced Measurement
+does not track search on this site and must not be re-enabled.**
+
+Both `static/js/site-search.js` (modal, Ctrl+K) and
+`static/js/advanced-search.js` (`/search/` page) send:
+
+- `search` — `{ search_term }`, from `reportSearch()`. Fires 1200ms after
+  typing stops, not on the 150ms render debounce, so the report holds
+  questions rather than keystrokes. Deduped against `lastReported`, including
+  backspacing over a term already sent.
+- `search_result_click` — `{ search_term, link_url, result_position }`, from
+  `reportResultClick()`. `search_term` is `lastQuery` (the query that produced
+  the visible results, not what is in the box at click time);
+  `result_position` is 1-based, read from the `data-search-position` attribute
+  written in `displayResults()`.
+
+`search_result_click` is the whole point of the pair: `search` says what people
+asked, `search_result_click` says whether they found it. Terms with `search`
+events and no matching `search_result_click` are the content gaps.
+
+### Why Enhanced Measurement is off (turned off 2026-07-31)
+
+- **Site search** — it cannot see the Ctrl+K modal, which has no URL. Leaving
+  it on meant two event names for one user action across two surfaces, plus
+  double-counting on `/search/`, where `updateUrl()` writes `?q=` and `q` is a
+  default GA4 site-search parameter.
+- **Page views → "Page changes based on browser history events"** — the site
+  has no `pushState` anywhere and only two `replaceState` callers
+  (`advanced-search.js` `updateUrl()`, `commands-page.js` filter state).
+  Neither is a navigation, so this only manufactured fake pageviews on the two
+  busiest interactive pages.
+
+Both changes produce a discontinuity dated 2026-07-31: `view_search_results`
+stops accruing, and `/search/` + `/commands` pageviews step down.
+
+### Registered custom dimensions
+
+All Event scope. GA4 keys custom dimensions by **parameter name across all
+events**, so every report must break down by Event name or these blend.
+
+| Dimension | Parameter | Also carried by |
+| --- | --- | --- |
+| Site search term | `search_term` | `search` and `search_result_click` |
+| Clicked link URL | `link_url` | Enhanced Measurement outbound clicks (still on) |
+| Search result position | `result_position` | nothing else |
+
+Registration is not retroactive and takes 24–48h to populate. `result_position`
+is a dimension, not a custom metric.
+
+### Rules for changing this code
+
+- Never intercept the click. No `preventDefault`, no waiting on an
+  `event_callback`. gtag.js transports with `navigator.sendBeacon` and flushes
+  on `pagehide` (verified against the live bundle), so the hit survives unload
+  on its own. A blocked tag must never break navigation.
+- Every reporting path is guarded by `typeof gtag !== 'function'`.
+- Result clicks use **one delegated listener on the container**, bound in
+  `setupEventListeners()`. `displayResults()` replaces `innerHTML` on every
+  keystroke, so per-anchor listeners are destroyed immediately.
+- Bind **both `click` and `auxclick`**. Middle-click opens a new tab but fires
+  `auxclick`, not `click`; filter `auxclick` on `button === 1` so right-click
+  context menus are not counted.
+- `checkUrlQuery()` calls `reportSearch()` so shared and bookmarked `?q=`
+  links still count. Enhanced Measurement used to cover that case.
+- Renaming a parameter means burning a custom dimension slot — they can be
+  archived but never deleted, and there are 50.
