@@ -11,6 +11,9 @@
 $OutputFolder = Join-Path $PSScriptRoot ".." "content" "commands"
 $IndexUrl = "https://raw.githubusercontent.com/dataplat/dbatools/development/bin/dbatools-index.json"
 $IndexPath = Join-Path $PSScriptRoot "dbatools-index.json"
+$ModuleUrl = "https://raw.githubusercontent.com/dataplat/dbatools/development/dbatools.psm1"
+
+. (Join-Path $PSScriptRoot "lib-platform-lists.ps1")
 
 Write-Host "dbatools Command Documentation Generator" -ForegroundColor Cyan
 Write-Host "=========================================" -ForegroundColor Cyan
@@ -30,6 +33,14 @@ try {
 Write-Host "Loading command index..." -ForegroundColor Yellow
 $commands = Get-Content $IndexPath -Raw | ConvertFrom-Json
 Write-Host "✓ Found $($commands.Count) commands" -ForegroundColor Green
+Write-Host ""
+
+try {
+    $windowsOnly = Get-DbatoolsWindowsOnlyCommand -ModuleUrl $ModuleUrl
+} catch {
+    Write-Error $_
+    exit 1
+}
 Write-Host ""
 
 # Ensure output directory exists
@@ -55,6 +66,10 @@ function New-CommandMarkdown {
     param($command)
 
     $markdown = New-Object System.Collections.ArrayList
+
+    if ($windowsOnly.Contains($command.CommandName)) {
+        $command.Availability = 'Windows only'
+    }
 
     # YAML Front Matter
     $null = $markdown.Add('---')

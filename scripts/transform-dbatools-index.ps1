@@ -10,6 +10,9 @@
 $IndexUrl = "https://raw.githubusercontent.com/dataplat/dbatools/master/bin/dbatools-index.json"
 $IndexPath = Join-Path $PSScriptRoot "dbatools-index.json"
 $OutputPath = Join-Path $PSScriptRoot ".." "static" "commands.json"
+$ModuleUrl = "https://raw.githubusercontent.com/dataplat/dbatools/master/dbatools.psm1"
+
+. (Join-Path $PSScriptRoot "lib-platform-lists.ps1")
 
 Write-Host "dbatools Command Index Transformer" -ForegroundColor Cyan
 Write-Host "===================================" -ForegroundColor Cyan
@@ -29,6 +32,14 @@ try {
 Write-Host "Loading command index..." -ForegroundColor Yellow
 $sourceCommands = Get-Content $IndexPath -Raw | ConvertFrom-Json
 Write-Host "✓ Found $($sourceCommands.Count) commands in source" -ForegroundColor Green
+Write-Host ""
+
+try {
+    $windowsOnly = Get-DbatoolsWindowsOnlyCommand -ModuleUrl $ModuleUrl
+} catch {
+    Write-Error $_
+    exit 1
+}
 Write-Host ""
 
 # Category assignment function based on analysis
@@ -123,6 +134,9 @@ foreach ($cmd in $sourceCommands) {
         $cmdTags = @($cmd.Tags | Where-Object { $_ } | ForEach-Object { $_.ToLower() })
     }
 
+    # $cmd.Availability from the index is always "Windows, Linux, macOS" -- ignore it
+    $availability = if ($windowsOnly.Contains($cmd.CommandName)) { "Windows only" } else { "Windows, Linux, macOS" }
+
     $transformed = [PSCustomObject]@{
         name = $cmd.CommandName
         description = $cmd.Description
@@ -133,6 +147,8 @@ foreach ($cmd in $sourceCommands) {
         url = "/$($cmd.CommandName)"
         popularityRank = 0
         synopsis = $cmd.Synopsis
+        availability = $availability
+        windowsOnly = $windowsOnly.Contains($cmd.CommandName)
         fullContent = ""  # Will be filled by enrich-commands-json.ps1
     }
 

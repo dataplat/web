@@ -13,6 +13,7 @@ class CommandsBrowser {
     this.activeCategory = 'all';
     this.activeAction = 'all';
     this.activeSort = 'alphabetical';
+    this.activePlatform = 'all';
     this.showPopularOnly = false;
     this.searchQuery = '';
     this.searchScores = new Map();
@@ -135,6 +136,28 @@ class CommandsBrowser {
       div.addEventListener('click', () => this.selectAction(action));
       actionsList.appendChild(div);
     });
+
+    // Render platforms
+    const platformsList = document.getElementById('platforms-list');
+    if (platformsList) {
+      const platforms = [
+        { key: 'all', label: 'Any Platform', count: this.allCommands.length },
+        { key: 'crossplatform', label: 'Runs anywhere', count: this.allCommands.filter(cmd => !cmd.windowsOnly).length },
+        { key: 'windows', label: 'Windows only', count: this.allCommands.filter(cmd => cmd.windowsOnly).length }
+      ];
+
+      platforms.forEach(platform => {
+        const div = document.createElement('div');
+        div.className = platform.key === 'all' ? 'platform-item active' : 'platform-item';
+        div.dataset.platform = platform.key;
+        div.innerHTML = `
+          <span>${platform.label}</span>
+          <span class="filter-count">${platform.count}</span>
+        `;
+        div.addEventListener('click', () => this.selectPlatform(platform.key));
+        platformsList.appendChild(div);
+      });
+    }
   }
 
   debounce(func, wait) {
@@ -266,6 +289,21 @@ class CommandsBrowser {
     this.applyAllFilters();
   }
 
+  selectPlatform(platform) {
+    this.activePlatform = platform;
+
+    // Update UI
+    document.querySelectorAll('.platform-item').forEach(item => {
+      item.classList.remove('active');
+      if (item.dataset.platform === platform) {
+        item.classList.add('active');
+      }
+    });
+
+    this.updateURLParams();
+    this.applyAllFilters();
+  }
+
   handleSortChange(e) {
     this.activeSort = e.target.value;
 
@@ -314,6 +352,13 @@ class CommandsBrowser {
     // Apply action filter
     if (this.activeAction !== 'all') {
       results = results.filter(cmd => cmd.verb === this.activeAction);
+    }
+
+    // Apply platform filter
+    if (this.activePlatform === 'windows') {
+      results = results.filter(cmd => cmd.windowsOnly);
+    } else if (this.activePlatform === 'crossplatform') {
+      results = results.filter(cmd => !cmd.windowsOnly);
     }
 
     // Apply popular filter
@@ -389,6 +434,9 @@ class CommandsBrowser {
 
   createCommandCard(cmd) {
     const popular = cmd.popular ? '⭐' : '';
+    const platform = cmd.windowsOnly
+      ? '<span class="command-platform windows-only" title="Requires Windows">Windows only</span>'
+      : '';
 
     return `
       <a
@@ -402,7 +450,10 @@ class CommandsBrowser {
           <span class="command-popular">${popular}</span>
         </div>
         <p class="command-description">${this.highlightMatch(cmd.description)}</p>
-        <div class="command-category">Category: ${cmd.category}</div>
+        <div class="command-card-footer">
+          <span class="command-category">Category: ${cmd.category}</span>
+          ${platform}
+        </div>
       </a>
     `;
   }
@@ -519,6 +570,10 @@ class CommandsBrowser {
       params.set('action', this.sanitizeValue(this.activeAction));
     }
 
+    if (this.activePlatform !== 'all') {
+      params.set('platform', this.activePlatform);
+    }
+
     if (this.showPopularOnly) {
       params.set('popular', 'true');
     }
@@ -561,6 +616,12 @@ class CommandsBrowser {
       }
     }
 
+    // Load platform
+    const platform = params.get('platform');
+    if (platform === 'windows' || platform === 'crossplatform') {
+      this.selectPlatform(platform);
+    }
+
     // Load popular filter
     if (params.get('popular') === 'true' || params.get('popular') === '1') {
       this.showPopularOnly = true;
@@ -581,11 +642,13 @@ class CommandsBrowser {
     this.searchQuery = '';
     this.activeCategory = 'all';
     this.activeAction = 'all';
+    this.activePlatform = 'all';
     this.showPopularOnly = false;
 
     document.getElementById('search-input').value = '';
     this.selectCategory('all');
     this.selectAction('all');
+    this.selectPlatform('all');
     document.getElementById('popular-filter-btn').classList.remove('active');
     document.getElementById('sort-select').value = 'alphabetical';
     this.activeSort = 'alphabetical';
