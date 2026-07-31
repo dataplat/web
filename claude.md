@@ -76,6 +76,55 @@ Where it surfaces:
 Once the upstream psm1 fix ships, the index's own `Availability` becomes
 trustworthy and `lib-platform-lists.ps1` can be retired.
 
+## Machine-readable output (LLMs and AI crawlers)
+
+Research and evidence: `research/optimizing-docs-sites-for-llms-2026-07-31.md`.
+Read that before changing anything below — it records which claims come from
+Google/Microsoft/OpenAI/Anthropic directly and which are contested.
+
+The one load-bearing fact: **OpenAI's, Anthropic's and Perplexity's crawlers
+fetch JavaScript but do not execute it.** Anything rendered client-side is
+invisible to them. Google and Apple render; nobody else does. So any list or
+navigation that matters must exist in the HTML at build time.
+
+What the site emits:
+
+- `/commands/` — the card grid and all three sidebar filter lists are rendered
+  by Hugo from `static/commands.json` at build time
+  (`layouts/page/commands.html` + `partials/command-card.html`).
+  `commands-page.js` then replaces the same markup for search and filtering. If
+  `commands.json` fails to load, the JS bails out and leaves the static list.
+  **`partials/command-card.html` must stay in sync with `createCommandCard()`
+  in `static/js/commands-page.js`.**
+- `/<page>/index.md` — markdown mirror of every page, via the `MD` output
+  format. Command pages use `layouts/commands/single.md`, which strips the
+  header card, the on-this-page nav and the anchor-wrapped headings out of the
+  generated body. If `generate-command-pages.ps1` changes the shape of that
+  body, the three regexes in that template are what breaks.
+- `/commands/index.md` — the full command index as markdown
+  (`layouts/page/commands.md`), because `content/page/cmd.md` has no body.
+- `/llms.txt` — `layouts/index.llms.txt`. Cheap hedge, not a strategy; no
+  answer engine documents using it.
+- `/robots.txt` — `layouts/robots.txt`. Names each AI crawler explicitly and
+  carries the `Sitemap:` line. Per RFC 9309 a bot uses only its own group and
+  ignores `*`, so each named bot needs its own `Allow`.
+- JSON-LD — `partials/structured-data.html`. `APIReference` on command pages
+  (with `targetPlatform` from the derived Windows-only list), `TechArticle` on
+  posts, `WebSite` + `SoftwareApplication` on the home page, plus
+  `BreadcrumbList`. Do **not** add `HowTo` or `FAQPage`: Google removed HowTo
+  rich results and restricted FAQ to government and health sites in 2023.
+- `<link rel="canonical">` and `<link rel="alternate" type="text/markdown">` in
+  `_default/baseof.html`.
+
+Examples on command pages are `h3.example-heading` with the example's own
+description in the heading text, so each one is a passage that can be retrieved
+and quoted alone. That is deliberate — Microsoft's guidance is that AI search
+retrieves passages, not pages.
+
+Not done, and not doable from this repo: GitHub Pages cannot emit custom
+response headers, so `Accept: text/markdown` content negotiation and
+`Link: rel="canonical"` headers are out unless routed through Cloudflare.
+
 ### Key files
 - `scripts/lib-platform-lists.ps1` — shared Windows-only command list parser
 - `static/commands.json` — the JSON database consumed by the browser JS
@@ -93,6 +142,9 @@ trustworthy and `lib-platform-lists.ps1` can be retired.
 - Do NOT create `layouts/page/command-detail.html` or
   `static/css/command-detail.css` — these are not used and cause confusion.
 - Do NOT edit `static/commands.json` directly; re-run the pipeline scripts.
+- Do NOT make `/commands/` client-rendered again. That page has the site's
+  highest impression count and the lowest generative-AI pickup of any top page
+  (see the research note); the static grid is the fix.
 - The commands layout is `layouts/commands/single.html`, NOT
   `layouts/_default/single.html` — Hugo picks it up automatically because
   content is in `content/commands/`.
