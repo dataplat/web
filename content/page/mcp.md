@@ -18,7 +18,8 @@ This server fixes that. Point your assistant at it and it searches the real dbat
 documentation - 700+ commands with their syntax, parameters and published examples,
 plus the articles on this site - and cites the page each answer came from, so you can
 check it. It also carries a set of curated answers to the questions people actually ask
-in support, indexed under the error messages that provoke them.
+in support, indexed under the error messages that provoke them, and 183 lessons from our
+book, [dbatools in a Month of Lunches](https://dbatools.io/book).
 
 **Endpoint:** `https://mcp.dbatools.io`
 
@@ -44,6 +45,7 @@ will reach for the server on its own:
 - *Show me a worked example of backing up to Azure blob storage.*
 - *Which dbatools commands run on Linux?*
 - *I need to copy logins between two instances without copying passwords.*
+- *What has to exist before I can create a SQL Agent job step?*
 
 Pasting an error verbatim works too - *"The command was found in the module 'dbatools',
 but the module could not be loaded"* - because the curated answers are indexed under the
@@ -56,9 +58,9 @@ which switches are mutually exclusive, and whether a command exists at all.
 
 | Tool | What it returns |
 |---|---|
-| `dbatools_docs_search` | Up to 10 commands, articles and FAQ answers, each with an excerpt and its dbatools.io URL |
+| `dbatools_docs_search` | Up to 10 commands, articles, FAQ answers and book lessons, each with an excerpt and its dbatools.io URL |
 | `dbatools_code_sample_search` | Up to 20 worked PowerShell examples, taken from the examples published with each command |
-| `dbatools_docs_fetch` | One complete command page, article or FAQ answer as markdown, by URL or by bare command name |
+| `dbatools_docs_fetch` | One complete command page, article, FAQ answer or book lesson as markdown, by URL or by bare command name |
 
 ## What it can't do
 
@@ -97,10 +99,11 @@ does, try again in the words the documentation itself would use.
 distinguishes a command that reports something from one that changes it. Check the verb
 on anything you are about to run.
 
-**It only knows what is published on this site, plus the FAQ.** Command help, articles,
-and a few dozen curated answers mined from years of community support. Not the GitHub
-issues, not the rest of the Slack channel, not the source code, and not the book. Plenty
-of the best dbatools knowledge lives in those and none of it is in here.
+**It only knows what is published on this site, plus the FAQ and the book.** Command help,
+articles, a few dozen curated answers mined from years of community support, and the
+lessons from *dbatools in a Month of Lunches*. Not the GitHub issues, not the rest of the
+Slack channel, and not the source code. Plenty of the best dbatools knowledge lives in
+those and none of it is in here.
 
 **It is only as good as the docs are.** Where a command's help is thin or out of date,
 the answer is thin or out of date. Nothing in this server checks the documentation
@@ -110,6 +113,10 @@ The FAQ answers are the exception - each one was tested against a live instance 
 which module version it was checked against. That also makes them the part most likely to
 go stale, because command counts and parameter names move between releases. If an answer
 names a version older than yours, treat it as a strong hint rather than a fact.
+
+The book lessons were not re-tested, so each one names the chapter it came from and the
+ones that turn on a default or a parameter name say so outright. The judgement in them
+holds; check the command page before trusting a specific flag.
 
 Platform support is the clearest case. Every command carries the same `Availability:
 Windows, Linux, macOS` in its help - `Get-DbaDiskSpace` and `Get-DbaFirewallRule`
@@ -129,13 +136,13 @@ deliberate ceiling on how much of your context window one call can eat.
 
 ### What it costs your context
 
-The three tool definitions and the server's instructions add up to roughly 680 tokens per
+The three tool definitions and the server's instructions add up to roughly 735 tokens per
 session - about 0.3% of a 200K window, which is nothing. Clients that defer tool schemas
 until a tool is actually used bring that down to about 30 tokens for the three names.
 
-The FAQ answers cost nothing extra here. They are a fourth kind of document inside the
-existing search tool rather than a fourth tool, which would have added roughly 150 tokens
-to every session for the rest of time.
+The FAQ answers and the book lessons cost nothing extra here. They are extra kinds of
+document inside the existing search tool rather than tools of their own, each of which
+would have added roughly 150 tokens to every session for the rest of time.
 
 The real cost is in results, not definitions. `dbatools_docs_fetch` returns a whole
 command page, and a page like `Backup-DbaDatabase` runs to thousands of tokens on its
@@ -196,8 +203,9 @@ every deploy:
 | [`commands.json`](https://dbatools.io/commands.json) | Descriptions, categories and canonical URLs |
 | [`articles.json`](https://dbatools.io/articles.json) | Blog posts and pages from this site |
 
-The FAQ answers are the one thing not downloaded. They are written and versioned with the
-server's own source, so they change when somebody edits them rather than on a schedule.
+The FAQ answers and the book lessons are the two things not downloaded. They are written
+and versioned with the server's own source, so they change when somebody edits them rather
+than on a schedule.
 
 Search is lexical BM25, with stemming, stop words and the synonym map sitting in front of
 it. There are no embeddings and no vector database. Storing vectors would be cheap, but
