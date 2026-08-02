@@ -213,15 +213,3 @@ embedding your query at request time would mean either a 25 MB model loaded in t
 cold-start path or an API round trip on every single call, and a documentation search
 does not need to cost that. The whole corpus fits in memory instead, so a query costs
 nothing and returns the same results every time.
-
-
-## Analytics
-
-Tool calls are logged to Application Insights, which helps us find what the docs are
-missing, tune the search against the words DBAs actually type, and see where in the world
-dbatools is and is not getting used. The empty queries are the useful ones. Nothing is sold and there is no account for it to be attached to.
-
-Secret-shaped values are stripped before anything is stored - passwords and keys in a
-pasted connection string, long token-shaped strings, email addresses. That redaction is
-best effort rather than a guarantee, so treat the search box the way you would treat any
-other: do not paste a real connection string into it.
