@@ -118,12 +118,14 @@ The book lessons were not re-tested, so each one names the chapter it came from 
 ones that turn on a default or a parameter name say so outright. The judgement in them
 holds; check the command page before trusting a specific flag.
 
-Platform support is the clearest case. Every command carries the same `Availability:
-Windows, Linux, macOS` in its help - `Get-DbaDiskSpace` and `Get-DbaFirewallRule`
-included, though both lean on WMI or remoting and do not work on Linux. The real answer
-is in [dbatools & SQL on Linux](https://dbatools.io/linux/), which the server does return
-for that question: the pure-SQL commands work, the ones that reach into Windows do not,
-and the article puts the split at about three quarters. Trust the article, not the field.
+Platform support is one place where the command pages are more accurate than the module.
+`Get-Help` in dbatools still says `Availability: Windows, Linux, macOS` for every
+command, `Get-DbaDiskSpace` and `Get-DbaFirewallRule` included, though both lean on WMI
+or remoting and do not work on Linux. The pages on this site work it out from the
+module's own list of Windows-only commands instead, so 159 of them now say *Windows
+only* and the rest say *Windows, Linux, macOS*. If an answer and a command page disagree
+about platform, trust the page. For the background, [dbatools & SQL on Linux](https://dbatools.io/linux/) explains the split: the
+pure-SQL commands work, the ones that reach into Windows do not.
 
 **It knows nothing about you.** Not your SQL Server version, not which dbatools version
 you have installed, not your instances. Every answer is the general case.
