@@ -43,6 +43,21 @@ function contrastRatio(foreground, background) {
     / (Math.min(foregroundLuminance, backgroundLuminance) + 0.05);
 }
 
+async function openMcpPage() {
+  const page = await browser.newPage();
+  await page.goto(`${origin}/mcp/`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => {
+    const loadedStylesheets = Array.from(document.styleSheets)
+      .filter((sheet) => sheet.href && new URL(sheet.href).origin === location.origin)
+      .filter((sheet) => sheet.cssRules.length > 0)
+      .map((sheet) => new URL(sheet.href).pathname);
+    return loadedStylesheets.includes('/css/tailwind.css')
+      && loadedStylesheets.includes('/css/mcp.css');
+  });
+  await page.evaluate(() => document.documentElement.classList.add('dark'));
+  return page;
+}
+
 before(async () => {
   execFileSync('hugo', ['--destination', siteRoot], { stdio: 'pipe' });
 
@@ -75,16 +90,7 @@ after(async () => {
 });
 
 test('fenced Bash code on /mcp/ has readable contrast', async () => {
-  const page = await browser.newPage();
-  await page.goto(`${origin}/mcp/`, { waitUntil: 'domcontentloaded' });
-  await page.waitForFunction(() => {
-    const loadedStylesheets = Array.from(document.styleSheets)
-      .filter((sheet) => sheet.href && new URL(sheet.href).origin === location.origin)
-      .filter((sheet) => sheet.cssRules.length > 0)
-      .map((sheet) => new URL(sheet.href).pathname);
-    return loadedStylesheets.includes('/css/tailwind.css')
-      && loadedStylesheets.includes('/css/mcp.css');
-  });
+  const page = await openMcpPage();
 
   const colors = await page.evaluate(() => {
     const code = Array.from(document.querySelectorAll('article pre code'))
@@ -94,6 +100,49 @@ test('fenced Bash code on /mcp/ has readable contrast', async () => {
     return {
       foreground: getComputedStyle(code).color,
       background: getComputedStyle(code.parentElement).backgroundColor
+    };
+  });
+
+  assert.ok(
+    contrastRatio(colors.foreground, colors.background) >= 4.5,
+    `expected at least 4.5:1 contrast, got ${contrastRatio(colors.foreground, colors.background).toFixed(2)}:1`
+  );
+});
+
+test('table descriptions on /mcp/ have readable dark-mode contrast', async () => {
+  const page = await openMcpPage();
+
+  const colors = await page.evaluate(() => {
+    const description = document.querySelector('article tbody td:nth-child(2)');
+    if (!description) throw new Error('MCP tool description not found');
+
+    let backgroundElement = description;
+    while (backgroundElement && getComputedStyle(backgroundElement).backgroundColor === 'rgba(0, 0, 0, 0)') {
+      backgroundElement = backgroundElement.parentElement;
+    }
+
+    return {
+      foreground: getComputedStyle(description).color,
+      background: getComputedStyle(backgroundElement).backgroundColor
+    };
+  });
+
+  assert.ok(
+    contrastRatio(colors.foreground, colors.background) >= 4.5,
+    `expected at least 4.5:1 contrast, got ${contrastRatio(colors.foreground, colors.background).toFixed(2)}:1`
+  );
+});
+
+test('inline tool names on /mcp/ have readable dark-mode contrast', async () => {
+  const page = await openMcpPage();
+
+  const colors = await page.evaluate(() => {
+    const toolName = document.querySelector('article tbody code');
+    if (!toolName) throw new Error('MCP tool name not found');
+
+    return {
+      foreground: getComputedStyle(toolName).color,
+      background: getComputedStyle(toolName).backgroundColor
     };
   });
 

@@ -7,10 +7,9 @@
     expected by static/commands.json with proper categories, verbs, and URLs
 #>
 
-$IndexUrl = "https://raw.githubusercontent.com/dataplat/dbatools/master/bin/dbatools-index.json"
+. (Join-Path $PSScriptRoot "lib-command-source.ps1")
 $IndexPath = Join-Path $PSScriptRoot "dbatools-index.json"
 $OutputPath = Join-Path $PSScriptRoot ".." "static" "commands.json"
-$ModuleUrl = "https://raw.githubusercontent.com/dataplat/dbatools/master/dbatools.psm1"
 
 . (Join-Path $PSScriptRoot "lib-platform-lists.ps1")
 

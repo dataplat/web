@@ -1,6 +1,8 @@
 # dbatools.io Command Documentation Pipeline
 
-This directory contains scripts that automatically update the website's command documentation from the latest dbatools PowerShell module releases.
+This directory contains scripts that update the website's command documentation from the dbatools PowerShell module's `development` branch, including commands awaiting release.
+
+`lib-command-source.ps1` defines the shared upstream branch and URLs for the search index, command pages, platform metadata, and GitHub source links. Both generators must use this configuration so a command cannot get a page while being omitted from search because of different source branches.
 
 ## Overview
 
@@ -97,6 +99,8 @@ The pipeline automatically:
 
 The complete pipeline runs automatically in [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml):
 
+It runs on pushes to this repository's `main` or `html` branches and via manual `workflow_dispatch`. Changes in `dataplat/dbatools` alone do **not** trigger a website rebuild; run the deployment workflow to pick up upstream changes between website updates.
+
 ```yaml
 - name: Transform dbatools index to commands.json
   shell: pwsh
@@ -152,7 +156,7 @@ hugo serve
 
 ## Data Files
 
-- **Input**: `https://raw.githubusercontent.com/dataplat/dbatools/master/bin/dbatools-index.json`
+- **Input**: `https://raw.githubusercontent.com/dataplat/dbatools/development/bin/dbatools-index.json`
   - Source of truth from dbatools repository
   - Currently contains 697 commands
 
@@ -278,6 +282,6 @@ To update popularity rankings:
 ## References
 
 - Category analysis: `CATEGORY_ANALYSIS.md` (if exists)
-- Source data: https://github.com/dataplat/dbatools/blob/master/bin/dbatools-index.json
+- Source data: https://github.com/dataplat/dbatools/blob/development/bin/dbatools-index.json
 - Website commands page: https://dbatools.io/commands
 - dbatools documentation: https://docs.dbatools.io

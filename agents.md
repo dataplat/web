@@ -8,10 +8,14 @@ the commands section.
 ### Where command data comes from
 All dbatools command metadata originates from the official module repository:
 ```
-https://raw.githubusercontent.com/dataplat/dbatools/master/bin/dbatools-index.json
+https://raw.githubusercontent.com/dataplat/dbatools/development/bin/dbatools-index.json
 ```
 Fields include: `CommandName`, `Description`, `Synopsis`, `Author`,
 `Availability`, `Tags`, `Syntax`, `Examples`, `Params`.
+
+`scripts/lib-command-source.ps1` defines the shared branch and URLs used by both
+generators and their GitHub source links. The website includes development
+commands that may not be released yet.
 
 ### Five-script build pipeline (`scripts/`)
 Run in order — or they run automatically via `.github/workflows/deploy.yml` in this
@@ -24,7 +28,7 @@ repo (`dataplat/web`) on every push to `main` or `html`.
 - `dataplat/dataplat.github.io` — stores cached asset files (build-ref, index)
   pulled daily from the dbatools `development` branch. Feeds the `/builds` page.
   The commands pipeline here does **not** use this cache — it fetches
-  `dbatools-index.json` directly from `dataplat/dbatools` `master` at CI run time.
+  `dbatools-index.json` directly from `dataplat/dbatools` `development` at CI run time.
 
 ```
 1. transform-dbatools-index.ps1   → static/commands.json (initial transform)
